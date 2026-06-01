@@ -1,0 +1,44 @@
+{
+  "furia_javalis": {
+    "title": "A Furia dos Javalis",
+    "npc": "Guarda Doran",
+    "map": "forest_boars",
+    "objectives": [{"type": "kill", "target": "Javali Selvagem", "amount": 10}, {"type": "collect", "target": "Presa de Javali", "amount": 5}],
+    "rewards": {"xp": 150, "ouro": 80, "items": ["Rubi da Forca"]}
+  },
+  "cristal_quebrado": {
+    "title": "O Cristal Quebrado",
+    "npc": "Maga Selene",
+    "map": "arcane_ruins",
+    "objectives": [{"type": "kill", "target": "Espirito Fraco", "amount": 8}, {"type": "collect", "target": "Fragmento de Cristal", "amount": 6}, {"type": "kill", "target": "Aprendiz Corrompido", "amount": 3}],
+    "rewards": {"xp": 180, "ouro": 100, "items": ["Safira da Mana"]}
+  },
+  "sombras_caverna": {
+    "title": "Sombras na Caverna",
+    "npc": "Cacador Rurik",
+    "map": "bat_cave",
+    "objectives": [{"type": "kill", "target": "Morcego Pequeno", "amount": 12}, {"type": "kill", "target": "Aranha Venenosa", "amount": 5}, {"type": "collect", "target": "Asa de Morcego", "amount": 5}],
+    "rewards": {"xp": 170, "ouro": 90, "items": ["Esmeralda da Agilidade"]}
+  },
+  "tutorial_forest": {
+    "title": "Passo 1: Trilha da Floresta",
+    "npc": "Arion, o Mestre de Classes",
+    "map": "forest_boars",
+    "objectives": [{"type": "visit", "target": "forest_boars", "amount": 1}, {"type": "kill", "target": "Javali Selvagem", "amount": 4}],
+    "rewards": {"xp": 90, "ouro": 35, "items": ["Pocao pequena de vida"]}
+  },
+  "tutorial_ruins": {
+    "title": "Passo 2: Eco Arcano",
+    "npc": "Arion, o Mestre de Classes",
+    "map": "arcane_ruins",
+    "objectives": [{"type": "visit", "target": "arcane_ruins", "amount": 1}, {"type": "kill", "target": "Espirito Fraco", "amount": 4}],
+    "rewards": {"xp": 110, "ouro": 45, "items": ["Pocao pequena de mana"]}
+  },
+  "tutorial_cave": {
+    "title": "Passo 3: Sombras do Subsolo",
+    "npc": "Arion, o Mestre de Classes",
+    "map": "bat_cave",
+    "objectives": [{"type": "visit", "target": "bat_cave", "amount": 1}, {"type": "kill", "target": "Morcego Pequeno", "amount": 4}],
+    "rewards": {"xp": 130, "ouro": 60, "items": ["Pocao media de vida"]}
+  }
+}

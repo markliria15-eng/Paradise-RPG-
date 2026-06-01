@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="SpinSlash" type="Node2D"]
+
+[node name="Ring" type="Line2D" parent="."]
+width = 5.0
+default_color = Color(1, 0.92, 0.68, 0.9)
+closed = true
+points = PackedVector2Array(0, -56, 40, -40, 56, 0, 40, 40, 0, 56, -40, 40, -56, 0, -40, -40)

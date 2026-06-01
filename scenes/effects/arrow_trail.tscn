@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[node name="ArrowTrail" type="Node2D"]
+
+[node name="Trail" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.58, 0.95, 0.56, 0.95)
+points = PackedVector2Array(-22, 0, 22, 0)

@@ -1,0 +1,7 @@
+{
+  "http_base_url": "http://127.0.0.1:8080",
+  "ws_url": "ws://127.0.0.1:8081",
+  "online_enabled": true,
+  "remember_login": true
+}
+

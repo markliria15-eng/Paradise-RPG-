@@ -1,0 +1,15 @@
+[
+  {
+    "code": "forgotten_catacombs",
+    "name": "Catacumbas Esquecidas",
+    "min_level": 8,
+    "max_party_size": 4,
+    "time_limit_seconds": 1200,
+    "reward_cooldown_hours": 24,
+    "rooms": 3,
+    "monsters": ["Esqueleto Fraco", "Esqueleto Guerreiro", "Mago Esqueleto"],
+    "mini_boss": "Capitao Ossudo",
+    "boss": "Rei Esqueleto"
+  }
+]
+

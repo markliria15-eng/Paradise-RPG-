@@ -1,0 +1,35 @@
+{
+  "Guerreiro": {
+    "color": "#c94f3d",
+    "base": {"vida": 150, "mana": 40, "ataque": 12, "defesa": 10, "velocidade_ataque": 1.0, "velocidade_movimento": 180, "alcance": 52},
+    "weapon": "Espada Enferrujada",
+    "passive": "Pele de Ferro",
+    "skills": [
+      {"id": "heavy_slash", "name": "Corte Pesado", "cooldown": 5.0, "mana": 10, "power": 1.6},
+      {"id": "war_cry", "name": "Grito de Guerra", "cooldown": 18.0, "mana": 15, "duration": 8.0, "attack_bonus": 0.2},
+      {"id": "blade_spin", "name": "Giro de Lamina", "cooldown": 10.0, "mana": 20, "power": 1.0, "radius": 92}
+    ]
+  },
+  "Mago": {
+    "color": "#6a76e8",
+    "base": {"vida": 90, "mana": 150, "ataque": 8, "defesa": 4, "velocidade_ataque": 0.8, "velocidade_movimento": 180, "alcance": 220},
+    "weapon": "Cajado Simples",
+    "passive": "Mana Viva",
+    "skills": [
+      {"id": "fireball", "name": "Bola de Fogo", "cooldown": 4.0, "mana": 15, "power": 1.4, "radius": 28},
+      {"id": "arcane_blast", "name": "Explosao Arcana", "cooldown": 9.0, "mana": 30, "power": 1.6, "radius": 100},
+      {"id": "mystic_shield", "name": "Escudo Mistico", "cooldown": 16.0, "mana": 35, "duration": 6.0, "shield": 60}
+    ]
+  },
+  "Arqueiro": {
+    "color": "#58b878",
+    "base": {"vida": 110, "mana": 80, "ataque": 10, "defesa": 6, "velocidade_ataque": 1.3, "velocidade_movimento": 220, "alcance": 280},
+    "weapon": "Arco de Madeira",
+    "passive": "Olhos de Cacador",
+    "skills": [
+      {"id": "precise_shot", "name": "Tiro Preciso", "cooldown": 5.0, "mana": 10, "power": 1.8},
+      {"id": "arrow_rain", "name": "Chuva de Flechas", "cooldown": 11.0, "mana": 25, "power": 1.2, "radius": 105},
+      {"id": "quick_jump", "name": "Salto Rapido", "cooldown": 8.0, "mana": 15, "distance": 130}
+    ]
+  }
+}

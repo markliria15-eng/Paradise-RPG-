@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_inventory_window.gd" id="1_inv"]
+
+[node name="InventoryWindow" type="PanelContainer"]
+visible = false
+offset_right = 640.0
+offset_bottom = 540.0
+script = ExtResource("1_inv")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root/Header"]
+layout_mode = 2
+text = "Bolsa"
+
+[node name="Gold" type="Label" parent="Root/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 ouro"
+horizontal_alignment = 2
+
+[node name="Close" type="Button" parent="Root/Header"]
+layout_mode = 2
+text = "X"
+
+[node name="Body" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Root/Body"]
+custom_minimum_size = Vector2(610, 470)
+layout_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Root/Body/Scroll"]
+layout_mode = 2

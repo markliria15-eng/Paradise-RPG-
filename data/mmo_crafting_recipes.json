@@ -1,0 +1,48 @@
+[
+  {
+    "code": "iron_sword",
+    "name": "Espada de Ferro",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {"item_id": "Minerio de Ferro", "amount": 5},
+      {"item_id": "Madeira Bruta", "amount": 2}
+    ],
+    "gold_cost": 50,
+    "result_item_id": "Espada de Ferro",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "medium_health_potion",
+    "name": "Pocao Media de Vida",
+    "category": "pocoes",
+    "profession": "alchemy",
+    "profession_level_required": 2,
+    "materials": [
+      {"item_id": "Erva Vermelha", "amount": 3},
+      {"item_id": "Frasco Vazio", "amount": 1}
+    ],
+    "gold_cost": 0,
+    "result_item_id": "Pocao media de vida",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "roasted_meat",
+    "name": "Carne Assada",
+    "category": "comidas",
+    "profession": "cooking",
+    "profession_level_required": 1,
+    "materials": [
+      {"item_id": "Carne Crua", "amount": 2},
+      {"item_id": "Tempero", "amount": 1}
+    ],
+    "gold_cost": 0,
+    "result_item_id": "Carne Assada",
+    "result_amount": 1,
+    "success_chance": 100
+  }
+]
+

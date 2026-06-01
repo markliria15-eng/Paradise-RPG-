@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: arcadia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: arcadia_mmo
+      POSTGRES_USER: arcadia
+      POSTGRES_PASSWORD: arcadia123
+    ports:
+      - "5432:5432"
+    volumes:
+      - arcadia_pg_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+
+volumes:
+  arcadia_pg_data:
+

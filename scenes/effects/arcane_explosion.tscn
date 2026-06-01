@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="ArcaneExplosion" type="Node2D"]
+
+[node name="Ring" type="Line2D" parent="."]
+width = 6.0
+default_color = Color(0.62, 0.43, 1, 0.88)
+closed = true
+points = PackedVector2Array(0, -44, 32, -32, 44, 0, 32, 32, 0, 44, -32, 32, -44, 0, -32, -32)

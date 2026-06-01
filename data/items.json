@@ -1,0 +1,53 @@
+{
+  "Pocao pequena de vida": {"id": "small_health_potion", "type": "consumivel", "description": "Recupera 50 de vida.", "heal": 50, "price": 15, "icon": "res://assets/sprites/icon_potion_health_small.png"},
+  "Pocao media de vida": {"id": "medium_health_potion", "type": "consumivel", "description": "Recupera 120 de vida.", "heal": 120, "price": 40, "icon": "res://assets/sprites/icon_potion_health_medium.png"},
+  "Pocao pequena de mana": {"id": "small_mana_potion", "type": "consumivel", "description": "Recupera 40 de mana.", "mana": 40, "price": 15, "icon": "res://assets/sprites/icon_potion_mana_small.png"},
+  "Pocao media de mana": {"id": "medium_mana_potion", "type": "consumivel", "description": "Recupera 100 de mana.", "mana": 100, "price": 40, "icon": "res://assets/sprites/icon_potion_mana_medium.png"},
+
+  "Couro Rasgado": {"id": "torn_leather", "type": "material", "description": "Material simples de criaturas da floresta.", "icon": "res://assets/sprites/drop_material.png"},
+  "Presa de Javali": {"id": "boar_tusk", "type": "quest", "description": "Item de missao da Floresta dos Javalis.", "icon": "res://assets/sprites/drop_material.png"},
+  "Carne Crua": {"id": "raw_meat", "type": "material", "description": "Pode ser vendida futuramente.", "icon": "res://assets/sprites/drop_bag.png"},
+  "Presa de Lobo": {"id": "wolf_fang", "type": "material", "description": "Presa afiada de lobo.", "icon": "res://assets/sprites/drop_material.png"},
+  "Essencia Arcana": {"id": "arcane_essence", "type": "material", "description": "Energia retirada de criaturas magicas.", "icon": "res://assets/sprites/drop_gem.png"},
+  "Po Mistico": {"id": "mystic_dust", "type": "material", "description": "Po brilhante usado em encantamentos.", "icon": "res://assets/sprites/drop_gem.png"},
+  "Fragmento de Cristal": {"id": "crystal_fragment", "type": "quest", "description": "Fragmento necessario para O Cristal Quebrado.", "icon": "res://assets/sprites/drop_gem.png"},
+  "Asa de Morcego": {"id": "bat_wing", "type": "quest", "description": "Asa necessaria para Sombras na Caverna.", "icon": "res://assets/sprites/drop_material.png"},
+  "Presa Venenosa": {"id": "venom_fang", "type": "material", "description": "Presa com veneno fraco.", "icon": "res://assets/sprites/drop_material.png"},
+  "Teia Pegajosa": {"id": "sticky_web", "type": "material", "description": "Teia resistente.", "icon": "res://assets/sprites/drop_material.png"},
+  "Minerio de Ferro": {"id": "iron_ore", "type": "material", "description": "Minerio usado na forja de armaduras pesadas.", "icon": "res://assets/sprites/drop_ore.png"},
+  "Madeira Bruta": {"id": "raw_wood", "type": "material", "description": "Madeira simples para escudos e cabos.", "icon": "res://assets/sprites/drop_wood.png"},
+
+  "Espada Enferrujada": {"id": "rusty_sword", "name": "Espada Enferrujada", "type": "equipment", "slot": "weapon", "rarity": "common", "description": "Espada inicial do Guerreiro.", "stats": {"ataque": 5}, "icon": "res://assets/sprites/icon_attack_sword.png"},
+  "Arco de Madeira": {"id": "wooden_bow", "name": "Arco de Madeira", "type": "equipment", "slot": "weapon", "rarity": "common", "description": "Arco inicial do Arqueiro.", "stats": {"ataque_distancia": 4}, "icon": "res://assets/sprites/icon_attack_bow.png"},
+  "Cajado Simples": {"id": "simple_staff", "name": "Cajado Simples", "type": "equipment", "slot": "weapon", "rarity": "common", "description": "Cajado inicial do Mago.", "stats": {"ataque_magico": 3, "mana_max": 20}, "icon": "res://assets/sprites/icon_attack_book.png"},
+
+  "Escudo de Madeira": {"id": "wooden_shield", "name": "Escudo de Madeira", "type": "equipment", "slot": "shield", "rarity": "common", "description": "+2 defesa.", "stats": {"defesa": 2}, "icon": "res://assets/sprites/icon_slot_shield.png"},
+  "Elmo de Couro": {"id": "leather_helmet", "name": "Elmo de Couro", "type": "equipment", "slot": "helmet", "rarity": "common", "set": "Couro do Aventureiro", "description": "+1 defesa.", "stats": {"defesa": 1}, "icon": "res://assets/sprites/icon_slot_helmet.png"},
+  "Armadura de Couro": {"id": "leather_armor", "name": "Armadura de Couro", "type": "equipment", "slot": "armor", "rarity": "common", "set": "Couro do Aventureiro", "description": "+3 defesa e +10 vida maxima.", "stats": {"defesa": 3, "vida_max": 10}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Calca de Couro": {"id": "leather_pants", "name": "Calca de Couro", "type": "equipment", "slot": "pants", "rarity": "common", "set": "Couro do Aventureiro", "description": "+1 defesa.", "stats": {"defesa": 1}, "icon": "res://assets/sprites/icon_slot_pants.png"},
+  "Bota de Couro": {"id": "leather_boots", "name": "Bota de Couro", "type": "equipment", "slot": "boots", "rarity": "common", "set": "Couro do Aventureiro", "description": "+3% velocidade de movimento.", "stats": {"move_speed_pct": 0.03}, "icon": "res://assets/sprites/icon_slot_boots.png"},
+  "Anel Simples": {"id": "simple_ring", "name": "Anel Simples", "type": "equipment", "slot": "ring", "rarity": "common", "description": "+10 mana maxima.", "stats": {"mana_max": 10}, "icon": "res://assets/sprites/icon_slot_ring.png"},
+  "Amuleto Fraco": {"id": "weak_amulet", "name": "Amuleto Fraco", "type": "equipment", "slot": "amulet", "rarity": "common", "description": "+15 vida maxima.", "stats": {"vida_max": 15}, "icon": "res://assets/sprites/icon_slot_amulet.png"},
+
+  "Capuz de Couro": {"id": "leather_hood", "type": "equipment", "slot": "helmet", "rarity": "common", "set": "Couro do Aventureiro", "description": "Capuz leve de couro.", "stats": {"defesa": 1}, "icon": "res://assets/sprites/icon_slot_helmet.png"},
+  "Peitoral de Couro": {"id": "leather_chest", "type": "equipment", "slot": "armor", "rarity": "common", "set": "Couro do Aventureiro", "description": "Armadura leve.", "stats": {"defesa": 2}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Luvas de Couro": {"id": "leather_gloves", "type": "equipment", "slot": "gloves", "rarity": "common", "set": "Couro do Aventureiro", "description": "Luvas leves.", "stats": {"defesa": 1}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Calcas de Couro": {"id": "leather_old_pants", "type": "equipment", "slot": "pants", "rarity": "common", "set": "Couro do Aventureiro", "description": "Calcas leves.", "stats": {"defesa": 1}, "icon": "res://assets/sprites/icon_slot_pants.png"},
+  "Botas de Couro": {"id": "leather_old_boots", "type": "equipment", "slot": "boots", "rarity": "common", "set": "Couro do Aventureiro", "description": "Botas leves.", "stats": {"defesa": 1}, "icon": "res://assets/sprites/icon_slot_boots.png"},
+
+  "Elmo de Ferro": {"id": "iron_helmet", "name": "Elmo de Ferro", "type": "equipment", "slot": "helmet", "rarity": "common", "set": "Ferro do Guardiao", "stats": {"defesa": 2, "vida_max": 10}, "icon": "res://assets/sprites/icon_slot_helmet.png"},
+  "Peitoral de Ferro": {"id": "iron_chest", "type": "equipment", "slot": "armor", "set": "Ferro do Guardiao", "stats": {"defesa": 4}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Manoplas de Ferro": {"id": "iron_gauntlets", "type": "equipment", "slot": "armor", "set": "Ferro do Guardiao", "stats": {"defesa": 2}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Perneiras de Ferro": {"id": "iron_legs", "type": "equipment", "slot": "pants", "set": "Ferro do Guardiao", "stats": {"defesa": 3}, "icon": "res://assets/sprites/icon_slot_pants.png"},
+  "Botas de Ferro": {"id": "iron_boots", "type": "equipment", "slot": "boots", "set": "Ferro do Guardiao", "stats": {"defesa": 2}, "icon": "res://assets/sprites/icon_slot_boots.png"},
+
+  "Chapeu Arcano": {"id": "arcane_hat", "type": "equipment", "slot": "helmet", "set": "Tecido Arcano", "stats": {"mana_max": 10}, "icon": "res://assets/sprites/icon_slot_helmet.png"},
+  "Manto Arcano": {"id": "arcane_robe", "type": "equipment", "slot": "armor", "set": "Tecido Arcano", "stats": {"mana_max": 15}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Luvas Arcanas": {"id": "arcane_gloves", "type": "equipment", "slot": "armor", "set": "Tecido Arcano", "stats": {"ataque_magico": 1}, "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "Calca Arcana": {"id": "arcane_pants", "type": "equipment", "slot": "pants", "set": "Tecido Arcano", "stats": {"mana_max": 10}, "icon": "res://assets/sprites/icon_slot_pants.png"},
+  "Botas Arcanas": {"id": "arcane_boots", "type": "equipment", "slot": "boots", "set": "Tecido Arcano", "stats": {"mana_max": 5}, "icon": "res://assets/sprites/icon_slot_boots.png"},
+
+  "Rubi da Forca": {"id": "ruby_strength", "name": "Rubi da Forca", "type": "equipment", "slot": "jewel", "rarity": "rare", "description": "+5 ataque e +5% dano fisico.", "stats": {"ataque": 5, "physical_damage_pct": 0.05}, "icon": "res://assets/sprites/drop_gem.png"},
+  "Safira da Mana": {"id": "sapphire_mana", "name": "Safira da Mana", "type": "equipment", "slot": "jewel", "rarity": "rare", "description": "+40 mana maxima e +8% regeneracao de mana.", "stats": {"mana_max": 40, "mana_regen_pct": 0.08}, "icon": "res://assets/sprites/drop_gem.png"},
+  "Esmeralda da Agilidade": {"id": "emerald_agility", "name": "Esmeralda da Agilidade", "type": "equipment", "slot": "jewel", "rarity": "rare", "description": "+5% velocidade de ataque e movimento.", "stats": {"attack_speed_pct": 0.05, "move_speed_pct": 0.05}, "icon": "res://assets/sprites/drop_gem.png"}
+}

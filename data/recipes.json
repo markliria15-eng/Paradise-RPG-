@@ -1,0 +1,67 @@
+{
+  "Escudo de Madeira": {
+    "result": "Escudo de Madeira",
+    "gold": 12,
+    "materials": {"Madeira Bruta": 4, "Couro Rasgado": 2}
+  },
+  "Elmo de Couro": {
+    "result": "Elmo de Couro",
+    "gold": 10,
+    "materials": {"Couro Rasgado": 4, "Presa de Javali": 1}
+  },
+  "Armadura de Couro": {
+    "result": "Armadura de Couro",
+    "gold": 22,
+    "materials": {"Couro Rasgado": 8, "Presa de Lobo": 2}
+  },
+  "Calca de Couro": {
+    "result": "Calca de Couro",
+    "gold": 16,
+    "materials": {"Couro Rasgado": 5, "Teia Pegajosa": 2}
+  },
+  "Bota de Couro": {
+    "result": "Bota de Couro",
+    "gold": 14,
+    "materials": {"Couro Rasgado": 4, "Asa de Morcego": 2}
+  },
+  "Elmo de Ferro": {
+    "result": "Elmo de Ferro",
+    "gold": 35,
+    "materials": {"Minerio de Ferro": 5, "Presa de Lobo": 2}
+  },
+  "Peitoral de Ferro": {
+    "result": "Peitoral de Ferro",
+    "gold": 55,
+    "materials": {"Minerio de Ferro": 10, "Teia Pegajosa": 3}
+  },
+  "Perneiras de Ferro": {
+    "result": "Perneiras de Ferro",
+    "gold": 45,
+    "materials": {"Minerio de Ferro": 8, "Presa Venenosa": 2}
+  },
+  "Botas de Ferro": {
+    "result": "Botas de Ferro",
+    "gold": 32,
+    "materials": {"Minerio de Ferro": 5, "Couro Rasgado": 3}
+  },
+  "Chapeu Arcano": {
+    "result": "Chapeu Arcano",
+    "gold": 34,
+    "materials": {"Po Mistico": 5, "Essencia Arcana": 2}
+  },
+  "Manto Arcano": {
+    "result": "Manto Arcano",
+    "gold": 58,
+    "materials": {"Essencia Arcana": 8, "Fragmento de Cristal": 4}
+  },
+  "Calca Arcana": {
+    "result": "Calca Arcana",
+    "gold": 42,
+    "materials": {"Po Mistico": 6, "Fragmento de Cristal": 2}
+  },
+  "Botas Arcanas": {
+    "result": "Botas Arcanas",
+    "gold": 30,
+    "materials": {"Po Mistico": 4, "Asa de Morcego": 2}
+  }
+}

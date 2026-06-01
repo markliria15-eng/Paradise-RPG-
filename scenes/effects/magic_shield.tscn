@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="MagicShield" type="Node2D"]
+
+[node name="ShieldRing" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(0.45, 0.72, 1, 0.8)
+closed = true
+points = PackedVector2Array(0, -48, 34, -34, 48, 0, 34, 34, 0, 48, -34, 34, -48, 0, -34, -34)

@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[node name="DashTrail" type="Node2D"]
+
+[node name="Trail" type="Line2D" parent="."]
+width = 5.0
+default_color = Color(0.62, 1, 0.62, 0.75)
+points = PackedVector2Array(-38, 0, 38, 0)

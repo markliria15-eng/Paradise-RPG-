@@ -1,0 +1,34 @@
+[
+  {
+    "code": "brown_horse",
+    "name": "Cavalo Marrom",
+    "rarity": "common",
+    "speed_bonus": 0.15,
+    "extra_bonus": {},
+    "desc": "Montaria inicial resistente e estavel."
+  },
+  {
+    "code": "gray_wolf",
+    "name": "Lobo Cinzento",
+    "rarity": "rare",
+    "speed_bonus": 0.20,
+    "extra_bonus": {},
+    "desc": "Movimento rapido e agil em terrenos abertos."
+  },
+  {
+    "code": "war_boar",
+    "name": "Javali de Guerra",
+    "rarity": "rare",
+    "speed_bonus": 0.18,
+    "extra_bonus": {"max_hp_pct": 0.03},
+    "desc": "Montaria pesada com bonus defensivo."
+  },
+  {
+    "code": "shadow_panther",
+    "name": "Pantera Sombria",
+    "rarity": "epic",
+    "speed_bonus": 0.25,
+    "extra_bonus": {},
+    "desc": "Montaria epica extremamente veloz."
+  }
+]

@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="WarcryAura" type="Node2D"]
+
+[node name="Ring" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(1, 0.35, 0.35, 0.85)
+closed = true
+points = PackedVector2Array(0, -40, 28, -28, 40, 0, 28, 28, 0, 40, -28, 28, -40, 0, -28, -28)

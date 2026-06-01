@@ -1,0 +1,34 @@
+[
+  {
+    "code": "mini_wolf",
+    "name": "Mini Lobo",
+    "rarity": "common",
+    "base_bonus": {"physical_attack_pct": 0.03},
+    "passive_desc": "+3% ataque fisico do personagem.",
+    "active_desc": "Uivo do Companheiro: aumenta moral do dono por curto periodo."
+  },
+  {
+    "code": "arcane_fairy",
+    "name": "Fada Arcana",
+    "rarity": "rare",
+    "base_bonus": {"mana_regen_pct": 0.03},
+    "passive_desc": "+3% regeneracao de mana.",
+    "active_desc": "Brilho Etereo: reduz o custo da proxima magia."
+  },
+  {
+    "code": "shadow_bat",
+    "name": "Morcego Sombrio",
+    "rarity": "rare",
+    "base_bonus": {"attack_speed_pct": 0.03},
+    "passive_desc": "+3% velocidade de ataque.",
+    "active_desc": "Eco Sombrio: acelera ataques por alguns segundos."
+  },
+  {
+    "code": "baby_boar",
+    "name": "Javali Bebe",
+    "rarity": "common",
+    "base_bonus": {"max_hp_pct": 0.03},
+    "passive_desc": "+3% vida maxima.",
+    "active_desc": "Casco Firme: pequena reducao de dano recebido."
+  }
+]

@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[node name="ArrowRain" type="Node2D"]
+
+[node name="Arrow1" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0.72, 1, 0.72, 0.9)
+points = PackedVector2Array(-18, -24, -10, 6)
+
+[node name="Arrow2" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0.72, 1, 0.72, 0.9)
+points = PackedVector2Array(0, -26, 6, 6)
+
+[node name="Arrow3" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0.72, 1, 0.72, 0.9)
+points = PackedVector2Array(18, -24, 12, 6)

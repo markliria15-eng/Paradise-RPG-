@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[node name="SlashEffect" type="Node2D"]
+
+[node name="Line" type="Line2D" parent="."]
+width = 6.0
+default_color = Color(1, 0.92, 0.74, 1)
+points = PackedVector2Array(-24, -12, 24, 12)

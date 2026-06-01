@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/item_drop.gd" id="1_drop"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drop"]
+radius = 18.0
+
+[node name="ItemDrop" type="Area2D"]
+z_index = 12
+script = ExtResource("1_drop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_drop")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -55.0
+offset_top = -34.0
+offset_right = 120.0
+offset_bottom = -8.0
+text = "Item"

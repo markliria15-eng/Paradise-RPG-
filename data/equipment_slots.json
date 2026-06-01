@@ -1,0 +1,12 @@
+{
+  "amulet": {"label": "Amuleto", "icon": "res://assets/sprites/icon_slot_amulet.png"},
+  "helmet": {"label": "Capacete", "icon": "res://assets/sprites/icon_slot_helmet.png"},
+  "backpack": {"label": "Mochila", "icon": "res://assets/sprites/icon_slot_backpack.png"},
+  "shield": {"label": "Escudo", "icon": "res://assets/sprites/icon_slot_shield.png"},
+  "armor": {"label": "Armadura", "icon": "res://assets/sprites/icon_slot_armor.png"},
+  "weapon": {"label": "Arma", "icon": "res://assets/sprites/icon_slot_weapon.png"},
+  "ring": {"label": "Anel", "icon": "res://assets/sprites/icon_slot_ring.png"},
+  "pants": {"label": "Calca", "icon": "res://assets/sprites/icon_slot_pants.png"},
+  "jewel": {"label": "Joia", "icon": "res://assets/sprites/icon_slot_jewel.png"},
+  "boots": {"label": "Bota", "icon": "res://assets/sprites/icon_slot_boots.png"}
+}

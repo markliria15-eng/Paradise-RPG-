@@ -1,0 +1,62 @@
+name: Build Flutter Web Website
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-flutter-web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Stop if this repository is not Flutter
+        if: ${{ hashFiles('pubspec.yaml') == '' }}
+        run: |
+          echo "pubspec.yaml nao encontrado. Este projeto parece ser Godot, nao Flutter."
+          echo "Use este workflow somente se um client Flutter for adicionado ao repositorio."
+          exit 1
+
+      - name: Setup Flutter
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install dependencies
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        run: flutter pub get
+
+      - name: Build Flutter Web
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        run: flutter build web --release
+
+      - name: Copy web build into website/game
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        run: |
+          rm -rf website/game
+          mkdir -p website/game
+          cp -R build/web/* website/game/
+
+      - name: Configure Pages
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        uses: actions/configure-pages@v5
+
+      - name: Upload website artifact
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website
+
+      - name: Deploy to GitHub Pages
+        if: ${{ hashFiles('pubspec.yaml') != '' }}
+        uses: actions/deploy-pages@v4

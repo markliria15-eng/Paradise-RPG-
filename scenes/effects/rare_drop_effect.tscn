@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="RareDropEffect" type="Node2D"]
+
+[node name="Glow" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(1, 0.75, 0.22, 0.95)
+closed = true
+points = PackedVector2Array(0, -30, 20, -20, 30, 0, 20, 20, 0, 30, -20, 20, -30, 0, -20, -20)

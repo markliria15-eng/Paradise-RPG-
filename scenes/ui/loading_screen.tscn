@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_loading_screen.gd" id="1_load"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_load")
+
+[node name="Root" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+custom_minimum_size = Vector2(540, 200)
+theme_override_constants/separation = 10
+
+[node name="Map" type="Label" parent="Root/VBox"]
+layout_mode = 2
+text = "Carregando mapa..."
+horizontal_alignment = 1
+
+[node name="Progress" type="ProgressBar" parent="Root/VBox"]
+layout_mode = 2
+max_value = 100.0
+value = 15.0
+
+[node name="Tip" type="Label" parent="Root/VBox"]
+layout_mode = 2
+text = "Dica..."
+horizontal_alignment = 1

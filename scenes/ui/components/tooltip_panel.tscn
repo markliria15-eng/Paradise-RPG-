@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/components/tooltip_panel.gd" id="1_tip"]
+
+[node name="TooltipPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(280, 130)
+script = ExtResource("1_tip")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root"]
+layout_mode = 2
+text = "Item"
+
+[node name="Desc" type="Label" parent="Root"]
+layout_mode = 2
+autowrap_mode = 3
+text = "Descricao"
+
+[node name="Rarity" type="Label" parent="Root"]
+layout_mode = 2
+text = "Raridade: comum"

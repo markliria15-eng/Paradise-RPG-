@@ -1,0 +1,30 @@
+{
+  "fighting": {
+    "name": "Lutando",
+    "level": 10,
+    "xp": 0,
+    "xp_required": 350,
+    "icon": "res://assets/sprites/icon_attack_sword.png"
+  },
+  "distance": {
+    "name": "Distancia",
+    "level": 10,
+    "xp": 0,
+    "xp_required": 350,
+    "icon": "res://assets/sprites/icon_attack_bow.png"
+  },
+  "magic": {
+    "name": "Magica",
+    "level": 10,
+    "xp": 0,
+    "xp_required": 350,
+    "icon": "res://assets/sprites/icon_skill_arcane_blast.png"
+  },
+  "protection": {
+    "name": "Protecao",
+    "level": 10,
+    "xp": 0,
+    "xp_required": 350,
+    "icon": "res://assets/sprites/icon_skill_mystic_shield.png"
+  }
+}
