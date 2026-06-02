@@ -44,13 +44,36 @@
     "color": "#3c3d68",
     "spawn": [1080, 1240],
     "npcs": [{"name": "Maga Selene", "role": "quest", "quest": "cristal_quebrado", "pos": [1035, 1130], "sprite": "res://assets/sprites/npc_custom_4_pixel.png"}],
-    "portals": [{"label": "Caverna", "target": "bat_cave", "pos": [1080, 1300]}],
-    "safe_zones": [{"pos": [1080, 1300], "radius": 190}],
+    "portals": [
+      {"label": "Caverna", "target": "bat_cave", "pos": [1080, 1300]},
+      {"label": "Valdoria", "target": "city_valdoria", "pos": [1900, 240]}
+    ],
+    "safe_zones": [
+      {"pos": [1080, 1300], "radius": 190},
+      {"pos": [1900, 240], "radius": 150}
+    ],
     "spawns": [
       {"enemy": "Aprendiz Corrompido", "count": 10, "respawn": 28},
       {"enemy": "Espectro Arcano", "count": 8, "respawn": 34},
       {"enemy": "Sentinela Arcano", "count": 6, "respawn": 44},
       {"enemy": "Arquimago Corrompido", "count": 1, "boss": true, "respawn": 180}
+    ]
+  },
+  "city_valdoria": {
+    "name": "Cidade de Valdoria",
+    "safe": true,
+    "size": [2200, 1400],
+    "color": "#394b63",
+    "spawn": [1080, 760],
+    "npcs": [
+      {"name": "Mira, Vendedora de Pets", "role": "pet_shop", "pos": [620, 610], "sprite": "res://assets/sprites/npc_custom_4_pixel.png"},
+      {"name": "Torin, Mestre de Montarias", "role": "mount_shop", "pos": [1380, 610], "sprite": "res://assets/sprites/npc_custom_1_pixel.png"},
+      {"name": "Durnan, Forja Rara", "role": "rare_forge", "pos": [1560, 890], "sprite": "res://assets/sprites/npc_custom_5_pixel.png"},
+      {"name": "Liora, Curandeira", "role": "healer", "pos": [800, 880], "sprite": "res://assets/sprites/npc_custom_3_pixel.png"},
+      {"name": "Varek, Mercador", "role": "shop", "pos": [1160, 900], "sprite": "res://assets/sprites/npc_custom_2_pixel.png"}
+    ],
+    "portals": [
+      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1080, 1180]}
     ]
   },
   "bat_cave": {

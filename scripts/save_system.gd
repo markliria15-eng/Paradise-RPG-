@@ -3,13 +3,14 @@ class_name SaveSystem
 
 const SAVE_PATH := "user://arcadia_realms_save.json"
 
-static func save_game(player, quest_system: QuestSystem, current_map: String, exploration: Dictionary = {}) -> void:
+static func save_game(player, quest_system: QuestSystem, current_map: String, exploration: Dictionary = {}, mmo_cache: Dictionary = {}) -> void:
 	var payload := {
 		"player": player.to_save(),
 		"quests": quest_system.to_save(),
 		"current_map": current_map,
 		"position": [player.global_position.x, player.global_position.y],
-		"exploration": exploration
+		"exploration": exploration,
+		"mmo_cache": mmo_cache
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(payload, "\t"))

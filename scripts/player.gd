@@ -40,6 +40,11 @@ var physical_damage_pct := 0.0
 var mana_regen_pct := 0.0
 var attack_speed_pct := 0.0
 var move_speed_pct := 0.0
+var companion_physical_damage_pct := 0.0
+var companion_mana_regen_pct := 0.0
+var companion_attack_speed_pct := 0.0
+var companion_move_speed_pct := 0.0
+var companion_vida_max_pct := 0.0
 var shield_points := 0
 var poison_timer := 0.0
 var skills: Dictionary = {}
@@ -336,6 +341,22 @@ func _apply_set_bonuses() -> void:
 		mana_max += 30
 		ataque_magico += 3
 		mana_regen_pct += 0.05
+	if int(counts.get("Draconico", 0)) >= 4:
+		vida_max += 80
+		defesa += 10
+		physical_damage_pct += 0.06
+	if int(counts.get("Celestial", 0)) >= 1:
+		ataque_magico += 2
+		mana_regen_pct += 0.04
+	_apply_companion_bonuses()
+
+func _apply_companion_bonuses() -> void:
+	if companion_vida_max_pct > 0:
+		vida_max += int(round(float(vida_max) * companion_vida_max_pct))
+	physical_damage_pct += companion_physical_damage_pct
+	mana_regen_pct += companion_mana_regen_pct
+	attack_speed_pct += companion_attack_speed_pct
+	move_speed_pct += companion_move_speed_pct
 
 func revive_in_city() -> void:
 	ouro = int(ouro * 0.95)

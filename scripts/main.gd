@@ -137,6 +137,7 @@ var pet_definitions: Array = []
 var mount_definitions: Array = []
 var pet_follower: Sprite2D
 var mount_follower: Sprite2D
+var pet_attack_timer := 0.0
 
 func _ready() -> void:
 	randomize()
@@ -173,6 +174,7 @@ func _process(delta: float) -> void:
 	_collect_nearby_drops(delta)
 	_update_minimap()
 	_update_companion_visuals(delta)
+	_update_pet_combat(delta)
 	_update_hud()
 	if online_mode and mmo_client != null:
 		net_move_accumulator += delta
@@ -195,7 +197,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if online_mode:
 			_flash("Modo online: save feito pelo servidor.")
 		else:
-			SaveSystem.save_game(player, quest_system, current_map, exploration_by_map)
+			SaveSystem.save_game(player, quest_system, current_map, exploration_by_map, mmo_cache)
 			_flash("Jogo salvo.")
 
 func _input(event: InputEvent) -> void:
@@ -293,6 +295,108 @@ func _load_json_array(path: String) -> Array:
 		return []
 	var parsed = JSON.parse_string(file.get_as_text())
 	return parsed if typeof(parsed) == TYPE_ARRAY else []
+
+func _ensure_local_companion_state() -> void:
+	if online_mode:
+		return
+	if not mmo_cache.has("pets_state") or typeof(mmo_cache.get("pets_state")) != TYPE_DICTIONARY:
+		mmo_cache["pets_state"] = {"pets": []}
+	if not mmo_cache.has("mounts_state") or typeof(mmo_cache.get("mounts_state")) != TYPE_DICTIONARY:
+		mmo_cache["mounts_state"] = {"mounts": []}
+
+func _definition_by_code(definitions: Array, code: String) -> Dictionary:
+	for entry in definitions:
+		if typeof(entry) == TYPE_DICTIONARY and str(entry.get("code", "")) == code:
+			return entry
+	return {}
+
+func _owned_entry(state_key: String, list_key: String, code: String) -> Dictionary:
+	var payload: Dictionary = mmo_cache.get(state_key, {})
+	for entry in payload.get(list_key, []):
+		if typeof(entry) == TYPE_DICTIONARY and str(entry.get("code", "")) == code:
+			return entry
+	return {}
+
+func _buy_local_pet(code: String) -> bool:
+	_ensure_local_companion_state()
+	if not _owned_entry("pets_state", "pets", code).is_empty():
+		_equip_local_pet(code)
+		return true
+	var def := _definition_by_code(pet_definitions, code)
+	if def.is_empty():
+		return false
+	var price := int(def.get("price", 0))
+	if player.ouro < price:
+		return false
+	player.ouro -= price
+	var payload: Dictionary = mmo_cache["pets_state"]
+	var owned: Array = payload.get("pets", [])
+	owned.append({"id": owned.size() + 1, "code": code, "level": 1, "xp": 0, "equipped": owned.is_empty()})
+	payload["pets"] = owned
+	mmo_cache["pets_state"] = payload
+	_apply_companion_bonuses()
+	return true
+
+func _equip_local_pet(code: String) -> void:
+	_ensure_local_companion_state()
+	var payload: Dictionary = mmo_cache["pets_state"]
+	var owned: Array = payload.get("pets", [])
+	for i in range(owned.size()):
+		if typeof(owned[i]) == TYPE_DICTIONARY:
+			owned[i]["equipped"] = str(owned[i].get("code", "")) == code
+	payload["pets"] = owned
+	mmo_cache["pets_state"] = payload
+	pet_attack_timer = 0.0
+	_apply_companion_bonuses()
+
+func _buy_local_mount(code: String) -> bool:
+	_ensure_local_companion_state()
+	if not _owned_entry("mounts_state", "mounts", code).is_empty():
+		_equip_local_mount(code)
+		return true
+	var def := _definition_by_code(mount_definitions, code)
+	if def.is_empty():
+		return false
+	var price := int(def.get("price", 0))
+	if player.ouro < price:
+		return false
+	player.ouro -= price
+	var payload: Dictionary = mmo_cache["mounts_state"]
+	var owned: Array = payload.get("mounts", [])
+	owned.append({"id": owned.size() + 1, "code": code, "equipped": owned.is_empty()})
+	payload["mounts"] = owned
+	mmo_cache["mounts_state"] = payload
+	_apply_companion_bonuses()
+	return true
+
+func _equip_local_mount(code: String) -> void:
+	_ensure_local_companion_state()
+	var payload: Dictionary = mmo_cache["mounts_state"]
+	var owned: Array = payload.get("mounts", [])
+	for i in range(owned.size()):
+		if typeof(owned[i]) == TYPE_DICTIONARY:
+			owned[i]["equipped"] = str(owned[i].get("code", "")) == code
+	payload["mounts"] = owned
+	mmo_cache["mounts_state"] = payload
+	_apply_companion_bonuses()
+
+func _apply_companion_bonuses() -> void:
+	if player == null:
+		return
+	player.companion_physical_damage_pct = 0.0
+	player.companion_mana_regen_pct = 0.0
+	player.companion_attack_speed_pct = 0.0
+	player.companion_move_speed_pct = 0.0
+	player.companion_vida_max_pct = 0.0
+	var pet_def := _definition_by_code(pet_definitions, _current_equipped_pet_code())
+	var pet_bonus: Dictionary = pet_def.get("base_bonus", {})
+	player.companion_physical_damage_pct += float(pet_bonus.get("physical_attack_pct", 0.0))
+	player.companion_mana_regen_pct += float(pet_bonus.get("mana_regen_pct", 0.0))
+	player.companion_attack_speed_pct += float(pet_bonus.get("attack_speed_pct", 0.0))
+	player.companion_vida_max_pct += float(pet_bonus.get("max_hp_pct", 0.0))
+	var mount_def := _definition_by_code(mount_definitions, _current_equipped_mount_code())
+	player.companion_move_speed_pct += float(mount_def.get("speed_bonus", 0.0))
+	player.recalculate_equipment()
 
 func _on_mmo_world_message(payload: Dictionary) -> void:
 	var msg_type := str(payload.get("type", ""))
@@ -977,6 +1081,8 @@ func _start_new_game(chosen_class: String) -> void:
 	player = PLAYER_SCENE.instantiate()
 	world.add_child(player)
 	player.setup(chosen_class, class_db.get_class_data(chosen_class), item_db)
+	mmo_cache = {}
+	_ensure_local_companion_state()
 	_ensure_beginner_quests()
 	_connect_player()
 	_update_action_icons()
@@ -992,9 +1098,12 @@ func _spawn_player_from_save(save: Dictionary) -> void:
 	player.from_save(save.get("player", {}), item_db, class_db)
 	quest_system.from_save(save.get("quests", {}))
 	exploration_by_map = save.get("exploration", {})
+	mmo_cache = save.get("mmo_cache", {})
+	_ensure_local_companion_state()
 	_ensure_beginner_quests()
 	_connect_player()
 	_update_action_icons()
+	_apply_companion_bonuses()
 	var pos_arr: Array = save.get("position", [640, 380])
 	_load_map(str(save.get("current_map", "city_eldoria")), Vector2(float(pos_arr[0]), float(pos_arr[1])))
 	_flash("Save carregado.")
@@ -1059,6 +1168,8 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 	match current_map:
 		"city_eldoria":
 			_draw_city_terrain()
+		"city_valdoria":
+			_draw_valdoria_terrain()
 		"forest_boars":
 			_draw_forest_terrain()
 		"arcane_ruins":
@@ -1084,6 +1195,21 @@ func _draw_city_terrain() -> void:
 	_add_world_label("Shop", Vector2(1210, 490), Color("#ffe0a3"))
 	_add_world_label("Forja", Vector2(1335, 760), Color("#ffd06b"))
 	_add_world_label("Fonte", Vector2(1040, 735), Color("#bdeaff"))
+
+func _draw_valdoria_terrain() -> void:
+	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
+	_draw_tiled_rect("res://assets/sprites/tile_stone.png", Rect2(260, 160, current_map_size.x - 520, current_map_size.y - 300), 64, -96)
+	_draw_tiled_rect("res://assets/sprites/tile_ruin.png", Rect2(520, 310, 1160, 620), 64, -94)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(980, 260, 210, 930), 64, -93)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(520, 710, 1180, 130), 64, -93)
+	for wall in [
+		Rect2(235, 135, 1730, 42), Rect2(235, 1110, 1730, 42),
+		Rect2(235, 135, 42, 1015), Rect2(1925, 135, 42, 1015)
+	]:
+		_add_world_rect(wall, Color("#273347"), -91)
+	_add_world_label("Pets", Vector2(570, 525), Color("#9effb0"))
+	_add_world_label("Montarias", Vector2(1300, 525), Color("#ffe0a3"))
+	_add_world_label("Forja Rara", Vector2(1490, 805), Color("#ffd06b"))
 
 func _draw_forest_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
@@ -1116,6 +1242,13 @@ func _spawn_map_decor() -> void:
 		_add_world_sprite("res://assets/sprites/decor_forge.png", Vector2(892, 458), 2.0, -8)
 		for p in [Vector2(160, 185), Vector2(1090, 172), Vector2(186, 430), Vector2(1100, 455), Vector2(355, 505), Vector2(1005, 615)]:
 			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 1.7, -12)
+	elif current_map == "city_valdoria":
+		_add_world_sprite("res://assets/sprites/decor_fountain.png", Vector2(1080, 560), 2.0, -10)
+		_add_world_sprite("res://assets/sprites/decor_forge.png", Vector2(1660, 785), 2.2, -8)
+		for p in [Vector2(420, 310), Vector2(700, 330), Vector2(1325, 330), Vector2(1600, 330), Vector2(620, 1000), Vector2(1380, 1000)]:
+			_add_world_sprite("res://assets/sprites/decor_house.png", p, 1.75, -8)
+		for p in [Vector2(330, 250), Vector2(1840, 250), Vector2(390, 1030), Vector2(1830, 1010)]:
+			_add_world_sprite("res://assets/sprites/decor_crystal.png", p, 1.7, -12)
 	elif current_map == "forest_boars":
 		for p in [Vector2(120, 130), Vector2(260, 230), Vector2(410, 120), Vector2(930, 160), Vector2(1110, 270), Vector2(180, 470), Vector2(1030, 490)]:
 			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 2.0, -12)
@@ -1188,7 +1321,7 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		npc.setup(npc_data)
 		var pos: Array = npc_data.get("pos", [100, 100])
 		npc.global_position = Vector2(float(pos[0]), float(pos[1]))
-		if current_map == "city_eldoria":
+		if current_map == "city_eldoria" or current_map == "city_valdoria":
 			var house := _add_world_sprite("res://assets/sprites/decor_house.png", npc.global_position + city_house_offsets[npc_index % city_house_offsets.size()], 1.5, -7)
 			house.modulate = Color(0.95, 0.95, 0.95, 0.98)
 			npc_index += 1
@@ -1627,6 +1760,12 @@ func _interact() -> void:
 			_show_shop()
 		"forge":
 			_show_forge()
+		"rare_forge":
+			_show_forge("rare")
+		"pet_shop":
+			_show_pet_shop()
+		"mount_shop":
+			_show_mount_shop()
 		"class_master":
 			_flash("Arion: treine usando ataque, defesa e velocidade em combate real.")
 		"quest":
@@ -1680,13 +1819,122 @@ func _show_shop() -> void:
 		)
 		box.add_child(btn)
 
-func _show_forge() -> void:
+func _show_pet_shop() -> void:
+	if panel.visible and current_panel == "pet_shop":
+		_hide_panel()
+		return
+	_ensure_local_companion_state()
+	var box := _start_modal("Mercado de Pets de Valdoria", "pet_shop")
+	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
+	box.add_child(_panel_label("Pets atacam seu alvo automatico e aplicam passivas/debuffs.", 13, Color("#cfd6df")))
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 10)
+	grid.add_theme_constant_override("v_separation", 10)
+	grid.custom_minimum_size = Vector2(840, 400)
+	box.add_child(grid)
+	for def in pet_definitions:
+		if typeof(def) != TYPE_DICTIONARY:
+			continue
+		var code := str(def.get("code", ""))
+		var owned := not _owned_entry("pets_state", "pets", code).is_empty()
+		var card := _market_card()
+		grid.add_child(card)
+		var row := HBoxContainer.new()
+		row.custom_minimum_size = Vector2(398, 130)
+		card.add_child(row)
+		var icon := TextureRect.new()
+		icon.texture = load(_pet_icon_path(code))
+		icon.custom_minimum_size = Vector2(76, 76)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_SCALE
+		row.add_child(icon)
+		var info := VBoxContainer.new()
+		info.custom_minimum_size = Vector2(280, 128)
+		row.add_child(info)
+		info.add_child(_panel_label("%s  |  %s" % [str(def.get("name", code)), str(def.get("rarity", "common")).to_upper()], 15, Color.WHITE))
+		info.add_child(_panel_label("%d ouro  |  Dano %d" % [int(def.get("price", 0)), int(def.get("attack", 1))], 13, Color("#ffd36b")))
+		info.add_child(_panel_label("Passiva: %s" % str(def.get("passive_desc", "")), 12, Color("#d8e6f2")))
+		info.add_child(_panel_label("Ataque: %s" % str(def.get("active_desc", "")), 12, Color("#c7d6e5")))
+		var buy := Button.new()
+		buy.text = "Equipar" if owned else "Comprar"
+		_style_panel_button(buy)
+		buy.pressed.connect(func() -> void:
+			if _buy_local_pet(code):
+				_flash(("Equipado: " if owned else "Comprado: ") + str(def.get("name", code)))
+				_show_pet_shop()
+			else:
+				_flash("Ouro insuficiente para comprar este pet.")
+		)
+		info.add_child(buy)
+
+func _show_mount_shop() -> void:
+	if panel.visible and current_panel == "mount_shop":
+		_hide_panel()
+		return
+	_ensure_local_companion_state()
+	var box := _start_modal("Mercado de Montarias", "mount_shop")
+	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
+	box.add_child(_panel_label("Montarias sao exclusivas para velocidade. Raras custam mais e correm mais.", 13, Color("#cfd6df")))
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 10)
+	grid.add_theme_constant_override("v_separation", 10)
+	grid.custom_minimum_size = Vector2(840, 360)
+	box.add_child(grid)
+	for def in mount_definitions:
+		if typeof(def) != TYPE_DICTIONARY:
+			continue
+		var code := str(def.get("code", ""))
+		var owned := not _owned_entry("mounts_state", "mounts", code).is_empty()
+		var card := _market_card()
+		grid.add_child(card)
+		var row := HBoxContainer.new()
+		row.custom_minimum_size = Vector2(398, 118)
+		card.add_child(row)
+		var icon := TextureRect.new()
+		icon.texture = load(_mount_icon_path(code))
+		icon.custom_minimum_size = Vector2(76, 76)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_SCALE
+		row.add_child(icon)
+		var info := VBoxContainer.new()
+		info.custom_minimum_size = Vector2(280, 116)
+		row.add_child(info)
+		info.add_child(_panel_label("%s  |  %s" % [str(def.get("name", code)), str(def.get("rarity", "common")).to_upper()], 15, Color.WHITE))
+		info.add_child(_panel_label("%d ouro  |  +%d%% velocidade" % [int(def.get("price", 0)), int(round(float(def.get("speed_bonus", 0.0)) * 100.0))], 13, Color("#ffd36b")))
+		info.add_child(_panel_label(str(def.get("desc", "")), 12, Color("#c8d3e0")))
+		var buy := Button.new()
+		buy.text = "Montar" if owned else "Comprar"
+		_style_panel_button(buy)
+		buy.pressed.connect(func() -> void:
+			if _buy_local_mount(code):
+				_flash(("Montado: " if owned else "Comprado: ") + str(def.get("name", code)))
+				_show_mount_shop()
+			else:
+				_flash("Ouro insuficiente para comprar esta montaria.")
+		)
+		info.add_child(buy)
+
+func _market_card() -> PanelContainer:
+	var card := PanelContainer.new()
+	card.custom_minimum_size = Vector2(410, 140)
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.045, 0.052, 0.068, 0.96)
+	style.border_color = Color("#8a6a2f")
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(8)
+	card.add_theme_stylebox_override("panel", style)
+	return card
+
+func _show_forge(tier: String = "basic") -> void:
 	if panel.visible and current_panel == "forge":
 		_hide_panel()
 		return
-	var box := _start_modal("Forja", "forge")
+	var title := "Forja Rara de Valdoria" if tier == "rare" else "Forja"
+	var box := _start_modal(title, "forge")
 	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
-	box.add_child(_panel_label("Use materiais dos monstros para criar armaduras e escudos.", 14, Color("#cfd6df")))
+	box.add_child(_panel_label("Use materiais dos monstros e moedas para criar equipamentos.", 14, Color("#cfd6df")))
 	var scroll := ScrollContainer.new()
 	scroll.custom_minimum_size = Vector2(840, 405)
 	box.add_child(scroll)
@@ -1697,6 +1945,11 @@ func _show_forge() -> void:
 	for recipe_name in recipes.keys():
 		var recipe_id := str(recipe_name)
 		var recipe: Dictionary = recipes[recipe_id]
+		var recipe_tier := str(recipe.get("tier", "basic"))
+		if tier == "rare" and recipe_tier != "rare":
+			continue
+		if tier != "rare" and recipe_tier == "rare":
+			continue
 		var row := HBoxContainer.new()
 		row.custom_minimum_size = Vector2(820, 56)
 		var data := item_db.get_item(str(recipe.get("result", recipe_id)))
@@ -1985,9 +2238,6 @@ func _show_pets(force_refresh: bool = false) -> void:
 		if typeof(pet) != TYPE_DICTIONARY:
 			continue
 		by_code[str(pet.get("code", ""))] = pet
-	if not online_mode and by_code.is_empty() and not pet_definitions.is_empty():
-		var starter: Dictionary = pet_definitions[0]
-		by_code[str(starter.get("code", ""))] = {"id": 1, "code": str(starter.get("code", "")), "level": 1, "xp": 0, "equipped": true}
 	var cards := GridContainer.new()
 	cards.columns = 2
 	cards.add_theme_constant_override("h_separation", 10)
@@ -2041,8 +2291,11 @@ func _show_pets(force_refresh: bool = false) -> void:
 			_style_panel_button(equip_btn)
 			var character_pet_id: int = int(owned_pet.get("id", 0))
 			equip_btn.pressed.connect(func() -> void:
-				if mmo_client != null:
+				if online_mode and mmo_client != null:
 					mmo_client.call("equip_pet", character_pet_id)
+				else:
+					_equip_local_pet(code)
+					_show_pets(true)
 			)
 			info.add_child(equip_btn)
 
@@ -2061,9 +2314,6 @@ func _show_mounts(force_refresh: bool = false) -> void:
 		if typeof(mount) != TYPE_DICTIONARY:
 			continue
 		by_code[str(mount.get("code", ""))] = mount
-	if not online_mode and by_code.is_empty() and not mount_definitions.is_empty():
-		var starter: Dictionary = mount_definitions[0]
-		by_code[str(starter.get("code", ""))] = {"id": 1, "code": str(starter.get("code", "")), "equipped": true}
 	var cards := GridContainer.new()
 	cards.columns = 2
 	cards.add_theme_constant_override("h_separation", 10)
@@ -2117,8 +2367,11 @@ func _show_mounts(force_refresh: bool = false) -> void:
 			_style_panel_button(equip_btn)
 			var character_mount_id: int = int(owned_mount.get("id", 0))
 			equip_btn.pressed.connect(func() -> void:
-				if mmo_client != null:
+				if online_mode and mmo_client != null:
 					mmo_client.call("equip_mount", character_mount_id)
+				else:
+					_equip_local_mount(code)
+					_show_mounts(true)
 			)
 			info.add_child(equip_btn)
 
@@ -2783,6 +3036,58 @@ func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
 	dot.color = color
 	minimap_canvas.add_child(dot)
 
+func _update_pet_combat(delta: float) -> void:
+	if player == null or current_target == null or not is_instance_valid(current_target):
+		return
+	var pet_code := _current_equipped_pet_code()
+	if pet_code.is_empty():
+		return
+	var pet_def := _definition_by_code(pet_definitions, pet_code)
+	if pet_def.is_empty():
+		return
+	var distance := player.global_position.distance_to(current_target.global_position)
+	if distance > 330.0:
+		return
+	pet_attack_timer -= delta
+	if pet_attack_timer > 0:
+		return
+	pet_attack_timer = max(0.65, float(pet_def.get("attack_interval", 1.6)))
+	var pet_entry := _current_equipped_pet_entry()
+	var pet_level := int(pet_entry.get("level", 1))
+	var damage: int = max(1, int(round(float(pet_def.get("attack", 5)) + float(pet_level - 1) * 1.5 - float(current_target.defesa) * 0.25)))
+	var from := player.global_position + Vector2(-28, 18)
+	if pet_follower != null and is_instance_valid(pet_follower):
+		from = pet_follower.global_position
+	_spawn_pet_attack_line(from, current_target.global_position)
+	current_target.receive_damage(damage)
+	_spawn_floating_text(current_target.global_position + Vector2(0, -48), "-%d pet" % damage, Color("#8eea77"))
+	var debuff: Dictionary = pet_def.get("debuff", {})
+	if not debuff.is_empty():
+		current_target.apply_pet_debuff(str(debuff.get("type", "")), float(debuff.get("amount", 0.0)), float(debuff.get("duration", 2.0)))
+		_spawn_floating_text(current_target.global_position + Vector2(0, -64), "debuff", Color("#b68cff"))
+
+func _spawn_pet_attack_line(from: Vector2, to: Vector2) -> void:
+	var line := Line2D.new()
+	line.width = 4.0
+	line.default_color = Color("#8eea77")
+	line.z_index = 92
+	line.add_point(from)
+	line.add_point(to)
+	world.add_child(line)
+	var tween := create_tween()
+	tween.tween_property(line, "modulate", Color(1, 1, 1, 0), 0.26)
+	tween.tween_callback(func() -> void:
+		if is_instance_valid(line):
+			line.queue_free()
+	)
+
+func _current_equipped_pet_entry() -> Dictionary:
+	var payload: Dictionary = mmo_cache.get("pets_state", {})
+	for pet in payload.get("pets", []):
+		if typeof(pet) == TYPE_DICTIONARY and bool(pet.get("equipped", false)):
+			return pet
+	return {}
+
 func _pet_icon_path(code: String) -> String:
 	match code:
 		"mini_wolf":
@@ -2854,8 +3159,6 @@ func _current_equipped_pet_code() -> String:
 	for pet in payload.get("pets", []):
 		if typeof(pet) == TYPE_DICTIONARY and bool(pet.get("equipped", false)):
 			return str(pet.get("code", ""))
-	if not online_mode and not pet_definitions.is_empty():
-		return str((pet_definitions[0] as Dictionary).get("code", ""))
 	return ""
 
 func _current_equipped_mount_code() -> String:

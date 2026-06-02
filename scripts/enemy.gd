@@ -18,6 +18,10 @@ var boss := false
 var target: Player
 var attack_timer := 0.0
 var is_targeted := false
+var base_defesa := 0
+var base_ataque := 1
+var slow_multiplier := 1.0
+var debuff_timer := 0.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
@@ -33,6 +37,8 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	vida = vida_max
 	ataque = int(data.get("ataque", 1))
 	defesa = int(data.get("defesa", 0))
+	base_ataque = ataque
+	base_defesa = defesa
 	xp = int(data.get("xp", 0))
 	speed = float(data.get("speed", 90))
 	poison_chance = float(data.get("poison_chance", 0.0))
@@ -48,6 +54,12 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 func _physics_process(delta: float) -> void:
 	if target == null:
 		return
+	if debuff_timer > 0:
+		debuff_timer -= delta
+		if debuff_timer <= 0:
+			defesa = base_defesa
+			ataque = base_ataque
+			slow_multiplier = 1.0
 	if target.in_safe_zone:
 		velocity = Vector2.ZERO
 		return
@@ -55,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	label.visible = true
 	health_bar.visible = true
 	if distance < 320 and distance > 34:
-		velocity = global_position.direction_to(target.global_position) * speed
+		velocity = global_position.direction_to(target.global_position) * speed * slow_multiplier
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
@@ -83,6 +95,16 @@ func set_targeted(value: bool) -> void:
 	else:
 		label.add_theme_color_override("font_color", Color("#ffd36b") if boss else Color.WHITE)
 		sprite.modulate = Color.WHITE
+
+func apply_pet_debuff(kind: String, amount: float, duration: float) -> void:
+	debuff_timer = max(debuff_timer, duration)
+	match kind:
+		"defense_down", "magic_mark":
+			defesa = max(0, base_defesa - int(round(amount)))
+		"weakness":
+			ataque = max(1, base_ataque - int(round(amount)))
+		"slow":
+			slow_multiplier = clamp(1.0 - amount, 0.45, 1.0)
 
 func _update_health_bar() -> void:
 	if health_bar == null:

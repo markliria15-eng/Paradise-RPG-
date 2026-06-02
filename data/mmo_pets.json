@@ -3,32 +3,48 @@
     "code": "mini_wolf",
     "name": "Mini Lobo",
     "rarity": "common",
+    "price": 450,
+    "attack": 7,
+    "attack_interval": 1.7,
+    "debuff": {"type": "defense_down", "amount": 1, "duration": 3.0},
     "base_bonus": {"physical_attack_pct": 0.03},
     "passive_desc": "+3% ataque fisico do personagem.",
-    "active_desc": "Uivo do Companheiro: aumenta moral do dono por curto periodo."
+    "active_desc": "Mordida Selvagem: ataca o alvo e reduz defesa por alguns segundos."
   },
   {
     "code": "arcane_fairy",
     "name": "Fada Arcana",
     "rarity": "rare",
+    "price": 1100,
+    "attack": 10,
+    "attack_interval": 1.9,
+    "debuff": {"type": "magic_mark", "amount": 2, "duration": 3.0},
     "base_bonus": {"mana_regen_pct": 0.03},
     "passive_desc": "+3% regeneracao de mana.",
-    "active_desc": "Brilho Etereo: reduz o custo da proxima magia."
+    "active_desc": "Brilho Etereo: causa dano arcano e marca o inimigo."
   },
   {
     "code": "shadow_bat",
     "name": "Morcego Sombrio",
     "rarity": "rare",
+    "price": 1400,
+    "attack": 9,
+    "attack_interval": 1.35,
+    "debuff": {"type": "slow", "amount": 0.22, "duration": 2.5},
     "base_bonus": {"attack_speed_pct": 0.03},
     "passive_desc": "+3% velocidade de ataque.",
-    "active_desc": "Eco Sombrio: acelera ataques por alguns segundos."
+    "active_desc": "Eco Sombrio: ataca rapido e deixa o alvo lento."
   },
   {
     "code": "baby_boar",
     "name": "Javali Bebe",
     "rarity": "common",
+    "price": 650,
+    "attack": 8,
+    "attack_interval": 1.8,
+    "debuff": {"type": "weakness", "amount": 2, "duration": 3.0},
     "base_bonus": {"max_hp_pct": 0.03},
     "passive_desc": "+3% vida maxima.",
-    "active_desc": "Casco Firme: pequena reducao de dano recebido."
+    "active_desc": "Investida Curta: bate no alvo e reduz o ataque dele."
   }
 ]

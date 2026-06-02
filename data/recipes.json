@@ -63,5 +63,35 @@
     "result": "Botas Arcanas",
     "gold": 30,
     "materials": {"Po Mistico": 4, "Asa de Morcego": 2}
+  },
+  "Elmo Draconico": {
+    "result": "Elmo Draconico",
+    "tier": "rare",
+    "gold": 420,
+    "materials": {"Minerio de Ferro": 16, "Presa Venenosa": 6, "Essencia Arcana": 3}
+  },
+  "Armadura Draconica": {
+    "result": "Armadura Draconica",
+    "tier": "rare",
+    "gold": 780,
+    "materials": {"Minerio de Ferro": 28, "Teia Pegajosa": 10, "Fragmento de Cristal": 6}
+  },
+  "Calca Draconica": {
+    "result": "Calca Draconica",
+    "tier": "rare",
+    "gold": 560,
+    "materials": {"Minerio de Ferro": 22, "Presa Venenosa": 8, "Po Mistico": 5}
+  },
+  "Botas Draconicas": {
+    "result": "Botas Draconicas",
+    "tier": "rare",
+    "gold": 480,
+    "materials": {"Minerio de Ferro": 18, "Asa de Morcego": 10, "Essencia Arcana": 4}
+  },
+  "Manto Celestial": {
+    "result": "Manto Celestial",
+    "tier": "rare",
+    "gold": 1250,
+    "materials": {"Essencia Arcana": 18, "Fragmento de Cristal": 14, "Po Mistico": 16}
   }
 }
