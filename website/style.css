@@ -31,6 +31,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image:
+    linear-gradient(45deg, rgba(201,154,46,0.12) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(201,154,46,0.12) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(201,154,46,0.12) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(201,154,46,0.12) 75%);
+  background-size: 28px 28px;
+  background-position: 0 0, 0 14px, 14px -14px, -14px 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -198,32 +213,52 @@ h3 {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.hero-card {
-  display: grid;
-  gap: 1rem;
-  padding: 1.2rem;
+.hero-showcase {
+  position: relative;
+  min-height: 34rem;
   border: 1px solid var(--border);
-  border-radius: 0.7rem;
-  background: linear-gradient(180deg, rgba(32,32,43,0.9), rgba(12,12,18,0.92));
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(201,154,46,0.18), transparent 16rem),
+    linear-gradient(180deg, rgba(32,32,43,0.92), rgba(12,12,18,0.96));
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
 }
 
-.stat {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.04);
+.hero-showcase::before {
+  content: "";
+  position: absolute;
+  inset: auto 10% 0;
+  height: 7rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.62), transparent 70%);
 }
 
-.stat strong {
-  color: var(--gold);
-  font-size: 2rem;
+.hero-character {
+  position: absolute;
+  bottom: 1rem;
+  max-height: 31rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.7));
 }
 
-.stat span {
-  color: var(--muted);
+.hero-warrior {
+  left: 5%;
+  max-height: 24rem;
+  opacity: 0.92;
+}
+
+.hero-mage {
+  left: 31%;
+  z-index: 2;
+  max-height: 32rem;
+}
+
+.hero-archer {
+  right: -2%;
+  max-height: 23rem;
+  opacity: 0.94;
 }
 
 .section {
@@ -267,6 +302,38 @@ h3 {
   background: rgba(201, 154, 46, 0.12);
   color: var(--gold);
   font-size: 1.7rem;
+}
+
+.class-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 25rem;
+  padding-top: 13rem;
+}
+
+.class-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.24;
+  background: radial-gradient(circle at 50% 12%, var(--gold-soft), transparent 14rem);
+}
+
+.class-card > * {
+  position: relative;
+}
+
+.class-sprite {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+  height: 13.5rem;
+  width: calc(100% - 1rem);
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.62));
 }
 
 .warrior {
@@ -333,6 +400,65 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 }
 
+.map-card {
+  overflow: hidden;
+}
+
+.map-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 8rem;
+  margin: -1.2rem -1.2rem 1rem;
+  border-bottom: 1px solid rgba(201, 154, 46, 0.22);
+  background-size: 42px 42px;
+  image-rendering: pixelated;
+}
+
+.map-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.28));
+}
+
+.map-preview img {
+  position: relative;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 8px 8px rgba(0,0,0,0.55));
+}
+
+.city-map .map-preview {
+  background-image: url("./assets/maps/tile_stone.png"), url("./assets/maps/tile_water.png");
+  background-color: #263646;
+}
+
+.forest-map .map-preview {
+  background-image: url("./assets/maps/tile_grass.png"), url("./assets/maps/tile_path.png");
+  background-color: #1f4a2a;
+}
+
+.cave-map .map-preview {
+  background-image: url("./assets/maps/tile_cave_floor.png");
+  background-color: #1a1720;
+}
+
+.ruins-map .map-preview {
+  background-image: url("./assets/maps/tile_ruin.png"), url("./assets/maps/tile_arcane.png");
+  background-color: #242435;
+}
+
+.boss-map .map-preview {
+  background-image: url("./assets/maps/tile_arcane.png"), url("./assets/maps/tile_cave.png");
+  background-color: #211629;
+}
+
 .download {
   padding-bottom: 6rem;
 }
@@ -384,6 +510,29 @@ h3 {
   .hero,
   .split {
     grid-template-columns: 1fr;
+  }
+
+  .hero-showcase {
+    min-height: 24rem;
+  }
+
+  .hero-character {
+    bottom: 0.75rem;
+  }
+
+  .hero-warrior {
+    left: -3%;
+    max-height: 17rem;
+  }
+
+  .hero-mage {
+    left: 24%;
+    max-height: 23rem;
+  }
+
+  .hero-archer {
+    right: -9%;
+    max-height: 16rem;
   }
 
   .cards.three {

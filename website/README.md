@@ -47,7 +47,9 @@ Exemplo:
 
 ## Como conectar aos arquivos do GitHub Releases
 
-Os arquivos de download devem ficar no GitHub Releases, nao dentro do GitHub Pages.
+O site tambem possui um APK temporario em `website/downloads/Paradise-RPG.apk` para o botao funcionar imediatamente.
+
+Para versoes oficiais, os arquivos de download devem ficar no GitHub Releases, nao dentro do GitHub Pages.
 
 Formato comum de link:
 

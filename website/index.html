@@ -29,27 +29,18 @@
         <h1>Paradise RPG</h1>
         <p class="subtitle">Um RPG 2D online inspirado nos classicos, com classes, monstros, bosses, PvP, guildas, trade e evolucao por uso de habilidade.</p>
         <div class="hero-actions">
-          <!-- Trocar este link pelo link real do APK no GitHub Releases. -->
-          <a class="button primary" href="#android-download">Baixar para Android</a>
+          <!-- Trocar este link pelo link real do APK no GitHub Releases quando criar a Release oficial. -->
+          <a class="button primary" href="./downloads/Paradise-RPG.apk" download>Baixar para Android</a>
           <!-- Quando exportar o client web, publicar os arquivos em website/game. -->
           <a class="button secondary" href="./game/index.html">Jogar no navegador</a>
           <!-- Trocar este link pelo link real do ZIP Windows no GitHub Releases. -->
           <a class="button ghost" href="#windows-download">Baixar para Windows</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Resumo do jogo">
-        <div class="stat">
-          <strong>3</strong>
-          <span>classes iniciais</span>
-        </div>
-        <div class="stat">
-          <strong>4+</strong>
-          <span>mapas de aventura</span>
-        </div>
-        <div class="stat">
-          <strong>MMO</strong>
-          <span>estrutura online</span>
-        </div>
+      <aside class="hero-showcase" aria-label="Personagens principais">
+        <img class="hero-character hero-warrior" src="./assets/characters/guerreiro.png" alt="Guerreiro do Paradise RPG">
+        <img class="hero-character hero-mage" src="./assets/characters/mago.png" alt="Mago do Paradise RPG">
+        <img class="hero-character hero-archer" src="./assets/characters/arqueiro.png" alt="Arqueiro do Paradise RPG">
       </aside>
     </section>
 
@@ -60,16 +51,19 @@
       </div>
       <div class="cards three">
         <article class="card class-card warrior">
+          <img class="class-sprite" src="./assets/characters/guerreiro.png" alt="Sprite do Guerreiro">
           <span class="icon">⚔</span>
           <h3>Guerreiro</h3>
           <p>Resistente, forte no corpo a corpo e preparado para segurar dano enquanto evolui ataque e defesa.</p>
         </article>
         <article class="card class-card mage">
+          <img class="class-sprite" src="./assets/characters/mago.png" alt="Sprite do Mago">
           <span class="icon">✦</span>
           <h3>Mago</h3>
           <p>Dano magico alto, ataques a distancia e controle de area para limpar grupos de monstros.</p>
         </article>
         <article class="card class-card archer">
+          <img class="class-sprite" src="./assets/characters/arqueiro.png" alt="Sprite do Arqueiro">
           <span class="icon">➳</span>
           <h3>Arqueiro</h3>
           <p>Rapido, movel e preciso, com ataques a distancia e chance de dano critico.</p>
@@ -124,11 +118,49 @@
         <h2>Um mundo em expansao</h2>
       </div>
       <div class="cards map-cards">
-        <article class="card"><h3>Cidade principal</h3><p>Area segura, NPCs, loja, cura e portais.</p></article>
-        <article class="card"><h3>Floresta inicial</h3><p>Primeiros monstros, materiais e missao inicial.</p></article>
-        <article class="card"><h3>Caverna</h3><p>Ambiente escuro, monstros ageis e recompensas de agilidade.</p></article>
-        <article class="card"><h3>Ruinas antigas</h3><p>Inimigos magicos, cristais e desafios arcanos.</p></article>
-        <article class="card"><h3>Mapas de bosses</h3><p>Eventos globais, chefes fortes e loot raro.</p></article>
+        <article class="card map-card city-map">
+          <div class="map-preview">
+            <img src="./assets/maps/decor_house.png" alt="">
+            <img src="./assets/maps/decor_fountain.png" alt="">
+            <img src="./assets/maps/decor_portal.png" alt="">
+          </div>
+          <h3>Cidade principal</h3>
+          <p>Area segura, NPCs, loja, cura e portais.</p>
+        </article>
+        <article class="card map-card forest-map">
+          <div class="map-preview">
+            <img src="./assets/maps/decor_tree.png" alt="">
+            <img src="./assets/maps/decor_tree.png" alt="">
+            <img src="./assets/maps/decor_tree.png" alt="">
+          </div>
+          <h3>Floresta inicial</h3>
+          <p>Primeiros monstros, materiais e missao inicial.</p>
+        </article>
+        <article class="card map-card cave-map">
+          <div class="map-preview">
+            <img src="./assets/maps/decor_crystal.png" alt="">
+            <img src="./assets/maps/decor_portal.png" alt="">
+          </div>
+          <h3>Caverna</h3>
+          <p>Ambiente escuro, monstros ageis e recompensas de agilidade.</p>
+        </article>
+        <article class="card map-card ruins-map">
+          <div class="map-preview">
+            <img src="./assets/maps/decor_crystal.png" alt="">
+            <img src="./assets/maps/decor_fountain.png" alt="">
+          </div>
+          <h3>Ruinas antigas</h3>
+          <p>Inimigos magicos, cristais e desafios arcanos.</p>
+        </article>
+        <article class="card map-card boss-map">
+          <div class="map-preview">
+            <img src="./assets/maps/decor_portal.png" alt="">
+            <img src="./assets/maps/decor_crystal.png" alt="">
+            <img src="./assets/maps/decor_tree.png" alt="">
+          </div>
+          <h3>Mapas de bosses</h3>
+          <p>Eventos globais, chefes fortes e loot raro.</p>
+        </article>
       </div>
     </section>
 
@@ -138,8 +170,8 @@
         <h2>Entre no beta do Paradise RPG</h2>
         <p>Os botoes abaixo estao prontos para receber os links oficiais do GitHub Releases quando voce publicar a primeira versao.</p>
         <div class="download-actions">
-          <!-- Trocar este link pelo link real do APK no GitHub Releases. -->
-          <a id="android-download" class="button primary" href="#android-download">Baixar Android</a>
+          <!-- Trocar este link pelo link real do APK no GitHub Releases quando criar a Release oficial. -->
+          <a id="android-download" class="button primary" href="./downloads/Paradise-RPG.apk" download>Baixar Android</a>
           <!-- Trocar este link pelo link real do ZIP Windows no GitHub Releases. -->
           <a id="windows-download" class="button secondary" href="#windows-download">Baixar Windows</a>
           <a class="button ghost" href="./game/index.html">Jogar no navegador</a>
