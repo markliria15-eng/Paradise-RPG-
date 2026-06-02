@@ -407,9 +407,9 @@ func _update_directional_sprite(input: Vector2, delta: float) -> void:
 	if prefix.is_empty():
 		return
 	walk_anim_time += delta
-	if walk_anim_time >= 0.16:
+	if walk_anim_time >= 0.12:
 		walk_anim_time = 0.0
-		walk_anim_frame = 1 - walk_anim_frame
+		walk_anim_frame = (walk_anim_frame + 1) % 4
 	if abs(input.y) > abs(input.x):
 		if input.y < 0:
 			_set_direction_sprite_or_default("back", false, true)

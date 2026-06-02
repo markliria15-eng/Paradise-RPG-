@@ -14,6 +14,7 @@ var defesa := 0
 var xp := 0
 var speed := 90.0
 var poison_chance := 0.0
+var boss := false
 var target: Player
 var attack_timer := 0.0
 var is_targeted := false
@@ -35,8 +36,12 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	xp = int(data.get("xp", 0))
 	speed = float(data.get("speed", 90))
 	poison_chance = float(data.get("poison_chance", 0.0))
+	boss = bool(data.get("boss", false))
 	sprite.texture = load(_sprite_path(name_value))
-	label.text = "Lv %d %s" % [level, name_value]
+	label.text = "BOSS Lv %d %s" % [level, name_value] if boss else "Lv %d %s" % [level, name_value]
+	if boss:
+		sprite.scale *= 1.32
+		label.add_theme_color_override("font_color", Color("#ffd36b"))
 	label.visible = true
 	_update_health_bar()
 
@@ -76,7 +81,7 @@ func set_targeted(value: bool) -> void:
 		label.add_theme_color_override("font_color", Color("#ff4b4b"))
 		sprite.modulate = Color(1.25, 0.92, 0.92, 1)
 	else:
-		label.add_theme_color_override("font_color", Color.WHITE)
+		label.add_theme_color_override("font_color", Color("#ffd36b") if boss else Color.WHITE)
 		sprite.modulate = Color.WHITE
 
 func _update_health_bar() -> void:
@@ -103,12 +108,18 @@ func _sprite_path(name_value: String) -> String:
 			return "res://assets/sprites/enemy_javali.png"
 		"Lobo Alfa":
 			return "res://assets/sprites/enemy_lobo.png"
+		"Rei Javali":
+			return "res://assets/sprites/enemy_javali.png"
 		"Espectro Arcano":
 			return "res://assets/sprites/enemy_espirito.png"
 		"Sentinela Arcano":
 			return "res://assets/sprites/enemy_aprendiz.png"
+		"Arquimago Corrompido":
+			return "res://assets/sprites/enemy_aprendiz.png"
 		"Morcego Sombrio":
 			return "res://assets/sprites/enemy_morcego.png"
 		"Aranha Rainha":
+			return "res://assets/sprites/enemy_aranha.png"
+		"Matriarca Venenosa":
 			return "res://assets/sprites/enemy_aranha.png"
 	return "res://assets/sprites/enemy_javali.png"

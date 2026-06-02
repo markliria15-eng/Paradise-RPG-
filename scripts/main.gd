@@ -1263,18 +1263,47 @@ func _is_point_in_safe_zone(pos: Vector2) -> bool:
 
 func _spawn_enemies(map_data: Dictionary) -> void:
 	for spawn in map_data.get("spawns", []):
-		var enemy_name := str(spawn.get("enemy", ""))
 		for i in range(int(spawn.get("count", 1))):
-			var enemy: Enemy = ENEMY_SCENE.instantiate()
-			world.add_child(enemy)
-			enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
-			var pos := Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
-			var retries := 0
-			while _is_point_in_safe_zone(pos) and retries < 14:
-				pos = Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
-				retries += 1
-			enemy.global_position = pos
-			enemy.killed.connect(_enemy_killed)
+			_spawn_enemy_from_spawn(spawn)
+
+func _spawn_enemy_from_spawn(spawn: Dictionary) -> void:
+	var enemy_name := str(spawn.get("enemy", ""))
+	if enemy_name.is_empty():
+		return
+	var enemy: Enemy = ENEMY_SCENE.instantiate()
+	world.add_child(enemy)
+	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
+	enemy.global_position = _random_enemy_spawn_position()
+	enemy.set_meta("spawn_data", spawn.duplicate(true))
+	enemy.set_meta("spawn_map", current_map)
+	if bool(spawn.get("boss", false)):
+		enemy.add_to_group("bosses")
+	enemy.killed.connect(_enemy_killed)
+
+func _random_enemy_spawn_position() -> Vector2:
+	var pos := Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
+	var retries := 0
+	while _is_point_in_safe_zone(pos) and retries < 18:
+		pos = Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
+		retries += 1
+	return pos
+
+func _enemy_respawn_delay(enemy_name: String, spawn_data: Dictionary) -> float:
+	if spawn_data.has("respawn"):
+		return max(4.0, float(spawn_data.get("respawn", 10.0)))
+	var data: Dictionary = enemies_db.get(enemy_name, {})
+	var level_value := int(data.get("level", 1))
+	var is_boss := bool(data.get("boss", false)) or bool(spawn_data.get("boss", false))
+	if is_boss:
+		return 80.0 + float(level_value) * 5.0
+	return clamp(6.0 + float(level_value) * 2.5, 8.0, 80.0)
+
+func _schedule_enemy_respawn(enemy_name: String, spawn_data: Dictionary, map_id: String) -> void:
+	var delay := _enemy_respawn_delay(enemy_name, spawn_data)
+	await get_tree().create_timer(delay).timeout
+	if current_map != map_id or player == null:
+		return
+	_spawn_enemy_from_spawn(spawn_data)
 
 func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	var multiplier := power
@@ -1523,6 +1552,8 @@ func _skill_color(skill_id: String) -> Color:
 	return Color("#dce7ef")
 
 func _enemy_killed(enemy: Enemy) -> void:
+	var spawn_data: Dictionary = enemy.get_meta("spawn_data", {})
+	var spawn_map := str(enemy.get_meta("spawn_map", current_map))
 	var result := drop_system.roll(enemy.enemy_name)
 	player.gain_xp(int(result["xp"]))
 	player.on_enemy_killed()
@@ -1533,6 +1564,8 @@ func _enemy_killed(enemy: Enemy) -> void:
 	for item_name in result["items"]:
 		_spawn_drop(str(item_name), enemy.global_position + Vector2(randf_range(-24, 24), randf_range(-24, 24)))
 	_flash("+%d XP, moedas e drops no chao" % int(result["xp"]))
+	if not spawn_data.is_empty():
+		_schedule_enemy_respawn(enemy.enemy_name, spawn_data, spawn_map)
 
 func _spawn_coin_drop(amount: int, pos: Vector2) -> void:
 	var drop: ItemDrop = DROP_SCENE.instantiate()

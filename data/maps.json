@@ -12,9 +12,7 @@
       {"name": "Arion, o Mestre de Classes", "role": "class_master", "pos": [820, 420], "sprite": "res://assets/sprites/npc_custom_1_pixel.png"}
     ],
     "portals": [
-      {"label": "Floresta", "target": "forest_boars", "pos": [600, 1180]},
-      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1080, 1180]},
-      {"label": "Caverna", "target": "bat_cave", "pos": [1560, 1180]}
+      {"label": "Floresta", "target": "forest_boars", "pos": [1080, 1180]}
     ]
   },
   "forest_boars": {
@@ -24,13 +22,19 @@
     "color": "#315d32",
     "spawn": [1080, 1240],
     "npcs": [{"name": "Guarda Doran", "role": "quest", "quest": "furia_javalis", "pos": [1020, 1130], "sprite": "res://assets/sprites/npc_custom_1_pixel.png"}],
-    "portals": [{"label": "Eldoria", "target": "city_eldoria", "pos": [1080, 1300]}],
-    "safe_zones": [{"pos": [1080, 1300], "radius": 200}],
+    "portals": [
+      {"label": "Eldoria", "target": "city_eldoria", "pos": [1080, 1300]},
+      {"label": "Caverna", "target": "bat_cave", "pos": [1900, 240]}
+    ],
+    "safe_zones": [
+      {"pos": [1080, 1300], "radius": 200},
+      {"pos": [1900, 240], "radius": 150}
+    ],
     "spawns": [
-      {"enemy": "Javali Selvagem", "count": 14},
-      {"enemy": "Lobo Cinzento", "count": 10},
-      {"enemy": "Javali Bruto", "count": 6},
-      {"enemy": "Lobo Alfa", "count": 4}
+      {"enemy": "Javali Selvagem", "count": 16, "respawn": 8},
+      {"enemy": "Lobo Cinzento", "count": 10, "respawn": 12},
+      {"enemy": "Javali Bruto", "count": 4, "respawn": 18},
+      {"enemy": "Rei Javali", "count": 1, "boss": true, "respawn": 95}
     ]
   },
   "arcane_ruins": {
@@ -40,13 +44,13 @@
     "color": "#3c3d68",
     "spawn": [1080, 1240],
     "npcs": [{"name": "Maga Selene", "role": "quest", "quest": "cristal_quebrado", "pos": [1035, 1130], "sprite": "res://assets/sprites/npc_custom_4_pixel.png"}],
-    "portals": [{"label": "Eldoria", "target": "city_eldoria", "pos": [1080, 1300]}],
-    "safe_zones": [{"pos": [1080, 1300], "radius": 200}],
+    "portals": [{"label": "Caverna", "target": "bat_cave", "pos": [1080, 1300]}],
+    "safe_zones": [{"pos": [1080, 1300], "radius": 190}],
     "spawns": [
-      {"enemy": "Espirito Fraco", "count": 12},
-      {"enemy": "Aprendiz Corrompido", "count": 8},
-      {"enemy": "Espectro Arcano", "count": 6},
-      {"enemy": "Sentinela Arcano", "count": 4}
+      {"enemy": "Aprendiz Corrompido", "count": 10, "respawn": 28},
+      {"enemy": "Espectro Arcano", "count": 8, "respawn": 34},
+      {"enemy": "Sentinela Arcano", "count": 6, "respawn": 44},
+      {"enemy": "Arquimago Corrompido", "count": 1, "boss": true, "respawn": 180}
     ]
   },
   "bat_cave": {
@@ -56,13 +60,20 @@
     "color": "#252835",
     "spawn": [1080, 1240],
     "npcs": [{"name": "Cacador Rurik", "role": "quest", "quest": "sombras_caverna", "pos": [1030, 1130], "sprite": "res://assets/sprites/npc_custom_2_pixel.png"}],
-    "portals": [{"label": "Eldoria", "target": "city_eldoria", "pos": [1080, 1300]}],
-    "safe_zones": [{"pos": [1080, 1300], "radius": 200}],
+    "portals": [
+      {"label": "Floresta", "target": "forest_boars", "pos": [1080, 1300]},
+      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1900, 240]}
+    ],
+    "safe_zones": [
+      {"pos": [1080, 1300], "radius": 190},
+      {"pos": [1900, 240], "radius": 150}
+    ],
     "spawns": [
-      {"enemy": "Morcego Pequeno", "count": 14},
-      {"enemy": "Aranha Venenosa", "count": 10},
-      {"enemy": "Morcego Sombrio", "count": 6},
-      {"enemy": "Aranha Rainha", "count": 4}
+      {"enemy": "Morcego Pequeno", "count": 12, "respawn": 18},
+      {"enemy": "Aranha Venenosa", "count": 12, "respawn": 22},
+      {"enemy": "Morcego Sombrio", "count": 8, "respawn": 28},
+      {"enemy": "Aranha Rainha", "count": 3, "respawn": 38},
+      {"enemy": "Matriarca Venenosa", "count": 1, "boss": true, "respawn": 135}
     ]
   }
 }

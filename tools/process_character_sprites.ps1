@@ -1,6 +1,8 @@
 param(
     [int]$NpcPixelHeight = 48,
-    [int]$NpcUpscale = 2
+    [int]$NpcUpscale = 2,
+    [switch]$SkipNpc,
+    [switch]$SkipPlayers
 )
 
 $ErrorActionPreference = "Stop"
@@ -115,55 +117,60 @@ function New-WalkFrame {
     $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::Half
     $g.Clear([System.Drawing.Color]::Transparent)
 
-    $topHeight = [int]($src.Height * 0.46)
-    $midHeight = [int]($src.Height * 0.18)
-    $bottomY = $topHeight + $midHeight
-    $bottomHeight = $src.Height - $bottomY
+    $bobValues = @(0, -6, -2, -6)
+    $leanValues = @(0, -3, 0, 3)
+    $phaseIndex = [Math]::Max(0, [Math]::Min(3, $Phase - 1))
+    $bob = $bobValues[$phaseIndex]
+    $lean = $leanValues[$phaseIndex]
 
-    $bob = if ($Phase -eq 1) { -8 } else { -3 }
-    $lean = if ($Phase -eq 1) { -5 } else { 5 }
-    $leg = if ($Phase -eq 1) { 9 } else { -9 }
+    # Draw the complete sprite every frame. This prevents the visible seam that
+    # appeared when the old generator split the body into separate chunks.
+    $srcRect = New-Object System.Drawing.Rectangle(0, 0, $src.Width, $src.Height)
+    $dstRect = New-Object System.Drawing.Rectangle($lean, $bob, $src.Width, $src.Height)
+    $g.DrawImage($src, $dstRect, $srcRect, [System.Drawing.GraphicsUnit]::Pixel)
 
-    $topSrc = New-Object System.Drawing.Rectangle(0, 0, $src.Width, $topHeight)
-    $midSrc = New-Object System.Drawing.Rectangle(0, $topHeight, $src.Width, $midHeight)
-    $bottomSrc = New-Object System.Drawing.Rectangle(0, $bottomY, $src.Width, $bottomHeight)
-
-    $midX = [int]($lean / 2)
-    $midY = [int]($topHeight + $bob)
-    $topDst = New-Object System.Drawing.Rectangle($lean, $bob, $src.Width, $topHeight)
-    $midDst = New-Object System.Drawing.Rectangle($midX, $midY, $src.Width, $midHeight)
-    $bottomDst = New-Object System.Drawing.Rectangle($leg, $bottomY, $src.Width, $bottomHeight)
-
-    $g.DrawImage($src, $topDst, $topSrc, [System.Drawing.GraphicsUnit]::Pixel)
-    $g.DrawImage($src, $midDst, $midSrc, [System.Drawing.GraphicsUnit]::Pixel)
-    $g.DrawImage($src, $bottomDst, $bottomSrc, [System.Drawing.GraphicsUnit]::Pixel)
+    $footY = [int]($src.Height * 0.91)
+    $leftX = [int]($src.Width * 0.42)
+    $rightX = [int]($src.Width * 0.58)
+    $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(82, 10, 8, 6))
+    if ($Phase -eq 2) {
+        $g.FillEllipse($brush, $leftX - 18, $footY, 38, 11)
+    } elseif ($Phase -eq 4) {
+        $g.FillEllipse($brush, $rightX - 18, $footY, 38, 11)
+    }
+    $brush.Dispose()
     $g.Dispose()
     $out.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
     $src.Dispose()
     $out.Dispose()
 }
 
-$npcSources = Get-ChildItem "assets/sprites" -Filter "npc_custom_*.jpg" | Sort-Object Name
-foreach ($source in $npcSources) {
-    $baseName = [System.IO.Path]::GetFileNameWithoutExtension($source.Name)
-    $tmp = Join-Path $env:TEMP "$baseName.transparent.png"
-    $out = "assets/sprites/$($baseName)_pixel.png"
-    Copy-TransparentCrop -SourcePath $source.FullName -OutputPath $tmp -Pad 10
-    Resize-Nearest -SourcePath $tmp -OutputPath $out -TargetHeight $NpcPixelHeight -Upscale $NpcUpscale
-    Remove-Item $tmp -ErrorAction SilentlyContinue
-    Write-Host "NPC pixelado: $out"
+if (-not $SkipNpc) {
+    $npcSources = Get-ChildItem "assets/sprites" -Filter "npc_custom_*.jpg" | Sort-Object Name
+    foreach ($source in $npcSources) {
+        $baseName = [System.IO.Path]::GetFileNameWithoutExtension($source.Name)
+        $tmp = Join-Path $env:TEMP "$baseName.transparent.png"
+        $out = "assets/sprites/$($baseName)_pixel.png"
+        Copy-TransparentCrop -SourcePath $source.FullName -OutputPath $tmp -Pad 10
+        Resize-Nearest -SourcePath $tmp -OutputPath $out -TargetHeight $NpcPixelHeight -Upscale $NpcUpscale
+        Remove-Item $tmp -ErrorAction SilentlyContinue
+        Write-Host "NPC pixelado: $out"
+    }
 }
 
-$classes = @("guerreiro", "mago", "arqueiro")
-$directions = @("front", "back", "side")
-foreach ($class in $classes) {
-    foreach ($direction in $directions) {
-        $source = "assets/sprites/player_${class}_art_${direction}.png"
-        if (!(Test-Path $source)) {
-            continue
+if (-not $SkipPlayers) {
+    $classes = @("guerreiro", "mago", "arqueiro")
+    $directions = @("front", "back", "side")
+    foreach ($class in $classes) {
+        foreach ($direction in $directions) {
+            $source = "assets/sprites/player_${class}_art_${direction}.png"
+            if (!(Test-Path $source)) {
+                continue
+            }
+            for ($phase = 1; $phase -le 4; $phase++) {
+                New-WalkFrame -SourcePath $source -OutputPath "assets/sprites/player_${class}_art_${direction}_walk_${phase}.png" -Phase $phase
+            }
+            Write-Host "Frames caminhada: $class $direction"
         }
-        New-WalkFrame -SourcePath $source -OutputPath "assets/sprites/player_${class}_art_${direction}_walk_1.png" -Phase 1
-        New-WalkFrame -SourcePath $source -OutputPath "assets/sprites/player_${class}_art_${direction}_walk_2.png" -Phase 2
-        Write-Host "Frames caminhada: $class $direction"
     }
 }
