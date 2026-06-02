@@ -3,32 +3,189 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./website/">
-  <title>Paradise RPG</title>
-  <style>
-    body {
-      min-height: 100vh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      color: #f2ebd3;
-      background: #101014;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    a {
-      color: #c99a2e;
-      font-weight: 700;
-    }
-  </style>
+  <title>Paradise RPG - MMORPG 2D</title>
+  <meta name="description" content="Paradise RPG, um RPG 2D online inspirado nos classicos, com classes, monstros, PvP, guildas e progressao por uso.">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <main>
-    <h1>Paradise RPG</h1>
-    <p>Redirecionando para o site oficial...</p>
-    <p><a href="./website/">Abrir site oficial</a></p>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Paradise RPG">
+      <span class="brand-mark">P</span>
+      <span>Paradise RPG</span>
+    </a>
+    <nav class="nav">
+      <a href="#classes">Classes</a>
+      <a href="#features">Recursos</a>
+      <a href="#maps">Mapas</a>
+      <a href="#download">Download</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Beta publico em desenvolvimento</p>
+        <h1>Paradise RPG</h1>
+        <p class="subtitle">Um RPG 2D online inspirado nos classicos, com classes, monstros, bosses, PvP, guildas, trade e evolucao por uso de habilidade.</p>
+        <div class="hero-actions">
+          <!-- Trocar este link pelo link real do APK no GitHub Releases quando criar a Release oficial. -->
+          <a class="button primary" href="./downloads/Paradise-RPG.apk" download>Baixar para Android</a>
+          <!-- Quando exportar o client web, publicar os arquivos em website/game. -->
+          <a class="button secondary" href="./game/index.html">Jogar no navegador</a>
+          <!-- Trocar este link pelo link real do ZIP Windows no GitHub Releases. -->
+          <a class="button ghost" href="#windows-download">Baixar para Windows</a>
+        </div>
+      </div>
+      <aside class="hero-showcase" aria-label="Personagens principais">
+        <img class="hero-character hero-warrior" src="./assets/site_characters/guerreiro.png" alt="Guerreiro do Paradise RPG">
+        <img class="hero-character hero-mage" src="./assets/site_characters/mago.png" alt="Mago do Paradise RPG">
+        <img class="hero-character hero-archer" src="./assets/site_characters/arqueiro.png" alt="Arqueiro do Paradise RPG">
+      </aside>
+    </section>
+
+    <section id="classes" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Escolha sua classe</p>
+        <h2>Combate com identidade propria</h2>
+      </div>
+      <div class="cards three">
+        <article class="card class-card warrior">
+          <img class="class-sprite" src="./assets/site_characters/guerreiro.png" alt="Sprite do Guerreiro">
+          <span class="icon">⚔</span>
+          <h3>Guerreiro</h3>
+          <p>Resistente, forte no corpo a corpo e preparado para segurar dano enquanto evolui ataque e defesa.</p>
+        </article>
+        <article class="card class-card mage">
+          <img class="class-sprite" src="./assets/site_characters/mago.png" alt="Sprite do Mago">
+          <span class="icon">✦</span>
+          <h3>Mago</h3>
+          <p>Dano magico alto, ataques a distancia e controle de area para limpar grupos de monstros.</p>
+        </article>
+        <article class="card class-card archer">
+          <img class="class-sprite" src="./assets/site_characters/arqueiro.png" alt="Sprite do Arqueiro">
+          <span class="icon">➳</span>
+          <h3>Arqueiro</h3>
+          <p>Rapido, movel e preciso, com ataques a distancia e chance de dano critico.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="features" class="section band">
+      <div class="section-heading">
+        <p class="eyebrow">Recursos do jogo</p>
+        <h2>Base preparada para MMO</h2>
+      </div>
+      <div class="feature-grid">
+        <span>Login</span>
+        <span>Servidor online</span>
+        <span>Banco de dados</span>
+        <span>Varios jogadores no mapa</span>
+        <span>Chat global</span>
+        <span>Trade</span>
+        <span>Guildas</span>
+        <span>PvP</span>
+        <span>Bosses</span>
+        <span>Eventos</span>
+      </div>
+    </section>
+
+    <section id="progression" class="section split">
+      <div>
+        <p class="eyebrow">Sistema de progressao</p>
+        <h2>Seu personagem melhora pelo que voce faz</h2>
+        <p>Paradise RPG usa progressao por uso: lutar aumenta seu poder ofensivo, apanhar de monstros aumenta sua protecao, e combater com frequencia melhora sua velocidade de ataque.</p>
+      </div>
+      <div class="progress-list">
+        <div>
+          <strong>Ataque</strong>
+          <span>Sobe ao acertar monstros.</span>
+        </div>
+        <div>
+          <strong>Defesa</strong>
+          <span>Sobe ao receber dano real.</span>
+        </div>
+        <div>
+          <strong>Vel. de ataque</strong>
+          <span>Evolui com uso constante em combate.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="maps" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Mapas</p>
+        <h2>Um mundo em expansao</h2>
+      </div>
+      <div class="cards map-cards">
+        <article class="card map-card city-map">
+          <div class="map-preview">
+            <img src="./assets/site_maps/decor_house.png" alt="">
+            <img src="./assets/site_maps/decor_fountain.png" alt="">
+            <img src="./assets/site_maps/decor_portal.png" alt="">
+          </div>
+          <h3>Cidade principal</h3>
+          <p>Area segura, NPCs, loja, cura e portais.</p>
+        </article>
+        <article class="card map-card forest-map">
+          <div class="map-preview">
+            <img src="./assets/site_maps/decor_tree.png" alt="">
+            <img src="./assets/site_maps/decor_tree.png" alt="">
+            <img src="./assets/site_maps/decor_tree.png" alt="">
+          </div>
+          <h3>Floresta inicial</h3>
+          <p>Primeiros monstros, materiais e missao inicial.</p>
+        </article>
+        <article class="card map-card cave-map">
+          <div class="map-preview">
+            <img src="./assets/site_maps/decor_crystal.png" alt="">
+            <img src="./assets/site_maps/decor_portal.png" alt="">
+          </div>
+          <h3>Caverna</h3>
+          <p>Ambiente escuro, monstros ageis e recompensas de agilidade.</p>
+        </article>
+        <article class="card map-card ruins-map">
+          <div class="map-preview">
+            <img src="./assets/site_maps/decor_crystal.png" alt="">
+            <img src="./assets/site_maps/decor_fountain.png" alt="">
+          </div>
+          <h3>Ruinas antigas</h3>
+          <p>Inimigos magicos, cristais e desafios arcanos.</p>
+        </article>
+        <article class="card map-card boss-map">
+          <div class="map-preview">
+            <img src="./assets/site_maps/decor_portal.png" alt="">
+            <img src="./assets/site_maps/decor_crystal.png" alt="">
+            <img src="./assets/site_maps/decor_tree.png" alt="">
+          </div>
+          <h3>Mapas de bosses</h3>
+          <p>Eventos globais, chefes fortes e loot raro.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="download" class="section download">
+      <div class="download-panel">
+        <p class="eyebrow">Download</p>
+        <h2>Entre no beta do Paradise RPG</h2>
+        <p>Os botoes abaixo estao prontos para receber os links oficiais do GitHub Releases quando voce publicar a primeira versao.</p>
+        <div class="download-actions">
+          <!-- Trocar este link pelo link real do APK no GitHub Releases quando criar a Release oficial. -->
+          <a id="android-download" class="button primary" href="./downloads/Paradise-RPG.apk" download>Baixar Android</a>
+          <!-- Trocar este link pelo link real do ZIP Windows no GitHub Releases. -->
+          <a id="windows-download" class="button secondary" href="#windows-download">Baixar Windows</a>
+          <a class="button ghost" href="./game/index.html">Jogar no navegador</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <span>Paradise RPG Beta v0.1.0</span>
+    <span>Creditos: equipe Paradise RPG</span>
+    <span>Versao beta sujeita a bugs, wipes e mudancas de balanceamento.</span>
+  </footer>
+
+  <script src="./script.js"></script>
 </body>
 </html>
