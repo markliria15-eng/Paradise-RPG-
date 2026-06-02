@@ -408,11 +408,19 @@ func _create_remote_player_node(data: Dictionary) -> Node2D:
 	node.name = "RemotePlayer_%d" % int(data.get("characterId", 0))
 	var sprite := Sprite2D.new()
 	sprite.texture = load(_player_sprite_path_from_class(str(data.get("className", "Guerreiro"))))
-	sprite.scale = Vector2(2, 2)
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if sprite.texture != null:
+		var target_height := 64.0
+		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
+		var sprite_scale: float = target_height / texture_height
+		sprite.scale = Vector2(sprite_scale, sprite_scale)
+		sprite.position = Vector2(0, -18)
+	else:
+		sprite.scale = Vector2(1.4, 1.4)
 	node.add_child(sprite)
 	var label := Label.new()
 	label.name = "NameLabel"
-	label.position = Vector2(-68, -66)
+	label.position = Vector2(-68, -58)
 	label.size = Vector2(136, 16)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.add_theme_color_override("font_color", Color("#e7f2ff"))
@@ -420,7 +428,7 @@ func _create_remote_player_node(data: Dictionary) -> Node2D:
 	node.add_child(label)
 	var hp := ProgressBar.new()
 	hp.name = "HP"
-	hp.position = Vector2(-28, -42)
+	hp.position = Vector2(-28, -36)
 	hp.size = Vector2(56, 6)
 	hp.max_value = 100
 	hp.value = 100
@@ -455,10 +463,16 @@ func _cleanup_remote_players_for_map() -> void:
 func _player_sprite_path_from_class(class_id: String) -> String:
 	match class_id:
 		"Guerreiro":
+			if ResourceLoader.exists("res://assets/sprites/player_guerreiro_art_front.png"):
+				return "res://assets/sprites/player_guerreiro_art_front.png"
 			return "res://assets/sprites/player_guerreiro.png"
 		"Mago":
+			if ResourceLoader.exists("res://assets/sprites/player_mago_art_front.png"):
+				return "res://assets/sprites/player_mago_art_front.png"
 			return "res://assets/sprites/player_mago.png"
 		"Arqueiro":
+			if ResourceLoader.exists("res://assets/sprites/player_arqueiro_art_front.png"):
+				return "res://assets/sprites/player_arqueiro_art_front.png"
 			return "res://assets/sprites/player_arqueiro.png"
 	return "res://assets/sprites/player_guerreiro.png"
 

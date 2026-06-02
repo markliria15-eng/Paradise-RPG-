@@ -22,6 +22,10 @@ server/.env
 *.tmp
 *.bak
 
+website/**/*.import
+assets/site_characters/**/*.import
+assets/site_maps/**/*.import
+
 *.keystore
 *.jks
 *.p12

@@ -23,16 +23,16 @@ func setup(data: Dictionary) -> void:
 func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:
 		return
-	var target_height := 132.0
+	var target_height := 58.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	# Ajusta para manter os pes no "chao" do NPC.
-	sprite.position = Vector2(0, -34)
-	label.offset_left = -130
-	label.offset_right = 130
-	label.offset_top = -112
-	label.offset_bottom = -86
+	sprite.position = Vector2(0, -18)
+	label.offset_left = -96
+	label.offset_right = 96
+	label.offset_top = -68
+	label.offset_bottom = -48
 
 func _sprite_path(npc_role: String) -> String:
 	match npc_role:

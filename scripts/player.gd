@@ -53,6 +53,9 @@ var war_cry_timer := 0.0
 var war_cry_bonus := 0.0
 var current_sprite_path := ""
 var current_sprite_flip := false
+var current_sprite_direction := "front"
+var walk_anim_time := 0.0
+var walk_anim_frame := 0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
@@ -90,7 +93,7 @@ func setup(chosen_class: String, data: Dictionary, database: ItemDatabase) -> vo
 
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	_update_directional_sprite(input)
+	_update_directional_sprite(input, delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct)
 	move_and_slide()
 	_update_health_bar()
@@ -394,33 +397,45 @@ func _player_sprite_path(chosen_class: String) -> String:
 			return "res://assets/sprites/player_arqueiro.png"
 	return "res://assets/sprites/player_guerreiro.png"
 
-func _update_directional_sprite(input: Vector2) -> void:
+func _update_directional_sprite(input: Vector2, delta: float) -> void:
 	if input.length() < 0.08:
+		walk_anim_time = 0.0
+		walk_anim_frame = 0
+		_set_direction_sprite_or_default(current_sprite_direction, current_sprite_flip, false)
 		return
 	var prefix := _class_sprite_prefix(class_name_selected)
 	if prefix.is_empty():
 		return
+	walk_anim_time += delta
+	if walk_anim_time >= 0.16:
+		walk_anim_time = 0.0
+		walk_anim_frame = 1 - walk_anim_frame
 	if abs(input.y) > abs(input.x):
 		if input.y < 0:
-			_set_direction_sprite_or_default("back", false)
+			_set_direction_sprite_or_default("back", false, true)
 		else:
-			_set_direction_sprite_or_default("front", false)
+			_set_direction_sprite_or_default("front", false, true)
 	else:
 		# The side art is expected to face left; flip it when walking right.
-		_set_direction_sprite_or_default("side", input.x > 0)
+		_set_direction_sprite_or_default("side", input.x > 0, true)
 
-func _set_direction_sprite_or_default(direction: String, flip_h: bool) -> void:
-	var path := _class_direction_sprite_path(class_name_selected, direction)
+func _set_direction_sprite_or_default(direction: String, flip_h: bool, moving: bool) -> void:
+	current_sprite_direction = direction
+	var path := ""
+	if moving:
+		path = _class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [walk_anim_frame + 1])
+	if path.is_empty() or not ResourceLoader.exists(path):
+		path = _class_direction_sprite_path(class_name_selected, direction)
 	if ResourceLoader.exists(path):
 		_set_player_sprite(path, flip_h)
 	else:
 		_set_player_sprite(_player_sprite_path(class_name_selected), false)
 
-func _class_direction_sprite_path(chosen_class: String, direction: String) -> String:
+func _class_direction_sprite_path(chosen_class: String, direction: String, suffix: String = "") -> String:
 	var prefix := _class_sprite_prefix(chosen_class)
 	if prefix.is_empty():
 		return ""
-	return "res://assets/sprites/player_%s_art_%s.png" % [prefix, direction]
+	return "res://assets/sprites/player_%s_art_%s%s.png" % [prefix, direction, suffix]
 
 func _class_sprite_prefix(chosen_class: String) -> String:
 	match chosen_class:
@@ -452,11 +467,15 @@ func _fit_player_sprite() -> void:
 	if sprite.texture == null:
 		return
 	if _class_has_custom_sprite(class_name_selected):
-		var target_height := 92.0
+		var target_height := 64.0
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 		var sprite_scale: float = target_height / texture_height
 		sprite.scale = Vector2(sprite_scale, sprite_scale)
-		sprite.position = Vector2(0, -26)
+		sprite.position = Vector2(0, -18)
+		name_label.offset_top = -58
+		name_label.offset_bottom = -40
+		health_bar.offset_top = -36
+		health_bar.offset_bottom = -30
 	else:
 		sprite.scale = Vector2(2, 2)
 		sprite.position = Vector2.ZERO
