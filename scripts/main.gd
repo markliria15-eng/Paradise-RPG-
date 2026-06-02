@@ -38,7 +38,15 @@ const SKILL_ICON_BY_ID := {
 	"mystic_shield": "res://assets/sprites/icon_skill_mystic_shield.png",
 	"precise_shot": "res://assets/sprites/icon_skill_precise_shot.png",
 	"arrow_rain": "res://assets/sprites/icon_skill_arrow_rain.png",
-	"quick_jump": "res://assets/sprites/icon_skill_quick_jump.png"
+	"quick_jump": "res://assets/sprites/icon_skill_quick_jump.png",
+	"death_area": "res://assets/sprites/icon_skill_blade_spin.png",
+	"hero_hour": "res://assets/sprites/icon_skill_war_cry.png",
+	"soul_reaper": "res://assets/sprites/icon_skill_heavy_slash.png",
+	"blue_meteor": "res://assets/sprites/icon_skill_arcane_blast.png",
+	"burning_fireball": "res://assets/sprites/icon_skill_fireball.png",
+	"fire_hurricane": "res://assets/sprites/icon_skill_fireball.png",
+	"agility": "res://assets/sprites/icon_skill_quick_jump.png",
+	"stun_shot": "res://assets/sprites/icon_skill_precise_shot.png"
 }
 const SIDE_MENU_ICONS := {
 	"Batalha": "res://assets/sprites/icon_skill_heavy_slash.png",
@@ -62,6 +70,7 @@ const SIDE_MENU_ICONS := {
 	"Conquistas": "res://assets/sprites/drop_gem.png",
 	"Temporada": "res://assets/sprites/icon_skill_arcane_blast.png",
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
+	"Wikipedia": "res://assets/sprites/icon_attack_book.png",
 	"Zoom": "res://assets/sprites/icon_slot_ring.png",
 	"Fechar": "res://assets/sprites/icon_menu_close.png"
 }
@@ -138,6 +147,9 @@ var mount_definitions: Array = []
 var pet_follower: Sprite2D
 var mount_follower: Sprite2D
 var pet_attack_timer := 0.0
+var pet_allowed_target: Enemy
+var companion_anim_time := 0.0
+var dialog_bubble: PanelContainer
 
 func _ready() -> void:
 	randomize()
@@ -380,6 +392,21 @@ func _equip_local_mount(code: String) -> void:
 	mmo_cache["mounts_state"] = payload
 	_apply_companion_bonuses()
 
+func _dismount_current_mount(reason: String = "") -> void:
+	var code := _current_equipped_mount_code()
+	if code.is_empty():
+		return
+	var payload: Dictionary = mmo_cache.get("mounts_state", {})
+	var owned: Array = payload.get("mounts", [])
+	for i in range(owned.size()):
+		if typeof(owned[i]) == TYPE_DICTIONARY:
+			owned[i]["equipped"] = false
+	payload["mounts"] = owned
+	mmo_cache["mounts_state"] = payload
+	_apply_companion_bonuses()
+	if not reason.is_empty():
+		_flash(reason)
+
 func _apply_companion_bonuses() -> void:
 	if player == null:
 		return
@@ -391,9 +418,11 @@ func _apply_companion_bonuses() -> void:
 	var pet_def := _definition_by_code(pet_definitions, _current_equipped_pet_code())
 	var pet_bonus: Dictionary = pet_def.get("base_bonus", {})
 	player.companion_physical_damage_pct += float(pet_bonus.get("physical_attack_pct", 0.0))
+	player.companion_physical_damage_pct += float(pet_bonus.get("magic_damage_pct", 0.0))
 	player.companion_mana_regen_pct += float(pet_bonus.get("mana_regen_pct", 0.0))
 	player.companion_attack_speed_pct += float(pet_bonus.get("attack_speed_pct", 0.0))
 	player.companion_vida_max_pct += float(pet_bonus.get("max_hp_pct", 0.0))
+	player.companion_move_speed_pct += float(pet_bonus.get("move_speed_pct", 0.0))
 	var mount_def := _definition_by_code(mount_definitions, _current_equipped_mount_code())
 	player.companion_move_speed_pct += float(mount_def.get("speed_bonus", 0.0))
 	player.recalculate_equipment()
@@ -789,7 +818,7 @@ func _build_touch_controls() -> void:
 			player.use_skill(2)
 	)
 	skill_buttons.append(skill_3)
-	_make_tap_button("E", Vector2(1162, 452), Vector2(60, 54), _interact)
+	_make_tap_button("🆗", Vector2(1162, 452), Vector2(60, 54), _interact)
 	inventory_button = _make_tap_button("", Vector2(1018, 78), Vector2(60, 54), _show_inventory)
 	character_button = _make_tap_button("", Vector2(1086, 78), Vector2(60, 54), _show_skills_window)
 	quests_button = _make_tap_button("", Vector2(1154, 78), Vector2(60, 54), _show_quests)
@@ -898,6 +927,8 @@ func _handle_side_menu(item: String) -> void:
 			_show_achievements()
 		"Temporada":
 			_show_season()
+		"Wikipedia":
+			_show_wikipedia()
 		"Fechar":
 			side_menu_visible = false
 			side_menu_panel.visible = false
@@ -1087,7 +1118,7 @@ func _start_new_game(chosen_class: String) -> void:
 	_connect_player()
 	_update_action_icons()
 	_load_map("city_eldoria", Vector2(1080, 760))
-	_flash("Bem-vindo a Cidade de Eldoria. Use E para interagir.")
+	_flash("Bem-vindo a Cidade de Eldoria. Use OK/E para interagir.")
 
 func _spawn_player_from_save(save: Dictionary) -> void:
 	if online_mode:
@@ -1114,6 +1145,7 @@ func _connect_player() -> void:
 	player.dash_requested.connect(_player_dash)
 	player.self_effect_requested.connect(_player_self_effect)
 	player.damage_taken.connect(func(amount: int) -> void:
+		_dismount_current_mount("Voce desceu da montaria ao tomar dano.")
 		_spawn_floating_text(player.global_position + Vector2(0, -42), "-%d" % amount, Color("#ff4f4f"))
 	)
 	player.healed.connect(func(amount: int) -> void:
@@ -1328,7 +1360,7 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		npc.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_npc = npc
-				_flash("E: falar com " + npc.npc_name)
+				_flash("OK/E: falar com " + npc.npc_name)
 		)
 		npc.body_exited.connect(func(body: Node) -> void:
 			if body == player and selected_npc == npc:
@@ -1359,7 +1391,7 @@ func _spawn_portals(map_data: Dictionary) -> void:
 		portal.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_portal = portal
-				_flash("E: entrar em " + label.text)
+				_flash("OK/E: entrar em " + label.text)
 		)
 		portal.body_exited.connect(func(body: Node) -> void:
 			if body == player and selected_portal == portal:
@@ -1439,6 +1471,10 @@ func _schedule_enemy_respawn(enemy_name: String, spawn_data: Dictionary, map_id:
 	_spawn_enemy_from_spawn(spawn_data)
 
 func _player_attack(power: float, radius: float, skill_id: String) -> void:
+	if player.in_safe_zone:
+		_flash("Zona segura: nao e possivel atacar daqui.")
+		return
+	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	var multiplier := power
 	if player.class_name_selected == "Arqueiro":
 		multiplier *= CombatSystem.roll_critical(0.10, 1.5)
@@ -1447,36 +1483,61 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 		_flash("Ataque errou: aproxime-se ou mire melhor.")
 		return
 	_set_current_target(enemy)
+	pet_allowed_target = enemy
 	if skill_id == "basic_attack":
 		_spawn_basic_attack_effect(enemy)
 	else:
 		_spawn_skill_projectile(skill_id, enemy)
 	multiplier *= player.damage_multiplier_for(skill_id)
 	var attack_value: float = player.get_attack_value()
-	if player.class_name_selected == "Arqueiro" or skill_id in ["precise_shot", "arrow_rain"]:
+	if player.class_name_selected == "Arqueiro" or skill_id in ["precise_shot", "arrow_rain", "stun_shot"]:
 		attack_value += player.ataque_distancia
-	if skill_id in ["fireball", "arcane_blast"]:
+	if skill_id in ["fireball", "arcane_blast", "blue_meteor", "burning_fireball", "fire_hurricane"]:
 		attack_value += player.ataque_magico
 	var damage := CombatSystem.physical_damage(attack_value, enemy.defesa, multiplier, player.physical_damage_pct)
 	enemy.receive_damage(damage)
 	_spawn_floating_text(enemy.global_position + Vector2(0, -34), "-%d" % damage, Color("#ff4c4c"))
+	var skill_data := _skill_data(skill_id)
+	if skill_id == "burning_fireball":
+		enemy.apply_burn(int(skill_data.get("burn_damage", 4)), float(skill_data.get("burn_duration", 4.0)))
+		_spawn_floating_text(enemy.global_position + Vector2(0, -52), "queimando", Color("#ff9a38"))
+	if skill_id == "stun_shot":
+		enemy.apply_stun(float(skill_data.get("stun_duration", 2.0)))
+		_spawn_floating_text(enemy.global_position + Vector2(0, -52), "stun", Color("#8fd7ff"))
 	player.on_hit_enemy(skill_id)
 
 func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
+	if player.in_safe_zone:
+		_flash("Zona segura: habilidades bloqueadas.")
+		return
+	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	var hits := 0
-	_spawn_area_effect(player.global_position, radius, skill_id)
+	var center := player.global_position
+	if skill_id in ["arrow_rain", "fire_hurricane"]:
+		var target := _get_closest_enemy_in_range(_auto_target_radius())
+		if target != null:
+			center = target.global_position
+			_set_current_target(target)
+			pet_allowed_target = target
+	_spawn_area_effect(center, radius, skill_id)
 	for enemy in get_tree().get_nodes_in_group("enemies"):
-		if player.global_position.distance_to(enemy.global_position) <= radius:
+		if center.distance_to(enemy.global_position) <= radius:
 			var attack_value: float = player.get_attack_value()
 			if skill_id == "arrow_rain":
 				attack_value += player.ataque_distancia
-			if skill_id == "arcane_blast":
+			if skill_id in ["arcane_blast", "fire_hurricane"]:
 				attack_value += player.ataque_magico
 			var damage := CombatSystem.physical_damage(attack_value, enemy.defesa, power * player.damage_multiplier_for(skill_id), player.physical_damage_pct)
 			enemy.receive_damage(damage)
 			_spawn_floating_text(enemy.global_position + Vector2(0, -34), "-%d" % damage, Color("#ff4c4c"))
 			player.on_hit_enemy(skill_id)
+			if pet_allowed_target == null:
+				pet_allowed_target = enemy
 			hits += 1
+	if skill_id == "fire_hurricane":
+		_start_area_dot(center, radius, skill_id, power, 3.0, 0.75)
+	elif skill_id == "arrow_rain":
+		_start_area_dot(center, radius, skill_id, power * 0.7, 1.5, 0.5)
 	_flash("Habilidade acertou %d alvo(s)." % hits)
 
 func _get_closest_enemy_in_range(radius: float) -> Enemy:
@@ -1504,8 +1565,39 @@ func _auto_target_radius() -> float:
 		"Arqueiro":
 			return 280.0
 		"Mago":
-			return 220.0
+			return 260.0
 	return player.alcance
+
+func _skill_data(skill_id: String) -> Dictionary:
+	if player == null:
+		return {}
+	var skills: Array = player.class_data.get("skills", [])
+	for entry in skills:
+		if typeof(entry) == TYPE_DICTIONARY and str(entry.get("id", "")) == skill_id:
+			return entry
+	return {}
+
+func _start_area_dot(center: Vector2, radius: float, skill_id: String, power: float, duration: float, tick_interval: float) -> void:
+	var elapsed := 0.0
+	while elapsed < duration and player != null:
+		await get_tree().create_timer(tick_interval).timeout
+		elapsed += tick_interval
+		_spawn_area_effect(center, radius, skill_id)
+		for node in get_tree().get_nodes_in_group("enemies"):
+			var enemy := node as Enemy
+			if enemy == null or enemy.vida <= 0:
+				continue
+			if center.distance_to(enemy.global_position) > radius:
+				continue
+			var attack_value: float = player.get_attack_value()
+			if skill_id == "arrow_rain":
+				attack_value += player.ataque_distancia
+			elif skill_id == "fire_hurricane":
+				attack_value += player.ataque_magico
+			var damage := CombatSystem.physical_damage(attack_value, enemy.defesa, power * player.damage_multiplier_for(skill_id), player.physical_damage_pct)
+			enemy.receive_damage(damage)
+			_spawn_floating_text(enemy.global_position + Vector2(0, -34), "-%d" % damage, Color("#ff7c3f") if skill_id == "fire_hurricane" else Color("#e8f0ff"))
+			player.on_hit_enemy(skill_id)
 
 func _set_current_target(enemy: Enemy) -> void:
 	if current_target != null and is_instance_valid(current_target) and current_target != enemy:
@@ -1523,7 +1615,9 @@ func _player_dash(distance: float, skill_id: String) -> void:
 	_spawn_dash_effect(start, player.global_position, skill_id)
 
 func _player_self_effect(skill_id: String) -> void:
-	if skill_id in ["war_cry", "mystic_shield"]:
+	if skill_id in ["war_cry", "mystic_shield", "hero_hour", "agility"]:
+		if skill_id in ["hero_hour"]:
+			_dismount_current_mount("Voce desceu da montaria para lutar.")
 		_spawn_self_effect(skill_id)
 
 func _spawn_basic_attack_effect(enemy: Enemy) -> void:
@@ -1674,17 +1768,21 @@ func _spawn_dash_effect(from: Vector2, to: Vector2, skill_id: String) -> void:
 
 func _skill_color(skill_id: String) -> Color:
 	match skill_id:
-		"fireball":
+		"fireball", "burning_fireball", "fire_hurricane":
 			return Color("#ff8d2e")
-		"arcane_blast", "mystic_shield":
-			return Color("#9a63ff")
-		"arrow_rain", "precise_shot", "quick_jump":
+		"arcane_blast", "mystic_shield", "blue_meteor":
+			return Color("#5ca8ff")
+		"arrow_rain", "precise_shot", "quick_jump", "agility", "stun_shot":
 			return Color("#8eea77")
-		"war_cry", "heavy_slash", "blade_spin":
+		"war_cry", "heavy_slash", "blade_spin", "hero_hour", "death_area", "soul_reaper":
 			return Color("#ffe4a3")
+		"fire_hurricane":
+			return Color("#9a63ff")
 	return Color("#dce7ef")
 
 func _enemy_killed(enemy: Enemy) -> void:
+	if pet_allowed_target == enemy:
+		pet_allowed_target = null
 	var spawn_data: Dictionary = enemy.get_meta("spawn_data", {})
 	var spawn_map := str(enemy.get_meta("spawn_map", current_map))
 	var result := drop_system.roll(enemy.enemy_name)
@@ -1783,20 +1881,87 @@ func _use_healer() -> void:
 		_flash("Helena cobra 10 ouro depois do level 5.")
 
 func _handle_quest_npc(quest_id: String) -> void:
+	if selected_npc != null:
+		_show_npc_bubble(selected_npc, _quest_intro_text(quest_id))
 	if quest_system.completed.has(quest_id):
-		_flash("Missao ja concluida.")
+		_show_quest_dialog(quest_id, "Missao ja concluida. Obrigado pela ajuda, aventureiro.", false)
 	elif quest_system.active.has(quest_id) and quest_system.is_ready(quest_id):
 		var rewards := quest_system.complete(quest_id)
 		player.gain_xp(int(rewards.get("xp", 0)))
 		player.ouro += int(rewards.get("ouro", 0))
 		for item_name in rewards.get("items", []):
 			player.inventory.add_item(str(item_name), 1)
-		_flash("Missao entregue: " + str(quest_system.quests[quest_id]["title"]))
+		_show_quest_dialog(quest_id, "Voce voltou com tudo que eu precisava. Aqui esta sua recompensa.", false)
 	elif quest_system.active.has(quest_id):
-		_flash(quest_system.quest_text(quest_id))
+		_show_quest_dialog(quest_id, _quest_intro_text(quest_id), false)
 	else:
-		quest_system.accept(quest_id)
-		_flash("Missao aceita: " + str(quest_system.quests[quest_id]["title"]))
+		_show_quest_dialog(quest_id, _quest_intro_text(quest_id), true)
+
+func _show_npc_bubble(npc: Npc, text: String) -> void:
+	if dialog_bubble != null and is_instance_valid(dialog_bubble):
+		dialog_bubble.queue_free()
+	dialog_bubble = PanelContainer.new()
+	dialog_bubble.z_index = 150
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.02, 0.02, 0.025, 0.88)
+	style.border_color = Color("#d8b45a")
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(8)
+	dialog_bubble.add_theme_stylebox_override("panel", style)
+	var label := Label.new()
+	label.text = text
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.custom_minimum_size = Vector2(260, 54)
+	label.add_theme_font_size_override("font_size", 13)
+	label.add_theme_color_override("font_color", Color("#fff3cf"))
+	dialog_bubble.add_child(label)
+	world.add_child(dialog_bubble)
+	dialog_bubble.global_position = npc.global_position + Vector2(-130, -104)
+	get_tree().create_timer(5.0).timeout.connect(func() -> void:
+		if dialog_bubble != null and is_instance_valid(dialog_bubble):
+			dialog_bubble.queue_free()
+			dialog_bubble = null
+	)
+
+func _quest_intro_text(quest_id: String) -> String:
+	match quest_id:
+		"furia_javalis":
+			return "Preciso de couro e presas para preparar uma pocao de cura para minha esposa. Traga os materiais e eu lhe recompensarei."
+		"cristal_quebrado":
+			return "As ruinas estao liberando orbes arcanos instaveis. Derrote os espiritos, recolha fragmentos e salve Eldoria."
+		"sombras_caverna":
+			return "A caverna acordou. Morcegos e aranhas estao atacando viajantes. Limpe o caminho e traga asas como prova."
+		"tutorial_forest":
+			return "Primeiro conheca a floresta. Derrote monstros fracos, recolha moedas e volte mais forte."
+		"tutorial_ruins":
+			return "As ruinas mostram como inimigos magicos lutam. Explore com cuidado e complete seu treino."
+		"tutorial_cave":
+			return "A caverna ensina perigo real: veneno, mobs rapidos e alvos mais fortes. Va preparado."
+	return "Tenho uma tarefa para voce. Aceite a missao e acompanhe os objetivos."
+
+func _show_quest_dialog(quest_id: String, intro: String, can_accept: bool) -> void:
+	var quest: Dictionary = quest_system.quests.get(quest_id, {})
+	var title := str(quest.get("title", "Missao"))
+	var box := _start_modal(title, "quest_dialog")
+	box.add_child(_panel_label(intro, 15, Color("#fff3cf")))
+	box.add_child(_panel_label(quest_system.quest_text(quest_id), 14, Color("#d7e3f1")))
+	var actions := HBoxContainer.new()
+	box.add_child(actions)
+	if can_accept:
+		var accept := Button.new()
+		accept.text = "Aceitar"
+		_style_panel_button(accept)
+		accept.pressed.connect(func() -> void:
+			quest_system.accept(quest_id)
+			_flash("Missao aceita: " + title)
+			_show_quests()
+		)
+		actions.add_child(accept)
+	var quests_btn := Button.new()
+	quests_btn.text = "Missoes"
+	_style_panel_button(quests_btn)
+	quests_btn.pressed.connect(_show_quests)
+	actions.add_child(quests_btn)
 
 func _show_shop() -> void:
 	if panel.visible and current_panel == "shop":
@@ -2155,6 +2320,71 @@ func _show_quests() -> void:
 		var label := Label.new()
 		label.text = quest_system.quest_text(str(quest_id))
 		box.add_child(label)
+
+func _show_wikipedia() -> void:
+	if panel.visible and current_panel == "wikipedia":
+		_hide_panel()
+		return
+	var box := _start_modal("Wikipedia", "wikipedia")
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(850, 450)
+	box.add_child(scroll)
+	var content := VBoxContainer.new()
+	scroll.add_child(content)
+	content.add_child(_panel_label("Classes e habilidades", 18, Color("#ffd36b")))
+	for class_key in class_db.classes.keys():
+		var data: Dictionary = class_db.classes.get(class_key, {})
+		var base: Dictionary = data.get("base", {})
+		content.add_child(_panel_label("%s | HP %s | MP %s | ATK %s | DEF %s" % [
+			str(class_key),
+			str(base.get("vida", "-")),
+			str(base.get("mana", "-")),
+			str(base.get("ataque", "-")),
+			str(base.get("defesa", "-"))
+		], 15, Color.WHITE))
+		content.add_child(_panel_label("Passiva: %s" % str(data.get("passive", "")), 13, Color("#b8c3d1")))
+		for skill in data.get("skills", []):
+			if typeof(skill) == TYPE_DICTIONARY:
+				content.add_child(_panel_label("- %s: %s mana, recarga %ss" % [str(skill.get("name", "")), str(skill.get("mana", 0)), str(skill.get("cooldown", 0))], 13, Color("#d7e3f1")))
+	content.add_child(_panel_label("Pets", 18, Color("#ffd36b")))
+	for pet in pet_definitions:
+		if typeof(pet) != TYPE_DICTIONARY:
+			continue
+		content.add_child(_panel_label("%s [%s] - %d moedas" % [str(pet.get("name", "")), str(pet.get("rarity", "")), int(pet.get("price", 0))], 15, Color.WHITE))
+		content.add_child(_panel_label("Passiva: %s | Ativa: %s" % [str(pet.get("passive_desc", "")), str(pet.get("active_desc", ""))], 13, Color("#b8c3d1")))
+	content.add_child(_panel_label("Montarias", 18, Color("#ffd36b")))
+	for mount in mount_definitions:
+		if typeof(mount) != TYPE_DICTIONARY:
+			continue
+		content.add_child(_panel_label("%s [%s] - +%d%% velocidade - %d moedas" % [
+			str(mount.get("name", "")),
+			str(mount.get("rarity", "")),
+			int(round(float(mount.get("speed_bonus", 0.0)) * 100.0)),
+			int(mount.get("price", 0))
+		], 15, Color.WHITE))
+	content.add_child(_panel_label("NPCs e mapas", 18, Color("#ffd36b")))
+	for map_id in maps.keys():
+		var map_data: Dictionary = maps.get(map_id, {})
+		content.add_child(_panel_label(str(map_data.get("name", map_id)), 15, Color.WHITE))
+		for npc in map_data.get("npcs", []):
+			if typeof(npc) == TYPE_DICTIONARY:
+				content.add_child(_panel_label("- %s: %s" % [str(npc.get("name", "")), str(npc.get("role", ""))], 13, Color("#b8c3d1")))
+	content.add_child(_panel_label("Monstros", 18, Color("#ffd36b")))
+	for enemy_name in enemies_db.keys():
+		var enemy_data: Dictionary = enemies_db.get(enemy_name, {})
+		var level_text := str(enemy_data.get("level", 1))
+		var level_range: Array = enemy_data.get("level_range", [])
+		if level_range.size() >= 2:
+			level_text = "%d-%d" % [int(level_range[0]), int(level_range[1])]
+		var special := "Veneno %.0f%%" % [float(enemy_data.get("poison_chance", 0.0)) * 100.0] if float(enemy_data.get("poison_chance", 0.0)) > 0.0 else "Sem habilidade especial"
+		content.add_child(_panel_label("%s Lv %s | HP %s | ATK %s | DEF %s | %s" % [
+			str(enemy_name),
+			level_text,
+			str(enemy_data.get("vida", 0)),
+			str(enemy_data.get("ataque", 0)),
+			str(enemy_data.get("defesa", 0)),
+			special
+		], 13, Color("#d7e3f1")))
 
 func _show_professions(force_refresh: bool = false) -> void:
 	if panel.visible and current_panel == "professions" and not force_refresh:
@@ -3037,7 +3267,10 @@ func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
 	minimap_canvas.add_child(dot)
 
 func _update_pet_combat(delta: float) -> void:
-	if player == null or current_target == null or not is_instance_valid(current_target):
+	if player == null or pet_allowed_target == null or not is_instance_valid(pet_allowed_target):
+		return
+	if pet_allowed_target.vida <= 0:
+		pet_allowed_target = null
 		return
 	var pet_code := _current_equipped_pet_code()
 	if pet_code.is_empty():
@@ -3045,7 +3278,7 @@ func _update_pet_combat(delta: float) -> void:
 	var pet_def := _definition_by_code(pet_definitions, pet_code)
 	if pet_def.is_empty():
 		return
-	var distance := player.global_position.distance_to(current_target.global_position)
+	var distance := player.global_position.distance_to(pet_allowed_target.global_position)
 	if distance > 330.0:
 		return
 	pet_attack_timer -= delta
@@ -3054,17 +3287,17 @@ func _update_pet_combat(delta: float) -> void:
 	pet_attack_timer = max(0.65, float(pet_def.get("attack_interval", 1.6)))
 	var pet_entry := _current_equipped_pet_entry()
 	var pet_level := int(pet_entry.get("level", 1))
-	var damage: int = max(1, int(round(float(pet_def.get("attack", 5)) + float(pet_level - 1) * 1.5 - float(current_target.defesa) * 0.25)))
+	var damage: int = max(1, int(round(float(pet_def.get("attack", 5)) + float(pet_level - 1) * 1.5 - float(pet_allowed_target.defesa) * 0.25)))
 	var from := player.global_position + Vector2(-28, 18)
 	if pet_follower != null and is_instance_valid(pet_follower):
 		from = pet_follower.global_position
-	_spawn_pet_attack_line(from, current_target.global_position)
-	current_target.receive_damage(damage)
-	_spawn_floating_text(current_target.global_position + Vector2(0, -48), "-%d pet" % damage, Color("#8eea77"))
+	_spawn_pet_attack_line(from, pet_allowed_target.global_position)
+	pet_allowed_target.receive_damage(damage)
+	_spawn_floating_text(pet_allowed_target.global_position + Vector2(0, -48), "-%d pet" % damage, Color("#8eea77"))
 	var debuff: Dictionary = pet_def.get("debuff", {})
 	if not debuff.is_empty():
-		current_target.apply_pet_debuff(str(debuff.get("type", "")), float(debuff.get("amount", 0.0)), float(debuff.get("duration", 2.0)))
-		_spawn_floating_text(current_target.global_position + Vector2(0, -64), "debuff", Color("#b68cff"))
+		pet_allowed_target.apply_pet_debuff(str(debuff.get("type", "")), float(debuff.get("amount", 0.0)), float(debuff.get("duration", 2.0)))
+		_spawn_floating_text(pet_allowed_target.global_position + Vector2(0, -64), "debuff", Color("#b68cff"))
 
 func _spawn_pet_attack_line(from: Vector2, to: Vector2) -> void:
 	var line := Line2D.new()
@@ -3098,6 +3331,18 @@ func _pet_icon_path(code: String) -> String:
 			return "res://assets/sprites/enemy_morcego.png"
 		"baby_boar":
 			return "res://assets/sprites/enemy_javali.png"
+		"forest_sprite":
+			return "res://assets/sprites/decor_tree.png"
+		"ember_imp":
+			return "res://assets/sprites/drop_gem.png"
+		"frost_wisp":
+			return "res://assets/sprites/decor_crystal.png"
+		"stone_turtle":
+			return "res://assets/sprites/tile_cave.png"
+		"venom_spider":
+			return "res://assets/sprites/enemy_aranha.png"
+		"golden_drake":
+			return "res://assets/sprites/enemy_aprendiz.png"
 	return "res://assets/sprites/drop_bag.png"
 
 func _pet_bonus_text(bonus: Dictionary) -> String:
@@ -3121,11 +3366,15 @@ func _mount_icon_path(code: String) -> String:
 			return "res://assets/sprites/enemy_javali.png"
 		"shadow_panther":
 			return "res://assets/sprites/enemy_lobo.png"
+		"crystal_stag":
+			return "res://assets/sprites/decor_crystal.png"
 	return "res://assets/sprites/drop_bag.png"
 
-func _update_companion_visuals(_delta: float) -> void:
+func _update_companion_visuals(delta: float) -> void:
 	if player == null:
 		return
+	companion_anim_time += delta
+	var bob := sin(companion_anim_time * 8.0) * 3.0
 	var pet_code := _current_equipped_pet_code()
 	if not pet_code.is_empty():
 		if pet_follower == null or not is_instance_valid(pet_follower):
@@ -3133,8 +3382,9 @@ func _update_companion_visuals(_delta: float) -> void:
 			pet_follower.z_index = 14
 			world.add_child(pet_follower)
 		pet_follower.texture = load(_pet_icon_path(pet_code))
-		pet_follower.scale = Vector2(1.2, 1.2)
-		pet_follower.global_position = player.global_position + Vector2(-32, 24)
+		pet_follower.scale = Vector2(1.15, 1.15) * (1.0 + sin(companion_anim_time * 10.0) * 0.025)
+		pet_follower.flip_h = player.velocity.x > 8.0
+		pet_follower.global_position = player.global_position + Vector2(-32, 24 + bob)
 	else:
 		if pet_follower != null and is_instance_valid(pet_follower):
 			pet_follower.queue_free()
@@ -3146,9 +3396,10 @@ func _update_companion_visuals(_delta: float) -> void:
 			mount_follower.z_index = 13
 			world.add_child(mount_follower)
 		mount_follower.texture = load(_mount_icon_path(mount_code))
-		mount_follower.scale = Vector2(1.5, 1.5)
+		mount_follower.scale = Vector2(1.45, 1.45) * (1.0 + abs(sin(companion_anim_time * 7.0)) * 0.018)
 		mount_follower.modulate = Color(1, 1, 1, 0.65)
-		mount_follower.global_position = player.global_position + Vector2(0, 16)
+		mount_follower.flip_h = player.velocity.x > 8.0
+		mount_follower.global_position = player.global_position + Vector2(0, 16 + bob * 0.4)
 	else:
 		if mount_follower != null and is_instance_valid(mount_follower):
 			mount_follower.queue_free()

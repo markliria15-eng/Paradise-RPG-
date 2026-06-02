@@ -12,6 +12,30 @@
     "active_desc": "Mordida Selvagem: ataca o alvo e reduz defesa por alguns segundos."
   },
   {
+    "code": "baby_boar",
+    "name": "Javali Bebe",
+    "rarity": "common",
+    "price": 650,
+    "attack": 8,
+    "attack_interval": 1.8,
+    "debuff": {"type": "weakness", "amount": 2, "duration": 3.0},
+    "base_bonus": {"max_hp_pct": 0.03},
+    "passive_desc": "+3% vida maxima.",
+    "active_desc": "Investida Curta: bate no alvo e reduz o ataque dele."
+  },
+  {
+    "code": "forest_sprite",
+    "name": "Espirito da Floresta",
+    "rarity": "uncommon",
+    "price": 950,
+    "attack": 9,
+    "attack_interval": 1.65,
+    "debuff": {"type": "slow", "amount": 0.16, "duration": 2.5},
+    "base_bonus": {"move_speed_pct": 0.03},
+    "passive_desc": "+3% velocidade de movimento.",
+    "active_desc": "Raizes Vivas: fere e desacelera o inimigo."
+  },
+  {
     "code": "arcane_fairy",
     "name": "Fada Arcana",
     "rarity": "rare",
@@ -36,15 +60,63 @@
     "active_desc": "Eco Sombrio: ataca rapido e deixa o alvo lento."
   },
   {
-    "code": "baby_boar",
-    "name": "Javali Bebe",
-    "rarity": "common",
-    "price": 650,
-    "attack": 8,
-    "attack_interval": 1.8,
-    "debuff": {"type": "weakness", "amount": 2, "duration": 3.0},
-    "base_bonus": {"max_hp_pct": 0.03},
-    "passive_desc": "+3% vida maxima.",
-    "active_desc": "Investida Curta: bate no alvo e reduz o ataque dele."
+    "code": "ember_imp",
+    "name": "Diabrete de Brasa",
+    "rarity": "rare",
+    "price": 1750,
+    "attack": 12,
+    "attack_interval": 1.75,
+    "debuff": {"type": "weakness", "amount": 3, "duration": 3.0},
+    "base_bonus": {"magic_damage_pct": 0.03},
+    "passive_desc": "+3% dano magico.",
+    "active_desc": "Chama Mordaz: queima o alvo e baixa seu ataque."
+  },
+  {
+    "code": "frost_wisp",
+    "name": "Fagulha Gelida",
+    "rarity": "rare",
+    "price": 1900,
+    "attack": 11,
+    "attack_interval": 1.6,
+    "debuff": {"type": "slow", "amount": 0.30, "duration": 2.0},
+    "base_bonus": {"mana_regen_pct": 0.04},
+    "passive_desc": "+4% regeneracao de mana.",
+    "active_desc": "Toque Gelido: dano leve e lentidao forte."
+  },
+  {
+    "code": "stone_turtle",
+    "name": "Tartaruga de Pedra",
+    "rarity": "epic",
+    "price": 2800,
+    "attack": 13,
+    "attack_interval": 2.1,
+    "debuff": {"type": "defense_down", "amount": 3, "duration": 3.5},
+    "base_bonus": {"max_hp_pct": 0.06},
+    "passive_desc": "+6% vida maxima.",
+    "active_desc": "Casco Pesado: pancada lenta que quebra a defesa."
+  },
+  {
+    "code": "venom_spider",
+    "name": "Aranha Venenosa Filhote",
+    "rarity": "epic",
+    "price": 3300,
+    "attack": 14,
+    "attack_interval": 1.45,
+    "debuff": {"type": "weakness", "amount": 4, "duration": 3.0},
+    "base_bonus": {"attack_speed_pct": 0.05},
+    "passive_desc": "+5% velocidade de ataque.",
+    "active_desc": "Picada Toxica: ataque rapido que enfraquece o inimigo."
+  },
+  {
+    "code": "golden_drake",
+    "name": "Draco Dourado",
+    "rarity": "legendary",
+    "price": 6500,
+    "attack": 22,
+    "attack_interval": 1.4,
+    "debuff": {"type": "magic_mark", "amount": 5, "duration": 4.0},
+    "base_bonus": {"physical_attack_pct": 0.06, "mana_regen_pct": 0.04},
+    "passive_desc": "+6% ataque fisico e +4% regeneracao de mana.",
+    "active_desc": "Sopro Dourado: dano alto e marca magica no alvo."
   }
 ]

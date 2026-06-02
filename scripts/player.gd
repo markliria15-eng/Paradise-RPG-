@@ -56,6 +56,12 @@ var item_db: ItemDatabase
 var can_attack := true
 var war_cry_timer := 0.0
 var war_cry_bonus := 0.0
+var hero_hour_timer := 0.0
+var hero_attack_bonus := 0.0
+var hero_defense_bonus := 0.0
+var agility_timer := 0.0
+var agility_move_bonus := 0.0
+var agility_attack_bonus := 0.0
 var current_sprite_path := ""
 var current_sprite_flip := false
 var current_sprite_direction := "front"
@@ -99,13 +105,25 @@ func setup(chosen_class: String, data: Dictionary, database: ItemDatabase) -> vo
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	_update_directional_sprite(input, delta)
-	velocity = input * velocidade_movimento * (1.0 + move_speed_pct)
+	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
 	move_and_slide()
 	_update_health_bar()
 	if war_cry_timer > 0:
 		war_cry_timer -= delta
 		if war_cry_timer <= 0:
 			war_cry_bonus = 0
+			stats_changed.emit()
+	if hero_hour_timer > 0:
+		hero_hour_timer -= delta
+		if hero_hour_timer <= 0:
+			hero_attack_bonus = 0
+			hero_defense_bonus = 0
+			stats_changed.emit()
+	if agility_timer > 0:
+		agility_timer -= delta
+		if agility_timer <= 0:
+			agility_move_bonus = 0
+			agility_attack_bonus = 0
 			stats_changed.emit()
 	if poison_timer > 0:
 		poison_timer -= delta
@@ -125,6 +143,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func basic_attack() -> void:
 	if not can_attack:
 		return
+	if in_safe_zone:
+		message_requested.emit("Zona segura: ataques bloqueados perto dos portais.")
+		return
 	_gain_speed_attack_xp()
 	attack_requested.emit(1.0, alcance, "basic_attack")
 	_start_attack_cooldown()
@@ -134,9 +155,13 @@ func use_skill(index: int) -> void:
 	if index >= skills.size():
 		return
 	var skill: Dictionary = skills[index]
+	if in_safe_zone:
+		message_requested.emit("Zona segura: habilidades de ataque bloqueadas.")
+		return
 	if not SkillSystem.can_use(self, skill):
 		return
 	SkillSystem.cast(self, skill)
+	_add_skill_xp("magic", 4)
 	_gain_speed_attack_xp()
 	self_effect_requested.emit(str(skill.get("id", "")))
 	_start_attack_cooldown()
@@ -147,10 +172,10 @@ func _start_attack_cooldown() -> void:
 	can_attack = true
 
 func get_attack_speed() -> float:
-	return min(2.0, velocidade_ataque * (1.0 + attack_speed_pct))
+	return min(2.35, velocidade_ataque * (1.0 + attack_speed_pct + agility_attack_bonus))
 
 func get_attack_value() -> float:
-	return ataque * (1.0 + war_cry_bonus)
+	return ataque * (1.0 + war_cry_bonus + hero_attack_bonus)
 
 func receive_damage(amount: int, poison_chance: float = 0.0) -> void:
 	var final_damage := amount
@@ -163,6 +188,8 @@ func receive_damage(amount: int, poison_chance: float = 0.0) -> void:
 		if incoming_hits >= 5:
 			final_damage = int(ceil(final_damage * 0.7))
 			incoming_hits = 0
+	if hero_defense_bonus > 0:
+		final_damage = max(1, int(ceil(float(final_damage) * (1.0 - hero_defense_bonus))))
 	if final_damage > 0:
 		_take_raw_damage(final_damage)
 		_gain_defense_xp()
@@ -200,6 +227,16 @@ func spend_mana(amount: int) -> bool:
 		return false
 	mana -= reduced_amount
 	stats_changed.emit()
+	return true
+
+func pay_life_percent(percent: float) -> bool:
+	var cost: int = int(ceil(float(vida_max) * percent))
+	if vida <= int(ceil(float(vida_max) * 0.2)):
+		message_requested.emit("Seifador de Almas nao pode ser usado com 20% de vida ou menos.")
+		return false
+	if vida - cost <= 0:
+		return false
+	_take_raw_damage(cost)
 	return true
 
 func on_hit_enemy(skill_id: String = "basic_attack") -> void:
@@ -240,9 +277,9 @@ func _add_skill_xp(skill_id: String, amount: int) -> void:
 		message_requested.emit(message)
 
 func _progression_for_attack(skill_id: String) -> String:
-	if skill_id in ["fireball", "arcane_blast", "mystic_shield"]:
+	if skill_id in ["fireball", "arcane_blast", "mystic_shield", "blue_meteor", "burning_fireball", "fire_hurricane"]:
 		return "magic"
-	if skill_id in ["precise_shot", "arrow_rain"] or class_name_selected == "Arqueiro":
+	if skill_id in ["precise_shot", "arrow_rain", "stun_shot", "agility"] or class_name_selected == "Arqueiro":
 		return "distance"
 	return "fighting"
 
@@ -281,7 +318,8 @@ func recalculate_equipment() -> void:
 	var keep_mp_ratio: float = float(mana) / max(1.0, float(mana_max))
 	var base: Dictionary = class_data.get("base", {})
 	vida_max = int(base.get("vida", vida_max)) + (level - 1) * 10
-	mana_max = int(base.get("mana", mana_max)) + (level - 1) * 5
+	var magic_level := int(skills.get("magic", {}).get("level", 10))
+	mana_max = int(base.get("mana", mana_max)) + (level - 1) * 5 + max(0, magic_level - 10) * 3
 	ataque = raw_ataque
 	ataque_distancia = 0
 	defesa = raw_defesa

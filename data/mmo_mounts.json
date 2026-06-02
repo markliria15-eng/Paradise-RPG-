@@ -28,7 +28,15 @@
     "name": "Pantera Sombria",
     "rarity": "epic",
     "price": 4200,
-    "speed_bonus": 0.25,
+    "speed_bonus": 0.27,
     "desc": "Montaria epica extremamente veloz."
+  },
+  {
+    "code": "crystal_stag",
+    "name": "Cervo de Cristal",
+    "rarity": "legendary",
+    "price": 7600,
+    "speed_bonus": 0.32,
+    "desc": "Montaria lendaria de Valdoria, a mais rapida da colecao inicial."
   }
 ]

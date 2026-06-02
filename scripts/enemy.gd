@@ -22,6 +22,10 @@ var base_defesa := 0
 var base_ataque := 1
 var slow_multiplier := 1.0
 var debuff_timer := 0.0
+var stun_timer := 0.0
+var burn_timer := 0.0
+var burn_tick_timer := 0.0
+var burn_damage := 0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
@@ -33,10 +37,18 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	enemy_name = name_value
 	target = player
 	level = int(data.get("level", 1))
+	var level_range: Array = data.get("level_range", [])
+	if level_range.size() >= 2:
+		level = randi_range(int(level_range[0]), int(level_range[1]))
 	vida_max = int(data.get("vida", 1))
-	vida = vida_max
 	ataque = int(data.get("ataque", 1))
 	defesa = int(data.get("defesa", 0))
+	var base_level := int(data.get("level", level))
+	var level_bonus: int = max(0, level - base_level)
+	vida_max += level_bonus * 9
+	ataque += level_bonus * 2
+	defesa += int(floor(float(level_bonus) * 0.75))
+	vida = vida_max
 	base_ataque = ataque
 	base_defesa = defesa
 	xp = int(data.get("xp", 0))
@@ -60,6 +72,16 @@ func _physics_process(delta: float) -> void:
 			defesa = base_defesa
 			ataque = base_ataque
 			slow_multiplier = 1.0
+	if stun_timer > 0:
+		stun_timer -= delta
+		velocity = Vector2.ZERO
+		return
+	if burn_timer > 0:
+		burn_timer -= delta
+		burn_tick_timer -= delta
+		if burn_tick_timer <= 0:
+			burn_tick_timer = 1.0
+			receive_damage(max(1, burn_damage))
 	if target.in_safe_zone:
 		velocity = Vector2.ZERO
 		return
@@ -105,6 +127,16 @@ func apply_pet_debuff(kind: String, amount: float, duration: float) -> void:
 			ataque = max(1, base_ataque - int(round(amount)))
 		"slow":
 			slow_multiplier = clamp(1.0 - amount, 0.45, 1.0)
+
+func apply_stun(duration: float) -> void:
+	stun_timer = max(stun_timer, duration)
+	label.add_theme_color_override("font_color", Color("#8fd7ff"))
+
+func apply_burn(amount: int, duration: float) -> void:
+	burn_damage = max(1, amount)
+	burn_timer = max(burn_timer, duration)
+	burn_tick_timer = 1.0
+	sprite.modulate = Color(1.25, 0.78, 0.48, 1.0)
 
 func _update_health_bar() -> void:
 	if health_bar == null:

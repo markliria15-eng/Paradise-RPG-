@@ -22,6 +22,7 @@ const MENU_ITEMS := [
 	"VIP",
 	"Conquistas",
 	"Temporada",
+	"Wikipedia",
 	"Configuracoes"
 ]
 
@@ -44,4 +45,3 @@ func _build_buttons() -> void:
 			action_pressed.emit(str(item))
 		)
 		grid.add_child(button)
-
