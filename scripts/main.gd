@@ -1188,6 +1188,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 
 func _draw_map_background(map_data: Dictionary) -> void:
 	_draw_map_terrain(map_data)
+	_spawn_ground_details()
 	var title := Label.new()
 	title.text = str(map_data.get("name", "Mapa"))
 	title.position = Vector2(540, 48)
@@ -1347,13 +1348,31 @@ func _spawn_map_decor() -> void:
 			_add_world_sprite("res://assets/sprites/decor_rock.png", p, 2.0, -12)
 
 func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) -> Sprite2D:
+	if _should_cast_world_shadow(path):
+		var shadow_texture := load("res://assets/sprites/decor_shadow_soft.png") as Texture2D
+		if shadow_texture != null:
+			var shadow := Sprite2D.new()
+			shadow.texture = shadow_texture
+			shadow.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			shadow.position = pos + Vector2(0, 34 * sprite_scale)
+			shadow.scale = Vector2(sprite_scale, sprite_scale) * 0.75
+			shadow.z_index = z - 1
+			shadow.modulate = Color(1, 1, 1, 0.72)
+			world.add_child(shadow)
 	var sprite := Sprite2D.new()
 	sprite.texture = load(path)
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.position = pos
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	sprite.z_index = z
 	world.add_child(sprite)
 	return sprite
+
+func _should_cast_world_shadow(path: String) -> bool:
+	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite"]:
+		if path.find(token) >= 0:
+			return true
+	return false
 
 func _add_world_rect(rect: Rect2, color: Color, z: int) -> ColorRect:
 	var node := ColorRect.new()
@@ -1365,20 +1384,77 @@ func _add_world_rect(rect: Rect2, color: Color, z: int) -> ColorRect:
 	return node
 
 func _draw_tiled_rect(path: String, rect: Rect2, tile_size: int, z: int) -> void:
-	var texture := load(path) as Texture2D
-	if texture == null:
+	var textures := _tile_textures_for(path)
+	if textures.is_empty():
 		_add_world_rect(rect, Color("#303030"), z)
 		return
 	var cols := int(ceil(rect.size.x / float(tile_size)))
 	var rows := int(ceil(rect.size.y / float(tile_size)))
 	for y in range(rows):
 		for x in range(cols):
+			var texture := textures[abs((x * 92821 + y * 68917 + int(rect.position.x) + int(rect.position.y))) % textures.size()] as Texture2D
 			var sprite := Sprite2D.new()
 			sprite.texture = texture
+			sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 			sprite.position = rect.position + Vector2(x * tile_size + tile_size * 0.5, y * tile_size + tile_size * 0.5)
 			sprite.scale = Vector2(float(tile_size) / float(texture.get_width()), float(tile_size) / float(texture.get_height()))
 			sprite.z_index = z
 			world.add_child(sprite)
+
+func _tile_textures_for(path: String) -> Array:
+	var variants := []
+	match path:
+		"res://assets/sprites/tile_grass.png":
+			variants = ["res://assets/sprites/tile_grass_01.png", "res://assets/sprites/tile_grass_02.png", "res://assets/sprites/tile_grass_03.png", "res://assets/sprites/tile_grass_04.png"]
+		"res://assets/sprites/tile_path.png":
+			variants = ["res://assets/sprites/tile_path_01.png", "res://assets/sprites/tile_path_02.png", "res://assets/sprites/tile_path_03.png"]
+		"res://assets/sprites/tile_water.png":
+			variants = ["res://assets/sprites/tile_water_01.png", "res://assets/sprites/tile_water_02.png"]
+		"res://assets/sprites/tile_stone.png":
+			variants = ["res://assets/sprites/tile_stone_01.png", "res://assets/sprites/tile_stone_02.png"]
+		"res://assets/sprites/tile_ruin.png":
+			variants = ["res://assets/sprites/tile_ruin_01.png", "res://assets/sprites/tile_ruin_02.png"]
+		"res://assets/sprites/tile_cave_floor.png":
+			variants = ["res://assets/sprites/tile_cave_floor_01.png", "res://assets/sprites/tile_cave_floor_02.png"]
+		"res://assets/sprites/tile_arcane.png":
+			variants = ["res://assets/sprites/tile_arcane_01.png", "res://assets/sprites/tile_arcane_02.png"]
+		"res://assets/sprites/tile_sand.png":
+			variants = ["res://assets/sprites/tile_sand_01.png"]
+		_:
+			variants = [path]
+	var result := []
+	for variant_path in variants:
+		var texture := load(str(variant_path)) as Texture2D
+		if texture != null:
+			result.append(texture)
+	return result
+
+func _spawn_ground_details() -> void:
+	match current_map:
+		"city_eldoria", "city_valdoria":
+			_scatter_detail(["res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png"], 34, 0.62)
+			_scatter_detail(["res://assets/sprites/decor_sign.png", "res://assets/sprites/decor_fence.png"], 8, 0.9)
+		"forest_boars", "highland_pass":
+			_scatter_detail(["res://assets/sprites/decor_bush.png", "res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_rock.png"], 74, 0.78)
+		"bat_cave", "crystal_mines":
+			_scatter_detail(["res://assets/sprites/decor_rock.png", "res://assets/sprites/decor_stalagmite.png", "res://assets/sprites/decor_crystal.png"], 42, 0.72)
+		"arcane_ruins":
+			_scatter_detail(["res://assets/sprites/decor_crystal.png", "res://assets/sprites/decor_rock.png", "res://assets/sprites/decor_grass_tuft.png"], 46, 0.72)
+		"ember_fortress":
+			_scatter_detail(["res://assets/sprites/decor_rock.png", "res://assets/sprites/decor_fence.png"], 36, 0.74)
+
+func _scatter_detail(paths: Array, count: int, scale_base: float) -> void:
+	if paths.is_empty():
+		return
+	var rng := RandomNumberGenerator.new()
+	rng.seed = abs(current_map.hash()) + count * 97
+	for i in range(count):
+		var pos := Vector2(rng.randf_range(120, current_map_size.x - 120), rng.randf_range(140, current_map_size.y - 120))
+		if _is_point_in_safe_zone(pos):
+			continue
+		var path := str(paths[rng.randi_range(0, paths.size() - 1)])
+		var sprite := _add_world_sprite(path, pos, scale_base * rng.randf_range(0.82, 1.18), -89)
+		sprite.modulate = Color(1, 1, 1, rng.randf_range(0.88, 1.0))
 
 func _add_world_label(text: String, pos: Vector2, color: Color = Color.WHITE) -> Label:
 	var label := Label.new()

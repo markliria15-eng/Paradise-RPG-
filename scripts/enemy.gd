@@ -58,6 +58,7 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	boss = bool(data.get("boss", false))
 	sprite.texture = load(_sprite_path(name_value))
 	label.text = "BOSS Lv %d %s" % [level, name_value] if boss else "Lv %d %s" % [level, name_value]
+	_fit_sprite_to_enemy()
 	if boss:
 		sprite.scale *= 1.32
 		label.add_theme_color_override("font_color", Color("#ffd36b"))
@@ -107,6 +108,15 @@ func receive_damage(amount: int) -> void:
 	if vida <= 0:
 		killed.emit(self)
 		queue_free()
+
+func _fit_sprite_to_enemy() -> void:
+	if sprite.texture == null:
+		return
+	var target_height := 44.0
+	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
+	var sprite_scale: float = target_height / texture_height
+	sprite.scale = Vector2(sprite_scale, sprite_scale)
+	sprite.position = Vector2(0, -10)
 
 func set_targeted(value: bool) -> void:
 	is_targeted = value
@@ -177,4 +187,20 @@ func _sprite_path(name_value: String) -> String:
 			return "res://assets/sprites/enemy_aranha.png"
 		"Matriarca Venenosa":
 			return "res://assets/sprites/enemy_aranha.png"
+		"Bandido das Colinas":
+			return "res://assets/sprites/enemy_aprendiz.png"
+		"Golem de Pedra":
+			return "res://assets/sprites/decor_rock.png"
+		"Senhor das Colinas":
+			return "res://assets/sprites/enemy_javali.png"
+		"Guardiao Cristalino":
+			return "res://assets/sprites/decor_crystal.png"
+		"Draco Jovem":
+			return "res://assets/sprites/enemy_javali.png"
+		"Tita de Cristal":
+			return "res://assets/sprites/decor_crystal.png"
+		"Cavaleiro Sombrio":
+			return "res://assets/sprites/enemy_aprendiz.png"
+		"General Infernal":
+			return "res://assets/sprites/enemy_aprendiz.png"
 	return "res://assets/sprites/enemy_javali.png"

@@ -23,7 +23,7 @@ func setup(data: Dictionary) -> void:
 func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:
 		return
-	var target_height := 58.0
+	var target_height := 52.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
