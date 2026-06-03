@@ -1376,15 +1376,44 @@ func _draw_valdoria_terrain() -> void:
 	_add_world_label("Montarias", Vector2(1300, 525), Color("#ffe0a3"))
 	_add_world_label("Forja Rara", Vector2(1490, 805), Color("#ffd06b"))
 
+func _forest_main_path_points() -> Array[Vector2]:
+	return [
+		Vector2(620, 2860),
+		Vector2(680, 2630),
+		Vector2(930, 2390),
+		Vector2(1250, 2200),
+		Vector2(1040, 1910),
+		Vector2(1510, 1715),
+		Vector2(1980, 1580),
+		Vector2(2320, 1320),
+		Vector2(2790, 1160),
+		Vector2(3190, 910),
+		Vector2(3650, 750),
+		Vector2(4050, 570),
+		Vector2(4380, 430),
+		Vector2(4800, 270)
+	]
+
 func _draw_forest_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, 240, current_map_size.y), 64, -99)
-	_draw_tiled_rect("res://assets/sprites/tile_sand.png", Rect2(220, 0, 60, current_map_size.y), 64, -98)
-	_draw_path_points("res://assets/sprites/tile_path.png", [Vector2(1080, 1300), Vector2(900, 1110), Vector2(1020, 900), Vector2(760, 720), Vector2(1040, 550), Vector2(1380, 470), Vector2(1700, 330), Vector2(1900, 240)], 150, -96)
-	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(1080, 1300), 250, 135, -95)
-	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(1900, 250), 250, 150, -95)
-	_draw_tiled_blob("res://assets/sprites/tile_grass.png", Vector2(520, 760), 250, 160, -97, 64, Color("#d8bd82"))
-	_register_solid_rect(Rect2(0, 0, 170, current_map_size.y))
+	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, 255, current_map_size.y), 64, -99)
+	_draw_tiled_rect("res://assets/sprites/tile_sand.png", Rect2(235, 0, 70, current_map_size.y), 64, -98)
+	_draw_tiled_blob("res://assets/sprites/tile_water.png", Vector2(325, 760), 170, 420, -99)
+	_draw_tiled_blob("res://assets/sprites/tile_water.png", Vector2(300, 2150), 140, 520, -99)
+	_draw_path_points("res://assets/sprites/tile_path.png", _forest_main_path_points(), 175, -96)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(620, 2860), 310, 190, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(1250, 2200), 270, 170, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(1990, 1580), 330, 190, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(3190, 910), 310, 190, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(4380, 430), 340, 205, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_grass.png", Vector2(900, 2500), 360, 220, -97, 64, Color("#5d8b42"))
+	_draw_tiled_blob("res://assets/sprites/tile_grass.png", Vector2(2700, 1420), 400, 260, -97, 64, Color("#4c7b3a"))
+	_draw_tiled_blob("res://assets/sprites/tile_grass.png", Vector2(4230, 520), 420, 260, -97, 64, Color("#466d35"))
+	_register_solid_rect(Rect2(0, 0, 210, current_map_size.y))
+	_register_solid_rect(Rect2(235, 360, 250, 820))
+	_register_solid_rect(Rect2(220, 1580, 235, 1060))
+	_register_solid_rect(Rect2(0, 0, current_map_size.x, 34))
+	_register_solid_rect(Rect2(0, current_map_size.y - 34, current_map_size.x, 34))
 
 func _draw_arcane_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_arcane.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
@@ -1467,10 +1496,7 @@ func _spawn_map_decor() -> void:
 		for p in [Vector2(1495, 795), Vector2(1690, 850), Vector2(565, 620), Vector2(1300, 625)]:
 			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 1.25, -6)
 	elif current_map == "forest_boars":
-		for p in [Vector2(120, 130), Vector2(260, 230), Vector2(410, 120), Vector2(930, 160), Vector2(1110, 270), Vector2(180, 470), Vector2(1030, 490)]:
-			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 2.0, -12)
-		for p in [Vector2(330, 430), Vector2(770, 210), Vector2(920, 380)]:
-			_add_world_sprite("res://assets/sprites/decor_rock.png", p, 1.8, -12)
+		_spawn_forest_decor()
 	elif current_map == "arcane_ruins":
 		for p in [Vector2(180, 170), Vector2(1010, 165), Vector2(300, 475), Vector2(890, 430)]:
 			_add_world_sprite("res://assets/sprites/decor_crystal.png", p, 2.0, -12)
@@ -1497,6 +1523,92 @@ func _spawn_map_decor() -> void:
 		for p in [Vector2(680, 430), Vector2(1320, 460), Vector2(790, 910), Vector2(1390, 900)]:
 			_add_world_sprite("res://assets/sprites/decor_rock.png", p, 2.0, -12)
 
+func _spawn_forest_decor() -> void:
+	var path_points := _forest_main_path_points()
+	_add_world_sprite("res://assets/sprites/decor_sign.png", Vector2(790, 2630), 1.1, -8)
+	_add_world_sprite("res://assets/sprites/decor_torch.png", Vector2(510, 2775), 0.95, -8)
+	_add_world_sprite("res://assets/sprites/decor_torch.png", Vector2(745, 2795), 0.95, -8)
+	_add_world_sprite("res://assets/sprites/decor_stump.png", Vector2(910, 2540), 1.15, -11)
+	_add_world_sprite("res://assets/sprites/decor_rock.png", Vector2(1090, 2320), 1.45, -11)
+	_add_world_sprite("res://assets/sprites/decor_rock.png", Vector2(4160, 600), 1.9, -11)
+	_add_world_sprite("res://assets/sprites/decor_rock.png", Vector2(4530, 360), 1.85, -11)
+	for p in [Vector2(4210, 300), Vector2(4280, 690), Vector2(4590, 575), Vector2(4680, 430)]:
+		_add_world_sprite("res://assets/sprites/decor_tree_dark.png", p, 1.75, -12)
+	for region in [
+		Rect2(330, 120, 1260, 700),
+		Rect2(320, 850, 780, 920),
+		Rect2(370, 1800, 850, 690),
+		Rect2(1280, 210, 1040, 850),
+		Rect2(1450, 1900, 1260, 760),
+		Rect2(2450, 220, 1180, 680),
+		Rect2(2780, 1540, 1160, 780),
+		Rect2(3740, 850, 840, 1020),
+		Rect2(3980, 1740, 740, 760)
+	]:
+		_scatter_forest_prop("res://assets/sprites/decor_tree.png", region, 12, 1.45, 2.05, 150.0, -12, path_points)
+		_scatter_forest_prop("res://assets/sprites/decor_tree_dark.png", region, 8, 1.35, 1.95, 155.0, -12, path_points)
+	for region in [
+		Rect2(520, 2320, 780, 430),
+		Rect2(1080, 1720, 780, 420),
+		Rect2(1760, 1260, 900, 430),
+		Rect2(2720, 820, 760, 420),
+		Rect2(3560, 480, 780, 430)
+	]:
+		_scatter_forest_prop("res://assets/sprites/decor_rock.png", region, 10, 1.2, 1.75, 95.0, -11, path_points)
+		_scatter_forest_prop("res://assets/sprites/decor_stump.png", region, 7, 1.05, 1.35, 105.0, -11, path_points)
+		_scatter_forest_prop("res://assets/sprites/decor_bush.png", region, 12, 0.85, 1.15, 55.0, -10, path_points)
+	for p in [Vector2(710, 2220), Vector2(980, 2090), Vector2(1350, 1835), Vector2(2260, 1460), Vector2(2920, 1030), Vector2(3850, 650)]:
+		_add_world_sprite("res://assets/sprites/decor_bush.png", p, 1.05, -10)
+	for p in [Vector2(560, 2460), Vector2(1195, 2115), Vector2(1710, 1650), Vector2(2480, 1265), Vector2(3330, 820), Vector2(4430, 510)]:
+		_add_world_sprite("res://assets/sprites/decor_flower_patch.png", p, 0.82, -10)
+
+func _scatter_forest_prop(path: String, region: Rect2, count: int, min_scale: float, max_scale: float, min_path_distance: float, z: int, path_points: Array[Vector2]) -> void:
+	var placed := 0
+	var attempts := count * 9
+	for i in range(attempts):
+		if placed >= count:
+			return
+		var roll_x := _forest_noise01(float(i) + region.position.x * 0.013, float(placed) + 11.0)
+		var roll_y := _forest_noise01(float(i) + region.position.y * 0.017, float(placed) + 23.0)
+		var pos := Vector2(region.position.x + roll_x * region.size.x, region.position.y + roll_y * region.size.y)
+		if _distance_to_path_points(pos, path_points) < min_path_distance:
+			continue
+		if _is_forest_reserved_clear(pos):
+			continue
+		if _is_point_blocked(pos):
+			continue
+		var scale := lerpf(min_scale, max_scale, _forest_noise01(float(i) + 7.0, float(placed) + 31.0))
+		_add_world_sprite(path, pos, scale, z)
+		placed += 1
+
+func _forest_noise01(a: float, b: float) -> float:
+	return fposmod(sin(a * 12.9898 + b * 78.233) * 43758.5453, 1.0)
+
+func _distance_to_path_points(point: Vector2, points: Array[Vector2]) -> float:
+	var best := INF
+	for i in range(1, points.size()):
+		var a: Vector2 = points[i - 1]
+		var b: Vector2 = points[i]
+		var ab := b - a
+		var denom := maxf(1.0, ab.length_squared())
+		var t := clampf((point - a).dot(ab) / denom, 0.0, 1.0)
+		var projection := a + ab * t
+		best = minf(best, point.distance_to(projection))
+	return best
+
+func _is_forest_reserved_clear(pos: Vector2) -> bool:
+	for entry in [
+		{"center": Vector2(620, 2860), "radius": 260.0},
+		{"center": Vector2(760, 2620), "radius": 165.0},
+		{"center": Vector2(4800, 270), "radius": 240.0},
+		{"center": Vector2(4380, 430), "radius": 150.0}
+	]:
+		var center: Vector2 = entry.get("center", Vector2.ZERO)
+		var radius: float = float(entry.get("radius", 0.0))
+		if pos.distance_to(center) <= radius:
+			return true
+	return false
+
 func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) -> Sprite2D:
 	if _should_cast_world_shadow(path):
 		var shadow_texture := load("res://assets/sprites/decor_shadow_soft.png") as Texture2D
@@ -1520,7 +1632,7 @@ func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) 
 	return sprite
 
 func _should_cast_world_shadow(path: String) -> bool:
-	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite", "decor_barrel", "decor_crate", "decor_fountain", "decor_well", "decor_healer_shrine"]:
+	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite", "decor_barrel", "decor_crate", "decor_fountain", "decor_well", "decor_healer_shrine", "decor_stump", "decor_sign", "decor_torch"]:
 		if path.find(token) >= 0:
 			return true
 	return false
@@ -1544,6 +1656,10 @@ func _register_sprite_obstacle(path: String, pos: Vector2, sprite_scale: float) 
 		rect = Rect2(pos + Vector2(-18, -26) * sprite_scale, Vector2(36, 52) * sprite_scale)
 	elif path.find("decor_crystal") >= 0 and sprite_scale >= 1.45:
 		rect = Rect2(pos + Vector2(-18, -26) * sprite_scale, Vector2(36, 52) * sprite_scale)
+	elif path.find("decor_stump") >= 0 and sprite_scale >= 1.05:
+		rect = Rect2(pos + Vector2(-16, -12) * sprite_scale, Vector2(32, 26) * sprite_scale)
+	elif path.find("decor_sign") >= 0 and sprite_scale >= 1.0:
+		rect = Rect2(pos + Vector2(-10, -18) * sprite_scale, Vector2(20, 36) * sprite_scale)
 	elif path.find("decor_barrel") >= 0 or path.find("decor_crate") >= 0:
 		rect = Rect2(pos + Vector2(-16, -16) * sprite_scale, Vector2(32, 32) * sprite_scale)
 	elif path.find("decor_well") >= 0 or path.find("decor_healer_shrine") >= 0:
@@ -3327,8 +3443,10 @@ func _draw_world_map_preview(canvas: Control, map_id: String, map_size: Vector2,
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(1020, 350, 220, 900), Color("#84725a"), origin)
 		"forest_boars":
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, map_size.x, map_size.y), Color("#3f6f3e"), origin)
-			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, 240, map_size.y), Color("#2d5f9c"), origin)
-			_map_preview_rect(canvas, map_size, canvas_size, Rect2(1030, 310, 120, 980), Color("#8a7a5d"), origin)
+			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, 255, map_size.y), Color("#2d5f9c"), origin)
+			for point in _forest_main_path_points():
+				_map_preview_rect(canvas, map_size, canvas_size, Rect2(point - Vector2(82, 64), Vector2(164, 128)), Color("#8a7a5d"), origin)
+			_map_preview_rect(canvas, map_size, canvas_size, Rect2(4100, 250, 620, 430), Color("#476d33"), origin)
 		"arcane_ruins":
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, map_size.x, map_size.y), Color("#474a76"), origin)
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(350, 170, 1500, 920), Color("#6a6d93"), origin)

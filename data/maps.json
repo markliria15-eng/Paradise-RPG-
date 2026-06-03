@@ -58,8 +58,8 @@
           1180
         ],
         "spawn": [
-          1080,
-          1240
+          620,
+          2740
         ]
       }
     ]
@@ -68,13 +68,13 @@
     "name": "Floresta dos Javalis",
     "safe": false,
     "size": [
-      2200,
-      1400
+      5120,
+      3072
     ],
     "color": "#315d32",
     "spawn": [
-      1080,
-      1240
+      620,
+      2740
     ],
     "npcs": [
       {
@@ -82,8 +82,8 @@
         "role": "quest",
         "quest": "furia_javalis",
         "pos": [
-          1020,
-          1130
+          760,
+          2620
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       }
@@ -93,8 +93,8 @@
         "label": "Eldoria",
         "target": "city_eldoria",
         "pos": [
-          1080,
-          1300
+          620,
+          2860
         ],
         "spawn": [
           1080,
@@ -105,8 +105,8 @@
         "label": "Caverna",
         "target": "bat_cave",
         "pos": [
-          1900,
-          240
+          4800,
+          270
         ],
         "spawn": [
           1080,
@@ -119,74 +119,74 @@
     "safe_zones": [
       {
         "pos": [
-          1080,
-          1300
+          620,
+          2860
         ],
-        "radius": 160
+        "radius": 190
       },
       {
         "pos": [
-          1900,
-          240
+          4800,
+          270
         ],
-        "radius": 160
+        "radius": 175
       }
     ],
     "spawns": [
       {
         "enemy": "Javali Selvagem",
-        "count": 26,
+        "count": 34,
         "respawn": 6,
         "zone": [
-          760,
+          430,
+          2350,
           980,
-          650,
-          280
+          500
         ]
       },
       {
         "enemy": "Lobo Cinzento",
-        "count": 16,
+        "count": 22,
         "respawn": 10,
         "zone": [
-          500,
-          720,
-          760,
-          310
-        ]
-      },
-      {
-        "enemy": "Lobo Alfa",
-        "count": 9,
-        "respawn": 18,
-        "zone": [
           1040,
-          500,
-          620,
-          310
+          1840,
+          1180,
+          520
         ]
       },
       {
         "enemy": "Javali Bruto",
-        "count": 8,
+        "count": 18,
+        "respawn": 16,
+        "zone": [
+          2050,
+          1130,
+          1240,
+          560
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 12,
         "respawn": 22,
         "zone": [
-          1420,
-          320,
-          480,
-          280
+          3180,
+          610,
+          860,
+          470
         ]
       },
       {
         "enemy": "Rei Javali",
         "count": 1,
         "boss": true,
-        "respawn": 115,
+        "respawn": 120,
         "zone": [
-          1780,
-          235,
-          220,
-          180
+          4240,
+          335,
+          320,
+          240
         ]
       }
     ]
@@ -674,8 +674,8 @@
           1300
         ],
         "spawn": [
-          1850,
-          320
+          4560,
+          440
         ]
       },
       {
