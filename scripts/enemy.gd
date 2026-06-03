@@ -72,7 +72,7 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	label.text = "BOSS Lv %d %s" % [level, name_value] if boss else "Lv %d %s" % [level, name_value]
 	_fit_sprite_to_enemy()
 	if boss:
-		sprite.scale *= 1.32
+		sprite.scale *= 1.12
 		label.add_theme_color_override("font_color", Color("#ffd36b"))
 	visual_base_scale = sprite.scale
 	visual_base_position = sprite.position
@@ -134,14 +134,14 @@ func receive_damage(amount: int) -> void:
 func _fit_sprite_to_enemy() -> void:
 	if sprite.texture == null:
 		return
-	var target_height := 54.0
+	var target_height := 104.0 if boss else 54.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
-	sprite.position = Vector2(0, -12)
+	sprite.position = Vector2(0, -24 if boss else -12)
 	if shadow_sprite != null:
-		shadow_sprite.position = Vector2(0, 20)
-		shadow_sprite.scale = Vector2(0.72, 0.38)
+		shadow_sprite.position = Vector2(0, 32 if boss else 20)
+		shadow_sprite.scale = Vector2(1.18, 0.55) if boss else Vector2(0.72, 0.38)
 
 func _load_visual_frames(sprite_path: String) -> void:
 	idle_frames.clear()

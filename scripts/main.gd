@@ -670,56 +670,56 @@ func _build_ui() -> void:
 	ui.add_child(hp_label)
 	hp_bar = ProgressBar.new()
 	hp_bar.position = Vector2(12, 52)
-	hp_bar.size = Vector2(292, 10)
+	hp_bar.size = Vector2(224, 18)
 	hp_bar.show_percentage = false
 	var hp_bg := StyleBoxFlat.new()
-	hp_bg.bg_color = Color(0.04, 0.05, 0.08, 0.72)
-	hp_bg.border_color = Color(1, 1, 1, 0.28)
-	hp_bg.set_border_width_all(1)
-	hp_bg.set_corner_radius_all(4)
+	hp_bg.bg_color = Color(0.03, 0.035, 0.045, 0.88)
+	hp_bg.border_color = Color("#8a6a2f")
+	hp_bg.set_border_width_all(2)
+	hp_bg.set_corner_radius_all(5)
 	var hp_fill := StyleBoxFlat.new()
-	hp_fill.bg_color = Color("#c64646")
-	hp_fill.set_corner_radius_all(4)
+	hp_fill.bg_color = Color("#b83232")
+	hp_fill.set_corner_radius_all(5)
 	hp_bar.add_theme_stylebox_override("background", hp_bg)
 	hp_bar.add_theme_stylebox_override("fill", hp_fill)
 	ui.add_child(hp_bar)
 	mana_label = Label.new()
-	mana_label.position = Vector2(12, 66)
+	mana_label.position = Vector2(12, 72)
 	mana_label.add_theme_color_override("font_color", Color("#d8e5ff"))
 	mana_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(mana_label)
 	mana_bar = ProgressBar.new()
-	mana_bar.position = Vector2(12, 80)
-	mana_bar.size = Vector2(292, 10)
+	mana_bar.position = Vector2(12, 86)
+	mana_bar.size = Vector2(224, 18)
 	mana_bar.show_percentage = false
 	var mp_bg := StyleBoxFlat.new()
-	mp_bg.bg_color = Color(0.04, 0.05, 0.08, 0.72)
-	mp_bg.border_color = Color(0.50, 0.65, 1.0, 0.42)
-	mp_bg.set_border_width_all(1)
-	mp_bg.set_corner_radius_all(4)
+	mp_bg.bg_color = Color(0.03, 0.035, 0.045, 0.88)
+	mp_bg.border_color = Color("#8a6a2f")
+	mp_bg.set_border_width_all(2)
+	mp_bg.set_corner_radius_all(5)
 	var mp_fill := StyleBoxFlat.new()
-	mp_fill.bg_color = Color("#4f7dff")
-	mp_fill.set_corner_radius_all(4)
+	mp_fill.bg_color = Color("#2f5fb8")
+	mp_fill.set_corner_radius_all(5)
 	mana_bar.add_theme_stylebox_override("background", mp_bg)
 	mana_bar.add_theme_stylebox_override("fill", mp_fill)
 	ui.add_child(mana_bar)
 	xp_value_label = Label.new()
-	xp_value_label.position = Vector2(12, 94)
+	xp_value_label.position = Vector2(12, 106)
 	xp_value_label.add_theme_color_override("font_color", Color("#f8e4aa"))
 	xp_value_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(xp_value_label)
 	xp_bar = ProgressBar.new()
-	xp_bar.position = Vector2(12, 108)
-	xp_bar.size = Vector2(292, 10)
+	xp_bar.position = Vector2(12, 122)
+	xp_bar.size = Vector2(224, 18)
 	xp_bar.show_percentage = false
 	var xp_bg := StyleBoxFlat.new()
-	xp_bg.bg_color = Color(0.04, 0.05, 0.08, 0.72)
-	xp_bg.border_color = Color(1, 1, 1, 0.28)
-	xp_bg.set_border_width_all(1)
-	xp_bg.set_corner_radius_all(4)
+	xp_bg.bg_color = Color(0.03, 0.035, 0.045, 0.88)
+	xp_bg.border_color = Color("#8a6a2f")
+	xp_bg.set_border_width_all(2)
+	xp_bg.set_corner_radius_all(5)
 	var xp_fill := StyleBoxFlat.new()
-	xp_fill.bg_color = Color("#31a8ff")
-	xp_fill.set_corner_radius_all(4)
+	xp_fill.bg_color = Color("#c99a2e")
+	xp_fill.set_corner_radius_all(5)
 	xp_bar.add_theme_stylebox_override("background", xp_bg)
 	xp_bar.add_theme_stylebox_override("fill", xp_fill)
 	ui.add_child(xp_bar)
@@ -850,25 +850,49 @@ func _build_touch_controls() -> void:
 		if player != null:
 			player.use_skill(0)
 	)
+	_prepare_skill_button_feedback(skill_1)
 	skill_buttons.append(skill_1)
 	var skill_2 := _make_tap_button("2", Vector2(972, 532), Vector2(66, 60), func() -> void:
 		if player != null:
 			player.use_skill(1)
 	)
+	_prepare_skill_button_feedback(skill_2)
 	skill_buttons.append(skill_2)
 	var skill_3 := _make_tap_button("3", Vector2(1048, 474), Vector2(66, 60), func() -> void:
 		if player != null:
 			player.use_skill(2)
 	)
+	_prepare_skill_button_feedback(skill_3)
 	skill_buttons.append(skill_3)
 	interact_button = _make_tap_button("OK", Vector2(1162, 452), Vector2(60, 54), _interact)
 	_style_interact_button(interact_button)
 	inventory_button = _make_tap_button("", Vector2(1018, 78), Vector2(60, 54), _show_inventory)
 	character_button = _make_tap_button("", Vector2(1086, 78), Vector2(60, 54), _show_skills_window)
 	quests_button = _make_tap_button("", Vector2(1154, 78), Vector2(60, 54), _show_quests)
-	_style_quick_top_button(inventory_button, "res://assets/sprites/icon_slot_backpack.png", "Bolsa")
-	_style_quick_top_button(character_button, "res://assets/sprites/icon_attack_book.png", "Habilidades")
-	_style_quick_top_button(quests_button, "res://assets/sprites/drop_material.png", "Missoes")
+	_style_quick_top_button(inventory_button, "res://assets/sprites/icon_ui_bag_premium.png", "Bolsa")
+	_style_quick_top_button(character_button, "res://assets/sprites/icon_ui_skills_premium.png", "Habilidades")
+	_style_quick_top_button(quests_button, "res://assets/sprites/icon_ui_quests_premium.png", "Missoes")
+
+func _prepare_skill_button_feedback(button: Button) -> void:
+	if button == null:
+		return
+	var overlay := ColorRect.new()
+	overlay.name = "CooldownOverlay"
+	overlay.color = Color(0, 0, 0, 0.68)
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	overlay.visible = false
+	button.add_child(overlay)
+	var label := Label.new()
+	label.name = "CooldownLabel"
+	label.set_anchors_preset(Control.PRESET_FULL_RECT)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_color_override("font_color", Color.WHITE)
+	label.add_theme_font_size_override("font_size", 15)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.visible = false
+	button.add_child(label)
 
 func _style_quick_top_button(button: Button, icon_path: String, tooltip: String) -> void:
 	if button == null:
@@ -1470,7 +1494,7 @@ func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) 
 	return sprite
 
 func _should_cast_world_shadow(path: String) -> bool:
-	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite", "decor_barrel", "decor_crate", "decor_well", "decor_healer_shrine"]:
+	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite", "decor_barrel", "decor_crate", "decor_fountain", "decor_well", "decor_healer_shrine"]:
 		if path.find(token) >= 0:
 			return true
 	return false
@@ -1479,6 +1503,8 @@ func _register_sprite_obstacle(path: String, pos: Vector2, sprite_scale: float) 
 	var rect := Rect2()
 	if path.find("decor_tree") >= 0:
 		rect = Rect2(pos + Vector2(-28, -20) * sprite_scale, Vector2(56, 58) * sprite_scale)
+	elif path.find("decor_fountain") >= 0:
+		rect = Rect2(pos + Vector2(-34, -28) * sprite_scale, Vector2(68, 58) * sprite_scale)
 	elif path.find("decor_house") >= 0:
 		var texture := load(path) as Texture2D
 		if texture != null:
@@ -1819,12 +1845,34 @@ func _is_portal_blocked_by_boss(portal: Area2D) -> bool:
 	if portal == null or not bool(portal.get_meta("requires_boss_clear", false)):
 		return false
 	var boss_name := str(portal.get_meta("boss_enemy", ""))
+	if _is_boss_portal_permanently_open(current_map, boss_name):
+		return false
 	for node in get_tree().get_nodes_in_group("bosses"):
 		if node is Enemy and is_instance_valid(node):
 			var enemy := node as Enemy
 			if enemy.vida > 0 and (boss_name.is_empty() or enemy.enemy_name == boss_name):
 				return true
 	return false
+
+func _boss_portal_key(map_id: String, boss_name: String) -> String:
+	return "%s:%s" % [map_id, boss_name]
+
+func _cleared_boss_portals() -> Dictionary:
+	var current: Variant = mmo_cache.get("cleared_boss_portals", {})
+	if typeof(current) != TYPE_DICTIONARY:
+		current = {}
+		mmo_cache["cleared_boss_portals"] = current
+	return current
+
+func _is_boss_portal_permanently_open(map_id: String, boss_name: String) -> bool:
+	return bool(_cleared_boss_portals().get(_boss_portal_key(map_id, boss_name), false))
+
+func _open_boss_portal_permanently(map_id: String, boss_name: String) -> void:
+	if boss_name.is_empty():
+		return
+	var cleared := _cleared_boss_portals()
+	cleared[_boss_portal_key(map_id, boss_name)] = true
+	mmo_cache["cleared_boss_portals"] = cleared
 
 func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
@@ -1993,81 +2041,86 @@ func _spawn_basic_attack_effect(enemy: Enemy) -> void:
 		return
 	match player.class_name_selected:
 		"Mago":
-			var orb := Sprite2D.new()
-			orb.texture = load("res://assets/sprites/drop_gem.png")
-			orb.scale = Vector2(0.34, 0.34)
-			orb.modulate = Color("#8dc7ff")
-			orb.global_position = player.global_position
-			orb.z_index = 84
-			world.add_child(orb)
-			var tween_orb := create_tween()
-			tween_orb.tween_property(orb, "global_position", enemy.global_position, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-			tween_orb.parallel().tween_property(orb, "modulate", Color(1, 1, 1, 0), 0.15)
-			tween_orb.tween_callback(func() -> void:
-				if is_instance_valid(orb):
-					orb.queue_free()
-			)
+			_spawn_travel_projectile("basic_magic", enemy, "res://assets/sprites/effect_arcane_projectile.png", 0.20)
 		"Arqueiro":
-			var arrow := Sprite2D.new()
-			arrow.texture = load("res://assets/sprites/icon_skill_precise_shot.png")
-			arrow.scale = Vector2(0.46, 0.46)
-			arrow.global_position = player.global_position
-			arrow.z_index = 84
-			world.add_child(arrow)
-			arrow.rotation = (enemy.global_position - player.global_position).angle()
-			var tween_arrow := create_tween()
-			tween_arrow.tween_property(arrow, "global_position", enemy.global_position, 0.12).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-			tween_arrow.parallel().tween_property(arrow, "modulate", Color(1, 1, 1, 0), 0.12)
-			tween_arrow.tween_callback(func() -> void:
-				if is_instance_valid(arrow):
-					arrow.queue_free()
-			)
+			_spawn_travel_projectile("basic_arrow", enemy, "res://assets/sprites/effect_arrow_projectile.png", 0.15)
 		_:
-			var slash := Line2D.new()
-			slash.width = 5.0
-			slash.default_color = Color("#ffe3ad")
-			slash.z_index = 83
-			slash.add_point(Vector2(-14, -12))
-			slash.add_point(Vector2(14, 12))
-			slash.global_position = enemy.global_position + Vector2(0, -8)
-			world.add_child(slash)
-			var tween_slash := create_tween()
-			tween_slash.tween_property(slash, "modulate", Color(1, 1, 1, 0), 0.18)
-			tween_slash.tween_callback(func() -> void:
-				if is_instance_valid(slash):
-					slash.queue_free()
-			)
+			_spawn_travel_projectile("basic_slash", enemy, "res://assets/sprites/effect_slash_projectile.png", 0.13)
 
 func _spawn_skill_projectile(skill_id: String, enemy: Enemy) -> void:
 	if enemy == null or not is_instance_valid(enemy):
 		return
-	var icon_path := str(SKILL_ICON_BY_ID.get(skill_id, ""))
-	if icon_path.is_empty():
-		return
+	var icon_path := _projectile_texture_for(skill_id)
 	var effect := Sprite2D.new()
 	effect.texture = load(icon_path)
-	effect.global_position = player.global_position
-	effect.scale = Vector2(0.55, 0.55)
+	effect.global_position = player.global_position + Vector2(0, -22)
+	effect.scale = Vector2(0.82, 0.82)
 	effect.z_index = 80
 	world.add_child(effect)
 	var impact_pos := enemy.global_position
 	var tween := create_tween()
-	tween.tween_property(effect, "global_position", impact_pos, 0.22).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(effect, "rotation", effect.rotation + TAU, 0.22)
+	effect.rotation = (impact_pos - effect.global_position).angle()
+	tween.tween_property(effect, "global_position", impact_pos, 0.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(effect, "scale", Vector2(1.08, 1.08), 0.24)
 	tween.tween_callback(func() -> void:
 		_spawn_impact_effect(impact_pos, skill_id)
 		if is_instance_valid(effect):
 			effect.queue_free()
 	)
 
-func _spawn_impact_effect(pos: Vector2, skill_id: String) -> void:
-	var icon_path := str(SKILL_ICON_BY_ID.get(skill_id, ""))
-	if icon_path.is_empty():
+func _spawn_travel_projectile(skill_id: String, enemy: Enemy, texture_path: String, travel_time: float) -> void:
+	if enemy == null or not is_instance_valid(enemy):
 		return
+	var start := player.global_position + Vector2(0, -22)
+	var finish := enemy.global_position + Vector2(0, -12)
+	var projectile := Sprite2D.new()
+	projectile.texture = load(texture_path)
+	projectile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	projectile.global_position = start
+	projectile.rotation = (finish - start).angle()
+	projectile.scale = Vector2(0.85, 0.85)
+	projectile.z_index = 90
+	world.add_child(projectile)
+	var trail := Line2D.new()
+	trail.width = 5.0
+	trail.default_color = _skill_color(skill_id)
+	trail.z_index = 89
+	world.add_child(trail)
+	var tween := create_tween()
+	tween.tween_method(func(value) -> void:
+		if is_instance_valid(projectile):
+			projectile.global_position = value
+		if is_instance_valid(trail):
+			trail.add_point(value)
+			while trail.get_point_count() > 8:
+				trail.remove_point(0)
+	, start, finish, travel_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(projectile, "scale", Vector2(1.10, 1.10), travel_time)
+	tween.tween_callback(func() -> void:
+		_spawn_impact_effect(finish, skill_id)
+		if is_instance_valid(projectile):
+			projectile.queue_free()
+		if is_instance_valid(trail):
+			trail.queue_free()
+	)
+
+func _projectile_texture_for(skill_id: String) -> String:
+	if skill_id in ["blue_meteor"]:
+		return "res://assets/sprites/effect_blue_meteor_projectile.png"
+	if skill_id in ["fireball", "burning_fireball", "fire_hurricane"]:
+		return "res://assets/sprites/effect_fireball_projectile.png"
+	if skill_id in ["arcane_blast", "mystic_shield"]:
+		return "res://assets/sprites/effect_arcane_projectile.png"
+	if skill_id in ["arrow_rain", "precise_shot", "stun_shot", "quick_jump", "agility"]:
+		return "res://assets/sprites/effect_arrow_projectile.png"
+	return "res://assets/sprites/effect_slash_projectile.png"
+
+func _spawn_impact_effect(pos: Vector2, skill_id: String) -> void:
+	var icon_path := _impact_texture_for(skill_id)
 	var hit := Sprite2D.new()
 	hit.texture = load(icon_path)
 	hit.global_position = pos
-	hit.scale = Vector2(0.35, 0.35)
+	hit.scale = Vector2(0.42, 0.42)
 	hit.modulate = Color(1, 1, 1, 0.82)
 	hit.z_index = 81
 	world.add_child(hit)
@@ -2078,6 +2131,15 @@ func _spawn_impact_effect(pos: Vector2, skill_id: String) -> void:
 		if is_instance_valid(hit):
 			hit.queue_free()
 	)
+
+func _impact_texture_for(skill_id: String) -> String:
+	if skill_id in ["fireball", "burning_fireball", "fire_hurricane"]:
+		return "res://assets/sprites/effect_impact_fire.png"
+	if skill_id in ["arcane_blast", "mystic_shield", "blue_meteor", "basic_magic"]:
+		return "res://assets/sprites/effect_impact_blue.png"
+	if skill_id in ["arrow_rain", "precise_shot", "stun_shot", "quick_jump", "agility", "basic_arrow"]:
+		return "res://assets/sprites/effect_impact_arrow.png"
+	return "res://assets/sprites/effect_impact_slash.png"
 
 func _spawn_area_effect(center: Vector2, radius: float, skill_id: String) -> void:
 	var line := Line2D.new()
@@ -2138,14 +2200,12 @@ func _skill_color(skill_id: String) -> Color:
 	match skill_id:
 		"fireball", "burning_fireball", "fire_hurricane":
 			return Color("#ff8d2e")
-		"arcane_blast", "mystic_shield", "blue_meteor":
+		"arcane_blast", "mystic_shield", "blue_meteor", "basic_magic":
 			return Color("#5ca8ff")
-		"arrow_rain", "precise_shot", "quick_jump", "agility", "stun_shot":
+		"arrow_rain", "precise_shot", "quick_jump", "agility", "stun_shot", "basic_arrow":
 			return Color("#8eea77")
-		"war_cry", "heavy_slash", "blade_spin", "hero_hour", "death_area", "soul_reaper":
+		"war_cry", "heavy_slash", "blade_spin", "hero_hour", "death_area", "soul_reaper", "basic_slash":
 			return Color("#ffe4a3")
-		"fire_hurricane":
-			return Color("#9a63ff")
 	return Color("#dce7ef")
 
 func _enemy_killed(enemy: Enemy) -> void:
@@ -2153,6 +2213,7 @@ func _enemy_killed(enemy: Enemy) -> void:
 		pet_allowed_target = null
 	var spawn_data: Dictionary = enemy.get_meta("spawn_data", {})
 	var spawn_map := str(enemy.get_meta("spawn_map", current_map))
+	var was_boss := bool(enemy.boss) or bool(spawn_data.get("boss", false))
 	var result := drop_system.roll(enemy.enemy_name)
 	player.gain_xp(int(result["xp"]))
 	player.on_enemy_killed()
@@ -2162,7 +2223,15 @@ func _enemy_killed(enemy: Enemy) -> void:
 		_spawn_coin_drop(gold, enemy.global_position + Vector2(randf_range(-18, 18), randf_range(-18, 18)))
 	for item_name in result["items"]:
 		_spawn_drop(str(item_name), enemy.global_position + Vector2(randf_range(-24, 24), randf_range(-24, 24)))
-	_flash("+%d XP, moedas e drops no chao" % int(result["xp"]))
+	if was_boss:
+		_open_boss_portal_permanently(spawn_map, enemy.enemy_name)
+		if online_mode:
+			_send_online_save_state()
+		else:
+			SaveSystem.save_game(player, quest_system, current_map, exploration_by_map, mmo_cache)
+		_flash("Boss derrotado: portal liberado permanentemente.")
+	else:
+		_flash("+%d XP, moedas e drops no chao" % int(result["xp"]))
 	if not spawn_data.is_empty():
 		_schedule_enemy_respawn(enemy.enemy_name, spawn_data, spawn_map)
 
@@ -3823,6 +3892,7 @@ func _update_hud() -> void:
 	mana_bar.max_value = max(1, player.mana_max)
 	mana_bar.value = player.mana
 	_update_potion_buttons()
+	_update_skill_button_cooldowns()
 
 func _update_potion_buttons() -> void:
 	if player == null:
@@ -3839,6 +3909,36 @@ func _update_potion_buttons() -> void:
 		if count_label != null:
 			count_label.text = "x%d" % amount
 			count_label.modulate = Color(1, 1, 1, 1.0 if amount > 0 else 0.42)
+
+func _update_skill_button_cooldowns() -> void:
+	if player == null:
+		return
+	var skills: Array = player.class_data.get("skills", [])
+	for i in range(skill_buttons.size()):
+		var button := skill_buttons[i]
+		if button == null:
+			continue
+		var overlay := button.get_node_or_null("CooldownOverlay") as ColorRect
+		var label := button.get_node_or_null("CooldownLabel") as Label
+		if i >= skills.size():
+			if overlay != null:
+				overlay.visible = true
+			if label != null:
+				label.visible = false
+			button.modulate = Color(0.5, 0.5, 0.55, 1.0)
+			continue
+		var skill: Dictionary = skills[i]
+		var cooldown_left := SkillSystem.cooldown_left(skill)
+		var mana_cost := int(skill.get("mana_cost", skill.get("mana", 0)))
+		var lacks_mana := player.mana < mana_cost
+		var ready := cooldown_left <= 0.05 and not lacks_mana
+		if overlay != null:
+			overlay.visible = not ready
+			overlay.color = Color(0, 0, 0, 0.72 if cooldown_left > 0.05 else 0.48)
+		if label != null:
+			label.visible = not ready
+			label.text = "%0.1f" % cooldown_left if cooldown_left > 0.05 else "MP"
+		button.modulate = Color(1, 1, 1, 1) if ready else Color(0.45, 0.45, 0.50, 1)
 
 func _flash(text: String) -> void:
 	message_label.text = text
