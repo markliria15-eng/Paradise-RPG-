@@ -4,7 +4,7 @@
 config_version=5
 
 [application]
-config/name="Arcadia Realms 2D"
+config/name="Paradise RPG"
 run/main_scene="res://client/scenes/mmo_launcher.tscn"
 config/features=PackedStringArray("4.2")
 
