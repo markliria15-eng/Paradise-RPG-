@@ -119,14 +119,14 @@ func receive_damage(amount: int) -> void:
 func _fit_sprite_to_enemy() -> void:
 	if sprite.texture == null:
 		return
-	var target_height := 46.0
+	var target_height := 54.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
-	sprite.position = Vector2(0, -10)
+	sprite.position = Vector2(0, -12)
 	if shadow_sprite != null:
-		shadow_sprite.position = Vector2(0, 18)
-		shadow_sprite.scale = Vector2(0.62, 0.34)
+		shadow_sprite.position = Vector2(0, 20)
+		shadow_sprite.scale = Vector2(0.72, 0.38)
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:
