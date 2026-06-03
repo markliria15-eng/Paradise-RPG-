@@ -67,6 +67,8 @@ class WsGateway {
         return this._auth(socket, msg);
       case "move":
         return this.world.receiveMove(socket, msg);
+      case "character_save":
+        return this.world.handleCharacterSave(socket, msg);
       case "chat":
         return this.world.handleChat(socket, msg);
       case "pvp_attack":

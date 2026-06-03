@@ -12,6 +12,13 @@ class SaveManager {
       map: playerState.map,
       pos: playerState.pos
     });
+    if (playerState.skills) {
+      await this.saveSkills(playerState.characterId, playerState.skills);
+    }
+  }
+
+  async saveSkills(characterId, skills) {
+    await characterRepo.saveSkills(characterId, skills);
   }
 
   async saveAll(players) {
@@ -22,4 +29,3 @@ class SaveManager {
 }
 
 module.exports = SaveManager;
-

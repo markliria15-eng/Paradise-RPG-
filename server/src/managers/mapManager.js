@@ -4,7 +4,11 @@ class MapManager {
       city_eldoria: { pvp: false, width: 2200, height: 1400, safe: true },
       forest_boars: { pvp: true, width: 2200, height: 1400, safe: false },
       arcane_ruins: { pvp: true, width: 2200, height: 1400, safe: false },
-      bat_cave: { pvp: true, width: 2200, height: 1400, safe: false }
+      bat_cave: { pvp: true, width: 2200, height: 1400, safe: false },
+      city_valdoria: { pvp: false, width: 2200, height: 1400, safe: true },
+      highland_pass: { pvp: true, width: 2200, height: 1400, safe: false },
+      crystal_mines: { pvp: true, width: 2200, height: 1400, safe: false },
+      ember_fortress: { pvp: true, width: 2200, height: 1400, safe: false }
     };
   }
 
@@ -30,4 +34,3 @@ class MapManager {
 }
 
 module.exports = MapManager;
-

@@ -158,6 +158,45 @@ class WorldService {
     this.playerManager.queueMove(player.characterId, mapId, pos);
   }
 
+  async handleCharacterSave(socket, msg) {
+    const player = this.playerManager.getBySocket(socket);
+    if (!player) return;
+    const state = msg.state && typeof msg.state === "object" ? msg.state : {};
+    const mapId = this.mapManager.exists(state.map) ? state.map : player.map;
+    player.level = this._safeInt(state.level, player.level, 1, 999);
+    player.xp = this._safeInt(state.xp, player.xp, 0, 999999999);
+    player.hp = this._safeInt(state.hp, player.hp, 0, 999999);
+    player.mana = this._safeInt(state.mana, player.mana, 0, 999999);
+    player.gold = this._safeInt(state.gold, player.gold, 0, 999999999);
+    player.map = mapId;
+    player.pos = this.mapManager.clampPosition(mapId, state.pos || player.pos);
+    const skills = this._sanitizeSkills(state.skills);
+    if (skills) {
+      player.skills = skills;
+    }
+    await this.saveManager.savePlayerState(player);
+    this.transport.send(socket, { type: "character_saved", ok: true });
+  }
+
+  _safeInt(value, fallback, min, max) {
+    const parsed = Number.parseInt(value, 10);
+    if (!Number.isFinite(parsed)) return fallback;
+    return Math.max(min, Math.min(max, parsed));
+  }
+
+  _sanitizeSkills(skills) {
+    if (!skills || typeof skills !== "object") return null;
+    const result = {};
+    for (const key of ["fighting", "distance", "magic", "protection"]) {
+      const item = skills[key] && typeof skills[key] === "object" ? skills[key] : {};
+      result[key] = {
+        level: this._safeInt(item.level, 10, 1, 999),
+        xp: this._safeInt(item.xp, 0, 0, 999999999)
+      };
+    }
+    return result;
+  }
+
   processMoves(nowMs) {
     for (const [characterId, move] of this.playerManager.drainPendingMoves()) {
       const player = this.playerManager.get(characterId);

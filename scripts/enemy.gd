@@ -27,6 +27,7 @@ var burn_timer := 0.0
 var burn_tick_timer := 0.0
 var burn_damage := 0
 var safe_zone_checker: Callable
+var obstacle_checker: Callable
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
@@ -94,7 +95,11 @@ func _physics_process(delta: float) -> void:
 	health_bar.visible = true
 	if distance < 320 and distance > 34:
 		velocity = global_position.direction_to(target.global_position) * speed * slow_multiplier
+		var previous_position := global_position
 		move_and_slide()
+		if obstacle_checker.is_valid() and bool(obstacle_checker.call(global_position)):
+			global_position = previous_position
+			velocity = Vector2.ZERO
 	else:
 		velocity = Vector2.ZERO
 	if attack_timer > 0:

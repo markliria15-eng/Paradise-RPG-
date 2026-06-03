@@ -19,6 +19,7 @@ class PlayerManager {
       gold: payload.character.gold,
       map: payload.character.map,
       pos: { x: payload.character.pos_x, y: payload.character.pos_y },
+      skills: payload.character.skills || null,
       guildId: null,
       partyId: null,
       connectedAt: Date.now(),
@@ -70,4 +71,3 @@ class PlayerManager {
 }
 
 module.exports = PlayerManager;
-

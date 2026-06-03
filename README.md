@@ -192,6 +192,24 @@ npm run start
 2. Use a cena inicial configurada no projeto.
 3. Rode o jogo pelo editor ou exporte pelos presets.
 
+## Conta e save online
+
+O client agora envia autosave quando esta conectado no modo online. O servidor salva level, XP, HP, mana, ouro, mapa, posicao e skills no PostgreSQL, e o login carrega esses dados quando o jogador entra novamente.
+
+Guia completo:
+
+```text
+docs/online-contas-save.md
+```
+
+Resumo:
+
+1. Hospede o backend Node.js em Render, Railway, Fly.io, VPS ou similar.
+2. Hospede o PostgreSQL em Supabase, Neon, Railway, Render ou VPS.
+3. Rode `database/schema.sql` no banco.
+4. Configure `client/config/mmo_client_config.json` com as URLs publicas HTTP/WSS.
+5. Exporte um APK novo e publique no site.
+
 ## Versao web do jogo
 
 A pasta `website/game/` contem um placeholder.

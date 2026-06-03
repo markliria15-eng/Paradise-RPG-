@@ -1,164 +1,777 @@
 {
-  "city_eldoria": {
-    "name": "Cidade de Eldoria",
-    "safe": true,
-    "size": [2200, 1400],
-    "color": "#476b57",
-    "spawn": [1080, 760],
-    "npcs": [
-      {"name": "Helena, a Curandeira", "role": "healer", "pos": [560, 760], "sprite": "res://assets/sprites/npc_custom_3_pixel.png"},
-      {"name": "Borin, o Mercador", "role": "shop", "pos": [1320, 560], "sprite": "res://assets/sprites/npc_custom_2_pixel.png"},
-      {"name": "Brakka, a Ferreira", "role": "forge", "pos": [1510, 860], "sprite": "res://assets/sprites/npc_custom_5_pixel.png"},
-      {"name": "Arion, o Mestre de Classes", "role": "class_master", "pos": [820, 420], "sprite": "res://assets/sprites/npc_custom_1_pixel.png"}
-    ],
-    "portals": [
-      {"label": "Floresta", "target": "forest_boars", "pos": [1080, 1180]}
-    ]
-  },
-  "forest_boars": {
-    "name": "Floresta dos Javalis",
-    "safe": false,
-    "size": [2200, 1400],
-    "color": "#315d32",
-    "spawn": [1080, 1240],
-    "npcs": [{"name": "Guarda Doran", "role": "quest", "quest": "furia_javalis", "pos": [1020, 1130], "sprite": "res://assets/sprites/npc_custom_1_pixel.png"}],
-    "portals": [
-      {"label": "Eldoria", "target": "city_eldoria", "pos": [1080, 1300]},
-      {"label": "Caverna", "target": "bat_cave", "pos": [1900, 240]}
-    ],
-    "safe_zones": [
-      {"pos": [1080, 1300], "radius": 200},
-      {"pos": [1900, 240], "radius": 150}
-    ],
-    "spawns": [
-      {"enemy": "Javali Selvagem", "count": 16, "respawn": 8},
-      {"enemy": "Lobo Cinzento", "count": 10, "respawn": 12},
-      {"enemy": "Javali Bruto", "count": 4, "respawn": 18},
-      {"enemy": "Rei Javali", "count": 1, "boss": true, "respawn": 95}
-    ]
-  },
-  "arcane_ruins": {
-    "name": "Ruinas Arcanas",
-    "safe": false,
-    "size": [2200, 1400],
-    "color": "#3c3d68",
-    "spawn": [1080, 1240],
-    "npcs": [{"name": "Maga Selene", "role": "quest", "quest": "cristal_quebrado", "pos": [1035, 1130], "sprite": "res://assets/sprites/npc_custom_4_pixel.png"}],
-    "portals": [
-      {"label": "Caverna", "target": "bat_cave", "pos": [1080, 1300]},
-      {"label": "Valdoria", "target": "city_valdoria", "pos": [1900, 240]}
-    ],
-    "safe_zones": [
-      {"pos": [1080, 1300], "radius": 190},
-      {"pos": [1900, 240], "radius": 150}
-    ],
-    "spawns": [
-      {"enemy": "Aprendiz Corrompido", "count": 10, "respawn": 28},
-      {"enemy": "Espectro Arcano", "count": 8, "respawn": 34},
-      {"enemy": "Sentinela Arcano", "count": 6, "respawn": 44},
-      {"enemy": "Arquimago Corrompido", "count": 1, "boss": true, "respawn": 180}
-    ]
-  },
-  "city_valdoria": {
-    "name": "Cidade de Valdoria",
-    "safe": true,
-    "size": [2200, 1400],
-    "color": "#394b63",
-    "spawn": [1080, 760],
-    "npcs": [
-      {"name": "Mira, Vendedora de Pets", "role": "pet_shop", "pos": [620, 610], "sprite": "res://assets/sprites/npc_custom_4_pixel.png"},
-      {"name": "Torin, Mestre de Montarias", "role": "mount_shop", "pos": [1380, 610], "sprite": "res://assets/sprites/npc_custom_1_pixel.png"},
-      {"name": "Durnan, Forja Rara", "role": "rare_forge", "pos": [1560, 890], "sprite": "res://assets/sprites/npc_custom_5_pixel.png"},
-      {"name": "Liora, Curandeira", "role": "healer", "pos": [800, 880], "sprite": "res://assets/sprites/npc_custom_3_pixel.png"},
-      {"name": "Varek, Mercador", "role": "shop", "pos": [1160, 900], "sprite": "res://assets/sprites/npc_custom_2_pixel.png"}
-    ],
-    "portals": [
-      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1080, 1180]},
-      {"label": "Passagem Alta", "target": "highland_pass", "pos": [1900, 240]}
-    ]
-  },
-  "highland_pass": {
-    "name": "Passagem Alta",
-    "safe": false,
-    "size": [2200, 1400],
-    "color": "#3f6847",
-    "spawn": [1080, 1240],
-    "npcs": [],
-    "portals": [
-      {"label": "Valdoria", "target": "city_valdoria", "pos": [1080, 1300]},
-      {"label": "Minas de Cristal", "target": "crystal_mines", "pos": [1900, 240]}
-    ],
-    "safe_zones": [
-      {"pos": [1080, 1300], "radius": 190},
-      {"pos": [1900, 240], "radius": 150}
-    ],
-    "spawns": [
-      {"enemy": "Bandido das Colinas", "count": 12, "respawn": 34},
-      {"enemy": "Golem de Pedra", "count": 8, "respawn": 42},
-      {"enemy": "Senhor das Colinas", "count": 1, "boss": true, "respawn": 210}
-    ]
-  },
-  "crystal_mines": {
-    "name": "Minas de Cristal",
-    "safe": false,
-    "size": [2200, 1400],
-    "color": "#26385d",
-    "spawn": [1080, 1240],
-    "npcs": [],
-    "portals": [
-      {"label": "Passagem Alta", "target": "highland_pass", "pos": [1080, 1300]},
-      {"label": "Fortaleza de Cinzas", "target": "ember_fortress", "pos": [1900, 240]}
-    ],
-    "safe_zones": [
-      {"pos": [1080, 1300], "radius": 190},
-      {"pos": [1900, 240], "radius": 150}
-    ],
-    "spawns": [
-      {"enemy": "Guardiao Cristalino", "count": 10, "respawn": 52},
-      {"enemy": "Draco Jovem", "count": 6, "respawn": 62},
-      {"enemy": "Tita de Cristal", "count": 1, "boss": true, "respawn": 260}
-    ]
-  },
-  "ember_fortress": {
-    "name": "Fortaleza de Cinzas",
-    "safe": false,
-    "size": [2200, 1400],
-    "color": "#392728",
-    "spawn": [1080, 1240],
-    "npcs": [],
-    "portals": [
-      {"label": "Minas de Cristal", "target": "crystal_mines", "pos": [1080, 1300]}
-    ],
-    "safe_zones": [
-      {"pos": [1080, 1300], "radius": 190}
-    ],
-    "spawns": [
-      {"enemy": "Cavaleiro Sombrio", "count": 10, "respawn": 72},
-      {"enemy": "Draco Jovem", "count": 6, "respawn": 70},
-      {"enemy": "General Infernal", "count": 1, "boss": true, "respawn": 320}
-    ]
-  },
-  "bat_cave": {
-    "name": "Caverna dos Morcegos",
-    "safe": false,
-    "size": [2200, 1400],
-    "color": "#252835",
-    "spawn": [1080, 1240],
-    "npcs": [{"name": "Cacador Rurik", "role": "quest", "quest": "sombras_caverna", "pos": [1030, 1130], "sprite": "res://assets/sprites/npc_custom_2_pixel.png"}],
-    "portals": [
-      {"label": "Floresta", "target": "forest_boars", "pos": [1080, 1300]},
-      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1900, 240]}
-    ],
-    "safe_zones": [
-      {"pos": [1080, 1300], "radius": 190},
-      {"pos": [1900, 240], "radius": 150}
-    ],
-    "spawns": [
-      {"enemy": "Morcego Pequeno", "count": 12, "respawn": 18},
-      {"enemy": "Aranha Venenosa", "count": 12, "respawn": 22},
-      {"enemy": "Morcego Sombrio", "count": 8, "respawn": 28},
-      {"enemy": "Aranha Rainha", "count": 3, "respawn": 38},
-      {"enemy": "Matriarca Venenosa", "count": 1, "boss": true, "respawn": 135}
-    ]
-  }
+    "city_eldoria":  {
+                         "name":  "Cidade de Eldoria",
+                         "safe":  true,
+                         "size":  [
+                                      2200,
+                                      1400
+                                  ],
+                         "color":  "#476b57",
+                         "spawn":  [
+                                       1080,
+                                       760
+                                   ],
+                         "npcs":  [
+                                      {
+                                          "name":  "Helena, a Curandeira",
+                                          "role":  "healer",
+                                          "pos":  [
+                                                      560,
+                                                      760
+                                                  ],
+                                          "sprite":  "res://assets/sprites/npc_custom_3_pixel.png"
+                                      },
+                                      {
+                                          "name":  "Borin, o Mercador",
+                                          "role":  "shop",
+                                          "pos":  [
+                                                      1320,
+                                                      560
+                                                  ],
+                                          "sprite":  "res://assets/sprites/npc_custom_2_pixel.png"
+                                      },
+                                      {
+                                          "name":  "Brakka, a Ferreira",
+                                          "role":  "forge",
+                                          "pos":  [
+                                                      1510,
+                                                      860
+                                                  ],
+                                          "sprite":  "res://assets/sprites/npc_custom_5_pixel.png"
+                                      },
+                                      {
+                                          "name":  "Arion, o Mestre de Classes",
+                                          "role":  "class_master",
+                                          "pos":  [
+                                                      820,
+                                                      420
+                                                  ],
+                                          "sprite":  "res://assets/sprites/npc_custom_1_pixel.png"
+                                      }
+                                  ],
+                         "portals":  [
+                                         {
+                                             "label":  "Floresta",
+                                             "target":  "forest_boars",
+                                             "pos":  [
+                                                         1080,
+                                                         1180
+                                                     ],
+                                             "spawn":  [
+                                                           1080,
+                                                           1240
+                                                       ]
+                                         }
+                                     ]
+                     },
+    "forest_boars":  {
+                         "name":  "Floresta dos Javalis",
+                         "safe":  false,
+                         "size":  [
+                                      2200,
+                                      1400
+                                  ],
+                         "color":  "#315d32",
+                         "spawn":  [
+                                       1080,
+                                       1240
+                                   ],
+                         "npcs":  [
+                                      {
+                                          "name":  "Guarda Doran",
+                                          "role":  "quest",
+                                          "quest":  "furia_javalis",
+                                          "pos":  [
+                                                      1020,
+                                                      1130
+                                                  ],
+                                          "sprite":  "res://assets/sprites/npc_custom_1_pixel.png"
+                                      }
+                                  ],
+                         "portals":  [
+                                         {
+                                             "label":  "Eldoria",
+                                             "target":  "city_eldoria",
+                                             "pos":  [
+                                                         1080,
+                                                         1300
+                                                     ],
+                                             "spawn":  [
+                                                           1080,
+                                                           1120
+                                                       ]
+                                         },
+                                         {
+                                             "label":  "Caverna",
+                                             "target":  "bat_cave",
+                                             "pos":  [
+                                                         1900,
+                                                         240
+                                                     ],
+                                             "spawn":  [
+                                                           1080,
+                                                           1240
+                                                       ],
+                                             "requires_boss_clear":  true,
+                                             "boss_enemy":  "Rei Javali"
+                                         }
+                                     ],
+                         "safe_zones":  [
+                                            {
+                                                "pos":  [
+                                                            1080,
+                                                            1300
+                                                        ],
+                                                "radius":  200
+                                            },
+                                            {
+                                                "pos":  [
+                                                            1900,
+                                                            240
+                                                        ],
+                                                "radius":  150
+                                            }
+                                        ],
+                         "spawns":  [
+                                        {
+                                            "enemy":  "Javali Selvagem",
+                                            "count":  16,
+                                            "respawn":  8,
+                                            "zone":  [
+                                                         780,
+                                                         980,
+                                                         520,
+                                                         260
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Lobo Cinzento",
+                                            "count":  10,
+                                            "respawn":  12,
+                                            "zone":  [
+                                                         620,
+                                                         560,
+                                                         680,
+                                                         360
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Lobo Alfa",
+                                            "count":  5,
+                                            "respawn":  22,
+                                            "zone":  [
+                                                         1320,
+                                                         420,
+                                                         430,
+                                                         300
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Javali Bruto",
+                                            "count":  4,
+                                            "respawn":  18,
+                                            "zone":  [
+                                                         1450,
+                                                         260,
+                                                         430,
+                                                         260
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Rei Javali",
+                                            "count":  1,
+                                            "boss":  true,
+                                            "respawn":  95,
+                                            "zone":  [
+                                                         1780,
+                                                         250,
+                                                         180,
+                                                         150
+                                                     ]
+                                        }
+                                    ]
+                     },
+    "arcane_ruins":  {
+                         "name":  "Ruinas Arcanas",
+                         "safe":  false,
+                         "size":  [
+                                      2200,
+                                      1400
+                                  ],
+                         "color":  "#3c3d68",
+                         "spawn":  [
+                                       1080,
+                                       1240
+                                   ],
+                         "npcs":  [
+                                      {
+                                          "name":  "Maga Selene",
+                                          "role":  "quest",
+                                          "quest":  "cristal_quebrado",
+                                          "pos":  [
+                                                      1035,
+                                                      1130
+                                                  ],
+                                          "sprite":  "res://assets/sprites/npc_custom_4_pixel.png"
+                                      }
+                                  ],
+                         "portals":  [
+                                         {
+                                             "label":  "Caverna",
+                                             "target":  "bat_cave",
+                                             "pos":  [
+                                                         1080,
+                                                         1300
+                                                     ],
+                                             "spawn":  [
+                                                           1850,
+                                                           320
+                                                       ]
+                                         },
+                                         {
+                                             "label":  "Valdoria",
+                                             "target":  "city_valdoria",
+                                             "pos":  [
+                                                         1900,
+                                                         240
+                                                     ],
+                                             "spawn":  [
+                                                           1080,
+                                                           1100
+                                                       ],
+                                             "requires_boss_clear":  true,
+                                             "boss_enemy":  "Arquimago Corrompido"
+                                         }
+                                     ],
+                         "safe_zones":  [
+                                            {
+                                                "pos":  [
+                                                            1080,
+                                                            1300
+                                                        ],
+                                                "radius":  190
+                                            },
+                                            {
+                                                "pos":  [
+                                                            1900,
+                                                            240
+                                                        ],
+                                                "radius":  150
+                                            }
+                                        ],
+                         "spawns":  [
+                                        {
+                                            "enemy":  "Espirito Fraco",
+                                            "count":  12,
+                                            "respawn":  20,
+                                            "zone":  [
+                                                         820,
+                                                         980,
+                                                         520,
+                                                         260
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Aprendiz Corrompido",
+                                            "count":  10,
+                                            "respawn":  26,
+                                            "zone":  [
+                                                         610,
+                                                         650,
+                                                         680,
+                                                         320
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Espectro Arcano",
+                                            "count":  8,
+                                            "respawn":  34,
+                                            "zone":  [
+                                                         650,
+                                                         560,
+                                                         760,
+                                                         360
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Sentinela Arcano",
+                                            "count":  6,
+                                            "respawn":  44,
+                                            "zone":  [
+                                                         1340,
+                                                         330,
+                                                         520,
+                                                         300
+                                                     ]
+                                        },
+                                        {
+                                            "enemy":  "Arquimago Corrompido",
+                                            "count":  1,
+                                            "boss":  true,
+                                            "respawn":  180,
+                                            "zone":  [
+                                                         1780,
+                                                         250,
+                                                         190,
+                                                         160
+                                                     ]
+                                        }
+                                    ]
+                     },
+    "city_valdoria":  {
+                          "name":  "Valdoria Cidade",
+                          "safe":  true,
+                          "size":  [
+                                       2200,
+                                       1400
+                                   ],
+                          "color":  "#394b63",
+                          "spawn":  [
+                                        1080,
+                                        760
+                                    ],
+                          "npcs":  [
+                                       {
+                                           "name":  "Mira, Vendedora de Pets",
+                                           "role":  "pet_shop",
+                                           "pos":  [
+                                                       620,
+                                                       610
+                                                   ],
+                                           "sprite":  "res://assets/sprites/npc_custom_4_pixel.png"
+                                       },
+                                       {
+                                           "name":  "Torin, Mestre de Montarias",
+                                           "role":  "mount_shop",
+                                           "pos":  [
+                                                       1380,
+                                                       610
+                                                   ],
+                                           "sprite":  "res://assets/sprites/npc_custom_1_pixel.png"
+                                       },
+                                       {
+                                           "name":  "Durnan, Forja Rara",
+                                           "role":  "rare_forge",
+                                           "pos":  [
+                                                       1560,
+                                                       890
+                                                   ],
+                                           "sprite":  "res://assets/sprites/npc_custom_5_pixel.png"
+                                       },
+                                       {
+                                           "name":  "Liora, Curandeira",
+                                           "role":  "healer",
+                                           "pos":  [
+                                                       800,
+                                                       880
+                                                   ],
+                                           "sprite":  "res://assets/sprites/npc_custom_3_pixel.png"
+                                       },
+                                       {
+                                           "name":  "Varek, Mercador",
+                                           "role":  "shop",
+                                           "pos":  [
+                                                       1160,
+                                                       900
+                                                   ],
+                                           "sprite":  "res://assets/sprites/npc_custom_2_pixel.png"
+                                       }
+                                   ],
+                          "portals":  [
+                                          {
+                                              "label":  "Ruinas",
+                                              "target":  "arcane_ruins",
+                                              "pos":  [
+                                                          1080,
+                                                          1180
+                                                      ],
+                                              "spawn":  [
+                                                            1850,
+                                                            320
+                                                        ]
+                                          },
+                                          {
+                                              "label":  "Passagem Alta",
+                                              "target":  "highland_pass",
+                                              "pos":  [
+                                                          1900,
+                                                          240
+                                                      ],
+                                              "spawn":  [
+                                                            1080,
+                                                            1240
+                                                        ]
+                                          }
+                                      ]
+                      },
+    "highland_pass":  {
+                          "name":  "Passagem Alta",
+                          "safe":  false,
+                          "size":  [
+                                       2200,
+                                       1400
+                                   ],
+                          "color":  "#3f6847",
+                          "spawn":  [
+                                        1080,
+                                        1240
+                                    ],
+                          "npcs":  [
+
+                                   ],
+                          "portals":  [
+                                          {
+                                              "label":  "Valdoria",
+                                              "target":  "city_valdoria",
+                                              "pos":  [
+                                                          1080,
+                                                          1300
+                                                      ]
+                                          },
+                                          {
+                                              "label":  "Minas de Cristal",
+                                              "target":  "crystal_mines",
+                                              "pos":  [
+                                                          1900,
+                                                          240
+                                                      ]
+                                          }
+                                      ],
+                          "safe_zones":  [
+                                             {
+                                                 "pos":  [
+                                                             1080,
+                                                             1300
+                                                         ],
+                                                 "radius":  190
+                                             },
+                                             {
+                                                 "pos":  [
+                                                             1900,
+                                                             240
+                                                         ],
+                                                 "radius":  150
+                                             }
+                                         ],
+                          "spawns":  [
+                                         {
+                                             "enemy":  "Bandido das Colinas",
+                                             "count":  12,
+                                             "respawn":  34,
+                                             "zone":  [
+                                                          760,
+                                                          960,
+                                                          560,
+                                                          280
+                                                      ]
+                                         },
+                                         {
+                                             "enemy":  "Golem de Pedra",
+                                             "count":  8,
+                                             "respawn":  42,
+                                             "zone":  [
+                                                          720,
+                                                          520,
+                                                          780,
+                                                          360
+                                                      ]
+                                         },
+                                         {
+                                             "enemy":  "Senhor das Colinas",
+                                             "count":  1,
+                                             "boss":  true,
+                                             "respawn":  210,
+                                             "zone":  [
+                                                          1780,
+                                                          250,
+                                                          190,
+                                                          160
+                                                      ]
+                                         }
+                                     ]
+                      },
+    "crystal_mines":  {
+                          "name":  "Minas de Cristal",
+                          "safe":  false,
+                          "size":  [
+                                       2200,
+                                       1400
+                                   ],
+                          "color":  "#26385d",
+                          "spawn":  [
+                                        1080,
+                                        1240
+                                    ],
+                          "npcs":  [
+
+                                   ],
+                          "portals":  [
+                                          {
+                                              "label":  "Passagem Alta",
+                                              "target":  "highland_pass",
+                                              "pos":  [
+                                                          1080,
+                                                          1300
+                                                      ]
+                                          },
+                                          {
+                                              "label":  "Fortaleza de Cinzas",
+                                              "target":  "ember_fortress",
+                                              "pos":  [
+                                                          1900,
+                                                          240
+                                                      ]
+                                          }
+                                      ],
+                          "safe_zones":  [
+                                             {
+                                                 "pos":  [
+                                                             1080,
+                                                             1300
+                                                         ],
+                                                 "radius":  190
+                                             },
+                                             {
+                                                 "pos":  [
+                                                             1900,
+                                                             240
+                                                         ],
+                                                 "radius":  150
+                                             }
+                                         ],
+                          "spawns":  [
+                                         {
+                                             "enemy":  "Guardiao Cristalino",
+                                             "count":  10,
+                                             "respawn":  52,
+                                             "zone":  [
+                                                          770,
+                                                          900,
+                                                          620,
+                                                          320
+                                                      ]
+                                         },
+                                         {
+                                             "enemy":  "Draco Jovem",
+                                             "count":  6,
+                                             "respawn":  62,
+                                             "zone":  [
+                                                          1260,
+                                                          420,
+                                                          560,
+                                                          340
+                                                      ]
+                                         },
+                                         {
+                                             "enemy":  "Tita de Cristal",
+                                             "count":  1,
+                                             "boss":  true,
+                                             "respawn":  260,
+                                             "zone":  [
+                                                          1780,
+                                                          250,
+                                                          190,
+                                                          160
+                                                      ]
+                                         }
+                                     ]
+                      },
+    "ember_fortress":  {
+                           "name":  "Fortaleza de Cinzas",
+                           "safe":  false,
+                           "size":  [
+                                        2200,
+                                        1400
+                                    ],
+                           "color":  "#392728",
+                           "spawn":  [
+                                         1080,
+                                         1240
+                                     ],
+                           "npcs":  [
+
+                                    ],
+                           "portals":  [
+                                           {
+                                               "label":  "Minas de Cristal",
+                                               "target":  "crystal_mines",
+                                               "pos":  [
+                                                           1080,
+                                                           1300
+                                                       ]
+                                           }
+                                       ],
+                           "safe_zones":  [
+                                              {
+                                                  "pos":  [
+                                                              1080,
+                                                              1300
+                                                          ],
+                                                  "radius":  190
+                                              }
+                                          ],
+                           "spawns":  [
+                                          {
+                                              "enemy":  "Cavaleiro Sombrio",
+                                              "count":  10,
+                                              "respawn":  72,
+                                              "zone":  [
+                                                           760,
+                                                           880,
+                                                           620,
+                                                           360
+                                                       ]
+                                          },
+                                          {
+                                              "enemy":  "Draco Jovem",
+                                              "count":  6,
+                                              "respawn":  70,
+                                              "zone":  [
+                                                           1260,
+                                                           430,
+                                                           560,
+                                                           340
+                                                       ]
+                                          },
+                                          {
+                                              "enemy":  "General Infernal",
+                                              "count":  1,
+                                              "boss":  true,
+                                              "respawn":  320,
+                                              "zone":  [
+                                                           1720,
+                                                           260,
+                                                           230,
+                                                           190
+                                                       ]
+                                          }
+                                      ]
+                       },
+    "bat_cave":  {
+                     "name":  "Caverna dos Morcegos",
+                     "safe":  false,
+                     "size":  [
+                                  2200,
+                                  1400
+                              ],
+                     "color":  "#252835",
+                     "spawn":  [
+                                   1080,
+                                   1240
+                               ],
+                     "npcs":  [
+                                  {
+                                      "name":  "Cacador Rurik",
+                                      "role":  "quest",
+                                      "quest":  "sombras_caverna",
+                                      "pos":  [
+                                                  1030,
+                                                  1130
+                                              ],
+                                      "sprite":  "res://assets/sprites/npc_custom_2_pixel.png"
+                                  }
+                              ],
+                     "portals":  [
+                                     {
+                                         "label":  "Floresta",
+                                         "target":  "forest_boars",
+                                         "pos":  [
+                                                     1080,
+                                                     1300
+                                                 ],
+                                         "spawn":  [
+                                                       1850,
+                                                       320
+                                                   ]
+                                     },
+                                     {
+                                         "label":  "Ruinas",
+                                         "target":  "arcane_ruins",
+                                         "pos":  [
+                                                     1900,
+                                                     240
+                                                 ],
+                                         "spawn":  [
+                                                       1080,
+                                                       1240
+                                                   ],
+                                         "requires_boss_clear":  true,
+                                         "boss_enemy":  "Matriarca Venenosa"
+                                     }
+                                 ],
+                     "safe_zones":  [
+                                        {
+                                            "pos":  [
+                                                        1080,
+                                                        1300
+                                                    ],
+                                            "radius":  190
+                                        },
+                                        {
+                                            "pos":  [
+                                                        1900,
+                                                        240
+                                                    ],
+                                            "radius":  150
+                                        }
+                                    ],
+                     "spawns":  [
+                                    {
+                                        "enemy":  "Morcego Pequeno",
+                                        "count":  12,
+                                        "respawn":  18,
+                                        "zone":  [
+                                                     840,
+                                                     980,
+                                                     480,
+                                                     270
+                                                 ]
+                                    },
+                                    {
+                                        "enemy":  "Aranha Venenosa",
+                                        "count":  12,
+                                        "respawn":  22,
+                                        "zone":  [
+                                                     500,
+                                                     700,
+                                                     620,
+                                                     360
+                                                 ]
+                                    },
+                                    {
+                                        "enemy":  "Morcego Sombrio",
+                                        "count":  8,
+                                        "respawn":  28,
+                                        "zone":  [
+                                                     1180,
+                                                     500,
+                                                     560,
+                                                     300
+                                                 ]
+                                    },
+                                    {
+                                        "enemy":  "Aranha Rainha",
+                                        "count":  3,
+                                        "respawn":  38,
+                                        "zone":  [
+                                                     1460,
+                                                     300,
+                                                     420,
+                                                     240
+                                                 ]
+                                    },
+                                    {
+                                        "enemy":  "Matriarca Venenosa",
+                                        "count":  1,
+                                        "boss":  true,
+                                        "respawn":  135,
+                                        "zone":  [
+                                                     1780,
+                                                     250,
+                                                     190,
+                                                     160
+                                                 ]
+                                    }
+                                ]
+                 }
 }

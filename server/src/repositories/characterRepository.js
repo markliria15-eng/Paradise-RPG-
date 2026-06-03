@@ -6,6 +6,40 @@ const START_BY_CLASS = {
   Arqueiro: { hp: 110, mana: 80 }
 };
 
+function formatSkills(row) {
+  const required = (level) => 100 + Number(level || 10) * 25;
+  const fightingLevel = Number(row.fighting_level || 10);
+  const distanceLevel = Number(row.distance_level || 10);
+  const magicLevel = Number(row.magic_level || 10);
+  const protectionLevel = Number(row.protection_level || 10);
+  return {
+    fighting: { name: "Lutando", level: fightingLevel, xp: Number(row.fighting_xp || 0), xp_required: required(fightingLevel) },
+    distance: { name: "Distancia", level: distanceLevel, xp: Number(row.distance_xp || 0), xp_required: required(distanceLevel) },
+    magic: { name: "Magica", level: magicLevel, xp: Number(row.magic_xp || 0), xp_required: required(magicLevel) },
+    protection: { name: "Protecao", level: protectionLevel, xp: Number(row.protection_xp || 0), xp_required: required(protectionLevel) }
+  };
+}
+
+function withSkills(row) {
+  if (!row) return null;
+  const character = {
+    id: row.id,
+    account_id: row.account_id,
+    name: row.name,
+    class: row.class,
+    level: row.level,
+    xp: row.xp,
+    hp: row.hp,
+    mana: row.mana,
+    gold: row.gold,
+    map: row.map,
+    pos_x: row.pos_x,
+    pos_y: row.pos_y
+  };
+  character.skills = formatSkills(row);
+  return character;
+}
+
 async function createCharacter({ accountId, name, className }) {
   const start = START_BY_CLASS[className] || START_BY_CLASS.Guerreiro;
   const sql = `
@@ -17,15 +51,20 @@ async function createCharacter({ accountId, name, className }) {
   const character = result.rows[0];
   await pool.query("INSERT INTO skills (character_id) VALUES ($1) ON CONFLICT (character_id) DO NOTHING", [character.id]);
   await pool.query("INSERT INTO equipment (character_id) VALUES ($1) ON CONFLICT (character_id) DO NOTHING", [character.id]);
-  return character;
+  return findById(character.id);
 }
 
 async function findById(characterId) {
   const result = await pool.query(
-    "SELECT id, account_id, name, class, level, xp, hp, mana, gold, map, pos_x, pos_y FROM characters WHERE id = $1",
+    `SELECT c.id, c.account_id, c.name, c.class, c.level, c.xp, c.hp, c.mana, c.gold, c.map, c.pos_x, c.pos_y,
+            s.fighting_level, s.fighting_xp, s.distance_level, s.distance_xp,
+            s.magic_level, s.magic_xp, s.protection_level, s.protection_xp
+     FROM characters c
+     LEFT JOIN skills s ON s.character_id = c.id
+     WHERE c.id = $1`,
     [characterId]
   );
-  return result.rows[0] || null;
+  return withSkills(result.rows[0]);
 }
 
 async function findByName(name) {
@@ -35,10 +74,16 @@ async function findByName(name) {
 
 async function listByAccount(accountId) {
   const result = await pool.query(
-    "SELECT id, account_id, name, class, level, xp, hp, mana, gold, map, pos_x, pos_y FROM characters WHERE account_id = $1 ORDER BY id ASC",
+    `SELECT c.id, c.account_id, c.name, c.class, c.level, c.xp, c.hp, c.mana, c.gold, c.map, c.pos_x, c.pos_y,
+            s.fighting_level, s.fighting_xp, s.distance_level, s.distance_xp,
+            s.magic_level, s.magic_xp, s.protection_level, s.protection_xp
+     FROM characters c
+     LEFT JOIN skills s ON s.character_id = c.id
+     WHERE c.account_id = $1
+     ORDER BY c.id ASC`,
     [accountId]
   );
-  return result.rows;
+  return result.rows.map(withSkills);
 }
 
 async function upsertState(state) {
@@ -95,4 +140,3 @@ module.exports = {
   upsertState,
   saveSkills
 };
-

@@ -119,6 +119,7 @@ var current_map_size := DEFAULT_MAP_SIZE
 var touch_buttons: Array[Button] = []
 var attack_button: Button
 var skill_buttons: Array[Button] = []
+var interact_button: Button
 var inventory_button: Button
 var character_button: Button
 var quests_button: Button
@@ -135,6 +136,7 @@ var mmo_client: Node
 var online_mode := false
 var remote_players: Dictionary = {}
 var net_move_accumulator := 0.0
+var online_save_accumulator := 0.0
 var mmo_cache: Dictionary = {}
 var ui_input_lock_until := 0.0
 var ui_controls_enabled := true
@@ -150,6 +152,8 @@ var pet_attack_timer := 0.0
 var pet_allowed_target: Enemy
 var companion_anim_time := 0.0
 var dialog_bubble: PanelContainer
+var solid_obstacles: Array[Rect2] = []
+var last_valid_player_position := Vector2.ZERO
 
 func _ready() -> void:
 	randomize()
@@ -176,6 +180,7 @@ func _notification(what: int) -> void:
 func _process(delta: float) -> void:
 	if player == null:
 		return
+	_enforce_world_collision()
 	regen_timer += delta
 	if regen_timer >= 1.0:
 		regen_timer = 0
@@ -193,6 +198,10 @@ func _process(delta: float) -> void:
 		if net_move_accumulator >= 0.12:
 			net_move_accumulator = 0.0
 			mmo_client.call("send_move", current_map, player.global_position)
+		online_save_accumulator += delta
+		if online_save_accumulator >= 8.0:
+			online_save_accumulator = 0.0
+			_send_online_save_state()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player == null:
@@ -207,7 +216,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_interact()
 	elif event.is_action_pressed("save_game"):
 		if online_mode:
-			_flash("Modo online: save feito pelo servidor.")
+			_send_online_save_state()
+			_flash("Modo online: progresso enviado ao servidor.")
 		else:
 			SaveSystem.save_game(player, quest_system, current_map, exploration_by_map, mmo_cache)
 			_flash("Jogo salvo.")
@@ -278,6 +288,9 @@ func _start_online_game_from_session() -> void:
 	player.ouro = int(character.get("gold", 0))
 	player.vida = int(character.get("hp", player.vida_max))
 	player.mana = int(character.get("mana", player.mana_max))
+	if character.has("skills") and typeof(character["skills"]) == TYPE_DICTIONARY:
+		player.skills = character["skills"]
+		_normalize_player_skills()
 	player.recalculate_equipment()
 	_connect_player()
 	_update_action_icons()
@@ -288,6 +301,33 @@ func _start_online_game_from_session() -> void:
 
 func flash_online_help() -> void:
 	_flash("Online conectado. Outros jogadores serao sincronizados automaticamente.")
+
+func _send_online_save_state() -> void:
+	if not online_mode or mmo_client == null or player == null:
+		return
+	mmo_client.call("send_character_save", {
+		"level": player.level,
+		"xp": player.xp,
+		"hp": player.vida,
+		"mana": player.mana,
+		"gold": player.ouro,
+		"map": current_map,
+		"pos": {"x": player.global_position.x, "y": player.global_position.y},
+		"skills": player.skills
+	})
+
+func _normalize_player_skills() -> void:
+	if player == null:
+		return
+	var defaults := SkillProgressionSystem.default_skills()
+	for skill_id in defaults.keys():
+		var base: Dictionary = defaults[skill_id]
+		var current: Dictionary = player.skills.get(skill_id, {})
+		current["name"] = str(current.get("name", base.get("name", skill_id)))
+		current["level"] = int(current.get("level", base.get("level", 10)))
+		current["xp"] = int(current.get("xp", base.get("xp", 0)))
+		current["xp_required"] = SkillProgressionSystem.xp_required(int(current["level"]))
+		player.skills[skill_id] = current
 
 func _pick_online_character(payload: Dictionary) -> Dictionary:
 	var selected_id := int(mmo_client.get("selected_character_id"))
@@ -460,6 +500,9 @@ func _on_mmo_world_message(payload: Dictionary) -> void:
 			if current_panel == "market":
 				if mmo_client != null:
 					mmo_client.call("request_market")
+		"character_saved":
+			if bool(payload.get("ok", false)):
+				_flash("Progresso online salvo.")
 		"dungeon_started":
 			_flash("Dungeon iniciada: %s" % str(payload.get("dungeon", {}).get("name", "instancia")))
 		"error":
@@ -818,7 +861,8 @@ func _build_touch_controls() -> void:
 			player.use_skill(2)
 	)
 	skill_buttons.append(skill_3)
-	_make_tap_button("🆗", Vector2(1162, 452), Vector2(60, 54), _interact)
+	interact_button = _make_tap_button("OK", Vector2(1162, 452), Vector2(60, 54), _interact)
+	_style_interact_button(interact_button)
 	inventory_button = _make_tap_button("", Vector2(1018, 78), Vector2(60, 54), _show_inventory)
 	character_button = _make_tap_button("", Vector2(1086, 78), Vector2(60, 54), _show_skills_window)
 	quests_button = _make_tap_button("", Vector2(1154, 78), Vector2(60, 54), _show_quests)
@@ -845,6 +889,28 @@ func _style_quick_top_button(button: Button, icon_path: String, tooltip: String)
 	button.icon = load(icon_path)
 	button.expand_icon = true
 	button.tooltip_text = tooltip
+
+func _style_interact_button(button: Button) -> void:
+	if button == null:
+		return
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = Color(0.08, 0.13, 0.08, 0.94)
+	normal.border_color = Color("#89ff88")
+	normal.set_border_width_all(2)
+	normal.set_corner_radius_all(12)
+	var pressed := StyleBoxFlat.new()
+	pressed.bg_color = Color(0.14, 0.32, 0.14, 0.98)
+	pressed.border_color = Color("#d8ffd2")
+	pressed.set_border_width_all(2)
+	pressed.set_corner_radius_all(12)
+	button.text = "OK"
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", normal)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_color_override("font_color", Color("#f5fff0"))
+	button.add_theme_color_override("font_pressed_color", Color.WHITE)
+	button.add_theme_font_size_override("font_size", 18)
+	button.tooltip_text = "Interagir"
 
 func _build_side_menu() -> void:
 	side_menu_toggle_button = Button.new()
@@ -1118,7 +1184,7 @@ func _start_new_game(chosen_class: String) -> void:
 	_connect_player()
 	_update_action_icons()
 	_load_map("city_eldoria", Vector2(1080, 760))
-	_flash("Bem-vindo a Cidade de Eldoria. Use OK/E para interagir.")
+	_flash("Bem-vindo a Cidade de Eldoria. Use OK para interagir.")
 
 func _spawn_player_from_save(save: Dictionary) -> void:
 	if online_mode:
@@ -1166,6 +1232,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	current_map = map_id
 	_ensure_map_exploration(map_id)
 	safe_zone_nodes.clear()
+	solid_obstacles.clear()
 	for child in world.get_children():
 		if child != player:
 			child.queue_free()
@@ -1176,6 +1243,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	if player != null:
 		var spawn: Array = map_data.get("spawn", [1080, 760])
 		player.global_position = spawn_position if spawn_position != Vector2.ZERO else Vector2(float(spawn[0]), float(spawn[1]))
+		last_valid_player_position = player.global_position
 		quest_system.register_visit(map_id)
 	_spawn_npcs(map_data)
 	_spawn_portals(map_data)
@@ -1231,6 +1299,7 @@ func _draw_city_terrain() -> void:
 		Rect2(400, 220, 40, 840), Rect2(1720, 220, 40, 840)
 	]:
 		_add_world_rect(wall, Color("#39414a"), -91)
+		_register_solid_rect(wall)
 	_add_world_label("Shop", Vector2(1210, 490), Color("#ffe0a3"))
 	_add_world_label("Forja", Vector2(1335, 760), Color("#ffd06b"))
 	_add_world_label("Fonte", Vector2(1040, 735), Color("#bdeaff"))
@@ -1246,6 +1315,7 @@ func _draw_valdoria_terrain() -> void:
 		Rect2(235, 135, 42, 1015), Rect2(1925, 135, 42, 1015)
 	]:
 		_add_world_rect(wall, Color("#273347"), -91)
+		_register_solid_rect(wall)
 	_add_world_label("Pets", Vector2(570, 525), Color("#9effb0"))
 	_add_world_label("Montarias", Vector2(1300, 525), Color("#ffe0a3"))
 	_add_world_label("Forja Rara", Vector2(1490, 805), Color("#ffd06b"))
@@ -1254,52 +1324,60 @@ func _draw_forest_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
 	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, 240, current_map_size.y), 64, -99)
 	_draw_tiled_rect("res://assets/sprites/tile_sand.png", Rect2(220, 0, 60, current_map_size.y), 64, -98)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(380, 1170, 1380, 120), 64, -96)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(1030, 310, 120, 980), 64, -96)
-	_add_world_rect(Rect2(1360, 180, 280, 130), Color("#264b2c"), -97)
-	_add_world_rect(Rect2(480, 620, 220, 120), Color("#d9c08b"), -97)
+	_draw_path_points("res://assets/sprites/tile_path.png", [Vector2(1080, 1300), Vector2(900, 1110), Vector2(1020, 900), Vector2(760, 720), Vector2(1040, 550), Vector2(1380, 470), Vector2(1700, 330), Vector2(1900, 240)], 150, -96)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(1080, 1300), 250, 135, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", Vector2(1900, 250), 250, 150, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_grass.png", Vector2(520, 760), 250, 160, -97, 64, Color("#d8bd82"))
+	_register_solid_rect(Rect2(0, 0, 170, current_map_size.y))
 
 func _draw_arcane_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_arcane.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_ruin.png", Rect2(350, 170, 1500, 920), 64, -96)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(1040, 270, 160, 1020), 64, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_ruin.png", Vector2(1070, 760), 760, 500, -96)
+	_draw_path_points("res://assets/sprites/tile_path.png", [Vector2(1080, 1300), Vector2(980, 1040), Vector2(1220, 810), Vector2(980, 620), Vector2(1420, 430), Vector2(1900, 240)], 135, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_ruin.png", Vector2(1900, 255), 260, 160, -94)
 	for ruin in [Rect2(500, 360, 180, 72), Rect2(1460, 370, 220, 72), Rect2(430, 860, 250, 75), Rect2(1460, 850, 230, 75)]:
 		_add_world_rect(ruin, Color("#4b4d76"), -94)
+		_register_solid_rect(ruin)
 
 func _draw_cave_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_cave.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_cave_floor.png", Rect2(240, 130, current_map_size.x - 480, current_map_size.y - 220), 64, -97)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(1010, 390, 220, 900), 64, -96)
-	for dark_pool in [Rect2(360, 250, 230, 130), Rect2(1510, 210, 280, 150), Rect2(420, 960, 210, 120)]:
+	_draw_path_points("res://assets/sprites/tile_cave_floor.png", [Vector2(1080, 1300), Vector2(930, 1080), Vector2(590, 900), Vector2(850, 700), Vector2(1230, 690), Vector2(1510, 500), Vector2(1900, 240)], 260, -97)
+	_draw_tiled_blob("res://assets/sprites/tile_cave_floor.png", Vector2(590, 900), 330, 210, -96)
+	_draw_tiled_blob("res://assets/sprites/tile_cave_floor.png", Vector2(1260, 690), 390, 240, -96)
+	_draw_tiled_blob("res://assets/sprites/tile_cave_floor.png", Vector2(1900, 240), 260, 180, -96)
+	for dark_pool in [Rect2(360, 250, 230, 130), Rect2(1510, 210, 280, 150), Rect2(420, 960, 210, 120), Rect2(1330, 980, 260, 110)]:
 		_add_world_rect(dark_pool, Color("#151923"), -95)
+		_register_solid_rect(dark_pool.grow(-18))
 
 func _draw_highland_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(260, 1110, 1680, 130), 64, -96)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(990, 260, 180, 1040), 64, -96)
+	_draw_path_points("res://assets/sprites/tile_path.png", [Vector2(1080, 1300), Vector2(740, 1110), Vector2(980, 900), Vector2(760, 690), Vector2(1180, 540), Vector2(1450, 410), Vector2(1900, 240)], 155, -96)
 	for ridge in [Rect2(140, 160, 480, 150), Rect2(1500, 180, 520, 160), Rect2(210, 760, 380, 150), Rect2(1520, 810, 430, 150)]:
 		_add_world_rect(ridge, Color("#405945"), -95)
+		_register_solid_rect(ridge.grow(-22))
 	for clearing in [Rect2(680, 430, 250, 130), Rect2(1220, 560, 280, 150), Rect2(720, 900, 240, 130)]:
 		_add_world_rect(clearing, Color("#c7b783"), -94)
 
 func _draw_crystal_mines_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_cave.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_cave_floor.png", Rect2(180, 120, current_map_size.x - 360, current_map_size.y - 230), 64, -97)
-	_draw_tiled_rect("res://assets/sprites/tile_ruin.png", Rect2(520, 270, 1160, 860), 64, -96)
+	_draw_path_points("res://assets/sprites/tile_cave_floor.png", [Vector2(1080, 1300), Vector2(880, 1020), Vector2(1160, 780), Vector2(850, 560), Vector2(1370, 430), Vector2(1900, 240)], 230, -97)
+	_draw_tiled_blob("res://assets/sprites/tile_ruin.png", Vector2(1120, 760), 610, 380, -96)
 	for seam in [Rect2(380, 260, 150, 760), Rect2(1690, 240, 160, 790), Rect2(830, 360, 470, 110)]:
 		_add_world_rect(seam, Color("#26385d"), -95)
+		_register_solid_rect(seam.grow(-20))
 	for glow in [Rect2(650, 650, 180, 110), Rect2(1330, 670, 180, 110)]:
 		_add_world_rect(glow, Color("#345a80"), -94)
 
 func _draw_ember_fortress_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_ruin.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_stone.png", Rect2(260, 170, current_map_size.x - 520, current_map_size.y - 320), 64, -97)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(1000, 220, 180, 1120), 64, -96)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(450, 680, 1250, 140), 64, -96)
+	_draw_tiled_blob("res://assets/sprites/tile_stone.png", Vector2(1100, 720), 820, 520, -97)
+	_draw_path_points("res://assets/sprites/tile_path.png", [Vector2(1080, 1300), Vector2(900, 1030), Vector2(1210, 820), Vector2(970, 640), Vector2(1360, 470), Vector2(1900, 240)], 150, -96)
 	for lava in [Rect2(140, 280, 230, 680), Rect2(1840, 260, 230, 700), Rect2(650, 250, 840, 80)]:
 		_add_world_rect(lava, Color("#7a2d19"), -95)
+		_register_solid_rect(lava.grow(-12))
 	for wall in [Rect2(350, 250, 1500, 44), Rect2(350, 1010, 1500, 44), Rect2(350, 250, 44, 804), Rect2(1806, 250, 44, 804)]:
 		_add_world_rect(wall, Color("#2b2424"), -94)
+		_register_solid_rect(wall)
 
 func _spawn_map_decor() -> void:
 	if current_map == "city_eldoria":
@@ -1366,6 +1444,7 @@ func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) 
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	sprite.z_index = z
 	world.add_child(sprite)
+	_register_sprite_obstacle(path, pos, sprite_scale)
 	return sprite
 
 func _should_cast_world_shadow(path: String) -> bool:
@@ -1373,6 +1452,50 @@ func _should_cast_world_shadow(path: String) -> bool:
 		if path.find(token) >= 0:
 			return true
 	return false
+
+func _register_sprite_obstacle(path: String, pos: Vector2, sprite_scale: float) -> void:
+	var rect := Rect2()
+	if path.find("decor_tree") >= 0:
+		rect = Rect2(pos + Vector2(-24, 4) * sprite_scale, Vector2(48, 36) * sprite_scale)
+	elif path.find("decor_house") >= 0:
+		rect = Rect2(pos + Vector2(-44, -24) * sprite_scale, Vector2(88, 72) * sprite_scale)
+	elif path.find("decor_forge") >= 0:
+		rect = Rect2(pos + Vector2(-40, -26) * sprite_scale, Vector2(80, 74) * sprite_scale)
+	elif path.find("decor_rock") >= 0 and sprite_scale >= 1.35:
+		rect = Rect2(pos + Vector2(-18, -12) * sprite_scale, Vector2(36, 28) * sprite_scale)
+	elif path.find("decor_stalagmite") >= 0 and sprite_scale >= 1.35:
+		rect = Rect2(pos + Vector2(-18, -26) * sprite_scale, Vector2(36, 52) * sprite_scale)
+	elif path.find("decor_crystal") >= 0 and sprite_scale >= 1.45:
+		rect = Rect2(pos + Vector2(-18, -26) * sprite_scale, Vector2(36, 52) * sprite_scale)
+	elif path.find("decor_barrel") >= 0 or path.find("decor_crate") >= 0:
+		rect = Rect2(pos + Vector2(-16, -16) * sprite_scale, Vector2(32, 32) * sprite_scale)
+	elif path.find("decor_well") >= 0 or path.find("decor_healer_shrine") >= 0:
+		rect = Rect2(pos + Vector2(-24, -22) * sprite_scale, Vector2(48, 44) * sprite_scale)
+	if rect.size != Vector2.ZERO:
+		_register_solid_rect(rect)
+
+func _register_solid_rect(rect: Rect2) -> void:
+	if rect.size.x <= 0 or rect.size.y <= 0:
+		return
+	solid_obstacles.append(rect)
+
+func _is_point_blocked(pos: Vector2) -> bool:
+	if pos.x < 18 or pos.y < 18 or pos.x > current_map_size.x - 18 or pos.y > current_map_size.y - 18:
+		return true
+	for rect in solid_obstacles:
+		if rect.has_point(pos):
+			return true
+	return false
+
+func _enforce_world_collision() -> void:
+	if player == null:
+		return
+	if last_valid_player_position == Vector2.ZERO:
+		last_valid_player_position = player.global_position
+	if _is_point_blocked(player.global_position):
+		player.global_position = last_valid_player_position
+	else:
+		last_valid_player_position = player.global_position
 
 func _add_world_rect(rect: Rect2, color: Color, z: int) -> ColorRect:
 	var node := ColorRect.new()
@@ -1382,6 +1505,45 @@ func _add_world_rect(rect: Rect2, color: Color, z: int) -> ColorRect:
 	node.z_index = z
 	world.add_child(node)
 	return node
+
+func _draw_tiled_blob(path: String, center: Vector2, radius_x: float, radius_y: float, z: int, tile_size: int = 64, tint: Color = Color.WHITE) -> void:
+	var textures := _tile_textures_for(path)
+	if textures.is_empty():
+		return
+	var min_x := int(floor((center.x - radius_x) / tile_size)) * tile_size
+	var max_x := int(ceil((center.x + radius_x) / tile_size)) * tile_size
+	var min_y := int(floor((center.y - radius_y) / tile_size)) * tile_size
+	var max_y := int(ceil((center.y + radius_y) / tile_size)) * tile_size
+	for y in range(min_y, max_y + tile_size, tile_size):
+		for x in range(min_x, max_x + tile_size, tile_size):
+			var p := Vector2(x + tile_size * 0.5, y + tile_size * 0.5)
+			var nx: float = (p.x - center.x) / maxf(1.0, radius_x)
+			var ny: float = (p.y - center.y) / maxf(1.0, radius_y)
+			var jitter := sin(float(x) * 0.021 + float(y) * 0.017) * 0.18
+			if nx * nx + ny * ny <= 1.0 + jitter:
+				var texture := textures[abs((x * 92821 + y * 68917)) % textures.size()] as Texture2D
+				var sprite := Sprite2D.new()
+				sprite.texture = texture
+				sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+				sprite.position = p
+				sprite.scale = Vector2(float(tile_size) / float(texture.get_width()), float(tile_size) / float(texture.get_height()))
+				sprite.modulate = tint
+				sprite.z_index = z
+				world.add_child(sprite)
+
+func _draw_path_points(path: String, points: Array, width: float, z: int) -> void:
+	for i in range(points.size()):
+		var point: Vector2 = points[i]
+		_draw_tiled_blob(path, point, width * 0.62, width * 0.48, z)
+		if i <= 0:
+			continue
+		var previous: Vector2 = points[i - 1]
+		var distance := previous.distance_to(point)
+		var steps: int = maxi(1, int(distance / 74.0))
+		for s in range(1, steps + 1):
+			var t := float(s) / float(steps + 1)
+			var middle := previous.lerp(point, t)
+			_draw_tiled_blob(path, middle, width * 0.50, width * 0.40, z)
 
 func _draw_tiled_rect(path: String, rect: Rect2, tile_size: int, z: int) -> void:
 	var textures := _tile_textures_for(path)
@@ -1509,7 +1671,7 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		npc.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_npc = npc
-				_flash("OK/E: falar com " + npc.npc_name)
+				_flash("OK: falar com " + npc.npc_name)
 		)
 		npc.body_exited.connect(func(body: Node) -> void:
 			if body == player and selected_npc == npc:
@@ -1520,6 +1682,10 @@ func _spawn_portals(map_data: Dictionary) -> void:
 	for portal_data in map_data.get("portals", []):
 		var portal := Area2D.new()
 		portal.set_meta("target", str(portal_data.get("target", "city_eldoria")))
+		portal.set_meta("label", str(portal_data.get("label", "Portal")))
+		portal.set_meta("requires_boss_clear", bool(portal_data.get("requires_boss_clear", false)))
+		portal.set_meta("boss_enemy", str(portal_data.get("boss_enemy", "")))
+		portal.set_meta("target_spawn", portal_data.get("spawn", []))
 		var shape := CollisionShape2D.new()
 		var rect_shape := RectangleShape2D.new()
 		rect_shape.size = Vector2(80, 44)
@@ -1532,6 +1698,8 @@ func _spawn_portals(map_data: Dictionary) -> void:
 		portal.add_child(visual)
 		var label := Label.new()
 		label.text = str(portal_data.get("label", "Portal"))
+		if bool(portal_data.get("requires_boss_clear", false)):
+			label.text += " *"
 		label.position = Vector2(-28, -14)
 		portal.add_child(label)
 		var pos: Array = portal_data.get("pos", [100, 100])
@@ -1540,7 +1708,7 @@ func _spawn_portals(map_data: Dictionary) -> void:
 		portal.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_portal = portal
-				_flash("OK/E: entrar em " + label.text)
+				_flash("OK: entrar em " + label.text)
 		)
 		portal.body_exited.connect(func(body: Node) -> void:
 			if body == player and selected_portal == portal:
@@ -1588,18 +1756,25 @@ func _spawn_enemy_from_spawn(spawn: Dictionary) -> void:
 	world.add_child(enemy)
 	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
 	enemy.safe_zone_checker = Callable(self, "_is_point_in_safe_zone")
-	enemy.global_position = _random_enemy_spawn_position()
+	enemy.obstacle_checker = Callable(self, "_is_point_blocked")
+	enemy.global_position = _random_enemy_spawn_position(spawn)
 	enemy.set_meta("spawn_data", spawn.duplicate(true))
 	enemy.set_meta("spawn_map", current_map)
 	if bool(spawn.get("boss", false)):
 		enemy.add_to_group("bosses")
 	enemy.killed.connect(_enemy_killed)
 
-func _random_enemy_spawn_position() -> Vector2:
+func _random_enemy_spawn_position(spawn: Dictionary = {}) -> Vector2:
+	var zone: Array = spawn.get("zone", [])
 	var pos := Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
+	if zone.size() >= 4:
+		pos = Vector2(randf_range(float(zone[0]), float(zone[0]) + float(zone[2])), randf_range(float(zone[1]), float(zone[1]) + float(zone[3])))
 	var retries := 0
-	while _is_point_in_safe_zone(pos) and retries < 18:
-		pos = Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
+	while (_is_point_in_safe_zone(pos) or _is_point_blocked(pos)) and retries < 28:
+		if zone.size() >= 4:
+			pos = Vector2(randf_range(float(zone[0]), float(zone[0]) + float(zone[2])), randf_range(float(zone[1]), float(zone[1]) + float(zone[3])))
+		else:
+			pos = Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
 		retries += 1
 	return pos
 
@@ -1620,9 +1795,20 @@ func _schedule_enemy_respawn(enemy_name: String, spawn_data: Dictionary, map_id:
 		return
 	_spawn_enemy_from_spawn(spawn_data)
 
+func _is_portal_blocked_by_boss(portal: Area2D) -> bool:
+	if portal == null or not bool(portal.get_meta("requires_boss_clear", false)):
+		return false
+	var boss_name := str(portal.get_meta("boss_enemy", ""))
+	for node in get_tree().get_nodes_in_group("bosses"):
+		if node is Enemy and is_instance_valid(node):
+			var enemy := node as Enemy
+			if enemy.vida > 0 and (boss_name.is_empty() or enemy.enemy_name == boss_name):
+				return true
+	return false
+
 func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
-		_flash_red("Não pode atacar em zona segura")
+		_flash_red("Nao pode atacar em zona segura")
 		return
 	var multiplier := power
 	if player.class_name_selected == "Arqueiro":
@@ -1632,7 +1818,7 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 		_flash("Ataque errou: aproxime-se ou mire melhor.")
 		return
 	if _is_point_in_safe_zone(enemy.global_position):
-		_flash_red("Não pode atacar em zona segura")
+		_flash_red("Nao pode atacar em zona segura")
 		return
 	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	_set_current_target(enemy)
@@ -1661,7 +1847,7 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 
 func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
-		_flash_red("Não pode atacar em zona segura")
+		_flash_red("Nao pode atacar em zona segura")
 		return
 	var hits := 0
 	var center := player.global_position
@@ -1669,7 +1855,7 @@ func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
 		var target := _get_closest_enemy_in_range(_auto_target_radius())
 		if target != null:
 			if _is_point_in_safe_zone(target.global_position):
-				_flash_red("Não pode atacar em zona segura")
+				_flash_red("Nao pode atacar em zona segura")
 				return
 			center = target.global_position
 			_set_current_target(target)
@@ -2008,7 +2194,15 @@ func _collect_drop(drop: ItemDrop) -> bool:
 
 func _interact() -> void:
 	if selected_portal != null:
-		_load_map(str(selected_portal.get_meta("target")), Vector2.ZERO)
+		if _is_portal_blocked_by_boss(selected_portal):
+			var boss_name := str(selected_portal.get_meta("boss_enemy"))
+			_flash_red("Derrote %s para liberar este portal." % boss_name)
+			return
+		var spawn := Vector2.ZERO
+		var spawn_data = selected_portal.get_meta("target_spawn")
+		if typeof(spawn_data) == TYPE_ARRAY and spawn_data.size() >= 2:
+			spawn = Vector2(float(spawn_data[0]), float(spawn_data[1]))
+		_load_map(str(selected_portal.get_meta("target")), spawn)
 		return
 	if selected_npc == null:
 		_hide_panel()
@@ -2894,7 +3088,7 @@ func _show_vip(force_refresh: bool = false) -> void:
 		return
 	box.add_child(_panel_label("Ativo: %s" % ("Sim" if bool(vip.get("vip_active", false)) else "Nao"), 16, Color.WHITE))
 	box.add_child(_panel_label("Dias restantes: %d" % int(vip.get("vip_days", 0)), 16, Color("#ffd36b")))
-	box.add_child(_panel_label("Beneficios: +10% XP geral, +10% XP profissao, +5 slots, cosméticos.", 13, Color("#b8c3d1")))
+	box.add_child(_panel_label("Beneficios: +10% XP geral, +10% XP profissao, +5 slots, cosmÃ©ticos.", 13, Color("#b8c3d1")))
 
 func _show_achievements(force_refresh: bool = false) -> void:
 	if panel.visible and current_panel == "achievements" and not force_refresh:

@@ -90,6 +90,12 @@ func send_move(map_id: String, position: Vector2) -> void:
 		"pos": {"x": position.x, "y": position.y}
 	})
 
+func send_character_save(state: Dictionary) -> void:
+	send({
+		"type": "character_save",
+		"state": state
+	})
+
 func send_chat(channel: String, text: String) -> void:
 	send({
 		"type": "chat",
