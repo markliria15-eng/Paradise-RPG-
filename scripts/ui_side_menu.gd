@@ -4,7 +4,7 @@ class_name UISideMenu
 const MENU_ITEMS := [
 	"Batalha", "Habilidades", "Roupa", "Bolsa", "Banco", "Mapa",
 	"Party", "Guild", "Rank", "Missoes", "Profissoes", "Pets", "Montarias",
-	"Dungeon", "Mercado", "Conquistas", "Temporada", "VIP", "Wikipedia", "Zoom", "Fechar"
+	"Dungeon", "Mercado", "Conquistas", "Temporada", "VIP", "Wikipedia", "Zoom", "Deslogar"
 ]
 
 static func style_button(button: Button, compact: bool = false) -> void:

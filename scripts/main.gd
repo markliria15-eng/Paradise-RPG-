@@ -72,7 +72,7 @@ const SIDE_MENU_ICONS := {
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
 	"Wikipedia": "res://assets/sprites/icon_attack_book.png",
 	"Zoom": "res://assets/sprites/icon_slot_ring.png",
-	"Fechar": "res://assets/sprites/icon_menu_close.png"
+	"Deslogar": "res://assets/sprites/icon_menu_close.png"
 }
 const RANK_KEYS := {
 	"Level": "top_level",
@@ -295,7 +295,7 @@ func _start_online_game_from_session() -> void:
 	_connect_player()
 	_update_action_icons()
 	var map_id := str(character.get("map", "city_eldoria"))
-	var spawn := Vector2(float(character.get("pos_x", 1080.0)), float(character.get("pos_y", 760.0)))
+	var spawn := Vector2(float(character.get("pos_x", 1080.0)), float(character.get("pos_y", 910.0)))
 	_load_map(map_id, spawn)
 	flash_online_help()
 
@@ -1019,11 +1019,36 @@ func _handle_side_menu(item: String) -> void:
 			_show_season()
 		"Wikipedia":
 			_show_wikipedia()
-		"Fechar":
-			side_menu_visible = false
-			side_menu_panel.visible = false
+		"Deslogar":
+			_logout_to_start()
 		_:
 			_flash("Sistema ainda em desenvolvimento.")
+
+func _logout_to_start() -> void:
+	if player != null:
+		if online_mode:
+			_send_online_save_state()
+		else:
+			SaveSystem.save_game(player, quest_system, current_map, exploration_by_map, mmo_cache)
+	for child in world.get_children():
+		child.queue_free()
+	player = null
+	current_target = null
+	selected_npc = null
+	selected_portal = null
+	current_map = "city_eldoria"
+	last_valid_player_position = Vector2.ZERO
+	side_menu_visible = false
+	if side_menu_panel != null:
+		side_menu_panel.visible = false
+	if panel.visible:
+		_hide_panel()
+	online_mode = false
+	if mmo_client != null:
+		mmo_client.set("online_enabled", false)
+		mmo_client.set("token", "")
+	_show_class_selection()
+	_flash("Deslogado. Escolha a classe para entrar novamente.")
 
 func _build_joystick() -> void:
 	joystick_base = _make_texture_rect("res://assets/sprites/ui_joystick_base.png", touch_move_center - Vector2(84, 84), Vector2(168, 168))
@@ -1207,7 +1232,7 @@ func _start_new_game(chosen_class: String) -> void:
 	_ensure_beginner_quests()
 	_connect_player()
 	_update_action_icons()
-	_load_map("city_eldoria", Vector2(1080, 760))
+	_load_map("city_eldoria", Vector2(1080, 910))
 	_flash("Bem-vindo a Cidade de Eldoria. Use OK para interagir.")
 
 func _spawn_player_from_save(save: Dictionary) -> void:
@@ -1266,7 +1291,8 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	_draw_map_background(map_data)
 	if player != null:
 		var spawn: Array = map_data.get("spawn", [1080, 760])
-		player.global_position = spawn_position if spawn_position != Vector2.ZERO else Vector2(float(spawn[0]), float(spawn[1]))
+		var desired_spawn := spawn_position if spawn_position != Vector2.ZERO else Vector2(float(spawn[0]), float(spawn[1]))
+		player.global_position = _resolve_unblocked_spawn(desired_spawn)
 		last_valid_player_position = player.global_position
 		quest_system.register_visit(map_id)
 	_spawn_npcs(map_data)
@@ -1538,6 +1564,17 @@ func _is_point_blocked(pos: Vector2) -> bool:
 			if rect.has_point(pos + probe):
 				return true
 	return false
+
+func _resolve_unblocked_spawn(pos: Vector2) -> Vector2:
+	if not _is_point_blocked(pos):
+		return pos
+	var directions: Array[Vector2] = [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT, Vector2(1, 1).normalized(), Vector2(-1, 1).normalized(), Vector2(1, -1).normalized(), Vector2(-1, -1).normalized()]
+	for radius in range(32, 321, 32):
+		for direction in directions:
+			var candidate: Vector2 = pos + direction * float(radius)
+			if not _is_point_blocked(candidate):
+				return candidate
+	return Vector2(clamp(pos.x, 48.0, current_map_size.x - 48.0), clamp(pos.y, 48.0, current_map_size.y - 48.0))
 
 func _enforce_world_collision() -> void:
 	if player == null:
@@ -2754,16 +2791,17 @@ func _show_quests() -> void:
 	if panel.visible and current_panel == "quests":
 		_hide_panel()
 		return
-	var box := VBoxContainer.new()
-	_set_panel_content(box, "quests")
-	box.add_child(_panel_title("Missoes"))
+	var box := _start_modal("Missoes", "quests")
 	if quest_system.active.is_empty():
 		var empty := Label.new()
 		empty.text = "Nenhuma missao ativa."
+		empty.add_theme_color_override("font_color", Color("#d4d9e1"))
 		box.add_child(empty)
 	for quest_id in quest_system.active.keys():
 		var label := Label.new()
 		label.text = quest_system.quest_text(str(quest_id))
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		label.add_theme_color_override("font_color", Color.WHITE)
 		box.add_child(label)
 
 func _show_wikipedia() -> void:
