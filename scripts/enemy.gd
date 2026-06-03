@@ -17,6 +17,7 @@ var poison_chance := 0.0
 var boss := false
 var target: Player
 var attack_timer := 0.0
+var visual_attack_timer := 0.0
 var is_targeted := false
 var base_defesa := 0
 var base_ataque := 1
@@ -33,6 +34,12 @@ var obstacle_checker: Callable
 @onready var label: Label = $Label
 @onready var health_bar: ProgressBar = $HealthBar
 var shadow_sprite: Sprite2D
+var idle_frames: Array = []
+var walk_frames: Array = []
+var visual_frame_index := 0
+var visual_frame_timer := 0.0
+var visual_base_scale := Vector2.ONE
+var visual_base_position := Vector2.ZERO
 
 func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	collision_layer = 2
@@ -59,12 +66,16 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	poison_chance = float(data.get("poison_chance", 0.0))
 	boss = bool(data.get("boss", false))
 	_ensure_shadow()
-	sprite.texture = load(_sprite_path(name_value))
+	var sprite_path := _sprite_path(name_value)
+	sprite.texture = load(sprite_path)
+	_load_visual_frames(sprite_path)
 	label.text = "BOSS Lv %d %s" % [level, name_value] if boss else "Lv %d %s" % [level, name_value]
 	_fit_sprite_to_enemy()
 	if boss:
 		sprite.scale *= 1.32
 		label.add_theme_color_override("font_color", Color("#ffd36b"))
+	visual_base_scale = sprite.scale
+	visual_base_position = sprite.position
 	label.visible = true
 	_update_health_bar()
 
@@ -80,6 +91,7 @@ func _physics_process(delta: float) -> void:
 	if stun_timer > 0:
 		stun_timer -= delta
 		velocity = Vector2.ZERO
+		_update_visual_animation(delta)
 		return
 	if burn_timer > 0:
 		burn_timer -= delta
@@ -89,6 +101,7 @@ func _physics_process(delta: float) -> void:
 			receive_damage(max(1, burn_damage))
 	if target.in_safe_zone or (safe_zone_checker.is_valid() and bool(safe_zone_checker.call(global_position))):
 		velocity = Vector2.ZERO
+		_update_visual_animation(delta)
 		return
 	var distance := global_position.distance_to(target.global_position)
 	label.visible = true
@@ -108,6 +121,8 @@ func _physics_process(delta: float) -> void:
 		attack_timer = 1.25
 		var damage := CombatSystem.physical_damage(ataque, target.defesa)
 		target.receive_damage(damage, poison_chance)
+		visual_attack_timer = 0.18
+	_update_visual_animation(delta)
 
 func receive_damage(amount: int) -> void:
 	vida = max(0, vida - amount)
@@ -127,6 +142,43 @@ func _fit_sprite_to_enemy() -> void:
 	if shadow_sprite != null:
 		shadow_sprite.position = Vector2(0, 20)
 		shadow_sprite.scale = Vector2(0.72, 0.38)
+
+func _load_visual_frames(sprite_path: String) -> void:
+	idle_frames.clear()
+	walk_frames.clear()
+	var base := sprite_path.replace(".png", "")
+	for i in range(1, 3):
+		var path := "%s_idle_%d.png" % [base, i]
+		if ResourceLoader.exists(path):
+			idle_frames.append(load(path))
+	for i in range(1, 5):
+		var path := "%s_walk_%d.png" % [base, i]
+		if ResourceLoader.exists(path):
+			walk_frames.append(load(path))
+	if sprite.texture != null and idle_frames.is_empty():
+		idle_frames.append(sprite.texture)
+
+func _update_visual_animation(delta: float) -> void:
+	var moving := velocity.length() > 4.0
+	var frames := walk_frames if moving and not walk_frames.is_empty() else idle_frames
+	if frames.is_empty():
+		return
+	if moving and abs(velocity.x) > 4.0:
+		sprite.flip_h = velocity.x < 0.0
+	var delay := 0.12 if moving else 0.42
+	visual_frame_timer += delta
+	if visual_frame_timer >= delay:
+		visual_frame_timer = 0.0
+		visual_frame_index = (visual_frame_index + 1) % frames.size()
+	sprite.texture = frames[visual_frame_index % frames.size()]
+	if visual_attack_timer > 0.0:
+		visual_attack_timer -= delta
+		var side := -1.0 if sprite.flip_h else 1.0
+		sprite.scale = visual_base_scale * 1.08
+		sprite.position = visual_base_position + Vector2(3.0 * side, -1.0)
+	else:
+		sprite.scale = visual_base_scale
+		sprite.position = visual_base_position
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:
@@ -193,37 +245,37 @@ func _sprite_path(name_value: String) -> String:
 		"Aranha Venenosa":
 			return "res://assets/sprites/enemy_aranha.png"
 		"Javali Bruto":
-			return "res://assets/sprites/enemy_javali.png"
+			return "res://assets/sprites/enemy_javali_bruto.png"
 		"Lobo Alfa":
-			return "res://assets/sprites/enemy_lobo.png"
+			return "res://assets/sprites/enemy_lobo_alfa.png"
 		"Rei Javali":
-			return "res://assets/sprites/enemy_javali.png"
+			return "res://assets/sprites/enemy_javali_rei.png"
 		"Espectro Arcano":
-			return "res://assets/sprites/enemy_espirito.png"
+			return "res://assets/sprites/enemy_espirito_arcano.png"
 		"Sentinela Arcano":
-			return "res://assets/sprites/enemy_aprendiz.png"
+			return "res://assets/sprites/enemy_sentinela_arcano.png"
 		"Arquimago Corrompido":
-			return "res://assets/sprites/enemy_aprendiz.png"
+			return "res://assets/sprites/enemy_arquimago_corrompido.png"
 		"Morcego Sombrio":
-			return "res://assets/sprites/enemy_morcego.png"
+			return "res://assets/sprites/enemy_morcego_sombrio.png"
 		"Aranha Rainha":
-			return "res://assets/sprites/enemy_aranha.png"
+			return "res://assets/sprites/enemy_aranha_rainha.png"
 		"Matriarca Venenosa":
-			return "res://assets/sprites/enemy_aranha.png"
+			return "res://assets/sprites/enemy_aranha_matriarca.png"
 		"Bandido das Colinas":
-			return "res://assets/sprites/enemy_aprendiz.png"
+			return "res://assets/sprites/enemy_bandido_colinas.png"
 		"Golem de Pedra":
-			return "res://assets/sprites/decor_rock.png"
+			return "res://assets/sprites/enemy_golem_pedra.png"
 		"Senhor das Colinas":
-			return "res://assets/sprites/enemy_javali.png"
+			return "res://assets/sprites/enemy_javali_rei.png"
 		"Guardiao Cristalino":
-			return "res://assets/sprites/decor_crystal.png"
+			return "res://assets/sprites/enemy_guardiao_cristalino.png"
 		"Draco Jovem":
-			return "res://assets/sprites/enemy_javali.png"
+			return "res://assets/sprites/enemy_draco_jovem.png"
 		"Tita de Cristal":
-			return "res://assets/sprites/decor_crystal.png"
+			return "res://assets/sprites/enemy_tita_cristal.png"
 		"Cavaleiro Sombrio":
-			return "res://assets/sprites/enemy_aprendiz.png"
+			return "res://assets/sprites/enemy_cavaleiro_sombrio.png"
 		"General Infernal":
-			return "res://assets/sprites/enemy_aprendiz.png"
+			return "res://assets/sprites/enemy_general_infernal.png"
 	return "res://assets/sprites/enemy_javali.png"
