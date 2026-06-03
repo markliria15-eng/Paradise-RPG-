@@ -73,7 +73,69 @@
       {"name": "Varek, Mercador", "role": "shop", "pos": [1160, 900], "sprite": "res://assets/sprites/npc_custom_2_pixel.png"}
     ],
     "portals": [
-      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1080, 1180]}
+      {"label": "Ruinas", "target": "arcane_ruins", "pos": [1080, 1180]},
+      {"label": "Passagem Alta", "target": "highland_pass", "pos": [1900, 240]}
+    ]
+  },
+  "highland_pass": {
+    "name": "Passagem Alta",
+    "safe": false,
+    "size": [2200, 1400],
+    "color": "#3f6847",
+    "spawn": [1080, 1240],
+    "npcs": [],
+    "portals": [
+      {"label": "Valdoria", "target": "city_valdoria", "pos": [1080, 1300]},
+      {"label": "Minas de Cristal", "target": "crystal_mines", "pos": [1900, 240]}
+    ],
+    "safe_zones": [
+      {"pos": [1080, 1300], "radius": 190},
+      {"pos": [1900, 240], "radius": 150}
+    ],
+    "spawns": [
+      {"enemy": "Bandido das Colinas", "count": 12, "respawn": 34},
+      {"enemy": "Golem de Pedra", "count": 8, "respawn": 42},
+      {"enemy": "Senhor das Colinas", "count": 1, "boss": true, "respawn": 210}
+    ]
+  },
+  "crystal_mines": {
+    "name": "Minas de Cristal",
+    "safe": false,
+    "size": [2200, 1400],
+    "color": "#26385d",
+    "spawn": [1080, 1240],
+    "npcs": [],
+    "portals": [
+      {"label": "Passagem Alta", "target": "highland_pass", "pos": [1080, 1300]},
+      {"label": "Fortaleza de Cinzas", "target": "ember_fortress", "pos": [1900, 240]}
+    ],
+    "safe_zones": [
+      {"pos": [1080, 1300], "radius": 190},
+      {"pos": [1900, 240], "radius": 150}
+    ],
+    "spawns": [
+      {"enemy": "Guardiao Cristalino", "count": 10, "respawn": 52},
+      {"enemy": "Draco Jovem", "count": 6, "respawn": 62},
+      {"enemy": "Tita de Cristal", "count": 1, "boss": true, "respawn": 260}
+    ]
+  },
+  "ember_fortress": {
+    "name": "Fortaleza de Cinzas",
+    "safe": false,
+    "size": [2200, 1400],
+    "color": "#392728",
+    "spawn": [1080, 1240],
+    "npcs": [],
+    "portals": [
+      {"label": "Minas de Cristal", "target": "crystal_mines", "pos": [1080, 1300]}
+    ],
+    "safe_zones": [
+      {"pos": [1080, 1300], "radius": 190}
+    ],
+    "spawns": [
+      {"enemy": "Cavaleiro Sombrio", "count": 10, "respawn": 72},
+      {"enemy": "Draco Jovem", "count": 6, "respawn": 70},
+      {"enemy": "General Infernal", "count": 1, "boss": true, "respawn": 320}
     ]
   },
   "bat_cave": {

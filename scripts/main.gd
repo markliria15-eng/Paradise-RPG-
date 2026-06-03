@@ -39,14 +39,14 @@ const SKILL_ICON_BY_ID := {
 	"precise_shot": "res://assets/sprites/icon_skill_precise_shot.png",
 	"arrow_rain": "res://assets/sprites/icon_skill_arrow_rain.png",
 	"quick_jump": "res://assets/sprites/icon_skill_quick_jump.png",
-	"death_area": "res://assets/sprites/icon_skill_blade_spin.png",
-	"hero_hour": "res://assets/sprites/icon_skill_war_cry.png",
-	"soul_reaper": "res://assets/sprites/icon_skill_heavy_slash.png",
-	"blue_meteor": "res://assets/sprites/icon_skill_arcane_blast.png",
-	"burning_fireball": "res://assets/sprites/icon_skill_fireball.png",
-	"fire_hurricane": "res://assets/sprites/icon_skill_fireball.png",
-	"agility": "res://assets/sprites/icon_skill_quick_jump.png",
-	"stun_shot": "res://assets/sprites/icon_skill_precise_shot.png"
+	"death_area": "res://assets/sprites/icon_skill_death_area.png",
+	"hero_hour": "res://assets/sprites/icon_skill_hero_hour.png",
+	"soul_reaper": "res://assets/sprites/icon_skill_soul_reaper.png",
+	"blue_meteor": "res://assets/sprites/icon_skill_blue_meteor.png",
+	"burning_fireball": "res://assets/sprites/icon_skill_burning_fireball.png",
+	"fire_hurricane": "res://assets/sprites/icon_skill_fire_hurricane.png",
+	"agility": "res://assets/sprites/icon_skill_agility.png",
+	"stun_shot": "res://assets/sprites/icon_skill_stun_shot.png"
 }
 const SIDE_MENU_ICONS := {
 	"Batalha": "res://assets/sprites/icon_skill_heavy_slash.png",
@@ -1208,6 +1208,12 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 			_draw_arcane_terrain()
 		"bat_cave":
 			_draw_cave_terrain()
+		"highland_pass":
+			_draw_highland_terrain()
+		"crystal_mines":
+			_draw_crystal_mines_terrain()
+		"ember_fortress":
+			_draw_ember_fortress_terrain()
 		_:
 			_add_world_rect(Rect2(Vector2.ZERO, current_map_size), Color(map_data.get("color", "#303030")), -100)
 
@@ -1266,6 +1272,34 @@ func _draw_cave_terrain() -> void:
 	for dark_pool in [Rect2(360, 250, 230, 130), Rect2(1510, 210, 280, 150), Rect2(420, 960, 210, 120)]:
 		_add_world_rect(dark_pool, Color("#151923"), -95)
 
+func _draw_highland_terrain() -> void:
+	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(260, 1110, 1680, 130), 64, -96)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(990, 260, 180, 1040), 64, -96)
+	for ridge in [Rect2(140, 160, 480, 150), Rect2(1500, 180, 520, 160), Rect2(210, 760, 380, 150), Rect2(1520, 810, 430, 150)]:
+		_add_world_rect(ridge, Color("#405945"), -95)
+	for clearing in [Rect2(680, 430, 250, 130), Rect2(1220, 560, 280, 150), Rect2(720, 900, 240, 130)]:
+		_add_world_rect(clearing, Color("#c7b783"), -94)
+
+func _draw_crystal_mines_terrain() -> void:
+	_draw_tiled_rect("res://assets/sprites/tile_cave.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
+	_draw_tiled_rect("res://assets/sprites/tile_cave_floor.png", Rect2(180, 120, current_map_size.x - 360, current_map_size.y - 230), 64, -97)
+	_draw_tiled_rect("res://assets/sprites/tile_ruin.png", Rect2(520, 270, 1160, 860), 64, -96)
+	for seam in [Rect2(380, 260, 150, 760), Rect2(1690, 240, 160, 790), Rect2(830, 360, 470, 110)]:
+		_add_world_rect(seam, Color("#26385d"), -95)
+	for glow in [Rect2(650, 650, 180, 110), Rect2(1330, 670, 180, 110)]:
+		_add_world_rect(glow, Color("#345a80"), -94)
+
+func _draw_ember_fortress_terrain() -> void:
+	_draw_tiled_rect("res://assets/sprites/tile_ruin.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
+	_draw_tiled_rect("res://assets/sprites/tile_stone.png", Rect2(260, 170, current_map_size.x - 520, current_map_size.y - 320), 64, -97)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(1000, 220, 180, 1120), 64, -96)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(450, 680, 1250, 140), 64, -96)
+	for lava in [Rect2(140, 280, 230, 680), Rect2(1840, 260, 230, 700), Rect2(650, 250, 840, 80)]:
+		_add_world_rect(lava, Color("#7a2d19"), -95)
+	for wall in [Rect2(350, 250, 1500, 44), Rect2(350, 1010, 1500, 44), Rect2(350, 250, 44, 804), Rect2(1806, 250, 44, 804)]:
+		_add_world_rect(wall, Color("#2b2424"), -94)
+
 func _spawn_map_decor() -> void:
 	if current_map == "city_eldoria":
 		_add_world_sprite("res://assets/sprites/decor_fountain.png", Vector2(640, 365), 2.0, -10)
@@ -1296,6 +1330,21 @@ func _spawn_map_decor() -> void:
 			_add_world_sprite("res://assets/sprites/decor_stalagmite.png", p, 2.0, -12)
 		for p in [Vector2(250, 270), Vector2(825, 350), Vector2(1060, 570)]:
 			_add_world_sprite("res://assets/sprites/decor_rock.png", p, 1.8, -12)
+	elif current_map == "highland_pass":
+		for p in [Vector2(260, 220), Vector2(520, 340), Vector2(1540, 280), Vector2(1800, 440), Vector2(420, 860), Vector2(1640, 930)]:
+			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 1.9, -12)
+		for p in [Vector2(720, 230), Vector2(1240, 420), Vector2(880, 860), Vector2(1510, 720)]:
+			_add_world_sprite("res://assets/sprites/decor_rock.png", p, 2.0, -12)
+	elif current_map == "crystal_mines":
+		for p in [Vector2(410, 260), Vector2(700, 670), Vector2(1180, 420), Vector2(1510, 760), Vector2(1760, 1030)]:
+			_add_world_sprite("res://assets/sprites/decor_crystal.png", p, 2.2, -12)
+		for p in [Vector2(300, 560), Vector2(1010, 910), Vector2(1620, 350)]:
+			_add_world_sprite("res://assets/sprites/decor_stalagmite.png", p, 2.0, -12)
+	elif current_map == "ember_fortress":
+		for p in [Vector2(460, 300), Vector2(1560, 300), Vector2(470, 980), Vector2(1570, 980)]:
+			_add_world_sprite("res://assets/sprites/decor_forge.png", p, 1.8, -12)
+		for p in [Vector2(680, 430), Vector2(1320, 460), Vector2(790, 910), Vector2(1390, 900)]:
+			_add_world_sprite("res://assets/sprites/decor_rock.png", p, 2.0, -12)
 
 func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) -> Sprite2D:
 	var sprite := Sprite2D.new()
@@ -1438,6 +1487,7 @@ func _spawn_enemy_from_spawn(spawn: Dictionary) -> void:
 	var enemy: Enemy = ENEMY_SCENE.instantiate()
 	world.add_child(enemy)
 	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
+	enemy.safe_zone_checker = Callable(self, "_is_point_in_safe_zone")
 	enemy.global_position = _random_enemy_spawn_position()
 	enemy.set_meta("spawn_data", spawn.duplicate(true))
 	enemy.set_meta("spawn_map", current_map)
@@ -1472,9 +1522,8 @@ func _schedule_enemy_respawn(enemy_name: String, spawn_data: Dictionary, map_id:
 
 func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
-		_flash("Zona segura: nao e possivel atacar daqui.")
+		_flash_red("Não pode atacar em zona segura")
 		return
-	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	var multiplier := power
 	if player.class_name_selected == "Arqueiro":
 		multiplier *= CombatSystem.roll_critical(0.10, 1.5)
@@ -1482,6 +1531,10 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	if enemy == null:
 		_flash("Ataque errou: aproxime-se ou mire melhor.")
 		return
+	if _is_point_in_safe_zone(enemy.global_position):
+		_flash_red("Não pode atacar em zona segura")
+		return
+	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	_set_current_target(enemy)
 	pet_allowed_target = enemy
 	if skill_id == "basic_attack":
@@ -1508,19 +1561,24 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 
 func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
-		_flash("Zona segura: habilidades bloqueadas.")
+		_flash_red("Não pode atacar em zona segura")
 		return
-	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	var hits := 0
 	var center := player.global_position
 	if skill_id in ["arrow_rain", "fire_hurricane"]:
 		var target := _get_closest_enemy_in_range(_auto_target_radius())
 		if target != null:
+			if _is_point_in_safe_zone(target.global_position):
+				_flash_red("Não pode atacar em zona segura")
+				return
 			center = target.global_position
 			_set_current_target(target)
 			pet_allowed_target = target
+	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	_spawn_area_effect(center, radius, skill_id)
 	for enemy in get_tree().get_nodes_in_group("enemies"):
+		if _is_point_in_safe_zone(enemy.global_position):
+			continue
 		if center.distance_to(enemy.global_position) <= radius:
 			var attack_value: float = player.get_attack_value()
 			if skill_id == "arrow_rain":
@@ -1581,11 +1639,15 @@ func _start_area_dot(center: Vector2, radius: float, skill_id: String, power: fl
 	var elapsed := 0.0
 	while elapsed < duration and player != null:
 		await get_tree().create_timer(tick_interval).timeout
+		if player.in_safe_zone:
+			return
 		elapsed += tick_interval
 		_spawn_area_effect(center, radius, skill_id)
 		for node in get_tree().get_nodes_in_group("enemies"):
 			var enemy := node as Enemy
 			if enemy == null or enemy.vida <= 0:
+				continue
+			if _is_point_in_safe_zone(enemy.global_position):
 				continue
 			if center.distance_to(enemy.global_position) > radius:
 				continue
@@ -3269,6 +3331,8 @@ func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
 func _update_pet_combat(delta: float) -> void:
 	if player == null or pet_allowed_target == null or not is_instance_valid(pet_allowed_target):
 		return
+	if player.in_safe_zone or _is_point_in_safe_zone(pet_allowed_target.global_position):
+		return
 	if pet_allowed_target.vida <= 0:
 		pet_allowed_target = null
 		return
@@ -3464,3 +3528,8 @@ func _update_potion_buttons() -> void:
 
 func _flash(text: String) -> void:
 	message_label.text = text
+	message_label.modulate = Color("#f7d67a")
+
+func _flash_red(text: String) -> void:
+	message_label.text = text
+	message_label.modulate = Color("#ff4b4b")

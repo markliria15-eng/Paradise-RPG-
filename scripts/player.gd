@@ -386,6 +386,19 @@ func _apply_set_bonuses() -> void:
 	if int(counts.get("Celestial", 0)) >= 1:
 		ataque_magico += 2
 		mana_regen_pct += 0.04
+	if int(counts.get("Aco Sombrio", 0)) >= 4:
+		vida_max += 120
+		defesa += 18
+		physical_damage_pct += 0.08
+	if int(counts.get("Cristal Ancestral", 0)) >= 4:
+		mana_max += 120
+		ataque_magico += 12
+		mana_regen_pct += 0.10
+	if int(counts.get("Infernal", 0)) >= 2:
+		vida_max += 140
+		defesa += 18
+		physical_damage_pct += 0.08
+		attack_speed_pct += 0.04
 	_apply_companion_bonuses()
 
 func _apply_companion_bonuses() -> void:

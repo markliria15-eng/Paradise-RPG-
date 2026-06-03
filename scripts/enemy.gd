@@ -26,6 +26,7 @@ var stun_timer := 0.0
 var burn_timer := 0.0
 var burn_tick_timer := 0.0
 var burn_damage := 0
+var safe_zone_checker: Callable
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
@@ -82,7 +83,7 @@ func _physics_process(delta: float) -> void:
 		if burn_tick_timer <= 0:
 			burn_tick_timer = 1.0
 			receive_damage(max(1, burn_damage))
-	if target.in_safe_zone:
+	if target.in_safe_zone or (safe_zone_checker.is_valid() and bool(safe_zone_checker.call(global_position))):
 		velocity = Vector2.ZERO
 		return
 	var distance := global_position.distance_to(target.global_position)

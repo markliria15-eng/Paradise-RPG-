@@ -1,11 +1,12 @@
 extends RefCounted
 class_name EquipmentSystem
 
-const SLOT_ORDER := ["amulet", "helmet", "backpack", "shield", "armor", "weapon", "ring", "pants", "jewel", "boots"]
+const SLOT_ORDER := ["amulet", "helmet", "backpack", "shield", "armor", "weapon", "ring", "pants", "gloves", "jewel", "boots"]
 const SLOT_GRID := [
 	["amulet", "helmet", "backpack"],
 	["shield", "armor", "weapon"],
 	["ring", "pants", "jewel"],
+	["gloves"],
 	["boots"]
 ]
 const SLOT_LABELS := {
@@ -17,13 +18,14 @@ const SLOT_LABELS := {
 	"weapon": "Arma",
 	"ring": "Anel",
 	"pants": "Calca",
+	"gloves": "Luvas",
 	"jewel": "Joia",
 	"boots": "Bota"
 }
 const SLOT_ALIASES := {
 	"cabeca": "helmet",
 	"peitoral": "armor",
-	"luvas": "armor",
+	"luvas": "gloves",
 	"calca": "pants",
 	"botas": "boots",
 	"arma": "weapon",
@@ -37,6 +39,7 @@ const SLOT_ALIASES := {
 	"weapon": "weapon",
 	"ring": "ring",
 	"pants": "pants",
+	"gloves": "gloves",
 	"jewel": "jewel",
 	"boots": "boots",
 	"amulet": "amulet",

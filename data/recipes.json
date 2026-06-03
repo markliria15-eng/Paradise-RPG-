@@ -93,5 +93,101 @@
     "tier": "rare",
     "gold": 1250,
     "materials": {"Essencia Arcana": 18, "Fragmento de Cristal": 14, "Po Mistico": 16}
+  },
+  "Espada de Aco Negro": {
+    "result": "Espada de Aco Negro",
+    "tier": "rare",
+    "gold": 1500,
+    "materials": {"Aco Negro": 18, "Pedra Runica": 6, "Couro Reforcado": 8}
+  },
+  "Arco Cristalino": {
+    "result": "Arco Cristalino",
+    "tier": "rare",
+    "gold": 1600,
+    "materials": {"Cristal Bruto": 16, "Madeira Bruta": 26, "Couro Reforcado": 10}
+  },
+  "Cajado de Cristal": {
+    "result": "Cajado de Cristal",
+    "tier": "rare",
+    "gold": 1650,
+    "materials": {"Cristal Bruto": 18, "Essencia Arcana": 20, "Pedra Runica": 8}
+  },
+  "Elmo de Aco Sombrio": {
+    "result": "Elmo de Aco Sombrio",
+    "tier": "rare",
+    "gold": 1050,
+    "materials": {"Aco Negro": 14, "Pedra Runica": 4, "Couro Reforcado": 6}
+  },
+  "Armadura de Aco Sombrio": {
+    "result": "Armadura de Aco Sombrio",
+    "tier": "rare",
+    "gold": 2200,
+    "materials": {"Aco Negro": 34, "Pedra Runica": 10, "Couro Reforcado": 16}
+  },
+  "Luvas de Aco Sombrio": {
+    "result": "Luvas de Aco Sombrio",
+    "tier": "rare",
+    "gold": 950,
+    "materials": {"Aco Negro": 12, "Couro Reforcado": 10, "Presa Venenosa": 8}
+  },
+  "Calca de Aco Sombrio": {
+    "result": "Calca de Aco Sombrio",
+    "tier": "rare",
+    "gold": 1450,
+    "materials": {"Aco Negro": 22, "Couro Reforcado": 12, "Pedra Runica": 6}
+  },
+  "Botas de Aco Sombrio": {
+    "result": "Botas de Aco Sombrio",
+    "tier": "rare",
+    "gold": 1100,
+    "materials": {"Aco Negro": 14, "Couro Reforcado": 14, "Asa de Morcego": 12}
+  },
+  "Chapeu de Cristal Ancestral": {
+    "result": "Chapeu de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1500,
+    "materials": {"Cristal Bruto": 18, "Essencia Arcana": 18, "Pedra Runica": 6}
+  },
+  "Manto de Cristal Ancestral": {
+    "result": "Manto de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 2800,
+    "materials": {"Cristal Bruto": 34, "Essencia Arcana": 30, "Nucleo Flamejante": 5}
+  },
+  "Luvas de Cristal Ancestral": {
+    "result": "Luvas de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1350,
+    "materials": {"Cristal Bruto": 16, "Po Mistico": 24, "Pedra Runica": 7}
+  },
+  "Calca de Cristal Ancestral": {
+    "result": "Calca de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1750,
+    "materials": {"Cristal Bruto": 24, "Essencia Arcana": 18, "Couro Reforcado": 12}
+  },
+  "Botas de Cristal Ancestral": {
+    "result": "Botas de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1400,
+    "materials": {"Cristal Bruto": 16, "Couro Reforcado": 10, "Presa Venenosa": 12}
+  },
+  "Espada Infernal": {
+    "result": "Espada Infernal",
+    "tier": "rare",
+    "gold": 5200,
+    "materials": {"Nucleo Flamejante": 18, "Escama Draconica": 20, "Aco Negro": 34}
+  },
+  "Armadura Infernal": {
+    "result": "Armadura Infernal",
+    "tier": "rare",
+    "gold": 6500,
+    "materials": {"Nucleo Flamejante": 24, "Escama Draconica": 30, "Aco Negro": 42}
+  },
+  "Botas Infernais": {
+    "result": "Botas Infernais",
+    "tier": "rare",
+    "gold": 4200,
+    "materials": {"Nucleo Flamejante": 14, "Escama Draconica": 16, "Couro Reforcado": 22}
   }
 }

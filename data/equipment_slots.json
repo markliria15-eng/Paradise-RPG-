@@ -7,6 +7,7 @@
   "weapon": {"label": "Arma", "icon": "res://assets/sprites/icon_slot_weapon.png"},
   "ring": {"label": "Anel", "icon": "res://assets/sprites/icon_slot_ring.png"},
   "pants": {"label": "Calca", "icon": "res://assets/sprites/icon_slot_pants.png"},
+  "gloves": {"label": "Luvas", "icon": "res://assets/sprites/icon_slot_gloves.png"},
   "jewel": {"label": "Joia", "icon": "res://assets/sprites/icon_slot_jewel.png"},
   "boots": {"label": "Bota", "icon": "res://assets/sprites/icon_slot_boots.png"}
 }
