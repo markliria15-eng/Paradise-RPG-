@@ -476,21 +476,24 @@ func _update_directional_sprite(input: Vector2, delta: float) -> void:
 		walk_anim_frame = 0
 		_set_direction_sprite_or_default(current_sprite_direction, current_sprite_flip, false)
 		return
-	var prefix := _class_sprite_prefix(class_name_selected)
-	if prefix.is_empty():
+	if _class_sprite_prefix(class_name_selected).is_empty():
 		return
-	walk_anim_time += delta
-	if walk_anim_time >= 0.12:
-		walk_anim_time = 0.0
-		walk_anim_frame = (walk_anim_frame + 1) % 4
+	var next_direction := "front"
+	var next_flip := false
 	if abs(input.y) > abs(input.x):
-		if input.y < 0:
-			_set_direction_sprite_or_default("back", false, true)
-		else:
-			_set_direction_sprite_or_default("front", false, true)
+		next_direction = "back" if input.y < 0 else "front"
 	else:
-		# The side art is expected to face left; flip it when walking right.
-		_set_direction_sprite_or_default("side", input.x > 0, true)
+		next_direction = "side"
+		next_flip = input.x > 0
+	if next_direction != current_sprite_direction or next_flip != current_sprite_flip:
+		walk_anim_time = 0.0
+		walk_anim_frame = 0
+	walk_anim_time += delta
+	var frame_count := _walk_frame_count_for_direction(next_direction)
+	if walk_anim_time >= 0.085:
+		walk_anim_time = 0.0
+		walk_anim_frame = (walk_anim_frame + 1) % frame_count
+	_set_direction_sprite_or_default(next_direction, next_flip, true)
 
 func _set_direction_sprite_or_default(direction: String, flip_h: bool, moving: bool) -> void:
 	current_sprite_direction = direction
@@ -509,6 +512,13 @@ func _class_direction_sprite_path(chosen_class: String, direction: String, suffi
 	if prefix.is_empty():
 		return ""
 	return "res://assets/sprites/player_%s_art_%s%s.png" % [prefix, direction, suffix]
+
+func _walk_frame_count_for_direction(direction: String) -> int:
+	var count := 0
+	for i in range(1, 13):
+		if ResourceLoader.exists(_class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [i])):
+			count = i
+	return max(1, count)
 
 func _class_sprite_prefix(chosen_class: String) -> String:
 	match chosen_class:

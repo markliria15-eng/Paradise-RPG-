@@ -1388,12 +1388,12 @@ func _draw_ember_fortress_terrain() -> void:
 func _spawn_map_decor() -> void:
 	if current_map == "city_eldoria":
 		_add_world_sprite("res://assets/sprites/decor_fountain.png", Vector2(1080, 755), 1.85, -10)
-		_add_world_sprite("res://assets/sprites/decor_house_stone.png", Vector2(820, 280), 1.75, -8)
-		_add_world_sprite("res://assets/sprites/decor_house.png", Vector2(560, 645), 1.75, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_shop.png", Vector2(1320, 405), 1.8, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_stone.png", Vector2(1600, 855), 1.75, -8)
-		_add_world_sprite("res://assets/sprites/decor_forge.png", Vector2(1510, 705), 1.75, -7)
-		for p in [Vector2(520, 945), Vector2(710, 960), Vector2(1360, 930), Vector2(1620, 925), Vector2(500, 345), Vector2(1610, 360), Vector2(300, 520), Vector2(1850, 640)]:
+		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(820, 390), 0.76, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_cottage_blue.png", Vector2(560, 660), 0.66, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_market_reference.png", Vector2(1320, 465), 0.72, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_forge_reference.png", Vector2(1510, 775), 0.72, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_noble_blue.png", Vector2(1660, 385), 0.62, -8)
+		for p in [Vector2(520, 945), Vector2(710, 960), Vector2(1360, 930), Vector2(1620, 1005), Vector2(330, 345), Vector2(1890, 360), Vector2(300, 520), Vector2(1850, 640)]:
 			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 1.65, -12)
 		for p in [Vector2(1290, 515), Vector2(1450, 555), Vector2(1420, 875), Vector2(1560, 880)]:
 			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 1.25, -6)
@@ -1401,11 +1401,15 @@ func _spawn_map_decor() -> void:
 			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 1.2, -6)
 	elif current_map == "city_valdoria":
 		_add_world_sprite("res://assets/sprites/decor_fountain.png", Vector2(1080, 560), 2.0, -10)
-		_add_world_sprite("res://assets/sprites/decor_forge.png", Vector2(1625, 735), 2.0, -8)
-		for p in [Vector2(500, 360), Vector2(760, 365), Vector2(1410, 360), Vector2(1660, 365), Vector2(570, 980), Vector2(1390, 990)]:
-			_add_world_sprite("res://assets/sprites/decor_house_stone.png", p, 1.75, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_shop.png", Vector2(525, 565), 1.7, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_shop.png", Vector2(1255, 545), 1.7, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(500, 360), 0.64, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_cottage_blue.png", Vector2(760, 365), 0.64, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_noble_blue.png", Vector2(1410, 360), 0.64, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(1660, 365), 0.64, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_market_reference.png", Vector2(525, 590), 0.66, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_cottage_blue.png", Vector2(1255, 570), 0.66, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_forge_reference.png", Vector2(1625, 765), 0.72, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_noble_blue.png", Vector2(570, 980), 0.64, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_market_reference.png", Vector2(1390, 990), 0.64, -8)
 		for p in [Vector2(330, 250), Vector2(1840, 250), Vector2(390, 1030), Vector2(1830, 1010), Vector2(1030, 960), Vector2(1185, 955)]:
 			_add_world_sprite("res://assets/sprites/decor_crystal.png", p, 1.7, -12)
 		for p in [Vector2(350, 500), Vector2(1850, 520), Vector2(360, 880), Vector2(1850, 900)]:
@@ -1476,7 +1480,10 @@ func _register_sprite_obstacle(path: String, pos: Vector2, sprite_scale: float) 
 	if path.find("decor_tree") >= 0:
 		rect = Rect2(pos + Vector2(-28, -20) * sprite_scale, Vector2(56, 58) * sprite_scale)
 	elif path.find("decor_house") >= 0:
-		rect = Rect2(pos + Vector2(-43, -36) * sprite_scale, Vector2(86, 74) * sprite_scale)
+		var texture := load(path) as Texture2D
+		if texture != null:
+			var size := Vector2(texture.get_width(), texture.get_height()) * sprite_scale
+			rect = Rect2(pos + Vector2(-size.x * 0.43, -size.y * 0.36), Vector2(size.x * 0.86, size.y * 0.74))
 	elif path.find("decor_forge") >= 0:
 		rect = Rect2(pos + Vector2(-40, -26) * sprite_scale, Vector2(80, 74) * sprite_scale)
 	elif path.find("decor_rock") >= 0 and sprite_scale >= 1.35:

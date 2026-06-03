@@ -17,7 +17,7 @@
                                           "role":  "healer",
                                           "pos":  [
                                                       560,
-                                                      760
+                                                      790
                                                   ],
                                           "sprite":  "res://assets/sprites/npc_custom_3_pixel.png"
                                       },
@@ -26,7 +26,7 @@
                                           "role":  "shop",
                                           "pos":  [
                                                       1320,
-                                                      560
+                                                      620
                                                   ],
                                           "sprite":  "res://assets/sprites/npc_custom_2_pixel.png"
                                       },
@@ -35,7 +35,7 @@
                                           "role":  "forge",
                                           "pos":  [
                                                       1510,
-                                                      860
+                                                      925
                                                   ],
                                           "sprite":  "res://assets/sprites/npc_custom_5_pixel.png"
                                       },
@@ -44,7 +44,7 @@
                                           "role":  "class_master",
                                           "pos":  [
                                                       820,
-                                                      420
+                                                      545
                                                   ],
                                           "sprite":  "res://assets/sprites/npc_custom_1_pixel.png"
                                       }
@@ -335,8 +335,8 @@
                                            "name":  "Mira, Vendedora de Pets",
                                            "role":  "pet_shop",
                                            "pos":  [
-                                                       620,
-                                                       610
+                                                       560,
+                                                       690
                                                    ],
                                            "sprite":  "res://assets/sprites/npc_custom_4_pixel.png"
                                        },
@@ -345,7 +345,7 @@
                                            "role":  "mount_shop",
                                            "pos":  [
                                                        1380,
-                                                       610
+                                                       690
                                                    ],
                                            "sprite":  "res://assets/sprites/npc_custom_1_pixel.png"
                                        },
@@ -353,8 +353,8 @@
                                            "name":  "Durnan, Forja Rara",
                                            "role":  "rare_forge",
                                            "pos":  [
-                                                       1560,
-                                                       890
+                                                       1625,
+                                                       930
                                                    ],
                                            "sprite":  "res://assets/sprites/npc_custom_5_pixel.png"
                                        },
@@ -363,7 +363,7 @@
                                            "role":  "healer",
                                            "pos":  [
                                                        800,
-                                                       880
+                                                       930
                                                    ],
                                            "sprite":  "res://assets/sprites/npc_custom_3_pixel.png"
                                        },
@@ -372,7 +372,7 @@
                                            "role":  "shop",
                                            "pos":  [
                                                        1160,
-                                                       900
+                                                       935
                                                    ],
                                            "sprite":  "res://assets/sprites/npc_custom_2_pixel.png"
                                        }
