@@ -71,6 +71,7 @@ var walk_anim_frame := 0
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var name_label: Label = $NameLabel
+var shadow_sprite: Sprite2D
 
 func setup(chosen_class: String, data: Dictionary, database: ItemDatabase) -> void:
 	collision_layer = 1
@@ -538,6 +539,7 @@ func _set_player_sprite(path: String, flip_h: bool) -> void:
 func _fit_player_sprite() -> void:
 	if sprite.texture == null:
 		return
+	_ensure_shadow()
 	if _class_has_custom_sprite(class_name_selected):
 		var target_height := 58.0
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
@@ -551,3 +553,18 @@ func _fit_player_sprite() -> void:
 	else:
 		sprite.scale = Vector2(2, 2)
 		sprite.position = Vector2.ZERO
+
+func _ensure_shadow() -> void:
+	if shadow_sprite != null:
+		return
+	var texture := load("res://assets/sprites/decor_shadow_soft.png") as Texture2D
+	if texture == null:
+		return
+	shadow_sprite = Sprite2D.new()
+	shadow_sprite.texture = texture
+	shadow_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	shadow_sprite.position = Vector2(0, 18)
+	shadow_sprite.scale = Vector2(0.56, 0.28)
+	shadow_sprite.modulate = Color(1, 1, 1, 0.58)
+	shadow_sprite.z_index = -1
+	add_child(shadow_sprite)

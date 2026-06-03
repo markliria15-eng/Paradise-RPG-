@@ -31,6 +31,7 @@ var safe_zone_checker: Callable
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
 @onready var health_bar: ProgressBar = $HealthBar
+var shadow_sprite: Sprite2D
 
 func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	collision_layer = 2
@@ -56,6 +57,7 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	speed = float(data.get("speed", 90))
 	poison_chance = float(data.get("poison_chance", 0.0))
 	boss = bool(data.get("boss", false))
+	_ensure_shadow()
 	sprite.texture = load(_sprite_path(name_value))
 	label.text = "BOSS Lv %d %s" % [level, name_value] if boss else "Lv %d %s" % [level, name_value]
 	_fit_sprite_to_enemy()
@@ -112,11 +114,27 @@ func receive_damage(amount: int) -> void:
 func _fit_sprite_to_enemy() -> void:
 	if sprite.texture == null:
 		return
-	var target_height := 44.0
+	var target_height := 46.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	sprite.position = Vector2(0, -10)
+	if shadow_sprite != null:
+		shadow_sprite.position = Vector2(0, 18)
+		shadow_sprite.scale = Vector2(0.62, 0.34)
+
+func _ensure_shadow() -> void:
+	if shadow_sprite != null:
+		return
+	var texture := load("res://assets/sprites/decor_shadow_soft.png") as Texture2D
+	if texture == null:
+		return
+	shadow_sprite = Sprite2D.new()
+	shadow_sprite.texture = texture
+	shadow_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	shadow_sprite.modulate = Color(1, 1, 1, 0.70)
+	shadow_sprite.z_index = -1
+	add_child(shadow_sprite)
 
 func set_targeted(value: bool) -> void:
 	is_targeted = value

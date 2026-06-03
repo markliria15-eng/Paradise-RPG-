@@ -8,6 +8,7 @@ var sprite_override := ""
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
+var shadow_sprite: Sprite2D
 
 func setup(data: Dictionary) -> void:
 	npc_name = str(data.get("name", "NPC"))
@@ -23,6 +24,7 @@ func setup(data: Dictionary) -> void:
 func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:
 		return
+	_ensure_shadow()
 	var target_height := 52.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
@@ -33,6 +35,21 @@ func _fit_sprite_to_npc() -> void:
 	label.offset_right = 96
 	label.offset_top = -68
 	label.offset_bottom = -48
+
+func _ensure_shadow() -> void:
+	if shadow_sprite != null:
+		return
+	var texture := load("res://assets/sprites/decor_shadow_soft.png") as Texture2D
+	if texture == null:
+		return
+	shadow_sprite = Sprite2D.new()
+	shadow_sprite.texture = texture
+	shadow_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	shadow_sprite.position = Vector2(0, 13)
+	shadow_sprite.scale = Vector2(0.48, 0.22)
+	shadow_sprite.modulate = Color(1, 1, 1, 0.55)
+	shadow_sprite.z_index = -1
+	add_child(shadow_sprite)
 
 func _sprite_path(npc_role: String) -> String:
 	match npc_role:

@@ -1369,7 +1369,7 @@ func _add_world_sprite(path: String, pos: Vector2, sprite_scale: float, z: int) 
 	return sprite
 
 func _should_cast_world_shadow(path: String) -> bool:
-	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite"]:
+	for token in ["decor_tree", "decor_house", "decor_forge", "decor_portal", "decor_crystal", "decor_rock", "decor_stalagmite", "decor_barrel", "decor_crate", "decor_well", "decor_healer_shrine"]:
 		if path.find(token) >= 0:
 			return true
 	return false
@@ -1432,10 +1432,12 @@ func _tile_textures_for(path: String) -> Array:
 func _spawn_ground_details() -> void:
 	match current_map:
 		"city_eldoria", "city_valdoria":
-			_scatter_detail(["res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png"], 34, 0.62)
-			_scatter_detail(["res://assets/sprites/decor_sign.png", "res://assets/sprites/decor_fence.png"], 8, 0.9)
+			_scatter_detail(["res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_leaf_patch.png"], 42, 0.62)
+			_scatter_detail(["res://assets/sprites/decor_sign.png", "res://assets/sprites/decor_fence.png", "res://assets/sprites/decor_crate.png", "res://assets/sprites/decor_barrel.png"], 18, 0.9)
+			_spawn_city_visual_props()
 		"forest_boars", "highland_pass":
-			_scatter_detail(["res://assets/sprites/decor_bush.png", "res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_rock.png"], 74, 0.78)
+			_scatter_detail(["res://assets/sprites/decor_bush.png", "res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_rock.png", "res://assets/sprites/decor_leaf_patch.png", "res://assets/sprites/decor_stump.png"], 92, 0.78)
+			_scatter_detail(["res://assets/sprites/decor_dirt_blend.png", "res://assets/sprites/decor_path_edge_grass.png"], 26, 0.9)
 		"bat_cave", "crystal_mines":
 			_scatter_detail(["res://assets/sprites/decor_rock.png", "res://assets/sprites/decor_stalagmite.png", "res://assets/sprites/decor_crystal.png"], 42, 0.72)
 		"arcane_ruins":
@@ -1455,6 +1457,28 @@ func _scatter_detail(paths: Array, count: int, scale_base: float) -> void:
 		var path := str(paths[rng.randi_range(0, paths.size() - 1)])
 		var sprite := _add_world_sprite(path, pos, scale_base * rng.randf_range(0.82, 1.18), -89)
 		sprite.modulate = Color(1, 1, 1, rng.randf_range(0.88, 1.0))
+
+func _spawn_city_visual_props() -> void:
+	if current_map == "city_eldoria":
+		for p in [Vector2(1260, 635), Vector2(1300, 635), Vector2(1360, 610), Vector2(1450, 900), Vector2(1500, 910)]:
+			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 0.85, -8)
+		for p in [Vector2(1370, 920), Vector2(1540, 925), Vector2(700, 420)]:
+			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 0.95, -8)
+		for p in [Vector2(520, 800), Vector2(610, 810)]:
+			_add_world_sprite("res://assets/sprites/decor_healer_shrine.png", p, 0.95, -8)
+		for p in [Vector2(780, 350), Vector2(880, 345)]:
+			_add_world_sprite("res://assets/sprites/decor_magic_rune.png", p, 0.85, -9)
+		for p in [Vector2(450, 610), Vector2(1660, 615), Vector2(1030, 500), Vector2(1210, 500)]:
+			_add_world_sprite("res://assets/sprites/decor_torch.png", p, 0.9, -8)
+	elif current_map == "city_valdoria":
+		for p in [Vector2(590, 695), Vector2(660, 690), Vector2(1350, 700), Vector2(1430, 700)]:
+			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 0.95, -8)
+		for p in [Vector2(1520, 965), Vector2(1610, 965), Vector2(1690, 960)]:
+			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 0.9, -8)
+		for p in [Vector2(735, 915), Vector2(840, 920)]:
+			_add_world_sprite("res://assets/sprites/decor_healer_shrine.png", p, 0.9, -8)
+		for p in [Vector2(520, 480), Vector2(1260, 500), Vector2(1540, 760), Vector2(1700, 760)]:
+			_add_world_sprite("res://assets/sprites/decor_torch.png", p, 0.9, -8)
 
 func _add_world_label(text: String, pos: Vector2, color: Color = Color.WHITE) -> Label:
 	var label := Label.new()
