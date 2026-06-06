@@ -10,6 +10,19 @@ function intEnv(name, fallback) {
   return Number.isNaN(parsed) ? fallback : parsed;
 }
 
+const releaseAndroidDownloadUrl =
+  "https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.0/paradise-rpg-android-v0.1.0.apk";
+const legacyPagesAndroidDownloadUrl =
+  "https://markliria15-eng.github.io/Paradise-RPG-/downloads/Paradise-RPG.apk";
+
+function androidDownloadUrl() {
+  const raw = process.env.ANDROID_APK_URL;
+  if (!raw || raw === legacyPagesAndroidDownloadUrl) {
+    return releaseAndroidDownloadUrl;
+  }
+  return raw;
+}
+
 module.exports = {
   env: process.env.NODE_ENV || "development",
   httpHost: process.env.HOST || "0.0.0.0",
@@ -20,9 +33,7 @@ module.exports = {
   jwtSecret: process.env.JWT_SECRET || "dev-secret",
   jwtExpires: process.env.JWT_EXPIRES || "7d",
   clientOrigin: process.env.CLIENT_ORIGIN || "*",
-  androidDownloadUrl:
-    process.env.ANDROID_APK_URL ||
-    "https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.0/paradise-rpg-android-v0.1.0.apk",
+  androidDownloadUrl: androidDownloadUrl(),
   db: {
     url: process.env.DATABASE_URL || "",
     ssl: String(process.env.DB_SSL || "").toLowerCase() === "true",
