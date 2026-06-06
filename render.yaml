@@ -32,7 +32,7 @@ services:
       - key: CLIENT_ORIGIN
         value: "*"
       - key: ANDROID_APK_URL
-        value: https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.4/paradise-rpg-android-v0.1.4.apk
+        value: https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.5/paradise-rpg-android-v0.1.5.apk
       - key: DATABASE_URL
         fromDatabase:
           name: paradise-rpg-db

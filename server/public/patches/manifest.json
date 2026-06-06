@@ -3,8 +3,8 @@
   "game": "Paradise RPG",
   "channel": "beta",
   "version": "2026.06.06",
-  "min_app_version": "0.1.4",
-  "generated_at": "2026-06-06T16:03:51.529Z",
+  "min_app_version": "0.1.5",
+  "generated_at": "2026-06-06T16:45:23.433Z",
   "files": [
     {
       "path": "data/armor_sets_manifest.json",

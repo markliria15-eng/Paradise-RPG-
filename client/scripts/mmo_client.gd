@@ -13,8 +13,11 @@ var token := ""
 var selected_character_id := 0
 var account_payload: Dictionary = {}
 
-var _socket := WebSocketPeer.new()
+var _socket: WebSocketPeer = WebSocketPeer.new()
 var _http: HTTPRequest
+var _connecting := false
+var _auth_sent := false
+var _last_socket_state := WebSocketPeer.STATE_CLOSED
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -29,14 +32,30 @@ func _process(_delta: float) -> void:
 	_socket.poll()
 	var state := _socket.get_ready_state()
 	if state == WebSocketPeer.STATE_OPEN:
+		if _connecting and not _auth_sent:
+			_auth_sent = true
+			send({
+				"type": "auth",
+				"token": token,
+				"characterId": selected_character_id
+			})
 		while _socket.get_available_packet_count() > 0:
 			var data := _socket.get_packet().get_string_from_utf8()
 			var parsed = JSON.parse_string(data)
 			if typeof(parsed) == TYPE_DICTIONARY:
+				if str(parsed.get("type", "")) == "auth_ok":
+					_connecting = false
+					world_connected.emit()
 				world_message.emit(parsed)
 	elif state == WebSocketPeer.STATE_CLOSED:
-		if online_enabled:
-			world_disconnected.emit()
+		if _last_socket_state != WebSocketPeer.STATE_CLOSED:
+			if _connecting:
+				login_failed.emit(_websocket_close_message())
+			elif online_enabled:
+				world_disconnected.emit()
+			_connecting = false
+			_auth_sent = false
+	_last_socket_state = state
 
 func _load_config() -> void:
 	var file := FileAccess.open("res://client/config/mmo_client_config.json", FileAccess.READ)
@@ -45,8 +64,10 @@ func _load_config() -> void:
 	var parsed = JSON.parse_string(file.get_as_text())
 	if typeof(parsed) != TYPE_DICTIONARY:
 		return
-	http_base_url = str(parsed.get("http_base_url", http_base_url))
-	ws_url = str(parsed.get("ws_url", ws_url))
+	http_base_url = str(parsed.get("http_base_url", http_base_url)).strip_edges()
+	if http_base_url.ends_with("/"):
+		http_base_url = http_base_url.substr(0, http_base_url.length() - 1)
+	ws_url = str(parsed.get("ws_url", ws_url)).strip_edges()
 	online_enabled = bool(parsed.get("online_enabled", false))
 
 func register_account(username: String, email: String, password: String, character_name: String, class_id: String) -> void:
@@ -67,21 +88,31 @@ func connect_world(character_id: int) -> void:
 		login_failed.emit("Token vazio.")
 		return
 	selected_character_id = character_id
-	var err := _socket.connect_to_url(ws_url)
+	_socket.close()
+	_socket = WebSocketPeer.new()
+	_connecting = true
+	_auth_sent = false
+	_last_socket_state = WebSocketPeer.STATE_CONNECTING
+	var tls_options: TLSOptions = null
+	if ws_url.begins_with("wss://"):
+		tls_options = TLSOptions.client()
+	var err := _socket.connect_to_url(ws_url, tls_options)
 	if err != OK:
-		login_failed.emit("Falha ao conectar websocket.")
+		_connecting = false
+		login_failed.emit("Falha ao conectar websocket. Erro: " + str(err))
 		return
-	await get_tree().create_timer(0.5).timeout
-	send({
-		"type": "auth",
-		"token": token,
-		"characterId": character_id
-	})
 
 func send(payload: Dictionary) -> void:
 	if _socket.get_ready_state() != WebSocketPeer.STATE_OPEN:
 		return
 	_socket.send_text(JSON.stringify(payload))
+
+func _websocket_close_message() -> String:
+	var code := _socket.get_close_code()
+	var reason := _socket.get_close_reason()
+	if reason.is_empty():
+		return "Falha ao conectar websocket. Codigo: " + str(code)
+	return "Falha ao conectar websocket. Codigo: " + str(code) + " - " + reason
 
 func send_move(map_id: String, position: Vector2) -> void:
 	send({

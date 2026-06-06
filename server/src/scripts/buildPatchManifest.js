@@ -53,7 +53,7 @@ const manifest = {
   game: "Paradise RPG",
   channel: "beta",
   version: process.env.PATCH_VERSION || new Date().toISOString().slice(0, 10).replaceAll("-", "."),
-  min_app_version: "0.1.4",
+  min_app_version: "0.1.5",
   generated_at: new Date().toISOString(),
   files
 };
