@@ -80,8 +80,8 @@ func register_account(username: String, email: String, password: String, charact
 	}
 	_send_http("/auth/register", body, Callable(self, "_on_register_response"))
 
-func login_account(email: String, password: String) -> void:
-	_send_http("/auth/login", {"email": email, "password": password}, Callable(self, "_on_login_response"))
+func login_account(login: String, password: String) -> void:
+	_send_http("/auth/login", {"login": login, "password": password}, Callable(self, "_on_login_response"))
 
 func connect_world(character_id: int) -> void:
 	if token.is_empty():

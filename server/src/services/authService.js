@@ -15,9 +15,32 @@ const registerSchema = z.object({
 });
 
 const loginSchema = z.object({
-  email: z.string().email().max(120),
+  login: z.string().min(3).max(120).refine((value) => !/\s/.test(value)),
   password: z.string().min(6).max(72)
 });
+
+function parseOrFriendlyError(schema, payload, mode) {
+  const result = schema.safeParse(payload);
+  if (result.success) return result.data;
+  const issue = result.error.issues[0];
+  const field = issue ? String(issue.path[0] || "") : "";
+  if (field === "email") {
+    throw new Error("Erro: email invalido.");
+  }
+  if (field === "username" || field === "login") {
+    throw new Error("Erro: nao pode colocar espaco em login.");
+  }
+  if (field === "password") {
+    throw new Error("Erro: a senha precisa ter pelo menos 6 caracteres.");
+  }
+  if (field === "characterName") {
+    throw new Error("Erro: nome do personagem invalido.");
+  }
+  if (field === "className") {
+    throw new Error("Erro: escolha uma classe valida.");
+  }
+  throw new Error(mode === "register" ? "Erro: dados de registro invalidos." : "Erro: dados de login invalidos.");
+}
 
 function signToken(account) {
   const jti = uuidv4();
@@ -36,7 +59,7 @@ function signToken(account) {
 }
 
 async function register(payload) {
-  const data = registerSchema.parse(payload);
+  const data = parseOrFriendlyError(registerSchema, payload, "register");
   const existsByEmail = await accountRepo.findByEmail(data.email);
   if (existsByEmail) {
     throw new Error("E-mail ja cadastrado.");
@@ -78,8 +101,11 @@ async function register(payload) {
 }
 
 async function login(payload) {
-  const data = loginSchema.parse(payload);
-  const account = await accountRepo.findByEmail(data.email);
+  const data = parseOrFriendlyError(loginSchema, payload, "login");
+  const login = data.login.trim();
+  const account = login.includes("@")
+    ? await accountRepo.findByEmail(login)
+    : await accountRepo.findByUsername(login);
   if (!account) {
     throw new Error("Credenciais invalidas.");
   }
@@ -116,4 +142,3 @@ module.exports = {
   login,
   verifyToken
 };
-
