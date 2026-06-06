@@ -12,10 +12,31 @@ const authRoutes = require("./http/authRoutes");
 const WorldService = require("./services/worldService");
 const WsGateway = require("./net/wsGateway");
 
-async function main() {
-  await pool.query("SELECT 1");
-  logger.info("Banco conectado.");
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
+async function waitForDatabase() {
+  let lastError;
+  for (let attempt = 1; attempt <= config.dbStartupAttempts; attempt += 1) {
+    try {
+      await pool.query("SELECT 1");
+      logger.info("Banco conectado.");
+      return;
+    } catch (err) {
+      lastError = err;
+      logger.warn(
+        `Banco indisponivel na tentativa ${attempt}/${config.dbStartupAttempts}: ${err.message}`
+      );
+      if (attempt < config.dbStartupAttempts) {
+        await sleep(config.dbStartupRetryDelayMs);
+      }
+    }
+  }
+  throw lastError;
+}
+
+async function main() {
   const app = express();
   app.use(helmet());
   app.use(compression());
@@ -24,8 +45,10 @@ async function main() {
   app.use(morgan("dev"));
 
   app.get("/health", (_req, res) => {
-    res.json({ ok: true, service: "arcadia-mmo-server", at: new Date().toISOString() });
+    res.json({ ok: true, service: "paradise-rpg-server" });
   });
+
+  await waitForDatabase();
   const world = new WorldService();
   await world.bootstrapMmoSystems();
 
@@ -35,8 +58,8 @@ async function main() {
   app.use("/auth", authRoutes);
 
   const server = http.createServer(app);
-  server.listen(config.httpPort, () => {
-    logger.info(`HTTP online em http://127.0.0.1:${config.httpPort}`);
+  server.listen(config.httpPort, config.httpHost, () => {
+    logger.info(`HTTP online em http://${config.httpHost}:${config.httpPort}`);
   });
 
   const wsOptions =
@@ -46,9 +69,9 @@ async function main() {
   const ws = new WsGateway(wsOptions);
   ws.start();
   if (config.wsMode === "separate") {
-    logger.info(`WebSocket MMO online em ws://127.0.0.1:${config.wsPort}`);
+    logger.info(`WebSocket MMO online em ws://${config.httpHost}:${config.wsPort}`);
   } else {
-    logger.info(`WebSocket MMO online em ws://127.0.0.1:${config.httpPort}${config.wsPath}`);
+    logger.info(`WebSocket MMO online em ws://${config.httpHost}:${config.httpPort}${config.wsPath}`);
   }
 
   setInterval(async () => {

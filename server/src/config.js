@@ -12,7 +12,8 @@ function intEnv(name, fallback) {
 
 module.exports = {
   env: process.env.NODE_ENV || "development",
-  httpPort: intEnv("PORT", 8080),
+  httpHost: process.env.HOST || "0.0.0.0",
+  httpPort: intEnv("PORT", 10000),
   wsPort: intEnv("WS_PORT", 8081),
   wsMode: process.env.WS_MODE || "shared",
   wsPath: process.env.WS_PATH || "/ws",
@@ -28,6 +29,11 @@ module.exports = {
     user: process.env.DB_USER || "arcadia",
     password: process.env.DB_PASSWORD || "arcadia123"
   },
+  dbConnectionTimeoutMs: intEnv("DB_CONNECTION_TIMEOUT_MS", 20000),
+  dbMigrateAttempts: intEnv("DB_MIGRATE_ATTEMPTS", 8),
+  dbMigrateRetryDelayMs: intEnv("DB_MIGRATE_RETRY_DELAY_MS", 5000),
+  dbStartupAttempts: intEnv("DB_STARTUP_ATTEMPTS", 8),
+  dbStartupRetryDelayMs: intEnv("DB_STARTUP_RETRY_DELAY_MS", 4000),
   saveIntervalMs: intEnv("SAVE_INTERVAL_MS", 20000),
   worldTickMs: intEnv("WORLD_TICK_MS", 100),
   chatFloodWindowMs: intEnv("CHAT_FLOOD_WINDOW_MS", 4000),

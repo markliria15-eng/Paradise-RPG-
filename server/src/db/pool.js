@@ -4,7 +4,7 @@ const config = require("../config");
 const baseOptions = {
   max: 20,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 5000
+  connectionTimeoutMillis: config.dbConnectionTimeoutMs
 };
 
 const poolOptions = config.db.url

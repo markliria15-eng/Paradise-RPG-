@@ -483,6 +483,48 @@ h3 {
   justify-content: center;
 }
 
+.server-panel {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1.35rem auto 0;
+  max-width: 44rem;
+  padding: 1rem;
+  border: 1px solid rgba(201, 154, 46, 0.35);
+  border-radius: 0.75rem;
+  background: rgba(5, 7, 12, 0.72);
+  color: var(--text);
+}
+
+.server-panel strong {
+  color: #f8d883;
+}
+
+.server-panel.online #server-status {
+  color: #75e29a;
+}
+
+.server-panel.offline #server-status {
+  color: #ff7979;
+}
+
+.server-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.server-links a {
+  color: #9cd8ff;
+}
+
+.server-links code {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .footer {
   display: flex;
   flex-wrap: wrap;

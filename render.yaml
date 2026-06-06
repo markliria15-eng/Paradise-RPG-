@@ -5,15 +5,28 @@ services:
     rootDir: server
     buildCommand: npm ci
     startCommand: npm run start:prod
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: HOST
+        value: 0.0.0.0
       - key: WS_MODE
         value: shared
       - key: WS_PATH
         value: /ws
       - key: DB_SSL
-        value: true
+        value: "true"
+      - key: DB_CONNECTION_TIMEOUT_MS
+        value: "20000"
+      - key: DB_MIGRATE_ATTEMPTS
+        value: "8"
+      - key: DB_MIGRATE_RETRY_DELAY_MS
+        value: "5000"
+      - key: DB_STARTUP_ATTEMPTS
+        value: "8"
+      - key: DB_STARTUP_RETRY_DELAY_MS
+        value: "4000"
       - key: JWT_SECRET
         generateValue: true
       - key: CLIENT_ORIGIN
