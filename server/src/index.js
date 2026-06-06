@@ -1,5 +1,6 @@
 const express = require("express");
 const http = require("http");
+const path = require("path");
 const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
@@ -57,6 +58,20 @@ async function main() {
       ok: true,
       android: config.androidDownloadUrl
     });
+  });
+
+  app.use(
+    "/patch/files",
+    express.static(path.resolve(__dirname, "../public/patches/data"), {
+      etag: true,
+      immutable: true,
+      maxAge: "1h"
+    })
+  );
+
+  app.get("/patch/manifest", (_req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    res.sendFile(path.resolve(__dirname, "../public/patches/manifest.json"));
   });
 
   await waitForDatabase();

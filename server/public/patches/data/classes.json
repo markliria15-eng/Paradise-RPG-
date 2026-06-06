@@ -1,0 +1,35 @@
+{
+  "Guerreiro": {
+    "color": "#c94f3d",
+    "base": {"vida": 150, "mana": 40, "ataque": 12, "defesa": 10, "velocidade_ataque": 1.0, "velocidade_movimento": 180, "alcance": 52},
+    "weapon": "Espada Enferrujada",
+    "passive": "Pele de Ferro",
+    "skills": [
+      {"id": "death_area", "name": "Area da Morte", "cooldown": 10.0, "mana": 22, "power": 1.25, "radius": 96},
+      {"id": "hero_hour", "name": "Hora do Heroi", "cooldown": 22.0, "mana": 18, "duration": 10.0, "attack_bonus": 0.25, "defense_bonus": 0.25},
+      {"id": "soul_reaper", "name": "Seifador de Almas", "cooldown": 14.0, "mana": 34, "power": 2.8, "life_cost_pct": 0.10}
+    ]
+  },
+  "Mago": {
+    "color": "#6a76e8",
+    "base": {"vida": 90, "mana": 150, "ataque": 8, "defesa": 4, "velocidade_ataque": 0.8, "velocidade_movimento": 180, "alcance": 260},
+    "weapon": "Cajado Simples",
+    "passive": "Mana Viva",
+    "skills": [
+      {"id": "blue_meteor", "name": "Meteoro Azul", "cooldown": 13.0, "mana": 55, "power": 2.7, "radius": 34},
+      {"id": "burning_fireball", "name": "Bola de Fogo", "cooldown": 5.0, "mana": 22, "power": 1.35, "burn_damage": 4, "burn_duration": 4.0},
+      {"id": "fire_hurricane", "name": "Furacao de Fogo", "cooldown": 15.0, "mana": 48, "power": 0.9, "radius": 122, "duration": 3.0}
+    ]
+  },
+  "Arqueiro": {
+    "color": "#58b878",
+    "base": {"vida": 110, "mana": 80, "ataque": 10, "defesa": 6, "velocidade_ataque": 1.3, "velocidade_movimento": 220, "alcance": 280},
+    "weapon": "Arco de Madeira",
+    "passive": "Olhos de Cacador",
+    "skills": [
+      {"id": "agility", "name": "Agilidade", "cooldown": 18.0, "mana": 16, "duration": 8.0, "move_bonus": 0.25, "attack_speed_bonus": 0.18},
+      {"id": "arrow_rain", "name": "Chuva de Flechas", "cooldown": 12.0, "mana": 28, "power": 1.15, "radius": 120, "duration": 1.5},
+      {"id": "stun_shot", "name": "Tiro Atordoante", "cooldown": 10.0, "mana": 24, "power": 1.45, "stun_duration": 2.0}
+    ]
+  }
+}

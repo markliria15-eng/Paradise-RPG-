@@ -1,6 +1,8 @@
 {
   "http_base_url": "https://SEU-SERVIDOR-ONLINE",
   "ws_url": "wss://SEU-SERVIDOR-ONLINE/ws",
+  "patch_manifest_url": "https://SEU-SERVIDOR-ONLINE/patch/manifest",
+  "patch_enabled": true,
   "online_enabled": true,
   "remember_login": true
 }

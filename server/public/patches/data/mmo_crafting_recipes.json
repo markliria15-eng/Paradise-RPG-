@@ -1,0 +1,1805 @@
+[
+  {
+    "code": "iron_sword",
+    "name": "Espada de Ferro",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "Minerio de Ferro",
+        "amount": 5
+      },
+      {
+        "item_id": "Madeira Bruta",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 50,
+    "result_item_id": "Espada de Ferro",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "medium_health_potion",
+    "name": "Pocao Media de Vida",
+    "category": "pocoes",
+    "profession": "alchemy",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "Erva Vermelha",
+        "amount": 3
+      },
+      {
+        "item_id": "Frasco Vazio",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 0,
+    "result_item_id": "Pocao media de vida",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "roasted_meat",
+    "name": "Carne Assada",
+    "category": "comidas",
+    "profession": "cooking",
+    "profession_level_required": 1,
+    "materials": [
+      {
+        "item_id": "Carne Crua",
+        "amount": 2
+      },
+      {
+        "item_id": "Tempero",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 0,
+    "result_item_id": "Carne Assada",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_helmet",
+    "name": "Elmo de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_helmet",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 8
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_helmet",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_chest",
+    "name": "Peitoral de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_chest",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 18
+      },
+      {
+        "item_id": "coal",
+        "amount": 3
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 5
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_iron_chest",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_shoulder_l",
+    "name": "Ombreira Esquerda de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_shoulder_l",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 7
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_shoulder_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_shoulder_r",
+    "name": "Ombreira Direita de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_shoulder_r",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 7
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_shoulder_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_glove_l",
+    "name": "Luva Esquerda de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_glove_l",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 5
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_glove_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_glove_r",
+    "name": "Luva Direita de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_glove_r",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 5
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_glove_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_belt",
+    "name": "Cinto de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_belt",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_belt",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_legs",
+    "name": "Calca de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_legs",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 14
+      },
+      {
+        "item_id": "coal",
+        "amount": 2
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 4
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_iron_legs",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_boot_l",
+    "name": "Bota Esquerda de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_boot_l",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_boot_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_iron_boot_r",
+    "name": "Bota Direita de Ferro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "materials": [
+      {
+        "item_id": "armor_leather_boot_r",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "coal",
+        "amount": 1
+      },
+      {
+        "item_id": "leather_strap",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 200,
+    "result_item_id": "armor_iron_boot_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_helmet",
+    "name": "Elmo de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_helmet",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 8
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_helmet",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_chest",
+    "name": "Peitoral de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_chest",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 18
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 3
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 5
+      }
+    ],
+    "gold_cost": 900,
+    "result_item_id": "armor_gold_chest",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_shoulder_l",
+    "name": "Ombreira Esquerda de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_shoulder_l",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 7
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_shoulder_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_shoulder_r",
+    "name": "Ombreira Direita de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_shoulder_r",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 7
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_shoulder_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_glove_l",
+    "name": "Luva Esquerda de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_glove_l",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 5
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_glove_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_glove_r",
+    "name": "Luva Direita de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_glove_r",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 5
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_glove_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_belt",
+    "name": "Cinto de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_belt",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 6
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_belt",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_legs",
+    "name": "Calca de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_legs",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 14
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 2
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 4
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_gold_legs",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_boot_l",
+    "name": "Bota Esquerda de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_boot_l",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 6
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_boot_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_gold_boot_r",
+    "name": "Bota Direita de Ouro",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "materials": [
+      {
+        "item_id": "armor_iron_boot_r",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_ingot",
+        "amount": 6
+      },
+      {
+        "item_id": "ruby_shard",
+        "amount": 1
+      },
+      {
+        "item_id": "iron_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 300,
+    "result_item_id": "armor_gold_boot_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_helmet",
+    "name": "Elmo de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_helmet",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 8
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_helmet",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_chest",
+    "name": "Peitoral de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_chest",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 18
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 3
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 5
+      }
+    ],
+    "gold_cost": 1200,
+    "result_item_id": "armor_titanium_chest",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_shoulder_l",
+    "name": "Ombreira Esquerda de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_shoulder_l",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 7
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_shoulder_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_shoulder_r",
+    "name": "Ombreira Direita de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_shoulder_r",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 7
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_shoulder_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_glove_l",
+    "name": "Luva Esquerda de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_glove_l",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 5
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_glove_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_glove_r",
+    "name": "Luva Direita de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_glove_r",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 5
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_glove_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_belt",
+    "name": "Cinto de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_belt",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_belt",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_legs",
+    "name": "Calca de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_legs",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 14
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 2
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 4
+      }
+    ],
+    "gold_cost": 800,
+    "result_item_id": "armor_titanium_legs",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_boot_l",
+    "name": "Bota Esquerda de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_boot_l",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_boot_l",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_titanium_boot_r",
+    "name": "Bota Direita de Titanio",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "materials": [
+      {
+        "item_id": "armor_gold_boot_r",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "blue_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "gold_rivet",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 400,
+    "result_item_id": "armor_titanium_boot_r",
+    "result_amount": 1,
+    "success_chance": 100
+  },
+  {
+    "code": "craft_armor_mithril_helmet",
+    "name": "Elmo de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_helmet",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 8
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_helmet",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_chest",
+    "name": "Peitoral de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_chest",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 18
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 3
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 5
+      }
+    ],
+    "gold_cost": 1500,
+    "result_item_id": "armor_mithril_chest",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_shoulder_l",
+    "name": "Ombreira Esquerda de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_shoulder_l",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 7
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_shoulder_l",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_shoulder_r",
+    "name": "Ombreira Direita de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_shoulder_r",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 7
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_shoulder_r",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_glove_l",
+    "name": "Luva Esquerda de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_glove_l",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 5
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_glove_l",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_glove_r",
+    "name": "Luva Direita de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_glove_r",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 5
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_glove_r",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_belt",
+    "name": "Cinto de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_belt",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_belt",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_legs",
+    "name": "Calca de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_legs",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 14
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 2
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 4
+      }
+    ],
+    "gold_cost": 1000,
+    "result_item_id": "armor_mithril_legs",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_boot_l",
+    "name": "Bota Esquerda de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_boot_l",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_boot_l",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_mithril_boot_r",
+    "name": "Bota Direita de Mithril",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "materials": [
+      {
+        "item_id": "armor_titanium_boot_r",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_ore",
+        "amount": 6
+      },
+      {
+        "item_id": "arcane_crystal",
+        "amount": 1
+      },
+      {
+        "item_id": "titanium_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 500,
+    "result_item_id": "armor_mithril_boot_r",
+    "result_amount": 1,
+    "success_chance": 85
+  },
+  {
+    "code": "craft_armor_obsidian_helmet",
+    "name": "Elmo de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_helmet",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 8
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_helmet",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_chest",
+    "name": "Peitoral de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_chest",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 18
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 3
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 5
+      }
+    ],
+    "gold_cost": 1800,
+    "result_item_id": "armor_obsidian_chest",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_shoulder_l",
+    "name": "Ombreira Esquerda de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_shoulder_l",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 7
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_shoulder_l",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_shoulder_r",
+    "name": "Ombreira Direita de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_shoulder_r",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 7
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_shoulder_r",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_glove_l",
+    "name": "Luva Esquerda de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_glove_l",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 5
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_glove_l",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_glove_r",
+    "name": "Luva Direita de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_glove_r",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 5
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_glove_r",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_belt",
+    "name": "Cinto de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_belt",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 6
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_belt",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_legs",
+    "name": "Calca de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_legs",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 14
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 2
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 4
+      }
+    ],
+    "gold_cost": 1200,
+    "result_item_id": "armor_obsidian_legs",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_boot_l",
+    "name": "Bota Esquerda de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_boot_l",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 6
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_boot_l",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_obsidian_boot_r",
+    "name": "Bota Direita de Obsidiana",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "materials": [
+      {
+        "item_id": "armor_mithril_boot_r",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_shard",
+        "amount": 6
+      },
+      {
+        "item_id": "dark_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "mithril_plate",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 600,
+    "result_item_id": "armor_obsidian_boot_r",
+    "result_amount": 1,
+    "success_chance": 70
+  },
+  {
+    "code": "craft_armor_crystal_helmet",
+    "name": "Elmo de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_helmet",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 8
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_helmet",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_chest",
+    "name": "Peitoral de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_chest",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 18
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 3
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 5
+      }
+    ],
+    "gold_cost": 2100,
+    "result_item_id": "armor_crystal_chest",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_shoulder_l",
+    "name": "Ombreira Esquerda de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_shoulder_l",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 7
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_shoulder_l",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_shoulder_r",
+    "name": "Ombreira Direita de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_shoulder_r",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 7
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_shoulder_r",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_glove_l",
+    "name": "Luva Esquerda de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_glove_l",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 5
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_glove_l",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_glove_r",
+    "name": "Luva Direita de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_glove_r",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 5
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 1
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_glove_r",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_belt",
+    "name": "Cinto de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_belt",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 6
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_belt",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_legs",
+    "name": "Calca de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_legs",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 14
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 2
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 4
+      }
+    ],
+    "gold_cost": 1400,
+    "result_item_id": "armor_crystal_legs",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_boot_l",
+    "name": "Bota Esquerda de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_boot_l",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 6
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_boot_l",
+    "result_amount": 1,
+    "success_chance": 55
+  },
+  {
+    "code": "craft_armor_crystal_boot_r",
+    "name": "Bota Direita de Cristal",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "materials": [
+      {
+        "item_id": "armor_obsidian_boot_r",
+        "amount": 1
+      },
+      {
+        "item_id": "divine_crystal",
+        "amount": 6
+      },
+      {
+        "item_id": "celestial_essence",
+        "amount": 1
+      },
+      {
+        "item_id": "obsidian_core",
+        "amount": 2
+      }
+    ],
+    "gold_cost": 700,
+    "result_item_id": "armor_crystal_boot_r",
+    "result_amount": 1,
+    "success_chance": 55
+  }
+]

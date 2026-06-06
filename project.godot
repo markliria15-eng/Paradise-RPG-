@@ -10,6 +10,7 @@ config/features=PackedStringArray("4.2")
 
 [autoload]
 MMOClient="*res://client/scripts/mmo_client.gd"
+PatchClient="*res://client/scripts/patch_client.gd"
 ThemeManager="*res://scripts/theme_manager.gd"
 AudioManager="*res://scripts/audio_manager.gd"
 

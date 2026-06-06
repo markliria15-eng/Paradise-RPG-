@@ -1,0 +1,42 @@
+[
+  {
+    "code": "brown_horse",
+    "name": "Cavalo Marrom",
+    "rarity": "common",
+    "price": 800,
+    "speed_bonus": 0.15,
+    "desc": "Montaria comum para viajar mais rapido."
+  },
+  {
+    "code": "gray_wolf",
+    "name": "Lobo Cinzento",
+    "rarity": "rare",
+    "price": 1800,
+    "speed_bonus": 0.20,
+    "desc": "Montaria rara, veloz e agil em terreno aberto."
+  },
+  {
+    "code": "war_boar",
+    "name": "Javali de Guerra",
+    "rarity": "rare",
+    "price": 2400,
+    "speed_bonus": 0.23,
+    "desc": "Montaria rara e forte para travessias longas."
+  },
+  {
+    "code": "shadow_panther",
+    "name": "Pantera Sombria",
+    "rarity": "epic",
+    "price": 4200,
+    "speed_bonus": 0.27,
+    "desc": "Montaria epica extremamente veloz."
+  },
+  {
+    "code": "crystal_stag",
+    "name": "Cervo de Cristal",
+    "rarity": "legendary",
+    "price": 7600,
+    "speed_bonus": 0.32,
+    "desc": "Montaria lendaria de Valdoria, a mais rapida da colecao inicial."
+  }
+]

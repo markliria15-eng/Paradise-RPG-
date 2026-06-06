@@ -343,11 +343,7 @@ func _pick_online_character(payload: Dictionary) -> Dictionary:
 	return {}
 
 func _load_json_array(path: String) -> Array:
-	var file := FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		return []
-	var parsed = JSON.parse_string(file.get_as_text())
-	return parsed if typeof(parsed) == TYPE_ARRAY else []
+	return ItemDatabase.load_json_array(path)
 
 func _ensure_local_companion_state() -> void:
 	if online_mode:

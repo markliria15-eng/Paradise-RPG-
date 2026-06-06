@@ -1,0 +1,11 @@
+[
+  {
+    "code": "season_1_ascensao_eldoria",
+    "name": "Temporada 1: Ascensao de Eldoria",
+    "duration_days": 30,
+    "starts_at": "2026-06-01T00:00:00Z",
+    "ends_at": "2026-07-01T00:00:00Z",
+    "active": true
+  }
+]
+

@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "game": "Paradise RPG",
+  "channel": "beta",
+  "version": "2026.06.06",
+  "min_app_version": "0.1.4",
+  "generated_at": "2026-06-06T16:03:51.529Z",
+  "files": [
+    {
+      "path": "data/armor_sets_manifest.json",
+      "url": "/patch/files/armor_sets_manifest.json",
+      "sha256": "bcbe2331590a67ba73c8e1ae1559a9d49c8bf5a58c9d3ecc99374be6db1e573f",
+      "size": 56380
+    },
+    {
+      "path": "data/classes.json",
+      "url": "/patch/files/classes.json",
+      "sha256": "947bea9ec420eefcd79378802e12f680063a709d437bc6003386ebab750b1f8d",
+      "size": 1969
+    },
+    {
+      "path": "data/enemies.json",
+      "url": "/patch/files/enemies.json",
+      "sha256": "e5731ea9ddc4ca498a841ead66ce30af815bc7593d39d20db6c7cce23aa412a3",
+      "size": 18235
+    },
+    {
+      "path": "data/equipment_slots.json",
+      "url": "/patch/files/equipment_slots.json",
+      "sha256": "1f832c913813e9e6917740acff2f06b70eb6c5f269608a71bccda9b9d75031d3",
+      "size": 2079
+    },
+    {
+      "path": "data/items.json",
+      "url": "/patch/files/items.json",
+      "sha256": "c3296f89ba316931dc5766e9f3943ebeb651d24c6b2f6a52644b671d4b477a3e",
+      "size": 62977
+    },
+    {
+      "path": "data/maps.json",
+      "url": "/patch/files/maps.json",
+      "sha256": "c560654293498ac00184d3a2e7f27f36f3f123ba80558e6447b1d68280f4831d",
+      "size": 13047
+    },
+    {
+      "path": "data/mmo_achievements.json",
+      "url": "/patch/files/mmo_achievements.json",
+      "sha256": "59149e0599dac707395dbf4280d83c6a7680d6b02fd40c7907d292d658a3d3a3",
+      "size": 1174
+    },
+    {
+      "path": "data/mmo_crafting_recipes.json",
+      "url": "/patch/files/mmo_crafting_recipes.json",
+      "sha256": "a9da85cac11f3aa057ba4839db2cf4fbbbd8b629372d87070233bf9ac310abc2",
+      "size": 38863
+    },
+    {
+      "path": "data/mmo_dungeons.json",
+      "url": "/patch/files/mmo_dungeons.json",
+      "sha256": "177c7653a88c0153c95ce95a1bdb3ca8b55a62dfe2e5dfa301277b4e52ccceea",
+      "size": 352
+    },
+    {
+      "path": "data/mmo_mounts.json",
+      "url": "/patch/files/mmo_mounts.json",
+      "sha256": "f10f9f7a8896613b5925d1e1cd9dded997b8ee340a4e662fb888a624ec0c3eb9",
+      "size": 974
+    },
+    {
+      "path": "data/mmo_pets.json",
+      "url": "/patch/files/mmo_pets.json",
+      "sha256": "1e150f7d09a4da65dda07d54bbd66219f4a5526b4a73ae76a9e51b24d99fe6b4",
+      "size": 3899
+    },
+    {
+      "path": "data/mmo_professions.json",
+      "url": "/patch/files/mmo_professions.json",
+      "sha256": "a09c4bf94ee3300b810a6cd5ff725b8cbbb96db271c1cccca218f453eab9f3c6",
+      "size": 478
+    },
+    {
+      "path": "data/mmo_seasons.json",
+      "url": "/patch/files/mmo_seasons.json",
+      "sha256": "13543ecdc615ff2dfe6abbc33af93a0ad581f6c56d9b0f406b7262244d49350f",
+      "size": 226
+    },
+    {
+      "path": "data/quests.json",
+      "url": "/patch/files/quests.json",
+      "sha256": "ac27f4372ced63636e2aa211f0a578de588ef47594533281c0b72d476f869235",
+      "size": 2156
+    },
+    {
+      "path": "data/recipes.json",
+      "url": "/patch/files/recipes.json",
+      "sha256": "71e8451cbba854d9dcce6051ce09fc47619bfcc79eb829cb5663f94d43c5b853",
+      "size": 30613
+    },
+    {
+      "path": "data/skills.json",
+      "url": "/patch/files/skills.json",
+      "sha256": "6e1f106baffd3ef7f7baddb1ceb807d2133d77003b10fb8ccf1b2fa8c592a810",
+      "size": 635
+    }
+  ]
+}

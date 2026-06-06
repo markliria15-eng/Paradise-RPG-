@@ -1,0 +1,1228 @@
+{
+  "Escudo de Madeira": {
+    "result": "Escudo de Madeira",
+    "gold": 12,
+    "materials": {
+      "Madeira Bruta": 4,
+      "Couro Rasgado": 2
+    }
+  },
+  "Elmo de Ferro": {
+    "result": "Elmo de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Capuz de Couro": 1,
+      "Minerio de Ferro": 8,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Peitoral de Ferro": {
+    "result": "Peitoral de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 600,
+    "materials": {
+      "Peitoral de Couro": 1,
+      "Minerio de Ferro": 18,
+      "Carvao": 3,
+      "Tira de Couro": 5
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Perneiras de Ferro": {
+    "result": "Perneiras de Ferro",
+    "gold": 45,
+    "materials": {
+      "Minerio de Ferro": 8,
+      "Presa Venenosa": 2
+    }
+  },
+  "Botas de Ferro": {
+    "result": "Botas de Ferro",
+    "gold": 32,
+    "materials": {
+      "Minerio de Ferro": 5,
+      "Couro Rasgado": 3
+    }
+  },
+  "Chapeu Arcano": {
+    "result": "Chapeu Arcano",
+    "gold": 34,
+    "materials": {
+      "Po Mistico": 5,
+      "Essencia Arcana": 2
+    }
+  },
+  "Manto Arcano": {
+    "result": "Manto Arcano",
+    "gold": 58,
+    "materials": {
+      "Essencia Arcana": 8,
+      "Fragmento de Cristal": 4
+    }
+  },
+  "Calca Arcana": {
+    "result": "Calca Arcana",
+    "gold": 42,
+    "materials": {
+      "Po Mistico": 6,
+      "Fragmento de Cristal": 2
+    }
+  },
+  "Botas Arcanas": {
+    "result": "Botas Arcanas",
+    "gold": 30,
+    "materials": {
+      "Po Mistico": 4,
+      "Asa de Morcego": 2
+    }
+  },
+  "Elmo Draconico": {
+    "result": "Elmo Draconico",
+    "tier": "rare",
+    "gold": 420,
+    "materials": {
+      "Minerio de Ferro": 16,
+      "Presa Venenosa": 6,
+      "Essencia Arcana": 3
+    }
+  },
+  "Armadura Draconica": {
+    "result": "Armadura Draconica",
+    "tier": "rare",
+    "gold": 780,
+    "materials": {
+      "Minerio de Ferro": 28,
+      "Teia Pegajosa": 10,
+      "Fragmento de Cristal": 6
+    }
+  },
+  "Calca Draconica": {
+    "result": "Calca Draconica",
+    "tier": "rare",
+    "gold": 560,
+    "materials": {
+      "Minerio de Ferro": 22,
+      "Presa Venenosa": 8,
+      "Po Mistico": 5
+    }
+  },
+  "Botas Draconicas": {
+    "result": "Botas Draconicas",
+    "tier": "rare",
+    "gold": 480,
+    "materials": {
+      "Minerio de Ferro": 18,
+      "Asa de Morcego": 10,
+      "Essencia Arcana": 4
+    }
+  },
+  "Manto Celestial": {
+    "result": "Manto Celestial",
+    "tier": "rare",
+    "gold": 1250,
+    "materials": {
+      "Essencia Arcana": 18,
+      "Fragmento de Cristal": 14,
+      "Po Mistico": 16
+    }
+  },
+  "Espada de Aco Negro": {
+    "result": "Espada de Aco Negro",
+    "tier": "rare",
+    "gold": 1500,
+    "materials": {
+      "Aco Negro": 18,
+      "Pedra Runica": 6,
+      "Couro Reforcado": 8
+    }
+  },
+  "Arco Cristalino": {
+    "result": "Arco Cristalino",
+    "tier": "rare",
+    "gold": 1600,
+    "materials": {
+      "Cristal Bruto": 16,
+      "Madeira Bruta": 26,
+      "Couro Reforcado": 10
+    }
+  },
+  "Cajado de Cristal": {
+    "result": "Cajado de Cristal",
+    "tier": "rare",
+    "gold": 1650,
+    "materials": {
+      "Cristal Bruto": 18,
+      "Essencia Arcana": 20,
+      "Pedra Runica": 8
+    }
+  },
+  "Elmo de Aco Sombrio": {
+    "result": "Elmo de Aco Sombrio",
+    "tier": "rare",
+    "gold": 1050,
+    "materials": {
+      "Aco Negro": 14,
+      "Pedra Runica": 4,
+      "Couro Reforcado": 6
+    }
+  },
+  "Armadura de Aco Sombrio": {
+    "result": "Armadura de Aco Sombrio",
+    "tier": "rare",
+    "gold": 2200,
+    "materials": {
+      "Aco Negro": 34,
+      "Pedra Runica": 10,
+      "Couro Reforcado": 16
+    }
+  },
+  "Luvas de Aco Sombrio": {
+    "result": "Luvas de Aco Sombrio",
+    "tier": "rare",
+    "gold": 950,
+    "materials": {
+      "Aco Negro": 12,
+      "Couro Reforcado": 10,
+      "Presa Venenosa": 8
+    }
+  },
+  "Calca de Aco Sombrio": {
+    "result": "Calca de Aco Sombrio",
+    "tier": "rare",
+    "gold": 1450,
+    "materials": {
+      "Aco Negro": 22,
+      "Couro Reforcado": 12,
+      "Pedra Runica": 6
+    }
+  },
+  "Botas de Aco Sombrio": {
+    "result": "Botas de Aco Sombrio",
+    "tier": "rare",
+    "gold": 1100,
+    "materials": {
+      "Aco Negro": 14,
+      "Couro Reforcado": 14,
+      "Asa de Morcego": 12
+    }
+  },
+  "Chapeu de Cristal Ancestral": {
+    "result": "Chapeu de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1500,
+    "materials": {
+      "Cristal Bruto": 18,
+      "Essencia Arcana": 18,
+      "Pedra Runica": 6
+    }
+  },
+  "Manto de Cristal Ancestral": {
+    "result": "Manto de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 2800,
+    "materials": {
+      "Cristal Bruto": 34,
+      "Essencia Arcana": 30,
+      "Nucleo Flamejante": 5
+    }
+  },
+  "Luvas de Cristal Ancestral": {
+    "result": "Luvas de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1350,
+    "materials": {
+      "Cristal Bruto": 16,
+      "Po Mistico": 24,
+      "Pedra Runica": 7
+    }
+  },
+  "Calca de Cristal Ancestral": {
+    "result": "Calca de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1750,
+    "materials": {
+      "Cristal Bruto": 24,
+      "Essencia Arcana": 18,
+      "Couro Reforcado": 12
+    }
+  },
+  "Botas de Cristal Ancestral": {
+    "result": "Botas de Cristal Ancestral",
+    "tier": "rare",
+    "gold": 1400,
+    "materials": {
+      "Cristal Bruto": 16,
+      "Couro Reforcado": 10,
+      "Presa Venenosa": 12
+    }
+  },
+  "Espada Infernal": {
+    "result": "Espada Infernal",
+    "tier": "rare",
+    "gold": 5200,
+    "materials": {
+      "Nucleo Flamejante": 18,
+      "Escama Draconica": 20,
+      "Aco Negro": 34
+    }
+  },
+  "Armadura Infernal": {
+    "result": "Armadura Infernal",
+    "tier": "rare",
+    "gold": 6500,
+    "materials": {
+      "Nucleo Flamejante": 24,
+      "Escama Draconica": 30,
+      "Aco Negro": 42
+    }
+  },
+  "Botas Infernais": {
+    "result": "Botas Infernais",
+    "tier": "rare",
+    "gold": 4200,
+    "materials": {
+      "Nucleo Flamejante": 14,
+      "Escama Draconica": 16,
+      "Couro Reforcado": 22
+    }
+  },
+  "Ombreira Esquerda de Ferro": {
+    "result": "Ombreira Esquerda de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Ombreira Esquerda de Couro": 1,
+      "Minerio de Ferro": 7,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Direita de Ferro": {
+    "result": "Ombreira Direita de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Ombreira Direita de Couro": 1,
+      "Minerio de Ferro": 7,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Esquerda de Ferro": {
+    "result": "Luva Esquerda de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Luva Esquerda de Couro": 1,
+      "Minerio de Ferro": 5,
+      "Carvao": 1,
+      "Tira de Couro": 1
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Direita de Ferro": {
+    "result": "Luva Direita de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Luva Direita de Couro": 1,
+      "Minerio de Ferro": 5,
+      "Carvao": 1,
+      "Tira de Couro": 1
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Cinto de Ferro": {
+    "result": "Cinto de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Cinto de Couro": 1,
+      "Minerio de Ferro": 6,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Calca de Ferro": {
+    "result": "Calca de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 400,
+    "materials": {
+      "Calca de Couro": 1,
+      "Minerio de Ferro": 14,
+      "Carvao": 2,
+      "Tira de Couro": 4
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Esquerda de Ferro": {
+    "result": "Bota Esquerda de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Bota Esquerda de Couro": 1,
+      "Minerio de Ferro": 6,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Direita de Ferro": {
+    "result": "Bota Direita de Ferro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 200,
+    "materials": {
+      "Bota Direita de Couro": 1,
+      "Minerio de Ferro": 6,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Elmo de Ouro": {
+    "result": "Elmo de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Elmo de Ferro": 1,
+      "Lingote de Ouro": 8,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Peitoral de Ouro": {
+    "result": "Peitoral de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 900,
+    "materials": {
+      "Peitoral de Ferro": 1,
+      "Lingote de Ouro": 18,
+      "Fragmento de Rubi": 3,
+      "Placa de Ferro": 5
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Esquerda de Ouro": {
+    "result": "Ombreira Esquerda de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Ombreira Esquerda de Ferro": 1,
+      "Lingote de Ouro": 7,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Direita de Ouro": {
+    "result": "Ombreira Direita de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Ombreira Direita de Ferro": 1,
+      "Lingote de Ouro": 7,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Esquerda de Ouro": {
+    "result": "Luva Esquerda de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Luva Esquerda de Ferro": 1,
+      "Lingote de Ouro": 5,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 1
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Direita de Ouro": {
+    "result": "Luva Direita de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Luva Direita de Ferro": 1,
+      "Lingote de Ouro": 5,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 1
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Cinto de Ouro": {
+    "result": "Cinto de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Cinto de Ferro": 1,
+      "Lingote de Ouro": 6,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Calca de Ouro": {
+    "result": "Calca de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 600,
+    "materials": {
+      "Calca de Ferro": 1,
+      "Lingote de Ouro": 14,
+      "Fragmento de Rubi": 2,
+      "Placa de Ferro": 4
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Esquerda de Ouro": {
+    "result": "Bota Esquerda de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Bota Esquerda de Ferro": 1,
+      "Lingote de Ouro": 6,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Direita de Ouro": {
+    "result": "Bota Direita de Ouro",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 300,
+    "materials": {
+      "Bota Direita de Ferro": 1,
+      "Lingote de Ouro": 6,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Elmo de Titanio": {
+    "result": "Elmo de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Elmo de Ouro": 1,
+      "Minerio de Titanio": 8,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Peitoral de Titanio": {
+    "result": "Peitoral de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 1200,
+    "materials": {
+      "Peitoral de Ouro": 1,
+      "Minerio de Titanio": 18,
+      "Cristal Azul": 3,
+      "Rebite de Ouro": 5
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Esquerda de Titanio": {
+    "result": "Ombreira Esquerda de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Ombreira Esquerda de Ouro": 1,
+      "Minerio de Titanio": 7,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Direita de Titanio": {
+    "result": "Ombreira Direita de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Ombreira Direita de Ouro": 1,
+      "Minerio de Titanio": 7,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Esquerda de Titanio": {
+    "result": "Luva Esquerda de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Luva Esquerda de Ouro": 1,
+      "Minerio de Titanio": 5,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 1
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Direita de Titanio": {
+    "result": "Luva Direita de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Luva Direita de Ouro": 1,
+      "Minerio de Titanio": 5,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 1
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Cinto de Titanio": {
+    "result": "Cinto de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Cinto de Ouro": 1,
+      "Minerio de Titanio": 6,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Calca de Titanio": {
+    "result": "Calca de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 800,
+    "materials": {
+      "Calca de Ouro": 1,
+      "Minerio de Titanio": 14,
+      "Cristal Azul": 2,
+      "Rebite de Ouro": 4
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Esquerda de Titanio": {
+    "result": "Bota Esquerda de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Bota Esquerda de Ouro": 1,
+      "Minerio de Titanio": 6,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Direita de Titanio": {
+    "result": "Bota Direita de Titanio",
+    "tier": "basic",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 400,
+    "materials": {
+      "Bota Direita de Ouro": 1,
+      "Minerio de Titanio": 6,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "armor_sets_manifest"
+  },
+  "Elmo de Mithril": {
+    "result": "Elmo de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Elmo de Titanio": 1,
+      "Minerio de Mithril": 8,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Peitoral de Mithril": {
+    "result": "Peitoral de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 1500,
+    "materials": {
+      "Peitoral de Titanio": 1,
+      "Minerio de Mithril": 18,
+      "Cristal Arcano": 3,
+      "Placa de Titanio": 5
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Esquerda de Mithril": {
+    "result": "Ombreira Esquerda de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Ombreira Esquerda de Titanio": 1,
+      "Minerio de Mithril": 7,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Direita de Mithril": {
+    "result": "Ombreira Direita de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Ombreira Direita de Titanio": 1,
+      "Minerio de Mithril": 7,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Esquerda de Mithril": {
+    "result": "Luva Esquerda de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Luva Esquerda de Titanio": 1,
+      "Minerio de Mithril": 5,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 1
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Direita de Mithril": {
+    "result": "Luva Direita de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Luva Direita de Titanio": 1,
+      "Minerio de Mithril": 5,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 1
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Cinto de Mithril": {
+    "result": "Cinto de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Cinto de Titanio": 1,
+      "Minerio de Mithril": 6,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Calca de Mithril": {
+    "result": "Calca de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 1000,
+    "materials": {
+      "Calca de Titanio": 1,
+      "Minerio de Mithril": 14,
+      "Cristal Arcano": 2,
+      "Placa de Titanio": 4
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Esquerda de Mithril": {
+    "result": "Bota Esquerda de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Bota Esquerda de Titanio": 1,
+      "Minerio de Mithril": 6,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Direita de Mithril": {
+    "result": "Bota Direita de Mithril",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 500,
+    "materials": {
+      "Bota Direita de Titanio": 1,
+      "Minerio de Mithril": 6,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "armor_sets_manifest"
+  },
+  "Elmo de Obsidiana": {
+    "result": "Elmo de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Elmo de Mithril": 1,
+      "Fragmento de Obsidiana": 8,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Peitoral de Obsidiana": {
+    "result": "Peitoral de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 1800,
+    "materials": {
+      "Peitoral de Mithril": 1,
+      "Fragmento de Obsidiana": 18,
+      "Essencia Sombria": 3,
+      "Placa de Mithril": 5
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Esquerda de Obsidiana": {
+    "result": "Ombreira Esquerda de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Ombreira Esquerda de Mithril": 1,
+      "Fragmento de Obsidiana": 7,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Direita de Obsidiana": {
+    "result": "Ombreira Direita de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Ombreira Direita de Mithril": 1,
+      "Fragmento de Obsidiana": 7,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Esquerda de Obsidiana": {
+    "result": "Luva Esquerda de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Luva Esquerda de Mithril": 1,
+      "Fragmento de Obsidiana": 5,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 1
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Direita de Obsidiana": {
+    "result": "Luva Direita de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Luva Direita de Mithril": 1,
+      "Fragmento de Obsidiana": 5,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 1
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Cinto de Obsidiana": {
+    "result": "Cinto de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Cinto de Mithril": 1,
+      "Fragmento de Obsidiana": 6,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Calca de Obsidiana": {
+    "result": "Calca de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 1200,
+    "materials": {
+      "Calca de Mithril": 1,
+      "Fragmento de Obsidiana": 14,
+      "Essencia Sombria": 2,
+      "Placa de Mithril": 4
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Esquerda de Obsidiana": {
+    "result": "Bota Esquerda de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Bota Esquerda de Mithril": 1,
+      "Fragmento de Obsidiana": 6,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Direita de Obsidiana": {
+    "result": "Bota Direita de Obsidiana",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 600,
+    "materials": {
+      "Bota Direita de Mithril": 1,
+      "Fragmento de Obsidiana": 6,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "armor_sets_manifest"
+  },
+  "Elmo de Cristal": {
+    "result": "Elmo de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Elmo de Obsidiana": 1,
+      "Cristal Divino": 8,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Peitoral de Cristal": {
+    "result": "Peitoral de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 2100,
+    "materials": {
+      "Peitoral de Obsidiana": 1,
+      "Cristal Divino": 18,
+      "Essencia Celestial": 3,
+      "Nucleo de Obsidiana": 5
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Esquerda de Cristal": {
+    "result": "Ombreira Esquerda de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Ombreira Esquerda de Obsidiana": 1,
+      "Cristal Divino": 7,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Ombreira Direita de Cristal": {
+    "result": "Ombreira Direita de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Ombreira Direita de Obsidiana": 1,
+      "Cristal Divino": 7,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Esquerda de Cristal": {
+    "result": "Luva Esquerda de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Luva Esquerda de Obsidiana": 1,
+      "Cristal Divino": 5,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 1
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Luva Direita de Cristal": {
+    "result": "Luva Direita de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Luva Direita de Obsidiana": 1,
+      "Cristal Divino": 5,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 1
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Cinto de Cristal": {
+    "result": "Cinto de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Cinto de Obsidiana": 1,
+      "Cristal Divino": 6,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Calca de Cristal": {
+    "result": "Calca de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1400,
+    "materials": {
+      "Calca de Obsidiana": 1,
+      "Cristal Divino": 14,
+      "Essencia Celestial": 2,
+      "Nucleo de Obsidiana": 4
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Esquerda de Cristal": {
+    "result": "Bota Esquerda de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Bota Esquerda de Obsidiana": 1,
+      "Cristal Divino": 6,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  },
+  "Bota Direita de Cristal": {
+    "result": "Bota Direita de Cristal",
+    "tier": "rare",
+    "category": "armaduras",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 700,
+    "materials": {
+      "Bota Direita de Obsidiana": 1,
+      "Cristal Divino": 6,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "armor_sets_manifest"
+  }
+}

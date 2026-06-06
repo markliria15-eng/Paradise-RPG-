@@ -1,0 +1,51 @@
+[
+  {
+    "code": "first_blood",
+    "name": "Primeiro Sangue",
+    "description": "Mate 1 monstro.",
+    "category": "combate",
+    "objective": 1,
+    "reward": {"gold": 20}
+  },
+  {
+    "code": "hunter_beginner",
+    "name": "Cacador Iniciante",
+    "description": "Mate 100 monstros.",
+    "category": "combate",
+    "objective": 100,
+    "reward": {"title": "Cacador"}
+  },
+  {
+    "code": "arcane_apprentice",
+    "name": "Aprendiz Arcano",
+    "description": "Use 100 magias.",
+    "category": "combate",
+    "objective": 100,
+    "reward": {"item_id": "Pocao media de mana", "amount": 1}
+  },
+  {
+    "code": "defender",
+    "name": "Defensor",
+    "description": "Receba 1000 de dano total.",
+    "category": "combate",
+    "objective": 1000,
+    "reward": {"permanent_defense": 1}
+  },
+  {
+    "code": "explorer_maps",
+    "name": "Explorador",
+    "description": "Visite os mapas iniciais.",
+    "category": "exploracao",
+    "objective": 4,
+    "reward": {"xp": 100}
+  },
+  {
+    "code": "pvp_winner",
+    "name": "Vencedor PvP",
+    "description": "Venca 10 batalhas PvP.",
+    "category": "pvp",
+    "objective": 10,
+    "reward": {"title": "Duelista"}
+  }
+]
+

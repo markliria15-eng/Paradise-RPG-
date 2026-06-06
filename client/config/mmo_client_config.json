@@ -1,6 +1,8 @@
 {
   "http_base_url": "https://paradise-rpg-server.onrender.com",
   "ws_url": "wss://paradise-rpg-server.onrender.com/ws",
+  "patch_manifest_url": "https://paradise-rpg-server.onrender.com/patch/manifest",
+  "patch_enabled": true,
   "online_enabled": true,
   "remember_login": true
 }

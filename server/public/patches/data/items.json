@@ -1,0 +1,2126 @@
+{
+  "Pocao pequena de vida": {
+    "id": "small_health_potion",
+    "type": "consumivel",
+    "description": "Recupera 50 de vida.",
+    "heal": 50,
+    "price": 15,
+    "icon": "res://assets/sprites/icon_potion_health_small.png"
+  },
+  "Pocao media de vida": {
+    "id": "medium_health_potion",
+    "type": "consumivel",
+    "description": "Recupera 120 de vida.",
+    "heal": 120,
+    "price": 40,
+    "icon": "res://assets/sprites/icon_potion_health_medium.png"
+  },
+  "Pocao pequena de mana": {
+    "id": "small_mana_potion",
+    "type": "consumivel",
+    "description": "Recupera 40 de mana.",
+    "mana": 40,
+    "price": 15,
+    "icon": "res://assets/sprites/icon_potion_mana_small.png"
+  },
+  "Pocao media de mana": {
+    "id": "medium_mana_potion",
+    "type": "consumivel",
+    "description": "Recupera 100 de mana.",
+    "mana": 100,
+    "price": 40,
+    "icon": "res://assets/sprites/icon_potion_mana_medium.png"
+  },
+  "Couro Rasgado": {
+    "id": "torn_leather",
+    "type": "material",
+    "description": "Material simples de criaturas da floresta.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Presa de Javali": {
+    "id": "boar_tusk",
+    "type": "quest",
+    "description": "Item de missao da Floresta dos Javalis.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Carne Crua": {
+    "id": "raw_meat",
+    "type": "material",
+    "description": "Pode ser vendida futuramente.",
+    "icon": "res://assets/sprites/drop_bag.png"
+  },
+  "Presa de Lobo": {
+    "id": "wolf_fang",
+    "type": "material",
+    "description": "Presa afiada de lobo.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Essencia Arcana": {
+    "id": "arcane_essence",
+    "type": "material",
+    "description": "Energia retirada de criaturas magicas.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Po Mistico": {
+    "id": "mystic_dust",
+    "type": "material",
+    "description": "Po brilhante usado em encantamentos.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Fragmento de Cristal": {
+    "id": "crystal_fragment",
+    "type": "quest",
+    "description": "Fragmento necessario para O Cristal Quebrado.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Asa de Morcego": {
+    "id": "bat_wing",
+    "type": "quest",
+    "description": "Asa necessaria para Sombras na Caverna.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Presa Venenosa": {
+    "id": "venom_fang",
+    "type": "material",
+    "description": "Presa com veneno fraco.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Teia Pegajosa": {
+    "id": "sticky_web",
+    "type": "material",
+    "description": "Teia resistente.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Minerio de Ferro": {
+    "id": "iron_ore",
+    "type": "material",
+    "description": "Minerio usado na forja de armaduras pesadas.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Madeira Bruta": {
+    "id": "raw_wood",
+    "type": "material",
+    "description": "Madeira simples para escudos e cabos.",
+    "icon": "res://assets/sprites/drop_wood.png"
+  },
+  "Couro Reforcado": {
+    "id": "reinforced_leather",
+    "type": "material",
+    "description": "Couro firme usado em armaduras intermediarias.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Aco Negro": {
+    "id": "black_steel",
+    "type": "material",
+    "description": "Metal pesado usado em equipamentos raros.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Pedra Runica": {
+    "id": "runic_stone",
+    "type": "material",
+    "description": "Pedra gravada com energia antiga.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Cristal Bruto": {
+    "id": "raw_crystal",
+    "type": "material",
+    "description": "Cristal instavel das minas intermediarias.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Nucleo Flamejante": {
+    "id": "flame_core",
+    "type": "material",
+    "description": "Nucleo quente usado em forjas avancadas.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Escama Draconica": {
+    "id": "draconic_scale",
+    "type": "material",
+    "description": "Escama resistente de dracos e chefes.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Espada Enferrujada": {
+    "id": "rusty_sword",
+    "name": "Espada Enferrujada",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "common",
+    "description": "Espada inicial do Guerreiro.",
+    "stats": {
+      "ataque": 5
+    },
+    "icon": "res://assets/sprites/icon_attack_sword.png"
+  },
+  "Arco de Madeira": {
+    "id": "wooden_bow",
+    "name": "Arco de Madeira",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "common",
+    "description": "Arco inicial do Arqueiro.",
+    "stats": {
+      "ataque_distancia": 4
+    },
+    "icon": "res://assets/sprites/icon_attack_bow.png"
+  },
+  "Cajado Simples": {
+    "id": "simple_staff",
+    "name": "Cajado Simples",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "common",
+    "description": "Cajado inicial do Mago.",
+    "stats": {
+      "ataque_magico": 3,
+      "mana_max": 20
+    },
+    "icon": "res://assets/sprites/icon_attack_book.png"
+  },
+  "Escudo de Madeira": {
+    "id": "wooden_shield",
+    "name": "Escudo de Madeira",
+    "type": "equipment",
+    "slot": "shield",
+    "rarity": "common",
+    "description": "+2 defesa.",
+    "stats": {
+      "defesa": 2
+    },
+    "icon": "res://assets/sprites/icon_slot_shield.png"
+  },
+  "Elmo de Couro": {
+    "id": "leather_helmet",
+    "name": "Elmo de Couro",
+    "type": "equipment",
+    "slot": "helmet",
+    "rarity": "common",
+    "set": "Couro do Aventureiro",
+    "description": "+1 defesa.",
+    "stats": {
+      "defesa": 1
+    },
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "Armadura de Couro": {
+    "id": "leather_armor",
+    "name": "Armadura de Couro",
+    "type": "equipment",
+    "slot": "armor",
+    "rarity": "common",
+    "set": "Couro do Aventureiro",
+    "description": "+3 defesa e +10 vida maxima.",
+    "stats": {
+      "defesa": 3,
+      "vida_max": 10
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Calca de Couro": {
+    "id": "armor_leather_legs",
+    "name": "Calca de Couro",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Calca de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 2,
+      "vida_max": 7
+    },
+    "icon": "res://assets/armor_sets/leather/leather_legs.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Bota de Couro": {
+    "id": "leather_boots",
+    "name": "Bota de Couro",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "common",
+    "set": "Couro do Aventureiro",
+    "description": "+3% velocidade de movimento.",
+    "stats": {
+      "move_speed_pct": 0.03
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Anel Simples": {
+    "id": "simple_ring",
+    "name": "Anel Simples",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "common",
+    "description": "+10 mana maxima.",
+    "stats": {
+      "mana_max": 10
+    },
+    "icon": "res://assets/sprites/icon_slot_ring.png"
+  },
+  "Amuleto Fraco": {
+    "id": "weak_amulet",
+    "name": "Amuleto Fraco",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "common",
+    "description": "+15 vida maxima.",
+    "stats": {
+      "vida_max": 15
+    },
+    "icon": "res://assets/sprites/icon_slot_amulet.png"
+  },
+  "Capuz de Couro": {
+    "id": "armor_leather_helmet",
+    "name": "Capuz de Couro",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Capuz de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1,
+      "vida_max": 4
+    },
+    "icon": "res://assets/armor_sets/leather/leather_helmet.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Peitoral de Couro": {
+    "id": "armor_leather_chest",
+    "name": "Peitoral de Couro",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Peitoral de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 3,
+      "vida_max": 12
+    },
+    "icon": "res://assets/armor_sets/leather/leather_chest.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Luvas de Couro": {
+    "id": "leather_gloves",
+    "type": "equipment",
+    "slot": "gloves",
+    "rarity": "common",
+    "set": "Couro do Aventureiro",
+    "description": "Luvas leves.",
+    "stats": {
+      "defesa": 1
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Calcas de Couro": {
+    "id": "leather_old_pants",
+    "type": "equipment",
+    "slot": "pants",
+    "rarity": "common",
+    "set": "Couro do Aventureiro",
+    "description": "Calcas leves.",
+    "stats": {
+      "defesa": 1
+    },
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "Botas de Couro": {
+    "id": "leather_old_boots",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "common",
+    "set": "Couro do Aventureiro",
+    "description": "Botas leves.",
+    "stats": {
+      "defesa": 1
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Elmo de Ferro": {
+    "id": "armor_iron_helmet",
+    "name": "Elmo de Ferro",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Elmo de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2,
+      "vida_max": 8
+    },
+    "icon": "res://assets/armor_sets/iron/iron_helmet.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Peitoral de Ferro": {
+    "id": "armor_iron_chest",
+    "name": "Peitoral de Ferro",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Peitoral de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "vida_max": 24
+    },
+    "icon": "res://assets/armor_sets/iron/iron_chest.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Manoplas de Ferro": {
+    "id": "iron_gauntlets",
+    "type": "equipment",
+    "slot": "gloves",
+    "set": "Ferro do Guardiao",
+    "stats": {
+      "defesa": 2
+    },
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "Perneiras de Ferro": {
+    "id": "iron_legs",
+    "type": "equipment",
+    "slot": "pants",
+    "set": "Ferro do Guardiao",
+    "stats": {
+      "defesa": 3
+    },
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "Botas de Ferro": {
+    "id": "iron_boots",
+    "type": "equipment",
+    "slot": "boots",
+    "set": "Ferro do Guardiao",
+    "stats": {
+      "defesa": 2
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Chapeu Arcano": {
+    "id": "arcane_hat",
+    "type": "equipment",
+    "slot": "helmet",
+    "set": "Tecido Arcano",
+    "stats": {
+      "mana_max": 10
+    },
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "Manto Arcano": {
+    "id": "arcane_robe",
+    "type": "equipment",
+    "slot": "armor",
+    "set": "Tecido Arcano",
+    "stats": {
+      "mana_max": 15
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Luvas Arcanas": {
+    "id": "arcane_gloves",
+    "type": "equipment",
+    "slot": "gloves",
+    "set": "Tecido Arcano",
+    "stats": {
+      "ataque_magico": 1
+    },
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "Calca Arcana": {
+    "id": "arcane_pants",
+    "type": "equipment",
+    "slot": "pants",
+    "set": "Tecido Arcano",
+    "stats": {
+      "mana_max": 10
+    },
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "Botas Arcanas": {
+    "id": "arcane_boots",
+    "type": "equipment",
+    "slot": "boots",
+    "set": "Tecido Arcano",
+    "stats": {
+      "mana_max": 5
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Elmo Draconico": {
+    "id": "draconic_helmet",
+    "name": "Elmo Draconico",
+    "type": "equipment",
+    "slot": "helmet",
+    "rarity": "rare",
+    "set": "Draconico",
+    "description": "Elmo raro de Valdoria. +5 defesa e +30 vida.",
+    "stats": {
+      "defesa": 5,
+      "vida_max": 30
+    },
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "Armadura Draconica": {
+    "id": "draconic_armor",
+    "name": "Armadura Draconica",
+    "type": "equipment",
+    "slot": "armor",
+    "rarity": "rare",
+    "set": "Draconico",
+    "description": "Armadura rara. +9 defesa e +60 vida.",
+    "stats": {
+      "defesa": 9,
+      "vida_max": 60
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Calca Draconica": {
+    "id": "draconic_pants",
+    "name": "Calca Draconica",
+    "type": "equipment",
+    "slot": "pants",
+    "rarity": "rare",
+    "set": "Draconico",
+    "description": "Calca rara. +5 defesa e +20 vida.",
+    "stats": {
+      "defesa": 5,
+      "vida_max": 20
+    },
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "Botas Draconicas": {
+    "id": "draconic_boots",
+    "name": "Botas Draconicas",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "rare",
+    "set": "Draconico",
+    "description": "Botas raras. +4 defesa e +6% movimento.",
+    "stats": {
+      "defesa": 4,
+      "move_speed_pct": 0.06
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Manto Celestial": {
+    "id": "celestial_robe",
+    "name": "Manto Celestial",
+    "type": "equipment",
+    "slot": "armor",
+    "rarity": "epic",
+    "set": "Celestial",
+    "description": "Manto epico. +70 mana, +6 ataque magico e +8% regen mana.",
+    "stats": {
+      "mana_max": 70,
+      "ataque_magico": 6,
+      "mana_regen_pct": 0.08
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Espada de Aco Negro": {
+    "id": "black_steel_sword",
+    "name": "Espada de Aco Negro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma intermediaria. +22 ataque.",
+    "stats": {
+      "ataque": 22,
+      "physical_damage_pct": 0.04
+    },
+    "icon": "res://assets/sprites/icon_attack_sword.png"
+  },
+  "Arco Cristalino": {
+    "id": "crystal_bow",
+    "name": "Arco Cristalino",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arco intermediario. +24 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 24,
+      "attack_speed_pct": 0.04
+    },
+    "icon": "res://assets/sprites/icon_attack_bow.png"
+  },
+  "Cajado de Cristal": {
+    "id": "crystal_staff",
+    "name": "Cajado de Cristal",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Cajado intermediario. +22 ataque magico e +80 mana.",
+    "stats": {
+      "ataque_magico": 22,
+      "mana_max": 80
+    },
+    "icon": "res://assets/sprites/icon_attack_book.png"
+  },
+  "Elmo de Aco Sombrio": {
+    "id": "shadow_steel_helmet",
+    "name": "Elmo de Aco Sombrio",
+    "type": "equipment",
+    "slot": "helmet",
+    "rarity": "rare",
+    "set": "Aco Sombrio",
+    "description": "+12 defesa e +45 vida.",
+    "stats": {
+      "defesa": 12,
+      "vida_max": 45
+    },
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "Armadura de Aco Sombrio": {
+    "id": "shadow_steel_armor",
+    "name": "Armadura de Aco Sombrio",
+    "type": "equipment",
+    "slot": "armor",
+    "rarity": "rare",
+    "set": "Aco Sombrio",
+    "description": "+20 defesa e +95 vida.",
+    "stats": {
+      "defesa": 20,
+      "vida_max": 95
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Luvas de Aco Sombrio": {
+    "id": "shadow_steel_gloves",
+    "name": "Luvas de Aco Sombrio",
+    "type": "equipment",
+    "slot": "gloves",
+    "rarity": "rare",
+    "set": "Aco Sombrio",
+    "description": "+6 defesa e +7% velocidade de ataque.",
+    "stats": {
+      "defesa": 6,
+      "attack_speed_pct": 0.07
+    },
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "Calca de Aco Sombrio": {
+    "id": "shadow_steel_pants",
+    "name": "Calca de Aco Sombrio",
+    "type": "equipment",
+    "slot": "pants",
+    "rarity": "rare",
+    "set": "Aco Sombrio",
+    "description": "+12 defesa e +35 vida.",
+    "stats": {
+      "defesa": 12,
+      "vida_max": 35
+    },
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "Botas de Aco Sombrio": {
+    "id": "shadow_steel_boots",
+    "name": "Botas de Aco Sombrio",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "rare",
+    "set": "Aco Sombrio",
+    "description": "+7 defesa e +8% velocidade de movimento.",
+    "stats": {
+      "defesa": 7,
+      "move_speed_pct": 0.08
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Chapeu de Cristal Ancestral": {
+    "id": "ancestral_crystal_hat",
+    "name": "Chapeu de Cristal Ancestral",
+    "type": "equipment",
+    "slot": "helmet",
+    "rarity": "epic",
+    "set": "Cristal Ancestral",
+    "description": "+75 mana e +7 ataque magico.",
+    "stats": {
+      "mana_max": 75,
+      "ataque_magico": 7
+    },
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "Manto de Cristal Ancestral": {
+    "id": "ancestral_crystal_robe",
+    "name": "Manto de Cristal Ancestral",
+    "type": "equipment",
+    "slot": "armor",
+    "rarity": "epic",
+    "set": "Cristal Ancestral",
+    "description": "+130 mana, +10 ataque magico e +8 defesa.",
+    "stats": {
+      "mana_max": 130,
+      "ataque_magico": 10,
+      "defesa": 8
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Luvas de Cristal Ancestral": {
+    "id": "ancestral_crystal_gloves",
+    "name": "Luvas de Cristal Ancestral",
+    "type": "equipment",
+    "slot": "gloves",
+    "rarity": "epic",
+    "set": "Cristal Ancestral",
+    "description": "+6 ataque magico e +6% velocidade de ataque.",
+    "stats": {
+      "ataque_magico": 6,
+      "attack_speed_pct": 0.06
+    },
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "Calca de Cristal Ancestral": {
+    "id": "ancestral_crystal_pants",
+    "name": "Calca de Cristal Ancestral",
+    "type": "equipment",
+    "slot": "pants",
+    "rarity": "epic",
+    "set": "Cristal Ancestral",
+    "description": "+65 mana e +6 defesa.",
+    "stats": {
+      "mana_max": 65,
+      "defesa": 6
+    },
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "Botas de Cristal Ancestral": {
+    "id": "ancestral_crystal_boots",
+    "name": "Botas de Cristal Ancestral",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "epic",
+    "set": "Cristal Ancestral",
+    "description": "+45 mana e +9% movimento.",
+    "stats": {
+      "mana_max": 45,
+      "move_speed_pct": 0.09
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Espada Infernal": {
+    "id": "infernal_sword",
+    "name": "Espada Infernal",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma lendaria. +38 ataque e +10% dano fisico.",
+    "stats": {
+      "ataque": 38,
+      "physical_damage_pct": 0.1
+    },
+    "icon": "res://assets/sprites/icon_attack_sword.png"
+  },
+  "Armadura Infernal": {
+    "id": "infernal_armor",
+    "name": "Armadura Infernal",
+    "type": "equipment",
+    "slot": "armor",
+    "rarity": "legendary",
+    "set": "Infernal",
+    "description": "+32 defesa, +160 vida e +4% dano fisico.",
+    "stats": {
+      "defesa": 32,
+      "vida_max": 160,
+      "physical_damage_pct": 0.04
+    },
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "Botas Infernais": {
+    "id": "infernal_boots",
+    "name": "Botas Infernais",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "legendary",
+    "set": "Infernal",
+    "description": "+14 defesa, +12% movimento e +6% velocidade de ataque.",
+    "stats": {
+      "defesa": 14,
+      "move_speed_pct": 0.12,
+      "attack_speed_pct": 0.06
+    },
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "Rubi da Forca": {
+    "id": "ruby_strength",
+    "name": "Rubi da Forca",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "rare",
+    "description": "+5 ataque e +5% dano fisico.",
+    "stats": {
+      "ataque": 5,
+      "physical_damage_pct": 0.05
+    },
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Safira da Mana": {
+    "id": "sapphire_mana",
+    "name": "Safira da Mana",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "rare",
+    "description": "+40 mana maxima e +8% regeneracao de mana.",
+    "stats": {
+      "mana_max": 40,
+      "mana_regen_pct": 0.08
+    },
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Esmeralda da Agilidade": {
+    "id": "emerald_agility",
+    "name": "Esmeralda da Agilidade",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "rare",
+    "description": "+5% velocidade de ataque e movimento.",
+    "stats": {
+      "attack_speed_pct": 0.05,
+      "move_speed_pct": 0.05
+    },
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Carvao": {
+    "id": "coal",
+    "name": "Carvao",
+    "type": "material",
+    "rarity": "common",
+    "description": "Combustivel basico para receitas de ferro.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Tira de Couro": {
+    "id": "leather_strap",
+    "name": "Tira de Couro",
+    "type": "material",
+    "rarity": "common",
+    "description": "Tira resistente usada para prender pecas de armadura.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Placa de Ferro": {
+    "id": "iron_plate",
+    "name": "Placa de Ferro",
+    "type": "material",
+    "rarity": "common",
+    "description": "Placa refinada usada em forja de equipamentos.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Lingote de Ouro": {
+    "id": "gold_ingot",
+    "name": "Lingote de Ouro",
+    "type": "material",
+    "rarity": "common",
+    "description": "Metal nobre usado em armaduras raras.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Fragmento de Rubi": {
+    "id": "ruby_shard",
+    "name": "Fragmento de Rubi",
+    "type": "material",
+    "rarity": "common",
+    "description": "Fragmento rubro usado em ornamentos dourados.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Rebite de Ouro": {
+    "id": "gold_rivet",
+    "name": "Rebite de Ouro",
+    "type": "material",
+    "rarity": "common",
+    "description": "Rebite dourado usado em pecas raras.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Minerio de Titanio": {
+    "id": "titanium_ore",
+    "name": "Minerio de Titanio",
+    "type": "material",
+    "rarity": "common",
+    "description": "Minerio azul-prateado usado em armaduras superiores.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Cristal Azul": {
+    "id": "blue_crystal",
+    "name": "Cristal Azul",
+    "type": "material",
+    "rarity": "common",
+    "description": "Cristal azul usado para estabilizar titanio.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Minerio de Mithril": {
+    "id": "mithril_ore",
+    "name": "Minerio de Mithril",
+    "type": "material",
+    "rarity": "common",
+    "description": "Minerio lendario, leve e muito resistente.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Cristal Arcano": {
+    "id": "arcane_crystal",
+    "name": "Cristal Arcano",
+    "type": "material",
+    "rarity": "common",
+    "description": "Cristal carregado com energia arcana.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Placa de Titanio": {
+    "id": "titanium_plate",
+    "name": "Placa de Titanio",
+    "type": "material",
+    "rarity": "common",
+    "description": "Placa de titanio refinada.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Fragmento de Obsidiana": {
+    "id": "obsidian_shard",
+    "name": "Fragmento de Obsidiana",
+    "type": "material",
+    "rarity": "common",
+    "description": "Fragmento negro usado em armaduras sombrias.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Essencia Sombria": {
+    "id": "dark_essence",
+    "name": "Essencia Sombria",
+    "type": "material",
+    "rarity": "common",
+    "description": "Essencia sombria coletada de criaturas perigosas.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Placa de Mithril": {
+    "id": "mithril_plate",
+    "name": "Placa de Mithril",
+    "type": "material",
+    "rarity": "common",
+    "description": "Placa de mithril refinada.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Cristal Divino": {
+    "id": "divine_crystal",
+    "name": "Cristal Divino",
+    "type": "material",
+    "rarity": "legendary",
+    "description": "Cristal divino usado no set final.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Essencia Celestial": {
+    "id": "celestial_essence",
+    "name": "Essencia Celestial",
+    "type": "material",
+    "rarity": "legendary",
+    "description": "Essencia celestial usada em armaduras de cristal.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Nucleo de Obsidiana": {
+    "id": "obsidian_core",
+    "name": "Nucleo de Obsidiana",
+    "type": "material",
+    "rarity": "legendary",
+    "description": "Nucleo denso extraido de obsidiana energizada.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Ombreira Esquerda de Couro": {
+    "id": "armor_leather_shoulder_l",
+    "name": "Ombreira Esquerda de Couro",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Ombreira Esquerda de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1
+    },
+    "icon": "res://assets/armor_sets/leather/leather_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Ombreira Direita de Couro": {
+    "id": "armor_leather_shoulder_r",
+    "name": "Ombreira Direita de Couro",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Ombreira Direita de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1
+    },
+    "icon": "res://assets/armor_sets/leather/leather_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Luva Esquerda de Couro": {
+    "id": "armor_leather_glove_l",
+    "name": "Luva Esquerda de Couro",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Luva Esquerda de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1,
+      "attack_speed_pct": 0.004
+    },
+    "icon": "res://assets/armor_sets/leather/leather_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Luva Direita de Couro": {
+    "id": "armor_leather_glove_r",
+    "name": "Luva Direita de Couro",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Luva Direita de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1,
+      "attack_speed_pct": 0.004
+    },
+    "icon": "res://assets/armor_sets/leather/leather_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Cinto de Couro": {
+    "id": "armor_leather_belt",
+    "name": "Cinto de Couro",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Cinto de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1,
+      "vida_max": 5
+    },
+    "icon": "res://assets/armor_sets/leather/leather_belt.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Bota Esquerda de Couro": {
+    "id": "armor_leather_boot_l",
+    "name": "Bota Esquerda de Couro",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Bota Esquerda de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1,
+      "move_speed_pct": 0.006
+    },
+    "icon": "res://assets/armor_sets/leather/leather_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Bota Direita de Couro": {
+    "id": "armor_leather_boot_r",
+    "name": "Bota Direita de Couro",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "common",
+    "tier": 1,
+    "set": "Set de Couro",
+    "set_id": "leather",
+    "acquisition": "DROP_ONLY",
+    "description": "Bota Direita de Couro (Set de Couro). Fonte: drop.",
+    "stats": {
+      "defesa": 1,
+      "move_speed_pct": 0.006
+    },
+    "icon": "res://assets/armor_sets/leather/leather_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/leather/leather_full_sheet.png"
+  },
+  "Ombreira Esquerda de Ferro": {
+    "id": "armor_iron_shoulder_l",
+    "name": "Ombreira Esquerda de Ferro",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Esquerda de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2
+    },
+    "icon": "res://assets/armor_sets/iron/iron_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Ombreira Direita de Ferro": {
+    "id": "armor_iron_shoulder_r",
+    "name": "Ombreira Direita de Ferro",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Direita de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2
+    },
+    "icon": "res://assets/armor_sets/iron/iron_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Luva Esquerda de Ferro": {
+    "id": "armor_iron_glove_l",
+    "name": "Luva Esquerda de Ferro",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Esquerda de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2,
+      "attack_speed_pct": 0.008
+    },
+    "icon": "res://assets/armor_sets/iron/iron_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Luva Direita de Ferro": {
+    "id": "armor_iron_glove_r",
+    "name": "Luva Direita de Ferro",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Direita de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2,
+      "attack_speed_pct": 0.008
+    },
+    "icon": "res://assets/armor_sets/iron/iron_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Cinto de Ferro": {
+    "id": "armor_iron_belt",
+    "name": "Cinto de Ferro",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Cinto de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2,
+      "vida_max": 10
+    },
+    "icon": "res://assets/armor_sets/iron/iron_belt.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Calca de Ferro": {
+    "id": "armor_iron_legs",
+    "name": "Calca de Ferro",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Calca de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "vida_max": 14
+    },
+    "icon": "res://assets/armor_sets/iron/iron_legs.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Bota Esquerda de Ferro": {
+    "id": "armor_iron_boot_l",
+    "name": "Bota Esquerda de Ferro",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Esquerda de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2,
+      "move_speed_pct": 0.012
+    },
+    "icon": "res://assets/armor_sets/iron/iron_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Bota Direita de Ferro": {
+    "id": "armor_iron_boot_r",
+    "name": "Bota Direita de Ferro",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "uncommon",
+    "tier": 2,
+    "set": "Set de Ferro",
+    "set_id": "iron",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Direita de Ferro (Set de Ferro). Fonte: craft.",
+    "stats": {
+      "defesa": 2,
+      "move_speed_pct": 0.012
+    },
+    "icon": "res://assets/armor_sets/iron/iron_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/iron/iron_full_sheet.png"
+  },
+  "Elmo de Ouro": {
+    "id": "armor_gold_helmet",
+    "name": "Elmo de Ouro",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Elmo de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3,
+      "vida_max": 12
+    },
+    "icon": "res://assets/armor_sets/gold/gold_helmet.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Peitoral de Ouro": {
+    "id": "armor_gold_chest",
+    "name": "Peitoral de Ouro",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Peitoral de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 9,
+      "vida_max": 36
+    },
+    "icon": "res://assets/armor_sets/gold/gold_chest.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Ombreira Esquerda de Ouro": {
+    "id": "armor_gold_shoulder_l",
+    "name": "Ombreira Esquerda de Ouro",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Esquerda de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3
+    },
+    "icon": "res://assets/armor_sets/gold/gold_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Ombreira Direita de Ouro": {
+    "id": "armor_gold_shoulder_r",
+    "name": "Ombreira Direita de Ouro",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Direita de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3
+    },
+    "icon": "res://assets/armor_sets/gold/gold_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Luva Esquerda de Ouro": {
+    "id": "armor_gold_glove_l",
+    "name": "Luva Esquerda de Ouro",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Esquerda de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3,
+      "attack_speed_pct": 0.012
+    },
+    "icon": "res://assets/armor_sets/gold/gold_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Luva Direita de Ouro": {
+    "id": "armor_gold_glove_r",
+    "name": "Luva Direita de Ouro",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Direita de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3,
+      "attack_speed_pct": 0.012
+    },
+    "icon": "res://assets/armor_sets/gold/gold_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Cinto de Ouro": {
+    "id": "armor_gold_belt",
+    "name": "Cinto de Ouro",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Cinto de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3,
+      "vida_max": 15
+    },
+    "icon": "res://assets/armor_sets/gold/gold_belt.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Calca de Ouro": {
+    "id": "armor_gold_legs",
+    "name": "Calca de Ouro",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Calca de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "vida_max": 21
+    },
+    "icon": "res://assets/armor_sets/gold/gold_legs.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Bota Esquerda de Ouro": {
+    "id": "armor_gold_boot_l",
+    "name": "Bota Esquerda de Ouro",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Esquerda de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3,
+      "move_speed_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/gold/gold_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Bota Direita de Ouro": {
+    "id": "armor_gold_boot_r",
+    "name": "Bota Direita de Ouro",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "rare",
+    "tier": 3,
+    "set": "Set de Ouro",
+    "set_id": "gold",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Direita de Ouro (Set de Ouro). Fonte: craft.",
+    "stats": {
+      "defesa": 3,
+      "move_speed_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/gold/gold_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/gold/gold_full_sheet.png"
+  },
+  "Elmo de Titanio": {
+    "id": "armor_titanium_helmet",
+    "name": "Elmo de Titanio",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Elmo de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "vida_max": 16
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_helmet.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Peitoral de Titanio": {
+    "id": "armor_titanium_chest",
+    "name": "Peitoral de Titanio",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Peitoral de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 12,
+      "vida_max": 48
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_chest.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Ombreira Esquerda de Titanio": {
+    "id": "armor_titanium_shoulder_l",
+    "name": "Ombreira Esquerda de Titanio",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Esquerda de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Ombreira Direita de Titanio": {
+    "id": "armor_titanium_shoulder_r",
+    "name": "Ombreira Direita de Titanio",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Direita de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Luva Esquerda de Titanio": {
+    "id": "armor_titanium_glove_l",
+    "name": "Luva Esquerda de Titanio",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Esquerda de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "attack_speed_pct": 0.016
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Luva Direita de Titanio": {
+    "id": "armor_titanium_glove_r",
+    "name": "Luva Direita de Titanio",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Direita de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "attack_speed_pct": 0.016
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Cinto de Titanio": {
+    "id": "armor_titanium_belt",
+    "name": "Cinto de Titanio",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Cinto de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "vida_max": 20
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_belt.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Calca de Titanio": {
+    "id": "armor_titanium_legs",
+    "name": "Calca de Titanio",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Calca de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 8,
+      "vida_max": 28
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_legs.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Bota Esquerda de Titanio": {
+    "id": "armor_titanium_boot_l",
+    "name": "Bota Esquerda de Titanio",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Esquerda de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "move_speed_pct": 0.024
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Bota Direita de Titanio": {
+    "id": "armor_titanium_boot_r",
+    "name": "Bota Direita de Titanio",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "super_rare",
+    "tier": 4,
+    "set": "Set de Titanio",
+    "set_id": "titanium",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Direita de Titanio (Set de Titanio). Fonte: craft.",
+    "stats": {
+      "defesa": 4,
+      "move_speed_pct": 0.024
+    },
+    "icon": "res://assets/armor_sets/titanium/titanium_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/titanium/titanium_full_sheet.png"
+  },
+  "Elmo de Mithril": {
+    "id": "armor_mithril_helmet",
+    "name": "Elmo de Mithril",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Elmo de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "vida_max": 20,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_helmet.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Peitoral de Mithril": {
+    "id": "armor_mithril_chest",
+    "name": "Peitoral de Mithril",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Peitoral de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 15,
+      "vida_max": 60,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_chest.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Ombreira Esquerda de Mithril": {
+    "id": "armor_mithril_shoulder_l",
+    "name": "Ombreira Esquerda de Mithril",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Esquerda de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Ombreira Direita de Mithril": {
+    "id": "armor_mithril_shoulder_r",
+    "name": "Ombreira Direita de Mithril",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Direita de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Luva Esquerda de Mithril": {
+    "id": "armor_mithril_glove_l",
+    "name": "Luva Esquerda de Mithril",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Esquerda de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "attack_speed_pct": 0.02,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Luva Direita de Mithril": {
+    "id": "armor_mithril_glove_r",
+    "name": "Luva Direita de Mithril",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Direita de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "attack_speed_pct": 0.02,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Cinto de Mithril": {
+    "id": "armor_mithril_belt",
+    "name": "Cinto de Mithril",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Cinto de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "vida_max": 25,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_belt.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Calca de Mithril": {
+    "id": "armor_mithril_legs",
+    "name": "Calca de Mithril",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Calca de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 10,
+      "vida_max": 35,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_legs.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Bota Esquerda de Mithril": {
+    "id": "armor_mithril_boot_l",
+    "name": "Bota Esquerda de Mithril",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Esquerda de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "move_speed_pct": 0.03,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Bota Direita de Mithril": {
+    "id": "armor_mithril_boot_r",
+    "name": "Bota Direita de Mithril",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "legendary",
+    "tier": 5,
+    "set": "Set de Mithril",
+    "set_id": "mithril",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Direita de Mithril (Set de Mithril). Fonte: craft.",
+    "stats": {
+      "defesa": 5,
+      "move_speed_pct": 0.03,
+      "mana_max": 15
+    },
+    "icon": "res://assets/armor_sets/mithril/mithril_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/mithril/mithril_full_sheet.png"
+  },
+  "Elmo de Obsidiana": {
+    "id": "armor_obsidian_helmet",
+    "name": "Elmo de Obsidiana",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Elmo de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "vida_max": 24,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_helmet.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Peitoral de Obsidiana": {
+    "id": "armor_obsidian_chest",
+    "name": "Peitoral de Obsidiana",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Peitoral de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 18,
+      "vida_max": 72,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_chest.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Ombreira Esquerda de Obsidiana": {
+    "id": "armor_obsidian_shoulder_l",
+    "name": "Ombreira Esquerda de Obsidiana",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Esquerda de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Ombreira Direita de Obsidiana": {
+    "id": "armor_obsidian_shoulder_r",
+    "name": "Ombreira Direita de Obsidiana",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Direita de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Luva Esquerda de Obsidiana": {
+    "id": "armor_obsidian_glove_l",
+    "name": "Luva Esquerda de Obsidiana",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Esquerda de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "attack_speed_pct": 0.024,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Luva Direita de Obsidiana": {
+    "id": "armor_obsidian_glove_r",
+    "name": "Luva Direita de Obsidiana",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Direita de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "attack_speed_pct": 0.024,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Cinto de Obsidiana": {
+    "id": "armor_obsidian_belt",
+    "name": "Cinto de Obsidiana",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Cinto de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "vida_max": 30,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_belt.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Calca de Obsidiana": {
+    "id": "armor_obsidian_legs",
+    "name": "Calca de Obsidiana",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Calca de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 12,
+      "vida_max": 42,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_legs.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Bota Esquerda de Obsidiana": {
+    "id": "armor_obsidian_boot_l",
+    "name": "Bota Esquerda de Obsidiana",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Esquerda de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "move_speed_pct": 0.036,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Bota Direita de Obsidiana": {
+    "id": "armor_obsidian_boot_r",
+    "name": "Bota Direita de Obsidiana",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "mega_legendary",
+    "tier": 6,
+    "set": "Set de Obsidiana",
+    "set_id": "obsidian",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Direita de Obsidiana (Set de Obsidiana). Fonte: craft.",
+    "stats": {
+      "defesa": 6,
+      "move_speed_pct": 0.036,
+      "physical_damage_pct": 0.018
+    },
+    "icon": "res://assets/armor_sets/obsidian/obsidian_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/obsidian/obsidian_full_sheet.png"
+  },
+  "Elmo de Cristal": {
+    "id": "armor_crystal_helmet",
+    "name": "Elmo de Cristal",
+    "type": "equipment",
+    "slot": "head",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Elmo de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "vida_max": 28,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_helmet.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Peitoral de Cristal": {
+    "id": "armor_crystal_chest",
+    "name": "Peitoral de Cristal",
+    "type": "equipment",
+    "slot": "chest",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Peitoral de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 21,
+      "vida_max": 84,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_chest.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Ombreira Esquerda de Cristal": {
+    "id": "armor_crystal_shoulder_l",
+    "name": "Ombreira Esquerda de Cristal",
+    "type": "equipment",
+    "slot": "shoulder_left",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Esquerda de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_shoulder_l.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Ombreira Direita de Cristal": {
+    "id": "armor_crystal_shoulder_r",
+    "name": "Ombreira Direita de Cristal",
+    "type": "equipment",
+    "slot": "shoulder_right",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Ombreira Direita de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_shoulder_r.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Luva Esquerda de Cristal": {
+    "id": "armor_crystal_glove_l",
+    "name": "Luva Esquerda de Cristal",
+    "type": "equipment",
+    "slot": "hand_left",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Esquerda de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "attack_speed_pct": 0.028,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_glove_l.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Luva Direita de Cristal": {
+    "id": "armor_crystal_glove_r",
+    "name": "Luva Direita de Cristal",
+    "type": "equipment",
+    "slot": "hand_right",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Luva Direita de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "attack_speed_pct": 0.028,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_glove_r.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Cinto de Cristal": {
+    "id": "armor_crystal_belt",
+    "name": "Cinto de Cristal",
+    "type": "equipment",
+    "slot": "belt",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Cinto de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "vida_max": 35,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_belt.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Calca de Cristal": {
+    "id": "armor_crystal_legs",
+    "name": "Calca de Cristal",
+    "type": "equipment",
+    "slot": "legs",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Calca de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 14,
+      "vida_max": 49,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_legs.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Bota Esquerda de Cristal": {
+    "id": "armor_crystal_boot_l",
+    "name": "Bota Esquerda de Cristal",
+    "type": "equipment",
+    "slot": "foot_left",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Esquerda de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "move_speed_pct": 0.042,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_boot_l.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Bota Direita de Cristal": {
+    "id": "armor_crystal_boot_r",
+    "name": "Bota Direita de Cristal",
+    "type": "equipment",
+    "slot": "foot_right",
+    "rarity": "god",
+    "tier": 7,
+    "set": "Set de Cristal",
+    "set_id": "crystal",
+    "acquisition": "CRAFT_ONLY",
+    "description": "Bota Direita de Cristal (Set de Cristal). Fonte: craft.",
+    "stats": {
+      "defesa": 7,
+      "move_speed_pct": 0.042,
+      "mana_max": 28,
+      "mana_regen_pct": 0.014
+    },
+    "icon": "res://assets/armor_sets/crystal/crystal_boot_r.png",
+    "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  }
+}
