@@ -3,10 +3,10 @@ class_name SkillProgressionSystem
 
 const SKILL_ORDER := ["fighting", "distance", "magic", "protection"]
 const SKILL_ICONS := {
-	"fighting": "res://assets/sprites/icon_attack_sword.png",
-	"distance": "res://assets/sprites/icon_attack_bow.png",
-	"magic": "res://assets/sprites/icon_skill_arcane_blast.png",
-	"protection": "res://assets/sprites/icon_skill_mystic_shield.png"
+	"fighting": "res://assets/ui/skills/skill_area_da_morte.png",
+	"distance": "res://assets/ui/skills/skill_chuva_de_flechas.png",
+	"magic": "res://assets/ui/skills/skill_meteoro_azul.png",
+	"protection": "res://assets/ui/skills/skill_protecao.png"
 }
 const CLASS_MULTIPLIERS := {
 	"Guerreiro": {"fighting": 1.2, "protection": 1.2, "magic": 0.8, "distance": 1.0},

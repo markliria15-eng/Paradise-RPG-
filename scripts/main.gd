@@ -7,10 +7,10 @@ const ENEMY_SCENE := preload("res://scenes/enemy.tscn")
 const NPC_SCENE := preload("res://scenes/npc.tscn")
 const DROP_SCENE := preload("res://scenes/item_drop.tscn")
 const POTION_SLOTS := [
-	{"item": "Pocao pequena de vida", "label": "HP P", "icon": "res://assets/sprites/icon_potion_health_small.png"},
-	{"item": "Pocao media de vida", "label": "HP M", "icon": "res://assets/sprites/icon_potion_health_medium.png"},
-	{"item": "Pocao pequena de mana", "label": "MP P", "icon": "res://assets/sprites/icon_potion_mana_small.png"},
-	{"item": "Pocao media de mana", "label": "MP M", "icon": "res://assets/sprites/icon_potion_mana_medium.png"}
+	{"item": "Pocao pequena de vida", "label": "HP P", "icon": "res://assets/ui/buttons/btn_potion_hp.png"},
+	{"item": "Pocao media de vida", "label": "HP M", "icon": "res://assets/ui/buttons/btn_potion_hp.png"},
+	{"item": "Pocao pequena de mana", "label": "MP P", "icon": "res://assets/ui/buttons/btn_potion_mp.png"},
+	{"item": "Pocao media de mana", "label": "MP M", "icon": "res://assets/ui/buttons/btn_potion_mp.png"}
 ]
 const POTION_BUTTON_POSITIONS := [
 	Vector2(862, 522),
@@ -25,42 +25,42 @@ const DROP_MAGNET_SPEED := 460.0
 const SAFE_ZONE_REGEN := 5
 const BEGINNER_QUESTS := ["tutorial_forest", "tutorial_ruins", "tutorial_cave"]
 const ATTACK_ICON_BY_CLASS := {
-	"Guerreiro": "res://assets/sprites/icon_attack_sword.png",
-	"Mago": "res://assets/sprites/icon_attack_book.png",
-	"Arqueiro": "res://assets/sprites/icon_attack_bow.png"
+	"Guerreiro": "res://assets/ui/buttons/btn_attack.png",
+	"Mago": "res://assets/ui/buttons/btn_attack.png",
+	"Arqueiro": "res://assets/ui/buttons/btn_attack.png"
 }
 const SKILL_ICON_BY_ID := {
-	"heavy_slash": "res://assets/sprites/icon_skill_heavy_slash.png",
-	"war_cry": "res://assets/sprites/icon_skill_war_cry.png",
-	"blade_spin": "res://assets/sprites/icon_skill_blade_spin.png",
-	"fireball": "res://assets/sprites/icon_skill_fireball.png",
-	"arcane_blast": "res://assets/sprites/icon_skill_arcane_blast.png",
-	"mystic_shield": "res://assets/sprites/icon_skill_mystic_shield.png",
-	"precise_shot": "res://assets/sprites/icon_skill_precise_shot.png",
-	"arrow_rain": "res://assets/sprites/icon_skill_arrow_rain.png",
-	"quick_jump": "res://assets/sprites/icon_skill_quick_jump.png",
-	"death_area": "res://assets/sprites/icon_skill_death_area.png",
-	"hero_hour": "res://assets/sprites/icon_skill_hero_hour.png",
-	"soul_reaper": "res://assets/sprites/icon_skill_soul_reaper.png",
-	"blue_meteor": "res://assets/sprites/icon_skill_blue_meteor.png",
-	"burning_fireball": "res://assets/sprites/icon_skill_burning_fireball.png",
-	"fire_hurricane": "res://assets/sprites/icon_skill_fire_hurricane.png",
-	"agility": "res://assets/sprites/icon_skill_agility.png",
-	"stun_shot": "res://assets/sprites/icon_skill_stun_shot.png"
+	"heavy_slash": "res://assets/ui/skills/skill_area_da_morte.png",
+	"war_cry": "res://assets/ui/skills/skill_hora_do_heroi.png",
+	"blade_spin": "res://assets/ui/skills/skill_area_da_morte.png",
+	"fireball": "res://assets/ui/skills/skill_bola_de_fogo.png",
+	"arcane_blast": "res://assets/ui/skills/skill_mana_viva.png",
+	"mystic_shield": "res://assets/ui/skills/skill_protecao.png",
+	"precise_shot": "res://assets/ui/skills/skill_tiro_atordoante.png",
+	"arrow_rain": "res://assets/ui/skills/skill_chuva_de_flechas.png",
+	"quick_jump": "res://assets/ui/skills/skill_agilidade.png",
+	"death_area": "res://assets/ui/skills/skill_area_da_morte.png",
+	"hero_hour": "res://assets/ui/skills/skill_hora_do_heroi.png",
+	"soul_reaper": "res://assets/ui/skills/skill_ceifador_de_almas.png",
+	"blue_meteor": "res://assets/ui/skills/skill_meteoro_azul.png",
+	"burning_fireball": "res://assets/ui/skills/skill_bola_de_fogo.png",
+	"fire_hurricane": "res://assets/ui/skills/skill_furacao_de_fogo.png",
+	"agility": "res://assets/ui/skills/skill_agilidade.png",
+	"stun_shot": "res://assets/ui/skills/skill_tiro_atordoante.png"
 }
 const SIDE_MENU_ICONS := {
-	"Batalha": "res://assets/sprites/icon_skill_heavy_slash.png",
-	"Habilidades": "res://assets/sprites/icon_attack_sword.png",
+	"Batalha": "res://assets/ui/buttons/btn_attack.png",
+	"Habilidades": "res://assets/ui/skills/skill_protecao.png",
 	"Equipar": "res://assets/sprites/icon_slot_armor.png",
 	"Roupa": "res://assets/sprites/icon_slot_helmet.png",
-	"Bolsa": "res://assets/sprites/icon_slot_backpack.png",
+	"Bolsa": "res://assets/ui/buttons/btn_inventory.png",
 	"Banco": "res://assets/sprites/drop_coin.png",
 	"Mapa": "res://assets/sprites/decor_portal.png",
 	"Shop": "res://assets/sprites/drop_coin.png",
 	"Party": "res://assets/sprites/icon_slot_amulet.png",
 	"Guild": "res://assets/sprites/icon_slot_shield.png",
 	"Rank": "res://assets/sprites/drop_gem.png",
-	"Missoes": "res://assets/sprites/drop_material.png",
+	"Missoes": "res://assets/ui/buttons/btn_quest.png",
 	"Profissoes": "res://assets/sprites/drop_ore.png",
 	"Crafting": "res://assets/sprites/npc_forge.png",
 	"Pets": "res://assets/sprites/enemy_lobo.png",
@@ -68,11 +68,11 @@ const SIDE_MENU_ICONS := {
 	"Dungeon": "res://assets/sprites/tile_cave.png",
 	"Mercado": "res://assets/sprites/drop_bag.png",
 	"Conquistas": "res://assets/sprites/drop_gem.png",
-	"Temporada": "res://assets/sprites/icon_skill_arcane_blast.png",
+	"Temporada": "res://assets/ui/skills/skill_mana_viva.png",
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
-	"Wikipedia": "res://assets/sprites/icon_attack_book.png",
+	"Wikipedia": "res://assets/ui/buttons/btn_wiki.png",
 	"Zoom": "res://assets/sprites/icon_slot_ring.png",
-	"Deslogar": "res://assets/sprites/icon_menu_close.png"
+	"Deslogar": "res://assets/ui/buttons/btn_close.png"
 }
 const RANK_KEYS := {
 	"Level": "top_level",
@@ -667,12 +667,13 @@ func _build_ui() -> void:
 	hud_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud_frame.z_index = 90
 	var hud_style := StyleBoxFlat.new()
-	hud_style.bg_color = Color(0.018, 0.017, 0.014, 0.88)
-	hud_style.border_color = Color("#c49b3f")
-	hud_style.set_border_width_all(3)
-	hud_style.set_corner_radius_all(8)
+	hud_style.bg_color = Color(0, 0, 0, 0)
+	hud_style.border_color = Color(0, 0, 0, 0)
+	hud_style.set_border_width_all(0)
 	hud_frame.add_theme_stylebox_override("panel", hud_style)
 	ui.add_child(hud_frame)
+	var hud_skin := _make_texture_rect("res://assets/ui/hud/player_status_panel.png", Vector2(8, 8), Vector2(322, 136))
+	hud_skin.z_index = 89
 
 	hud_label = Label.new()
 	hud_label.position = Vector2(20, 14)
@@ -706,14 +707,16 @@ func _build_ui() -> void:
 	hp_bar.size = Vector2(208, 22)
 	hp_bar.z_index = 91
 	hp_bar.show_percentage = false
+	var hp_skin := _make_texture_rect("res://assets/ui/hud/hp_bar.png", hp_bar.position - Vector2(5, 3), hp_bar.size + Vector2(10, 6))
+	hp_skin.z_index = 90
 	var hp_bg := StyleBoxFlat.new()
-	hp_bg.bg_color = Color(0.025, 0.012, 0.014, 0.96)
-	hp_bg.border_color = Color("#6f4f1d")
-	hp_bg.set_border_width_all(2)
-	hp_bg.set_corner_radius_all(6)
+	hp_bg.bg_color = Color(0.025, 0.012, 0.014, 0.72)
+	hp_bg.border_color = Color(0, 0, 0, 0)
+	hp_bg.set_border_width_all(0)
+	hp_bg.set_corner_radius_all(4)
 	var hp_fill := StyleBoxFlat.new()
 	hp_fill.bg_color = Color("#c82424")
-	hp_fill.set_corner_radius_all(6)
+	hp_fill.set_corner_radius_all(4)
 	hp_bar.add_theme_stylebox_override("background", hp_bg)
 	hp_bar.add_theme_stylebox_override("fill", hp_fill)
 	ui.add_child(hp_bar)
@@ -731,14 +734,16 @@ func _build_ui() -> void:
 	mana_bar.size = Vector2(208, 22)
 	mana_bar.z_index = 91
 	mana_bar.show_percentage = false
+	var mp_skin := _make_texture_rect("res://assets/ui/hud/mp_bar.png", mana_bar.position - Vector2(5, 3), mana_bar.size + Vector2(10, 6))
+	mp_skin.z_index = 90
 	var mp_bg := StyleBoxFlat.new()
-	mp_bg.bg_color = Color(0.012, 0.016, 0.032, 0.96)
-	mp_bg.border_color = Color("#6f4f1d")
-	mp_bg.set_border_width_all(2)
-	mp_bg.set_corner_radius_all(6)
+	mp_bg.bg_color = Color(0.012, 0.016, 0.032, 0.72)
+	mp_bg.border_color = Color(0, 0, 0, 0)
+	mp_bg.set_border_width_all(0)
+	mp_bg.set_corner_radius_all(4)
 	var mp_fill := StyleBoxFlat.new()
 	mp_fill.bg_color = Color("#2e67d9")
-	mp_fill.set_corner_radius_all(6)
+	mp_fill.set_corner_radius_all(4)
 	mana_bar.add_theme_stylebox_override("background", mp_bg)
 	mana_bar.add_theme_stylebox_override("fill", mp_fill)
 	ui.add_child(mana_bar)
@@ -756,32 +761,38 @@ func _build_ui() -> void:
 	xp_bar.size = Vector2(208, 22)
 	xp_bar.z_index = 91
 	xp_bar.show_percentage = false
+	var xp_skin := _make_texture_rect("res://assets/ui/hud/xp_bar.png", xp_bar.position - Vector2(5, 3), xp_bar.size + Vector2(10, 6))
+	xp_skin.z_index = 90
 	var xp_bg := StyleBoxFlat.new()
-	xp_bg.bg_color = Color(0.032, 0.025, 0.010, 0.96)
-	xp_bg.border_color = Color("#6f4f1d")
-	xp_bg.set_border_width_all(2)
-	xp_bg.set_corner_radius_all(6)
+	xp_bg.bg_color = Color(0.032, 0.025, 0.010, 0.72)
+	xp_bg.border_color = Color(0, 0, 0, 0)
+	xp_bg.set_border_width_all(0)
+	xp_bg.set_corner_radius_all(4)
 	var xp_fill := StyleBoxFlat.new()
 	xp_fill.bg_color = Color("#d7a229")
-	xp_fill.set_corner_radius_all(6)
+	xp_fill.set_corner_radius_all(4)
 	xp_bar.add_theme_stylebox_override("background", xp_bg)
 	xp_bar.add_theme_stylebox_override("fill", xp_fill)
 	ui.add_child(xp_bar)
 	message_label = Label.new()
 	message_label.position = Vector2(285, 676)
+	message_label.z_index = 181
 	message_label.add_theme_color_override("font_color", Color("#ffe8a3"))
 	ui.add_child(message_label)
+	var message_skin := _make_texture_rect("res://assets/ui/hud/message_panel.png", Vector2(258, 660), Vector2(430, 54))
+	message_skin.z_index = 180
 	minimap_panel = PanelContainer.new()
 	minimap_panel.position = Vector2(14, 154)
 	minimap_panel.size = MINIMAP_SIZE + Vector2(8, 8)
 	minimap_panel.z_index = 150
 	var minimap_style := StyleBoxFlat.new()
-	minimap_style.bg_color = Color(0.01, 0.02, 0.04, 0.78)
-	minimap_style.border_color = Color("#c49b3f")
-	minimap_style.set_border_width_all(2)
-	minimap_style.set_corner_radius_all(8)
+	minimap_style.bg_color = Color(0.01, 0.02, 0.04, 0.55)
+	minimap_style.border_color = Color(0, 0, 0, 0)
+	minimap_style.set_border_width_all(0)
 	minimap_panel.add_theme_stylebox_override("panel", minimap_style)
 	ui.add_child(minimap_panel)
+	var minimap_skin := _make_texture_rect("res://assets/ui/hud/minimap_frame.png", Vector2(8, 148), MINIMAP_SIZE + Vector2(20, 20))
+	minimap_skin.z_index = 149
 	minimap_canvas = Control.new()
 	minimap_canvas.position = Vector2(4, 4)
 	minimap_canvas.size = MINIMAP_SIZE
@@ -867,21 +878,8 @@ func _build_potion_bar() -> void:
 		potion_buttons[item_name] = {"button": button, "label": str(slot["label"]), "count": count_label}
 
 func _style_potion_button(button: Button) -> void:
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.025, 0.022, 0.018, 0.82)
-	normal.border_color = Color("#c49b3f")
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(9)
-	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.34, 0.17, 0.08, 0.92)
-	pressed.border_color = Color("#ffe08a")
-	pressed.set_border_width_all(3)
-	pressed.set_corner_radius_all(9)
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", normal)
-	button.add_theme_stylebox_override("pressed", pressed)
-	button.add_theme_color_override("font_color", Color.WHITE)
-	button.add_theme_color_override("font_disabled_color", Color(1, 1, 1, 0.35))
+	_apply_texture_button_style(button)
+	button.add_theme_color_override("font_disabled_color", Color(1, 1, 1, 0.42))
 
 func _build_touch_controls() -> void:
 	_build_joystick()
@@ -913,9 +911,9 @@ func _build_touch_controls() -> void:
 	inventory_button = _make_tap_button("", Vector2(1018, 78), Vector2(60, 54), _show_inventory)
 	character_button = _make_tap_button("", Vector2(1086, 78), Vector2(60, 54), _show_skills_window)
 	quests_button = _make_tap_button("", Vector2(1154, 78), Vector2(60, 54), _show_quests)
-	_style_quick_top_button(inventory_button, "res://assets/sprites/icon_ui_bag_premium.png", "Bolsa")
-	_style_quick_top_button(character_button, "res://assets/sprites/icon_ui_skills_premium.png", "Habilidades")
-	_style_quick_top_button(quests_button, "res://assets/sprites/icon_ui_quests_premium.png", "Missoes")
+	_style_quick_top_button(inventory_button, "res://assets/ui/buttons/btn_inventory.png", "Bolsa")
+	_style_quick_top_button(character_button, "res://assets/ui/skills/skill_protecao.png", "Habilidades")
+	_style_quick_top_button(quests_button, "res://assets/ui/buttons/btn_quest.png", "Missoes")
 
 func _prepare_skill_button_feedback(button: Button) -> void:
 	if button == null:
@@ -941,19 +939,7 @@ func _prepare_skill_button_feedback(button: Button) -> void:
 func _style_quick_top_button(button: Button, icon_path: String, tooltip: String) -> void:
 	if button == null:
 		return
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.022, 0.020, 0.017, 0.92)
-	normal.border_color = Color("#c49b3f")
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(10)
-	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.21, 0.14, 0.05, 0.98)
-	pressed.border_color = Color("#ffe08a")
-	pressed.set_border_width_all(3)
-	pressed.set_corner_radius_all(10)
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", normal)
-	button.add_theme_stylebox_override("pressed", pressed)
+	_apply_texture_button_style(button)
 	button.icon = load(icon_path)
 	button.expand_icon = true
 	button.tooltip_text = tooltip
@@ -961,31 +947,19 @@ func _style_quick_top_button(button: Button, icon_path: String, tooltip: String)
 func _style_interact_button(button: Button) -> void:
 	if button == null:
 		return
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.03, 0.16, 0.07, 0.96)
-	normal.border_color = Color("#cfe86a")
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(10)
-	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.08, 0.30, 0.12, 0.98)
-	pressed.border_color = Color("#f2ffd2")
-	pressed.set_border_width_all(3)
-	pressed.set_corner_radius_all(10)
-	button.text = "OK"
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", normal)
-	button.add_theme_stylebox_override("pressed", pressed)
-	button.add_theme_color_override("font_color", Color("#f5fff0"))
-	button.add_theme_color_override("font_pressed_color", Color.WHITE)
-	button.add_theme_font_size_override("font_size", 18)
+	_apply_texture_button_style(button)
+	_apply_button_icon(button, "res://assets/ui/buttons/btn_ok.png", "OK", "Interagir")
 	button.tooltip_text = "Interagir"
 
 func _build_side_menu() -> void:
 	side_menu_toggle_button = Button.new()
-	side_menu_toggle_button.text = "MENU"
+	side_menu_toggle_button.text = ""
 	side_menu_toggle_button.position = Vector2(1128, 8)
-	side_menu_toggle_button.size = Vector2(110, 42)
-	UISideMenu.style_button(side_menu_toggle_button, true)
+	side_menu_toggle_button.size = Vector2(66, 54)
+	side_menu_toggle_button.custom_minimum_size = side_menu_toggle_button.size
+	side_menu_toggle_button.focus_mode = Control.FOCUS_NONE
+	_apply_texture_button_style(side_menu_toggle_button)
+	_apply_button_icon(side_menu_toggle_button, "res://assets/ui/buttons/btn_menu.png", "MENU", "Menu")
 	side_menu_toggle_button.pressed.connect(func() -> void:
 		if panel.visible:
 			return
@@ -1095,10 +1069,10 @@ func _logout_to_start() -> void:
 	_flash("Deslogado. Escolha a classe para entrar novamente.")
 
 func _build_joystick() -> void:
-	joystick_base = _make_texture_rect("res://assets/sprites/ui_joystick_base.png", touch_move_center - Vector2(84, 84), Vector2(168, 168))
-	joystick_base.modulate = Color(1, 1, 1, 0.82)
-	joystick_knob = _make_texture_rect("res://assets/sprites/ui_joystick_knob.png", touch_move_center - Vector2(34, 34), Vector2(68, 68))
-	joystick_knob.modulate = Color(1, 1, 1, 0.92)
+	joystick_base = _make_texture_rect("res://assets/ui/joystick/joystick_base.png", touch_move_center - Vector2(88, 88), Vector2(176, 176))
+	joystick_base.modulate = Color(1, 1, 1, 0.90)
+	joystick_knob = _make_texture_rect("res://assets/ui/joystick/joystick_knob.png", touch_move_center - Vector2(35, 35), Vector2(70, 70))
+	joystick_knob.modulate = Color(1, 1, 1, 0.96)
 
 func _make_texture_rect(path: String, pos: Vector2, size: Vector2) -> TextureRect:
 	var rect := TextureRect.new()
@@ -1191,24 +1165,24 @@ func _make_touch_button(text: String, pos: Vector2, size: Vector2) -> Button:
 	button.custom_minimum_size = size
 	button.focus_mode = Control.FOCUS_NONE
 	button.add_theme_font_size_override("font_size", 22)
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.025, 0.022, 0.018, 0.82)
-	normal.border_color = Color("#c49b3f")
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(10)
-	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.22, 0.14, 0.05, 0.98)
-	pressed.border_color = Color("#ffe08a")
-	pressed.set_border_width_all(3)
-	pressed.set_corner_radius_all(10)
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", normal)
-	button.add_theme_stylebox_override("pressed", pressed)
-	button.add_theme_color_override("font_color", Color.WHITE)
-	button.add_theme_color_override("font_pressed_color", Color.WHITE)
+	_apply_texture_button_style(button)
 	ui.add_child(button)
 	touch_buttons.append(button)
 	return button
+
+func _apply_texture_button_style(button: Button) -> void:
+	if button == null:
+		return
+	var empty := StyleBoxEmpty.new()
+	button.add_theme_stylebox_override("normal", empty)
+	button.add_theme_stylebox_override("hover", empty)
+	button.add_theme_stylebox_override("pressed", empty)
+	button.add_theme_stylebox_override("disabled", empty)
+	button.add_theme_stylebox_override("focus", empty)
+	button.add_theme_color_override("font_color", Color.WHITE)
+	button.add_theme_color_override("font_pressed_color", Color.WHITE)
+	button.add_theme_color_override("font_hover_color", Color.WHITE)
+	button.add_theme_color_override("font_disabled_color", Color(1, 1, 1, 0.45))
 
 func _apply_button_icon(button: Button, icon_path: String, fallback_text: String, tooltip: String = "") -> void:
 	if button == null:
