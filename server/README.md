@@ -23,7 +23,28 @@ HTTP:
 - `http://127.0.0.1:8080`
 
 WebSocket:
-- `ws://127.0.0.1:8081`
+- padrao atual: `ws://127.0.0.1:8080/ws`
+- modo legado com porta separada: defina `WS_MODE=separate` e use `ws://127.0.0.1:8081`
+
+## Subir em hospedagem publica
+
+Para Render/Railway/Fly, use um unico servico Node com uma unica porta:
+
+- Start command: `npm run start:prod`
+- HTTP publico: `https://seu-servidor`
+- WebSocket publico: `wss://seu-servidor/ws`
+- Banco: PostgreSQL gerenciado.
+
+Variaveis obrigatorias:
+
+- `DATABASE_URL`
+- `DB_SSL=true` se o banco exigir SSL
+- `JWT_SECRET`
+- `NODE_ENV=production`
+- `WS_MODE=shared`
+- `WS_PATH=/ws`
+
+O comando `npm run start:prod` aplica `database/schema.sql` antes de iniciar o mundo.
 
 ## Pacotes WebSocket esperados
 
@@ -47,4 +68,3 @@ Saída:
 - `entity_hp_sync`
 - `pvp_attack_result`, `pvp_damage_taken`
 - `trade_*`, `guild_*`, `party_*`
-

@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
+    "start:prod": "node src/scripts/migrate.js && node src/index.js",
+    "migrate": "node src/scripts/migrate.js",
     "check-db": "node src/scripts/checkDb.js"
   },
   "engines": {
@@ -27,4 +29,3 @@
     "zod": "^3.23.8"
   }
 }
-

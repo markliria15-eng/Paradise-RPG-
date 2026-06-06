@@ -14,10 +14,14 @@ module.exports = {
   env: process.env.NODE_ENV || "development",
   httpPort: intEnv("PORT", 8080),
   wsPort: intEnv("WS_PORT", 8081),
+  wsMode: process.env.WS_MODE || "shared",
+  wsPath: process.env.WS_PATH || "/ws",
   jwtSecret: process.env.JWT_SECRET || "dev-secret",
   jwtExpires: process.env.JWT_EXPIRES || "7d",
   clientOrigin: process.env.CLIENT_ORIGIN || "*",
   db: {
+    url: process.env.DATABASE_URL || "",
+    ssl: String(process.env.DB_SSL || "").toLowerCase() === "true",
     host: process.env.DB_HOST || "127.0.0.1",
     port: intEnv("DB_PORT", 5432),
     database: process.env.DB_NAME || "arcadia_mmo",
@@ -29,4 +33,3 @@ module.exports = {
   chatFloodWindowMs: intEnv("CHAT_FLOOD_WINDOW_MS", 4000),
   chatFloodMaxMessages: intEnv("CHAT_FLOOD_MAX_MESSAGES", 5)
 };
-

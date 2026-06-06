@@ -12,8 +12,10 @@ function safeJson(text) {
 }
 
 class WsGateway {
-  constructor({ port, worldService }) {
-    this.wss = new WebSocket.Server({ port });
+  constructor({ port, server, path = "/ws", worldService }) {
+    this.wss = server
+      ? new WebSocket.Server({ server, path })
+      : new WebSocket.Server({ port });
     this.world = worldService;
     this.world.attachTransport(this);
   }

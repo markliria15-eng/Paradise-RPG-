@@ -1,4 +1,5 @@
 const express = require("express");
+const http = require("http");
 const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
@@ -25,20 +26,30 @@ async function main() {
   app.get("/health", (_req, res) => {
     res.json({ ok: true, service: "arcadia-mmo-server", at: new Date().toISOString() });
   });
+  const world = new WorldService();
+  await world.bootstrapMmoSystems();
+
+  app.get("/world/status", (_req, res) => {
+    res.json({ ok: true, ...world.status() });
+  });
   app.use("/auth", authRoutes);
 
-  app.listen(config.httpPort, () => {
+  const server = http.createServer(app);
+  server.listen(config.httpPort, () => {
     logger.info(`HTTP online em http://127.0.0.1:${config.httpPort}`);
   });
 
-  const world = new WorldService();
-  await world.bootstrapMmoSystems();
-  const ws = new WsGateway({
-    port: config.wsPort,
-    worldService: world
-  });
+  const wsOptions =
+    config.wsMode === "separate"
+      ? { port: config.wsPort, worldService: world }
+      : { server, path: config.wsPath, worldService: world };
+  const ws = new WsGateway(wsOptions);
   ws.start();
-  logger.info(`WebSocket MMO online em ws://127.0.0.1:${config.wsPort}`);
+  if (config.wsMode === "separate") {
+    logger.info(`WebSocket MMO online em ws://127.0.0.1:${config.wsPort}`);
+  } else {
+    logger.info(`WebSocket MMO online em ws://127.0.0.1:${config.httpPort}${config.wsPath}`);
+  }
 
   setInterval(async () => {
     try {

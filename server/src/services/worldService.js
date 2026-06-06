@@ -72,6 +72,19 @@ class WorldService {
     this.transport = transport;
   }
 
+  status() {
+    const mapCounts = {};
+    for (const player of this.playerManager.all()) {
+      mapCounts[player.map] = (mapCounts[player.map] || 0) + 1;
+    }
+    return {
+      onlinePlayers: this.playerManager.all().length,
+      maps: mapCounts,
+      tickMs: config.worldTickMs,
+      saveIntervalMs: config.saveIntervalMs
+    };
+  }
+
   addPlayer(socket, payload) {
     const exists = this.playerManager.get(payload.character.id);
     if (exists) {
