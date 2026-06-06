@@ -24,7 +24,7 @@ theme_override_constants/separation = 8
 
 [node name="Title" type="Label" parent="Root/VBox"]
 layout_mode = 2
-text = "Arcadia Realms MMO Launcher"
+text = "Paradise RPG"
 horizontal_alignment = 1
 theme_override_font_sizes/font_size = 24
 
@@ -116,4 +116,3 @@ text = "Abrir Jogo"
 [connection signal="pressed" from="Root/Form/ConnectWorld" to="." method="_on_connect_world_pressed"]
 [connection signal="pressed" from="Root/Form/OpenGame" to="." method="_on_open_game_pressed"]
 [connection signal="item_selected" from="Root/Form/CharacterSelect" to="." method="_on_character_select_item_selected"]
-

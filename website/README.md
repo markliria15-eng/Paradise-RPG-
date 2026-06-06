@@ -51,7 +51,7 @@ Exemplo:
 ## Como conectar aos arquivos do GitHub Releases
 
 O site tambem possui um APK temporario em `website/downloads/Paradise-RPG.apk`.
-O workflow `.github/workflows/release-android.yml` publica esse APK no GitHub Releases quando uma tag `v*` e enviada.
+O workflow `.github/workflows/release-android.yml` exporta o APK completo do Godot e publica no GitHub Releases quando uma tag `v*` e enviada.
 O Render usa o asset do GitHub Releases como `ANDROID_APK_URL` padrao.
 
 Para versoes oficiais, os arquivos de download devem ficar no GitHub Releases, nao dentro do GitHub Pages.

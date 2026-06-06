@@ -4,7 +4,14 @@ class_name InventorySystem
 # Inventario baseado em pilhas por nome de item. O banco de itens define se algo
 # e consumivel, equipamento, joia, material ou item de missao.
 const MAX_SLOTS := 20
-const EQUIPMENT_SLOTS := ["amulet", "helmet", "backpack", "shield", "armor", "weapon", "ring", "pants", "gloves", "jewel", "boots"]
+const EQUIPMENT_SLOTS := [
+	"amulet", "head", "backpack",
+	"shoulder_left", "chest", "shoulder_right",
+	"shield", "hand_left", "weapon",
+	"ring", "belt", "jewel",
+	"hand_right", "legs", "pants",
+	"foot_left", "boots", "foot_right"
+]
 
 var items: Dictionary = {}
 var equipment: Dictionary = {}

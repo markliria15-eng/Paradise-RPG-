@@ -3,7 +3,14 @@ extends PanelContainer
 signal close_requested
 signal unequip_requested(slot_name: String)
 
-const SLOT_ORDER := ["amulet", "helmet", "backpack", "shield", "armor", "weapon", "ring", "pants", "jewel", "boots"]
+const SLOT_ORDER := [
+	"amulet", "head", "backpack",
+	"shoulder_left", "chest", "shoulder_right",
+	"shield", "hand_left", "weapon",
+	"ring", "belt", "jewel",
+	"hand_right", "legs", "pants",
+	"foot_left", "boots", "foot_right"
+]
 
 @onready var close_button: Button = $Root/Header/Close
 @onready var grid: GridContainer = $Root/Body/Slots

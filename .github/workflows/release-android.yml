@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Release tag, for example v0.1.0"
+        description: "Release tag, for example v0.1.1"
         required: true
-        default: "v0.1.0"
+        default: "v0.1.1"
 
 permissions:
   contents: write
@@ -21,7 +21,88 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare Android APK asset
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android build tools
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Install Godot 4.2.2 and export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT_VERSION="4.2.2"
+          GODOT_CHANNEL="stable"
+          GODOT_FULL="${GODOT_VERSION}-${GODOT_CHANNEL}"
+          GODOT_URL="https://github.com/godotengine/godot/releases/download/${GODOT_FULL}/Godot_v${GODOT_FULL}_linux.x86_64.zip"
+          TEMPLATES_URL="https://github.com/godotengine/godot/releases/download/${GODOT_FULL}/Godot_v${GODOT_FULL}_export_templates.tpz"
+
+          mkdir -p .ci/godot
+          curl -L "${GODOT_URL}" -o .ci/godot/godot.zip
+          unzip -q .ci/godot/godot.zip -d .ci/godot
+          mv .ci/godot/Godot_v${GODOT_FULL}_linux.x86_64 .ci/godot/godot
+          chmod +x .ci/godot/godot
+
+          curl -L "${TEMPLATES_URL}" -o .ci/godot/templates.tpz
+          unzip -q .ci/godot/templates.tpz -d .ci/godot/templates
+          mkdir -p "${HOME}/.local/share/godot/export_templates/4.2.2.stable"
+          cp .ci/godot/templates/templates/* "${HOME}/.local/share/godot/export_templates/4.2.2.stable/"
+
+      - name: Configure Godot Android export
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          fi
+          VERSION_NAME="${TAG#v}"
+          VERSION_CODE="$(python - "${VERSION_NAME}" <<'PY'
+          import re
+          import sys
+          parts = [int(p) for p in re.findall(r"\d+", sys.argv[1])[:3]]
+          while len(parts) < 3:
+              parts.append(0)
+          print(parts[0] * 10000 + parts[1] * 100 + parts[2])
+          PY
+          )"
+          export VERSION_NAME VERSION_CODE
+
+          mkdir -p "${HOME}/.config/godot"
+          cat > "${HOME}/.config/godot/editor_settings-4.tres" <<EOF
+          [gd_resource type="EditorSettings" format=3]
+
+          [resource]
+          export/android/android_sdk_path = "${ANDROID_HOME}"
+          export/android/java_sdk_path = "${JAVA_HOME}"
+          export/android/debug_keystore = "${HOME}/.android/debug.keystore"
+          export/android/debug_keystore_user = "androiddebugkey"
+          export/android/debug_keystore_pass = "android"
+          EOF
+
+          python - <<'PY'
+          from pathlib import Path
+          import os
+
+          preset = Path("export_presets.cfg")
+          text = preset.read_text(encoding="utf-8")
+          key = str(Path("ci/android/paradise-release.keystore").resolve()).replace("\\", "/")
+          text = text.replace('keystore/release="C:/Users/markl/Documents/Codex/2026-05-27/1-ideia-central-do-jogo-o/build/android/arcadia-release.keystore"', f'keystore/release="{key}"')
+          text = text.replace('version/code=1', f'version/code={os.environ["VERSION_CODE"]}')
+          text = text.replace('version/name="1.0.0"', f'version/name="{os.environ["VERSION_NAME"]}"')
+          preset.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Export full Android APK
         shell: bash
         run: |
           set -euo pipefail
@@ -30,14 +111,10 @@ jobs:
             TAG="${{ inputs.tag }}"
           fi
 
-          APK_SOURCE="website/downloads/Paradise-RPG.apk"
-          if [ ! -f "${APK_SOURCE}" ]; then
-            echo "APK nao encontrado em ${APK_SOURCE}"
-            exit 1
-          fi
-
+          mkdir -p build/android
           mkdir -p release-assets
-          cp "${APK_SOURCE}" "release-assets/paradise-rpg-android-${TAG}.apk"
+          .ci/godot/godot --headless --path . --export-release "Android" "release-assets/paradise-rpg-android-${TAG}.apk"
+          "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose "release-assets/paradise-rpg-android-${TAG}.apk"
           sha256sum "release-assets/paradise-rpg-android-${TAG}.apk" > "release-assets/paradise-rpg-android-${TAG}.sha256.txt"
 
       - name: Publish GitHub Release

@@ -1,47 +1,72 @@
 extends RefCounted
 class_name EquipmentSystem
 
-const SLOT_ORDER := ["amulet", "helmet", "backpack", "shield", "armor", "weapon", "ring", "pants", "gloves", "jewel", "boots"]
+const SLOT_ORDER := [
+	"amulet", "head", "backpack",
+	"shoulder_left", "chest", "shoulder_right",
+	"shield", "hand_left", "weapon",
+	"ring", "belt", "jewel",
+	"hand_right", "legs", "pants",
+	"foot_left", "boots", "foot_right"
+]
 const SLOT_GRID := [
-	["amulet", "helmet", "backpack"],
-	["shield", "armor", "weapon"],
-	["ring", "pants", "jewel"],
-	["gloves"],
-	["boots"]
+	["amulet", "head", "backpack"],
+	["shoulder_left", "chest", "shoulder_right"],
+	["shield", "hand_left", "weapon"],
+	["ring", "belt", "jewel"],
+	["hand_right", "legs", "pants"],
+	["foot_left", "boots", "foot_right"]
 ]
 const SLOT_LABELS := {
 	"amulet": "Amuleto",
-	"helmet": "Capacete",
+	"head": "Cabeca",
 	"backpack": "Mochila",
+	"shoulder_left": "Ombro Esq.",
+	"shoulder_right": "Ombro Dir.",
 	"shield": "Escudo",
-	"armor": "Armadura",
+	"chest": "Peitoral",
 	"weapon": "Arma",
 	"ring": "Anel",
-	"pants": "Calca",
-	"gloves": "Luvas",
+	"belt": "Cinto",
+	"hand_left": "Mao Esq.",
+	"hand_right": "Mao Dir.",
+	"legs": "Pernas",
+	"pants": "Calca Extra",
 	"jewel": "Joia",
-	"boots": "Bota"
+	"foot_left": "Pe Esq.",
+	"foot_right": "Pe Dir.",
+	"boots": "Bota Extra"
 }
 const SLOT_ALIASES := {
-	"cabeca": "helmet",
-	"peitoral": "armor",
-	"luvas": "gloves",
-	"calca": "pants",
-	"botas": "boots",
+	"cabeca": "head",
+	"helmet": "head",
+	"head": "head",
+	"peitoral": "chest",
+	"armor": "chest",
+	"chest": "chest",
+	"luvas": "hand_left",
+	"gloves": "hand_left",
+	"hand_left": "hand_left",
+	"hand_right": "hand_right",
+	"shoulder_left": "shoulder_left",
+	"shoulder_right": "shoulder_right",
+	"belt": "belt",
+	"legs": "legs",
+	"calca": "legs",
+	"pants": "legs",
+	"botas": "foot_left",
+	"boots": "foot_left",
+	"foot_left": "foot_left",
+	"foot_right": "foot_right",
 	"arma": "weapon",
 	"joia": "jewel",
 	"joia_1": "jewel",
 	"joia_2": "jewel",
 	"joia_3": "jewel",
 	"shield": "shield",
-	"helmet": "helmet",
-	"armor": "armor",
 	"weapon": "weapon",
 	"ring": "ring",
-	"pants": "pants",
-	"gloves": "gloves",
 	"jewel": "jewel",
-	"boots": "boots",
 	"amulet": "amulet",
 	"backpack": "backpack"
 }

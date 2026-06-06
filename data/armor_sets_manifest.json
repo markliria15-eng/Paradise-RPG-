@@ -1,0 +1,2295 @@
+{
+  "project": "Paradise RPG",
+  "module": "Armor Sets Piece-by-Piece Assets",
+  "rule": "Codex must not create/redraw armor art; use exactly the supplied PNG assets.",
+  "sets": [
+    {
+      "id": "leather",
+      "name": "Set de Couro",
+      "rarity": "common",
+      "tier": 1,
+      "acquisition": "DROP_ONLY",
+      "file": "conjunto_de_armadura_de_couro.png",
+      "color": "marrom couro",
+      "desc": "set inicial simples, couro costurado, visual de aventureiro iniciante"
+    },
+    {
+      "id": "iron",
+      "name": "Set de Ferro",
+      "rarity": "uncommon",
+      "tier": 2,
+      "acquisition": "CRAFT_ONLY",
+      "file": "equipamento_medieval_em_pixel_art.png",
+      "color": "ferro/prata",
+      "desc": "armadura incomum de ferro, placas metálicas simples e mais proteção"
+    },
+    {
+      "id": "gold",
+      "name": "Set de Ouro",
+      "rarity": "rare",
+      "tier": 3,
+      "acquisition": "CRAFT_ONLY",
+      "file": "coleção_de_armaduras_douradas_em_pixel.png",
+      "color": "ouro com rubis",
+      "desc": "armadura rara dourada, sofisticada, ornamental, com pedras vermelhas"
+    },
+    {
+      "id": "titanium",
+      "name": "Set de Titânio",
+      "rarity": "super_rare",
+      "tier": 4,
+      "acquisition": "CRAFT_ONLY",
+      "file": "conjunto_de_armaduras_fenícias_pixeladas.png",
+      "color": "titânio azul metálico",
+      "desc": "armadura super rara de titânio, placas afiadas, brilho azul e construção pesada"
+    },
+    {
+      "id": "mithril",
+      "name": "Set de Mithril",
+      "rarity": "legendary",
+      "tier": 5,
+      "acquisition": "CRAFT_ONLY",
+      "file": "conjunto_de_armadura_mithril_detalhado.png",
+      "color": "mithril branco/azul",
+      "desc": "armadura lendária de mithril, extremamente sofisticada, runas azuis e acabamento nobre"
+    },
+    {
+      "id": "obsidian",
+      "name": "Set de Obsidiana",
+      "rarity": "mega_legendary",
+      "tier": 6,
+      "acquisition": "CRAFT_ONLY",
+      "file": "armadura_de_fantasia_sombria_em_pixel_art.png",
+      "color": "obsidiana negra roxa",
+      "desc": "armadura mega lendária de obsidiana, escura, agressiva, com rachaduras vermelhas e aura roxa"
+    },
+    {
+      "id": "crystal",
+      "name": "Set de Cristal",
+      "rarity": "god",
+      "tier": 7,
+      "acquisition": "CRAFT_ONLY",
+      "file": "conjunto_de_armadura_cristalina_mística.png",
+      "color": "cristal azul/rosa/dourado",
+      "desc": "set deus, o mais sofisticado possível, cristais, fitas coloridas, brilho divino e aura mágica"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "armor_leather_helmet",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "head",
+      "asset": "assets/armor_sets/leather/leather_helmet.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_chest",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "chest",
+      "asset": "assets/armor_sets/leather/leather_chest.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_shoulder_l",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/leather/leather_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_shoulder_r",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/leather/leather_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_glove_l",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/leather/leather_glove_l.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_glove_r",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/leather/leather_glove_r.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_belt",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "belt",
+      "asset": "assets/armor_sets/leather/leather_belt.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_legs",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "legs",
+      "asset": "assets/armor_sets/leather/leather_legs.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_boot_l",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/leather/leather_boot_l.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_leather_boot_r",
+      "set_id": "leather",
+      "set_name": "Set de Couro",
+      "tier": 1,
+      "rarity": "common",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/leather/leather_boot_r.png",
+      "full_sheet": "assets/armor_sets/leather/leather_full_sheet.png",
+      "acquisition": "DROP_ONLY"
+    },
+    {
+      "item_id": "armor_iron_helmet",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "head",
+      "asset": "assets/armor_sets/iron/iron_helmet.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_chest",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "chest",
+      "asset": "assets/armor_sets/iron/iron_chest.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_shoulder_l",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/iron/iron_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_shoulder_r",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/iron/iron_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_glove_l",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/iron/iron_glove_l.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_glove_r",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/iron/iron_glove_r.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_belt",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "belt",
+      "asset": "assets/armor_sets/iron/iron_belt.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_legs",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "legs",
+      "asset": "assets/armor_sets/iron/iron_legs.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_boot_l",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/iron/iron_boot_l.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_iron_boot_r",
+      "set_id": "iron",
+      "set_name": "Set de Ferro",
+      "tier": 2,
+      "rarity": "uncommon",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/iron/iron_boot_r.png",
+      "full_sheet": "assets/armor_sets/iron/iron_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_helmet",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "head",
+      "asset": "assets/armor_sets/gold/gold_helmet.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_chest",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "chest",
+      "asset": "assets/armor_sets/gold/gold_chest.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_shoulder_l",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/gold/gold_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_shoulder_r",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/gold/gold_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_glove_l",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/gold/gold_glove_l.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_glove_r",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/gold/gold_glove_r.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_belt",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "belt",
+      "asset": "assets/armor_sets/gold/gold_belt.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_legs",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "legs",
+      "asset": "assets/armor_sets/gold/gold_legs.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_boot_l",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/gold/gold_boot_l.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_gold_boot_r",
+      "set_id": "gold",
+      "set_name": "Set de Ouro",
+      "tier": 3,
+      "rarity": "rare",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/gold/gold_boot_r.png",
+      "full_sheet": "assets/armor_sets/gold/gold_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_helmet",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "head",
+      "asset": "assets/armor_sets/titanium/titanium_helmet.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_chest",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "chest",
+      "asset": "assets/armor_sets/titanium/titanium_chest.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_shoulder_l",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/titanium/titanium_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_shoulder_r",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/titanium/titanium_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_glove_l",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/titanium/titanium_glove_l.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_glove_r",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/titanium/titanium_glove_r.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_belt",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "belt",
+      "asset": "assets/armor_sets/titanium/titanium_belt.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_legs",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "legs",
+      "asset": "assets/armor_sets/titanium/titanium_legs.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_boot_l",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/titanium/titanium_boot_l.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_titanium_boot_r",
+      "set_id": "titanium",
+      "set_name": "Set de Titânio",
+      "tier": 4,
+      "rarity": "super_rare",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/titanium/titanium_boot_r.png",
+      "full_sheet": "assets/armor_sets/titanium/titanium_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_helmet",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "head",
+      "asset": "assets/armor_sets/mithril/mithril_helmet.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_chest",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "chest",
+      "asset": "assets/armor_sets/mithril/mithril_chest.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_shoulder_l",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/mithril/mithril_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_shoulder_r",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/mithril/mithril_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_glove_l",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/mithril/mithril_glove_l.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_glove_r",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/mithril/mithril_glove_r.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_belt",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "belt",
+      "asset": "assets/armor_sets/mithril/mithril_belt.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_legs",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "legs",
+      "asset": "assets/armor_sets/mithril/mithril_legs.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_boot_l",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/mithril/mithril_boot_l.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_mithril_boot_r",
+      "set_id": "mithril",
+      "set_name": "Set de Mithril",
+      "tier": 5,
+      "rarity": "legendary",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/mithril/mithril_boot_r.png",
+      "full_sheet": "assets/armor_sets/mithril/mithril_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_helmet",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "head",
+      "asset": "assets/armor_sets/obsidian/obsidian_helmet.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_chest",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "chest",
+      "asset": "assets/armor_sets/obsidian/obsidian_chest.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_shoulder_l",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/obsidian/obsidian_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_shoulder_r",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/obsidian/obsidian_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_glove_l",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/obsidian/obsidian_glove_l.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_glove_r",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/obsidian/obsidian_glove_r.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_belt",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "belt",
+      "asset": "assets/armor_sets/obsidian/obsidian_belt.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_legs",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "legs",
+      "asset": "assets/armor_sets/obsidian/obsidian_legs.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_boot_l",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/obsidian/obsidian_boot_l.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_obsidian_boot_r",
+      "set_id": "obsidian",
+      "set_name": "Set de Obsidiana",
+      "tier": 6,
+      "rarity": "mega_legendary",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/obsidian/obsidian_boot_r.png",
+      "full_sheet": "assets/armor_sets/obsidian/obsidian_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_helmet",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "head",
+      "asset": "assets/armor_sets/crystal/crystal_helmet.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_chest",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "chest",
+      "asset": "assets/armor_sets/crystal/crystal_chest.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_shoulder_l",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "shoulder_left",
+      "asset": "assets/armor_sets/crystal/crystal_shoulder_l.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_shoulder_r",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "shoulder_right",
+      "asset": "assets/armor_sets/crystal/crystal_shoulder_r.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_glove_l",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "hand_left",
+      "asset": "assets/armor_sets/crystal/crystal_glove_l.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_glove_r",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "hand_right",
+      "asset": "assets/armor_sets/crystal/crystal_glove_r.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_belt",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "belt",
+      "asset": "assets/armor_sets/crystal/crystal_belt.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_legs",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "legs",
+      "asset": "assets/armor_sets/crystal/crystal_legs.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_boot_l",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "foot_left",
+      "asset": "assets/armor_sets/crystal/crystal_boot_l.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    },
+    {
+      "item_id": "armor_crystal_boot_r",
+      "set_id": "crystal",
+      "set_name": "Set de Cristal",
+      "tier": 7,
+      "rarity": "god",
+      "slot": "foot_right",
+      "asset": "assets/armor_sets/crystal/crystal_boot_r.png",
+      "full_sheet": "assets/armor_sets/crystal/crystal_full_sheet.png",
+      "acquisition": "CRAFT_ONLY"
+    }
+  ],
+  "drop_rules": {
+    "leather": "Only leather armor pieces can drop from mobs/chests. Use low-level mobs, forest enemies, and starter chests.",
+    "all_other_sets": "Iron, gold, titanium, mithril, obsidian, and crystal armor pieces are craft-only from gathered materials and previous-tier pieces."
+  },
+  "recipes": [
+    {
+      "craft_item_id": "armor_iron_helmet",
+      "requires": [
+        {
+          "item_id": "armor_leather_helmet",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 8
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_chest",
+      "requires": [
+        {
+          "item_id": "armor_leather_chest",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 18
+        },
+        {
+          "item_id": "coal",
+          "qty": 3
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 5
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_shoulder_l",
+      "requires": [
+        {
+          "item_id": "armor_leather_shoulder_l",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 7
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_shoulder_r",
+      "requires": [
+        {
+          "item_id": "armor_leather_shoulder_r",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 7
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_glove_l",
+      "requires": [
+        {
+          "item_id": "armor_leather_glove_l",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 5
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_glove_r",
+      "requires": [
+        {
+          "item_id": "armor_leather_glove_r",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 5
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_belt",
+      "requires": [
+        {
+          "item_id": "armor_leather_belt",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_legs",
+      "requires": [
+        {
+          "item_id": "armor_leather_legs",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 14
+        },
+        {
+          "item_id": "coal",
+          "qty": 2
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 4
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_boot_l",
+      "requires": [
+        {
+          "item_id": "armor_leather_boot_l",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_iron_boot_r",
+      "requires": [
+        {
+          "item_id": "armor_leather_boot_r",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "coal",
+          "qty": 1
+        },
+        {
+          "item_id": "leather_strap",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_helmet",
+      "requires": [
+        {
+          "item_id": "armor_iron_helmet",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 8
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_chest",
+      "requires": [
+        {
+          "item_id": "armor_iron_chest",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 18
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 3
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 5
+        }
+      ],
+      "gold_cost": 900,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_shoulder_l",
+      "requires": [
+        {
+          "item_id": "armor_iron_shoulder_l",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 7
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_shoulder_r",
+      "requires": [
+        {
+          "item_id": "armor_iron_shoulder_r",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 7
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_glove_l",
+      "requires": [
+        {
+          "item_id": "armor_iron_glove_l",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 5
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_glove_r",
+      "requires": [
+        {
+          "item_id": "armor_iron_glove_r",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 5
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_belt",
+      "requires": [
+        {
+          "item_id": "armor_iron_belt",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 6
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_legs",
+      "requires": [
+        {
+          "item_id": "armor_iron_legs",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 14
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 2
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 4
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_boot_l",
+      "requires": [
+        {
+          "item_id": "armor_iron_boot_l",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 6
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_gold_boot_r",
+      "requires": [
+        {
+          "item_id": "armor_iron_boot_r",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_ingot",
+          "qty": 6
+        },
+        {
+          "item_id": "ruby_shard",
+          "qty": 1
+        },
+        {
+          "item_id": "iron_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 300,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_helmet",
+      "requires": [
+        {
+          "item_id": "armor_gold_helmet",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 8
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_chest",
+      "requires": [
+        {
+          "item_id": "armor_gold_chest",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 18
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 3
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 5
+        }
+      ],
+      "gold_cost": 1200,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_shoulder_l",
+      "requires": [
+        {
+          "item_id": "armor_gold_shoulder_l",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 7
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_shoulder_r",
+      "requires": [
+        {
+          "item_id": "armor_gold_shoulder_r",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 7
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_glove_l",
+      "requires": [
+        {
+          "item_id": "armor_gold_glove_l",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 5
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_glove_r",
+      "requires": [
+        {
+          "item_id": "armor_gold_glove_r",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 5
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_belt",
+      "requires": [
+        {
+          "item_id": "armor_gold_belt",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_legs",
+      "requires": [
+        {
+          "item_id": "armor_gold_legs",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 14
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 2
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 4
+        }
+      ],
+      "gold_cost": 800,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_boot_l",
+      "requires": [
+        {
+          "item_id": "armor_gold_boot_l",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_titanium_boot_r",
+      "requires": [
+        {
+          "item_id": "armor_gold_boot_r",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "blue_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "gold_rivet",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 400,
+      "npc": "ferreiro",
+      "success_rate": 1.0
+    },
+    {
+      "craft_item_id": "armor_mithril_helmet",
+      "requires": [
+        {
+          "item_id": "armor_titanium_helmet",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 8
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_chest",
+      "requires": [
+        {
+          "item_id": "armor_titanium_chest",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 18
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 3
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 5
+        }
+      ],
+      "gold_cost": 1500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_shoulder_l",
+      "requires": [
+        {
+          "item_id": "armor_titanium_shoulder_l",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 7
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_shoulder_r",
+      "requires": [
+        {
+          "item_id": "armor_titanium_shoulder_r",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 7
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_glove_l",
+      "requires": [
+        {
+          "item_id": "armor_titanium_glove_l",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 5
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_glove_r",
+      "requires": [
+        {
+          "item_id": "armor_titanium_glove_r",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 5
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_belt",
+      "requires": [
+        {
+          "item_id": "armor_titanium_belt",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_legs",
+      "requires": [
+        {
+          "item_id": "armor_titanium_legs",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 14
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 2
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 4
+        }
+      ],
+      "gold_cost": 1000,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_boot_l",
+      "requires": [
+        {
+          "item_id": "armor_titanium_boot_l",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_mithril_boot_r",
+      "requires": [
+        {
+          "item_id": "armor_titanium_boot_r",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_ore",
+          "qty": 6
+        },
+        {
+          "item_id": "arcane_crystal",
+          "qty": 1
+        },
+        {
+          "item_id": "titanium_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 500,
+      "npc": "ferreiro",
+      "success_rate": 0.85
+    },
+    {
+      "craft_item_id": "armor_obsidian_helmet",
+      "requires": [
+        {
+          "item_id": "armor_mithril_helmet",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 8
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_chest",
+      "requires": [
+        {
+          "item_id": "armor_mithril_chest",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 18
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 3
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 5
+        }
+      ],
+      "gold_cost": 1800,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_shoulder_l",
+      "requires": [
+        {
+          "item_id": "armor_mithril_shoulder_l",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 7
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_shoulder_r",
+      "requires": [
+        {
+          "item_id": "armor_mithril_shoulder_r",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 7
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_glove_l",
+      "requires": [
+        {
+          "item_id": "armor_mithril_glove_l",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 5
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_glove_r",
+      "requires": [
+        {
+          "item_id": "armor_mithril_glove_r",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 5
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_belt",
+      "requires": [
+        {
+          "item_id": "armor_mithril_belt",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 6
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_legs",
+      "requires": [
+        {
+          "item_id": "armor_mithril_legs",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 14
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 2
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 4
+        }
+      ],
+      "gold_cost": 1200,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_boot_l",
+      "requires": [
+        {
+          "item_id": "armor_mithril_boot_l",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 6
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_obsidian_boot_r",
+      "requires": [
+        {
+          "item_id": "armor_mithril_boot_r",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_shard",
+          "qty": 6
+        },
+        {
+          "item_id": "dark_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "mithril_plate",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 600,
+      "npc": "ferreiro",
+      "success_rate": 0.7
+    },
+    {
+      "craft_item_id": "armor_crystal_helmet",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_helmet",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 8
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_chest",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_chest",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 18
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 3
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 5
+        }
+      ],
+      "gold_cost": 2100,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_shoulder_l",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_shoulder_l",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 7
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_shoulder_r",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_shoulder_r",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 7
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_glove_l",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_glove_l",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 5
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_glove_r",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_glove_r",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 5
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 1
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_belt",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_belt",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 6
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_legs",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_legs",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 14
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 2
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 4
+        }
+      ],
+      "gold_cost": 1400,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_boot_l",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_boot_l",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 6
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    },
+    {
+      "craft_item_id": "armor_crystal_boot_r",
+      "requires": [
+        {
+          "item_id": "armor_obsidian_boot_r",
+          "qty": 1
+        },
+        {
+          "item_id": "divine_crystal",
+          "qty": 6
+        },
+        {
+          "item_id": "celestial_essence",
+          "qty": 1
+        },
+        {
+          "item_id": "obsidian_core",
+          "qty": 2
+        }
+      ],
+      "gold_cost": 700,
+      "npc": "ferreiro",
+      "success_rate": 0.55
+    }
+  ]
+}

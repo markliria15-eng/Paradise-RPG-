@@ -42,17 +42,38 @@ CREATE TABLE IF NOT EXISTS equipment (
   id BIGSERIAL PRIMARY KEY,
   character_id BIGINT NOT NULL UNIQUE REFERENCES characters(id) ON DELETE CASCADE,
   amulet VARCHAR(80),
+  head VARCHAR(80),
   helmet VARCHAR(80),
   backpack VARCHAR(80),
+  shoulder_left VARCHAR(80),
+  shoulder_right VARCHAR(80),
   shield VARCHAR(80),
+  chest VARCHAR(80),
   armor VARCHAR(80),
   weapon VARCHAR(80),
   ring VARCHAR(80),
+  belt VARCHAR(80),
+  hand_left VARCHAR(80),
+  hand_right VARCHAR(80),
+  legs VARCHAR(80),
   pants VARCHAR(80),
+  foot_left VARCHAR(80),
+  foot_right VARCHAR(80),
   jewel VARCHAR(80),
   boots VARCHAR(80),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS head VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS shoulder_left VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS shoulder_right VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS chest VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS belt VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS hand_left VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS hand_right VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS legs VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS foot_left VARCHAR(80);
+ALTER TABLE equipment ADD COLUMN IF NOT EXISTS foot_right VARCHAR(80);
 
 CREATE TABLE IF NOT EXISTS skills (
   character_id BIGINT PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,

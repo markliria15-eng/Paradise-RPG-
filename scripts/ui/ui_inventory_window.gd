@@ -35,6 +35,14 @@ func set_items(items: Array) -> void:
 			continue
 		var row := HBoxContainer.new()
 		row.custom_minimum_size = Vector2(500, 40)
+		var icon := TextureRect.new()
+		icon.custom_minimum_size = Vector2(36, 36)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		var icon_path := str(entry.get("icon", ""))
+		if not icon_path.is_empty():
+			icon.texture = load(icon_path)
+		row.add_child(icon)
 		var name_label := Label.new()
 		name_label.text = "%s x%d" % [str(entry.get("name", "Item")), int(entry.get("amount", 1))]
 		name_label.custom_minimum_size = Vector2(280, 28)
@@ -52,4 +60,3 @@ func set_items(items: Array) -> void:
 		)
 		row.add_child(equip_button)
 		list_container.add_child(row)
-

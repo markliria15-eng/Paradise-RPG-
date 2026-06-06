@@ -200,15 +200,27 @@ Guia completo:
 
 ```text
 docs/online-contas-save.md
+docs/hospedagem-online.md
 ```
 
 Resumo:
 
 1. Hospede o backend Node.js em Render, Railway, Fly.io, VPS ou similar.
-2. Hospede o PostgreSQL em Supabase, Neon, Railway, Render ou VPS.
-3. Rode `database/schema.sql` no banco.
+2. Hospede o PostgreSQL em Render Postgres, Supabase, Neon, Railway ou VPS.
+3. Use `render.yaml` para publicar servidor + banco no Render, ou rode `npm run migrate` no servidor para aplicar `database/schema.sql`.
 4. Configure `client/config/mmo_client_config.json` com as URLs publicas HTTP/WSS.
 5. Exporte um APK novo e publique no site.
+
+Exemplo de URLs publicas no client:
+
+```json
+{
+  "http_base_url": "https://paradise-rpg-server.onrender.com",
+  "ws_url": "wss://paradise-rpg-server.onrender.com/ws",
+  "online_enabled": true,
+  "remember_login": true
+}
+```
 
 ## Versao web do jogo
 

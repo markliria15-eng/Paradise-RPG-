@@ -104,6 +104,7 @@ var mana_bar: ProgressBar
 var mana_label: Label
 var hp_label: Label
 var xp_value_label: Label
+var hud_frame: Panel
 var message_label: Label
 var panel: PanelContainer
 var panel_blocker: ColorRect
@@ -653,73 +654,109 @@ func _player_sprite_path_from_class(class_id: String) -> String:
 	return "res://assets/sprites/player_guerreiro.png"
 
 func _build_ui() -> void:
+	hud_frame = Panel.new()
+	hud_frame.position = Vector2(8, 8)
+	hud_frame.size = Vector2(322, 136)
+	hud_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hud_frame.z_index = 90
+	var hud_style := StyleBoxFlat.new()
+	hud_style.bg_color = Color(0.018, 0.017, 0.014, 0.88)
+	hud_style.border_color = Color("#c49b3f")
+	hud_style.set_border_width_all(3)
+	hud_style.set_corner_radius_all(8)
+	hud_frame.add_theme_stylebox_override("panel", hud_style)
+	ui.add_child(hud_frame)
+
 	hud_label = Label.new()
-	hud_label.position = Vector2(12, 6)
-	hud_label.add_theme_color_override("font_color", Color.WHITE)
+	hud_label.position = Vector2(20, 14)
+	hud_label.z_index = 91
+	hud_label.add_theme_color_override("font_color", Color("#f7e6b1"))
+	hud_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	hud_label.add_theme_constant_override("shadow_offset_x", 1)
+	hud_label.add_theme_constant_override("shadow_offset_y", 1)
 	hud_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(hud_label)
 	xp_label = Label.new()
-	xp_label.position = Vector2(12, 22)
-	xp_label.add_theme_color_override("font_color", Color("#f6f7ff"))
+	xp_label.position = Vector2(20, 31)
+	xp_label.z_index = 91
+	xp_label.add_theme_color_override("font_color", Color("#fff2bf"))
+	xp_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	xp_label.add_theme_constant_override("shadow_offset_x", 1)
+	xp_label.add_theme_constant_override("shadow_offset_y", 1)
 	xp_label.add_theme_font_size_override("font_size", 13)
 	ui.add_child(xp_label)
 	hp_label = Label.new()
-	hp_label.position = Vector2(12, 38)
+	hp_label.position = Vector2(22, 55)
+	hp_label.z_index = 92
 	hp_label.add_theme_color_override("font_color", Color("#ffd9d9"))
+	hp_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	hp_label.add_theme_constant_override("shadow_offset_x", 1)
+	hp_label.add_theme_constant_override("shadow_offset_y", 1)
 	hp_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(hp_label)
 	hp_bar = ProgressBar.new()
-	hp_bar.position = Vector2(12, 52)
-	hp_bar.size = Vector2(224, 18)
+	hp_bar.position = Vector2(98, 52)
+	hp_bar.size = Vector2(208, 22)
+	hp_bar.z_index = 91
 	hp_bar.show_percentage = false
 	var hp_bg := StyleBoxFlat.new()
-	hp_bg.bg_color = Color(0.03, 0.035, 0.045, 0.88)
-	hp_bg.border_color = Color("#8a6a2f")
+	hp_bg.bg_color = Color(0.025, 0.012, 0.014, 0.96)
+	hp_bg.border_color = Color("#6f4f1d")
 	hp_bg.set_border_width_all(2)
-	hp_bg.set_corner_radius_all(5)
+	hp_bg.set_corner_radius_all(6)
 	var hp_fill := StyleBoxFlat.new()
-	hp_fill.bg_color = Color("#b83232")
-	hp_fill.set_corner_radius_all(5)
+	hp_fill.bg_color = Color("#c82424")
+	hp_fill.set_corner_radius_all(6)
 	hp_bar.add_theme_stylebox_override("background", hp_bg)
 	hp_bar.add_theme_stylebox_override("fill", hp_fill)
 	ui.add_child(hp_bar)
 	mana_label = Label.new()
-	mana_label.position = Vector2(12, 72)
+	mana_label.position = Vector2(22, 82)
+	mana_label.z_index = 92
 	mana_label.add_theme_color_override("font_color", Color("#d8e5ff"))
+	mana_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	mana_label.add_theme_constant_override("shadow_offset_x", 1)
+	mana_label.add_theme_constant_override("shadow_offset_y", 1)
 	mana_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(mana_label)
 	mana_bar = ProgressBar.new()
-	mana_bar.position = Vector2(12, 86)
-	mana_bar.size = Vector2(224, 18)
+	mana_bar.position = Vector2(98, 79)
+	mana_bar.size = Vector2(208, 22)
+	mana_bar.z_index = 91
 	mana_bar.show_percentage = false
 	var mp_bg := StyleBoxFlat.new()
-	mp_bg.bg_color = Color(0.03, 0.035, 0.045, 0.88)
-	mp_bg.border_color = Color("#8a6a2f")
+	mp_bg.bg_color = Color(0.012, 0.016, 0.032, 0.96)
+	mp_bg.border_color = Color("#6f4f1d")
 	mp_bg.set_border_width_all(2)
-	mp_bg.set_corner_radius_all(5)
+	mp_bg.set_corner_radius_all(6)
 	var mp_fill := StyleBoxFlat.new()
-	mp_fill.bg_color = Color("#2f5fb8")
-	mp_fill.set_corner_radius_all(5)
+	mp_fill.bg_color = Color("#2e67d9")
+	mp_fill.set_corner_radius_all(6)
 	mana_bar.add_theme_stylebox_override("background", mp_bg)
 	mana_bar.add_theme_stylebox_override("fill", mp_fill)
 	ui.add_child(mana_bar)
 	xp_value_label = Label.new()
-	xp_value_label.position = Vector2(12, 106)
+	xp_value_label.position = Vector2(22, 109)
+	xp_value_label.z_index = 92
 	xp_value_label.add_theme_color_override("font_color", Color("#f8e4aa"))
+	xp_value_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	xp_value_label.add_theme_constant_override("shadow_offset_x", 1)
+	xp_value_label.add_theme_constant_override("shadow_offset_y", 1)
 	xp_value_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(xp_value_label)
 	xp_bar = ProgressBar.new()
-	xp_bar.position = Vector2(12, 122)
-	xp_bar.size = Vector2(224, 18)
+	xp_bar.position = Vector2(98, 106)
+	xp_bar.size = Vector2(208, 22)
+	xp_bar.z_index = 91
 	xp_bar.show_percentage = false
 	var xp_bg := StyleBoxFlat.new()
-	xp_bg.bg_color = Color(0.03, 0.035, 0.045, 0.88)
-	xp_bg.border_color = Color("#8a6a2f")
+	xp_bg.bg_color = Color(0.032, 0.025, 0.010, 0.96)
+	xp_bg.border_color = Color("#6f4f1d")
 	xp_bg.set_border_width_all(2)
-	xp_bg.set_corner_radius_all(5)
+	xp_bg.set_corner_radius_all(6)
 	var xp_fill := StyleBoxFlat.new()
-	xp_fill.bg_color = Color("#c99a2e")
-	xp_fill.set_corner_radius_all(5)
+	xp_fill.bg_color = Color("#d7a229")
+	xp_fill.set_corner_radius_all(6)
 	xp_bar.add_theme_stylebox_override("background", xp_bg)
 	xp_bar.add_theme_stylebox_override("fill", xp_fill)
 	ui.add_child(xp_bar)
@@ -728,14 +765,14 @@ func _build_ui() -> void:
 	message_label.add_theme_color_override("font_color", Color("#ffe8a3"))
 	ui.add_child(message_label)
 	minimap_panel = PanelContainer.new()
-	minimap_panel.position = Vector2(112, 144)
+	minimap_panel.position = Vector2(14, 154)
 	minimap_panel.size = MINIMAP_SIZE + Vector2(8, 8)
 	minimap_panel.z_index = 150
 	var minimap_style := StyleBoxFlat.new()
 	minimap_style.bg_color = Color(0.01, 0.02, 0.04, 0.78)
-	minimap_style.border_color = Color(1, 1, 1, 0.36)
-	minimap_style.set_border_width_all(1)
-	minimap_style.set_corner_radius_all(6)
+	minimap_style.border_color = Color("#c49b3f")
+	minimap_style.set_border_width_all(2)
+	minimap_style.set_corner_radius_all(8)
 	minimap_panel.add_theme_stylebox_override("panel", minimap_style)
 	ui.add_child(minimap_panel)
 	minimap_canvas = Control.new()
@@ -824,15 +861,15 @@ func _build_potion_bar() -> void:
 
 func _style_potion_button(button: Button) -> void:
 	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.05, 0.05, 0.06, 0.58)
-	normal.border_color = Color(1, 1, 1, 0.36)
-	normal.set_border_width_all(2)
-	normal.set_corner_radius_all(8)
+	normal.bg_color = Color(0.025, 0.022, 0.018, 0.82)
+	normal.border_color = Color("#c49b3f")
+	normal.set_border_width_all(3)
+	normal.set_corner_radius_all(9)
 	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.38, 0.16, 0.16, 0.72)
-	pressed.border_color = Color(1, 0.82, 0.82, 0.8)
-	pressed.set_border_width_all(2)
-	pressed.set_corner_radius_all(8)
+	pressed.bg_color = Color(0.34, 0.17, 0.08, 0.92)
+	pressed.border_color = Color("#ffe08a")
+	pressed.set_border_width_all(3)
+	pressed.set_corner_radius_all(9)
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", normal)
 	button.add_theme_stylebox_override("pressed", pressed)
@@ -898,15 +935,15 @@ func _style_quick_top_button(button: Button, icon_path: String, tooltip: String)
 	if button == null:
 		return
 	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.04, 0.055, 0.07, 0.92)
-	normal.border_color = Color(0.82, 0.90, 1.0, 0.40)
-	normal.set_border_width_all(2)
-	normal.set_corner_radius_all(12)
+	normal.bg_color = Color(0.022, 0.020, 0.017, 0.92)
+	normal.border_color = Color("#c49b3f")
+	normal.set_border_width_all(3)
+	normal.set_corner_radius_all(10)
 	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.08, 0.16, 0.24, 0.96)
-	pressed.border_color = Color(0.90, 0.96, 1.0, 0.72)
-	pressed.set_border_width_all(2)
-	pressed.set_corner_radius_all(12)
+	pressed.bg_color = Color(0.21, 0.14, 0.05, 0.98)
+	pressed.border_color = Color("#ffe08a")
+	pressed.set_border_width_all(3)
+	pressed.set_corner_radius_all(10)
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", normal)
 	button.add_theme_stylebox_override("pressed", pressed)
@@ -918,15 +955,15 @@ func _style_interact_button(button: Button) -> void:
 	if button == null:
 		return
 	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.08, 0.13, 0.08, 0.94)
-	normal.border_color = Color("#89ff88")
-	normal.set_border_width_all(2)
-	normal.set_corner_radius_all(12)
+	normal.bg_color = Color(0.03, 0.16, 0.07, 0.96)
+	normal.border_color = Color("#cfe86a")
+	normal.set_border_width_all(3)
+	normal.set_corner_radius_all(10)
 	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.14, 0.32, 0.14, 0.98)
-	pressed.border_color = Color("#d8ffd2")
-	pressed.set_border_width_all(2)
-	pressed.set_corner_radius_all(12)
+	pressed.bg_color = Color(0.08, 0.30, 0.12, 0.98)
+	pressed.border_color = Color("#f2ffd2")
+	pressed.set_border_width_all(3)
+	pressed.set_corner_radius_all(10)
 	button.text = "OK"
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", normal)
@@ -956,10 +993,10 @@ func _build_side_menu() -> void:
 	side_menu_panel.visible = false
 	side_menu_panel.z_index = 210
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.02, 0.024, 0.03, 0.92)
-	style.border_color = Color(1, 1, 1, 0.22)
-	style.set_border_width_all(1)
-	style.set_corner_radius_all(8)
+	style.bg_color = Color(0.018, 0.016, 0.014, 0.94)
+	style.border_color = Color("#c49b3f")
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(9)
 	side_menu_panel.add_theme_stylebox_override("panel", style)
 	var scroller := ScrollContainer.new()
 	scroller.custom_minimum_size = Vector2(274, 606)
@@ -1148,14 +1185,14 @@ func _make_touch_button(text: String, pos: Vector2, size: Vector2) -> Button:
 	button.focus_mode = Control.FOCUS_NONE
 	button.add_theme_font_size_override("font_size", 22)
 	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color(0.04, 0.05, 0.06, 0.48)
-	normal.border_color = Color(1, 1, 1, 0.38)
-	normal.set_border_width_all(2)
+	normal.bg_color = Color(0.025, 0.022, 0.018, 0.82)
+	normal.border_color = Color("#c49b3f")
+	normal.set_border_width_all(3)
 	normal.set_corner_radius_all(10)
 	var pressed := StyleBoxFlat.new()
-	pressed.bg_color = Color(0.45, 0.55, 0.62, 0.62)
-	pressed.border_color = Color(1, 1, 1, 0.7)
-	pressed.set_border_width_all(2)
+	pressed.bg_color = Color(0.22, 0.14, 0.05, 0.98)
+	pressed.border_color = Color("#ffe08a")
+	pressed.set_border_width_all(3)
 	pressed.set_corner_radius_all(10)
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", normal)
@@ -1337,25 +1374,42 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 			_add_world_rect(Rect2(Vector2.ZERO, current_map_size), Color(map_data.get("color", "#303030")), -100)
 
 func _draw_city_terrain() -> void:
-	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
-	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(150, 120, current_map_size.x - 300, current_map_size.y - 240), 64, -96)
-	_draw_tiled_rect("res://assets/sprites/tile_stone.png", Rect2(430, 250, 1300, 770), 64, -94)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(1020, 350, 220, 900), 64, -93)
-	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(520, 570, 1120, 130), 64, -93)
-	for bridge_x in [900, 1040, 1180]:
-		_draw_tiled_rect("res://assets/sprites/tile_bridge.png", Rect2(bridge_x, 0, 80, 280), 64, -92)
-	for wall in [
-		Rect2(400, 220, 1360, 40), Rect2(400, 1020, 560, 40), Rect2(1260, 1020, 500, 40),
-		Rect2(400, 220, 40, 840), Rect2(1720, 220, 40, 840)
+	var center := current_map_size * 0.5
+	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(Vector2.ZERO, current_map_size), 64, -100)
+	_draw_tiled_rect("res://assets/sprites/tile_stone.png", Rect2(310, 230, current_map_size.x - 620, current_map_size.y - 430), 64, -97)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(center.x - 164, 260, 328, current_map_size.y - 410), 64, -95)
+	_draw_tiled_rect("res://assets/sprites/tile_path.png", Rect2(390, center.y - 132, current_map_size.x - 780, 264), 64, -95)
+	_draw_tiled_blob("res://assets/sprites/tile_stone.png", center, 310, 235, -94)
+	_draw_tiled_blob("res://assets/sprites/tile_path.png", center, 190, 155, -93)
+	for garden in [
+		Rect2(410, 320, 650, 420), Rect2(1950, 330, 690, 420),
+		Rect2(410, 1520, 650, 410), Rect2(1980, 1510, 660, 410),
+		Rect2(1120, 340, 300, 420), Rect2(1665, 1500, 260, 390)
 	]:
-		_add_world_rect(wall, Color("#39414a"), -91)
+		_draw_tiled_rect("res://assets/sprites/tile_grass.png", garden, 64, -96)
+	for wall in [
+		Rect2(285, 205, current_map_size.x - 570, 46),
+		Rect2(285, current_map_size.y - 230, 1060, 46),
+		Rect2(1730, current_map_size.y - 230, current_map_size.x - 2015, 46),
+		Rect2(285, 205, 46, current_map_size.y - 389),
+		Rect2(current_map_size.x - 331, 205, 46, current_map_size.y - 389)
+	]:
+		_add_world_rect(wall, Color("#303844"), -91)
 		_register_solid_rect(wall)
-	for gate_post in [Rect2(960, 1000, 36, 64), Rect2(1224, 1000, 36, 64)]:
-		_add_world_rect(gate_post, Color("#4b5560"), -90)
+	for gate_post in [Rect2(1344, current_map_size.y - 252, 42, 86), Rect2(1688, current_map_size.y - 252, 42, 86)]:
+		_add_world_rect(gate_post, Color("#44505d"), -90)
 		_register_solid_rect(gate_post)
-	_add_world_label("Shop", Vector2(1210, 490), Color("#ffe0a3"))
-	_add_world_label("Forja", Vector2(1335, 760), Color("#ffd06b"))
-	_add_world_label("Fonte", Vector2(1040, 735), Color("#bdeaff"))
+	for curb in [
+		Rect2(center.x - 204, 250, 18, current_map_size.y - 420),
+		Rect2(center.x + 186, 250, 18, current_map_size.y - 420),
+		Rect2(380, center.y - 166, current_map_size.x - 760, 18),
+		Rect2(380, center.y + 148, current_map_size.x - 760, 18)
+	]:
+		_add_world_rect(curb, Color("#6d6558"), -92)
+	_add_world_label("Classes", Vector2(830, 530), Color("#ffe0a3"))
+	_add_world_label("Mercador", Vector2(2070, 700), Color("#ffe0a3"))
+	_add_world_label("Curandeira", Vector2(590, 1350), Color("#d8ffd2"))
+	_add_world_label("Forja", Vector2(2095, 1440), Color("#ffd06b"))
 
 func _draw_valdoria_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
@@ -1466,18 +1520,23 @@ func _draw_ember_fortress_terrain() -> void:
 
 func _spawn_map_decor() -> void:
 	if current_map == "city_eldoria":
-		_add_world_sprite("res://assets/sprites/decor_fountain.png", Vector2(1080, 755), 1.85, -10)
-		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(820, 390), 0.76, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_cottage_blue.png", Vector2(560, 660), 0.66, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_market_reference.png", Vector2(1320, 465), 0.72, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_forge_reference.png", Vector2(1510, 775), 0.72, -8)
-		_add_world_sprite("res://assets/sprites/decor_house_noble_blue.png", Vector2(1660, 385), 0.62, -8)
-		for p in [Vector2(520, 945), Vector2(710, 960), Vector2(1360, 930), Vector2(1620, 1005), Vector2(330, 345), Vector2(1890, 360), Vector2(300, 520), Vector2(1850, 640)]:
-			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 1.65, -12)
-		for p in [Vector2(1290, 515), Vector2(1450, 555), Vector2(1420, 875), Vector2(1560, 880)]:
-			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 1.25, -6)
-		for p in [Vector2(565, 735), Vector2(650, 760)]:
-			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 1.2, -6)
+		var center := current_map_size * 0.5
+		_add_world_sprite("res://assets/sprites/decor_fountain.png", center, 1.28, -10)
+		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(890, 555), 0.72, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_cottage_blue.png", Vector2(650, 1350), 0.70, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_market_reference.png", Vector2(2190, 650), 0.72, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_forge_reference.png", Vector2(2200, 1410), 0.74, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_noble_blue.png", Vector2(1035, 820), 0.58, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_cottage_blue.png", Vector2(2450, 1120), 0.58, -8)
+		_add_world_sprite("res://assets/sprites/decor_house_noble_blue.png", Vector2(880, 1750), 0.60, -8)
+		for p in [Vector2(430, 390), Vector2(510, 1810), Vector2(2750, 390), Vector2(2620, 1770), Vector2(430, 890), Vector2(2750, 940), Vector2(1220, 1830), Vector2(1880, 610)]:
+			_add_world_sprite("res://assets/sprites/decor_tree.png", p, 1.55, -12)
+		for p in [Vector2(2110, 820), Vector2(2300, 830), Vector2(2050, 1540), Vector2(2330, 1570), Vector2(1030, 690), Vector2(845, 700)]:
+			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 1.15, -6)
+		for p in [Vector2(710, 1470), Vector2(780, 1475), Vector2(2145, 1525), Vector2(2250, 1520)]:
+			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 1.1, -6)
+		for p in [Vector2(1308, 968), Vector2(1710, 968), Vector2(1308, 1315), Vector2(1710, 1315)]:
+			_add_world_sprite("res://assets/sprites/decor_torch.png", p, 1.0, -6)
 	elif current_map == "city_valdoria":
 		_add_world_sprite("res://assets/sprites/decor_fountain.png", Vector2(1080, 560), 2.0, -10)
 		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(500, 360), 0.64, -8)
@@ -1800,7 +1859,6 @@ func _spawn_ground_details() -> void:
 	match current_map:
 		"city_eldoria", "city_valdoria":
 			_scatter_detail(["res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_leaf_patch.png"], 42, 0.62)
-			_scatter_detail(["res://assets/sprites/decor_sign.png", "res://assets/sprites/decor_fence.png", "res://assets/sprites/decor_crate.png", "res://assets/sprites/decor_barrel.png"], 18, 0.9)
 			_spawn_city_visual_props()
 		"forest_boars", "highland_pass":
 			_scatter_detail(["res://assets/sprites/decor_bush.png", "res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_rock.png", "res://assets/sprites/decor_leaf_patch.png", "res://assets/sprites/decor_stump.png"], 92, 0.78)
@@ -1827,16 +1885,18 @@ func _scatter_detail(paths: Array, count: int, scale_base: float) -> void:
 
 func _spawn_city_visual_props() -> void:
 	if current_map == "city_eldoria":
-		for p in [Vector2(1260, 635), Vector2(1300, 635), Vector2(1360, 610), Vector2(1450, 900), Vector2(1500, 910)]:
-			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 0.85, -8)
-		for p in [Vector2(1370, 920), Vector2(1540, 925), Vector2(700, 420)]:
-			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 0.95, -8)
-		for p in [Vector2(520, 800), Vector2(610, 810)]:
-			_add_world_sprite("res://assets/sprites/decor_healer_shrine.png", p, 0.95, -8)
-		for p in [Vector2(780, 350), Vector2(880, 345)]:
-			_add_world_sprite("res://assets/sprites/decor_magic_rune.png", p, 0.85, -9)
-		for p in [Vector2(450, 610), Vector2(1660, 615), Vector2(1030, 500), Vector2(1210, 500)]:
-			_add_world_sprite("res://assets/sprites/decor_torch.png", p, 0.9, -8)
+		for p in [Vector2(2120, 835), Vector2(2290, 850), Vector2(2055, 1545), Vector2(2350, 1585), Vector2(820, 715), Vector2(1010, 700)]:
+			_add_world_sprite("res://assets/sprites/decor_barrel.png", p, 0.88, -8)
+		for p in [Vector2(2070, 800), Vector2(2340, 830), Vector2(2020, 1580), Vector2(2310, 1540), Vector2(910, 720)]:
+			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 0.92, -8)
+		for p in [Vector2(650, 1515), Vector2(770, 1515)]:
+			_add_world_sprite("res://assets/sprites/decor_healer_shrine.png", p, 0.9, -8)
+		for p in [Vector2(820, 710), Vector2(995, 710)]:
+			_add_world_sprite("res://assets/sprites/decor_magic_rune.png", p, 0.75, -9)
+		for p in [Vector2(1295, 955), Vector2(1715, 955), Vector2(1295, 1325), Vector2(1715, 1325), Vector2(625, 1390), Vector2(2185, 820), Vector2(2180, 1515)]:
+			_add_world_sprite("res://assets/sprites/decor_torch.png", p, 0.95, -8)
+		for p in [Vector2(1350, 1110), Vector2(1668, 1110), Vector2(1350, 1235), Vector2(1668, 1235)]:
+			_add_world_sprite("res://assets/sprites/decor_flower_patch.png", p, 0.75, -10)
 	elif current_map == "city_valdoria":
 		for p in [Vector2(590, 695), Vector2(660, 690), Vector2(1350, 700), Vector2(1430, 700)]:
 			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 0.95, -8)
@@ -2203,23 +2263,12 @@ func _spawn_basic_attack_effect(enemy: Enemy) -> void:
 func _spawn_skill_projectile(skill_id: String, enemy: Enemy) -> void:
 	if enemy == null or not is_instance_valid(enemy):
 		return
-	var icon_path := _projectile_texture_for(skill_id)
-	var effect := Sprite2D.new()
-	effect.texture = load(icon_path)
-	effect.global_position = player.global_position + Vector2(0, -22)
-	effect.scale = Vector2(0.82, 0.82)
-	effect.z_index = 80
-	world.add_child(effect)
-	var impact_pos := enemy.global_position
-	var tween := create_tween()
-	effect.rotation = (impact_pos - effect.global_position).angle()
-	tween.tween_property(effect, "global_position", impact_pos, 0.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(effect, "scale", Vector2(1.08, 1.08), 0.24)
-	tween.tween_callback(func() -> void:
-		_spawn_impact_effect(impact_pos, skill_id)
-		if is_instance_valid(effect):
-			effect.queue_free()
-	)
+	var travel_time := 0.24
+	if skill_id in ["stun_shot", "arrow_rain"]:
+		travel_time = 0.18
+	elif skill_id in ["blue_meteor"]:
+		travel_time = 0.32
+	_spawn_travel_projectile(skill_id, enemy, _projectile_texture_for(skill_id), travel_time)
 
 func _spawn_travel_projectile(skill_id: String, enemy: Enemy, texture_path: String, travel_time: float) -> void:
 	if enemy == null or not is_instance_valid(enemy):
@@ -2231,11 +2280,24 @@ func _spawn_travel_projectile(skill_id: String, enemy: Enemy, texture_path: Stri
 	projectile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	projectile.global_position = start
 	projectile.rotation = (finish - start).angle()
-	projectile.scale = Vector2(0.85, 0.85)
+	var projectile_scale := 0.92
+	if skill_id in ["burning_fireball", "fire_hurricane", "blue_meteor", "basic_magic"]:
+		projectile_scale = 1.08
+	projectile.scale = Vector2(projectile_scale, projectile_scale)
 	projectile.z_index = 90
 	world.add_child(projectile)
+	var glow := Sprite2D.new()
+	glow.texture = projectile.texture
+	glow.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	glow.global_position = start
+	glow.rotation = projectile.rotation
+	glow.scale = projectile.scale * 1.55
+	glow.modulate = _skill_color(skill_id).lerp(Color.WHITE, 0.18)
+	glow.modulate.a = 0.34
+	glow.z_index = 88
+	world.add_child(glow)
 	var trail := Line2D.new()
-	trail.width = 5.0
+	trail.width = 7.0 if skill_id in ["burning_fireball", "fire_hurricane", "blue_meteor"] else 5.0
 	trail.default_color = _skill_color(skill_id)
 	trail.z_index = 89
 	world.add_child(trail)
@@ -2243,16 +2305,22 @@ func _spawn_travel_projectile(skill_id: String, enemy: Enemy, texture_path: Stri
 	tween.tween_method(func(value) -> void:
 		if is_instance_valid(projectile):
 			projectile.global_position = value
+		if is_instance_valid(glow):
+			glow.global_position = value
+			glow.rotation += 0.18
 		if is_instance_valid(trail):
 			trail.add_point(value)
-			while trail.get_point_count() > 8:
+			while trail.get_point_count() > 10:
 				trail.remove_point(0)
 	, start, finish, travel_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(projectile, "scale", Vector2(1.10, 1.10), travel_time)
+	tween.parallel().tween_property(projectile, "scale", Vector2(projectile_scale + 0.25, projectile_scale + 0.25), travel_time)
+	tween.parallel().tween_property(glow, "modulate", Color(glow.modulate.r, glow.modulate.g, glow.modulate.b, 0.08), travel_time)
 	tween.tween_callback(func() -> void:
 		_spawn_impact_effect(finish, skill_id)
 		if is_instance_valid(projectile):
 			projectile.queue_free()
+		if is_instance_valid(glow):
+			glow.queue_free()
 		if is_instance_valid(trail):
 			trail.queue_free()
 	)
@@ -2280,6 +2348,25 @@ func _spawn_impact_effect(pos: Vector2, skill_id: String) -> void:
 	var tween := create_tween()
 	tween.tween_property(hit, "scale", Vector2(1.15, 1.15), 0.28)
 	tween.parallel().tween_property(hit, "modulate", Color(1, 1, 1, 0), 0.28)
+	if skill_id in ["burning_fireball", "fire_hurricane", "blue_meteor", "stun_shot", "soul_reaper"]:
+		var ring := Line2D.new()
+		ring.width = 5.0
+		ring.closed = true
+		ring.default_color = _skill_color(skill_id)
+		ring.z_index = 80
+		for i in range(36):
+			var angle := TAU * float(i) / 36.0
+			ring.add_point(Vector2(cos(angle), sin(angle)) * 28.0)
+		ring.global_position = pos
+		ring.scale = Vector2(0.25, 0.25)
+		world.add_child(ring)
+		var ring_tween := create_tween()
+		ring_tween.tween_property(ring, "scale", Vector2(1.25, 1.25), 0.30).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		ring_tween.parallel().tween_property(ring, "modulate", Color(1, 1, 1, 0), 0.30)
+		ring_tween.tween_callback(func() -> void:
+			if is_instance_valid(ring):
+				ring.queue_free()
+		)
 	tween.tween_callback(func() -> void:
 		if is_instance_valid(hit):
 			hit.queue_free()
@@ -2296,7 +2383,7 @@ func _impact_texture_for(skill_id: String) -> String:
 
 func _spawn_area_effect(center: Vector2, radius: float, skill_id: String) -> void:
 	var line := Line2D.new()
-	line.width = 4.0
+	line.width = 5.0
 	line.closed = true
 	line.default_color = _skill_color(skill_id)
 	line.z_index = 79
@@ -2306,12 +2393,24 @@ func _spawn_area_effect(center: Vector2, radius: float, skill_id: String) -> voi
 	line.global_position = center
 	line.scale = Vector2(0.18, 0.18)
 	world.add_child(line)
+	var pulse := Sprite2D.new()
+	pulse.texture = load(_impact_texture_for(skill_id))
+	pulse.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	pulse.global_position = center
+	pulse.scale = Vector2(0.46, 0.46)
+	pulse.modulate = Color(1, 1, 1, 0.70)
+	pulse.z_index = 78
+	world.add_child(pulse)
 	var tween := create_tween()
 	tween.tween_property(line, "scale", Vector2.ONE, 0.32).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(line, "modulate", Color(1, 1, 1, 0), 0.36)
+	tween.parallel().tween_property(pulse, "scale", Vector2(maxf(0.85, radius / 70.0), maxf(0.85, radius / 70.0)), 0.36)
+	tween.parallel().tween_property(pulse, "modulate", Color(1, 1, 1, 0), 0.36)
 	tween.tween_callback(func() -> void:
 		if is_instance_valid(line):
 			line.queue_free()
+		if is_instance_valid(pulse):
+			pulse.queue_free()
 	)
 
 func _spawn_self_effect(skill_id: String) -> void:
@@ -2333,6 +2432,8 @@ func _spawn_self_effect(skill_id: String) -> void:
 	)
 	if skill_id == "mystic_shield":
 		_spawn_area_effect(player.global_position, 52, skill_id)
+	elif skill_id in ["hero_hour", "war_cry", "agility"]:
+		_spawn_area_effect(player.global_position, 54, skill_id)
 
 func _spawn_dash_effect(from: Vector2, to: Vector2, skill_id: String) -> void:
 	var line := Line2D.new()
@@ -2762,9 +2863,9 @@ func _open_inventory_panel() -> void:
 	var slot_data := ItemDatabase.load_json("res://data/equipment_slots.json")
 	var equip_grid := GridContainer.new()
 	equip_grid.columns = 3
-	equip_grid.custom_minimum_size = Vector2(290, 360)
-	equip_grid.add_theme_constant_override("h_separation", 8)
-	equip_grid.add_theme_constant_override("v_separation", 8)
+	equip_grid.custom_minimum_size = Vector2(290, 400)
+	equip_grid.add_theme_constant_override("h_separation", 6)
+	equip_grid.add_theme_constant_override("v_separation", 6)
 	equipment_box.add_child(equip_grid)
 	for slot in EquipmentSystem.SLOT_ORDER:
 		var slot_name := str(slot)
@@ -2890,9 +2991,9 @@ func _show_equipment_window() -> void:
 	var box := _start_modal("Equipamento", "equipment")
 	var grid := GridContainer.new()
 	grid.columns = 3
-	grid.custom_minimum_size = Vector2(470, 430)
-	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 12)
+	grid.custom_minimum_size = Vector2(430, 520)
+	grid.add_theme_constant_override("h_separation", 8)
+	grid.add_theme_constant_override("v_separation", 8)
 	box.add_child(grid)
 	var slot_data := ItemDatabase.load_json("res://data/equipment_slots.json")
 	for row in EquipmentSystem.SLOT_GRID:
@@ -3629,7 +3730,7 @@ func _equipment_slot_button(slot: String, slot_data: Dictionary) -> Button:
 	var info: Dictionary = slot_data.get(slot, {})
 	var fallback_icon := str(info.get("icon", "res://assets/sprites/icon_slot_weapon.png"))
 	var button := Button.new()
-	button.custom_minimum_size = Vector2(140, 96)
+	button.custom_minimum_size = Vector2(132, 78)
 	button.text = EquipmentSystem.slot_label(slot)
 	button.icon = UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon)
 	button.expand_icon = true
@@ -3666,7 +3767,7 @@ func _inventory_equipment_slot_button(slot: String, slot_data: Dictionary) -> Bu
 	var info: Dictionary = slot_data.get(slot, {})
 	var fallback_icon := str(info.get("icon", "res://assets/sprites/icon_slot_weapon.png"))
 	var button := Button.new()
-	button.custom_minimum_size = Vector2(88, 72)
+	button.custom_minimum_size = Vector2(86, 62)
 	button.text = ""
 	button.icon = UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon)
 	button.expand_icon = true
@@ -4032,11 +4133,7 @@ func _player_died() -> void:
 func _update_hud() -> void:
 	if player == null:
 		return
-	var skills: Array = player.class_data.get("skills", [])
-	var cd_text := []
-	for i in range(skills.size()):
-		cd_text.append("%d:%0.1fs" % [i + 1, SkillSystem.cooldown_left(skills[i])])
-	hud_label.text = "%s  |  %s  |  Ouro %d  |  %s" % [player.character_name, player.class_name_selected, player.ouro, " ".join(cd_text)]
+	hud_label.text = "%s | %s | Ouro %d" % [player.character_name, player.class_name_selected, player.ouro]
 	xp_label.text = "Nivel %d" % player.level
 	hp_label.text = "HP %d/%d" % [player.vida, player.vida_max]
 	mana_label.text = "MP %d/%d" % [player.mana, player.mana_max]

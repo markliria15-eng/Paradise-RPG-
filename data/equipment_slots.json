@@ -1,13 +1,86 @@
 {
-  "amulet": {"label": "Amuleto", "icon": "res://assets/sprites/icon_slot_amulet.png"},
-  "helmet": {"label": "Capacete", "icon": "res://assets/sprites/icon_slot_helmet.png"},
-  "backpack": {"label": "Mochila", "icon": "res://assets/sprites/icon_slot_backpack.png"},
-  "shield": {"label": "Escudo", "icon": "res://assets/sprites/icon_slot_shield.png"},
-  "armor": {"label": "Armadura", "icon": "res://assets/sprites/icon_slot_armor.png"},
-  "weapon": {"label": "Arma", "icon": "res://assets/sprites/icon_slot_weapon.png"},
-  "ring": {"label": "Anel", "icon": "res://assets/sprites/icon_slot_ring.png"},
-  "pants": {"label": "Calca", "icon": "res://assets/sprites/icon_slot_pants.png"},
-  "gloves": {"label": "Luvas", "icon": "res://assets/sprites/icon_slot_gloves.png"},
-  "jewel": {"label": "Joia", "icon": "res://assets/sprites/icon_slot_jewel.png"},
-  "boots": {"label": "Bota", "icon": "res://assets/sprites/icon_slot_boots.png"}
+  "amulet": {
+    "label": "Amuleto",
+    "icon": "res://assets/sprites/icon_slot_amulet.png"
+  },
+  "helmet": {
+    "label": "Capacete",
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "backpack": {
+    "label": "Mochila",
+    "icon": "res://assets/sprites/icon_slot_backpack.png"
+  },
+  "shield": {
+    "label": "Escudo",
+    "icon": "res://assets/sprites/icon_slot_shield.png"
+  },
+  "armor": {
+    "label": "Armadura",
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "weapon": {
+    "label": "Arma",
+    "icon": "res://assets/sprites/icon_slot_weapon.png"
+  },
+  "ring": {
+    "label": "Anel",
+    "icon": "res://assets/sprites/icon_slot_ring.png"
+  },
+  "pants": {
+    "label": "Calca",
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "gloves": {
+    "label": "Luvas",
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "jewel": {
+    "label": "Joia",
+    "icon": "res://assets/sprites/icon_slot_jewel.png"
+  },
+  "boots": {
+    "label": "Bota",
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "head": {
+    "label": "Cabeca",
+    "icon": "res://assets/sprites/icon_slot_helmet.png"
+  },
+  "chest": {
+    "label": "Peitoral",
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "shoulder_left": {
+    "label": "Ombro Esq.",
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "shoulder_right": {
+    "label": "Ombro Dir.",
+    "icon": "res://assets/sprites/icon_slot_armor.png"
+  },
+  "hand_left": {
+    "label": "Mao Esq.",
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "hand_right": {
+    "label": "Mao Dir.",
+    "icon": "res://assets/sprites/icon_slot_gloves.png"
+  },
+  "belt": {
+    "label": "Cinto",
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "legs": {
+    "label": "Pernas",
+    "icon": "res://assets/sprites/icon_slot_pants.png"
+  },
+  "foot_left": {
+    "label": "Pe Esq.",
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  },
+  "foot_right": {
+    "label": "Pe Dir.",
+    "icon": "res://assets/sprites/icon_slot_boots.png"
+  }
 }

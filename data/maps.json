@@ -3,21 +3,21 @@
     "name": "Cidade de Eldoria",
     "safe": true,
     "size": [
-      2200,
-      1400
+      3072,
+      2304
     ],
     "color": "#476b57",
     "spawn": [
-      1080,
-      910
+      1536,
+      900
     ],
     "npcs": [
       {
         "name": "Helena, a Curandeira",
         "role": "healer",
         "pos": [
-          560,
-          790
+          720,
+          1520
         ],
         "sprite": "res://assets/sprites/npc_custom_3_pixel.png"
       },
@@ -25,8 +25,8 @@
         "name": "Borin, o Mercador",
         "role": "shop",
         "pos": [
-          1320,
-          620
+          2190,
+          900
         ],
         "sprite": "res://assets/sprites/npc_custom_2_pixel.png"
       },
@@ -34,8 +34,8 @@
         "name": "Brakka, a Ferreira",
         "role": "forge",
         "pos": [
-          1510,
-          925
+          2200,
+          1600
         ],
         "sprite": "res://assets/sprites/npc_custom_5_pixel.png"
       },
@@ -43,8 +43,8 @@
         "name": "Arion, o Mestre de Classes",
         "role": "class_master",
         "pos": [
-          820,
-          545
+          930,
+          730
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       }
@@ -54,8 +54,8 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          1080,
-          1180
+          1536,
+          2110
         ],
         "spawn": [
           620,
