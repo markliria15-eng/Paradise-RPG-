@@ -565,13 +565,20 @@ func _spawn_or_update_remote(data: Dictionary) -> void:
 	var character_id := int(data.get("characterId", 0))
 	if character_id <= 0:
 		return
+	if player != null and character_id == int(player.get_meta("character_id", 0)):
+		return
 	var remote: Node2D = remote_players.get(character_id, null)
+	if remote != null and not is_instance_valid(remote):
+		remote_players.erase(character_id)
+		remote = null
 	if remote == null:
 		remote = _create_remote_player_node(data)
 		remote_players[character_id] = remote
 		world.add_child(remote)
 	remote.global_position = Vector2(float(data.get("pos", {}).get("x", 0.0)), float(data.get("pos", {}).get("y", 0.0)))
-	remote.set_meta("map", str(data.get("map", current_map)))
+	var remote_map := str(data.get("map", current_map))
+	remote.set_meta("map", remote_map)
+	remote.visible = remote_map == current_map
 	var name_label: Label = remote.get_node("NameLabel")
 	name_label.text = "Lv %d %s" % [int(data.get("level", 1)), str(data.get("name", "Jogador"))]
 	_update_remote_hp(character_id, int(data.get("hp", 100)))
@@ -626,12 +633,16 @@ func _remove_remote_player(character_id: int) -> void:
 	remote_players.erase(character_id)
 
 func _cleanup_remote_players_for_map() -> void:
+	var invalid_ids: Array = []
 	for character_id in remote_players.keys():
 		var remote: Node2D = remote_players[character_id]
 		if remote == null or not is_instance_valid(remote):
+			invalid_ids.append(character_id)
 			continue
 		var map_id := str(remote.get_meta("map", ""))
 		remote.visible = map_id == current_map
+	for character_id in invalid_ids:
+		remote_players.erase(character_id)
 
 func _player_sprite_path_from_class(class_id: String) -> String:
 	match class_id:
@@ -1318,6 +1329,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	for child in world.get_children():
 		if child != player:
 			child.queue_free()
+	remote_players.clear()
 	var map_data: Dictionary = maps.get(map_id, {})
 	var size_data: Array = map_data.get("size", [int(DEFAULT_MAP_SIZE.x), int(DEFAULT_MAP_SIZE.y)])
 	current_map_size = Vector2(float(size_data[0]), float(size_data[1]))
@@ -2542,6 +2554,10 @@ func _interact() -> void:
 		if typeof(spawn_data) == TYPE_ARRAY and spawn_data.size() >= 2:
 			spawn = Vector2(float(spawn_data[0]), float(spawn_data[1]))
 		_load_map(str(selected_portal.get_meta("target")), spawn)
+		if online_mode and mmo_client != null and player != null:
+			net_move_accumulator = 0.0
+			mmo_client.call("send_move", current_map, player.global_position)
+			_send_online_save_state()
 		return
 	if selected_npc == null:
 		_hide_panel()

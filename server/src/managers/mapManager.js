@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 class MapManager {
   constructor() {
     this.maps = {
@@ -10,6 +13,29 @@ class MapManager {
       crystal_mines: { pvp: true, width: 2200, height: 1400, safe: false },
       ember_fortress: { pvp: true, width: 2200, height: 1400, safe: false }
     };
+    this.loadMapsFromData();
+  }
+
+  loadMapsFromData() {
+    const mapsPath = path.resolve(__dirname, "../../../data/maps.json");
+    if (!fs.existsSync(mapsPath)) return;
+    try {
+      const data = JSON.parse(fs.readFileSync(mapsPath, "utf8"));
+      for (const [mapId, mapData] of Object.entries(data)) {
+        const size = Array.isArray(mapData.size) ? mapData.size : [2200, 1400];
+        const width = Number(size[0]) || 2200;
+        const height = Number(size[1]) || 1400;
+        const safe = Boolean(mapData.safe);
+        this.maps[mapId] = {
+          pvp: !safe,
+          width,
+          height,
+          safe
+        };
+      }
+    } catch (error) {
+      // Keep fallback maps if the shared data file is not readable.
+    }
   }
 
   exists(mapId) {

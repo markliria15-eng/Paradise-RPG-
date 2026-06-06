@@ -96,7 +96,8 @@ class WorldService {
       self: session,
       map: this.mapManager.get(session.map)
     });
-    this.broadcastMap(session.map, {
+    this.sendMapSnapshot(session);
+    this.broadcastMapExcept(session.map, session.characterId, {
       type: "player_joined",
       player: this.snapshotPlayer(session)
     });
@@ -129,25 +130,30 @@ class WorldService {
     };
   }
 
-  playersNear(player, radius = 640) {
+  playersNear(player, radius = Number.POSITIVE_INFINITY) {
     const players = this.playerManager.playersInMap(player.map);
     return players.filter((other) => {
       if (other.characterId === player.characterId) return false;
+      if (!Number.isFinite(radius)) return true;
       const dx = other.pos.x - player.pos.x;
       const dy = other.pos.y - player.pos.y;
       return dx * dx + dy * dy <= radius * radius;
     });
   }
 
+  sendMapSnapshot(player) {
+    const players = this.playersNear(player).map((p) => this.snapshotPlayer(p));
+    const bosses = this.entityManager.listBossesByMap(player.map);
+    this.transport.send(player.socket, {
+      type: "world_snapshot",
+      players,
+      bosses
+    });
+  }
+
   sendNearbySnapshot() {
     for (const player of this.playerManager.all()) {
-      const nearby = this.playersNear(player).map((p) => this.snapshotPlayer(p));
-      const bosses = this.entityManager.listBossesByMap(player.map);
-      this.transport.send(player.socket, {
-        type: "world_snapshot",
-        players: nearby,
-        bosses
-      });
+      this.sendMapSnapshot(player);
     }
   }
 
@@ -159,6 +165,13 @@ class WorldService {
 
   broadcastMap(mapId, payload) {
     for (const player of this.playerManager.playersInMap(mapId)) {
+      this.transport.send(player.socket, payload);
+    }
+  }
+
+  broadcastMapExcept(mapId, exceptCharacterId, payload) {
+    for (const player of this.playerManager.playersInMap(mapId)) {
+      if (player.characterId === exceptCharacterId) continue;
       this.transport.send(player.socket, payload);
     }
   }
@@ -214,7 +227,9 @@ class WorldService {
     for (const [characterId, move] of this.playerManager.drainPendingMoves()) {
       const player = this.playerManager.get(characterId);
       if (!player) continue;
-      const anti = this.antiCheat.validateMove(characterId, move.pos, nowMs);
+      const previousMap = player.map;
+      const mapChanged = previousMap !== move.map;
+      const anti = mapChanged ? { ok: true } : this.antiCheat.validateMove(characterId, move.pos, nowMs);
       if (!anti.ok) {
         this.transport.send(player.socket, {
           type: "anti_cheat_violation",
@@ -222,8 +237,25 @@ class WorldService {
         });
         continue;
       }
+      if (mapChanged) {
+        this.antiCheat.clear(characterId);
+        this.broadcastMapExcept(previousMap, player.characterId, {
+          type: "player_left",
+          characterId: player.characterId
+        });
+      }
       player.map = move.map;
       player.pos = move.pos;
+      if (mapChanged) {
+        this.antiCheat.validateMove(characterId, move.pos, nowMs);
+      }
+      if (mapChanged) {
+        this.sendMapSnapshot(player);
+        this.broadcastMapExcept(player.map, player.characterId, {
+          type: "player_joined",
+          player: this.snapshotPlayer(player)
+        });
+      }
     }
   }
 
