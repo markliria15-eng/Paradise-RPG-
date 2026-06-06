@@ -22,7 +22,7 @@ module.exports = {
   clientOrigin: process.env.CLIENT_ORIGIN || "*",
   androidDownloadUrl:
     process.env.ANDROID_APK_URL ||
-    "https://markliria15-eng.github.io/Paradise-RPG-/downloads/Paradise-RPG.apk",
+    "https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.0/paradise-rpg-android-v0.1.0.apk",
   db: {
     url: process.env.DATABASE_URL || "",
     ssl: String(process.env.DB_SSL || "").toLowerCase() === "true",

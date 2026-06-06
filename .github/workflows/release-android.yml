@@ -1,0 +1,58 @@
+name: Publish Android Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, for example v0.1.0"
+        required: true
+        default: "v0.1.0"
+
+permissions:
+  contents: write
+
+jobs:
+  release-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare Android APK asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          fi
+
+          APK_SOURCE="website/downloads/Paradise-RPG.apk"
+          if [ ! -f "${APK_SOURCE}" ]; then
+            echo "APK nao encontrado em ${APK_SOURCE}"
+            exit 1
+          fi
+
+          mkdir -p release-assets
+          cp "${APK_SOURCE}" "release-assets/paradise-rpg-android-${TAG}.apk"
+          sha256sum "release-assets/paradise-rpg-android-${TAG}.apk" > "release-assets/paradise-rpg-android-${TAG}.sha256.txt"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          name: Paradise RPG Beta ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          body: |
+            Paradise RPG Android beta.
+
+            Este APK conecta ao servidor online do Render:
+            https://paradise-rpg-server.onrender.com
+
+            WebSocket:
+            wss://paradise-rpg-server.onrender.com/ws
+          files: |
+            release-assets/*.apk
+            release-assets/*.sha256.txt
