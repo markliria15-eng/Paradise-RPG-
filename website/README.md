@@ -19,20 +19,22 @@ https://SEU_USUARIO.github.io/NOME_DO_REPOSITORIO/
 
 ## Como trocar links dos botoes
 
-Abra `website/index.html` e procure pelos comentarios:
+O botao Android do site aponta para:
 
-```html
-<!-- Trocar este link pelo link real do APK no GitHub Releases. -->
-<!-- Trocar este link pelo link real do ZIP Windows no GitHub Releases. -->
+```text
+https://paradise-rpg-server.onrender.com/download/android
 ```
 
-Troque os valores de `href` pelos links copiados na pagina da Release.
+Esse endpoint do Render redireciona para a URL configurada em `ANDROID_APK_URL`.
+Para trocar o APK sem editar o site, altere essa variavel no Render.
+
+O link Windows ainda pode ser trocado no HTML pelo link da Release:
 
 Exemplo:
 
 ```html
-<a class="button primary" href="https://github.com/usuario/paradise-rpg/releases/download/v0.1.0/paradise-rpg-android-v0.1.0.apk">
-  Baixar para Android
+<a class="button secondary" href="https://github.com/usuario/paradise-rpg/releases/download/v0.1.0/paradise-rpg-windows-v0.1.0.zip">
+  Baixar para Windows
 </a>
 ```
 
@@ -42,12 +44,14 @@ Exemplo:
 2. Crie uma nova Release no GitHub, por exemplo `v0.1.1`.
 3. Envie APK, ZIP Windows e outros arquivos.
 4. Copie os links dos arquivos.
-5. Atualize `website/index.html`.
-6. Faca commit e push.
+5. Para Android, cole o link do APK em `ANDROID_APK_URL` no Render.
+6. Para Windows, atualize `website/index.html`.
+7. Faca commit e push se editar o site.
 
 ## Como conectar aos arquivos do GitHub Releases
 
-O site tambem possui um APK temporario em `website/downloads/Paradise-RPG.apk` para o botao funcionar imediatamente.
+O site tambem possui um APK temporario em `website/downloads/Paradise-RPG.apk`.
+O Render usa esse arquivo como `ANDROID_APK_URL` padrao.
 
 Para versoes oficiais, os arquivos de download devem ficar no GitHub Releases, nao dentro do GitHub Pages.
 

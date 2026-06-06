@@ -48,6 +48,17 @@ async function main() {
     res.json({ ok: true, service: "paradise-rpg-server" });
   });
 
+  app.get("/download/android", (_req, res) => {
+    res.redirect(302, config.androidDownloadUrl);
+  });
+
+  app.get("/download/status", (_req, res) => {
+    res.json({
+      ok: true,
+      android: config.androidDownloadUrl
+    });
+  });
+
   await waitForDatabase();
   const world = new WorldService();
   await world.bootstrapMmoSystems();

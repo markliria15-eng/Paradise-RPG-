@@ -20,6 +20,9 @@ module.exports = {
   jwtSecret: process.env.JWT_SECRET || "dev-secret",
   jwtExpires: process.env.JWT_EXPIRES || "7d",
   clientOrigin: process.env.CLIENT_ORIGIN || "*",
+  androidDownloadUrl:
+    process.env.ANDROID_APK_URL ||
+    "https://markliria15-eng.github.io/Paradise-RPG-/downloads/Paradise-RPG.apk",
   db: {
     url: process.env.DATABASE_URL || "",
     ssl: String(process.env.DB_SSL || "").toLowerCase() === "true",
