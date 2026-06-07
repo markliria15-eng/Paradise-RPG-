@@ -97,18 +97,18 @@ func _download_next_file() -> void:
 func _on_file_loaded(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray, entry: Dictionary) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS or response_code < 200 or response_code >= 300:
 		patch_failed.emit("Falha ao baixar " + str(entry.get("path", "")))
-		_download_next_file()
+		call_deferred("_download_next_file")
 		return
 	var local_path := PATCH_DIR + "/" + str(entry.get("path", ""))
 	_ensure_dir(local_path.get_base_dir())
 	var file := FileAccess.open(local_path, FileAccess.WRITE)
 	if file == null:
 		patch_failed.emit("Falha ao salvar " + local_path)
-		_download_next_file()
+		call_deferred("_download_next_file")
 		return
 	file.store_buffer(body)
 	_updated_files += 1
-	_download_next_file()
+	call_deferred("_download_next_file")
 
 func _request(url: String, callback: Callable) -> void:
 	if _http.request_completed.is_connected(callback):
@@ -116,7 +116,16 @@ func _request(url: String, callback: Callable) -> void:
 	_http.request_completed.connect(callback, CONNECT_ONE_SHOT)
 	var err := _http.request(url, ["Cache-Control: no-cache"], HTTPClient.METHOD_GET)
 	if err != OK:
-		patch_failed.emit("Falha HTTP: " + str(err))
+		patch_failed.emit(_request_error_message(err))
+
+func _request_error_message(err: int) -> String:
+	if err == ERR_BUSY:
+		return "Atualizacao em andamento. Aguarde."
+	if err == ERR_CANT_CONNECT:
+		return "Nao foi possivel conectar ao servidor de atualizacao."
+	if err == ERR_CANT_RESOLVE:
+		return "Servidor de atualizacao nao encontrado."
+	return "Nao foi possivel verificar atualizacoes."
 
 func _read_json(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):

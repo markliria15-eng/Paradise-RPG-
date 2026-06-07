@@ -82,7 +82,28 @@ const RANK_KEYS := {
 	"Distancia": "top_distance",
 	"Protecao": "top_protection"
 }
-const MINIMAP_SIZE := Vector2(166, 122)
+const PET_ASSET_BY_CODE := {
+	"mini_wolf": "mini_lobo",
+	"baby_boar": "javali_bebe",
+	"forest_sprite": "espirito_da_floresta",
+	"arcane_fairy": "fada_arcana",
+	"shadow_bat": "morcego_sombrio",
+	"ember_imp": "diabrete_de_brasa",
+	"frost_wisp": "fagulha_gelida",
+	"stone_turtle": "tartaruga_de_pedra",
+	"venom_spider": "aranha_venenosa_filhote",
+	"golden_drake": "draco_dourado"
+}
+const PET_MOVE_ANIMATION_BY_ASSET := {
+	"espirito_da_floresta": "move_float",
+	"fada_arcana": "move_float",
+	"fagulha_gelida": "move_float",
+	"morcego_sombrio": "fly"
+}
+const MINIMAP_SIZE := Vector2(112, 86)
+const MINIMAP_CANVAS_POS := Vector2(23, 170)
+const MINIMAP_FRAME_POS := Vector2(10, 138)
+const MINIMAP_FRAME_SIZE := Vector2(148, 144)
 const EXPLORATION_CELL := 48
 
 @onready var world: Node2D = $World
@@ -98,9 +119,9 @@ var player: Player
 var current_map := "city_eldoria"
 var hud_label: Label
 var xp_label: Label
-var xp_bar: ProgressBar
-var hp_bar: ProgressBar
-var mana_bar: ProgressBar
+var xp_bar: TextureProgressBar
+var hp_bar: TextureProgressBar
+var mana_bar: TextureProgressBar
 var mana_label: Label
 var hp_label: Label
 var xp_value_label: Label
@@ -152,6 +173,13 @@ var mount_follower: Sprite2D
 var pet_attack_timer := 0.0
 var pet_allowed_target: Enemy
 var companion_anim_time := 0.0
+var pet_animation_cache: Dictionary = {}
+var pet_animation_key := ""
+var pet_animation_frame := 0
+var pet_animation_timer := 0.0
+var pet_animation_actual_direction := "front"
+var pet_last_direction := "front"
+var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
 var solid_obstacles: Array[Rect2] = []
 var last_valid_player_position := Vector2.ZERO
@@ -663,7 +691,7 @@ func _player_sprite_path_from_class(class_id: String) -> String:
 func _build_ui() -> void:
 	hud_frame = Panel.new()
 	hud_frame.position = Vector2(8, 8)
-	hud_frame.size = Vector2(322, 136)
+	hud_frame.size = Vector2(354, 132)
 	hud_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud_frame.z_index = 90
 	var hud_style := StyleBoxFlat.new()
@@ -672,132 +700,97 @@ func _build_ui() -> void:
 	hud_style.set_border_width_all(0)
 	hud_frame.add_theme_stylebox_override("panel", hud_style)
 	ui.add_child(hud_frame)
-	var hud_skin := _make_texture_rect("res://assets/ui/hud/player_status_panel.png", Vector2(8, 8), Vector2(322, 136))
+	var hud_skin := _make_texture_rect("res://assets/ui/hud/player_status_panel.png", Vector2(8, 8), Vector2(354, 132))
 	hud_skin.z_index = 89
 
 	hud_label = Label.new()
-	hud_label.position = Vector2(20, 14)
+	hud_label.position = Vector2(56, 14)
+	hud_label.size = Vector2(284, 22)
 	hud_label.z_index = 91
 	hud_label.add_theme_color_override("font_color", Color("#f7e6b1"))
 	hud_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	hud_label.add_theme_constant_override("shadow_offset_x", 1)
 	hud_label.add_theme_constant_override("shadow_offset_y", 1)
-	hud_label.add_theme_font_size_override("font_size", 12)
+	hud_label.add_theme_font_size_override("font_size", 13)
 	ui.add_child(hud_label)
 	xp_label = Label.new()
-	xp_label.position = Vector2(20, 31)
+	xp_label.position = Vector2(30, 53)
+	xp_label.size = Vector2(58, 54)
+	xp_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	xp_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	xp_label.z_index = 91
 	xp_label.add_theme_color_override("font_color", Color("#fff2bf"))
 	xp_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	xp_label.add_theme_constant_override("shadow_offset_x", 1)
 	xp_label.add_theme_constant_override("shadow_offset_y", 1)
-	xp_label.add_theme_font_size_override("font_size", 13)
+	xp_label.add_theme_font_size_override("font_size", 15)
 	ui.add_child(xp_label)
 	hp_label = Label.new()
-	hp_label.position = Vector2(22, 55)
-	hp_label.z_index = 92
+	hp_label.position = Vector2(112, 45)
+	hp_label.size = Vector2(232, 24)
+	hp_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hp_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hp_label.z_index = 94
 	hp_label.add_theme_color_override("font_color", Color("#ffd9d9"))
 	hp_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	hp_label.add_theme_constant_override("shadow_offset_x", 1)
 	hp_label.add_theme_constant_override("shadow_offset_y", 1)
-	hp_label.add_theme_font_size_override("font_size", 12)
+	hp_label.add_theme_font_size_override("font_size", 13)
 	ui.add_child(hp_label)
-	hp_bar = ProgressBar.new()
-	hp_bar.position = Vector2(98, 52)
-	hp_bar.size = Vector2(208, 22)
-	hp_bar.z_index = 91
-	hp_bar.show_percentage = false
-	var hp_skin := _make_texture_rect("res://assets/ui/hud/hp_bar.png", hp_bar.position - Vector2(5, 3), hp_bar.size + Vector2(10, 6))
-	hp_skin.z_index = 90
-	var hp_bg := StyleBoxFlat.new()
-	hp_bg.bg_color = Color(0.025, 0.012, 0.014, 0.72)
-	hp_bg.border_color = Color(0, 0, 0, 0)
-	hp_bg.set_border_width_all(0)
-	hp_bg.set_corner_radius_all(4)
-	var hp_fill := StyleBoxFlat.new()
-	hp_fill.bg_color = Color("#c82424")
-	hp_fill.set_corner_radius_all(4)
-	hp_bar.add_theme_stylebox_override("background", hp_bg)
-	hp_bar.add_theme_stylebox_override("fill", hp_fill)
-	ui.add_child(hp_bar)
+	hp_bar = _make_texture_progress_bar("res://assets/ui/hud/hp_bar.png", Vector2(106, 42), Vector2(244, 30), 92)
 	mana_label = Label.new()
-	mana_label.position = Vector2(22, 82)
-	mana_label.z_index = 92
+	mana_label.position = Vector2(112, 72)
+	mana_label.size = Vector2(232, 24)
+	mana_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	mana_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	mana_label.z_index = 94
 	mana_label.add_theme_color_override("font_color", Color("#d8e5ff"))
 	mana_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	mana_label.add_theme_constant_override("shadow_offset_x", 1)
 	mana_label.add_theme_constant_override("shadow_offset_y", 1)
-	mana_label.add_theme_font_size_override("font_size", 12)
+	mana_label.add_theme_font_size_override("font_size", 13)
 	ui.add_child(mana_label)
-	mana_bar = ProgressBar.new()
-	mana_bar.position = Vector2(98, 79)
-	mana_bar.size = Vector2(208, 22)
-	mana_bar.z_index = 91
-	mana_bar.show_percentage = false
-	var mp_skin := _make_texture_rect("res://assets/ui/hud/mp_bar.png", mana_bar.position - Vector2(5, 3), mana_bar.size + Vector2(10, 6))
-	mp_skin.z_index = 90
-	var mp_bg := StyleBoxFlat.new()
-	mp_bg.bg_color = Color(0.012, 0.016, 0.032, 0.72)
-	mp_bg.border_color = Color(0, 0, 0, 0)
-	mp_bg.set_border_width_all(0)
-	mp_bg.set_corner_radius_all(4)
-	var mp_fill := StyleBoxFlat.new()
-	mp_fill.bg_color = Color("#2e67d9")
-	mp_fill.set_corner_radius_all(4)
-	mana_bar.add_theme_stylebox_override("background", mp_bg)
-	mana_bar.add_theme_stylebox_override("fill", mp_fill)
-	ui.add_child(mana_bar)
+	mana_bar = _make_texture_progress_bar("res://assets/ui/hud/mp_bar.png", Vector2(106, 69), Vector2(244, 30), 92)
 	xp_value_label = Label.new()
-	xp_value_label.position = Vector2(22, 109)
-	xp_value_label.z_index = 92
+	xp_value_label.position = Vector2(112, 99)
+	xp_value_label.size = Vector2(232, 24)
+	xp_value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	xp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	xp_value_label.z_index = 94
 	xp_value_label.add_theme_color_override("font_color", Color("#f8e4aa"))
 	xp_value_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	xp_value_label.add_theme_constant_override("shadow_offset_x", 1)
 	xp_value_label.add_theme_constant_override("shadow_offset_y", 1)
-	xp_value_label.add_theme_font_size_override("font_size", 12)
+	xp_value_label.add_theme_font_size_override("font_size", 13)
 	ui.add_child(xp_value_label)
-	xp_bar = ProgressBar.new()
-	xp_bar.position = Vector2(98, 106)
-	xp_bar.size = Vector2(208, 22)
-	xp_bar.z_index = 91
-	xp_bar.show_percentage = false
-	var xp_skin := _make_texture_rect("res://assets/ui/hud/xp_bar.png", xp_bar.position - Vector2(5, 3), xp_bar.size + Vector2(10, 6))
-	xp_skin.z_index = 90
-	var xp_bg := StyleBoxFlat.new()
-	xp_bg.bg_color = Color(0.032, 0.025, 0.010, 0.72)
-	xp_bg.border_color = Color(0, 0, 0, 0)
-	xp_bg.set_border_width_all(0)
-	xp_bg.set_corner_radius_all(4)
-	var xp_fill := StyleBoxFlat.new()
-	xp_fill.bg_color = Color("#d7a229")
-	xp_fill.set_corner_radius_all(4)
-	xp_bar.add_theme_stylebox_override("background", xp_bg)
-	xp_bar.add_theme_stylebox_override("fill", xp_fill)
-	ui.add_child(xp_bar)
+	xp_bar = _make_texture_progress_bar("res://assets/ui/hud/xp_bar.png", Vector2(106, 96), Vector2(244, 30), 92)
 	message_label = Label.new()
-	message_label.position = Vector2(285, 676)
+	message_label.position = Vector2(410, 18)
+	message_label.size = Vector2(460, 30)
+	message_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	message_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	message_label.z_index = 181
 	message_label.add_theme_color_override("font_color", Color("#ffe8a3"))
 	ui.add_child(message_label)
-	var message_skin := _make_texture_rect("res://assets/ui/hud/message_panel.png", Vector2(258, 660), Vector2(430, 54))
-	message_skin.z_index = 180
 	minimap_panel = PanelContainer.new()
-	minimap_panel.position = Vector2(14, 154)
-	minimap_panel.size = MINIMAP_SIZE + Vector2(8, 8)
+	minimap_panel.position = MINIMAP_CANVAS_POS
+	minimap_panel.size = MINIMAP_SIZE
 	minimap_panel.z_index = 150
 	var minimap_style := StyleBoxFlat.new()
-	minimap_style.bg_color = Color(0.01, 0.02, 0.04, 0.55)
+	minimap_style.bg_color = Color(0, 0, 0, 0)
 	minimap_style.border_color = Color(0, 0, 0, 0)
 	minimap_style.set_border_width_all(0)
 	minimap_panel.add_theme_stylebox_override("panel", minimap_style)
 	ui.add_child(minimap_panel)
-	var minimap_skin := _make_texture_rect("res://assets/ui/hud/minimap_frame.png", Vector2(8, 148), MINIMAP_SIZE + Vector2(20, 20))
-	minimap_skin.z_index = 149
+	var minimap_skin := _make_texture_rect("res://assets/ui/hud/minimap_frame.png", MINIMAP_FRAME_POS, MINIMAP_FRAME_SIZE)
+	minimap_skin.z_index = 154
 	minimap_canvas = Control.new()
-	minimap_canvas.position = Vector2(4, 4)
+	minimap_canvas.position = MINIMAP_CANVAS_POS
 	minimap_canvas.size = MINIMAP_SIZE
+	minimap_canvas.clip_contents = true
 	minimap_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	minimap_panel.add_child(minimap_canvas)
+	minimap_canvas.z_index = 151
+	ui.add_child(minimap_canvas)
 	panel_blocker = ColorRect.new()
 	panel_blocker.color = Color(0, 0, 0, 0.28)
 	panel_blocker.anchor_left = 0.0
@@ -1078,12 +1071,42 @@ func _make_texture_rect(path: String, pos: Vector2, size: Vector2) -> TextureRec
 	var rect := TextureRect.new()
 	rect.texture = load(path)
 	rect.position = pos
-	rect.size = size
+	if rect.texture != null:
+		var texture_size := rect.texture.get_size()
+		rect.size = texture_size
+		rect.custom_minimum_size = texture_size
+		rect.scale = Vector2(size.x / max(1.0, texture_size.x), size.y / max(1.0, texture_size.y))
+	else:
+		rect.size = size
 	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(rect)
 	return rect
+
+func _make_texture_progress_bar(path: String, pos: Vector2, size: Vector2, z: int) -> TextureProgressBar:
+	var texture: Texture2D = load(path)
+	var bar := TextureProgressBar.new()
+	bar.position = pos
+	bar.z_index = z
+	bar.min_value = 0
+	bar.max_value = 1
+	bar.value = 1
+	bar.fill_mode = TextureProgressBar.FILL_LEFT_TO_RIGHT
+	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if texture != null:
+		var texture_size := texture.get_size()
+		bar.texture_under = texture
+		bar.texture_progress = texture
+		bar.tint_under = Color(0.22, 0.22, 0.22, 0.78)
+		bar.tint_progress = Color.WHITE
+		bar.size = texture_size
+		bar.custom_minimum_size = texture_size
+		bar.scale = Vector2(size.x / max(1.0, texture_size.x), size.y / max(1.0, texture_size.y))
+	else:
+		bar.size = size
+	ui.add_child(bar)
+	return bar
 
 func _is_move_touch(pos: Vector2) -> bool:
 	return pos.distance_to(touch_move_center) <= 105
@@ -2697,7 +2720,7 @@ func _show_pet_shop() -> void:
 		icon.texture = load(_pet_icon_path(code))
 		icon.custom_minimum_size = Vector2(76, 76)
 		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		icon.stretch_mode = TextureRect.STRETCH_SCALE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		row.add_child(icon)
 		var info := VBoxContainer.new()
 		info.custom_minimum_size = Vector2(280, 128)
@@ -2882,9 +2905,9 @@ func _open_inventory_panel() -> void:
 		var amount: int = int(player.inventory.items.get(bag_item_name, 0))
 		var slot_btn := Button.new()
 		slot_btn.custom_minimum_size = Vector2(96, 76)
-		slot_btn.text = "x%d" % amount
-		slot_btn.icon = load(str(data.get("icon", "res://assets/sprites/drop_bag.png")))
-		slot_btn.expand_icon = true
+		slot_btn.text = ""
+		_add_slot_icon(slot_btn, load(str(data.get("icon", "res://assets/sprites/drop_bag.png"))) as Texture2D, Vector2(48, 48), Vector2(48, 35))
+		_add_slot_count(slot_btn, "x%d" % amount)
 		slot_btn.tooltip_text = "%s\n%s" % [bag_item_name, str(data.get("description", ""))]
 		_style_panel_button(slot_btn)
 		slot_btn.pressed.connect(func() -> void:
@@ -3185,7 +3208,7 @@ func _show_pets(force_refresh: bool = false) -> void:
 		icon.texture = load(_pet_icon_path(code))
 		icon.custom_minimum_size = Vector2(92, 92)
 		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		icon.stretch_mode = TextureRect.STRETCH_SCALE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon_holder.add_child(icon)
 		if not unlocked:
 			var shade := ColorRect.new()
@@ -3718,8 +3741,7 @@ func _equipment_slot_button(slot: String, slot_data: Dictionary) -> Button:
 	var button := Button.new()
 	button.custom_minimum_size = Vector2(132, 78)
 	button.text = EquipmentSystem.slot_label(slot)
-	button.icon = UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon)
-	button.expand_icon = true
+	_add_slot_icon(button, UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon), Vector2(48, 48), Vector2(66, 30))
 	button.tooltip_text = UIEquipmentWindow.slot_tooltip(slot, item_name)
 	_style_equipment_slot(button, item_name.is_empty())
 	button.pressed.connect(func() -> void:
@@ -3748,6 +3770,35 @@ func _style_equipment_slot(button: Button, empty: bool) -> void:
 	button.add_theme_color_override("font_color", Color(1, 1, 1, 0.55 if empty else 1.0))
 	button.add_theme_font_size_override("font_size", 12)
 
+func _add_slot_icon(button: Button, texture: Texture2D, max_size: Vector2, center: Vector2) -> void:
+	if texture == null:
+		return
+	var icon := TextureRect.new()
+	icon.texture = texture
+	var texture_size := texture.get_size()
+	var scale_factor: float = min(max_size.x / max(1.0, texture_size.x), max_size.y / max(1.0, texture_size.y))
+	var draw_size := texture_size * scale_factor
+	icon.position = center - draw_size * 0.5
+	icon.size = draw_size
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(icon)
+
+func _add_slot_count(button: Button, text: String) -> void:
+	var label := Label.new()
+	label.text = text
+	label.position = Vector2(58, 8)
+	label.size = Vector2(34, 18)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	label.add_theme_color_override("font_color", Color.WHITE)
+	label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	label.add_theme_constant_override("shadow_offset_x", 1)
+	label.add_theme_constant_override("shadow_offset_y", 1)
+	label.add_theme_font_size_override("font_size", 12)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(label)
+
 func _inventory_equipment_slot_button(slot: String, slot_data: Dictionary) -> Button:
 	var item_name := str(player.inventory.equipment.get(slot, ""))
 	var info: Dictionary = slot_data.get(slot, {})
@@ -3755,8 +3806,7 @@ func _inventory_equipment_slot_button(slot: String, slot_data: Dictionary) -> Bu
 	var button := Button.new()
 	button.custom_minimum_size = Vector2(86, 62)
 	button.text = ""
-	button.icon = UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon)
-	button.expand_icon = true
+	_add_slot_icon(button, UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon), Vector2(42, 42), Vector2(43, 31))
 	button.tooltip_text = "%s: %s" % [EquipmentSystem.slot_label(slot), item_name if not item_name.is_empty() else "vazio"]
 	_style_equipment_slot(button, item_name.is_empty())
 	button.pressed.connect(func() -> void:
@@ -3939,8 +3989,12 @@ func _update_minimap() -> void:
 	for npc in get_tree().get_nodes_in_group("npcs"):
 		if npc == null or not is_instance_valid(npc):
 			continue
-		_add_minimap_dot(_minimap_pos(npc.global_position), Color("#4ae67a"), 3.0)
-	_add_minimap_dot(_minimap_pos(player.global_position), Color("#69beff"), 4.0)
+		_add_minimap_dot(_minimap_pos(npc.global_position), Color("#55b8ff"), 3.0)
+	for portal in get_tree().get_nodes_in_group("portals"):
+		if portal == null or not is_instance_valid(portal):
+			continue
+		_add_minimap_dot(_minimap_pos(portal.global_position), Color("#b970ff"), 3.5)
+	_add_minimap_dot(_minimap_pos(player.global_position), Color("#8ee84d"), 4.0)
 
 func _minimap_pos(world_pos: Vector2) -> Vector2:
 	var x: float = clamp(world_pos.x / max(1.0, current_map_size.x), 0.0, 1.0)
@@ -3948,10 +4002,14 @@ func _minimap_pos(world_pos: Vector2) -> Vector2:
 	return Vector2(x * MINIMAP_SIZE.x, y * MINIMAP_SIZE.y)
 
 func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
-	var dot := ColorRect.new()
+	var dot := Panel.new()
 	dot.position = pos - Vector2(size, size)
 	dot.size = Vector2(size * 2.0, size * 2.0)
-	dot.color = color
+	var style := StyleBoxFlat.new()
+	style.bg_color = color
+	style.set_corner_radius_all(int(size))
+	dot.add_theme_stylebox_override("panel", style)
+	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	minimap_canvas.add_child(dot)
 
 func _update_pet_combat(delta: float) -> void:
@@ -3982,6 +4040,7 @@ func _update_pet_combat(delta: float) -> void:
 	if pet_follower != null and is_instance_valid(pet_follower):
 		from = pet_follower.global_position
 	_spawn_pet_attack_line(from, pet_allowed_target.global_position)
+	pet_attack_visual_timer = 0.42
 	pet_allowed_target.receive_damage(damage)
 	_spawn_floating_text(pet_allowed_target.global_position + Vector2(0, -48), "-%d pet" % damage, Color("#8eea77"))
 	var debuff: Dictionary = pet_def.get("debuff", {})
@@ -4012,27 +4071,12 @@ func _current_equipped_pet_entry() -> Dictionary:
 	return {}
 
 func _pet_icon_path(code: String) -> String:
-	match code:
-		"mini_wolf":
-			return "res://assets/sprites/enemy_lobo.png"
-		"arcane_fairy":
-			return "res://assets/sprites/decor_crystal.png"
-		"shadow_bat":
-			return "res://assets/sprites/enemy_morcego.png"
-		"baby_boar":
-			return "res://assets/sprites/enemy_javali.png"
-		"forest_sprite":
-			return "res://assets/sprites/decor_tree.png"
-		"ember_imp":
-			return "res://assets/sprites/drop_gem.png"
-		"frost_wisp":
-			return "res://assets/sprites/decor_crystal.png"
-		"stone_turtle":
-			return "res://assets/sprites/tile_cave.png"
-		"venom_spider":
-			return "res://assets/sprites/enemy_aranha.png"
-		"golden_drake":
-			return "res://assets/sprites/enemy_aprendiz.png"
+	var asset := _pet_asset_name(code)
+	if not asset.is_empty():
+		for direction in ["left", "front", "right", "back"]:
+			var frame_path := _pet_frame_path(asset, "idle", direction, 1)
+			if ResourceLoader.exists(frame_path):
+				return frame_path
 	return "res://assets/sprites/drop_bag.png"
 
 func _pet_bonus_text(bonus: Dictionary) -> String:
@@ -4060,6 +4104,87 @@ func _mount_icon_path(code: String) -> String:
 			return "res://assets/sprites/decor_crystal.png"
 	return "res://assets/sprites/drop_bag.png"
 
+func _pet_asset_name(code: String) -> String:
+	return str(PET_ASSET_BY_CODE.get(code, ""))
+
+func _pet_move_animation(asset: String) -> String:
+	return str(PET_MOVE_ANIMATION_BY_ASSET.get(asset, "walk"))
+
+func _pet_frame_path(asset: String, animation: String, direction: String, frame: int) -> String:
+	return "res://assets/sprites/pets/%s/%s_%s/%s_%s_%s_%02d.png" % [asset, animation, direction, asset, animation, direction, frame]
+
+func _pet_animation_frames(asset: String, animation: String, direction: String) -> Array:
+	var key := "%s|%s|%s" % [asset, animation, direction]
+	if pet_animation_cache.has(key):
+		return pet_animation_cache[key]
+	var frames: Array = []
+	for i in range(1, 25):
+		var path := _pet_frame_path(asset, animation, direction, i)
+		if not ResourceLoader.exists(path):
+			break
+		var texture := load(path)
+		if texture != null:
+			frames.append(texture)
+	pet_animation_cache[key] = frames
+	return frames
+
+func _pet_direction_from_player() -> String:
+	if player == null:
+		return pet_last_direction
+	var v := player.velocity
+	if v.length() <= 8.0:
+		return pet_last_direction
+	if abs(v.x) >= abs(v.y):
+		pet_last_direction = "right" if v.x > 0.0 else "left"
+	else:
+		pet_last_direction = "back" if v.y < 0.0 else "front"
+	return pet_last_direction
+
+func _pet_animation_texture(code: String, delta: float) -> Texture2D:
+	var asset := _pet_asset_name(code)
+	if asset.is_empty():
+		return null
+	var direction := _pet_direction_from_player()
+	if pet_attack_visual_timer > 0.0:
+		pet_attack_visual_timer -= delta
+	var moving := player != null and player.velocity.length() > 8.0
+	var animation := "attack" if pet_attack_visual_timer > 0.0 else (_pet_move_animation(asset) if moving else "idle")
+	var frames := _pet_animation_frames(asset, animation, direction)
+	var actual_direction := direction
+	if frames.is_empty():
+		for fallback_direction in ["left", "front", "right", "back"]:
+			if fallback_direction == direction:
+				continue
+			frames = _pet_animation_frames(asset, animation, fallback_direction)
+			if not frames.is_empty():
+				actual_direction = fallback_direction
+				break
+	if frames.is_empty() and animation != "idle":
+		actual_direction = direction
+		frames = _pet_animation_frames(asset, "idle", direction)
+		if frames.is_empty():
+			for fallback_direction in ["left", "front", "right", "back"]:
+				if fallback_direction == direction:
+					continue
+				frames = _pet_animation_frames(asset, "idle", fallback_direction)
+				if not frames.is_empty():
+					actual_direction = fallback_direction
+					break
+	if frames.is_empty():
+		return null
+	pet_animation_actual_direction = actual_direction
+	var key := "%s|%s|%s" % [asset, animation, actual_direction]
+	if key != pet_animation_key:
+		pet_animation_key = key
+		pet_animation_frame = 0
+		pet_animation_timer = 0.0
+	var fps := 12.0 if animation == "attack" else (10.0 if moving else 6.0)
+	pet_animation_timer += delta
+	if pet_animation_timer >= 1.0 / fps:
+		pet_animation_timer = 0.0
+		pet_animation_frame = (pet_animation_frame + 1) % frames.size()
+	return frames[pet_animation_frame % frames.size()]
+
 func _update_companion_visuals(delta: float) -> void:
 	if player == null:
 		return
@@ -4070,10 +4195,21 @@ func _update_companion_visuals(delta: float) -> void:
 		if pet_follower == null or not is_instance_valid(pet_follower):
 			pet_follower = Sprite2D.new()
 			pet_follower.z_index = 14
+			pet_follower.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 			world.add_child(pet_follower)
-		pet_follower.texture = load(_pet_icon_path(pet_code))
-		pet_follower.scale = Vector2(1.15, 1.15) * (1.0 + sin(companion_anim_time * 10.0) * 0.025)
-		pet_follower.flip_h = player.velocity.x > 8.0
+		var texture := _pet_animation_texture(pet_code, delta)
+		if texture != null:
+			pet_follower.texture = texture
+		else:
+			pet_follower.texture = load(_pet_icon_path(pet_code))
+		var target_height := 44.0
+		if pet_follower.texture != null:
+			var height := maxf(1.0, float(pet_follower.texture.get_height()))
+			var scale_value: float = target_height / height
+			pet_follower.scale = Vector2(scale_value, scale_value) * (1.0 + sin(companion_anim_time * 10.0) * 0.018)
+			pet_follower.centered = true
+			pet_follower.offset = Vector2(0, -height * 0.5)
+		pet_follower.flip_h = pet_last_direction == "right" and pet_animation_actual_direction == "left"
 		pet_follower.global_position = player.global_position + Vector2(-32, 24 + bob)
 	else:
 		if pet_follower != null and is_instance_valid(pet_follower):
@@ -4119,14 +4255,16 @@ func _player_died() -> void:
 func _update_hud() -> void:
 	if player == null:
 		return
-	hud_label.text = "%s | %s | Ouro %d" % [player.character_name, player.class_name_selected, player.ouro]
-	xp_label.text = "Nivel %d" % player.level
-	hp_label.text = "HP %d/%d" % [player.vida, player.vida_max]
-	mana_label.text = "MP %d/%d" % [player.mana, player.mana_max]
-	xp_value_label.text = "XP %d/%d" % [player.xp, player.xp_to_next_level()]
+	hud_label.text = "%s | %s | Ouro: %d" % [player.character_name, player.class_name_selected, player.ouro]
+	xp_label.text = "Nivel\n%d" % player.level
+	hp_label.text = "%d / %d" % [player.vida, player.vida_max]
+	mana_label.text = "%d / %d" % [player.mana, player.mana_max]
+	var xp_next: int = max(1, int(player.xp_to_next_level()))
+	var xp_percent := int(round(float(player.xp) / float(xp_next) * 100.0))
+	xp_value_label.text = "%d / %d (%d%%)" % [player.xp, xp_next, xp_percent]
 	hp_bar.max_value = max(1, player.vida_max)
 	hp_bar.value = player.vida
-	xp_bar.max_value = player.xp_to_next_level()
+	xp_bar.max_value = xp_next
 	xp_bar.value = player.xp
 	mana_bar.max_value = max(1, player.mana_max)
 	mana_bar.value = player.mana

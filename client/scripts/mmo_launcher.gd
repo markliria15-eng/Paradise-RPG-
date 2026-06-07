@@ -9,9 +9,13 @@ extends Control
 @onready var register_email_input: LineEdit = $Root/Panel/Margin/VBox/Tabs/Registrar/Email
 @onready var register_character_input: LineEdit = $Root/Panel/Margin/VBox/Tabs/Registrar/Personagem
 @onready var class_input: OptionButton = $Root/Panel/Margin/VBox/Tabs/Registrar/Classe
+@onready var login_button: Button = $Root/Panel/Margin/VBox/Tabs/Entrar/EntrarButton
+@onready var register_button: Button = $Root/Panel/Margin/VBox/Tabs/Registrar/RegistrarButton
+@onready var open_game_button: Button = $Root/Panel/Margin/VBox/OpenGame
 
 var selected_character_id := 0
 var pending_auto_enter := false
+var request_in_progress := false
 
 func _ready() -> void:
 	class_input.add_item("Guerreiro")
@@ -30,15 +34,20 @@ func _ready() -> void:
 	_set_status("Entre na sua conta ou registre uma nova.", false)
 
 func _on_login_pressed() -> void:
+	if request_in_progress:
+		return
 	var login := login_input.text.strip_edges()
 	var password := login_password_input.text
 	if not _validate_login(login, password):
 		return
 	pending_auto_enter = true
+	_set_login_busy(true)
 	_set_status("Entrando...", false)
 	_mmo().call("login_account", login, password)
 
 func _on_register_pressed() -> void:
+	if request_in_progress:
+		return
 	var username := register_username_input.text.strip_edges()
 	var password := register_password_input.text
 	var email := register_email_input.text.strip_edges()
@@ -46,6 +55,7 @@ func _on_register_pressed() -> void:
 	if not _validate_register(username, password, email, character_name):
 		return
 	pending_auto_enter = true
+	_set_login_busy(true)
 	_set_status("Criando conta...", false)
 	_mmo().call(
 		"register_account",
@@ -58,6 +68,7 @@ func _on_register_pressed() -> void:
 
 func _on_open_game_pressed() -> void:
 	pending_auto_enter = false
+	_set_login_busy(false)
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_login_ok(payload: Dictionary) -> void:
@@ -69,20 +80,24 @@ func _on_login_ok(payload: Dictionary) -> void:
 		_set_status("Conectando no mundo online...", false)
 		_mmo().call("connect_world", selected_character_id)
 		return
+	_set_login_busy(false)
 	_set_status("Conta conectada.", false)
 
 func _on_login_failed(message: String) -> void:
 	pending_auto_enter = false
+	_set_login_busy(false)
 	_set_status(_friendly_error(message), true)
 
 func _on_world_connected() -> void:
 	_set_status("Online conectado. Entrando no jogo...", false)
+	_set_login_busy(false)
 	call_deferred("_open_online_game")
 
 func _on_world_message(payload: Dictionary) -> void:
 	var msg_type := str(payload.get("type", ""))
 	if msg_type == "error":
 		pending_auto_enter = false
+		_set_login_busy(false)
 		_set_status(_friendly_error(str(payload.get("message", "Erro no servidor."))), true)
 
 func _open_online_game() -> void:
@@ -136,6 +151,10 @@ func _fail(message: String) -> bool:
 
 func _friendly_error(message: String) -> String:
 	var lower := message.to_lower()
+	if lower.find("aguarde") >= 0:
+		return "Aguarde, conexao em andamento."
+	if lower.find("falha http") >= 0:
+		return "Erro: nao foi possivel conectar ao servidor."
 	if lower.find("invalid_type") >= 0 or lower.find("invalid_string") >= 0 or lower.find("zod") >= 0:
 		return "Erro: dados invalidos. Confira login, email e senha."
 	if lower.find("email") >= 0 and lower.find("invalid") >= 0:
@@ -157,6 +176,12 @@ func _friendly_error(message: String) -> String:
 func _set_status(message: String, is_error: bool) -> void:
 	status_label.text = message
 	status_label.add_theme_color_override("font_color", Color(1.0, 0.25, 0.22, 1.0) if is_error else Color(0.92, 0.84, 0.66, 1.0))
+
+func _set_login_busy(is_busy: bool) -> void:
+	request_in_progress = is_busy
+	login_button.disabled = is_busy
+	register_button.disabled = is_busy
+	open_game_button.disabled = is_busy
 
 func _mmo() -> Node:
 	return get_node_or_null("/root/MMOClient")

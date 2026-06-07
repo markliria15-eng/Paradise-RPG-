@@ -1,0 +1,302 @@
+[
+  {
+    "pet_name": "aranha_venenosa_filhote",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "walk": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_run": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "diabrete_de_brasa",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "walk": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_run": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "draco_dourado",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "walk": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_run": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "espirito_da_floresta",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "move_float": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "fada_arcana",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "move_float": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "fagulha_gelida",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "move_float": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "javali_bebe",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "walk": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_run": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "mini_lobo",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "walk": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_run": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "morcego_sombrio",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "fly": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_charge_flight": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  },
+  {
+    "pet_name": "tartaruga_de_pedra",
+    "animations": {
+      "idle": {
+        "frames": 6,
+        "fps": 6
+      },
+      "walk": {
+        "frames": 10,
+        "fps": 10
+      },
+      "dash_run": {
+        "frames": 8,
+        "fps": 12
+      },
+      "attack": {
+        "frames": 8,
+        "fps": 12
+      },
+      "hit": {
+        "frames": 4,
+        "fps": 10
+      },
+      "death": {
+        "frames": 8,
+        "fps": 8
+      }
+    },
+    "anchor": "center_bottom"
+  }
+]

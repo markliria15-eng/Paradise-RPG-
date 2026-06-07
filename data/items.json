@@ -199,7 +199,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/armor_sets/leather/leather_helmet.png"
   },
   "Armadura de Couro": {
     "id": "leather_armor",
@@ -213,7 +213,7 @@
       "defesa": 3,
       "vida_max": 10
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/leather/leather_chest.png"
   },
   "Calca de Couro": {
     "id": "armor_leather_legs",
@@ -244,7 +244,7 @@
     "stats": {
       "move_speed_pct": 0.03
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/leather/leather_boot_l.png"
   },
   "Anel Simples": {
     "id": "simple_ring",

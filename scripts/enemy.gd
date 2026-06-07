@@ -36,10 +36,14 @@ var obstacle_checker: Callable
 var shadow_sprite: Sprite2D
 var idle_frames: Array = []
 var walk_frames: Array = []
+var directional_frames: Dictionary = {}
+var visual_direction := "front"
 var visual_frame_index := 0
 var visual_frame_timer := 0.0
 var visual_base_scale := Vector2.ONE
 var visual_base_position := Vector2.ZERO
+var visual_animation_key := ""
+var procedural_walk_time := 0.0
 
 func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	collision_layer = 2
@@ -146,6 +150,15 @@ func _fit_sprite_to_enemy() -> void:
 func _load_visual_frames(sprite_path: String) -> void:
 	idle_frames.clear()
 	walk_frames.clear()
+	directional_frames.clear()
+	var packed_frames := _load_packed_mob_frames(sprite_path)
+	if not packed_frames.is_empty():
+		directional_frames = packed_frames
+		idle_frames = directional_frames.get("idle_front", [])
+		walk_frames = directional_frames.get("walk_front", directional_frames.get("fly_front", []))
+		if not idle_frames.is_empty():
+			sprite.texture = idle_frames[0]
+		return
 	var base := sprite_path.replace(".png", "")
 	for i in range(1, 3):
 		var path := "%s_idle_%d.png" % [base, i]
@@ -158,27 +171,97 @@ func _load_visual_frames(sprite_path: String) -> void:
 	if sprite.texture != null and idle_frames.is_empty():
 		idle_frames.append(sprite.texture)
 
+func _load_packed_mob_frames(sprite_path: String) -> Dictionary:
+	if not sprite_path.begins_with("res://assets/sprites/mobs/"):
+		return {}
+	var result: Dictionary = {}
+	var parts := sprite_path.split("/")
+	var mobs_index := parts.find("mobs")
+	if mobs_index < 0 or mobs_index + 1 >= parts.size():
+		return {}
+	var asset := str(parts[mobs_index + 1])
+	for animation in ["idle", "walk", "fly", "move", "run", "dash", "attack", "hit", "death"]:
+		for direction in ["front", "back", "left", "right"]:
+			var frames: Array = []
+			for i in range(1, 25):
+				var path := "res://assets/sprites/mobs/%s/%s_%s/%s_%s_%s_%02d.png" % [asset, animation, direction, asset, animation, direction, i]
+				if not ResourceLoader.exists(path):
+					break
+				var texture := load(path)
+				if texture != null:
+					frames.append(texture)
+			if not frames.is_empty():
+				result["%s_%s" % [animation, direction]] = frames
+	return result
+
+func _visual_direction_from_velocity() -> String:
+	if velocity.length() <= 4.0:
+		return visual_direction
+	if abs(velocity.x) >= abs(velocity.y):
+		visual_direction = "right" if velocity.x > 0.0 else "left"
+	else:
+		visual_direction = "back" if velocity.y < 0.0 else "front"
+	return visual_direction
+
+func _frames_for_state(moving: bool) -> Array:
+	if directional_frames.is_empty():
+		return walk_frames if moving and not walk_frames.is_empty() else idle_frames
+	var direction := _visual_direction_from_velocity()
+	var preferred := "walk" if moving else "idle"
+	var frames: Array = directional_frames.get("%s_%s" % [preferred, direction], [])
+	if frames.is_empty() and moving:
+		frames = directional_frames.get("run_%s" % direction, [])
+	if frames.is_empty() and moving:
+		frames = directional_frames.get("fly_%s" % direction, [])
+	if frames.is_empty() and moving:
+		frames = directional_frames.get("move_%s" % direction, [])
+	if frames.is_empty() and moving:
+		frames = directional_frames.get("dash_%s" % direction, [])
+	if frames.is_empty():
+		frames = directional_frames.get("idle_%s" % direction, [])
+	if frames.is_empty():
+		frames = directional_frames.get("idle_front", [])
+	return frames
+
 func _update_visual_animation(delta: float) -> void:
 	var moving := velocity.length() > 4.0
-	var frames := walk_frames if moving and not walk_frames.is_empty() else idle_frames
+	var frames := _frames_for_state(moving)
 	if frames.is_empty():
 		return
-	if moving and abs(velocity.x) > 4.0:
+	var direction := _visual_direction_from_velocity()
+	var anim_key := ("%s_%s" % ["move" if moving else "idle", direction])
+	if anim_key != visual_animation_key:
+		visual_animation_key = anim_key
+		visual_frame_index = 0
+		visual_frame_timer = 0.0
+	if directional_frames.is_empty() and moving and abs(velocity.x) > 4.0:
 		sprite.flip_h = velocity.x < 0.0
+	elif not directional_frames.is_empty():
+		sprite.flip_h = false
 	var delay := 0.12 if moving else 0.42
 	visual_frame_timer += delta
 	if visual_frame_timer >= delay:
 		visual_frame_timer = 0.0
 		visual_frame_index = (visual_frame_index + 1) % frames.size()
 	sprite.texture = frames[visual_frame_index % frames.size()]
+	var movement_offset := Vector2.ZERO
+	var movement_scale := Vector2.ONE
+	if moving and frames.size() < 2:
+		procedural_walk_time += delta
+		var step := sin(procedural_walk_time * TAU * 5.5)
+		var sway := cos(procedural_walk_time * TAU * 5.5)
+		movement_offset = Vector2(sway * 1.6, -abs(step) * 2.0)
+		movement_scale = Vector2(1.0 + abs(step) * 0.025, 1.0 - abs(step) * 0.018)
+	elif not moving:
+		procedural_walk_time = 0.0
 	if visual_attack_timer > 0.0:
 		visual_attack_timer -= delta
 		var side := -1.0 if sprite.flip_h else 1.0
 		sprite.scale = visual_base_scale * 1.08
 		sprite.position = visual_base_position + Vector2(3.0 * side, -1.0)
 	else:
-		sprite.scale = visual_base_scale
-		sprite.position = visual_base_position
+		sprite.scale = visual_base_scale * movement_scale
+		sprite.position = visual_base_position + movement_offset
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:
@@ -233,23 +316,23 @@ func _update_health_bar() -> void:
 func _sprite_path(name_value: String) -> String:
 	match name_value:
 		"Javali Selvagem":
-			return "res://assets/sprites/enemy_javali.png"
+			return "res://assets/sprites/mobs/javali_selvagem/idle_front/javali_selvagem_idle_front_01.png"
 		"Lobo Cinzento":
-			return "res://assets/sprites/enemy_lobo.png"
+			return "res://assets/sprites/mobs/lobo_selvagem/idle_front/lobo_selvagem_idle_front_01.png"
 		"Espirito Fraco":
 			return "res://assets/sprites/enemy_espirito.png"
 		"Aprendiz Corrompido":
 			return "res://assets/sprites/enemy_aprendiz.png"
 		"Morcego Pequeno":
-			return "res://assets/sprites/enemy_morcego.png"
+			return "res://assets/sprites/mobs/morcego_selvagem/idle_front/morcego_selvagem_idle_front_01.png"
 		"Aranha Venenosa":
 			return "res://assets/sprites/enemy_aranha.png"
 		"Javali Bruto":
-			return "res://assets/sprites/enemy_javali_bruto.png"
+			return "res://assets/sprites/mobs/javali_selvagem/idle_front/javali_selvagem_idle_front_01.png"
 		"Lobo Alfa":
-			return "res://assets/sprites/enemy_lobo_alfa.png"
+			return "res://assets/sprites/mobs/lobo_selvagem/idle_front/lobo_selvagem_idle_front_01.png"
 		"Rei Javali":
-			return "res://assets/sprites/enemy_javali_rei.png"
+			return "res://assets/sprites/mobs/javali_rei/idle_front/javali_rei_idle_front_01.png"
 		"Espectro Arcano":
 			return "res://assets/sprites/enemy_espirito_arcano.png"
 		"Sentinela Arcano":
@@ -257,7 +340,7 @@ func _sprite_path(name_value: String) -> String:
 		"Arquimago Corrompido":
 			return "res://assets/sprites/enemy_arquimago_corrompido.png"
 		"Morcego Sombrio":
-			return "res://assets/sprites/enemy_morcego_sombrio.png"
+			return "res://assets/sprites/mobs/morcego_selvagem/idle_front/morcego_selvagem_idle_front_01.png"
 		"Aranha Rainha":
 			return "res://assets/sprites/enemy_aranha_rainha.png"
 		"Matriarca Venenosa":
@@ -267,7 +350,7 @@ func _sprite_path(name_value: String) -> String:
 		"Golem de Pedra":
 			return "res://assets/sprites/enemy_golem_pedra.png"
 		"Senhor das Colinas":
-			return "res://assets/sprites/enemy_javali_rei.png"
+			return "res://assets/sprites/mobs/javali_rei/idle_front/javali_rei_idle_front_01.png"
 		"Guardiao Cristalino":
 			return "res://assets/sprites/enemy_guardiao_cristalino.png"
 		"Draco Jovem":

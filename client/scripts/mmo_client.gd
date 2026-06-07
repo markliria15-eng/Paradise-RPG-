@@ -15,6 +15,7 @@ var account_payload: Dictionary = {}
 
 var _socket: WebSocketPeer = WebSocketPeer.new()
 var _http: HTTPRequest
+var _http_in_flight := false
 var _connecting := false
 var _auth_sent := false
 var _last_socket_state := WebSocketPeer.STATE_CLOSED
@@ -23,6 +24,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_load_config()
 	_http = HTTPRequest.new()
+	_http.timeout = 15.0
 	add_child(_http)
 	set_process(true)
 
@@ -203,15 +205,23 @@ func request_season() -> void:
 	send({"type": "season_get"})
 
 func _send_http(path: String, payload: Dictionary, callback: Callable) -> void:
+	if _http_in_flight:
+		return
 	if _http.request_completed.is_connected(callback):
 		_http.request_completed.disconnect(callback)
 	_http.request_completed.connect(callback, CONNECT_ONE_SHOT)
 	var headers := ["Content-Type: application/json"]
+	_http_in_flight = true
 	var err := _http.request(http_base_url + path, headers, HTTPClient.METHOD_POST, JSON.stringify(payload))
 	if err != OK:
-		login_failed.emit("Falha HTTP: " + str(err))
+		_http_in_flight = false
+		login_failed.emit(_http_error_message(err))
 
-func _on_register_response(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_register_response(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	_http_in_flight = false
+	if result != HTTPRequest.RESULT_SUCCESS:
+		login_failed.emit("Erro: nao foi possivel conectar ao servidor.")
+		return
 	var parsed = JSON.parse_string(body.get_string_from_utf8())
 	if response_code >= 400 or typeof(parsed) != TYPE_DICTIONARY or not bool(parsed.get("ok", false)):
 		login_failed.emit(str(parsed.get("message", "Falha ao registrar.")) if typeof(parsed) == TYPE_DICTIONARY else "Falha ao registrar.")
@@ -221,7 +231,11 @@ func _on_register_response(_result: int, response_code: int, _headers: PackedStr
 	selected_character_id = int(parsed.get("character", {}).get("id", 0))
 	login_ok.emit(parsed)
 
-func _on_login_response(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_login_response(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	_http_in_flight = false
+	if result != HTTPRequest.RESULT_SUCCESS:
+		login_failed.emit("Erro: nao foi possivel conectar ao servidor.")
+		return
 	var parsed = JSON.parse_string(body.get_string_from_utf8())
 	if response_code >= 400 or typeof(parsed) != TYPE_DICTIONARY or not bool(parsed.get("ok", false)):
 		login_failed.emit(str(parsed.get("message", "Falha no login.")) if typeof(parsed) == TYPE_DICTIONARY else "Falha no login.")
@@ -229,3 +243,14 @@ func _on_login_response(_result: int, response_code: int, _headers: PackedString
 	token = str(parsed.get("token", ""))
 	account_payload = parsed
 	login_ok.emit(parsed)
+
+func _http_error_message(err: int) -> String:
+	if err == ERR_BUSY:
+		return "Erro: aguarde, login em andamento."
+	if err == ERR_CANT_CONNECT:
+		return "Erro: nao foi possivel conectar ao servidor."
+	if err == ERR_CANT_RESOLVE:
+		return "Erro: servidor online nao encontrado."
+	if err == ERR_INVALID_PARAMETER:
+		return "Erro: endereco do servidor invalido."
+	return "Erro: falha ao conectar ao servidor."
