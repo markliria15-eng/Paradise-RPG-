@@ -105,6 +105,12 @@ const MINIMAP_CANVAS_POS := Vector2(23, 170)
 const MINIMAP_FRAME_POS := Vector2(10, 138)
 const MINIMAP_FRAME_SIZE := Vector2(148, 144)
 const EXPLORATION_CELL := 48
+const HUD_PANEL_POS := Vector2(8, 8)
+const HUD_PANEL_SIZE := Vector2(354, 176)
+const HUD_BAR_SIZE := Vector2(246, 24)
+const HUD_HP_BAR_POS := Vector2(88, 30)
+const HUD_MP_BAR_POS := Vector2(88, 79)
+const HUD_XP_BAR_POS := Vector2(88, 128)
 
 @onready var world: Node2D = $World
 @onready var ui: CanvasLayer = $UI
@@ -255,8 +261,12 @@ func _input(event: InputEvent) -> void:
 	if player == null:
 		return
 	if _is_ui_locked():
+		if touch_move_index != -1:
+			_release_touch_move()
 		return
 	if panel.visible:
+		if touch_move_index != -1:
+			_release_touch_move()
 		return
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
@@ -700,22 +710,23 @@ func _build_ui() -> void:
 	hud_style.set_border_width_all(0)
 	hud_frame.add_theme_stylebox_override("panel", hud_style)
 	ui.add_child(hud_frame)
-	var hud_skin := _make_texture_rect("res://assets/ui/hud/player_status_panel.png", Vector2(8, 8), Vector2(354, 132))
+	var hud_skin := _make_texture_rect("res://assets/ui/hud/bars/player_status_panel_clean.png", HUD_PANEL_POS, HUD_PANEL_SIZE)
 	hud_skin.z_index = 89
 
 	hud_label = Label.new()
-	hud_label.position = Vector2(56, 14)
-	hud_label.size = Vector2(284, 22)
-	hud_label.z_index = 91
+	hud_label.position = Vector2(18, 6)
+	hud_label.size = Vector2(332, 18)
+	hud_label.z_index = 95
 	hud_label.add_theme_color_override("font_color", Color("#f7e6b1"))
 	hud_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	hud_label.add_theme_constant_override("shadow_offset_x", 1)
 	hud_label.add_theme_constant_override("shadow_offset_y", 1)
-	hud_label.add_theme_font_size_override("font_size", 13)
+	hud_label.add_theme_font_size_override("font_size", 10)
 	ui.add_child(hud_label)
 	xp_label = Label.new()
-	xp_label.position = Vector2(30, 53)
-	xp_label.size = Vector2(58, 54)
+	xp_label.visible = false
+	xp_label.position = Vector2.ZERO
+	xp_label.size = Vector2.ZERO
 	xp_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	xp_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	xp_label.z_index = 91
@@ -726,8 +737,8 @@ func _build_ui() -> void:
 	xp_label.add_theme_font_size_override("font_size", 15)
 	ui.add_child(xp_label)
 	hp_label = Label.new()
-	hp_label.position = Vector2(112, 45)
-	hp_label.size = Vector2(232, 24)
+	hp_label.position = HUD_HP_BAR_POS
+	hp_label.size = HUD_BAR_SIZE
 	hp_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hp_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hp_label.z_index = 94
@@ -735,12 +746,12 @@ func _build_ui() -> void:
 	hp_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	hp_label.add_theme_constant_override("shadow_offset_x", 1)
 	hp_label.add_theme_constant_override("shadow_offset_y", 1)
-	hp_label.add_theme_font_size_override("font_size", 13)
+	hp_label.add_theme_font_size_override("font_size", 14)
 	ui.add_child(hp_label)
-	hp_bar = _make_texture_progress_bar("res://assets/ui/hud/hp_bar.png", Vector2(106, 42), Vector2(244, 30), 92)
+	hp_bar = _make_texture_progress_bar_layers("hp", HUD_HP_BAR_POS, HUD_BAR_SIZE, 92)
 	mana_label = Label.new()
-	mana_label.position = Vector2(112, 72)
-	mana_label.size = Vector2(232, 24)
+	mana_label.position = HUD_MP_BAR_POS
+	mana_label.size = HUD_BAR_SIZE
 	mana_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	mana_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	mana_label.z_index = 94
@@ -748,12 +759,12 @@ func _build_ui() -> void:
 	mana_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	mana_label.add_theme_constant_override("shadow_offset_x", 1)
 	mana_label.add_theme_constant_override("shadow_offset_y", 1)
-	mana_label.add_theme_font_size_override("font_size", 13)
+	mana_label.add_theme_font_size_override("font_size", 14)
 	ui.add_child(mana_label)
-	mana_bar = _make_texture_progress_bar("res://assets/ui/hud/mp_bar.png", Vector2(106, 69), Vector2(244, 30), 92)
+	mana_bar = _make_texture_progress_bar_layers("mp", HUD_MP_BAR_POS, HUD_BAR_SIZE, 92)
 	xp_value_label = Label.new()
-	xp_value_label.position = Vector2(112, 99)
-	xp_value_label.size = Vector2(232, 24)
+	xp_value_label.position = HUD_XP_BAR_POS
+	xp_value_label.size = HUD_BAR_SIZE
 	xp_value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	xp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	xp_value_label.z_index = 94
@@ -761,9 +772,9 @@ func _build_ui() -> void:
 	xp_value_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	xp_value_label.add_theme_constant_override("shadow_offset_x", 1)
 	xp_value_label.add_theme_constant_override("shadow_offset_y", 1)
-	xp_value_label.add_theme_font_size_override("font_size", 13)
+	xp_value_label.add_theme_font_size_override("font_size", 14)
 	ui.add_child(xp_value_label)
-	xp_bar = _make_texture_progress_bar("res://assets/ui/hud/xp_bar.png", Vector2(106, 96), Vector2(244, 30), 92)
+	xp_bar = _make_texture_progress_bar_layers("xp", HUD_XP_BAR_POS, HUD_BAR_SIZE, 92)
 	message_label = Label.new()
 	message_label.position = Vector2(410, 18)
 	message_label.size = Vector2(460, 30)
@@ -1066,45 +1077,36 @@ func _build_joystick() -> void:
 	joystick_base.modulate = Color(1, 1, 1, 0.90)
 	joystick_knob = _make_texture_rect("res://assets/ui/joystick/joystick_knob.png", touch_move_center - Vector2(35, 35), Vector2(70, 70))
 	joystick_knob.modulate = Color(1, 1, 1, 0.96)
+	_reset_joystick_knob()
 
 func _make_texture_rect(path: String, pos: Vector2, size: Vector2) -> TextureRect:
 	var rect := TextureRect.new()
 	rect.texture = load(path)
 	rect.position = pos
-	if rect.texture != null:
-		var texture_size := rect.texture.get_size()
-		rect.size = texture_size
-		rect.custom_minimum_size = texture_size
-		rect.scale = Vector2(size.x / max(1.0, texture_size.x), size.y / max(1.0, texture_size.y))
-	else:
-		rect.size = size
+	rect.size = size
+	rect.custom_minimum_size = size
+	rect.scale = Vector2.ONE
 	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(rect)
 	return rect
 
-func _make_texture_progress_bar(path: String, pos: Vector2, size: Vector2, z: int) -> TextureProgressBar:
-	var texture: Texture2D = load(path)
+func _make_texture_progress_bar_layers(prefix: String, pos: Vector2, size: Vector2, z: int) -> TextureProgressBar:
 	var bar := TextureProgressBar.new()
 	bar.position = pos
+	bar.size = size
+	bar.custom_minimum_size = size
+	bar.scale = Vector2.ONE
 	bar.z_index = z
 	bar.min_value = 0
 	bar.max_value = 1
 	bar.value = 1
 	bar.fill_mode = TextureProgressBar.FILL_LEFT_TO_RIGHT
 	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	if texture != null:
-		var texture_size := texture.get_size()
-		bar.texture_under = texture
-		bar.texture_progress = texture
-		bar.tint_under = Color(0.22, 0.22, 0.22, 0.78)
-		bar.tint_progress = Color.WHITE
-		bar.size = texture_size
-		bar.custom_minimum_size = texture_size
-		bar.scale = Vector2(size.x / max(1.0, texture_size.x), size.y / max(1.0, texture_size.y))
-	else:
-		bar.size = size
+	bar.texture_under = load("res://assets/ui/hud/bars/%s_bar_under.png" % prefix)
+	bar.texture_progress = load("res://assets/ui/hud/bars/%s_bar_progress.png" % prefix)
+	bar.texture_over = load("res://assets/ui/hud/bars/%s_bar_over.png" % prefix)
 	ui.add_child(bar)
 	return bar
 
@@ -1162,6 +1164,9 @@ func _release_touch_move() -> void:
 	touch_move_index = -1
 	for action in ["move_left", "move_right", "move_up", "move_down"]:
 		Input.action_release(action)
+	_reset_joystick_knob()
+
+func _reset_joystick_knob() -> void:
 	if joystick_knob != null:
 		joystick_knob.position = touch_move_center - joystick_knob.size * 0.5
 
@@ -4149,22 +4154,24 @@ func _pet_animation_texture(code: String, delta: float) -> Texture2D:
 		pet_attack_visual_timer -= delta
 	var moving := player != null and player.velocity.length() > 8.0
 	var animation := "attack" if pet_attack_visual_timer > 0.0 else (_pet_move_animation(asset) if moving else "idle")
-	var frames := _pet_animation_frames(asset, animation, direction)
-	var actual_direction := direction
+	var requested_direction := direction
+	var frame_direction := "left" if requested_direction == "right" else requested_direction
+	var frames := _pet_animation_frames(asset, animation, frame_direction)
+	var actual_direction := frame_direction
 	if frames.is_empty():
 		for fallback_direction in ["left", "front", "right", "back"]:
-			if fallback_direction == direction:
+			if fallback_direction == frame_direction:
 				continue
 			frames = _pet_animation_frames(asset, animation, fallback_direction)
 			if not frames.is_empty():
 				actual_direction = fallback_direction
 				break
 	if frames.is_empty() and animation != "idle":
-		actual_direction = direction
-		frames = _pet_animation_frames(asset, "idle", direction)
+		actual_direction = frame_direction
+		frames = _pet_animation_frames(asset, "idle", frame_direction)
 		if frames.is_empty():
 			for fallback_direction in ["left", "front", "right", "back"]:
-				if fallback_direction == direction:
+				if fallback_direction == frame_direction:
 					continue
 				frames = _pet_animation_frames(asset, "idle", fallback_direction)
 				if not frames.is_empty():
@@ -4256,18 +4263,19 @@ func _update_hud() -> void:
 	if player == null:
 		return
 	hud_label.text = "%s | %s | Ouro: %d" % [player.character_name, player.class_name_selected, player.ouro]
-	xp_label.text = "Nivel\n%d" % player.level
+	xp_label.text = ""
 	hp_label.text = "%d / %d" % [player.vida, player.vida_max]
 	mana_label.text = "%d / %d" % [player.mana, player.mana_max]
 	var xp_next: int = max(1, int(player.xp_to_next_level()))
-	var xp_percent := int(round(float(player.xp) / float(xp_next) * 100.0))
-	xp_value_label.text = "%d / %d (%d%%)" % [player.xp, xp_next, xp_percent]
+	var xp_current: int = clampi(player.xp, 0, xp_next)
+	var xp_percent := int(round(float(xp_current) / float(xp_next) * 100.0))
+	xp_value_label.text = "Lv. %d %d%%" % [player.level, xp_percent]
 	hp_bar.max_value = max(1, player.vida_max)
-	hp_bar.value = player.vida
+	hp_bar.value = clampi(player.vida, 0, player.vida_max)
 	xp_bar.max_value = xp_next
-	xp_bar.value = player.xp
+	xp_bar.value = xp_current
 	mana_bar.max_value = max(1, player.mana_max)
-	mana_bar.value = player.mana
+	mana_bar.value = clampi(player.mana, 0, player.mana_max)
 	_update_potion_buttons()
 	_update_skill_button_cooldowns()
 

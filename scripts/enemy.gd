@@ -44,6 +44,7 @@ var visual_base_scale := Vector2.ONE
 var visual_base_position := Vector2.ZERO
 var visual_animation_key := ""
 var procedural_walk_time := 0.0
+var visual_flip_from_left := false
 
 func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	collision_layer = 2
@@ -207,18 +208,33 @@ func _frames_for_state(moving: bool) -> Array:
 	if directional_frames.is_empty():
 		return walk_frames if moving and not walk_frames.is_empty() else idle_frames
 	var direction := _visual_direction_from_velocity()
+	visual_flip_from_left = false
+	var frame_direction := direction
+	if direction == "right":
+		var side_preferred := "walk" if moving else "idle"
+		var side_frames: Array = directional_frames.get("%s_left" % side_preferred, [])
+		if side_frames.is_empty() and moving:
+			for side_alt in ["run", "fly", "move", "dash"]:
+				side_frames = directional_frames.get("%s_left" % side_alt, [])
+				if not side_frames.is_empty():
+					break
+		if side_frames.is_empty():
+			side_frames = directional_frames.get("idle_left", [])
+		if not side_frames.is_empty():
+			visual_flip_from_left = true
+			return side_frames
 	var preferred := "walk" if moving else "idle"
-	var frames: Array = directional_frames.get("%s_%s" % [preferred, direction], [])
+	var frames: Array = directional_frames.get("%s_%s" % [preferred, frame_direction], [])
 	if frames.is_empty() and moving:
-		frames = directional_frames.get("run_%s" % direction, [])
+		frames = directional_frames.get("run_%s" % frame_direction, [])
 	if frames.is_empty() and moving:
-		frames = directional_frames.get("fly_%s" % direction, [])
+		frames = directional_frames.get("fly_%s" % frame_direction, [])
 	if frames.is_empty() and moving:
-		frames = directional_frames.get("move_%s" % direction, [])
+		frames = directional_frames.get("move_%s" % frame_direction, [])
 	if frames.is_empty() and moving:
-		frames = directional_frames.get("dash_%s" % direction, [])
+		frames = directional_frames.get("dash_%s" % frame_direction, [])
 	if frames.is_empty():
-		frames = directional_frames.get("idle_%s" % direction, [])
+		frames = directional_frames.get("idle_%s" % frame_direction, [])
 	if frames.is_empty():
 		frames = directional_frames.get("idle_front", [])
 	return frames
@@ -237,7 +253,7 @@ func _update_visual_animation(delta: float) -> void:
 	if directional_frames.is_empty() and moving and abs(velocity.x) > 4.0:
 		sprite.flip_h = velocity.x < 0.0
 	elif not directional_frames.is_empty():
-		sprite.flip_h = false
+		sprite.flip_h = visual_flip_from_left
 	var delay := 0.12 if moving else 0.42
 	visual_frame_timer += delta
 	if visual_frame_timer >= delay:
