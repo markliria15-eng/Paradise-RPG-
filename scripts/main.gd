@@ -18,6 +18,21 @@ const POTION_BUTTON_POSITIONS := [
 	Vector2(1010, 406),
 	Vector2(1084, 348)
 ]
+const POTION_BUTTON_SIZE := Vector2(62, 58)
+const SKILL_BUTTON_POSITIONS := [
+	Vector2(896, 590),
+	Vector2(972, 532),
+	Vector2(1048, 474)
+]
+const SKILL_BUTTON_SIZE := Vector2(66, 60)
+const QUICK_TOP_BUTTON_POSITIONS := [
+	Vector2(1018, 78),
+	Vector2(1086, 78),
+	Vector2(1154, 78)
+]
+const QUICK_TOP_BUTTON_SIZE := Vector2(60, 54)
+const INTERACT_BUTTON_POS := Vector2(1162, 452)
+const INTERACT_BUTTON_SIZE := Vector2(60, 54)
 const DEFAULT_MAP_SIZE := Vector2(2200, 1400)
 const DROP_PICKUP_RADIUS := 128.0
 const DROP_COLLECT_RADIUS := 24.0
@@ -70,6 +85,7 @@ const SIDE_MENU_ICONS := {
 	"Conquistas": "res://assets/sprites/drop_gem.png",
 	"Temporada": "res://assets/ui/skills/skill_mana_viva.png",
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
+	"HUD": "res://assets/ui/buttons/btn_menu.png",
 	"Wikipedia": "res://assets/ui/buttons/btn_wiki.png",
 	"Zoom": "res://assets/sprites/icon_slot_ring.png",
 	"Deslogar": "res://assets/ui/buttons/btn_close.png"
@@ -100,17 +116,20 @@ const PET_MOVE_ANIMATION_BY_ASSET := {
 	"fagulha_gelida": "move_float",
 	"morcego_sombrio": "fly"
 }
+const HUD_LAYOUT_PATH := "user://hud_layout.json"
 const MINIMAP_SIZE := Vector2(112, 86)
-const MINIMAP_CANVAS_POS := Vector2(23, 170)
-const MINIMAP_FRAME_POS := Vector2(10, 138)
+const MINIMAP_CANVAS_POS := Vector2(23, 214)
+const MINIMAP_FRAME_POS := Vector2(10, 182)
 const MINIMAP_FRAME_SIZE := Vector2(148, 144)
 const EXPLORATION_CELL := 48
 const HUD_PANEL_POS := Vector2(8, 8)
-const HUD_PANEL_SIZE := Vector2(354, 176)
-const HUD_BAR_SIZE := Vector2(246, 24)
-const HUD_HP_BAR_POS := Vector2(88, 30)
-const HUD_MP_BAR_POS := Vector2(88, 79)
-const HUD_XP_BAR_POS := Vector2(88, 128)
+const HUD_PANEL_SIZE := Vector2(330, 164)
+const HUD_BAR_SIZE := Vector2(226, 20)
+const HUD_HP_BAR_POS := Vector2(84, 30)
+const HUD_MP_BAR_POS := Vector2(84, 75)
+const HUD_XP_BAR_POS := Vector2(84, 120)
+const HUD_LABEL_POS := Vector2(18, 5)
+const HUD_LABEL_SIZE := Vector2(292, 18)
 
 @onready var world: Node2D = $World
 @onready var ui: CanvasLayer = $UI
@@ -132,6 +151,7 @@ var mana_label: Label
 var hp_label: Label
 var xp_value_label: Label
 var hud_frame: Panel
+var hud_skin_rect: TextureRect
 var message_label: Label
 var panel: PanelContainer
 var panel_blocker: ColorRect
@@ -170,6 +190,7 @@ var ui_input_lock_until := 0.0
 var ui_controls_enabled := true
 var minimap_panel: PanelContainer
 var minimap_canvas: Control
+var minimap_frame_rect: TextureRect
 var exploration_by_map: Dictionary = {}
 var exploration_last_pos_by_map: Dictionary = {}
 var pet_definitions: Array = []
@@ -189,6 +210,18 @@ var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
 var solid_obstacles: Array[Rect2] = []
 var last_valid_player_position := Vector2.ZERO
+var hud_status_pos := HUD_PANEL_POS
+var hud_status_scale := 1.0
+var hud_minimap_frame_pos := MINIMAP_FRAME_POS
+var hud_minimap_scale := 1.0
+var hud_joystick_center := Vector2(132, 586)
+var hud_joystick_scale := 1.0
+var hud_attack_pos := Vector2(1110, 586)
+var hud_attack_scale := 1.0
+var hud_skills_offset := Vector2.ZERO
+var hud_skills_scale := 1.0
+var hud_potions_offset := Vector2.ZERO
+var hud_potions_scale := 1.0
 
 func _ready() -> void:
 	randomize()
@@ -197,6 +230,7 @@ func _ready() -> void:
 	pet_definitions = _load_json_array("res://data/mmo_pets.json")
 	mount_definitions = _load_json_array("res://data/mmo_mounts.json")
 	quest_system.load_quests()
+	_load_hud_layout()
 	_build_ui()
 	_setup_mmo_integration()
 	if online_mode:
@@ -710,12 +744,10 @@ func _build_ui() -> void:
 	hud_style.set_border_width_all(0)
 	hud_frame.add_theme_stylebox_override("panel", hud_style)
 	ui.add_child(hud_frame)
-	var hud_skin := _make_texture_rect("res://assets/ui/hud/bars/player_status_panel_clean.png", HUD_PANEL_POS, HUD_PANEL_SIZE)
-	hud_skin.z_index = 89
+	hud_skin_rect = _make_texture_rect("res://assets/ui/hud/bars/player_status_panel_clean.png", HUD_PANEL_POS, HUD_PANEL_SIZE)
+	hud_skin_rect.z_index = 89
 
 	hud_label = Label.new()
-	hud_label.position = Vector2(18, 6)
-	hud_label.size = Vector2(332, 18)
 	hud_label.z_index = 95
 	hud_label.add_theme_color_override("font_color", Color("#f7e6b1"))
 	hud_label.add_theme_color_override("font_shadow_color", Color.BLACK)
@@ -737,8 +769,6 @@ func _build_ui() -> void:
 	xp_label.add_theme_font_size_override("font_size", 15)
 	ui.add_child(xp_label)
 	hp_label = Label.new()
-	hp_label.position = HUD_HP_BAR_POS
-	hp_label.size = HUD_BAR_SIZE
 	hp_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hp_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hp_label.z_index = 94
@@ -750,8 +780,6 @@ func _build_ui() -> void:
 	ui.add_child(hp_label)
 	hp_bar = _make_texture_progress_bar_layers("hp", HUD_HP_BAR_POS, HUD_BAR_SIZE, 92)
 	mana_label = Label.new()
-	mana_label.position = HUD_MP_BAR_POS
-	mana_label.size = HUD_BAR_SIZE
 	mana_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	mana_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	mana_label.z_index = 94
@@ -763,8 +791,6 @@ func _build_ui() -> void:
 	ui.add_child(mana_label)
 	mana_bar = _make_texture_progress_bar_layers("mp", HUD_MP_BAR_POS, HUD_BAR_SIZE, 92)
 	xp_value_label = Label.new()
-	xp_value_label.position = HUD_XP_BAR_POS
-	xp_value_label.size = HUD_BAR_SIZE
 	xp_value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	xp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	xp_value_label.z_index = 94
@@ -793,8 +819,8 @@ func _build_ui() -> void:
 	minimap_style.set_border_width_all(0)
 	minimap_panel.add_theme_stylebox_override("panel", minimap_style)
 	ui.add_child(minimap_panel)
-	var minimap_skin := _make_texture_rect("res://assets/ui/hud/minimap_frame.png", MINIMAP_FRAME_POS, MINIMAP_FRAME_SIZE)
-	minimap_skin.z_index = 154
+	minimap_frame_rect = _make_texture_rect("res://assets/ui/hud/minimap_frame.png", MINIMAP_FRAME_POS, MINIMAP_FRAME_SIZE)
+	minimap_frame_rect.z_index = 154
 	minimap_canvas = Control.new()
 	minimap_canvas.position = MINIMAP_CANVAS_POS
 	minimap_canvas.size = MINIMAP_SIZE
@@ -802,6 +828,8 @@ func _build_ui() -> void:
 	minimap_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	minimap_canvas.z_index = 151
 	ui.add_child(minimap_canvas)
+	_layout_status_hud()
+	_layout_minimap_hud()
 	panel_blocker = ColorRect.new()
 	panel_blocker.color = Color(0, 0, 0, 0.28)
 	panel_blocker.anchor_left = 0.0
@@ -847,7 +875,157 @@ func _build_ui() -> void:
 	_build_potion_bar()
 	_build_touch_controls()
 	_build_side_menu()
+	_apply_hud_layout_to_touch_controls()
 	_refresh_modal_layout()
+
+func _layout_status_hud() -> void:
+	hud_status_scale = clampf(hud_status_scale, 0.72, 1.32)
+	var scale := hud_status_scale
+	var panel_size := HUD_PANEL_SIZE * scale
+	_set_control_rect(hud_frame, hud_status_pos, panel_size)
+	_set_control_rect(hud_skin_rect, hud_status_pos, panel_size)
+	_set_control_rect(hud_label, hud_status_pos + HUD_LABEL_POS * scale, HUD_LABEL_SIZE * scale)
+	_set_label_font_size(hud_label, int(round(10.0 * scale)))
+	var bar_size := HUD_BAR_SIZE * scale
+	_set_progress_bar_rect(hp_bar, hud_status_pos + HUD_HP_BAR_POS * scale, bar_size)
+	_set_progress_bar_rect(mana_bar, hud_status_pos + HUD_MP_BAR_POS * scale, bar_size)
+	_set_progress_bar_rect(xp_bar, hud_status_pos + HUD_XP_BAR_POS * scale, bar_size)
+	_set_control_rect(hp_label, hp_bar.position, bar_size)
+	_set_control_rect(mana_label, mana_bar.position, bar_size)
+	_set_control_rect(xp_value_label, xp_bar.position, bar_size)
+	var value_font_size: int = maxi(10, int(round(14.0 * scale)))
+	_set_label_font_size(hp_label, value_font_size)
+	_set_label_font_size(mana_label, value_font_size)
+	_set_label_font_size(xp_value_label, value_font_size)
+
+func _layout_minimap_hud() -> void:
+	hud_minimap_scale = clampf(hud_minimap_scale, 0.55, 1.55)
+	var scale := hud_minimap_scale
+	var frame_size := MINIMAP_FRAME_SIZE * scale
+	var canvas_offset := (MINIMAP_CANVAS_POS - MINIMAP_FRAME_POS) * scale
+	var canvas_size := MINIMAP_SIZE * scale
+	_set_control_rect(minimap_frame_rect, hud_minimap_frame_pos, frame_size)
+	_set_control_rect(minimap_panel, hud_minimap_frame_pos + canvas_offset, canvas_size)
+	_set_control_rect(minimap_canvas, hud_minimap_frame_pos + canvas_offset, canvas_size)
+
+func _apply_hud_layout_to_touch_controls() -> void:
+	touch_move_center = hud_joystick_center
+	touch_move_radius = 72.0 * hud_joystick_scale
+	var joystick_base_size := Vector2(176, 176) * hud_joystick_scale
+	var joystick_knob_size := Vector2(70, 70) * hud_joystick_scale
+	_set_control_rect(joystick_base, touch_move_center - joystick_base_size * 0.5, joystick_base_size)
+	_set_control_rect(joystick_knob, touch_move_center - joystick_knob_size * 0.5, joystick_knob_size)
+	_reset_joystick_knob()
+	_set_control_rect(attack_button, hud_attack_pos, Vector2(110, 82) * hud_attack_scale)
+	for i in range(skill_buttons.size()):
+		var button := skill_buttons[i]
+		var pos: Vector2 = SKILL_BUTTON_POSITIONS[i] + hud_skills_offset
+		_set_control_rect(button, pos, SKILL_BUTTON_SIZE * hud_skills_scale)
+	for i in range(POTION_SLOTS.size()):
+		var item_name := str(POTION_SLOTS[i]["item"])
+		var entry: Dictionary = potion_buttons.get(item_name, {})
+		var button := entry.get("button", null) as Button
+		var pos: Vector2 = POTION_BUTTON_POSITIONS[i] + hud_potions_offset
+		_set_control_rect(button, pos, POTION_BUTTON_SIZE * hud_potions_scale)
+		var count_label := entry.get("count", null) as Label
+		if count_label != null and button != null:
+			count_label.position = Vector2(5, max(16.0, button.size.y - 21.0))
+			count_label.size = Vector2(max(28.0, button.size.x - 10.0), 18)
+	var quick_buttons := [inventory_button, character_button, quests_button]
+	for i in range(quick_buttons.size()):
+		_set_control_rect(quick_buttons[i], QUICK_TOP_BUTTON_POSITIONS[i], QUICK_TOP_BUTTON_SIZE)
+	_set_control_rect(interact_button, INTERACT_BUTTON_POS, INTERACT_BUTTON_SIZE)
+
+func _set_control_rect(control: Control, pos: Vector2, size: Vector2) -> void:
+	if control == null:
+		return
+	control.position = pos
+	control.size = size
+	control.custom_minimum_size = size
+
+func _set_progress_bar_rect(bar: TextureProgressBar, pos: Vector2, size: Vector2) -> void:
+	if bar == null:
+		return
+	bar.position = pos
+	bar.size = size
+	bar.custom_minimum_size = size
+
+func _set_label_font_size(label: Label, size: int) -> void:
+	if label == null:
+		return
+	label.add_theme_font_size_override("font_size", size)
+
+func _load_hud_layout() -> void:
+	if not FileAccess.file_exists(HUD_LAYOUT_PATH):
+		return
+	var file := FileAccess.open(HUD_LAYOUT_PATH, FileAccess.READ)
+	if file == null:
+		return
+	var parsed: Variant = JSON.parse_string(file.get_as_text())
+	if typeof(parsed) != TYPE_DICTIONARY:
+		return
+	var data: Dictionary = parsed
+	hud_status_pos = _vector2_from_value(data.get("status_pos", []), HUD_PANEL_POS)
+	hud_status_scale = clampf(float(data.get("status_scale", 1.0)), 0.72, 1.32)
+	hud_minimap_frame_pos = _vector2_from_value(data.get("minimap_pos", []), MINIMAP_FRAME_POS)
+	hud_minimap_scale = clampf(float(data.get("minimap_scale", 1.0)), 0.55, 1.55)
+	hud_joystick_center = _vector2_from_value(data.get("joystick_center", []), Vector2(132, 586))
+	touch_move_center = hud_joystick_center
+	hud_joystick_scale = clampf(float(data.get("joystick_scale", 1.0)), 0.65, 1.55)
+	hud_attack_pos = _vector2_from_value(data.get("attack_pos", []), Vector2(1110, 586))
+	hud_attack_scale = clampf(float(data.get("attack_scale", 1.0)), 0.65, 1.55)
+	hud_skills_offset = _vector2_from_value(data.get("skills_offset", []), Vector2.ZERO)
+	hud_skills_scale = clampf(float(data.get("skills_scale", 1.0)), 0.65, 1.55)
+	hud_potions_offset = _vector2_from_value(data.get("potions_offset", []), Vector2.ZERO)
+	hud_potions_scale = clampf(float(data.get("potions_scale", 1.0)), 0.65, 1.55)
+
+func _save_hud_layout() -> void:
+	var data := {
+		"status_pos": _vector2_to_array(hud_status_pos),
+		"status_scale": hud_status_scale,
+		"minimap_pos": _vector2_to_array(hud_minimap_frame_pos),
+		"minimap_scale": hud_minimap_scale,
+		"joystick_center": _vector2_to_array(hud_joystick_center),
+		"joystick_scale": hud_joystick_scale,
+		"attack_pos": _vector2_to_array(hud_attack_pos),
+		"attack_scale": hud_attack_scale,
+		"skills_offset": _vector2_to_array(hud_skills_offset),
+		"skills_scale": hud_skills_scale,
+		"potions_offset": _vector2_to_array(hud_potions_offset),
+		"potions_scale": hud_potions_scale
+	}
+	var file := FileAccess.open(HUD_LAYOUT_PATH, FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(data, "\t"))
+
+func _vector2_from_value(value: Variant, fallback: Vector2) -> Vector2:
+	if typeof(value) == TYPE_ARRAY:
+		var arr: Array = value
+		if arr.size() >= 2:
+			return Vector2(float(arr[0]), float(arr[1]))
+	return fallback
+
+func _vector2_to_array(value: Vector2) -> Array:
+	return [roundf(value.x), roundf(value.y)]
+
+func _reset_hud_layout() -> void:
+	hud_status_pos = HUD_PANEL_POS
+	hud_status_scale = 1.0
+	hud_minimap_frame_pos = MINIMAP_FRAME_POS
+	hud_minimap_scale = 1.0
+	hud_joystick_center = Vector2(132, 586)
+	hud_joystick_scale = 1.0
+	hud_attack_pos = Vector2(1110, 586)
+	hud_attack_scale = 1.0
+	hud_skills_offset = Vector2.ZERO
+	hud_skills_scale = 1.0
+	hud_potions_offset = Vector2.ZERO
+	hud_potions_scale = 1.0
+	_layout_status_hud()
+	_layout_minimap_hud()
+	_apply_hud_layout_to_touch_controls()
+	_save_hud_layout()
+	_flash("HUD restaurado.")
 
 func _build_potion_bar() -> void:
 	for i in range(POTION_SLOTS.size()):
@@ -855,7 +1033,7 @@ func _build_potion_bar() -> void:
 		var item_name := str(slot["item"])
 		var button := Button.new()
 		button.position = POTION_BUTTON_POSITIONS[i]
-		button.size = Vector2(62, 58)
+		button.size = POTION_BUTTON_SIZE
 		button.custom_minimum_size = button.size
 		button.focus_mode = Control.FOCUS_NONE
 		button.text = ""
@@ -887,34 +1065,34 @@ func _style_potion_button(button: Button) -> void:
 
 func _build_touch_controls() -> void:
 	_build_joystick()
-	attack_button = _make_tap_button("ATK", Vector2(1112, 572), Vector2(110, 82), func() -> void:
+	attack_button = _make_tap_button("ATK", hud_attack_pos, Vector2(110, 82), func() -> void:
 		if player != null:
 			player.basic_attack()
 	)
 	skill_buttons.clear()
-	var skill_1 := _make_tap_button("1", Vector2(896, 590), Vector2(66, 60), func() -> void:
+	var skill_1 := _make_tap_button("1", SKILL_BUTTON_POSITIONS[0], SKILL_BUTTON_SIZE, func() -> void:
 		if player != null:
 			player.use_skill(0)
 	)
 	_prepare_skill_button_feedback(skill_1)
 	skill_buttons.append(skill_1)
-	var skill_2 := _make_tap_button("2", Vector2(972, 532), Vector2(66, 60), func() -> void:
+	var skill_2 := _make_tap_button("2", SKILL_BUTTON_POSITIONS[1], SKILL_BUTTON_SIZE, func() -> void:
 		if player != null:
 			player.use_skill(1)
 	)
 	_prepare_skill_button_feedback(skill_2)
 	skill_buttons.append(skill_2)
-	var skill_3 := _make_tap_button("3", Vector2(1048, 474), Vector2(66, 60), func() -> void:
+	var skill_3 := _make_tap_button("3", SKILL_BUTTON_POSITIONS[2], SKILL_BUTTON_SIZE, func() -> void:
 		if player != null:
 			player.use_skill(2)
 	)
 	_prepare_skill_button_feedback(skill_3)
 	skill_buttons.append(skill_3)
-	interact_button = _make_tap_button("OK", Vector2(1162, 452), Vector2(60, 54), _interact)
+	interact_button = _make_tap_button("OK", INTERACT_BUTTON_POS, INTERACT_BUTTON_SIZE, _interact)
 	_style_interact_button(interact_button)
-	inventory_button = _make_tap_button("", Vector2(1018, 78), Vector2(60, 54), _show_inventory)
-	character_button = _make_tap_button("", Vector2(1086, 78), Vector2(60, 54), _show_skills_window)
-	quests_button = _make_tap_button("", Vector2(1154, 78), Vector2(60, 54), _show_quests)
+	inventory_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[0], QUICK_TOP_BUTTON_SIZE, _show_inventory)
+	character_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[1], QUICK_TOP_BUTTON_SIZE, _show_skills_window)
+	quests_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[2], QUICK_TOP_BUTTON_SIZE, _show_quests)
 	_style_quick_top_button(inventory_button, "res://assets/ui/buttons/btn_inventory.png", "Bolsa")
 	_style_quick_top_button(character_button, "res://assets/ui/skills/skill_protecao.png", "Habilidades")
 	_style_quick_top_button(quests_button, "res://assets/ui/buttons/btn_quest.png", "Missoes")
@@ -1039,6 +1217,8 @@ func _handle_side_menu(item: String) -> void:
 			_show_achievements()
 		"Temporada":
 			_show_season()
+		"HUD":
+			_show_hud_editor()
 		"Wikipedia":
 			_show_wikipedia()
 		"Deslogar":
@@ -1111,7 +1291,7 @@ func _make_texture_progress_bar_layers(prefix: String, pos: Vector2, size: Vecto
 	return bar
 
 func _is_move_touch(pos: Vector2) -> bool:
-	return pos.distance_to(touch_move_center) <= 105
+	return pos.distance_to(touch_move_center) <= max(80.0, 105.0 * hud_joystick_scale)
 
 func _activate_touch_region(pos: Vector2) -> void:
 	if Rect2(Vector2(1080, 535), Vector2(170, 150)).has_point(pos):
@@ -3490,6 +3670,161 @@ func _show_season(force_refresh: bool = false) -> void:
 	var premium: bool = bool(progress.get("premium_unlocked", false))
 	box.add_child(_panel_label("Passe premium: %s" % ("Liberado" if premium else "Nao"), 15, Color("#d6b56e")))
 
+func _show_hud_editor(force_refresh: bool = false) -> void:
+	if panel.visible and current_panel == "hud_editor" and not force_refresh:
+		_hide_panel()
+		return
+	var box := _start_modal("Editor HUD", "hud_editor")
+	box.add_child(_panel_label("Ajuste tamanho e local do HUD. As mudancas salvam automaticamente.", 13, Color("#b8c3d1")))
+	var grid := GridContainer.new()
+	grid.columns = 1
+	grid.add_theme_constant_override("v_separation", 8)
+	box.add_child(grid)
+	grid.add_child(_hud_editor_row("Barras HP/MP/XP", "status"))
+	grid.add_child(_hud_editor_row("Mini mapa", "minimap"))
+	grid.add_child(_hud_editor_row("Joystick", "joystick"))
+	grid.add_child(_hud_editor_row("Botao ataque", "attack"))
+	grid.add_child(_hud_editor_row("Habilidades", "skills"))
+	grid.add_child(_hud_editor_row("Pocoes", "potions"))
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 12)
+	box.add_child(actions)
+	var reset := _hud_small_button("Resetar HUD")
+	reset.custom_minimum_size = Vector2(150, 38)
+	reset.pressed.connect(func() -> void:
+		_reset_hud_layout()
+		_show_hud_editor(true)
+	)
+	actions.add_child(reset)
+	var close := _hud_small_button("Salvar e fechar")
+	close.custom_minimum_size = Vector2(160, 38)
+	close.pressed.connect(func() -> void:
+		_save_hud_layout()
+		_hide_panel()
+	)
+	actions.add_child(close)
+
+func _hud_editor_row(title: String, group: String) -> Control:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	var label := _panel_label(title, 14, Color("#f2ebd3"))
+	label.custom_minimum_size = Vector2(150, 34)
+	row.add_child(label)
+	var left := _hud_small_button("<")
+	left.pressed.connect(func() -> void:
+		_nudge_hud_group(group, Vector2(-10, 0))
+		_show_hud_editor(true)
+	)
+	row.add_child(left)
+	var right := _hud_small_button(">")
+	right.pressed.connect(func() -> void:
+		_nudge_hud_group(group, Vector2(10, 0))
+		_show_hud_editor(true)
+	)
+	row.add_child(right)
+	var up := _hud_small_button("^")
+	up.pressed.connect(func() -> void:
+		_nudge_hud_group(group, Vector2(0, -10))
+		_show_hud_editor(true)
+	)
+	row.add_child(up)
+	var down := _hud_small_button("v")
+	down.pressed.connect(func() -> void:
+		_nudge_hud_group(group, Vector2(0, 10))
+		_show_hud_editor(true)
+	)
+	row.add_child(down)
+	var smaller := _hud_small_button("-")
+	smaller.pressed.connect(func() -> void:
+		_scale_hud_group(group, -0.05)
+		_show_hud_editor(true)
+	)
+	row.add_child(smaller)
+	var bigger := _hud_small_button("+")
+	bigger.pressed.connect(func() -> void:
+		_scale_hud_group(group, 0.05)
+		_show_hud_editor(true)
+	)
+	row.add_child(bigger)
+	var info := _panel_label(_hud_group_value(group), 12, Color("#9fb2c8"))
+	info.custom_minimum_size = Vector2(210, 34)
+	row.add_child(info)
+	return row
+
+func _hud_small_button(text: String) -> Button:
+	var button := Button.new()
+	button.text = text
+	button.custom_minimum_size = Vector2(42, 34)
+	button.focus_mode = Control.FOCUS_NONE
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = Color(0.04, 0.045, 0.055, 0.95)
+	normal.border_color = Color("#8a6a2f")
+	normal.set_border_width_all(1)
+	normal.set_corner_radius_all(6)
+	var pressed := normal.duplicate() as StyleBoxFlat
+	pressed.bg_color = Color(0.12, 0.10, 0.06, 0.98)
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", normal)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_color_override("font_color", Color("#f2ebd3"))
+	button.add_theme_font_size_override("font_size", 13)
+	return button
+
+func _nudge_hud_group(group: String, delta: Vector2) -> void:
+	match group:
+		"status":
+			hud_status_pos += delta
+		"minimap":
+			hud_minimap_frame_pos += delta
+		"joystick":
+			hud_joystick_center += delta
+		"attack":
+			hud_attack_pos += delta
+		"skills":
+			hud_skills_offset += delta
+		"potions":
+			hud_potions_offset += delta
+	_apply_and_save_hud_layout()
+
+func _scale_hud_group(group: String, amount: float) -> void:
+	match group:
+		"status":
+			hud_status_scale = clampf(hud_status_scale + amount, 0.72, 1.32)
+		"minimap":
+			hud_minimap_scale = clampf(hud_minimap_scale + amount, 0.55, 1.55)
+		"joystick":
+			hud_joystick_scale = clampf(hud_joystick_scale + amount, 0.65, 1.55)
+		"attack":
+			hud_attack_scale = clampf(hud_attack_scale + amount, 0.65, 1.55)
+		"skills":
+			hud_skills_scale = clampf(hud_skills_scale + amount, 0.65, 1.55)
+		"potions":
+			hud_potions_scale = clampf(hud_potions_scale + amount, 0.65, 1.55)
+	_apply_and_save_hud_layout()
+
+func _apply_and_save_hud_layout() -> void:
+	_layout_status_hud()
+	_layout_minimap_hud()
+	_apply_hud_layout_to_touch_controls()
+	_save_hud_layout()
+	_update_minimap()
+
+func _hud_group_value(group: String) -> String:
+	match group:
+		"status":
+			return "x%d y%d  %.0f%%" % [int(hud_status_pos.x), int(hud_status_pos.y), hud_status_scale * 100.0]
+		"minimap":
+			return "x%d y%d  %.0f%%" % [int(hud_minimap_frame_pos.x), int(hud_minimap_frame_pos.y), hud_minimap_scale * 100.0]
+		"joystick":
+			return "x%d y%d  %.0f%%" % [int(hud_joystick_center.x), int(hud_joystick_center.y), hud_joystick_scale * 100.0]
+		"attack":
+			return "x%d y%d  %.0f%%" % [int(hud_attack_pos.x), int(hud_attack_pos.y), hud_attack_scale * 100.0]
+		"skills":
+			return "dx%d dy%d  %.0f%%" % [int(hud_skills_offset.x), int(hud_skills_offset.y), hud_skills_scale * 100.0]
+		"potions":
+			return "dx%d dy%d  %.0f%%" % [int(hud_potions_offset.x), int(hud_potions_offset.y), hud_potions_scale * 100.0]
+	return ""
+
 func _show_world_map(force_refresh: bool = false) -> void:
 	if panel.visible and current_panel == "world_map" and not force_refresh:
 		_hide_panel()
@@ -3984,9 +4319,11 @@ func _update_minimap() -> void:
 		child.queue_free()
 	var bg := ColorRect.new()
 	bg.position = Vector2.ZERO
-	bg.size = MINIMAP_SIZE
-	bg.color = Color(0.01, 0.03, 0.05, 0.75)
+	bg.size = minimap_canvas.size
+	bg.color = _minimap_base_color()
 	minimap_canvas.add_child(bg)
+	_add_minimap_terrain()
+	_add_minimap_obstacles()
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		if enemy == null or not is_instance_valid(enemy):
 			continue
@@ -4004,18 +4341,74 @@ func _update_minimap() -> void:
 func _minimap_pos(world_pos: Vector2) -> Vector2:
 	var x: float = clamp(world_pos.x / max(1.0, current_map_size.x), 0.0, 1.0)
 	var y: float = clamp(world_pos.y / max(1.0, current_map_size.y), 0.0, 1.0)
-	return Vector2(x * MINIMAP_SIZE.x, y * MINIMAP_SIZE.y)
+	return Vector2(x * minimap_canvas.size.x, y * minimap_canvas.size.y)
 
 func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
 	var dot := Panel.new()
-	dot.position = pos - Vector2(size, size)
-	dot.size = Vector2(size * 2.0, size * 2.0)
+	var dot_size: float = maxf(2.0, size * hud_minimap_scale)
+	dot.position = pos - Vector2(dot_size, dot_size)
+	dot.size = Vector2(dot_size * 2.0, dot_size * 2.0)
 	var style := StyleBoxFlat.new()
 	style.bg_color = color
-	style.set_corner_radius_all(int(size))
+	style.set_corner_radius_all(int(dot_size))
 	dot.add_theme_stylebox_override("panel", style)
 	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	minimap_canvas.add_child(dot)
+
+func _minimap_base_color() -> Color:
+	match current_map:
+		"city_eldoria", "city_valdoria":
+			return Color("#3f6d49")
+		"forest_boars", "highland_pass":
+			return Color("#315f35")
+		"bat_cave", "crystal_depths":
+			return Color("#202638")
+		"arcane_ruins", "ancient_library":
+			return Color("#393c62")
+		"obsidian_keep":
+			return Color("#272329")
+	return Color("#182028")
+
+func _add_minimap_terrain() -> void:
+	match current_map:
+		"city_eldoria", "city_valdoria":
+			var center := current_map_size * 0.5
+			_add_minimap_rect(Rect2(center.x - 164, 260, 328, current_map_size.y - 410), Color("#766d60"))
+			_add_minimap_rect(Rect2(390, center.y - 132, current_map_size.x - 780, 264), Color("#766d60"))
+			_add_minimap_rect(Rect2(310, 230, current_map_size.x - 620, current_map_size.y - 430), Color(0.38, 0.43, 0.47, 0.45))
+		"forest_boars", "highland_pass":
+			_add_minimap_rect(Rect2(0, 0, 255, current_map_size.y), Color("#25578a"))
+			_add_minimap_rect(Rect2(235, 0, 70, current_map_size.y), Color("#9a865f"))
+			for point in _forest_main_path_points():
+				_add_minimap_rect(Rect2(point - Vector2(90, 70), Vector2(180, 140)), Color("#7e6e55"))
+		"bat_cave", "crystal_depths":
+			_add_minimap_rect(Rect2(240, 130, current_map_size.x - 480, current_map_size.y - 220), Color("#383d4d"))
+		"arcane_ruins", "ancient_library":
+			_add_minimap_rect(Rect2(320, 160, current_map_size.x - 640, current_map_size.y - 280), Color("#5b5e86"))
+		"obsidian_keep":
+			_add_minimap_rect(Rect2(250, 150, current_map_size.x - 500, current_map_size.y - 260), Color("#3b3038"))
+
+func _add_minimap_obstacles() -> void:
+	var max_obstacles: int = mini(90, solid_obstacles.size())
+	for i in range(max_obstacles):
+		var rect: Rect2 = solid_obstacles[i]
+		_add_minimap_rect(rect, Color(0.02, 0.025, 0.02, 0.58))
+
+func _add_minimap_rect(world_rect: Rect2, color: Color) -> void:
+	if minimap_canvas == null:
+		return
+	var p := _minimap_pos(world_rect.position)
+	var bottom_right := _minimap_pos(world_rect.position + world_rect.size)
+	var rect := ColorRect.new()
+	rect.position = p
+	rect.size = (bottom_right - p).abs()
+	if rect.size.x < 1.0:
+		rect.size.x = 1.0
+	if rect.size.y < 1.0:
+		rect.size.y = 1.0
+	rect.color = color
+	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	minimap_canvas.add_child(rect)
 
 func _update_pet_combat(delta: float) -> void:
 	if player == null or pet_allowed_target == null or not is_instance_valid(pet_allowed_target):
