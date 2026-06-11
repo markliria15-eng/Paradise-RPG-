@@ -435,27 +435,27 @@ h3 {
 }
 
 .city-map .map-preview {
-  background-image: url("./assets/site_maps/tile_stone.png"), url("./assets/site_maps/tile_water.png");
+  background-image: url("./assets/maps/tile_stone.png"), url("./assets/maps/tile_water.png");
   background-color: #263646;
 }
 
 .forest-map .map-preview {
-  background-image: url("./assets/site_maps/tile_grass.png"), url("./assets/site_maps/tile_path.png");
+  background-image: url("./assets/maps/tile_grass.png"), url("./assets/maps/tile_path.png");
   background-color: #1f4a2a;
 }
 
 .cave-map .map-preview {
-  background-image: url("./assets/site_maps/tile_cave_floor.png");
+  background-image: url("./assets/maps/tile_cave_floor.png");
   background-color: #1a1720;
 }
 
 .ruins-map .map-preview {
-  background-image: url("./assets/site_maps/tile_ruin.png"), url("./assets/site_maps/tile_arcane.png");
+  background-image: url("./assets/maps/tile_ruin.png"), url("./assets/maps/tile_arcane.png");
   background-color: #242435;
 }
 
 .boss-map .map-preview {
-  background-image: url("./assets/site_maps/tile_arcane.png"), url("./assets/site_maps/tile_cave.png");
+  background-image: url("./assets/maps/tile_arcane.png"), url("./assets/maps/tile_cave.png");
   background-color: #211629;
 }
 

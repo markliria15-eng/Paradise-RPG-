@@ -11,7 +11,7 @@ function intEnv(name, fallback) {
 }
 
 const releaseAndroidDownloadUrl =
-  "https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.7/paradise-rpg-android-v0.1.7.apk";
+  "https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.11/paradise-rpg-android-v0.1.11.apk";
 const legacyPagesAndroidDownloadUrl =
   "https://markliria15-eng.github.io/Paradise-RPG-/downloads/Paradise-RPG.apk";
 
@@ -27,7 +27,11 @@ function androidDownloadUrl() {
     raw.includes("/releases/download/v0.1.3/") ||
     raw.includes("/releases/download/v0.1.4/") ||
     raw.includes("/releases/download/v0.1.5/") ||
-    raw.includes("/releases/download/v0.1.6/")
+    raw.includes("/releases/download/v0.1.6/") ||
+    raw.includes("/releases/download/v0.1.7/") ||
+    raw.includes("/releases/download/v0.1.8/") ||
+    raw.includes("/releases/download/v0.1.9/") ||
+    raw.includes("/releases/download/v0.1.10/")
   ) {
     return releaseAndroidDownloadUrl;
   }
