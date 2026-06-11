@@ -109,8 +109,9 @@ jobs:
           debug_key = str(Path.home() / ".android" / "debug.keystore").replace("\\", "/")
           text = text.replace('keystore/debug="C:/Users/markl/.android/debug.keystore"', f'keystore/debug="{debug_key}"')
           text = text.replace('keystore/release="C:/Users/markl/Documents/Codex/2026-05-27/1-ideia-central-do-jogo-o/build/android/arcadia-release.keystore"', f'keystore/release="{key}"')
-          text = text.replace('version/code=1', f'version/code={os.environ["VERSION_CODE"]}')
-          text = text.replace('version/name="1.0.0"', f'version/name="{os.environ["VERSION_NAME"]}"')
+          import re
+          text = re.sub(r'version/code=\d+', f'version/code={os.environ["VERSION_CODE"]}', text)
+          text = re.sub(r'version/name="[^"]*"', f'version/name="{os.environ["VERSION_NAME"]}"', text)
           preset.write_text(text, encoding="utf-8")
           PY
 
