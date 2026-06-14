@@ -116,20 +116,27 @@ const PET_MOVE_ANIMATION_BY_ASSET := {
 	"fagulha_gelida": "move_float",
 	"morcego_sombrio": "fly"
 }
+const ELDORIA_BACKGROUND_PATH := "res://assets/maps/eldoria/Eldoria_Complete_Background_4x.png"
+const ELDORIA_MINIMAP_PATH := "res://assets/maps/eldoria/Eldoria_Minimap.png"
+const ELDORIA_SOURCE_SIZE := Vector2(1254, 1254)
+const ELDORIA_BACKGROUND_SCALE := 4.0
+const ELDORIA_WORLD_SIZE := ELDORIA_SOURCE_SIZE * ELDORIA_BACKGROUND_SCALE
 const HUD_LAYOUT_PATH := "user://hud_layout.json"
-const MINIMAP_SIZE := Vector2(112, 86)
-const MINIMAP_CANVAS_POS := Vector2(23, 214)
+const HUD_LAYOUT_VERSION := 5
+const MINIMAP_SIZE := Vector2(124, 106)
+const MINIMAP_CANVAS_POS := Vector2(19, 206)
 const MINIMAP_FRAME_POS := Vector2(10, 182)
-const MINIMAP_FRAME_SIZE := Vector2(148, 144)
+const MINIMAP_FRAME_SIZE := Vector2(150, 146)
+const MINIMAP_WORLD_RADIUS := 720.0
 const EXPLORATION_CELL := 48
 const HUD_PANEL_POS := Vector2(8, 8)
-const HUD_PANEL_SIZE := Vector2(330, 164)
-const HUD_BAR_SIZE := Vector2(226, 20)
-const HUD_HP_BAR_POS := Vector2(84, 30)
-const HUD_MP_BAR_POS := Vector2(84, 75)
-const HUD_XP_BAR_POS := Vector2(84, 120)
-const HUD_LABEL_POS := Vector2(18, 5)
-const HUD_LABEL_SIZE := Vector2(292, 18)
+const HUD_PANEL_SIZE := Vector2(326, 162)
+const HUD_BAR_SIZE := Vector2(244, 16)
+const HUD_HP_BAR_POS := Vector2(70, 33)
+const HUD_MP_BAR_POS := Vector2(70, 74)
+const HUD_XP_BAR_POS := Vector2(70, 115)
+const HUD_LABEL_POS := Vector2(54, 5)
+const HUD_LABEL_SIZE := Vector2(260, 18)
 
 @onready var world: Node2D = $World
 @onready var ui: CanvasLayer = $UI
@@ -749,11 +756,14 @@ func _build_ui() -> void:
 
 	hud_label = Label.new()
 	hud_label.z_index = 95
+	hud_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hud_label.clip_text = true
 	hud_label.add_theme_color_override("font_color", Color("#f7e6b1"))
 	hud_label.add_theme_color_override("font_shadow_color", Color.BLACK)
 	hud_label.add_theme_constant_override("shadow_offset_x", 1)
 	hud_label.add_theme_constant_override("shadow_offset_y", 1)
-	hud_label.add_theme_font_size_override("font_size", 10)
+	hud_label.add_theme_font_size_override("font_size", 12)
 	ui.add_child(hud_label)
 	xp_label = Label.new()
 	xp_label.visible = false
@@ -771,6 +781,7 @@ func _build_ui() -> void:
 	hp_label = Label.new()
 	hp_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hp_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hp_label.clip_text = true
 	hp_label.z_index = 94
 	hp_label.add_theme_color_override("font_color", Color("#ffd9d9"))
 	hp_label.add_theme_color_override("font_shadow_color", Color.BLACK)
@@ -782,6 +793,7 @@ func _build_ui() -> void:
 	mana_label = Label.new()
 	mana_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	mana_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	mana_label.clip_text = true
 	mana_label.z_index = 94
 	mana_label.add_theme_color_override("font_color", Color("#d8e5ff"))
 	mana_label.add_theme_color_override("font_shadow_color", Color.BLACK)
@@ -793,6 +805,7 @@ func _build_ui() -> void:
 	xp_value_label = Label.new()
 	xp_value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	xp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	xp_value_label.clip_text = true
 	xp_value_label.z_index = 94
 	xp_value_label.add_theme_color_override("font_color", Color("#f8e4aa"))
 	xp_value_label.add_theme_color_override("font_shadow_color", Color.BLACK)
@@ -812,7 +825,7 @@ func _build_ui() -> void:
 	minimap_panel = PanelContainer.new()
 	minimap_panel.position = MINIMAP_CANVAS_POS
 	minimap_panel.size = MINIMAP_SIZE
-	minimap_panel.z_index = 150
+	minimap_panel.z_index = 149
 	var minimap_style := StyleBoxFlat.new()
 	minimap_style.bg_color = Color(0, 0, 0, 0)
 	minimap_style.border_color = Color(0, 0, 0, 0)
@@ -820,13 +833,13 @@ func _build_ui() -> void:
 	minimap_panel.add_theme_stylebox_override("panel", minimap_style)
 	ui.add_child(minimap_panel)
 	minimap_frame_rect = _make_texture_rect("res://assets/ui/hud/minimap_frame.png", MINIMAP_FRAME_POS, MINIMAP_FRAME_SIZE)
-	minimap_frame_rect.z_index = 154
+	minimap_frame_rect.z_index = 151
 	minimap_canvas = Control.new()
 	minimap_canvas.position = MINIMAP_CANVAS_POS
 	minimap_canvas.size = MINIMAP_SIZE
 	minimap_canvas.clip_contents = true
 	minimap_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	minimap_canvas.z_index = 151
+	minimap_canvas.z_index = 150
 	ui.add_child(minimap_canvas)
 	_layout_status_hud()
 	_layout_minimap_hud()
@@ -885,7 +898,7 @@ func _layout_status_hud() -> void:
 	_set_control_rect(hud_frame, hud_status_pos, panel_size)
 	_set_control_rect(hud_skin_rect, hud_status_pos, panel_size)
 	_set_control_rect(hud_label, hud_status_pos + HUD_LABEL_POS * scale, HUD_LABEL_SIZE * scale)
-	_set_label_font_size(hud_label, int(round(10.0 * scale)))
+	_set_label_font_size(hud_label, int(round(12.0 * scale)))
 	var bar_size := HUD_BAR_SIZE * scale
 	_set_progress_bar_rect(hp_bar, hud_status_pos + HUD_HP_BAR_POS * scale, bar_size)
 	_set_progress_bar_rect(mana_bar, hud_status_pos + HUD_MP_BAR_POS * scale, bar_size)
@@ -893,7 +906,7 @@ func _layout_status_hud() -> void:
 	_set_control_rect(hp_label, hp_bar.position, bar_size)
 	_set_control_rect(mana_label, mana_bar.position, bar_size)
 	_set_control_rect(xp_value_label, xp_bar.position, bar_size)
-	var value_font_size: int = maxi(10, int(round(14.0 * scale)))
+	var value_font_size: int = maxi(9, int(round(11.0 * scale)))
 	_set_label_font_size(hp_label, value_font_size)
 	_set_label_font_size(mana_label, value_font_size)
 	_set_label_font_size(xp_value_label, value_font_size)
@@ -965,6 +978,8 @@ func _load_hud_layout() -> void:
 	if typeof(parsed) != TYPE_DICTIONARY:
 		return
 	var data: Dictionary = parsed
+	if int(data.get("version", 0)) != HUD_LAYOUT_VERSION:
+		return
 	hud_status_pos = _vector2_from_value(data.get("status_pos", []), HUD_PANEL_POS)
 	hud_status_scale = clampf(float(data.get("status_scale", 1.0)), 0.72, 1.32)
 	hud_minimap_frame_pos = _vector2_from_value(data.get("minimap_pos", []), MINIMAP_FRAME_POS)
@@ -981,6 +996,7 @@ func _load_hud_layout() -> void:
 
 func _save_hud_layout() -> void:
 	var data := {
+		"version": HUD_LAYOUT_VERSION,
 		"status_pos": _vector2_to_array(hud_status_pos),
 		"status_scale": hud_status_scale,
 		"minimap_pos": _vector2_to_array(hud_minimap_frame_pos),
@@ -1284,6 +1300,11 @@ func _make_texture_progress_bar_layers(prefix: String, pos: Vector2, size: Vecto
 	bar.value = 1
 	bar.fill_mode = TextureProgressBar.FILL_LEFT_TO_RIGHT
 	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	bar.nine_patch_stretch = true
+	bar.stretch_margin_left = 9
+	bar.stretch_margin_right = 9
+	bar.stretch_margin_top = 4
+	bar.stretch_margin_bottom = 4
 	bar.texture_under = load("res://assets/ui/hud/bars/%s_bar_under.png" % prefix)
 	bar.texture_progress = load("res://assets/ui/hud/bars/%s_bar_progress.png" % prefix)
 	bar.texture_over = load("res://assets/ui/hud/bars/%s_bar_over.png" % prefix)
@@ -1458,7 +1479,7 @@ func _start_new_game(chosen_class: String) -> void:
 	_ensure_beginner_quests()
 	_connect_player()
 	_update_action_icons()
-	_load_map("city_eldoria", Vector2(1080, 910))
+	_load_map("city_eldoria", _eldoria_point(627, 680))
 	_flash("Bem-vindo a Cidade de Eldoria. Use OK para interagir.")
 
 func _spawn_player_from_save(save: Dictionary) -> void:
@@ -1477,7 +1498,11 @@ func _spawn_player_from_save(save: Dictionary) -> void:
 	_update_action_icons()
 	_apply_companion_bonuses()
 	var pos_arr: Array = save.get("position", [640, 380])
-	_load_map(str(save.get("current_map", "city_eldoria")), Vector2(float(pos_arr[0]), float(pos_arr[1])))
+	var saved_map := str(save.get("current_map", "city_eldoria"))
+	var saved_pos := Vector2(float(pos_arr[0]), float(pos_arr[1]))
+	if saved_map == "city_eldoria" and _eldoria_background_available():
+		saved_pos = Vector2.ZERO
+	_load_map(saved_map, saved_pos)
 	_flash("Save carregado.")
 
 func _connect_player() -> void:
@@ -1515,10 +1540,14 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	var map_data: Dictionary = maps.get(map_id, {})
 	var size_data: Array = map_data.get("size", [int(DEFAULT_MAP_SIZE.x), int(DEFAULT_MAP_SIZE.y)])
 	current_map_size = Vector2(float(size_data[0]), float(size_data[1]))
+	if _is_new_eldoria_map():
+		current_map_size = ELDORIA_WORLD_SIZE
 	_draw_map_background(map_data)
 	if player != null:
 		var spawn: Array = map_data.get("spawn", [1080, 760])
 		var desired_spawn := spawn_position if spawn_position != Vector2.ZERO else Vector2(float(spawn[0]), float(spawn[1]))
+		if _is_new_eldoria_map() and spawn_position == Vector2.ZERO:
+			desired_spawn = _eldoria_point(627, 680)
 		player.global_position = _resolve_unblocked_spawn(desired_spawn)
 		last_valid_player_position = player.global_position
 		quest_system.register_visit(map_id)
@@ -1534,12 +1563,13 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 func _draw_map_background(map_data: Dictionary) -> void:
 	_draw_map_terrain(map_data)
 	_spawn_ground_details()
-	var title := Label.new()
-	title.text = str(map_data.get("name", "Mapa"))
-	title.position = Vector2(540, 48)
-	title.z_index = 100
-	title.add_theme_color_override("font_color", Color.WHITE)
-	world.add_child(title)
+	if not _is_new_eldoria_map():
+		var title := Label.new()
+		title.text = str(map_data.get("name", "Mapa"))
+		title.position = Vector2(540, 48)
+		title.z_index = 100
+		title.add_theme_color_override("font_color", Color.WHITE)
+		world.add_child(title)
 	_spawn_map_decor()
 
 func _draw_map_terrain(map_data: Dictionary) -> void:
@@ -1564,6 +1594,9 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 			_add_world_rect(Rect2(Vector2.ZERO, current_map_size), Color(map_data.get("color", "#303030")), -100)
 
 func _draw_city_terrain() -> void:
+	if _draw_eldoria_background():
+		_register_eldoria_background_collision()
+		return
 	var center := current_map_size * 0.5
 	_draw_tiled_rect("res://assets/sprites/tile_grass.png", Rect2(Vector2.ZERO, current_map_size), 64, -100)
 	_draw_tiled_rect("res://assets/sprites/tile_stone.png", Rect2(310, 230, current_map_size.x - 620, current_map_size.y - 430), 64, -97)
@@ -1600,6 +1633,70 @@ func _draw_city_terrain() -> void:
 	_add_world_label("Mercador", Vector2(2070, 700), Color("#ffe0a3"))
 	_add_world_label("Curandeira", Vector2(590, 1350), Color("#d8ffd2"))
 	_add_world_label("Forja", Vector2(2095, 1440), Color("#ffd06b"))
+
+func _eldoria_background_available() -> bool:
+	return ResourceLoader.exists(ELDORIA_BACKGROUND_PATH)
+
+func _is_new_eldoria_map() -> bool:
+	return current_map == "city_eldoria" and _eldoria_background_available()
+
+func _eldoria_point(x: float, y: float) -> Vector2:
+	return Vector2(x, y) * ELDORIA_BACKGROUND_SCALE
+
+func _eldoria_rect(x: float, y: float, w: float, h: float) -> Rect2:
+	return Rect2(_eldoria_point(x, y), Vector2(w, h) * ELDORIA_BACKGROUND_SCALE)
+
+func _draw_eldoria_background() -> bool:
+	if not _eldoria_background_available():
+		return false
+	var texture := load(ELDORIA_BACKGROUND_PATH) as Texture2D
+	if texture == null:
+		return false
+	current_map_size = Vector2(texture.get_width(), texture.get_height())
+	var sprite := Sprite2D.new()
+	sprite.texture = texture
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sprite.centered = false
+	sprite.position = Vector2.ZERO
+	sprite.scale = Vector2.ONE
+	sprite.z_index = -100
+	world.add_child(sprite)
+	return true
+
+func _register_eldoria_background_collision() -> void:
+	for rect in [
+		_eldoria_rect(0, 0, 1254, 70),
+		_eldoria_rect(0, 70, 62, 1050),
+		_eldoria_rect(1192, 70, 62, 1050),
+		_eldoria_rect(0, 1114, 1254, 140),
+		_eldoria_rect(62, 70, 1130, 86),
+		_eldoria_rect(62, 156, 52, 945),
+		_eldoria_rect(1140, 156, 52, 945),
+		_eldoria_rect(62, 1014, 505, 88),
+		_eldoria_rect(686, 1014, 506, 88),
+		_eldoria_rect(565, 1070, 42, 90),
+		_eldoria_rect(647, 1070, 42, 90),
+		_eldoria_rect(15, 72, 112, 150),
+		_eldoria_rect(1128, 72, 112, 150),
+		_eldoria_rect(15, 940, 112, 190),
+		_eldoria_rect(1128, 940, 112, 190),
+		_eldoria_rect(175, 190, 250, 240),
+		_eldoria_rect(700, 220, 320, 180),
+		_eldoria_rect(170, 655, 265, 185),
+		_eldoria_rect(690, 610, 330, 195),
+		_eldoria_rect(135, 838, 220, 100),
+		_eldoria_rect(270, 875, 260, 175),
+		_eldoria_rect(680, 828, 235, 130),
+		_eldoria_rect(900, 835, 230, 210),
+		_eldoria_rect(575, 493, 112, 126),
+		_eldoria_rect(120, 250, 88, 120),
+		_eldoria_rect(1042, 230, 80, 128),
+		_eldoria_rect(100, 640, 70, 120),
+		_eldoria_rect(1030, 610, 85, 150),
+		_eldoria_rect(462, 650, 84, 118),
+		_eldoria_rect(1035, 805, 95, 150)
+	]:
+		_register_solid_rect(rect)
 
 func _draw_valdoria_terrain() -> void:
 	_draw_tiled_rect("res://assets/sprites/tile_water.png", Rect2(0, 0, current_map_size.x, current_map_size.y), 64, -100)
@@ -1710,6 +1807,8 @@ func _draw_ember_fortress_terrain() -> void:
 
 func _spawn_map_decor() -> void:
 	if current_map == "city_eldoria":
+		if _eldoria_background_available():
+			return
 		var center := current_map_size * 0.5
 		_add_world_sprite("res://assets/sprites/decor_fountain.png", center, 1.28, -10)
 		_add_world_sprite("res://assets/sprites/decor_house_guild_hall.png", Vector2(890, 555), 0.72, -8)
@@ -2047,7 +2146,12 @@ func _tile_textures_for(path: String) -> Array:
 
 func _spawn_ground_details() -> void:
 	match current_map:
-		"city_eldoria", "city_valdoria":
+		"city_eldoria":
+			if _eldoria_background_available():
+				return
+			_scatter_detail(["res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_leaf_patch.png"], 42, 0.62)
+			_spawn_city_visual_props()
+		"city_valdoria":
 			_scatter_detail(["res://assets/sprites/decor_flower_patch.png", "res://assets/sprites/decor_grass_tuft.png", "res://assets/sprites/decor_leaf_patch.png"], 42, 0.62)
 			_spawn_city_visual_props()
 		"forest_boars", "highland_pass":
@@ -2142,7 +2246,7 @@ func _spawn_portals(map_data: Dictionary) -> void:
 		portal.add_child(shape)
 		var visual := Sprite2D.new()
 		visual.texture = load("res://assets/sprites/decor_portal.png")
-		visual.scale = Vector2(1.8, 1.8)
+		visual.scale = Vector2(1.18, 1.18)
 		visual.z_index = -5
 		portal.add_child(visual)
 		var label := Label.new()
@@ -2203,6 +2307,7 @@ func _spawn_enemy_from_spawn(spawn: Dictionary) -> void:
 		return
 	var enemy: Enemy = ENEMY_SCENE.instantiate()
 	world.add_child(enemy)
+	enemy.add_to_group("enemies")
 	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
 	enemy.safe_zone_checker = Callable(self, "_is_point_in_safe_zone")
 	enemy.obstacle_checker = Callable(self, "_is_point_blocked")
@@ -3888,9 +3993,20 @@ func _draw_world_map_preview(canvas: Control, map_id: String, map_size: Vector2,
 	var origin := Vector2(5, 5)
 	match map_id:
 		"city_eldoria":
-			_map_preview_rect(canvas, map_size, canvas_size, Rect2(150, 120, map_size.x - 300, map_size.y - 240), Color("#4a7d4f"), origin)
-			_map_preview_rect(canvas, map_size, canvas_size, Rect2(430, 250, 1300, 770), Color("#61727f"), origin)
-			_map_preview_rect(canvas, map_size, canvas_size, Rect2(1020, 350, 220, 900), Color("#84725a"), origin)
+			if ResourceLoader.exists(ELDORIA_MINIMAP_PATH):
+				var texture := load(ELDORIA_MINIMAP_PATH) as Texture2D
+				if texture != null:
+					var preview := TextureRect.new()
+					preview.texture = texture
+					preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+					preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+					preview.stretch_mode = TextureRect.STRETCH_SCALE
+					preview.position = origin
+					preview.size = canvas_size
+					preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+					canvas.add_child(preview)
+					return
+			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, map_size.x, map_size.y), Color("#4a7d4f"), origin)
 		"forest_boars":
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, map_size.x, map_size.y), Color("#3f6f3e"), origin)
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, 255, map_size.y), Color("#2d5f9c"), origin)
@@ -4257,7 +4373,7 @@ func _xp_bar_row(title: String, value: int, maximum: int, fill_color: Color) -> 
 func _apply_map_regen() -> void:
 	var map_data: Dictionary = maps.get(current_map, {})
 	if bool(map_data.get("safe", false)):
-		var near_fountain: bool = player.global_position.distance_to(Vector2(640, 365)) < 110
+		var near_fountain: bool = player.global_position.distance_to(_eldoria_point(640, 365)) < 110 * ELDORIA_BACKGROUND_SCALE
 		var amount := 8 if near_fountain else 3
 		player.heal(amount)
 		player.recover_mana(int(amount * (1.0 + player.mana_regen_pct)))
@@ -4321,27 +4437,65 @@ func _update_minimap() -> void:
 	bg.position = Vector2.ZERO
 	bg.size = minimap_canvas.size
 	bg.color = _minimap_base_color()
+	bg.z_index = 0
 	minimap_canvas.add_child(bg)
-	_add_minimap_terrain()
-	_add_minimap_obstacles()
-	for enemy in get_tree().get_nodes_in_group("enemies"):
+	if _use_eldoria_image_minimap():
+		_add_eldoria_minimap_background()
+	else:
+		_add_minimap_terrain()
+		_add_minimap_obstacles()
+	for enemy in _minimap_enemy_nodes():
 		if enemy == null or not is_instance_valid(enemy):
+			continue
+		if not _is_world_pos_in_minimap(enemy.global_position):
 			continue
 		_add_minimap_dot(_minimap_pos(enemy.global_position), Color("#ff4a4a"), 3.0)
 	for npc in get_tree().get_nodes_in_group("npcs"):
 		if npc == null or not is_instance_valid(npc):
 			continue
-		_add_minimap_dot(_minimap_pos(npc.global_position), Color("#55b8ff"), 3.0)
+		if not _is_world_pos_in_minimap(npc.global_position):
+			continue
+		_add_minimap_dot(_minimap_pos(npc.global_position), Color("#4dff8d"), 3.0)
 	for portal in get_tree().get_nodes_in_group("portals"):
 		if portal == null or not is_instance_valid(portal):
 			continue
+		if not _is_world_pos_in_minimap(portal.global_position):
+			continue
 		_add_minimap_dot(_minimap_pos(portal.global_position), Color("#b970ff"), 3.5)
-	_add_minimap_dot(_minimap_pos(player.global_position), Color("#8ee84d"), 4.0)
+	_add_minimap_player_marker()
 
 func _minimap_pos(world_pos: Vector2) -> Vector2:
-	var x: float = clamp(world_pos.x / max(1.0, current_map_size.x), 0.0, 1.0)
-	var y: float = clamp(world_pos.y / max(1.0, current_map_size.y), 0.0, 1.0)
-	return Vector2(x * minimap_canvas.size.x, y * minimap_canvas.size.y)
+	return _minimap_local_pos(world_pos, true)
+
+func _minimap_local_pos(world_pos: Vector2, clamp_edges: bool) -> Vector2:
+	if minimap_canvas == null or player == null:
+		return Vector2.ZERO
+	if _use_eldoria_image_minimap():
+		var map_rect := _eldoria_minimap_rect()
+		var pos := map_rect.position + Vector2(
+			world_pos.x / maxf(current_map_size.x, 1.0) * map_rect.size.x,
+			world_pos.y / maxf(current_map_size.y, 1.0) * map_rect.size.y
+		)
+		if clamp_edges:
+			pos.x = clampf(pos.x, map_rect.position.x + 2.0, map_rect.end.x - 2.0)
+			pos.y = clampf(pos.y, map_rect.position.y + 2.0, map_rect.end.y - 2.0)
+		return pos
+	var center := minimap_canvas.size * 0.5
+	var view_scale: float = minf(minimap_canvas.size.x, minimap_canvas.size.y) / (MINIMAP_WORLD_RADIUS * 2.0)
+	var delta := (world_pos - player.global_position) * view_scale
+	var pos := center + delta
+	if clamp_edges:
+		pos.x = clampf(pos.x, 2.0, maxf(2.0, minimap_canvas.size.x - 2.0))
+		pos.y = clampf(pos.y, 2.0, maxf(2.0, minimap_canvas.size.y - 2.0))
+	return pos
+
+func _is_world_pos_in_minimap(world_pos: Vector2) -> bool:
+	if player == null:
+		return false
+	if _use_eldoria_image_minimap():
+		return Rect2(Vector2.ZERO, current_map_size).has_point(world_pos)
+	var delta := world_pos - player.global_position
+	return absf(delta.x) <= MINIMAP_WORLD_RADIUS and absf(delta.y) <= MINIMAP_WORLD_RADIUS
 
 func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
 	var dot := Panel.new()
@@ -4353,7 +4507,62 @@ func _add_minimap_dot(pos: Vector2, color: Color, size: float) -> void:
 	style.set_corner_radius_all(int(dot_size))
 	dot.add_theme_stylebox_override("panel", style)
 	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dot.z_index = 8
 	minimap_canvas.add_child(dot)
+
+func _add_minimap_player_marker() -> void:
+	if minimap_canvas == null or player == null:
+		return
+	var center := _minimap_pos(player.global_position) if _use_eldoria_image_minimap() else minimap_canvas.size * 0.5
+	var marker := Polygon2D.new()
+	marker.polygon = PackedVector2Array([
+		Vector2(0, -7),
+		Vector2(6, 7),
+		Vector2(0, 4),
+		Vector2(-6, 7)
+	])
+	marker.color = Color("#9cff43")
+	marker.position = center
+	if player.velocity.length() > 5.0:
+		marker.rotation = player.velocity.angle() + PI * 0.5
+	marker.z_index = 5
+	minimap_canvas.add_child(marker)
+	_add_minimap_dot(center, Color("#e6ffd1"), 2.0)
+
+func _use_eldoria_image_minimap() -> bool:
+	return current_map == "city_eldoria" and ResourceLoader.exists(ELDORIA_MINIMAP_PATH)
+
+func _eldoria_minimap_rect() -> Rect2:
+	if minimap_canvas == null:
+		return Rect2()
+	var side := minf(minimap_canvas.size.x, minimap_canvas.size.y)
+	var offset := (minimap_canvas.size - Vector2(side, side)) * 0.5
+	return Rect2(offset, Vector2(side, side))
+
+func _add_eldoria_minimap_background() -> void:
+	var texture := load(ELDORIA_MINIMAP_PATH) as Texture2D
+	if texture == null:
+		return
+	var map_rect := _eldoria_minimap_rect()
+	var preview := TextureRect.new()
+	preview.texture = texture
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.stretch_mode = TextureRect.STRETCH_SCALE
+	preview.position = map_rect.position
+	preview.size = map_rect.size
+	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preview.z_index = 1
+	minimap_canvas.add_child(preview)
+
+func _minimap_enemy_nodes() -> Array:
+	var nodes: Array = get_tree().get_nodes_in_group("enemies")
+	if world == null:
+		return nodes
+	for child in world.get_children():
+		if child is Enemy and not nodes.has(child):
+			nodes.append(child)
+	return nodes
 
 func _minimap_base_color() -> Color:
 	match current_map:
@@ -4371,7 +4580,14 @@ func _minimap_base_color() -> Color:
 
 func _add_minimap_terrain() -> void:
 	match current_map:
-		"city_eldoria", "city_valdoria":
+		"city_eldoria":
+			if _use_eldoria_image_minimap():
+				return
+			var center := current_map_size * 0.5
+			_add_minimap_rect(Rect2(center.x - 164, 260, 328, current_map_size.y - 410), Color("#766d60"))
+			_add_minimap_rect(Rect2(390, center.y - 132, current_map_size.x - 780, 264), Color("#766d60"))
+			_add_minimap_rect(Rect2(310, 230, current_map_size.x - 620, current_map_size.y - 430), Color(0.38, 0.43, 0.47, 0.45))
+		"city_valdoria":
 			var center := current_map_size * 0.5
 			_add_minimap_rect(Rect2(center.x - 164, 260, 328, current_map_size.y - 410), Color("#766d60"))
 			_add_minimap_rect(Rect2(390, center.y - 132, current_map_size.x - 780, 264), Color("#766d60"))
@@ -4389,16 +4605,23 @@ func _add_minimap_terrain() -> void:
 			_add_minimap_rect(Rect2(250, 150, current_map_size.x - 500, current_map_size.y - 260), Color("#3b3038"))
 
 func _add_minimap_obstacles() -> void:
-	var max_obstacles: int = mini(90, solid_obstacles.size())
-	for i in range(max_obstacles):
-		var rect: Rect2 = solid_obstacles[i]
+	if player == null:
+		return
+	var view_rect := Rect2(player.global_position - Vector2.ONE * MINIMAP_WORLD_RADIUS, Vector2.ONE * MINIMAP_WORLD_RADIUS * 2.0)
+	var drawn := 0
+	for rect in solid_obstacles:
+		if drawn >= 150:
+			break
+		if not rect.intersects(view_rect):
+			continue
 		_add_minimap_rect(rect, Color(0.02, 0.025, 0.02, 0.58))
+		drawn += 1
 
 func _add_minimap_rect(world_rect: Rect2, color: Color) -> void:
 	if minimap_canvas == null:
 		return
-	var p := _minimap_pos(world_rect.position)
-	var bottom_right := _minimap_pos(world_rect.position + world_rect.size)
+	var p := _minimap_local_pos(world_rect.position, false)
+	var bottom_right := _minimap_local_pos(world_rect.position + world_rect.size, false)
 	var rect := ColorRect.new()
 	rect.position = p
 	rect.size = (bottom_right - p).abs()
@@ -4408,6 +4631,7 @@ func _add_minimap_rect(world_rect: Rect2, color: Color) -> void:
 		rect.size.y = 1.0
 	rect.color = color
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	rect.z_index = 2
 	minimap_canvas.add_child(rect)
 
 func _update_pet_combat(delta: float) -> void:
@@ -4649,7 +4873,7 @@ func _current_equipped_mount_code() -> String:
 
 func _player_died() -> void:
 	player.revive_in_city()
-	_load_map("city_eldoria", Vector2(640, 380))
+	_load_map("city_eldoria", _eldoria_point(627, 680))
 	_flash("Voce morreu, perdeu 5% do ouro e voltou para Eldoria.")
 
 func _update_hud() -> void:

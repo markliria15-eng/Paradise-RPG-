@@ -25,16 +25,16 @@ func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:
 		return
 	_ensure_shadow()
-	var target_height := 52.0
+	var target_height := 48.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	# Ajusta para manter os pes no "chao" do NPC.
-	sprite.position = Vector2(0, -18)
+	sprite.position = Vector2(0, -16)
 	label.offset_left = -96
 	label.offset_right = 96
-	label.offset_top = -68
-	label.offset_bottom = -48
+	label.offset_top = -66
+	label.offset_bottom = -46
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

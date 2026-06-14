@@ -18,10 +18,13 @@ AudioManager="*res://scripts/audio_manager.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/handheld/orientation=6
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 textures/vram_compression/import_etc2_astc=true
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
 textures/canvas_textures/default_texture_filter=0
 
 [input]

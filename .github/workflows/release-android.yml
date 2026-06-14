@@ -46,11 +46,11 @@ jobs:
             -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US"
 
-      - name: Install Godot 4.2.2 and export templates
+      - name: Install Godot 4.6.3 and export templates
         shell: bash
         run: |
           set -euo pipefail
-          GODOT_VERSION="4.2.2"
+          GODOT_VERSION="4.6.3"
           GODOT_CHANNEL="stable"
           GODOT_FULL="${GODOT_VERSION}-${GODOT_CHANNEL}"
           GODOT_URL="https://github.com/godotengine/godot/releases/download/${GODOT_FULL}/Godot_v${GODOT_FULL}_linux.x86_64.zip"
@@ -64,8 +64,8 @@ jobs:
 
           curl -L "${TEMPLATES_URL}" -o .ci/godot/templates.tpz
           unzip -q .ci/godot/templates.tpz -d .ci/godot/templates
-          mkdir -p "${HOME}/.local/share/godot/export_templates/4.2.2.stable"
-          cp .ci/godot/templates/templates/* "${HOME}/.local/share/godot/export_templates/4.2.2.stable/"
+          mkdir -p "${HOME}/.local/share/godot/export_templates/4.6.3.stable"
+          cp .ci/godot/templates/templates/* "${HOME}/.local/share/godot/export_templates/4.6.3.stable/"
 
       - name: Configure Godot Android export
         shell: bash
