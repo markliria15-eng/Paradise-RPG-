@@ -11,7 +11,7 @@ function intEnv(name, fallback) {
 }
 
 const releaseAndroidDownloadUrl =
-  "https://github.com/markliria15-eng/Paradise-RPG-/releases/download/v0.1.11/paradise-rpg-android-v0.1.11.apk";
+  "https://github.com/markliria15-eng/Paradise-RPG-/releases/latest/download/Paradise-RPG.apk";
 const legacyPagesAndroidDownloadUrl =
   "https://markliria15-eng.github.io/Paradise-RPG-/downloads/Paradise-RPG.apk";
 

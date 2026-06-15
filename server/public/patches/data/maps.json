@@ -3,50 +3,50 @@
     "name": "Cidade de Eldoria",
     "safe": true,
     "size": [
-      3072,
-      2304
+      5016,
+      5016
     ],
     "color": "#476b57",
     "spawn": [
-      1536,
-      900
+      2508,
+      2720
     ],
     "npcs": [
       {
-        "name": "Helena, a Curandeira",
+        "name": "Sarah Curandeira",
         "role": "healer",
         "pos": [
-          720,
-          1520
+          1240,
+          3300
         ],
-        "sprite": "res://assets/sprites/npc_custom_3_pixel.png"
+        "sprite": "res://assets/characters/npcs/sarah_curandeira_idle_4f_128.png"
       },
       {
-        "name": "Borin, o Mercador",
+        "name": "Shopin, o Mercador",
         "role": "shop",
         "pos": [
-          2190,
-          900
+          3160,
+          1520
         ],
-        "sprite": "res://assets/sprites/npc_custom_2_pixel.png"
+        "sprite": "res://assets/characters/npcs/shopin_mercador_idle_4f_128.png"
       },
       {
         "name": "Brakka, a Ferreira",
         "role": "forge",
         "pos": [
-          2200,
-          1600
+          3160,
+          3040
         ],
-        "sprite": "res://assets/sprites/npc_custom_5_pixel.png"
+        "sprite": "res://assets/characters/npcs/brakka_ferreira_idle_4f_128.png"
       },
       {
         "name": "Arion, o Mestre de Classes",
         "role": "class_master",
         "pos": [
-          930,
-          730
+          1180,
+          1440
         ],
-        "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
+        "sprite": "res://assets/characters/npcs/arion_mestre_classes_idle_4f_128.png"
       }
     ],
     "portals": [
@@ -54,8 +54,8 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          1536,
-          2110
+          2508,
+          4636
         ],
         "spawn": [
           620,
@@ -68,13 +68,13 @@
     "name": "Floresta dos Javalis",
     "safe": false,
     "size": [
-      5120,
-      3072
+      1400,
+      1120
     ],
     "color": "#315d32",
     "spawn": [
-      620,
-      2740
+      220,
+      220
     ],
     "npcs": [
       {
@@ -82,8 +82,8 @@
         "role": "quest",
         "quest": "furia_javalis",
         "pos": [
-          760,
-          2620
+          320,
+          210
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       }
@@ -93,24 +93,24 @@
         "label": "Eldoria",
         "target": "city_eldoria",
         "pos": [
-          620,
-          2860
+          210,
+          180
         ],
         "spawn": [
-          1080,
-          1120
+          2508,
+          4636
         ]
       },
       {
         "label": "Caverna",
         "target": "bat_cave",
         "pos": [
-          4800,
-          270
+          1180,
+          940
         ],
         "spawn": [
-          1080,
-          1240
+          120,
+          110
         ],
         "requires_boss_clear": true,
         "boss_enemy": "Rei Javali"
@@ -119,15 +119,15 @@
     "safe_zones": [
       {
         "pos": [
-          620,
-          2860
+          210,
+          180
         ],
         "radius": 190
       },
       {
         "pos": [
-          4800,
-          270
+          1180,
+          940
         ],
         "radius": 175
       }
@@ -135,46 +135,134 @@
     "spawns": [
       {
         "enemy": "Javali Selvagem",
-        "count": 34,
-        "respawn": 6,
+        "count": 5,
+        "respawn": 5,
         "zone": [
-          430,
-          2350,
-          980,
-          500
+          70,
+          80,
+          320,
+          180
         ]
       },
       {
         "enemy": "Lobo Cinzento",
-        "count": 22,
-        "respawn": 10,
+        "count": 4,
+        "respawn": 7,
         "zone": [
-          1040,
-          1840,
-          1180,
-          520
+          420,
+          80,
+          320,
+          180
+        ]
+      },
+      {
+        "enemy": "Javali Selvagem",
+        "count": 4,
+        "respawn": 6,
+        "zone": [
+          100,
+          320,
+          300,
+          200
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 4,
+        "respawn": 9,
+        "zone": [
+          430,
+          300,
+          320,
+          210
         ]
       },
       {
         "enemy": "Javali Bruto",
-        "count": 18,
-        "respawn": 16,
+        "count": 4,
+        "respawn": 13,
         "zone": [
-          2050,
-          1130,
-          1240,
-          560
+          760,
+          120,
+          300,
+          190
         ]
       },
       {
         "enemy": "Lobo Alfa",
-        "count": 12,
+        "count": 4,
+        "respawn": 18,
+        "zone": [
+          980,
+          180,
+          260,
+          190
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 4,
+        "respawn": 15,
+        "zone": [
+          560,
+          560,
+          300,
+          210
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 4,
+        "respawn": 20,
+        "zone": [
+          930,
+          620,
+          260,
+          190
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 4,
+        "respawn": 16,
+        "zone": [
+          120,
+          720,
+          320,
+          190
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 4,
+        "respawn": 10,
+        "zone": [
+          380,
+          760,
+          320,
+          200
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 4,
         "respawn": 22,
         "zone": [
-          3180,
-          610,
+          760,
           860,
-          470
+          300,
+          180
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 4,
+        "respawn": 18,
+        "zone": [
+          1010,
+          830,
+          260,
+          180
         ]
       },
       {
@@ -183,10 +271,10 @@
         "boss": true,
         "respawn": 120,
         "zone": [
-          4240,
-          335,
-          320,
-          240
+          1050,
+          780,
+          220,
+          180
         ]
       }
     ]
@@ -224,8 +312,8 @@
           1300
         ],
         "spawn": [
-          1850,
-          320
+          1160,
+          900
         ]
       },
       {
@@ -262,46 +350,90 @@
     "spawns": [
       {
         "enemy": "Espirito Fraco",
-        "count": 22,
+        "count": 5,
         "respawn": 12,
         "zone": [
+          240,
           760,
-          980,
-          680,
-          270
+          440,
+          180
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 4,
+        "respawn": 14,
+        "zone": [
+          700,
+          960,
+          520,
+          180
         ]
       },
       {
         "enemy": "Aprendiz Corrompido",
-        "count": 15,
-        "respawn": 22,
+        "count": 5,
+        "respawn": 20,
         "zone": [
-          530,
-          710,
-          760,
-          320
+          520,
+          680,
+          540,
+          220
         ]
       },
       {
-        "enemy": "Espectro Negro",
-        "count": 11,
-        "respawn": 32,
+        "enemy": "Aprendiz Corrompido",
+        "count": 5,
+        "respawn": 22,
         "zone": [
-          880,
+          1040,
+          720,
           520,
-          740,
-          320
+          220
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 6,
+        "respawn": 28,
+        "zone": [
+          1080,
+          900,
+          540,
+          220
         ]
       },
       {
         "enemy": "Sentinela Arcano",
-        "count": 8,
-        "respawn": 42,
+        "count": 6,
+        "respawn": 34,
         "zone": [
           1320,
-          330,
-          560,
-          300
+          520,
+          520,
+          220
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 6,
+        "respawn": 32,
+        "zone": [
+          1440,
+          300,
+          460,
+          200
+        ]
+      },
+      {
+        "enemy": "Sentinela Arcano",
+        "count": 6,
+        "respawn": 40,
+        "zone": [
+          1680,
+          220,
+          360,
+          180
         ]
       },
       {
@@ -322,21 +454,21 @@
     "name": "Valdoria Cidade",
     "safe": true,
     "size": [
-      2200,
-      1400
+      1254,
+      1254
     ],
     "color": "#394b63",
     "spawn": [
-      1080,
-      760
+      627,
+      1100
     ],
     "npcs": [
       {
         "name": "Mira, Vendedora de Pets",
         "role": "pet_shop",
         "pos": [
-          560,
-          690
+          320,
+          620
         ],
         "sprite": "res://assets/sprites/npc_custom_4_pixel.png"
       },
@@ -344,8 +476,8 @@
         "name": "Torin, Mestre de Montarias",
         "role": "mount_shop",
         "pos": [
-          1380,
-          690
+          790,
+          620
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       },
@@ -353,8 +485,8 @@
         "name": "Durnan, Forja Rara",
         "role": "rare_forge",
         "pos": [
-          1625,
-          930
+          920,
+          840
         ],
         "sprite": "res://assets/sprites/npc_custom_5_pixel.png"
       },
@@ -362,8 +494,8 @@
         "name": "Liora, Curandeira",
         "role": "healer",
         "pos": [
-          800,
-          930
+          455,
+          840
         ],
         "sprite": "res://assets/sprites/npc_custom_3_pixel.png"
       },
@@ -371,8 +503,8 @@
         "name": "Varek, Mercador",
         "role": "shop",
         "pos": [
-          1160,
-          935
+          665,
+          840
         ],
         "sprite": "res://assets/sprites/npc_custom_2_pixel.png"
       }
@@ -382,20 +514,20 @@
         "label": "Ruinas",
         "target": "arcane_ruins",
         "pos": [
-          1080,
-          1180
+          627,
+          1138
         ],
         "spawn": [
-          1850,
-          320
+          1160,
+          900
         ]
       },
       {
         "label": "Passagem Alta",
         "target": "highland_pass",
         "pos": [
-          1900,
-          240
+          627,
+          82
         ],
         "spawn": [
           1080,
@@ -645,13 +777,13 @@
     "name": "Caverna dos Morcegos",
     "safe": false,
     "size": [
-      2200,
-      1400
+      1400,
+      1120
     ],
     "color": "#252835",
     "spawn": [
-      1080,
-      1240
+      120,
+      110
     ],
     "npcs": [
       {
@@ -659,8 +791,8 @@
         "role": "quest",
         "quest": "sombras_caverna",
         "pos": [
-          1030,
-          1130
+          150,
+          170
         ],
         "sprite": "res://assets/sprites/npc_custom_2_pixel.png"
       }
@@ -670,24 +802,24 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          1080,
-          1300
+          120,
+          110
         ],
         "spawn": [
-          4560,
-          440
+          1180,
+          940
         ]
       },
       {
         "label": "Ruinas",
         "target": "arcane_ruins",
         "pos": [
-          1900,
-          240
+          1160,
+          900
         ],
         "spawn": [
           1080,
-          1240
+          1300
         ],
         "requires_boss_clear": true,
         "boss_enemy": "Matriarca Venenosa"
@@ -696,62 +828,106 @@
     "safe_zones": [
       {
         "pos": [
-          1080,
-          1300
+          120,
+          110
         ],
-        "radius": 160
+        "radius": 180
       },
       {
         "pos": [
-          1900,
-          240
+          1160,
+          900
         ],
-        "radius": 160
+        "radius": 180
       }
     ],
     "spawns": [
       {
         "enemy": "Morcego Pequeno",
-        "count": 24,
+        "count": 4,
         "respawn": 9,
         "zone": [
-          760,
-          990,
-          680,
-          260
+          80,
+          930,
+          420,
+          160
         ]
       },
       {
         "enemy": "Aranha Venenosa",
-        "count": 17,
+        "count": 5,
         "respawn": 16,
         "zone": [
-          500,
-          700,
-          720,
-          330
+          440,
+          760,
+          460,
+          220
         ]
       },
       {
         "enemy": "Morcego Sombrio",
-        "count": 12,
+        "count": 6,
         "respawn": 26,
         "zone": [
-          1120,
+          980,
           500,
-          650,
-          300
+          540,
+          220
         ]
       },
       {
         "enemy": "Aranha Rainha",
         "count": 5,
-        "respawn": 36,
+        "respawn": 38,
         "zone": [
-          1450,
-          300,
-          470,
-          260
+          1420,
+          320,
+          460,
+          200
+        ]
+      },
+      {
+        "enemy": "Morcego Pequeno",
+        "count": 4,
+        "respawn": 10,
+        "zone": [
+          560,
+          860,
+          420,
+          160
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 5,
+        "respawn": 18,
+        "zone": [
+          920,
+          620,
+          460,
+          200
+        ]
+      },
+      {
+        "enemy": "Morcego Sombrio",
+        "count": 5,
+        "respawn": 28,
+        "zone": [
+          1250,
+          820,
+          520,
+          180
+        ]
+      },
+      {
+        "enemy": "Aranha Rainha",
+        "count": 5,
+        "respawn": 40,
+        "zone": [
+          1560,
+          520,
+          420,
+          180
         ]
       },
       {
@@ -760,10 +936,10 @@
         "boss": true,
         "respawn": 150,
         "zone": [
-          1780,
-          245,
-          220,
-          180
+          1060,
+          820,
+          260,
+          190
         ]
       }
     ]

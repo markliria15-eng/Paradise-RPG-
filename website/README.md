@@ -19,15 +19,13 @@ https://SEU_USUARIO.github.io/NOME_DO_REPOSITORIO/
 
 ## Como trocar links dos botoes
 
-O botao Android principal do site aponta para o APK publicado junto com o GitHub Pages:
+O botao Android principal do site aponta para o APK completo publicado na ultima GitHub Release:
 
 ```text
-./downloads/Paradise-RPG.apk
+https://github.com/markliria15-eng/Paradise-RPG-/releases/latest/download/Paradise-RPG.apk
 ```
 
-Como o arquivo fica dentro de `website/downloads`, o GitHub Pages entrega o APK direto no celular sem depender de outra URL.
-
-Se quiser manter um fallback online, o site tambem oferece:
+O site tambem oferece um fallback online via Render:
 
 ```text
 https://paradise-rpg-server.onrender.com/download/android
@@ -52,13 +50,13 @@ Exemplo:
 2. Crie uma nova Release no GitHub, por exemplo `v0.1.1`.
 3. Envie APK, ZIP Windows e outros arquivos.
 4. Copie os links dos arquivos.
-5. Para Android, mantenha o APK em `website/downloads/Paradise-RPG.apk` ou cole o link do APK em `ANDROID_APK_URL` no Render.
+5. Para Android, envie o asset como `Paradise-RPG.apk` na Release mais nova.
 6. Para Windows, atualize `website/index.html` com o link da ultima Release.
 7. Faca commit e push se editar o site.
 
 ## Como conectar aos arquivos do GitHub Releases
 
-O site possui o APK principal em `website/downloads/Paradise-RPG.apk`.
+O site usa o APK principal da ultima GitHub Release.
 O workflow `.github/workflows/release-android.yml` exporta o APK completo do Godot e publica no GitHub Releases quando uma tag `v*` e enviada.
 O Render ainda pode ser usado como fallback online via `ANDROID_APK_URL`.
 
@@ -67,7 +65,7 @@ Para Windows, o site aponta para a pagina da ultima Release no GitHub.
 Formato comum de link:
 
 ```text
-https://github.com/USUARIO/REPOSITORIO/releases/latest
+https://github.com/USUARIO/REPOSITORIO/releases/latest/download/Paradise-RPG.apk
 ```
 
-GitHub Pages hospeda o site estatico, o APK direto em `website/downloads` e, se existir, a versao web do client em `website/game`.
+GitHub Pages hospeda o site estatico e, se existir, a versao web do client em `website/game`. O APK completo fica no GitHub Releases.

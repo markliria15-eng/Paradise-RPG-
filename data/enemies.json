@@ -122,10 +122,10 @@
     ]
   },
   "Javali Bruto": {
-    "level": 6,
+    "level": 10,
     "level_range": [
-      6,
-      10
+      10,
+      14
     ],
     "vida": 95,
     "ataque": 14,
@@ -273,7 +273,7 @@
     ]
   },
   "Lobo Alfa": {
-    "level": 8,
+    "level": 13,
     "vida": 120,
     "ataque": 16,
     "defesa": 5,
@@ -328,20 +328,20 @@
     ]
   },
   "Espirito Fraco": {
-    "level": 1,
+    "level": 2,
     "level_range": [
-      1,
-      5
+      2,
+      6
     ],
-    "vida": 55,
-    "ataque": 9,
-    "defesa": 1,
-    "xp": 30,
+    "vida": 76,
+    "ataque": 13,
+    "defesa": 3,
+    "xp": 50,
     "ouro": [
       5,
       10
     ],
-    "speed": 85,
+    "speed": 88,
     "color": "#9ac8ff",
     "magical": true,
     "drops": [
@@ -364,20 +364,20 @@
     ]
   },
   "Aprendiz Corrompido": {
-    "level": 5,
+    "level": 22,
     "level_range": [
-      5,
-      10
+      22,
+      27
     ],
-    "vida": 85,
-    "ataque": 13,
-    "defesa": 3,
-    "xp": 50,
+    "vida": 118,
+    "ataque": 22,
+    "defesa": 7,
+    "xp": 92,
     "ouro": [
-      16,
-      28
+      20,
+      34
     ],
-    "speed": 92,
+    "speed": 98,
     "color": "#7b4acb",
     "magical": true,
     "drops": [
@@ -404,16 +404,20 @@
     ]
   },
   "Espectro Arcano": {
-    "level": 11,
-    "vida": 110,
-    "ataque": 17,
-    "defesa": 4,
-    "xp": 78,
-    "ouro": [
-      24,
-      38
+    "level": 28,
+    "level_range": [
+      28,
+      33
     ],
-    "speed": 96,
+    "vida": 175,
+    "ataque": 29,
+    "defesa": 9,
+    "xp": 142,
+    "ouro": [
+      30,
+      46
+    ],
+    "speed": 104,
     "color": "#87c2f6",
     "magical": true,
     "drops": [
@@ -436,16 +440,20 @@
     ]
   },
   "Sentinela Arcano": {
-    "level": 12,
-    "vida": 145,
-    "ataque": 21,
-    "defesa": 6,
-    "xp": 95,
-    "ouro": [
-      34,
-      52
+    "level": 31,
+    "level_range": [
+      31,
+      36
     ],
-    "speed": 102,
+    "vida": 228,
+    "ataque": 38,
+    "defesa": 13,
+    "xp": 192,
+    "ouro": [
+      42,
+      64
+    ],
+    "speed": 110,
     "color": "#6e4bc6",
     "magical": true,
     "drops": [
@@ -468,20 +476,20 @@
     ]
   },
   "Morcego Pequeno": {
-    "level": 6,
+    "level": 10,
     "level_range": [
-      6,
-      10
+      10,
+      14
     ],
-    "vida": 35,
-    "ataque": 6,
-    "defesa": 1,
-    "xp": 18,
+    "vida": 42,
+    "ataque": 8,
+    "defesa": 2,
+    "xp": 28,
     "ouro": [
       2,
       6
     ],
-    "speed": 155,
+    "speed": 160,
     "color": "#4b4860",
     "drops": [
       {
@@ -503,22 +511,22 @@
     ]
   },
   "Aranha Venenosa": {
-    "level": 8,
+    "level": 13,
     "level_range": [
-      8,
-      13
+      13,
+      18
     ],
-    "vida": 65,
-    "ataque": 8,
-    "defesa": 2,
-    "xp": 40,
+    "vida": 78,
+    "ataque": 11,
+    "defesa": 3,
+    "xp": 56,
     "ouro": [
       7,
       14
     ],
-    "speed": 105,
+    "speed": 110,
     "color": "#355b3d",
-    "poison_chance": 0.1,
+    "poison_chance": 0.12,
     "drops": [
       {
         "item": "Teia Pegajosa",
@@ -551,16 +559,20 @@
     ]
   },
   "Morcego Sombrio": {
-    "level": 10,
-    "vida": 90,
-    "ataque": 13,
-    "defesa": 3,
-    "xp": 68,
-    "ouro": [
+    "level": 20,
+    "level_range": [
       20,
-      34
+      25
     ],
-    "speed": 175,
+    "vida": 140,
+    "ataque": 20,
+    "defesa": 6,
+    "xp": 115,
+    "ouro": [
+      24,
+      40
+    ],
+    "speed": 186,
     "color": "#433f57",
     "poison_chance": 0.08,
     "drops": [
@@ -583,16 +595,20 @@
     ]
   },
   "Aranha Rainha": {
-    "level": 13,
-    "vida": 160,
-    "ataque": 20,
-    "defesa": 7,
-    "xp": 110,
-    "ouro": [
-      38,
-      58
+    "level": 24,
+    "level_range": [
+      24,
+      29
     ],
-    "speed": 115,
+    "vida": 220,
+    "ataque": 34,
+    "defesa": 12,
+    "xp": 190,
+    "ouro": [
+      46,
+      68
+    ],
+    "speed": 122,
     "color": "#2f5037",
     "poison_chance": 0.22,
     "drops": [
@@ -623,17 +639,17 @@
     ]
   },
   "Matriarca Venenosa": {
-    "level": 18,
+    "level": 26,
     "boss": true,
-    "vida": 720,
-    "ataque": 38,
-    "defesa": 15,
-    "xp": 520,
+    "vida": 1080,
+    "ataque": 54,
+    "defesa": 22,
+    "xp": 920,
     "ouro": [
-      160,
-      240
+      190,
+      280
     ],
-    "speed": 110,
+    "speed": 118,
     "color": "#23482f",
     "poison_chance": 0.35,
     "drops": [
@@ -1017,17 +1033,21 @@
     ]
   },
   "Arquimago Corrompido": {
-    "level": 26,
-    "boss": true,
-    "vida": 1120,
-    "ataque": 58,
-    "defesa": 25,
-    "xp": 980,
-    "ouro": [
-      300,
-      460
+    "level": 38,
+    "level_range": [
+      38,
+      38
     ],
-    "speed": 98,
+    "boss": true,
+    "vida": 1580,
+    "ataque": 82,
+    "defesa": 34,
+    "xp": 1510,
+    "ouro": [
+      340,
+      520
+    ],
+    "speed": 104,
     "color": "#8b4dff",
     "magical": true,
     "drops": [

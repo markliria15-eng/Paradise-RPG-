@@ -17,6 +17,7 @@ class PlayerManager {
       hp: payload.character.hp,
       mana: payload.character.mana,
       gold: payload.character.gold,
+      diamonds: payload.character.diamantes || payload.character.diamonds || 0,
       map: payload.character.map,
       pos: { x: payload.character.pos_x, y: payload.character.pos_y },
       skills: payload.character.skills || null,

@@ -124,6 +124,7 @@ class WorldService {
       level: p.level,
       hp: p.hp,
       mana: p.mana,
+      diamonds: p.diamonds || 0,
       map: p.map,
       pos: p.pos,
       guildId: p.guildId
@@ -194,6 +195,7 @@ class WorldService {
     player.hp = this._safeInt(state.hp, player.hp, 0, 999999);
     player.mana = this._safeInt(state.mana, player.mana, 0, 999999);
     player.gold = this._safeInt(state.gold, player.gold, 0, 999999999);
+    player.diamonds = this._safeInt(state.diamonds ?? state.diamantes, player.diamonds || 0, 0, 999999999);
     player.map = mapId;
     player.pos = this.mapManager.clampPosition(mapId, state.pos || player.pos);
     const skills = this._sanitizeSkills(state.skills);

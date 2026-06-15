@@ -5,6 +5,11 @@ var npc_name := ""
 var role := ""
 var quest_id := ""
 var sprite_override := ""
+var _idle_breath_frames: PackedInt32Array = PackedInt32Array([0, 1, 2, 3, 2, 1])
+var _idle_breath_index := 0
+var _idle_breath_timer := 0.0
+var _idle_breath_enabled := false
+var _idle_breath_frame_time := 0.20
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
@@ -19,7 +24,24 @@ func setup(data: Dictionary) -> void:
 	var sprite_path := sprite_override if not sprite_override.is_empty() else _sprite_path(role)
 	sprite.texture = load(sprite_path)
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	_idle_breath_enabled = sprite_path.ends_with("_idle_4f_128.png")
+	_idle_breath_index = 0
+	_idle_breath_timer = 0.0
+	if _idle_breath_enabled and sprite.texture != null:
+		sprite.hframes = 4
+		sprite.vframes = 1
+		sprite.frame = 0
 	_fit_sprite_to_npc()
+
+func _process(delta: float) -> void:
+	if not _idle_breath_enabled or sprite == null or sprite.texture == null:
+		return
+	_idle_breath_timer += delta
+	if _idle_breath_timer < _idle_breath_frame_time:
+		return
+	_idle_breath_timer = 0.0
+	_idle_breath_index = (_idle_breath_index + 1) % _idle_breath_frames.size()
+	sprite.frame = _idle_breath_frames[_idle_breath_index]
 
 func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:

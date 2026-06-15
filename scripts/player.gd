@@ -18,6 +18,7 @@ var character_name := "Aventureiro"
 var level := 1
 var xp := 0
 var ouro := 0
+var diamantes := 0
 var vida := 100
 var vida_max := 100
 var mana := 50
@@ -131,15 +132,19 @@ func _physics_process(delta: float) -> void:
 		if int(poison_timer * 10) % 10 == 0:
 			_take_raw_damage(1)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		basic_attack()
+		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("skill_1"):
 		use_skill(0)
+		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("skill_2"):
 		use_skill(1)
+		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("skill_3"):
 		use_skill(2)
+		get_viewport().set_input_as_handled()
 
 func basic_attack() -> void:
 	if not can_attack:
@@ -450,7 +455,7 @@ func revive_in_city() -> void:
 
 func to_save() -> Dictionary:
 	return {
-		"name": character_name, "class": class_name_selected, "level": level, "xp": xp, "ouro": ouro,
+		"name": character_name, "class": class_name_selected, "level": level, "xp": xp, "ouro": ouro, "diamantes": diamantes,
 		"vida": vida, "mana": mana, "vida_max": vida_max, "mana_max": mana_max,
 		"ataque": ataque, "ataque_distancia": ataque_distancia, "defesa": defesa, "raw_ataque": raw_ataque, "raw_defesa": raw_defesa, "velocidade_ataque": velocidade_ataque,
 		"velocidade_movimento": velocidade_movimento, "xp_ataque": xp_ataque,
@@ -464,6 +469,7 @@ func from_save(data: Dictionary, database: ItemDatabase, class_db: ClassDatabase
 	level = int(data.get("level", level))
 	xp = int(data.get("xp", xp))
 	ouro = int(data.get("ouro", ouro))
+	diamantes = int(data.get("diamantes", diamantes))
 	raw_ataque = int(data.get("raw_ataque", data.get("ataque", ataque)))
 	raw_defesa = int(data.get("raw_defesa", data.get("defesa", defesa)))
 	velocidade_ataque = float(data.get("velocidade_ataque", velocidade_ataque))

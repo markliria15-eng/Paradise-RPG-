@@ -9,6 +9,7 @@ class SaveManager {
       hp: playerState.hp,
       mana: playerState.mana,
       gold: playerState.gold,
+      diamantes: playerState.diamonds ?? playerState.diamantes ?? 0,
       map: playerState.map,
       pos: playerState.pos
     });

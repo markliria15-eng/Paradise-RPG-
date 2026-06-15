@@ -32,6 +32,7 @@ function withSkills(row) {
     hp: row.hp,
     mana: row.mana,
     gold: row.gold,
+    diamantes: row.diamantes,
     map: row.map,
     pos_x: row.pos_x,
     pos_y: row.pos_y
@@ -45,7 +46,7 @@ async function createCharacter({ accountId, name, className }) {
   const sql = `
     INSERT INTO characters (account_id, name, class, hp, mana)
     VALUES ($1, $2, $3, $4, $5)
-    RETURNING id, account_id, name, class, level, xp, hp, mana, gold, map, pos_x, pos_y
+    RETURNING id, account_id, name, class, level, xp, hp, mana, gold, diamantes, map, pos_x, pos_y
   `;
   const result = await pool.query(sql, [accountId, name, className, start.hp, start.mana]);
   const character = result.rows[0];
@@ -56,7 +57,7 @@ async function createCharacter({ accountId, name, className }) {
 
 async function findById(characterId) {
   const result = await pool.query(
-    `SELECT c.id, c.account_id, c.name, c.class, c.level, c.xp, c.hp, c.mana, c.gold, c.map, c.pos_x, c.pos_y,
+    `SELECT c.id, c.account_id, c.name, c.class, c.level, c.xp, c.hp, c.mana, c.gold, c.diamantes, c.map, c.pos_x, c.pos_y,
             s.fighting_level, s.fighting_xp, s.distance_level, s.distance_xp,
             s.magic_level, s.magic_xp, s.protection_level, s.protection_xp
      FROM characters c
@@ -74,7 +75,7 @@ async function findByName(name) {
 
 async function listByAccount(accountId) {
   const result = await pool.query(
-    `SELECT c.id, c.account_id, c.name, c.class, c.level, c.xp, c.hp, c.mana, c.gold, c.map, c.pos_x, c.pos_y,
+    `SELECT c.id, c.account_id, c.name, c.class, c.level, c.xp, c.hp, c.mana, c.gold, c.diamantes, c.map, c.pos_x, c.pos_y,
             s.fighting_level, s.fighting_xp, s.distance_level, s.distance_xp,
             s.magic_level, s.magic_xp, s.protection_level, s.protection_xp
      FROM characters c
@@ -89,7 +90,7 @@ async function listByAccount(accountId) {
 async function upsertState(state) {
   const sql = `
     UPDATE characters
-    SET level = $2, xp = $3, hp = $4, mana = $5, gold = $6, map = $7, pos_x = $8, pos_y = $9, updated_at = NOW()
+    SET level = $2, xp = $3, hp = $4, mana = $5, gold = $6, diamantes = $7, map = $8, pos_x = $9, pos_y = $10, updated_at = NOW()
     WHERE id = $1
   `;
   await pool.query(sql, [
@@ -99,6 +100,7 @@ async function upsertState(state) {
     state.hp,
     state.mana,
     state.gold,
+    state.diamantes ?? state.diamonds ?? 0,
     state.map,
     state.pos.x,
     state.pos.y

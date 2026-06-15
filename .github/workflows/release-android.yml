@@ -127,8 +127,11 @@ jobs:
           mkdir -p build/android
           mkdir -p release-assets
           .ci/godot/godot --headless --path . --export-release "Android" "release-assets/paradise-rpg-android-${TAG}.apk"
+          cp "release-assets/paradise-rpg-android-${TAG}.apk" "release-assets/Paradise-RPG.apk"
           "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose "release-assets/paradise-rpg-android-${TAG}.apk"
+          "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose "release-assets/Paradise-RPG.apk"
           sha256sum "release-assets/paradise-rpg-android-${TAG}.apk" > "release-assets/paradise-rpg-android-${TAG}.sha256.txt"
+          sha256sum "release-assets/Paradise-RPG.apk" > "release-assets/Paradise-RPG.sha256.txt"
 
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2

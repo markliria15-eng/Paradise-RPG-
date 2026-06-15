@@ -89,6 +89,23 @@ async function getCharacterGold(characterId) {
   return result.rows[0] || null;
 }
 
+async function addDiamantes(characterId, amount) {
+  await pool.query("UPDATE characters SET diamantes = diamantes + $2, updated_at = NOW() WHERE id = $1", [characterId, amount]);
+}
+
+async function removeDiamantes(characterId, amount) {
+  const result = await pool.query(
+    "UPDATE characters SET diamantes = diamantes - $2, updated_at = NOW() WHERE id = $1 AND diamantes >= $2 RETURNING id, diamantes",
+    [characterId, amount]
+  );
+  return result.rows[0] || null;
+}
+
+async function getCharacterDiamantes(characterId) {
+  const result = await pool.query("SELECT id, diamantes FROM characters WHERE id = $1", [characterId]);
+  return result.rows[0] || null;
+}
+
 async function getCharacterInventoryItem(characterId, itemId) {
   const result = await pool.query(
     "SELECT id, amount FROM inventory WHERE character_id = $1 AND item_id = $2 LIMIT 1",
@@ -425,6 +442,9 @@ module.exports = {
   addGold,
   removeGold,
   getCharacterGold,
+  addDiamantes,
+  removeDiamantes,
+  getCharacterDiamantes,
   getCharacterInventoryItem,
   addInventoryItem,
   removeInventoryItem,
