@@ -19,7 +19,15 @@ https://SEU_USUARIO.github.io/NOME_DO_REPOSITORIO/
 
 ## Como trocar links dos botoes
 
-O botao Android do site aponta para:
+O botao Android principal do site aponta para o APK publicado junto com o GitHub Pages:
+
+```text
+./downloads/Paradise-RPG.apk
+```
+
+Como o arquivo fica dentro de `website/downloads`, o GitHub Pages entrega o APK direto no celular sem depender de outra URL.
+
+Se quiser manter um fallback online, o site tambem oferece:
 
 ```text
 https://paradise-rpg-server.onrender.com/download/android
@@ -28,12 +36,12 @@ https://paradise-rpg-server.onrender.com/download/android
 Esse endpoint do Render redireciona para a URL configurada em `ANDROID_APK_URL`.
 Para trocar o APK sem editar o site, altere essa variavel no Render.
 
-O link Windows ainda pode ser trocado no HTML pelo link da Release:
+O link Windows leva para a pagina da ultima Release:
 
 Exemplo:
 
 ```html
-<a class="button secondary" href="https://github.com/usuario/paradise-rpg/releases/download/v0.1.0/paradise-rpg-windows-v0.1.0.zip">
+<a class="button secondary" href="https://github.com/usuario/paradise-rpg/releases/latest">
   Baixar para Windows
 </a>
 ```
@@ -44,22 +52,22 @@ Exemplo:
 2. Crie uma nova Release no GitHub, por exemplo `v0.1.1`.
 3. Envie APK, ZIP Windows e outros arquivos.
 4. Copie os links dos arquivos.
-5. Para Android, cole o link do APK em `ANDROID_APK_URL` no Render.
-6. Para Windows, atualize `website/index.html`.
+5. Para Android, mantenha o APK em `website/downloads/Paradise-RPG.apk` ou cole o link do APK em `ANDROID_APK_URL` no Render.
+6. Para Windows, atualize `website/index.html` com o link da ultima Release.
 7. Faca commit e push se editar o site.
 
 ## Como conectar aos arquivos do GitHub Releases
 
-O site tambem possui um APK temporario em `website/downloads/Paradise-RPG.apk`.
+O site possui o APK principal em `website/downloads/Paradise-RPG.apk`.
 O workflow `.github/workflows/release-android.yml` exporta o APK completo do Godot e publica no GitHub Releases quando uma tag `v*` e enviada.
-O Render usa o asset do GitHub Releases como `ANDROID_APK_URL` padrao.
+O Render ainda pode ser usado como fallback online via `ANDROID_APK_URL`.
 
-Para versoes oficiais, os arquivos de download devem ficar no GitHub Releases, nao dentro do GitHub Pages.
+Para Windows, o site aponta para a pagina da ultima Release no GitHub.
 
 Formato comum de link:
 
 ```text
-https://github.com/USUARIO/REPOSITORIO/releases/download/v0.1.0/NOME_DO_ARQUIVO.apk
+https://github.com/USUARIO/REPOSITORIO/releases/latest
 ```
 
-GitHub Pages hospeda somente o site estatico e, se existir, a versao web do client em `website/game`.
+GitHub Pages hospeda o site estatico, o APK direto em `website/downloads` e, se existir, a versao web do client em `website/game`.
