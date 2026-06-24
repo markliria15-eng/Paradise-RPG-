@@ -41,6 +41,10 @@ func _sprite_path(name_value: String) -> String:
 		return "res://assets/sprites/drop_potion.png"
 	if lower.contains("rubi") or lower.contains("safira") or lower.contains("esmeralda"):
 		return "res://assets/sprites/drop_gem.png"
+	if lower.contains("erva") or lower.contains("folha") or lower.contains("flor"):
+		if lower.contains("vermelha") or lower.contains("curativa"):
+			return "res://assets/sprites/decor_flower_patch.png"
+		return "res://assets/sprites/decor_leaf_patch.png"
 	if lower.contains("capuz") or lower.contains("peitoral") or lower.contains("luvas") or lower.contains("botas"):
 		return "res://assets/sprites/drop_bag.png"
 	if lower.contains("ferro"):

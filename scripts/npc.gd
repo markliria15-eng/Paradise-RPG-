@@ -34,6 +34,7 @@ func setup(data: Dictionary) -> void:
 	_fit_sprite_to_npc()
 
 func _process(delta: float) -> void:
+	z_index = clampi(int(global_position.y), -1024, 1024)
 	if not _idle_breath_enabled or sprite == null or sprite.texture == null:
 		return
 	_idle_breath_timer += delta
@@ -47,16 +48,16 @@ func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:
 		return
 	_ensure_shadow()
-	var target_height := 48.0
+	var target_height := 44.0
 	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 	var sprite_scale: float = target_height / texture_height
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	# Ajusta para manter os pes no "chao" do NPC.
-	sprite.position = Vector2(0, -16)
-	label.offset_left = -96
-	label.offset_right = 96
-	label.offset_top = -66
-	label.offset_bottom = -46
+	sprite.position = Vector2(0, -14)
+	label.offset_left = -92
+	label.offset_right = 92
+	label.offset_top = -64
+	label.offset_bottom = -44
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

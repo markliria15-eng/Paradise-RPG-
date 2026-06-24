@@ -109,6 +109,24 @@
     "description": "Couro firme usado em armaduras intermediarias.",
     "icon": "res://assets/sprites/drop_material.png"
   },
+  "Erva Curativa": {
+    "id": "healing_herb",
+    "type": "material",
+    "description": "Uma erva comum das clareiras da floresta.",
+    "icon": "res://assets/sprites/decor_leaf_patch.png"
+  },
+  "Erva Vermelha": {
+    "id": "red_herb",
+    "type": "material",
+    "description": "Erva usada em receitas de cura e alquimia.",
+    "icon": "res://assets/sprites/decor_flower_patch.png"
+  },
+  "Folha da Floresta": {
+    "id": "forest_leaf",
+    "type": "material",
+    "description": "Folha leve usada em alquimia inicial.",
+    "icon": "res://assets/sprites/decor_leaf_patch.png"
+  },
   "Aco Negro": {
     "id": "black_steel",
     "type": "material",
@@ -2122,5 +2140,69 @@
     },
     "icon": "res://assets/armor_sets/crystal/crystal_boot_r.png",
     "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Fungo Luminoso": {
+    "id": "glowing_fungus",
+    "name": "Fungo Luminoso",
+    "type": "material",
+    "rarity": "common",
+    "description": "Fungo bioluminescente colhido nas entradas da caverna.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Erva de Caverna": {
+    "id": "cave_herb",
+    "name": "Erva de Caverna",
+    "type": "material",
+    "rarity": "common",
+    "description": "Erva resistente usada em pocoes subterraneas.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Minerio Bruto": {
+    "id": "raw_ore",
+    "name": "Minerio Bruto",
+    "type": "material",
+    "rarity": "common",
+    "description": "Minerio recem-extraido das paredes da caverna.",
+    "icon": "res://assets/sprites/drop_ore.png"
+  },
+  "Cristal Roxo": {
+    "id": "purple_crystal",
+    "name": "Cristal Roxo",
+    "type": "material",
+    "rarity": "uncommon",
+    "description": "Cristal profundo com energia instavel.",
+    "icon": "res://assets/sprites/drop_gem.png"
+  },
+  "Musgo Medicinal": {
+    "id": "medicinal_moss",
+    "name": "Musgo Medicinal",
+    "type": "material",
+    "rarity": "common",
+    "description": "Musgo umido usado por alquimistas e curandeiros.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Flor Medicinal": {
+    "id": "medicinal_flower",
+    "type": "material",
+    "description": "Flor usada em receitas de cura da floresta.",
+    "icon": "res://assets/sprites/decor_flower_patch.png"
+  },
+  "Cogumelo": {
+    "id": "mushroom",
+    "type": "material",
+    "description": "Cogumelo encontrado em trechos umidos e sombreados.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Planta Rara": {
+    "id": "rare_plant",
+    "type": "material",
+    "description": "Planta rara usada em alquimia e forja avancada.",
+    "icon": "res://assets/sprites/decor_leaf_patch.png"
+  },
+  "Erva Especial": {
+    "id": "special_herb",
+    "type": "material",
+    "description": "Erva de alto valor encontrada no fundo da floresta.",
+    "icon": "res://assets/sprites/decor_flower_patch.png"
   }
 }

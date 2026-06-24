@@ -24,20 +24,25 @@ const SKILL_BUTTON_POSITIONS := [
 	Vector2(972, 532),
 	Vector2(1048, 474)
 ]
-const SKILL_BUTTON_SIZE := Vector2(66, 60)
+const SKILL_BUTTON_SIZE := Vector2(70, 64)
 const QUICK_TOP_BUTTON_POSITIONS := [
 	Vector2(1018, 78),
 	Vector2(1086, 78),
-	Vector2(1154, 78)
+	Vector2(1154, 78),
+	Vector2(1218, 78)
 ]
-const QUICK_TOP_BUTTON_SIZE := Vector2(60, 54)
+const QUICK_TOP_BUTTON_SIZE := Vector2(64, 58)
+const CHAT_PANEL_POS := Vector2(18, 166)
+const CHAT_PANEL_SIZE := Vector2(420, 238)
+const CHAT_MAX_LINES := 60
 const INTERACT_BUTTON_POS := Vector2(1162, 452)
-const INTERACT_BUTTON_SIZE := Vector2(60, 54)
+const INTERACT_BUTTON_SIZE := Vector2(64, 58)
 const DEFAULT_MAP_SIZE := Vector2(2200, 1400)
 const DROP_PICKUP_RADIUS := 128.0
 const DROP_COLLECT_RADIUS := 24.0
 const DROP_MAGNET_SPEED := 460.0
 const SAFE_ZONE_REGEN := 5
+const LIVE_PORTAL_SCENE := preload("res://scenes/portal/live_portal_visual.tscn")
 const BEGINNER_QUESTS := ["tutorial_forest", "tutorial_ruins", "tutorial_cave"]
 const ATTACK_ICON_BY_CLASS := {
 	"Guerreiro": "res://assets/ui/buttons/btn_attack.png",
@@ -65,17 +70,17 @@ const SKILL_ICON_BY_ID := {
 }
 const SIDE_MENU_ICONS := {
 	"Batalha": "res://assets/ui/buttons/btn_attack.png",
-	"Habilidades": "res://assets/ui/skills/skill_protecao.png",
+	"Habilidades": "res://assets/sprites/icon_ui_skills_premium.png",
 	"Equipar": "res://assets/sprites/icon_slot_armor.png",
 	"Roupa": "res://assets/sprites/icon_slot_helmet.png",
-	"Bolsa": "res://assets/ui/buttons/btn_inventory.png",
+	"Bolsa": "res://assets/sprites/icon_ui_bag_premium.png",
 	"Banco": "res://assets/sprites/drop_coin.png",
 	"Mapa": "res://assets/sprites/decor_portal.png",
 	"Shop": "res://assets/sprites/drop_coin.png",
 	"Party": "res://assets/sprites/icon_slot_amulet.png",
 	"Guild": "res://assets/sprites/icon_slot_shield.png",
 	"Rank": "res://assets/sprites/drop_gem.png",
-	"Missoes": "res://assets/ui/buttons/btn_quest.png",
+	"Missoes": "res://assets/sprites/icon_ui_quests_premium.png",
 	"Profissoes": "res://assets/sprites/drop_ore.png",
 	"Crafting": "res://assets/sprites/npc_forge.png",
 	"Pets": "res://assets/sprites/enemy_lobo.png",
@@ -88,7 +93,7 @@ const SIDE_MENU_ICONS := {
 	"HUD": "res://assets/ui/buttons/btn_menu.png",
 	"Wikipedia": "res://assets/ui/buttons/btn_wiki.png",
 	"Zoom": "res://assets/sprites/icon_slot_ring.png",
-	"Deslogar": "res://assets/ui/buttons/btn_close.png"
+	"Deslogar": "res://assets/sprites/icon_menu_close.png"
 }
 const RANK_KEYS := {
 	"Level": "top_level",
@@ -116,7 +121,7 @@ const PET_MOVE_ANIMATION_BY_ASSET := {
 	"fagulha_gelida": "move_float",
 	"morcego_sombrio": "fly"
 }
-const ELDORIA_BACKGROUND_PATH := "res://assets/maps/eldoria/Eldoria_Complete_Background_4x.png"
+const ELDORIA_BACKGROUND_PATH := "res://assets/maps/eldoria/Eldoria_Complete_Background_4x_sharp.png"
 const ELDORIA_MINIMAP_PATH := "res://assets/maps/eldoria/Eldoria_Minimap.png"
 const ELDORIA_SOURCE_SIZE := Vector2(1254, 1254)
 const ELDORIA_BACKGROUND_SCALE := 4.0
@@ -126,13 +131,15 @@ const VALDORIA_MINIMAP_PATH := "res://assets/maps/valdoria/Valdoria_Minimap.png"
 const VALDORIA_SOURCE_SIZE := Vector2(1254, 1254)
 const VALDORIA_WORLD_SIZE := VALDORIA_SOURCE_SIZE
 const FOREST_BACKGROUND_PATH := "res://assets/maps/floresta/floresta_full_map.png"
-const FOREST_MINIMAP_PATH := "res://assets/maps/floresta/floresta_full_map.png"
-const FOREST_CHUNKS_DIR := "res://assets/maps/floresta/chunks"
+const FOREST_MINIMAP_PATH := "res://assets/maps/floresta/floresta_7x7_minimap.png"
+const FOREST_CHUNKS_DIR := "res://assets/maps/floresta/chunks_7x7"
 const FOREST_SOURCE_SIZE := Vector2(1400, 1120)
-const FOREST_CHUNK_SIZE := Vector2(280, 280)
+const FOREST_CHUNK_GRID := Vector2i(7, 7)
+const FOREST_CHUNK_SIZE := Vector2(200, 160)
+const FOREST_FORCE_CHUNKS := true
 const CAVE_BACKGROUND_PATH := "res://assets/maps/caverna/caverna_full_map.png"
 const CAVE_MINIMAP_PATH := "res://assets/maps/caverna/caverna_full_map.png"
-const CAVE_CHUNKS_DIR := "res://assets/maps/caverna/chunks"
+const CAVE_CHUNKS_DIR := "res://assets/maps/caverna/chunks_5x4"
 const CAVE_SOURCE_SIZE := Vector2(1400, 1120)
 const CAVE_CHUNK_SIZE := Vector2(280, 280)
 const HUD_LAYOUT_PATH := "user://hud_layout.json"
@@ -151,6 +158,10 @@ const HUD_MP_BAR_POS := Vector2(70, 79)
 const HUD_XP_BAR_POS := Vector2(70, 120)
 const HUD_LABEL_POS := Vector2(59, 5)
 const HUD_LABEL_SIZE := Vector2(252, 20)
+const HUD_JOYSTICK_DEFAULT_CENTER := Vector2(160, 596)
+const HUD_JOYSTICK_SAFE_MARGIN := Vector2(20, 20)
+const HUD_JOYSTICK_BASE_SIZE := Vector2(172, 172)
+const HUD_JOYSTICK_KNOB_SIZE := Vector2(66, 66)
 const CAMERA_ZOOMS := [0.84, 1.0, 1.16, 1.32]
 
 @onready var world: Node2D = $World
@@ -183,19 +194,23 @@ var side_menu_toggle_button: Button
 var side_menu_visible := false
 var selected_npc: Npc
 var selected_portal: Area2D
+var portal_nodes: Array[Area2D] = []
 var current_target: Enemy
 var regen_timer := 0.0
 var current_map_size := DEFAULT_MAP_SIZE
 var touch_buttons: Array[Button] = []
+var touch_button_callbacks: Dictionary = {}
 var attack_button: Button
 var skill_buttons: Array[Button] = []
 var interact_button: Button
 var inventory_button: Button
 var character_button: Button
 var quests_button: Button
+var chat_button: Button
 var potion_buttons: Dictionary = {}
+var side_menu_buttons: Array[Button] = []
 var touch_move_index := -1
-var touch_move_center := Vector2(132, 586)
+var touch_move_center := Vector2(160, 596)
 var touch_move_radius := 72.0
 var joystick_base: TextureRect
 var joystick_knob: TextureRect
@@ -205,6 +220,8 @@ var player_camera: Camera2D
 var mmo_client: Node
 var online_mode := false
 var remote_players: Dictionary = {}
+var remote_texture_cache: Dictionary = {}
+var remote_walk_frame_cache: Dictionary = {}
 var net_move_accumulator := 0.0
 var online_save_accumulator := 0.0
 var mmo_cache: Dictionary = {}
@@ -224,6 +241,15 @@ var pet_allowed_target: Enemy
 var companion_anim_time := 0.0
 var pet_animation_cache: Dictionary = {}
 var pet_animation_key := ""
+var chat_panel: PanelContainer
+var chat_history_scroll: ScrollContainer
+var chat_history_box: VBoxContainer
+var chat_input: LineEdit
+var chat_lines: Array = []
+var chat_panel_visible := false
+var chat_last_sent_channel := ""
+var chat_last_sent_text := ""
+var chat_last_sent_at := 0.0
 var pet_animation_frame := 0
 var pet_animation_timer := 0.0
 var pet_animation_actual_direction := "front"
@@ -231,6 +257,7 @@ var pet_last_direction := "front"
 var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
 var solid_obstacles: Array[Rect2] = []
+var portal_passage_rects: Array[Rect2] = []
 var last_valid_player_position := Vector2.ZERO
 var hud_status_pos := HUD_PANEL_POS
 var hud_status_scale := 1.0
@@ -248,6 +275,7 @@ var hud_zoom_index := 1
 
 func _ready() -> void:
 	randomize()
+	world.y_sort_enabled = true
 	maps = ItemDatabase.load_json("res://data/maps.json")
 	enemies_db = ItemDatabase.load_json("res://data/enemies.json")
 	pet_definitions = _load_json_array("res://data/mmo_pets.json")
@@ -280,8 +308,11 @@ func _process(delta: float) -> void:
 	_update_safe_zone_state()
 	_update_map_exploration()
 	_update_current_target()
+	_update_nearby_portal()
+	_sanitize_game_ui_interaction_state()
 	_collect_nearby_drops(delta)
 	_update_minimap()
+	_update_remote_player_visuals(delta)
 	_update_companion_visuals(delta)
 	_update_pet_combat(delta)
 	_update_hud()
@@ -297,6 +328,8 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player == null:
+		return
+	if chat_input != null and chat_input.has_focus():
 		return
 	if event.is_action_pressed("inventory"):
 		_show_inventory()
@@ -316,6 +349,24 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if player == null:
+		return
+	if chat_panel != null and chat_panel.visible:
+		if event is InputEventScreenTouch:
+			var chat_touch := event as InputEventScreenTouch
+			if chat_touch.pressed and _is_chat_panel_blocked(chat_touch.position):
+				return
+		elif event is InputEventScreenDrag:
+			var chat_drag := event as InputEventScreenDrag
+			if _is_chat_panel_blocked(chat_drag.position):
+				return
+		elif event is InputEventMouseButton:
+			var chat_mouse := event as InputEventMouseButton
+			if chat_mouse.pressed and _is_chat_panel_blocked(chat_mouse.position):
+				return
+		if _is_chat_panel_focused() and (event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouseButton or event is InputEventMouseMotion):
+			return
+	if _handle_touch_ui_event(event):
+		get_viewport().set_input_as_handled()
 		return
 	if _is_ui_locked():
 		if touch_move_index != -1:
@@ -341,6 +392,115 @@ func _input(event: InputEvent) -> void:
 			return
 		if drag.index == touch_move_index:
 			_update_touch_move(drag.position)
+
+func _handle_touch_ui_event(event: InputEvent) -> bool:
+	var pos := Vector2.ZERO
+	var active := false
+	if event is InputEventScreenTouch and event.pressed:
+		pos = (event as InputEventScreenTouch).position
+		active = true
+	elif event is InputEventMouseButton and event.pressed and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
+		pos = (event as InputEventMouseButton).position
+		active = true
+	if not active:
+		return false
+	for button in touch_buttons:
+		if button == null or not is_instance_valid(button) or button.disabled or not button.visible:
+			continue
+		var button_rect := Rect2(button.global_position, button.size)
+		if button_rect.has_point(pos):
+			var callback: Variant = touch_button_callbacks.get(button, Callable())
+			if callback is Callable and (callback as Callable).is_valid():
+				(callback as Callable).call()
+				return true
+	if side_menu_visible and side_menu_panel != null and side_menu_panel.visible:
+		for button in side_menu_buttons:
+			if button != null and is_instance_valid(button):
+				var rect := Rect2(button.global_position, button.size)
+				if rect.has_point(pos):
+					_handle_side_menu(str(button.get_meta("menu_item", button.text)))
+					return true
+	if panel.visible and _is_touch_blocked_by_panel(pos):
+		return false
+	return _activate_tap_controls(pos)
+
+func _update_nearby_portal() -> void:
+	if player == null:
+		selected_portal = null
+		return
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	if tree == null:
+		return
+	var nearest_portal: Area2D = null
+	var nearest_distance := 1.0e12
+	for portal in tree.get_nodes_in_group("portals"):
+		if portal == null or not is_instance_valid(portal):
+			continue
+		var portal_area := portal as Area2D
+		if portal_area == null:
+			continue
+		var distance := player.global_position.distance_to(portal_area.global_position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest_portal = portal_area
+	if nearest_portal != null and nearest_distance <= 170.0:
+		selected_portal = nearest_portal
+	elif selected_portal != null and is_instance_valid(selected_portal):
+		if player.global_position.distance_to(selected_portal.global_position) > 190.0:
+			selected_portal = null
+	else:
+		selected_portal = null
+
+func _sanitize_game_ui_interaction_state() -> void:
+	if selected_npc != null and not is_instance_valid(selected_npc):
+		selected_npc = null
+	if selected_portal != null and not is_instance_valid(selected_portal):
+		selected_portal = null
+	if panel != null and panel.visible:
+		return
+	if panel_blocker != null and panel_blocker.visible:
+		panel_blocker.visible = false
+	if input_guard != null and input_guard.visible and not _is_ui_locked():
+		input_guard.visible = false
+	if not ui_controls_enabled:
+		_set_game_controls_enabled(true)
+	if side_menu_toggle_button != null:
+		side_menu_toggle_button.disabled = false
+		side_menu_toggle_button.mouse_filter = Control.MOUSE_FILTER_STOP
+
+func _activate_tap_controls(pos: Vector2) -> bool:
+	if side_menu_toggle_button != null and Rect2(side_menu_toggle_button.global_position, side_menu_toggle_button.size).has_point(pos):
+		_toggle_side_menu()
+		return true
+	if attack_button != null and Rect2(attack_button.global_position, attack_button.size).has_point(pos):
+		player.basic_attack()
+		return true
+	if interact_button != null and Rect2(interact_button.global_position, interact_button.size).has_point(pos):
+		_interact()
+		return true
+	if inventory_button != null and Rect2(inventory_button.global_position, inventory_button.size).has_point(pos):
+		_show_inventory()
+		return true
+	if character_button != null and Rect2(character_button.global_position, character_button.size).has_point(pos):
+		_show_skills_window()
+		return true
+	if quests_button != null and Rect2(quests_button.global_position, quests_button.size).has_point(pos):
+		_show_quests()
+		return true
+	for i in range(skill_buttons.size()):
+		var skill_btn := skill_buttons[i]
+		if skill_btn != null and Rect2(skill_btn.global_position, skill_btn.size).has_point(pos):
+			player.use_skill(i)
+			return true
+	for item_name in potion_buttons.keys():
+		var entry: Dictionary = potion_buttons[item_name]
+		var button := entry.get("button", null) as Button
+		if button != null and Rect2(button.global_position, button.size).has_point(pos):
+			_use_potion_item(str(entry.get("item", item_name)))
+			return true
+	return false
 
 func _is_ui_locked() -> bool:
 	return Time.get_ticks_msec() < int(ui_input_lock_until * 1000.0)
@@ -573,7 +733,20 @@ func _on_mmo_world_message(payload: Dictionary) -> void:
 		"entity_hp_sync":
 			_update_remote_hp(int(payload.get("characterId", 0)), int(payload.get("hp", 0)))
 		"chat_message":
-			_flash("[%s] %s: %s" % [str(payload.get("channel", "global")), str(payload.get("from", "?")), str(payload.get("text", ""))])
+			var channel := str(payload.get("channel", "global"))
+			var from_name := str(payload.get("from", "?"))
+			var text := str(payload.get("text", ""))
+			var is_self := player != null and from_name == str(player.character_name)
+			var now := float(Time.get_ticks_msec()) / 1000.0
+			if is_self and channel == chat_last_sent_channel and text == chat_last_sent_text and now - chat_last_sent_at <= 1.5:
+				_flash("[%s] %s: %s" % [channel, from_name, text])
+				return
+			_append_chat_message(channel, from_name, text)
+			_flash("[%s] %s: %s" % [channel, from_name, text])
+		"chat_error":
+			var chat_error_text := str(payload.get("text", "Erro de chat."))
+			_append_chat_system_message(chat_error_text, Color("#ff6b6b"))
+			_flash_red(chat_error_text)
 		"system_event":
 			_flash(str(payload.get("text", "Evento global.")))
 		"professions_state", "crafting_recipes", "pets_state", "mounts_state", "dungeons_state", "rank_state", "market_state", "vip_state", "achievements_state", "season_state":
@@ -668,13 +841,23 @@ func _spawn_or_update_remote(data: Dictionary) -> void:
 	if remote != null and not is_instance_valid(remote):
 		remote_players.erase(character_id)
 		remote = null
+	var created := false
 	if remote == null:
 		remote = _create_remote_player_node(data)
 		remote_players[character_id] = remote
 		world.add_child(remote)
+		created = true
+	var previous_position := remote.global_position
 	remote.global_position = Vector2(float(data.get("pos", {}).get("x", 0.0)), float(data.get("pos", {}).get("y", 0.0)))
+	remote.z_index = clampi(int(remote.global_position.y), -1024, 1024)
 	var remote_map := str(data.get("map", current_map))
 	remote.set_meta("map", remote_map)
+	remote.set_meta("class_name", str(data.get("className", "Guerreiro")))
+	remote.set_meta("last_position", remote.global_position)
+	remote.set_meta("moving_until", 0.0)
+	if not created and remote.global_position.distance_to(previous_position) > 1.0:
+		remote.set_meta("moving_until", _now_seconds() + 0.28)
+		_update_remote_player_motion(remote, previous_position, remote.global_position)
 	remote.visible = remote_map == current_map
 	var name_label: Label = remote.get_node("NameLabel")
 	name_label.text = "Lv %d %s" % [int(data.get("level", 1)), str(data.get("name", "Jogador"))]
@@ -684,14 +867,15 @@ func _create_remote_player_node(data: Dictionary) -> Node2D:
 	var node := Node2D.new()
 	node.name = "RemotePlayer_%d" % int(data.get("characterId", 0))
 	var sprite := Sprite2D.new()
-	sprite.texture = load(_player_sprite_path_from_class(str(data.get("className", "Guerreiro"))))
+	sprite.name = "Sprite2D"
+	sprite.texture = _remote_load_texture(_player_sprite_path_from_class(str(data.get("className", "Guerreiro"))))
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	if sprite.texture != null:
-		var target_height := 64.0
+		var target_height := 86.0
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 		var sprite_scale: float = target_height / texture_height
 		sprite.scale = Vector2(sprite_scale, sprite_scale)
-		sprite.position = Vector2(0, -18)
+		sprite.position = Vector2(0, -28)
 	else:
 		sprite.scale = Vector2(1.4, 1.4)
 	node.add_child(sprite)
@@ -711,6 +895,14 @@ func _create_remote_player_node(data: Dictionary) -> Node2D:
 	hp.value = 100
 	hp.show_percentage = false
 	node.add_child(hp)
+	node.set_meta("class_name", str(data.get("className", "Guerreiro")))
+	node.set_meta("walk_frame", 0)
+	node.set_meta("walk_time", 0.0)
+	node.set_meta("moving_until", 0.0)
+	node.set_meta("visual_direction", "front")
+	node.set_meta("visual_flip_h", false)
+	node.set_meta("last_position", Vector2.ZERO)
+	_update_remote_player_sprite(node, false)
 	return node
 
 func _update_remote_hp(character_id: int, hp_value: int) -> void:
@@ -722,6 +914,123 @@ func _update_remote_hp(character_id: int, hp_value: int) -> void:
 		return
 	hp.max_value = max(1, hp.max_value)
 	hp.value = clamp(hp_value, 0, hp.max_value)
+
+func _update_remote_player_visuals(delta: float) -> void:
+	var now := _now_seconds()
+	for character_id in remote_players.keys():
+		var remote: Node2D = remote_players[character_id]
+		if remote == null or not is_instance_valid(remote):
+			continue
+		if not remote.visible:
+			continue
+		var moving_until := float(remote.get_meta("moving_until", 0.0))
+		var is_moving := now <= moving_until
+		if is_moving:
+			var walk_time := float(remote.get_meta("walk_time", 0.0)) + delta
+			var remote_class := str(remote.get_meta("class_name", "Guerreiro"))
+			var direction := str(remote.get_meta("visual_direction", "front"))
+			var frame_count := _remote_walk_frame_count(remote_class, direction)
+			if frame_count <= 0:
+				frame_count = 1
+			while walk_time >= 0.085:
+				walk_time -= 0.085
+				var frame := int(remote.get_meta("walk_frame", 0))
+				frame = (frame + 1) % frame_count
+				remote.set_meta("walk_frame", frame)
+			remote.set_meta("walk_time", walk_time)
+			_update_remote_player_sprite(remote, true)
+		else:
+			remote.set_meta("walk_time", 0.0)
+			remote.set_meta("walk_frame", 0)
+			_update_remote_player_sprite(remote, false)
+
+func _update_remote_player_motion(remote: Node2D, previous_position: Vector2, current_position: Vector2) -> void:
+	var delta := current_position - previous_position
+	if delta.length() <= 1.0:
+		return
+	var direction := "front"
+	var flip_h := false
+	if abs(delta.y) > abs(delta.x):
+		direction = "back" if delta.y < 0 else "front"
+	else:
+		direction = "side"
+		flip_h = delta.x > 0
+	remote.set_meta("visual_direction", direction)
+	remote.set_meta("visual_flip_h", flip_h)
+	remote.set_meta("walk_time", 0.0)
+	remote.set_meta("walk_frame", 0)
+	_update_remote_player_sprite(remote, true)
+
+func _update_remote_player_sprite(remote: Node2D, moving: bool) -> void:
+	if remote == null or not is_instance_valid(remote):
+		return
+	var sprite := remote.get_node_or_null("Sprite2D") as Sprite2D
+	if sprite == null:
+		return
+	var remote_class := str(remote.get_meta("class_name", "Guerreiro"))
+	var direction := str(remote.get_meta("visual_direction", "front"))
+	var flip_h := bool(remote.get_meta("visual_flip_h", false))
+	var path := ""
+	if moving:
+		var frames := _remote_walk_frames(remote_class, direction)
+		if not frames.is_empty():
+			var frame_index := int(remote.get_meta("walk_frame", 0)) % frames.size()
+			path = str(frames[frame_index])
+		else:
+			path = _player_direction_sprite_path(remote_class, direction, "_walk_1")
+	if path.is_empty() or not ResourceLoader.exists(path):
+		path = _player_direction_sprite_path(remote_class, direction)
+	if path.is_empty() or not ResourceLoader.exists(path):
+		path = _player_sprite_path_from_class(remote_class)
+	var texture := _remote_load_texture(path)
+	if texture == null:
+		return
+	sprite.texture = texture
+	sprite.flip_h = flip_h
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+
+func _remote_walk_frames(player_class: String, direction: String) -> Array:
+	var key := "%s|%s" % [player_class, direction]
+	if remote_walk_frame_cache.has(key):
+		return remote_walk_frame_cache[key]
+	var frames: Array[String] = []
+	for i in range(1, 13):
+		var path := _player_direction_sprite_path(player_class, direction, "_walk_%d" % i)
+		if ResourceLoader.exists(path):
+			frames.append(path)
+	remote_walk_frame_cache[key] = frames
+	return frames
+
+func _player_direction_sprite_path(player_class: String, direction: String, suffix: String = "") -> String:
+	var prefix := ""
+	match player_class:
+		"Guerreiro":
+			prefix = "guerreiro"
+		"Mago":
+			prefix = "mago"
+		"Arqueiro":
+			prefix = "arqueiro"
+		_:
+			prefix = "guerreiro"
+	if prefix.is_empty():
+		return ""
+	return "res://assets/sprites/player_%s_art_%s%s.png" % [prefix, direction, suffix]
+
+func _remote_walk_frame_count(player_class: String, direction: String) -> int:
+	return _remote_walk_frames(player_class, direction).size()
+
+func _remote_load_texture(path: String) -> Texture2D:
+	if path.is_empty():
+		return null
+	if remote_texture_cache.has(path):
+		return remote_texture_cache[path]
+	var texture := load(path) as Texture2D
+	if texture != null:
+		remote_texture_cache[path] = texture
+	return texture
+
+func _now_seconds() -> float:
+	return float(Time.get_ticks_msec()) / 1000.0
 
 func _remove_remote_player(character_id: int) -> void:
 	var remote: Node2D = remote_players.get(character_id, null)
@@ -901,10 +1210,11 @@ func _build_ui() -> void:
 	input_guard.offset_bottom = 0.0
 	input_guard.mouse_filter = Control.MOUSE_FILTER_STOP
 	input_guard.visible = false
-	input_guard.z_index = 950
+	input_guard.z_index = 899
 	ui.add_child(input_guard)
 	_build_potion_bar()
 	_build_touch_controls()
+	_build_chat_panel()
 	_build_side_menu()
 	_apply_hud_layout_to_touch_controls()
 	_refresh_modal_layout()
@@ -940,14 +1250,16 @@ func _layout_minimap_hud() -> void:
 	_set_control_rect(minimap_canvas, hud_minimap_frame_pos + canvas_offset, canvas_size)
 
 func _apply_hud_layout_to_touch_controls() -> void:
-	touch_move_center = hud_joystick_center
-	touch_move_radius = 72.0 * hud_joystick_scale
-	var joystick_base_size := Vector2(176, 176) * hud_joystick_scale
-	var joystick_knob_size := Vector2(70, 70) * hud_joystick_scale
+	var viewport_size := get_viewport_rect().size
+	var joystick_base_size := HUD_JOYSTICK_BASE_SIZE * hud_joystick_scale
+	var joystick_knob_size := HUD_JOYSTICK_KNOB_SIZE * hud_joystick_scale
+	touch_move_center = _clamp_joystick_center(hud_joystick_center, joystick_base_size, viewport_size)
+	hud_joystick_center = touch_move_center
+	touch_move_radius = 68.0 * hud_joystick_scale
 	_set_control_rect(joystick_base, touch_move_center - joystick_base_size * 0.5, joystick_base_size)
 	_set_control_rect(joystick_knob, touch_move_center - joystick_knob_size * 0.5, joystick_knob_size)
 	_reset_joystick_knob()
-	_set_control_rect(attack_button, hud_attack_pos, Vector2(110, 82) * hud_attack_scale)
+	_set_control_rect(attack_button, hud_attack_pos, Vector2(116, 86) * hud_attack_scale)
 	for i in range(skill_buttons.size()):
 		var button := skill_buttons[i]
 		var pos: Vector2 = SKILL_BUTTON_POSITIONS[i] + hud_skills_offset
@@ -962,7 +1274,7 @@ func _apply_hud_layout_to_touch_controls() -> void:
 		if count_label != null and button != null:
 			count_label.position = Vector2(5, max(16.0, button.size.y - 21.0))
 			count_label.size = Vector2(max(28.0, button.size.x - 10.0), 18)
-	var quick_buttons := [inventory_button, character_button, quests_button]
+	var quick_buttons := [inventory_button, character_button, quests_button, chat_button]
 	for i in range(quick_buttons.size()):
 		_set_control_rect(quick_buttons[i], QUICK_TOP_BUTTON_POSITIONS[i], QUICK_TOP_BUTTON_SIZE)
 	_set_control_rect(interact_button, INTERACT_BUTTON_POS, INTERACT_BUTTON_SIZE)
@@ -1002,7 +1314,7 @@ func _load_hud_layout() -> void:
 	hud_status_scale = clampf(float(data.get("status_scale", 1.0)), 0.72, 1.32)
 	hud_minimap_frame_pos = _vector2_from_value(data.get("minimap_pos", []), MINIMAP_FRAME_POS)
 	hud_minimap_scale = clampf(float(data.get("minimap_scale", 1.0)), 0.55, 1.55)
-	hud_joystick_center = _vector2_from_value(data.get("joystick_center", []), Vector2(132, 586))
+	hud_joystick_center = _vector2_from_value(data.get("joystick_center", []), HUD_JOYSTICK_DEFAULT_CENTER)
 	touch_move_center = hud_joystick_center
 	hud_joystick_scale = clampf(float(data.get("joystick_scale", 1.0)), 0.65, 1.55)
 	hud_attack_pos = _vector2_from_value(data.get("attack_pos", []), Vector2(1110, 586))
@@ -1050,8 +1362,8 @@ func _reset_hud_layout() -> void:
 	hud_status_scale = 1.0
 	hud_minimap_frame_pos = MINIMAP_FRAME_POS
 	hud_minimap_scale = 1.0
-	hud_joystick_center = Vector2(132, 586)
-	hud_joystick_scale = 1.0
+	hud_joystick_center = HUD_JOYSTICK_DEFAULT_CENTER
+	hud_joystick_scale = 0.92
 	hud_attack_pos = Vector2(1110, 586)
 	hud_attack_scale = 1.0
 	hud_skills_offset = Vector2.ZERO
@@ -1080,6 +1392,8 @@ func _build_potion_bar() -> void:
 		button.add_theme_font_size_override("font_size", 13)
 		button.icon = load(str(slot["icon"]))
 		button.expand_icon = true
+		button.mouse_filter = Control.MOUSE_FILTER_STOP
+		button.focus_mode = Control.FOCUS_NONE
 		_style_potion_button(button)
 		var count_label := Label.new()
 		count_label.position = Vector2(5, 37)
@@ -1104,7 +1418,7 @@ func _style_potion_button(button: Button) -> void:
 
 func _build_touch_controls() -> void:
 	_build_joystick()
-	attack_button = _make_tap_button("ATK", hud_attack_pos, Vector2(110, 82), func() -> void:
+	attack_button = _make_tap_button("ATK", hud_attack_pos, Vector2(116, 86), func() -> void:
 		if player != null:
 			player.basic_attack()
 	)
@@ -1132,9 +1446,11 @@ func _build_touch_controls() -> void:
 	inventory_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[0], QUICK_TOP_BUTTON_SIZE, _show_inventory)
 	character_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[1], QUICK_TOP_BUTTON_SIZE, _show_skills_window)
 	quests_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[2], QUICK_TOP_BUTTON_SIZE, _show_quests)
+	chat_button = _make_tap_button("CHAT", QUICK_TOP_BUTTON_POSITIONS[3], QUICK_TOP_BUTTON_SIZE, _toggle_chat_panel)
 	_style_quick_top_button(inventory_button, "res://assets/ui/buttons/btn_inventory.png", "Bolsa")
 	_style_quick_top_button(character_button, "res://assets/ui/skills/skill_protecao.png", "Habilidades")
 	_style_quick_top_button(quests_button, "res://assets/ui/buttons/btn_quest.png", "Missoes")
+	_style_quick_text_button(chat_button, "Chat")
 
 func _prepare_skill_button_feedback(button: Button) -> void:
 	if button == null:
@@ -1165,6 +1481,106 @@ func _style_quick_top_button(button: Button, icon_path: String, tooltip: String)
 	button.expand_icon = true
 	button.tooltip_text = tooltip
 
+func _style_quick_text_button(button: Button, text: String) -> void:
+	if button == null:
+		return
+	_apply_texture_button_style(button)
+	button.icon = null
+	button.text = text
+	button.tooltip_text = text
+	button.add_theme_font_size_override("font_size", 11)
+	button.add_theme_color_override("font_color", Color("#f6e2ad"))
+	button.add_theme_color_override("font_hover_color", Color.WHITE)
+	button.add_theme_color_override("font_pressed_color", Color("#fff0c8"))
+
+func _build_chat_panel() -> void:
+	chat_panel = PanelContainer.new()
+	chat_panel.visible = false
+	chat_panel.position = CHAT_PANEL_POS
+	chat_panel.size = CHAT_PANEL_SIZE
+	chat_panel.custom_minimum_size = CHAT_PANEL_SIZE
+	chat_panel.z_index = 936
+	chat_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.012, 0.014, 0.018, 0.94)
+	style.border_color = Color("#c79d43")
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(8)
+	chat_panel.add_theme_stylebox_override("panel", style)
+	ui.add_child(chat_panel)
+
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 12)
+	margin.add_theme_constant_override("margin_right", 12)
+	margin.add_theme_constant_override("margin_top", 10)
+	margin.add_theme_constant_override("margin_bottom", 10)
+	chat_panel.add_child(margin)
+
+	var root := VBoxContainer.new()
+	root.add_theme_constant_override("separation", 8)
+	margin.add_child(root)
+
+	var header := HBoxContainer.new()
+	header.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	root.add_child(header)
+
+	var title := Label.new()
+	title.text = "Chat"
+	title.add_theme_font_size_override("font_size", 16)
+	title.add_theme_color_override("font_color", Color("#f5dca0"))
+	header.add_child(title)
+
+	var header_spacer := Control.new()
+	header_spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(header_spacer)
+
+	var hint := Label.new()
+	hint.text = "global / local / guild / party"
+	hint.add_theme_font_size_override("font_size", 10)
+	hint.add_theme_color_override("font_color", Color("#bcae86"))
+	header.add_child(hint)
+
+	var close := Button.new()
+	close.text = "X"
+	close.custom_minimum_size = Vector2(38, 30)
+	close.focus_mode = Control.FOCUS_NONE
+	var close_style := StyleBoxFlat.new()
+	close_style.bg_color = Color("#a11f25")
+	close_style.border_color = Color(1, 0.55, 0.55, 0.85)
+	close_style.set_border_width_all(1)
+	close_style.set_corner_radius_all(6)
+	close.add_theme_stylebox_override("normal", close_style)
+	close.add_theme_stylebox_override("hover", close_style)
+	close.add_theme_stylebox_override("pressed", close_style)
+	close.add_theme_color_override("font_color", Color.WHITE)
+	close.pressed.connect(_close_chat_panel)
+	header.add_child(close)
+
+	chat_history_scroll = ScrollContainer.new()
+	chat_history_scroll.custom_minimum_size = Vector2(396, 140)
+	chat_history_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chat_history_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	chat_history_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	chat_history_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	chat_history_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	root.add_child(chat_history_scroll)
+
+	chat_history_box = VBoxContainer.new()
+	chat_history_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chat_history_box.add_theme_constant_override("separation", 4)
+	chat_history_scroll.add_child(chat_history_box)
+
+	chat_input = LineEdit.new()
+	chat_input.placeholder_text = "Digite mensagem ou /local /guild /party"
+	chat_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chat_input.custom_minimum_size = Vector2(0, 34)
+	chat_input.focus_mode = Control.FOCUS_ALL
+	chat_input.add_theme_color_override("font_color", Color.WHITE)
+	chat_input.add_theme_color_override("font_placeholder_color", Color("#8f8f8f"))
+	chat_input.add_theme_color_override("caret_color", Color("#f5dca0"))
+	chat_input.text_submitted.connect(_on_chat_input_submitted)
+	root.add_child(chat_input)
+
 func _style_interact_button(button: Button) -> void:
 	if button == null:
 		return
@@ -1173,27 +1589,29 @@ func _style_interact_button(button: Button) -> void:
 	button.tooltip_text = "Interagir"
 
 func _build_side_menu() -> void:
+	side_menu_buttons.clear()
 	side_menu_toggle_button = Button.new()
 	side_menu_toggle_button.text = ""
 	side_menu_toggle_button.position = Vector2(1128, 8)
 	side_menu_toggle_button.size = Vector2(66, 54)
 	side_menu_toggle_button.custom_minimum_size = side_menu_toggle_button.size
 	side_menu_toggle_button.focus_mode = Control.FOCUS_NONE
+	side_menu_toggle_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	side_menu_toggle_button.z_index = 940
 	_apply_texture_button_style(side_menu_toggle_button)
 	_apply_button_icon(side_menu_toggle_button, "res://assets/ui/buttons/btn_menu.png", "MENU", "Menu")
 	side_menu_toggle_button.pressed.connect(func() -> void:
-		if panel.visible:
-			return
-		side_menu_visible = not side_menu_visible
-		side_menu_panel.visible = side_menu_visible
+		_toggle_side_menu()
 	)
+	touch_button_callbacks[side_menu_toggle_button] = Callable(self, "_toggle_side_menu")
+	touch_buttons.append(side_menu_toggle_button)
 	ui.add_child(side_menu_toggle_button)
 
 	side_menu_panel = PanelContainer.new()
 	side_menu_panel.position = Vector2(980, 54)
 	side_menu_panel.size = Vector2(286, 618)
 	side_menu_panel.visible = false
-	side_menu_panel.z_index = 210
+	side_menu_panel.z_index = 941
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.018, 0.016, 0.014, 0.94)
 	style.border_color = Color("#c49b3f")
@@ -1215,16 +1633,19 @@ func _build_side_menu() -> void:
 		var item_label := str(item)
 		var button := Button.new()
 		button.text = item_label
+		button.focus_mode = Control.FOCUS_NONE
+		button.mouse_filter = Control.MOUSE_FILTER_STOP
 		var icon_path := str(SIDE_MENU_ICONS.get(item_label, ""))
 		if not icon_path.is_empty():
 			button.icon = load(icon_path)
 			button.expand_icon = true
 		UISideMenu.style_button(button)
-		button.pressed.connect(func() -> void:
-			_handle_side_menu(item_label)
-		)
+		button.set_meta("menu_item", item_label)
+		button.pressed.connect(Callable(self, "_handle_side_menu").bind(item_label))
 		list.add_child(button)
+		side_menu_buttons.append(button)
 	ui.add_child(side_menu_panel)
+	_sync_side_menu_mouse_filter()
 
 func _handle_side_menu(item: String) -> void:
 	match item:
@@ -1269,6 +1690,160 @@ func _handle_side_menu(item: String) -> void:
 		_:
 			_flash("Sistema ainda em desenvolvimento.")
 
+func _toggle_chat_panel() -> void:
+	if chat_panel == null:
+		return
+	if chat_panel.visible:
+		_close_chat_panel()
+		return
+	chat_panel.visible = true
+	chat_panel.raise()
+	if chat_input != null:
+		chat_input.clear()
+		chat_input.grab_focus()
+	if side_menu_panel != null and side_menu_panel.visible:
+		side_menu_visible = false
+		side_menu_panel.visible = false
+		_sync_side_menu_mouse_filter()
+	_refresh_chat_history_scroll()
+
+func _close_chat_panel() -> void:
+	if chat_panel == null:
+		return
+	chat_panel.visible = false
+	if chat_input != null:
+		chat_input.release_focus()
+
+func _on_chat_input_submitted(text: String) -> void:
+	_send_chat_message(text)
+
+func _send_chat_message(raw_text: String) -> void:
+	var parsed := _parse_chat_submission(raw_text)
+	if parsed.is_empty():
+		return
+	var channel := str(parsed.get("channel", "global"))
+	var text := str(parsed.get("text", "")).strip_edges()
+	if text.is_empty():
+		return
+	var display_name := str(player.character_name if player != null else "Aventureiro")
+	if online_mode and mmo_client != null:
+		mmo_client.call("send_chat", channel, text)
+		_append_chat_message(channel, display_name, text, true)
+		chat_last_sent_channel = channel
+		chat_last_sent_text = text
+		chat_last_sent_at = float(Time.get_ticks_msec()) / 1000.0
+		_flash("Chat enviado.")
+	else:
+		_append_chat_message(channel, display_name, text, true)
+		_flash("Chat offline local.")
+	if chat_input != null:
+		chat_input.clear()
+
+func _parse_chat_submission(raw_text: String) -> Dictionary:
+	var text := str(raw_text).strip_edges()
+	if text.is_empty():
+		return {}
+	var channel := "global"
+	if text.begins_with("/"):
+		var parts := text.split(" ", false, 1)
+		var command := str(parts[0]).to_lower()
+		var remainder := ""
+		if parts.size() > 1:
+			remainder = str(parts[1]).strip_edges()
+		match command:
+			"/local", "/l":
+				channel = "local"
+			"/guild", "/g":
+				channel = "guild"
+			"/party", "/p":
+				channel = "party"
+			"/global", "/all", "/world", "/w":
+				channel = "global"
+			_:
+				_append_chat_system_message("Comando de chat invalido.", Color("#ff6b6b"))
+				return {}
+		if remainder.is_empty():
+			_append_chat_system_message("Digite uma mensagem apos o comando.", Color("#ff6b6b"))
+			return {}
+		text = remainder
+	return {"channel": channel, "text": text}
+
+func _append_chat_message(channel: String, from_name: String, text: String, local_echo: bool = false) -> void:
+	var channel_color := Color("#8fd6ff")
+	match channel:
+		"local":
+			channel_color = Color("#9be38f")
+		"guild":
+			channel_color = Color("#c79dff")
+		"party":
+			channel_color = Color("#ffd28c")
+		_:
+			channel_color = Color("#8fd6ff")
+	var line := {
+		"text": "[%s] %s: %s" % [channel.to_upper(), from_name, text],
+		"color": channel_color if not local_echo else Color("#d8e5ff")
+	}
+	chat_lines.append(line)
+	if chat_lines.size() > CHAT_MAX_LINES:
+		chat_lines.pop_front()
+	_refresh_chat_history_scroll()
+
+func _append_chat_system_message(text: String, color: Color = Color("#ffe4a3")) -> void:
+	chat_lines.append({
+		"text": text,
+		"color": color
+	})
+	if chat_lines.size() > CHAT_MAX_LINES:
+		chat_lines.pop_front()
+	_refresh_chat_history_scroll()
+
+func _refresh_chat_history_scroll() -> void:
+	if chat_history_box == null:
+		return
+	for child in chat_history_box.get_children():
+		child.queue_free()
+	for entry_variant in chat_lines:
+		var entry: Dictionary = entry_variant
+		var line_label := Label.new()
+		line_label.text = str(entry.get("text", ""))
+		line_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		line_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		line_label.add_theme_font_size_override("font_size", 11)
+		line_label.add_theme_color_override("font_color", entry.get("color", Color.WHITE))
+		line_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+		line_label.add_theme_constant_override("shadow_offset_x", 1)
+		line_label.add_theme_constant_override("shadow_offset_y", 1)
+		chat_history_box.add_child(line_label)
+	call_deferred("_scroll_chat_to_bottom")
+
+func _scroll_chat_to_bottom() -> void:
+	if chat_history_scroll == null or not chat_history_scroll.visible:
+		return
+	chat_history_scroll.scroll_vertical = 2147483647
+
+func _is_chat_panel_blocked(pos: Vector2) -> bool:
+	if chat_panel == null or not chat_panel.visible:
+		return false
+	return Rect2(chat_panel.global_position, chat_panel.size).has_point(pos)
+
+func _is_chat_panel_focused() -> bool:
+	return chat_input != null and chat_input.has_focus()
+
+func _toggle_side_menu() -> void:
+	if panel.visible:
+		return
+	side_menu_visible = not side_menu_visible
+	side_menu_panel.visible = side_menu_visible
+	if side_menu_visible:
+		if panel_blocker != null:
+			panel_blocker.visible = false
+		if input_guard != null:
+			input_guard.visible = false
+		side_menu_panel.raise()
+		if side_menu_toggle_button != null:
+			side_menu_toggle_button.raise()
+	_sync_side_menu_mouse_filter()
+
 func _logout_to_start() -> void:
 	if player != null:
 		if online_mode:
@@ -1288,17 +1863,21 @@ func _logout_to_start() -> void:
 		side_menu_panel.visible = false
 	if panel.visible:
 		_hide_panel()
+	_close_chat_panel()
 	online_mode = false
 	if mmo_client != null:
 		mmo_client.set("online_enabled", false)
 		mmo_client.set("token", "")
+	chat_last_sent_channel = ""
+	chat_last_sent_text = ""
+	chat_last_sent_at = 0.0
 	_show_class_selection()
 	_flash("Deslogado. Escolha a classe para entrar novamente.")
 
 func _build_joystick() -> void:
-	joystick_base = _make_texture_rect("res://assets/ui/joystick/joystick_base.png", touch_move_center - Vector2(88, 88), Vector2(176, 176))
+	joystick_base = _make_texture_rect("res://assets/ui/joystick/joystick_base.png", touch_move_center - HUD_JOYSTICK_BASE_SIZE * 0.5, HUD_JOYSTICK_BASE_SIZE)
 	joystick_base.modulate = Color(1, 1, 1, 0.90)
-	joystick_knob = _make_texture_rect("res://assets/ui/joystick/joystick_knob.png", touch_move_center - Vector2(35, 35), Vector2(70, 70))
+	joystick_knob = _make_texture_rect("res://assets/ui/joystick/joystick_knob.png", touch_move_center - HUD_JOYSTICK_KNOB_SIZE * 0.5, HUD_JOYSTICK_KNOB_SIZE)
 	joystick_knob.modulate = Color(1, 1, 1, 0.96)
 	_reset_joystick_knob()
 
@@ -1310,7 +1889,7 @@ func _make_texture_rect(path: String, pos: Vector2, size: Vector2) -> TextureRec
 	rect.custom_minimum_size = size
 	rect.scale = Vector2.ONE
 	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	rect.stretch_mode = TextureRect.STRETCH_SCALE
+	rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(rect)
 	return rect
@@ -1398,6 +1977,20 @@ func _reset_joystick_knob() -> void:
 	if joystick_knob != null:
 		joystick_knob.position = touch_move_center - joystick_knob.size * 0.5
 
+func _clamp_joystick_center(center: Vector2, base_size: Vector2, viewport_size: Vector2) -> Vector2:
+	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+		return center
+	var min_center := base_size * 0.5 + HUD_JOYSTICK_SAFE_MARGIN
+	var max_center := viewport_size - base_size * 0.5 - HUD_JOYSTICK_SAFE_MARGIN
+	if max_center.x < min_center.x:
+		max_center.x = min_center.x
+	if max_center.y < min_center.y:
+		max_center.y = min_center.y
+	return Vector2(
+		clampf(center.x, min_center.x, max_center.x),
+		clampf(center.y, min_center.y, max_center.y)
+	)
+
 func _make_hold_button(text: String, pos: Vector2, size: Vector2, action: String) -> Button:
 	var button := _make_touch_button(text, pos, size)
 	button.button_down.connect(func() -> void:
@@ -1410,6 +2003,7 @@ func _make_hold_button(text: String, pos: Vector2, size: Vector2, action: String
 
 func _make_tap_button(text: String, pos: Vector2, size: Vector2, callback: Callable) -> Button:
 	var button := _make_touch_button(text, pos, size)
+	touch_button_callbacks[button] = callback
 	button.pressed.connect(callback)
 	return button
 
@@ -1420,6 +2014,7 @@ func _make_touch_button(text: String, pos: Vector2, size: Vector2) -> Button:
 	button.size = size
 	button.custom_minimum_size = size
 	button.focus_mode = Control.FOCUS_NONE
+	button.mouse_filter = Control.MOUSE_FILTER_STOP
 	button.add_theme_font_size_override("font_size", 22)
 	_apply_texture_button_style(button)
 	ui.add_child(button)
@@ -1560,6 +2155,8 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	_ensure_map_exploration(map_id)
 	safe_zone_nodes.clear()
 	solid_obstacles.clear()
+	portal_passage_rects.clear()
+	portal_nodes.clear()
 	for child in world.get_children():
 		if child != player:
 			child.queue_free()
@@ -1571,6 +2168,8 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 		current_map_size = ELDORIA_WORLD_SIZE
 	elif _is_new_valdoria_map():
 		current_map_size = VALDORIA_WORLD_SIZE
+	elif current_map == "bat_cave" and _cave_background_available():
+		current_map_size = CAVE_SOURCE_SIZE
 	_draw_map_background(map_data)
 	if player != null:
 		var spawn: Array = map_data.get("spawn", [1080, 760])
@@ -1586,6 +2185,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	_spawn_portals(map_data)
 	_spawn_safe_zones(map_data)
 	_spawn_enemies(map_data)
+	_spawn_map_collectibles(map_data)
 	_update_safe_zone_state()
 	_update_camera_limits()
 	_cleanup_remote_players_for_map()
@@ -1702,14 +2302,14 @@ func _cave_chunk_path(grid_x: int, grid_y: int) -> String:
 	return "%s/caverna_chunk_%02d_%02d.png" % [CAVE_CHUNKS_DIR, grid_x, grid_y]
 
 func _forest_background_available() -> bool:
-	return ResourceLoader.exists(FOREST_BACKGROUND_PATH)
+	return _forest_chunks_available()
 
 func _cave_background_available() -> bool:
 	return ResourceLoader.exists(CAVE_BACKGROUND_PATH)
 
 func _forest_chunks_available() -> bool:
-	for grid_y in range(4):
-		for grid_x in range(5):
+	for grid_y in range(FOREST_CHUNK_GRID.y):
+		for grid_x in range(FOREST_CHUNK_GRID.x):
 			if not ResourceLoader.exists(_forest_chunk_path(grid_x, grid_y)):
 				return false
 	return true
@@ -1722,7 +2322,7 @@ func _cave_chunks_available() -> bool:
 	return true
 
 func _is_new_forest_map() -> bool:
-	return current_map == "forest_boars" and _forest_background_available()
+	return current_map == "forest_boars"
 
 func _is_new_cave_map() -> bool:
 	return current_map == "bat_cave" and _cave_background_available()
@@ -1764,8 +2364,8 @@ func _draw_valdoria_background() -> bool:
 func _draw_forest_background() -> bool:
 	if _forest_chunks_available():
 		current_map_size = FOREST_SOURCE_SIZE
-		for grid_y in range(4):
-			for grid_x in range(5):
+		for grid_y in range(FOREST_CHUNK_GRID.y):
+			for grid_x in range(FOREST_CHUNK_GRID.x):
 				var chunk_path := _forest_chunk_path(grid_x, grid_y)
 				var chunk_texture := load(chunk_path) as Texture2D
 				if chunk_texture == null:
@@ -1779,21 +2379,7 @@ func _draw_forest_background() -> bool:
 				chunk_sprite.z_index = -100
 				world.add_child(chunk_sprite)
 		return true
-	if not _forest_background_available():
-		return false
-	var texture := load(FOREST_BACKGROUND_PATH) as Texture2D
-	if texture == null:
-		return false
-	current_map_size = Vector2(texture.get_width(), texture.get_height())
-	var sprite := Sprite2D.new()
-	sprite.texture = texture
-	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	sprite.centered = false
-	sprite.position = Vector2.ZERO
-	sprite.scale = Vector2.ONE
-	sprite.z_index = -100
-	world.add_child(sprite)
-	return true
+	return false
 
 func _draw_cave_background() -> bool:
 	if _cave_chunks_available():
@@ -1806,7 +2392,7 @@ func _draw_cave_background() -> bool:
 					return false
 				var chunk_sprite := Sprite2D.new()
 				chunk_sprite.texture = chunk_texture
-				chunk_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+				chunk_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 				chunk_sprite.centered = false
 				chunk_sprite.position = Vector2(grid_x * CAVE_CHUNK_SIZE.x, grid_y * CAVE_CHUNK_SIZE.y)
 				chunk_sprite.scale = Vector2.ONE
@@ -1821,7 +2407,7 @@ func _draw_cave_background() -> bool:
 	current_map_size = Vector2(texture.get_width(), texture.get_height())
 	var sprite := Sprite2D.new()
 	sprite.texture = texture
-	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.centered = false
 	sprite.position = Vector2.ZERO
 	sprite.scale = Vector2.ONE
@@ -1863,27 +2449,31 @@ func _register_eldoria_background_collision() -> void:
 		_eldoria_rect(1035, 805, 95, 150)
 	]:
 		_register_solid_rect(rect)
+	portal_passage_rects.append(_eldoria_rect(548, 1046, 138, 188))
 
 func _register_cave_background_collision() -> void:
 	for rect in [
-		Rect2(0, 0, current_map_size.x, 34),
-		Rect2(0, current_map_size.y - 34, current_map_size.x, 34),
-		Rect2(0, 0, 34, current_map_size.y),
-		Rect2(current_map_size.x - 34, 0, 34, current_map_size.y),
-		Rect2(240, 60, 120, 120),
-		Rect2(420, 0, 100, 210),
-		Rect2(650, 120, 120, 170),
-		Rect2(860, 0, 80, 260),
-		Rect2(240, 410, 120, 120),
-		Rect2(500, 360, 150, 110),
-		Rect2(790, 360, 120, 110),
-		Rect2(1040, 140, 120, 210),
-		Rect2(360, 760, 150, 120),
-		Rect2(690, 720, 180, 120),
-		Rect2(950, 580, 120, 170),
-		Rect2(1040, 0, 160, 120),
-		Rect2(1180, 760, 120, 260),
-		Rect2(1160, 980, 160, 140)
+		Rect2(0, 0, CAVE_SOURCE_SIZE.x, 32),
+		Rect2(0, CAVE_SOURCE_SIZE.y - 32, CAVE_SOURCE_SIZE.x, 32),
+		Rect2(0, 0, 32, CAVE_SOURCE_SIZE.y),
+		Rect2(CAVE_SOURCE_SIZE.x - 32, 0, 32, CAVE_SOURCE_SIZE.y),
+		Rect2(190, 38, 170, 116),
+		Rect2(418, 0, 120, 170),
+		Rect2(690, 38, 170, 155),
+		Rect2(884, 0, 135, 214),
+		Rect2(1108, 52, 228, 210),
+		Rect2(104, 316, 176, 172),
+		Rect2(344, 362, 124, 110),
+		Rect2(538, 334, 170, 122),
+		Rect2(810, 324, 146, 126),
+		Rect2(1036, 340, 162, 122),
+		Rect2(90, 704, 190, 210),
+		Rect2(368, 735, 155, 130),
+		Rect2(674, 716, 210, 142),
+		Rect2(940, 596, 128, 188),
+		Rect2(1168, 688, 154, 208),
+		Rect2(1102, 964, 232, 118),
+		Rect2(544, 972, 250, 95)
 	]:
 		_register_solid_rect(rect)
 
@@ -1919,19 +2509,27 @@ func _register_forest_background_collision() -> void:
 		Rect2(0, 0, FOREST_SOURCE_SIZE.x, 34),
 		Rect2(0, FOREST_SOURCE_SIZE.y - 34, FOREST_SOURCE_SIZE.x, 34),
 		Rect2(FOREST_SOURCE_SIZE.x - 34, 0, 34, FOREST_SOURCE_SIZE.y),
-		Rect2(88, 0, 54, 175),
-		Rect2(0, 520, 148, 340),
-		Rect2(172, 330, 72, 300),
-		Rect2(150, 715, 120, 405),
-		Rect2(405, 410, 88, 190),
-		Rect2(520, 0, 96, 260),
-		Rect2(690, 0, 210, 182),
-		Rect2(850, 260, 92, 200),
-		Rect2(980, 0, 420, 366),
-		Rect2(1120, 400, 250, 240),
-		Rect2(1040, 690, 360, 184),
-		Rect2(980, 904, 160, 216),
-		Rect2(1230, 852, 150, 122)
+		Rect2(0, 0, 165, 72),
+		Rect2(0, 105, 70, 95),
+		Rect2(330, 0, 65, 235),
+		Rect2(250, 250, 75, 135),
+		Rect2(145, 365, 95, 100),
+		Rect2(35, 510, 90, 210),
+		Rect2(235, 720, 85, 170),
+		Rect2(565, 475, 190, 130),
+		Rect2(710, 0, 240, 110),
+		Rect2(860, 0, 530, 180),
+		Rect2(870, 180, 210, 180),
+		Rect2(1230, 150, 170, 320),
+		Rect2(760, 650, 150, 180),
+		Rect2(1180, 380, 220, 180),
+		Rect2(1280, 560, 120, 250),
+		Rect2(740, 925, 360, 195),
+		Rect2(380, 250, 95, 90),
+		Rect2(540, 260, 130, 100),
+		Rect2(330, 500, 125, 115),
+		Rect2(550, 650, 130, 120),
+		Rect2(865, 815, 140, 110)
 	]:
 		_register_solid_rect(rect)
 
@@ -1959,20 +2557,21 @@ func _draw_valdoria_terrain() -> void:
 
 func _forest_main_path_points() -> Array[Vector2]:
 	return [
-		Vector2(620, 2860),
-		Vector2(680, 2630),
-		Vector2(930, 2390),
-		Vector2(1250, 2200),
-		Vector2(1040, 1910),
-		Vector2(1510, 1715),
-		Vector2(1980, 1580),
-		Vector2(2320, 1320),
-		Vector2(2790, 1160),
-		Vector2(3190, 910),
-		Vector2(3650, 750),
-		Vector2(4050, 570),
-		Vector2(4380, 430),
-		Vector2(4800, 270)
+		Vector2(110, 95),
+		Vector2(170, 170),
+		Vector2(260, 260),
+		Vector2(235, 450),
+		Vector2(350, 560),
+		Vector2(520, 520),
+		Vector2(585, 375),
+		Vector2(650, 210),
+		Vector2(770, 250),
+		Vector2(815, 390),
+		Vector2(760, 555),
+		Vector2(855, 690),
+		Vector2(1010, 725),
+		Vector2(1130, 800),
+		Vector2(1300, 1030)
 	]
 
 func _draw_forest_terrain() -> void:
@@ -2190,10 +2789,10 @@ func _distance_to_path_points(point: Vector2, points: Array[Vector2]) -> float:
 
 func _is_forest_reserved_clear(pos: Vector2) -> bool:
 	for entry in [
-		{"center": Vector2(620, 2860), "radius": 260.0},
-		{"center": Vector2(760, 2620), "radius": 165.0},
-		{"center": Vector2(4800, 270), "radius": 240.0},
-		{"center": Vector2(4380, 430), "radius": 150.0}
+		{"center": Vector2(120, 105), "radius": 190.0},
+		{"center": Vector2(320, 210), "radius": 120.0},
+		{"center": Vector2(1300, 1030), "radius": 180.0},
+		{"center": Vector2(1220, 930), "radius": 140.0}
 	]:
 		var center: Vector2 = entry.get("center", Vector2.ZERO)
 		var radius: float = float(entry.get("radius", 0.0))
@@ -2267,6 +2866,10 @@ func _register_solid_rect(rect: Rect2) -> void:
 func _is_point_blocked(pos: Vector2) -> bool:
 	if pos.x < 18 or pos.y < 18 or pos.x > current_map_size.x - 18 or pos.y > current_map_size.y - 18:
 		return true
+	for portal_rect in portal_passage_rects:
+		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
+			if portal_rect.has_point(pos + probe):
+				return false
 	for rect in solid_obstacles:
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
 			if rect.has_point(pos + probe):
@@ -2464,6 +3067,8 @@ func _add_world_label(text: String, pos: Vector2, color: Color = Color.WHITE) ->
 func _spawn_npcs(map_data: Dictionary) -> void:
 	for npc_data in map_data.get("npcs", []):
 		var npc: Npc = NPC_SCENE.instantiate()
+		var npc_ref := npc
+		var npc_name := str(npc_data.get("name", "NPC"))
 		npc.add_to_group("npcs")
 		world.add_child(npc)
 		npc.setup(npc_data)
@@ -2471,48 +3076,59 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		npc.global_position = Vector2(float(pos[0]), float(pos[1]))
 		npc.body_entered.connect(func(body: Node) -> void:
 			if body == player:
-				selected_npc = npc
-				_flash("OK: falar com " + npc.npc_name)
+				selected_npc = npc_ref
+				_flash("OK: falar com " + npc_name)
 		)
 		npc.body_exited.connect(func(body: Node) -> void:
-			if body == player and selected_npc == npc:
+			if body == player and selected_npc == npc_ref:
 				selected_npc = null
 		)
 
 func _spawn_portals(map_data: Dictionary) -> void:
 	for portal_data in map_data.get("portals", []):
+		var portal_label_text := str(portal_data.get("label", "Portal"))
+		if bool(portal_data.get("requires_boss_clear", false)):
+			portal_label_text += " *"
 		var portal := Area2D.new()
+		var portal_ref := portal
+		portal.add_to_group("portals")
+		portal_nodes.append(portal)
+		portal.collision_layer = 0
+		portal.collision_mask = 1
+		portal.monitoring = true
+		portal.monitorable = false
 		portal.set_meta("target", str(portal_data.get("target", "city_eldoria")))
-		portal.set_meta("label", str(portal_data.get("label", "Portal")))
+		portal.set_meta("label", portal_label_text)
 		portal.set_meta("requires_boss_clear", bool(portal_data.get("requires_boss_clear", false)))
 		portal.set_meta("boss_enemy", str(portal_data.get("boss_enemy", "")))
 		portal.set_meta("target_spawn", portal_data.get("spawn", []))
+		portal.add_to_group("portals")
 		var shape := CollisionShape2D.new()
 		var rect_shape := RectangleShape2D.new()
-		rect_shape.size = Vector2(120, 64)
+		var is_eldoria_premium_portal := current_map == "city_eldoria" and _eldoria_background_available()
+		rect_shape.size = Vector2(150, 230) if is_eldoria_premium_portal else Vector2(130, 200)
 		shape.shape = rect_shape
 		portal.add_child(shape)
-		var visual := Sprite2D.new()
-		visual.texture = load("res://assets/sprites/decor_portal.png")
-		visual.scale = Vector2(1.18, 1.18)
-		visual.z_index = -5
-		portal.add_child(visual)
-		var label := Label.new()
-		label.text = str(portal_data.get("label", "Portal"))
-		if bool(portal_data.get("requires_boss_clear", false)):
-			label.text += " *"
-		label.position = Vector2(-28, -14)
-		portal.add_child(label)
+		var visual := LIVE_PORTAL_SCENE.instantiate() as Node2D
+		if visual != null:
+			var portal_scale := 0.22 if is_eldoria_premium_portal else 0.20
+			if visual.has_method("set"):
+				visual.set("display_scale", portal_scale)
+			portal.add_child(visual)
 		var pos: Array = portal_data.get("pos", [100, 100])
 		portal.global_position = Vector2(float(pos[0]), float(pos[1]))
+		var passage_rect := Rect2(portal.global_position - Vector2(90, 120), Vector2(180, 240))
+		if is_eldoria_premium_portal:
+			passage_rect = Rect2(portal.global_position - Vector2(110, 145), Vector2(220, 290))
+		portal_passage_rects.append(passage_rect)
 		world.add_child(portal)
 		portal.body_entered.connect(func(body: Node) -> void:
 			if body == player:
-				selected_portal = portal
-				_flash("OK: entrar em " + label.text)
+				selected_portal = portal_ref
+				_flash("OK: entrar em " + str(portal_ref.get_meta("label", "Portal")))
 		)
 		portal.body_exited.connect(func(body: Node) -> void:
-			if body == player and selected_portal == portal:
+			if body == player and selected_portal == portal_ref:
 				selected_portal = null
 		)
 
@@ -2523,6 +3139,9 @@ func _spawn_safe_zones(map_data: Dictionary) -> void:
 		var pos_arr: Array = zone_data.get("pos", [0, 0])
 		var radius: float = float(zone_data.get("radius", 120))
 		var center := Vector2(float(pos_arr[0]), float(pos_arr[1]))
+		safe_zone_nodes.append({"center": center, "radius": radius})
+		if current_map == "bat_cave":
+			continue
 		var ring := Line2D.new()
 		ring.width = 3.0
 		ring.default_color = Color(0.24, 0.95, 0.42, 0.52)
@@ -2534,7 +3153,6 @@ func _spawn_safe_zones(map_data: Dictionary) -> void:
 		ring.global_position = center
 		world.add_child(ring)
 		_add_world_label("Zona Segura", center + Vector2(-48, -radius - 18), Color("#8dff9f"))
-		safe_zone_nodes.append({"center": center, "radius": radius})
 
 func _is_point_in_safe_zone(pos: Vector2) -> bool:
 	for zone in safe_zone_nodes:
@@ -2592,7 +3210,12 @@ func _enemy_respawn_delay(enemy_name: String, spawn_data: Dictionary) -> float:
 
 func _schedule_enemy_respawn(enemy_name: String, spawn_data: Dictionary, map_id: String) -> void:
 	var delay := _enemy_respawn_delay(enemy_name, spawn_data)
-	await get_tree().create_timer(delay).timeout
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	if tree == null:
+		return
+	await tree.create_timer(delay).timeout
 	if current_map != map_id or player == null:
 		return
 	_spawn_enemy_from_spawn(spawn_data)
@@ -2600,10 +3223,15 @@ func _schedule_enemy_respawn(enemy_name: String, spawn_data: Dictionary, map_id:
 func _is_portal_blocked_by_boss(portal: Area2D) -> bool:
 	if portal == null or not bool(portal.get_meta("requires_boss_clear", false)):
 		return false
+	if not is_inside_tree():
+		return false
+	var tree := get_tree()
+	if tree == null:
+		return false
 	var boss_name := str(portal.get_meta("boss_enemy", ""))
 	if _is_boss_portal_permanently_open(current_map, boss_name):
 		return false
-	for node in get_tree().get_nodes_in_group("bosses"):
+	for node in tree.get_nodes_in_group("bosses"):
 		if node is Enemy and is_instance_valid(node):
 			var enemy := node as Enemy
 			if enemy.vida > 0 and (boss_name.is_empty() or enemy.enemy_name == boss_name):
@@ -2631,6 +3259,8 @@ func _open_boss_portal_permanently(map_id: String, boss_name: String) -> void:
 	mmo_cache["cleared_boss_portals"] = cleared
 
 func _player_attack(power: float, radius: float, skill_id: String) -> void:
+	if not is_inside_tree():
+		return
 	if player.in_safe_zone:
 		_flash_red("Nao pode atacar em zona segura")
 		return
@@ -2670,6 +3300,8 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	player.on_hit_enemy(skill_id)
 
 func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
+	if not is_inside_tree():
+		return
 	if player.in_safe_zone:
 		_flash_red("Nao pode atacar em zona segura")
 		return
@@ -2686,7 +3318,10 @@ func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
 			pet_allowed_target = target
 	_dismount_current_mount("Voce desceu da montaria para lutar.")
 	_spawn_area_effect(center, radius, skill_id)
-	for enemy in get_tree().get_nodes_in_group("enemies"):
+	var tree := get_tree()
+	if tree == null:
+		return
+	for enemy in tree.get_nodes_in_group("enemies"):
 		if _is_point_in_safe_zone(enemy.global_position):
 			continue
 		if center.distance_to(enemy.global_position) <= radius:
@@ -2709,9 +3344,14 @@ func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
 	_flash("Habilidade acertou %d alvo(s)." % hits)
 
 func _get_closest_enemy_in_range(radius: float) -> Enemy:
+	if not is_inside_tree():
+		return null
+	var tree := get_tree()
+	if tree == null:
+		return null
 	var best: Enemy = null
 	var best_distance: float = INF
-	for node in get_tree().get_nodes_in_group("enemies"):
+	for node in tree.get_nodes_in_group("enemies"):
 		var enemy := node as Enemy
 		if enemy == null or enemy.vida <= 0:
 			continue
@@ -2746,14 +3386,21 @@ func _skill_data(skill_id: String) -> Dictionary:
 	return {}
 
 func _start_area_dot(center: Vector2, radius: float, skill_id: String, power: float, duration: float, tick_interval: float) -> void:
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	if tree == null:
+		return
 	var elapsed := 0.0
 	while elapsed < duration and player != null:
-		await get_tree().create_timer(tick_interval).timeout
+		if not is_inside_tree():
+			return
+		await tree.create_timer(tick_interval).timeout
 		if player.in_safe_zone:
 			return
 		elapsed += tick_interval
 		_spawn_area_effect(center, radius, skill_id)
-		for node in get_tree().get_nodes_in_group("enemies"):
+		for node in tree.get_nodes_in_group("enemies"):
 			var enemy := node as Enemy
 			if enemy == null or enemy.vida <= 0:
 				continue
@@ -3052,16 +3699,66 @@ func _spawn_drop(item_name: String, pos: Vector2) -> void:
 			_collect_drop(drop)
 	)
 
+func _spawn_map_collectibles(map_data: Dictionary) -> void:
+	for entry in map_data.get("collectibles", []):
+		if typeof(entry) != TYPE_DICTIONARY:
+			continue
+		var item_name := str(entry.get("item", ""))
+		var pos_data: Array = entry.get("pos", [])
+		if item_name.is_empty() or pos_data.size() < 2:
+			continue
+		var amount: int = max(1, int(entry.get("amount", 1)))
+		var pos: Vector2 = Vector2(float(pos_data[0]), float(pos_data[1]))
+		var collectible: ItemDrop = DROP_SCENE.instantiate()
+		var local_collectible: ItemDrop = collectible
+		world.add_child(collectible)
+		collectible.setup(item_name, amount)
+		collectible.set_meta("manual_collect", true)
+		collectible.global_position = pos
+		collectible.body_entered.connect(func(body: Node) -> void:
+			if body == player:
+				_flash("OK: colher " + local_collectible.item_name)
+		)
+
 func _collect_nearby_drops(delta: float) -> void:
-	for node in get_tree().get_nodes_in_group("drops"):
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	if tree == null:
+		return
+	for node in tree.get_nodes_in_group("drops"):
 		var drop := node as ItemDrop
 		if drop == null or not is_instance_valid(drop) or not drop.can_auto_collect():
+			continue
+		if bool(drop.get_meta("manual_collect", false)):
 			continue
 		var distance := player.global_position.distance_to(drop.global_position)
 		if distance <= DROP_PICKUP_RADIUS:
 			drop.global_position = drop.global_position.move_toward(player.global_position, DROP_MAGNET_SPEED * delta)
 		if distance <= DROP_COLLECT_RADIUS:
 			_collect_drop(drop)
+
+func _collect_nearest_manual_drop(max_distance: float = 72.0) -> bool:
+	if player == null or not is_inside_tree():
+		return false
+	var tree := get_tree()
+	if tree == null:
+		return false
+	var nearest: ItemDrop = null
+	var nearest_distance := max_distance
+	for node in tree.get_nodes_in_group("drops"):
+		var drop := node as ItemDrop
+		if drop == null or not is_instance_valid(drop):
+			continue
+		if not bool(drop.get_meta("manual_collect", false)):
+			continue
+		var distance := player.global_position.distance_to(drop.global_position)
+		if distance <= nearest_distance:
+			nearest = drop
+			nearest_distance = distance
+	if nearest != null:
+		return _collect_drop(nearest)
+	return false
 
 func _collect_drop(drop: ItemDrop) -> bool:
 	if drop == null or not is_instance_valid(drop):
@@ -3079,6 +3776,8 @@ func _collect_drop(drop: ItemDrop) -> bool:
 	return false
 
 func _interact() -> void:
+	if selected_portal == null:
+		_update_nearby_portal()
 	if selected_portal != null:
 		if _is_portal_blocked_by_boss(selected_portal):
 			var boss_name := str(selected_portal.get_meta("boss_enemy"))
@@ -3093,6 +3792,8 @@ func _interact() -> void:
 			net_move_accumulator = 0.0
 			mmo_client.call("send_move", current_map, player.global_position)
 			_send_online_save_state()
+		return
+	if _collect_nearest_manual_drop():
 		return
 	if selected_npc == null:
 		_hide_panel()
@@ -3146,6 +3847,8 @@ func _handle_quest_npc(quest_id: String) -> void:
 func _show_npc_bubble(npc: Npc, text: String) -> void:
 	if dialog_bubble != null and is_instance_valid(dialog_bubble):
 		dialog_bubble.queue_free()
+	if not is_inside_tree():
+		return
 	dialog_bubble = PanelContainer.new()
 	dialog_bubble.z_index = 150
 	var style := StyleBoxFlat.new()
@@ -3163,7 +3866,8 @@ func _show_npc_bubble(npc: Npc, text: String) -> void:
 	dialog_bubble.add_child(label)
 	world.add_child(dialog_bubble)
 	dialog_bubble.global_position = npc.global_position + Vector2(-130, -104)
-	get_tree().create_timer(5.0).timeout.connect(func() -> void:
+	var tree := get_tree()
+	tree.create_timer(5.0).timeout.connect(func() -> void:
 		if dialog_bubble != null and is_instance_valid(dialog_bubble):
 			dialog_bubble.queue_free()
 			dialog_bubble = null
@@ -4433,6 +5137,7 @@ func _update_map_exploration() -> void:
 	exploration_by_map[current_map] = exp
 
 func _set_panel_content(control: Control, panel_name: String = "") -> void:
+	_close_chat_panel()
 	for child in panel.get_children():
 		child.queue_free()
 	panel.add_child(control)
@@ -4440,6 +5145,7 @@ func _set_panel_content(control: Control, panel_name: String = "") -> void:
 	side_menu_visible = false
 	if side_menu_panel != null:
 		side_menu_panel.visible = false
+		_sync_side_menu_mouse_filter()
 	if panel_blocker != null:
 		panel_blocker.visible = true
 	if input_guard != null:
@@ -4464,9 +5170,12 @@ func _start_modal(title: String, panel_name: String) -> VBoxContainer:
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(spacer)
 	var close := Button.new()
-	close.text = "X"
+	close.text = ""
 	close.custom_minimum_size = Vector2(44, 34)
 	close.focus_mode = Control.FOCUS_NONE
+	close.mouse_filter = Control.MOUSE_FILTER_STOP
+	close.icon = load("res://assets/sprites/icon_menu_close.png")
+	close.expand_icon = true
 	var close_style := StyleBoxFlat.new()
 	close_style.bg_color = Color("#9e1d24")
 	close_style.border_color = Color(1, 0.55, 0.55, 0.85)
@@ -4476,7 +5185,7 @@ func _start_modal(title: String, panel_name: String) -> VBoxContainer:
 	close.add_theme_stylebox_override("hover", close_style)
 	close.add_theme_stylebox_override("pressed", close_style)
 	close.add_theme_color_override("font_color", Color.WHITE)
-	close.pressed.connect(_hide_panel)
+	close.pressed.connect(Callable(self, "_hide_panel"))
 	header.add_child(close)
 	var body := VBoxContainer.new()
 	body.custom_minimum_size = Vector2(860, 470)
@@ -4492,7 +5201,10 @@ func _hide_panel() -> void:
 	ui_input_lock_until = float(Time.get_ticks_msec()) / 1000.0 + 0.45
 	if input_guard != null:
 		input_guard.visible = true
-	get_tree().create_timer(0.45).timeout.connect(func() -> void:
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	tree.create_timer(0.45).timeout.connect(func() -> void:
 		if panel_blocker != null:
 			panel_blocker.visible = false
 		if input_guard != null:
@@ -4529,14 +5241,22 @@ func _set_game_controls_enabled(enabled: bool) -> void:
 			b.disabled = not enabled
 			b.mouse_filter = Control.MOUSE_FILTER_STOP if enabled else Control.MOUSE_FILTER_IGNORE
 	if side_menu_toggle_button != null:
-		side_menu_toggle_button.disabled = not enabled
+		side_menu_toggle_button.disabled = false
+		side_menu_toggle_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	if side_menu_panel != null:
-		side_menu_panel.mouse_filter = Control.MOUSE_FILTER_STOP if enabled else Control.MOUSE_FILTER_IGNORE
-		for child in side_menu_panel.get_children():
-			if child is Control:
-				(child as Control).mouse_filter = Control.MOUSE_FILTER_STOP if enabled else Control.MOUSE_FILTER_IGNORE
+		_sync_side_menu_mouse_filter()
 	if enabled:
 		_update_potion_buttons()
+
+func _sync_side_menu_mouse_filter() -> void:
+	if side_menu_panel == null:
+		return
+	var accepts_input := side_menu_panel.visible and not (panel != null and panel.visible)
+	side_menu_panel.mouse_filter = Control.MOUSE_FILTER_STOP if accepts_input else Control.MOUSE_FILTER_IGNORE
+	for button in side_menu_buttons:
+		if button != null and is_instance_valid(button):
+			button.disabled = not accepts_input
+			button.mouse_filter = Control.MOUSE_FILTER_STOP
 
 func _panel_title(text: String) -> Label:
 	var label := Label.new()
@@ -4800,6 +5520,11 @@ func _spawn_floating_text(pos: Vector2, text: String, color: Color) -> void:
 func _update_minimap() -> void:
 	if minimap_canvas == null or player == null:
 		return
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	if tree == null:
+		return
 	for child in minimap_canvas.get_children():
 		child.queue_free()
 	var bg := ColorRect.new()
@@ -4825,13 +5550,13 @@ func _update_minimap() -> void:
 		if not _is_world_pos_in_minimap(enemy.global_position):
 			continue
 		_add_minimap_dot(_minimap_pos(enemy.global_position), Color("#ff4a4a"), 3.0)
-	for npc in get_tree().get_nodes_in_group("npcs"):
+	for npc in tree.get_nodes_in_group("npcs"):
 		if npc == null or not is_instance_valid(npc):
 			continue
 		if not _is_world_pos_in_minimap(npc.global_position):
 			continue
 		_add_minimap_dot(_minimap_pos(npc.global_position), Color("#4dff8d"), 3.0)
-	for portal in get_tree().get_nodes_in_group("portals"):
+	for portal in tree.get_nodes_in_group("portals"):
 		if portal == null or not is_instance_valid(portal):
 			continue
 		if not _is_world_pos_in_minimap(portal.global_position):
@@ -5013,7 +5738,12 @@ func _add_cave_minimap_background() -> void:
 	minimap_canvas.add_child(preview)
 
 func _minimap_enemy_nodes() -> Array:
-	var nodes: Array = get_tree().get_nodes_in_group("enemies")
+	if not is_inside_tree():
+		return []
+	var tree := get_tree()
+	if tree == null:
+		return []
+	var nodes: Array = tree.get_nodes_in_group("enemies")
 	if world == null:
 		return nodes
 	for child in world.get_children():

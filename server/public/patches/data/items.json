@@ -2122,5 +2122,35 @@
     },
     "icon": "res://assets/armor_sets/crystal/crystal_boot_r.png",
     "full_sheet": "res://assets/armor_sets/crystal/crystal_full_sheet.png"
+  },
+  "Erva Curativa": {
+    "id": "healing_herb",
+    "type": "material",
+    "description": "Uma erva comum das clareiras da floresta.",
+    "icon": "res://assets/sprites/decor_leaf_patch.png"
+  },
+  "Flor Medicinal": {
+    "id": "medicinal_flower",
+    "type": "material",
+    "description": "Flor usada em receitas de cura da floresta.",
+    "icon": "res://assets/sprites/decor_flower_patch.png"
+  },
+  "Cogumelo": {
+    "id": "mushroom",
+    "type": "material",
+    "description": "Cogumelo encontrado em trechos umidos e sombreados.",
+    "icon": "res://assets/sprites/drop_material.png"
+  },
+  "Planta Rara": {
+    "id": "rare_plant",
+    "type": "material",
+    "description": "Planta rara usada em alquimia e forja avancada.",
+    "icon": "res://assets/sprites/decor_leaf_patch.png"
+  },
+  "Erva Especial": {
+    "id": "special_herb",
+    "type": "material",
+    "description": "Erva de alto valor encontrada no fundo da floresta.",
+    "icon": "res://assets/sprites/decor_flower_patch.png"
   }
 }

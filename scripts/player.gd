@@ -68,6 +68,7 @@ var current_sprite_flip := false
 var current_sprite_direction := "front"
 var walk_anim_time := 0.0
 var walk_anim_frame := 0
+var walk_frame_cache: Dictionary = {}
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
@@ -96,6 +97,7 @@ func setup(chosen_class: String, data: Dictionary, database: ItemDatabase) -> vo
 	velocidade_movimento = float(base.get("velocidade_movimento", 180))
 	alcance = float(base.get("alcance", 60))
 	_set_player_sprite(_player_sprite_path(chosen_class), false)
+	_refresh_walk_frame_cache()
 	inventory.add_item(str(data.get("weapon", "")), 1)
 	inventory.equip(str(data.get("weapon", "")), item_db.get_item(str(data.get("weapon", ""))))
 	inventory.add_item("Pocao pequena de vida", 3)
@@ -109,6 +111,7 @@ func _physics_process(delta: float) -> void:
 	_update_directional_sprite(input, delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
 	move_and_slide()
+	z_index = clampi(int(global_position.y), -1024, 1024)
 	_update_health_bar()
 	if war_cry_timer > 0:
 		war_cry_timer -= delta
@@ -174,7 +177,14 @@ func use_skill(index: int) -> void:
 
 func _start_attack_cooldown() -> void:
 	can_attack = false
-	await get_tree().create_timer(1.0 / get_attack_speed()).timeout
+	if not is_inside_tree():
+		can_attack = true
+		return
+	var tree := get_tree()
+	if tree == null:
+		can_attack = true
+		return
+	await tree.create_timer(1.0 / get_attack_speed()).timeout
 	can_attack = true
 
 func get_attack_speed() -> float:
@@ -527,8 +537,10 @@ func _update_directional_sprite(input: Vector2, delta: float) -> void:
 		walk_anim_frame = 0
 	walk_anim_time += delta
 	var frame_count := _walk_frame_count_for_direction(next_direction)
-	if walk_anim_time >= 0.085:
-		walk_anim_time = 0.0
+	if frame_count <= 0:
+		frame_count = 1
+	while walk_anim_time >= 0.085:
+		walk_anim_time -= 0.085
 		walk_anim_frame = (walk_anim_frame + 1) % frame_count
 	_set_direction_sprite_or_default(next_direction, next_flip, true)
 
@@ -536,7 +548,11 @@ func _set_direction_sprite_or_default(direction: String, flip_h: bool, moving: b
 	current_sprite_direction = direction
 	var path := ""
 	if moving:
-		path = _class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [walk_anim_frame + 1])
+		var frames: Array = walk_frame_cache.get(direction, [])
+		if not frames.is_empty():
+			path = str(frames[walk_anim_frame % frames.size()])
+		else:
+			path = _class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [walk_anim_frame + 1])
 	if path.is_empty() or not ResourceLoader.exists(path):
 		path = _class_direction_sprite_path(class_name_selected, direction)
 	if ResourceLoader.exists(path):
@@ -551,11 +567,25 @@ func _class_direction_sprite_path(chosen_class: String, direction: String, suffi
 	return "res://assets/sprites/player_%s_art_%s%s.png" % [prefix, direction, suffix]
 
 func _walk_frame_count_for_direction(direction: String) -> int:
+	var frames: Array = walk_frame_cache.get(direction, [])
+	if not frames.is_empty():
+		return frames.size()
 	var count := 0
 	for i in range(1, 13):
 		if ResourceLoader.exists(_class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [i])):
 			count = i
 	return max(1, count)
+
+func _refresh_walk_frame_cache() -> void:
+	walk_frame_cache.clear()
+	for direction in ["front", "side", "back"]:
+		var frames: Array[String] = []
+		for i in range(1, 13):
+			var path := _class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [i])
+			if ResourceLoader.exists(path):
+				frames.append(path)
+		if not frames.is_empty():
+			walk_frame_cache[direction] = frames
 
 func _class_sprite_prefix(chosen_class: String) -> String:
 	match chosen_class:
@@ -588,18 +618,30 @@ func _fit_player_sprite() -> void:
 		return
 	_ensure_shadow()
 	if _class_has_custom_sprite(class_name_selected):
-		var target_height := 58.0
+		var target_height := 74.0
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 		var sprite_scale: float = target_height / texture_height
 		sprite.scale = Vector2(sprite_scale, sprite_scale)
-		sprite.position = Vector2(0, -18)
-		name_label.offset_top = -58
-		name_label.offset_bottom = -40
-		health_bar.offset_top = -36
-		health_bar.offset_bottom = -30
+		sprite.position = Vector2(0, -24)
+		name_label.offset_left = -96
+		name_label.offset_top = -102
+		name_label.offset_right = 96
+		name_label.offset_bottom = -84
+		health_bar.offset_left = -38
+		health_bar.offset_top = -78
+		health_bar.offset_right = 38
+		health_bar.offset_bottom = -70
 	else:
-		sprite.scale = Vector2(2, 2)
-		sprite.position = Vector2.ZERO
+		sprite.scale = Vector2(2.2, 2.2)
+		sprite.position = Vector2(0, -2)
+		name_label.offset_left = -96
+		name_label.offset_top = -84
+		name_label.offset_right = 96
+		name_label.offset_bottom = -66
+		health_bar.offset_left = -34
+		health_bar.offset_top = -62
+		health_bar.offset_right = 34
+		health_bar.offset_bottom = -54
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

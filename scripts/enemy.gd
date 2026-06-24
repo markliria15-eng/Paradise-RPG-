@@ -128,6 +128,7 @@ func _physics_process(delta: float) -> void:
 		target.receive_damage(damage, poison_chance)
 		visual_attack_timer = 0.18
 	_update_visual_animation(delta)
+	z_index = clampi(int(global_position.y), -1024, 1024)
 
 func receive_damage(amount: int) -> void:
 	vida = max(0, vida - amount)

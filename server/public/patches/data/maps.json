@@ -55,11 +55,11 @@
         "target": "forest_boars",
         "pos": [
           2508,
-          4636
+          4828
         ],
         "spawn": [
-          620,
-          2740
+          120,
+          110
         ]
       }
     ]
@@ -93,20 +93,20 @@
         "label": "Eldoria",
         "target": "city_eldoria",
         "pos": [
-          210,
-          180
+          110,
+          95
         ],
         "spawn": [
           2508,
-          4636
+          4600
         ]
       },
       {
         "label": "Caverna",
         "target": "bat_cave",
         "pos": [
-          1180,
-          940
+          1210,
+          995
         ],
         "spawn": [
           120,
@@ -119,17 +119,227 @@
     "safe_zones": [
       {
         "pos": [
-          210,
-          180
+          110,
+          95
         ],
         "radius": 190
       },
       {
         "pos": [
-          1180,
-          940
+          1210,
+          995
         ],
         "radius": 175
+      }
+    ],
+    "collectibles": [
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          160,
+          210
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          220,
+          170
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          310,
+          620
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          260,
+          360
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          610,
+          160
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          510,
+          120
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          560,
+          220
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          480,
+          510
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          650,
+          470
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          980,
+          950
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          810,
+          870
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          690,
+          580
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          730,
+          820
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          840,
+          650
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          1150,
+          700
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          1060,
+          500
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          1010,
+          760
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          960,
+          340
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          780,
+          1000
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          1230,
+          980
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          1330,
+          250
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          1100,
+          130
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          1290,
+          760
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          1300,
+          1020
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          1260,
+          430
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          135,
+          940
+        ]
       }
     ],
     "spawns": [
@@ -140,8 +350,8 @@
         "zone": [
           70,
           80,
-          320,
-          180
+          260,
+          170
         ]
       },
       {
@@ -149,9 +359,9 @@
         "count": 4,
         "respawn": 7,
         "zone": [
-          420,
-          80,
-          320,
+          250,
+          120,
+          260,
           180
         ]
       },
@@ -160,10 +370,21 @@
         "count": 4,
         "respawn": 6,
         "zone": [
-          100,
-          320,
+          120,
           300,
-          200
+          280,
+          180
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 4,
+        "respawn": 8,
+        "zone": [
+          360,
+          320,
+          250,
+          180
         ]
       },
       {
@@ -171,10 +392,10 @@
         "count": 4,
         "respawn": 9,
         "zone": [
-          430,
-          300,
-          320,
-          210
+          470,
+          500,
+          260,
+          180
         ]
       },
       {
@@ -182,9 +403,20 @@
         "count": 4,
         "respawn": 13,
         "zone": [
-          760,
-          120,
-          300,
+          640,
+          140,
+          250,
+          180
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 4,
+        "respawn": 12,
+        "zone": [
+          680,
+          430,
+          230,
           190
         ]
       },
@@ -193,9 +425,9 @@
         "count": 4,
         "respawn": 18,
         "zone": [
-          980,
-          180,
-          260,
+          860,
+          200,
+          250,
           190
         ]
       },
@@ -204,9 +436,9 @@
         "count": 4,
         "respawn": 15,
         "zone": [
-          560,
-          560,
-          300,
+          940,
+          600,
+          250,
           210
         ]
       },
@@ -215,54 +447,10 @@
         "count": 4,
         "respawn": 20,
         "zone": [
-          930,
-          620,
-          260,
-          190
-        ]
-      },
-      {
-        "enemy": "Javali Bruto",
-        "count": 4,
-        "respawn": 16,
-        "zone": [
-          120,
-          720,
-          320,
-          190
-        ]
-      },
-      {
-        "enemy": "Lobo Cinzento",
-        "count": 4,
-        "respawn": 10,
-        "zone": [
-          380,
-          760,
-          320,
-          200
-        ]
-      },
-      {
-        "enemy": "Lobo Alfa",
-        "count": 4,
-        "respawn": 22,
-        "zone": [
-          760,
-          860,
-          300,
-          180
-        ]
-      },
-      {
-        "enemy": "Javali Bruto",
-        "count": 4,
-        "respawn": 18,
-        "zone": [
-          1010,
-          830,
-          260,
-          180
+          1080,
+          500,
+          220,
+          220
         ]
       },
       {
@@ -271,10 +459,10 @@
         "boss": true,
         "respawn": 120,
         "zone": [
-          1050,
-          780,
-          220,
-          180
+          1080,
+          700,
+          180,
+          160
         ]
       }
     ]
@@ -814,8 +1002,8 @@
         "label": "Ruinas",
         "target": "arcane_ruins",
         "pos": [
-          1160,
-          900
+          1212,
+          166
         ],
         "spawn": [
           1080,
@@ -835,8 +1023,8 @@
       },
       {
         "pos": [
-          1160,
-          900
+          1212,
+          166
         ],
         "radius": 180
       }

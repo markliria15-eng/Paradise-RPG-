@@ -18,9 +18,15 @@ var pending_auto_enter := false
 var request_in_progress := false
 
 func _ready() -> void:
+	$Background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$Shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$Root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	class_input.add_item("Guerreiro")
 	class_input.add_item("Mago")
 	class_input.add_item("Arqueiro")
+	_login_button_style()
+	_register_button_style()
+	_open_game_button_style()
 	var mmo := _mmo()
 	if mmo != null:
 		if not mmo.is_connected("login_ok", Callable(self, "_on_login_ok")):
@@ -32,6 +38,16 @@ func _ready() -> void:
 		if not mmo.is_connected("world_message", Callable(self, "_on_world_message")):
 			mmo.connect("world_message", Callable(self, "_on_world_message"))
 	_set_status("Entre na sua conta ou registre uma nova.", false)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and event.pressed:
+		var touch := event as InputEventScreenTouch
+		if _handle_launcher_tap(touch.position):
+			get_viewport().set_input_as_handled()
+	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var mouse := event as InputEventMouseButton
+		if _handle_launcher_tap(mouse.position):
+			get_viewport().set_input_as_handled()
 
 func _on_login_pressed() -> void:
 	if request_in_progress:
@@ -69,7 +85,8 @@ func _on_register_pressed() -> void:
 func _on_open_game_pressed() -> void:
 	pending_auto_enter = false
 	_set_login_busy(false)
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	print("Launcher: open game pressed")
+	call_deferred("_go_to_main_scene")
 
 func _on_login_ok(payload: Dictionary) -> void:
 	var chars: Array = payload.get("characters", [])
@@ -101,7 +118,31 @@ func _on_world_message(payload: Dictionary) -> void:
 		_set_status(_friendly_error(str(payload.get("message", "Erro no servidor."))), true)
 
 func _open_online_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	_go_to_main_scene()
+
+func _go_to_main_scene() -> void:
+	if not is_inside_tree():
+		return
+	var tree := get_tree()
+	if tree == null:
+		return
+	print("Launcher: switching to main scene")
+	tree.change_scene_to_file("res://scenes/main.tscn")
+
+func _handle_launcher_tap(pos: Vector2) -> bool:
+	var open_rect := Rect2(open_game_button.global_position, open_game_button.size)
+	if open_rect.has_point(pos):
+		_on_open_game_pressed()
+		return true
+	var login_rect := Rect2(login_button.global_position, login_button.size)
+	var register_rect := Rect2(register_button.global_position, register_button.size)
+	if login_rect.has_point(pos):
+		_on_login_pressed()
+		return true
+	if register_rect.has_point(pos):
+		_on_register_pressed()
+		return true
+	return false
 
 func _first_character_id(characters: Array) -> int:
 	for ch in characters:
@@ -182,6 +223,18 @@ func _set_login_busy(is_busy: bool) -> void:
 	login_button.disabled = is_busy
 	register_button.disabled = is_busy
 	open_game_button.disabled = is_busy
+
+func _login_button_style() -> void:
+	login_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	login_button.focus_mode = Control.FOCUS_NONE
+
+func _register_button_style() -> void:
+	register_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	register_button.focus_mode = Control.FOCUS_NONE
+
+func _open_game_button_style() -> void:
+	open_game_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	open_game_button.focus_mode = Control.FOCUS_NONE
 
 func _mmo() -> Node:
 	return get_node_or_null("/root/MMOClient")
