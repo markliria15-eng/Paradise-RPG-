@@ -2,9 +2,27 @@ extends RefCounted
 class_name UISideMenu
 
 const MENU_ITEMS := [
-	"Batalha", "Habilidades", "Roupa", "Bolsa", "Banco", "Mapa",
-	"Party", "Guild", "Rank", "Missoes", "Profissoes", "Pets", "Montarias",
-	"Dungeon", "Mercado", "Conquistas", "Temporada", "VIP", "HUD", "Wikipedia", "Zoom", "Deslogar"
+	"Batalha",
+	"Habilidades",
+	"Roupa",
+	"Bolsa",
+	"Banco",
+	"Mapa",
+	"Party",
+	"Guild",
+	"Rank",
+	"Missoes",
+	"Profissoes",
+	"Pets",
+	"Montarias",
+	"Dungeon",
+	"Mercado",
+	"Conquistas",
+	"Temporada",
+	"VIP",
+	"Manual",
+	"Configuracoes",
+	"Deslogar"
 ]
 
 const MENU_ICON_BY_ITEM := {
@@ -22,13 +40,12 @@ const MENU_ICON_BY_ITEM := {
 	"Pets": "res://assets/sprites/enemy_lobo.png",
 	"Montarias": "res://assets/sprites/enemy_javali.png",
 	"Dungeon": "res://assets/sprites/tile_cave.png",
-	"Mercado": "res://assets/sprites/drop_bag.png",
+	"Mercado": "res://assets/sprites/decor_house_market_reference.png",
 	"Conquistas": "res://assets/sprites/drop_gem.png",
 	"Temporada": "res://assets/ui/skills/skill_mana_viva.png",
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
-	"HUD": "res://assets/ui/buttons/btn_menu.png",
-	"Wikipedia": "res://assets/ui/buttons/btn_wiki.png",
-	"Zoom": "res://assets/sprites/icon_slot_ring.png",
+	"Manual": "res://assets/sprites/icon_attack_book.png",
+	"Configuracoes": "res://assets/ui/buttons/btn_close.png",
 	"Deslogar": "res://assets/sprites/icon_menu_close.png"
 }
 

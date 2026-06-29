@@ -13,40 +13,36 @@
     ],
     "npcs": [
       {
-        "name": "Sarah Curandeira",
-        "role": "healer",
-        "pos": [
-          1272,
-          2672
-        ],
-        "sprite": "res://assets/characters/npcs/sarah_curandeira_idle_4f_128.png"
-      },
-      {
-        "name": "Shopin, o Mercador",
-        "role": "shop",
-        "pos": [
-          3384,
-          1768
-        ],
-        "sprite": "res://assets/characters/npcs/shopin_mercador_idle_4f_128.png"
-      },
-      {
-        "name": "Brakka, a Ferreira",
-        "role": "forge",
-        "pos": [
-          3176,
-          2720
-        ],
-        "sprite": "res://assets/characters/npcs/brakka_ferreira_idle_4f_128.png"
-      },
-      {
         "name": "Arion, o Mestre de Classes",
         "role": "class_master",
         "pos": [
-          1240,
-          1820
-        ],
-        "sprite": "res://assets/characters/npcs/arion_mestre_classes_idle_4f_128.png"
+          1980,
+          1140
+        ]
+      },
+      {
+        "name": "Helena, a Curandeira",
+        "role": "healer",
+        "pos": [
+          1260,
+          2640
+        ]
+      },
+      {
+        "name": "Borin, o Mercador",
+        "role": "shop",
+        "pos": [
+          3200,
+          1550
+        ]
+      },
+      {
+        "name": "Bakka, o Ferreiro",
+        "role": "forge",
+        "pos": [
+          3060,
+          2550
+        ]
       }
     ],
     "portals": [
@@ -54,12 +50,12 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          2508,
-          4876
+          2456,
+          4528
         ],
         "spawn": [
-          130,
-          125
+          120,
+          105
         ]
       }
     ]
@@ -68,8 +64,8 @@
     "name": "Floresta dos Javalis",
     "safe": false,
     "size": [
-      1400,
-      1120
+      5600,
+      4480
     ],
     "color": "#315d32",
     "spawn": [
@@ -82,8 +78,8 @@
         "role": "quest",
         "quest": "furia_javalis",
         "pos": [
-          320,
-          210
+          760,
+          420
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       }
@@ -122,14 +118,14 @@
           120,
           105
         ],
-        "radius": 190
+        "radius": 60
       },
       {
         "pos": [
           1300,
           1030
         ],
-        "radius": 175
+        "radius": 55
       }
     ],
     "collectibles": [
@@ -994,8 +990,8 @@
           166
         ],
         "spawn": [
-          1220,
-          950
+          4880,
+          3800
         ]
       },
       {

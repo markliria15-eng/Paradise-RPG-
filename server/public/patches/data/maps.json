@@ -13,40 +13,36 @@
     ],
     "npcs": [
       {
-        "name": "Sarah Curandeira",
-        "role": "healer",
-        "pos": [
-          1240,
-          3300
-        ],
-        "sprite": "res://assets/characters/npcs/sarah_curandeira_idle_4f_128.png"
-      },
-      {
-        "name": "Shopin, o Mercador",
-        "role": "shop",
-        "pos": [
-          3160,
-          1520
-        ],
-        "sprite": "res://assets/characters/npcs/shopin_mercador_idle_4f_128.png"
-      },
-      {
-        "name": "Brakka, a Ferreira",
-        "role": "forge",
-        "pos": [
-          3160,
-          3040
-        ],
-        "sprite": "res://assets/characters/npcs/brakka_ferreira_idle_4f_128.png"
-      },
-      {
         "name": "Arion, o Mestre de Classes",
         "role": "class_master",
         "pos": [
-          1180,
-          1440
-        ],
-        "sprite": "res://assets/characters/npcs/arion_mestre_classes_idle_4f_128.png"
+          1980,
+          1140
+        ]
+      },
+      {
+        "name": "Helena, a Curandeira",
+        "role": "healer",
+        "pos": [
+          1260,
+          2640
+        ]
+      },
+      {
+        "name": "Borin, o Mercador",
+        "role": "shop",
+        "pos": [
+          3200,
+          1550
+        ]
+      },
+      {
+        "name": "Bakka, o Ferreiro",
+        "role": "forge",
+        "pos": [
+          3060,
+          2550
+        ]
       }
     ],
     "portals": [
@@ -54,12 +50,12 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          2508,
-          4828
+          2456,
+          4528
         ],
         "spawn": [
           120,
-          110
+          105
         ]
       }
     ]
@@ -68,13 +64,13 @@
     "name": "Floresta dos Javalis",
     "safe": false,
     "size": [
-      1400,
-      1120
+      5600,
+      4480
     ],
     "color": "#315d32",
     "spawn": [
-      220,
-      220
+      130,
+      125
     ],
     "npcs": [
       {
@@ -82,8 +78,8 @@
         "role": "quest",
         "quest": "furia_javalis",
         "pos": [
-          320,
-          210
+          760,
+          420
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       }
@@ -93,8 +89,8 @@
         "label": "Eldoria",
         "target": "city_eldoria",
         "pos": [
-          110,
-          95
+          120,
+          105
         ],
         "spawn": [
           2508,
@@ -105,8 +101,8 @@
         "label": "Caverna",
         "target": "bat_cave",
         "pos": [
-          1210,
-          995
+          1300,
+          1030
         ],
         "spawn": [
           120,
@@ -119,17 +115,17 @@
     "safe_zones": [
       {
         "pos": [
-          110,
-          95
+          120,
+          105
         ],
-        "radius": 190
+        "radius": 60
       },
       {
         "pos": [
-          1210,
-          995
+          1300,
+          1030
         ],
-        "radius": 175
+        "radius": 55
       }
     ],
     "collectibles": [
@@ -459,10 +455,10 @@
         "boss": true,
         "respawn": 120,
         "zone": [
-          1080,
-          700,
-          180,
-          160
+          1120,
+          820,
+          220,
+          200
         ]
       }
     ]
@@ -500,8 +496,8 @@
           1300
         ],
         "spawn": [
-          1160,
-          900
+          1180,
+          885
         ]
       },
       {
@@ -706,8 +702,8 @@
           1138
         ],
         "spawn": [
-          1160,
-          900
+          1900,
+          240
         ]
       },
       {
@@ -962,7 +958,7 @@
     ]
   },
   "bat_cave": {
-    "name": "Caverna dos Morcegos",
+    "name": "Caverna Profunda",
     "safe": false,
     "size": [
       1400,
@@ -970,17 +966,17 @@
     ],
     "color": "#252835",
     "spawn": [
-      120,
-      110
+      126,
+      166
     ],
     "npcs": [
       {
-        "name": "Cacador Rurik",
+        "name": "Mineiro Perdido",
         "role": "quest",
         "quest": "sombras_caverna",
         "pos": [
-          150,
-          170
+          250,
+          265
         ],
         "sprite": "res://assets/sprites/npc_custom_2_pixel.png"
       }
@@ -990,12 +986,12 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          120,
-          110
+          126,
+          166
         ],
         "spawn": [
-          1180,
-          940
+          4880,
+          3800
         ]
       },
       {
@@ -1016,106 +1012,337 @@
     "safe_zones": [
       {
         "pos": [
-          120,
-          110
+          126,
+          166
         ],
-        "radius": 180
+        "radius": 160
       },
       {
         "pos": [
           1212,
           166
         ],
-        "radius": 180
+        "radius": 160
+      }
+    ],
+    "collectibles": [
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          214,
+          238
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          305,
+          294
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          468,
+          285
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          612,
+          505
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          742,
+          534
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          932,
+          494
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1058,
+          676
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1222,
+          812
+        ]
+      },
+      {
+        "item": "Erva de Caverna",
+        "amount": 1,
+        "pos": [
+          178,
+          300
+        ]
+      },
+      {
+        "item": "Erva de Caverna",
+        "amount": 1,
+        "pos": [
+          356,
+          518
+        ]
+      },
+      {
+        "item": "Erva de Caverna",
+        "amount": 1,
+        "pos": [
+          555,
+          580
+        ]
+      },
+      {
+        "item": "Erva de Caverna",
+        "amount": 1,
+        "pos": [
+          812,
+          592
+        ]
+      },
+      {
+        "item": "Erva de Caverna",
+        "amount": 1,
+        "pos": [
+          1006,
+          735
+        ]
+      },
+      {
+        "item": "Erva de Caverna",
+        "amount": 1,
+        "pos": [
+          1164,
+          782
+        ]
+      },
+      {
+        "item": "Minerio Bruto",
+        "amount": 1,
+        "pos": [
+          424,
+          230
+        ]
+      },
+      {
+        "item": "Minerio Bruto",
+        "amount": 1,
+        "pos": [
+          702,
+          282
+        ]
+      },
+      {
+        "item": "Minerio Bruto",
+        "amount": 1,
+        "pos": [
+          884,
+          505
+        ]
+      },
+      {
+        "item": "Minerio Bruto",
+        "amount": 1,
+        "pos": [
+          1098,
+          612
+        ]
+      },
+      {
+        "item": "Minerio Bruto",
+        "amount": 1,
+        "pos": [
+          1256,
+          940
+        ]
+      },
+      {
+        "item": "Cristal Azul",
+        "amount": 1,
+        "pos": [
+          518,
+          405
+        ]
+      },
+      {
+        "item": "Cristal Azul",
+        "amount": 1,
+        "pos": [
+          690,
+          442
+        ]
+      },
+      {
+        "item": "Cristal Azul",
+        "amount": 1,
+        "pos": [
+          948,
+          612
+        ]
+      },
+      {
+        "item": "Cristal Azul",
+        "amount": 1,
+        "pos": [
+          1104,
+          805
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          784,
+          705
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          946,
+          812
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          1086,
+          914
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          1246,
+          1010
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          330,
+          672
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          576,
+          810
+        ]
+      },
+      {
+        "item": "Cristal Arcano",
+        "amount": 1,
+        "pos": [
+          1160,
+          995
+        ]
       }
     ],
     "spawns": [
       {
         "enemy": "Morcego Pequeno",
-        "count": 4,
-        "respawn": 9,
-        "zone": [
-          80,
-          930,
-          420,
-          160
-        ]
-      },
-      {
-        "enemy": "Aranha Venenosa",
         "count": 5,
-        "respawn": 16,
-        "zone": [
-          440,
-          760,
-          460,
-          220
-        ]
-      },
-      {
-        "enemy": "Morcego Sombrio",
-        "count": 6,
-        "respawn": 26,
-        "zone": [
-          980,
-          500,
-          540,
-          220
-        ]
-      },
-      {
-        "enemy": "Aranha Rainha",
-        "count": 5,
-        "respawn": 38,
-        "zone": [
-          1420,
-          320,
-          460,
-          200
-        ]
-      },
-      {
-        "enemy": "Morcego Pequeno",
-        "count": 4,
         "respawn": 10,
         "zone": [
-          560,
-          860,
-          420,
-          160
+          145,
+          205,
+          290,
+          170
         ]
       },
       {
         "enemy": "Aranha Venenosa",
-        "count": 5,
-        "respawn": 18,
+        "count": 4,
+        "respawn": 16,
         "zone": [
-          920,
-          620,
-          460,
-          200
+          340,
+          300,
+          310,
+          230
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 3,
+        "respawn": 22,
+        "zone": [
+          545,
+          220,
+          280,
+          220
         ]
       },
       {
         "enemy": "Morcego Sombrio",
-        "count": 5,
+        "count": 4,
         "respawn": 28,
         "zone": [
-          1250,
-          820,
-          520,
-          180
+          700,
+          470,
+          330,
+          240
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 3,
+        "respawn": 34,
+        "zone": [
+          840,
+          660,
+          260,
+          220
         ]
       },
       {
         "enemy": "Aranha Rainha",
-        "count": 5,
-        "respawn": 40,
+        "count": 3,
+        "respawn": 42,
         "zone": [
-          1560,
-          520,
-          420,
-          180
+          1030,
+          690,
+          250,
+          240
+        ]
+      },
+      {
+        "enemy": "Guardiao Cristalino",
+        "count": 1,
+        "respawn": 70,
+        "zone": [
+          925,
+          835,
+          210,
+          160
         ]
       },
       {
@@ -1124,10 +1351,10 @@
         "boss": true,
         "respawn": 150,
         "zone": [
-          1060,
-          820,
-          260,
-          190
+          1090,
+          825,
+          190,
+          150
         ]
       }
     ]

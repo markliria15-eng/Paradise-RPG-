@@ -85,8 +85,9 @@ func _on_register_pressed() -> void:
 func _on_open_game_pressed() -> void:
 	pending_auto_enter = false
 	_set_login_busy(false)
+	_set_status("Abrindo jogo offline...", false)
 	print("Launcher: open game pressed")
-	call_deferred("_go_to_main_scene")
+	call_deferred("_go_to_main_scene", true)
 
 func _on_login_ok(payload: Dictionary) -> void:
 	var chars: Array = payload.get("characters", [])
@@ -118,14 +119,17 @@ func _on_world_message(payload: Dictionary) -> void:
 		_set_status(_friendly_error(str(payload.get("message", "Erro no servidor."))), true)
 
 func _open_online_game() -> void:
-	_go_to_main_scene()
+	_go_to_main_scene(false)
 
-func _go_to_main_scene() -> void:
+func _go_to_main_scene(start_offline := false) -> void:
 	if not is_inside_tree():
 		return
 	var tree := get_tree()
 	if tree == null:
 		return
+	if start_offline:
+		tree.set_meta("launcher_auto_start_offline", true)
+		tree.set_meta("launcher_auto_class", "Guerreiro")
 	print("Launcher: switching to main scene")
 	tree.change_scene_to_file("res://scenes/main.tscn")
 

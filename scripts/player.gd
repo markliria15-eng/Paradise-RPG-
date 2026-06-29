@@ -69,6 +69,8 @@ var current_sprite_direction := "front"
 var walk_anim_time := 0.0
 var walk_anim_frame := 0
 var walk_frame_cache: Dictionary = {}
+const CUSTOM_PLAYER_TARGET_HEIGHT := 104.0
+const FALLBACK_PLAYER_SCALE := 2.45
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
@@ -618,30 +620,30 @@ func _fit_player_sprite() -> void:
 		return
 	_ensure_shadow()
 	if _class_has_custom_sprite(class_name_selected):
-		var target_height := 74.0
+		var target_height := CUSTOM_PLAYER_TARGET_HEIGHT
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 		var sprite_scale: float = target_height / texture_height
 		sprite.scale = Vector2(sprite_scale, sprite_scale)
-		sprite.position = Vector2(0, -24)
-		name_label.offset_left = -96
-		name_label.offset_top = -102
-		name_label.offset_right = 96
-		name_label.offset_bottom = -84
-		health_bar.offset_left = -38
-		health_bar.offset_top = -78
-		health_bar.offset_right = 38
-		health_bar.offset_bottom = -70
+		sprite.position = Vector2(0, -32)
+		name_label.offset_left = -108
+		name_label.offset_top = -124
+		name_label.offset_right = 108
+		name_label.offset_bottom = -106
+		health_bar.offset_left = -46
+		health_bar.offset_top = -96
+		health_bar.offset_right = 46
+		health_bar.offset_bottom = -88
 	else:
-		sprite.scale = Vector2(2.2, 2.2)
-		sprite.position = Vector2(0, -2)
-		name_label.offset_left = -96
-		name_label.offset_top = -84
-		name_label.offset_right = 96
-		name_label.offset_bottom = -66
-		health_bar.offset_left = -34
-		health_bar.offset_top = -62
-		health_bar.offset_right = 34
-		health_bar.offset_bottom = -54
+		sprite.scale = Vector2(FALLBACK_PLAYER_SCALE, FALLBACK_PLAYER_SCALE)
+		sprite.position = Vector2(0, -4)
+		name_label.offset_left = -108
+		name_label.offset_top = -104
+		name_label.offset_right = 108
+		name_label.offset_bottom = -86
+		health_bar.offset_left = -42
+		health_bar.offset_top = -82
+		health_bar.offset_right = 42
+		health_bar.offset_bottom = -74
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

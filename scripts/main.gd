@@ -68,33 +68,6 @@ const SKILL_ICON_BY_ID := {
 	"agility": "res://assets/ui/skills/skill_agilidade.png",
 	"stun_shot": "res://assets/ui/skills/skill_tiro_atordoante.png"
 }
-const SIDE_MENU_ICONS := {
-	"Batalha": "res://assets/ui/buttons/btn_attack.png",
-	"Habilidades": "res://assets/sprites/icon_ui_skills_premium.png",
-	"Equipar": "res://assets/sprites/icon_slot_armor.png",
-	"Roupa": "res://assets/sprites/icon_slot_helmet.png",
-	"Bolsa": "res://assets/sprites/icon_ui_bag_premium.png",
-	"Banco": "res://assets/sprites/drop_coin.png",
-	"Mapa": "res://assets/sprites/decor_portal.png",
-	"Shop": "res://assets/sprites/drop_coin.png",
-	"Party": "res://assets/sprites/icon_slot_amulet.png",
-	"Guild": "res://assets/sprites/icon_slot_shield.png",
-	"Rank": "res://assets/sprites/drop_gem.png",
-	"Missoes": "res://assets/sprites/icon_ui_quests_premium.png",
-	"Profissoes": "res://assets/sprites/drop_ore.png",
-	"Crafting": "res://assets/sprites/npc_forge.png",
-	"Pets": "res://assets/sprites/enemy_lobo.png",
-	"Montarias": "res://assets/sprites/enemy_javali.png",
-	"Dungeon": "res://assets/sprites/tile_cave.png",
-	"Mercado": "res://assets/sprites/drop_bag.png",
-	"Conquistas": "res://assets/sprites/drop_gem.png",
-	"Temporada": "res://assets/ui/skills/skill_mana_viva.png",
-	"VIP": "res://assets/sprites/icon_slot_jewel.png",
-	"HUD": "res://assets/ui/buttons/btn_menu.png",
-	"Wikipedia": "res://assets/ui/buttons/btn_wiki.png",
-	"Zoom": "res://assets/sprites/icon_slot_ring.png",
-	"Deslogar": "res://assets/sprites/icon_menu_close.png"
-}
 const RANK_KEYS := {
 	"Level": "top_level",
 	"Ouro": "top_gold",
@@ -121,22 +94,92 @@ const PET_MOVE_ANIMATION_BY_ASSET := {
 	"fagulha_gelida": "move_float",
 	"morcego_sombrio": "fly"
 }
-const ELDORIA_BACKGROUND_PATH := "res://assets/maps/eldoria/Eldoria_Complete_Background_4x_sharp.png"
+const ELDORIA_BACKGROUND_PATH := "res://assets/maps/eldoria/Eldoria_Complete_Background_4x.png"
 const ELDORIA_MINIMAP_PATH := "res://assets/maps/eldoria/Eldoria_Minimap.png"
 const ELDORIA_SOURCE_SIZE := Vector2(1254, 1254)
 const ELDORIA_BACKGROUND_SCALE := 4.0
 const ELDORIA_WORLD_SIZE := ELDORIA_SOURCE_SIZE * ELDORIA_BACKGROUND_SCALE
+const ELDORIA_COLLISIONS := {
+	"Water": [
+		{"name": "Water_Top", "type": "rect", "x": 0, "y": 0, "w": 5016, "h": 320},
+		{"name": "Water_Left", "type": "rect", "x": 0, "y": 320, "w": 192, "h": 4000},
+		{"name": "Water_Right", "type": "rect", "x": 4840, "y": 320, "w": 176, "h": 4000},
+		{"name": "Water_Bottom_Left", "type": "rect", "x": 0, "y": 4220, "w": 2260, "h": 796},
+		{"name": "Water_Bottom_Right", "type": "rect", "x": 2740, "y": 4220, "w": 2276, "h": 796}
+	],
+	"Walls": [
+		{"name": "Wall_North_Main", "type": "rect", "x": 232, "y": 352, "w": 4552, "h": 248},
+		{"name": "Wall_West_Main", "type": "rect", "x": 192, "y": 400, "w": 176, "h": 3800},
+		{"name": "Wall_East_Main", "type": "rect", "x": 4664, "y": 400, "w": 176, "h": 3800},
+		{"name": "Wall_South_Left", "type": "rect", "x": 240, "y": 3904, "w": 1880, "h": 312},
+		{"name": "Wall_South_Right", "type": "rect", "x": 2896, "y": 3904, "w": 1896, "h": 312},
+		{"name": "North_Gate_Block", "type": "rect", "x": 2300, "y": 340, "w": 420, "h": 460},
+		{"name": "Tower_North_West", "type": "rect", "x": 88, "y": 140, "w": 380, "h": 568},
+		{"name": "Tower_North_East", "type": "rect", "x": 4536, "y": 140, "w": 380, "h": 568},
+		{"name": "Tower_South_West", "type": "rect", "x": 80, "y": 3560, "w": 460, "h": 680},
+		{"name": "Tower_South_East", "type": "rect", "x": 4472, "y": 3560, "w": 460, "h": 680},
+		{"name": "South_Gate_Tower_Left", "type": "rect", "x": 1960, "y": 3720, "w": 380, "h": 640},
+		{"name": "South_Gate_Tower_Right", "type": "rect", "x": 2680, "y": 3720, "w": 380, "h": 640},
+		{"name": "South_Gate_Stone_Left_Block", "type": "rect", "x": 2120, "y": 3920, "w": 220, "h": 260},
+		{"name": "South_Gate_Stone_Right_Block", "type": "rect", "x": 2680, "y": 3920, "w": 220, "h": 260}
+	],
+	"Buildings": [
+		{"name": "Building_ClassMaster_Fortress_Main", "type": "rect", "x": 768, "y": 680, "w": 1020, "h": 1000},
+		{"name": "Building_ClassMaster_Towers_Top", "type": "rect", "x": 780, "y": 560, "w": 960, "h": 440},
+		{"name": "Building_ClassMaster_Left_Tower", "type": "rect", "x": 800, "y": 760, "w": 340, "h": 620},
+		{"name": "Building_ClassMaster_Right_Tower", "type": "rect", "x": 1340, "y": 760, "w": 360, "h": 620},
+		{"name": "Building_Merchant_Main", "type": "rect", "x": 3060, "y": 940, "w": 960, "h": 760},
+		{"name": "Building_Merchant_Awning_Props", "type": "rect", "x": 3000, "y": 1500, "w": 460, "h": 280},
+		{"name": "Building_Merchant_Crates_Right", "type": "rect", "x": 3900, "y": 1280, "w": 260, "h": 420},
+		{"name": "Building_Healer_Main", "type": "rect", "x": 720, "y": 2020, "w": 980, "h": 640},
+		{"name": "Building_Healer_Roof_Block", "type": "rect", "x": 760, "y": 1940, "w": 860, "h": 420},
+		{"name": "Building_Blacksmith_Main", "type": "rect", "x": 2940, "y": 1968, "w": 1200, "h": 720},
+		{"name": "Building_Blacksmith_Forge_Yard", "type": "rect", "x": 3480, "y": 2080, "w": 720, "h": 600},
+		{"name": "Building_Blacksmith_Tools_Right", "type": "rect", "x": 3860, "y": 2320, "w": 500, "h": 420},
+		{"name": "Building_Market_Lower_Left_Stall", "type": "rect", "x": 820, "y": 2880, "w": 480, "h": 280},
+		{"name": "Building_SW_House_01", "type": "rect", "x": 740, "y": 3500, "w": 620, "h": 420},
+		{"name": "Building_SW_House_02", "type": "rect", "x": 1360, "y": 3120, "w": 480, "h": 460},
+		{"name": "Building_SW_House_03", "type": "rect", "x": 1420, "y": 3360, "w": 380, "h": 280},
+		{"name": "Building_SE_Market", "type": "rect", "x": 2840, "y": 3060, "w": 640, "h": 500},
+		{"name": "Building_SE_House_01", "type": "rect", "x": 3500, "y": 3300, "w": 680, "h": 520},
+		{"name": "Building_SE_House_02", "type": "rect", "x": 3700, "y": 2880, "w": 640, "h": 680},
+		{"name": "Building_SE_House_03", "type": "rect", "x": 3100, "y": 3560, "w": 680, "h": 320}
+	],
+	"Fountain": [
+		{"name": "Fountain_Central_Block", "type": "circle", "cx": 2500, "cy": 2200, "r": 220}
+	],
+	"Trees": [
+		{"name": "Tree_Block_NW_Left_Garden", "type": "rect", "x": 300, "y": 700, "w": 440, "h": 1200},
+		{"name": "Tree_Block_West_Lower_Garden", "type": "rect", "x": 300, "y": 2600, "w": 440, "h": 1040},
+		{"name": "Tree_Block_NE_Right_Garden", "type": "rect", "x": 4300, "y": 640, "w": 380, "h": 1260},
+		{"name": "Tree_Block_East_Lower_Garden", "type": "rect", "x": 4220, "y": 2000, "w": 460, "h": 1700},
+		{"name": "Tree_Block_Center_Left", "type": "rect", "x": 1628, "y": 1980, "w": 380, "h": 540},
+		{"name": "Tree_Block_Center_Right", "type": "rect", "x": 4100, "y": 2080, "w": 340, "h": 480},
+		{"name": "Tree_Block_Lower_Left_Park", "type": "rect", "x": 280, "y": 2900, "w": 440, "h": 680},
+		{"name": "Tree_Block_Lower_Right_Garden", "type": "rect", "x": 4160, "y": 2880, "w": 420, "h": 840}
+	],
+	"Props": [
+		{"name": "Props_Left_Crates_North", "type": "rect", "x": 560, "y": 1720, "w": 260, "h": 240},
+		{"name": "Props_Central_Left_Planter", "type": "rect", "x": 1720, "y": 2700, "w": 300, "h": 180},
+		{"name": "Props_Central_Right_Planter", "type": "rect", "x": 2680, "y": 2700, "w": 300, "h": 180},
+		{"name": "Props_Forge_Logs", "type": "rect", "x": 3360, "y": 2520, "w": 280, "h": 260},
+		{"name": "Props_Forge_Target", "type": "rect", "x": 3940, "y": 2600, "w": 260, "h": 260},
+		{"name": "Props_Market_Lower_Left_Crates", "type": "rect", "x": 720, "y": 3140, "w": 260, "h": 280},
+		{"name": "Props_SE_Market_Crates", "type": "rect", "x": 2780, "y": 3420, "w": 260, "h": 280},
+		{"name": "Props_Right_Side_Crates", "type": "rect", "x": 4380, "y": 2560, "w": 220, "h": 400}
+	]
+}
 const VALDORIA_BACKGROUND_PATH := "res://assets/maps/valdoria/Valdoria_Complete_Background.png"
 const VALDORIA_MINIMAP_PATH := "res://assets/maps/valdoria/Valdoria_Minimap.png"
 const VALDORIA_SOURCE_SIZE := Vector2(1254, 1254)
 const VALDORIA_WORLD_SIZE := VALDORIA_SOURCE_SIZE
-const FOREST_BACKGROUND_PATH := "res://assets/maps/floresta/floresta_full_map.png"
 const FOREST_MINIMAP_PATH := "res://assets/maps/floresta/floresta_7x7_minimap.png"
 const FOREST_CHUNKS_DIR := "res://assets/maps/floresta/chunks_7x7"
 const FOREST_SOURCE_SIZE := Vector2(1400, 1120)
 const FOREST_CHUNK_GRID := Vector2i(7, 7)
 const FOREST_CHUNK_SIZE := Vector2(200, 160)
-const FOREST_FORCE_CHUNKS := true
+const FOREST_WORLD_SCALE := 4.0
+const FOREST_WORLD_SIZE := FOREST_SOURCE_SIZE * FOREST_WORLD_SCALE
 const CAVE_BACKGROUND_PATH := "res://assets/maps/caverna/caverna_full_map.png"
 const CAVE_MINIMAP_PATH := "res://assets/maps/caverna/caverna_full_map.png"
 const CAVE_CHUNKS_DIR := "res://assets/maps/caverna/chunks_5x4"
@@ -256,7 +299,7 @@ var pet_animation_actual_direction := "front"
 var pet_last_direction := "front"
 var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
-var solid_obstacles: Array[Rect2] = []
+var solid_obstacles: Array[Dictionary] = []
 var portal_passage_rects: Array[Rect2] = []
 var last_valid_player_position := Vector2.ZERO
 var hud_status_pos := HUD_PANEL_POS
@@ -286,6 +329,9 @@ func _ready() -> void:
 	_setup_mmo_integration()
 	if online_mode:
 		_start_online_game_from_session()
+		return
+	if _consume_launcher_auto_start_offline():
+		_start_new_game(_launcher_auto_class())
 		return
 	var save := SaveSystem.load_game()
 	if save.is_empty():
@@ -871,26 +917,26 @@ func _create_remote_player_node(data: Dictionary) -> Node2D:
 	sprite.texture = _remote_load_texture(_player_sprite_path_from_class(str(data.get("className", "Guerreiro"))))
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	if sprite.texture != null:
-		var target_height := 86.0
+		var target_height := 104.0
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
 		var sprite_scale: float = target_height / texture_height
 		sprite.scale = Vector2(sprite_scale, sprite_scale)
-		sprite.position = Vector2(0, -28)
+		sprite.position = Vector2(0, -34)
 	else:
-		sprite.scale = Vector2(1.4, 1.4)
+		sprite.scale = Vector2(1.58, 1.58)
 	node.add_child(sprite)
 	var label := Label.new()
 	label.name = "NameLabel"
-	label.position = Vector2(-68, -58)
-	label.size = Vector2(136, 16)
+	label.position = Vector2(-82, -72)
+	label.size = Vector2(164, 16)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.add_theme_color_override("font_color", Color("#e7f2ff"))
 	label.add_theme_font_size_override("font_size", 11)
 	node.add_child(label)
 	var hp := ProgressBar.new()
 	hp.name = "HP"
-	hp.position = Vector2(-28, -36)
-	hp.size = Vector2(56, 6)
+	hp.position = Vector2(-36, -46)
+	hp.size = Vector2(72, 6)
 	hp.max_value = 100
 	hp.value = 100
 	hp.show_percentage = false
@@ -1542,8 +1588,9 @@ func _build_chat_panel() -> void:
 
 	var close := Button.new()
 	close.text = "X"
-	close.custom_minimum_size = Vector2(38, 30)
+	close.custom_minimum_size = Vector2(52, 38)
 	close.focus_mode = Control.FOCUS_NONE
+	close.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 	var close_style := StyleBoxFlat.new()
 	close_style.bg_color = Color("#a11f25")
 	close_style.border_color = Color(1, 0.55, 0.55, 0.85)
@@ -1552,6 +1599,7 @@ func _build_chat_panel() -> void:
 	close.add_theme_stylebox_override("normal", close_style)
 	close.add_theme_stylebox_override("hover", close_style)
 	close.add_theme_stylebox_override("pressed", close_style)
+	close.add_theme_font_size_override("font_size", 18)
 	close.add_theme_color_override("font_color", Color.WHITE)
 	close.pressed.connect(_close_chat_panel)
 	header.add_child(close)
@@ -1635,7 +1683,7 @@ func _build_side_menu() -> void:
 		button.text = item_label
 		button.focus_mode = Control.FOCUS_NONE
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
-		var icon_path := str(SIDE_MENU_ICONS.get(item_label, ""))
+		var icon_path := str(UISideMenu.MENU_ICON_BY_ITEM.get(item_label, ""))
 		if not icon_path.is_empty():
 			button.icon = load(icon_path)
 			button.expand_icon = true
@@ -1683,8 +1731,10 @@ func _handle_side_menu(item: String) -> void:
 			_show_hud_editor()
 		"Wikipedia":
 			_show_wikipedia()
-		"Zoom":
-			_cycle_zoom()
+		"Manual":
+			_show_wikipedia()
+		"Configuracoes":
+			_flash("Sistema de configuracoes ainda em desenvolvimento.")
 		"Deslogar":
 			_logout_to_start()
 		_:
@@ -2071,23 +2121,58 @@ func _show_class_selection() -> void:
 	if online_mode:
 		_flash("Modo online ativo: escolha de classe e personagem no launcher.")
 		return
-	var box := VBoxContainer.new()
-	box.position = Vector2(430, 150)
+	var backdrop := ColorRect.new()
+	backdrop.name = "ClassSelectionBackdrop"
+	backdrop.anchor_left = 0.0
+	backdrop.anchor_top = 0.0
+	backdrop.anchor_right = 1.0
+	backdrop.anchor_bottom = 1.0
+	backdrop.offset_left = 0.0
+	backdrop.offset_top = 0.0
+	backdrop.offset_right = 0.0
+	backdrop.offset_bottom = 0.0
+	backdrop.color = Color(0.06, 0.06, 0.08, 0.82)
+	backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
+	ui.add_child(backdrop)
+	var box := PanelContainer.new()
+	box.name = "ClassSelectionBox"
 	box.custom_minimum_size = Vector2(420, 380)
+	box.anchor_left = 0.5
+	box.anchor_top = 0.5
+	box.anchor_right = 0.5
+	box.anchor_bottom = 0.5
+	box.offset_left = -210.0
+	box.offset_top = -190.0
+	box.offset_right = 210.0
+	box.offset_bottom = 190.0
+	box.mouse_filter = Control.MOUSE_FILTER_STOP
 	ui.add_child(box)
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 24)
+	margin.add_theme_constant_override("margin_top", 24)
+	margin.add_theme_constant_override("margin_right", 24)
+	margin.add_theme_constant_override("margin_bottom", 24)
+	box.add_child(margin)
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 12)
+	margin.add_child(vbox)
 	var title := Label.new()
 	title.text = "Arcadia Realms 2D\nEscolha sua classe"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	box.add_child(title)
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	vbox.add_child(title)
 	for class_label in class_db.all_classes():
 		var btn := Button.new()
-		btn.text = class_label
+		btn.text = str(class_label)
 		btn.custom_minimum_size = Vector2(360, 64)
 		btn.pressed.connect(func() -> void:
+			if panel_blocker != null:
+				panel_blocker.visible = false
+			backdrop.queue_free()
 			box.queue_free()
 			_start_new_game(str(class_label))
 		)
-		box.add_child(btn)
+		vbox.add_child(btn)
 
 func _start_new_game(chosen_class: String) -> void:
 	if online_mode:
@@ -2124,6 +2209,8 @@ func _spawn_player_from_save(save: Dictionary) -> void:
 	var saved_pos := Vector2(float(pos_arr[0]), float(pos_arr[1]))
 	if saved_map == "city_eldoria" and _eldoria_background_available():
 		saved_pos = Vector2.ZERO
+	elif saved_map == "forest_boars" and saved_pos.x <= FOREST_SOURCE_SIZE.x and saved_pos.y <= FOREST_SOURCE_SIZE.y:
+		saved_pos *= FOREST_WORLD_SCALE
 	_load_map(saved_map, saved_pos)
 	_flash("Save carregado.")
 
@@ -2168,12 +2255,14 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 		current_map_size = ELDORIA_WORLD_SIZE
 	elif _is_new_valdoria_map():
 		current_map_size = VALDORIA_WORLD_SIZE
+	elif current_map == "forest_boars" and _forest_chunks_available():
+		current_map_size = FOREST_WORLD_SIZE
 	elif current_map == "bat_cave" and _cave_background_available():
 		current_map_size = CAVE_SOURCE_SIZE
 	_draw_map_background(map_data)
 	if player != null:
 		var spawn: Array = map_data.get("spawn", [1080, 760])
-		var desired_spawn := spawn_position if spawn_position != Vector2.ZERO else Vector2(float(spawn[0]), float(spawn[1]))
+		var desired_spawn := spawn_position if spawn_position != Vector2.ZERO else _map_data_point(spawn)
 		if _is_new_eldoria_map() and spawn_position == Vector2.ZERO:
 			desired_spawn = _eldoria_point(627, 680)
 		elif _is_new_valdoria_map() and spawn_position == Vector2.ZERO:
@@ -2210,10 +2299,11 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 		"city_valdoria":
 			_draw_valdoria_terrain()
 		"forest_boars":
-			if _draw_forest_background():
-				_register_forest_background_collision()
+			if not _draw_forest_background():
+				push_error("Floresta 7x7 indisponivel: faltam chunks do mapa.")
 				return
-			_draw_forest_terrain()
+			_register_forest_background_collision()
+			return
 		"arcane_ruins":
 			_draw_arcane_terrain()
 		"bat_cave":
@@ -2298,6 +2388,44 @@ func _valdoria_rect(x: float, y: float, w: float, h: float) -> Rect2:
 func _forest_chunk_path(grid_x: int, grid_y: int) -> String:
 	return "%s/floresta_chunk_%02d_%02d.png" % [FOREST_CHUNKS_DIR, grid_x, grid_y]
 
+func _forest_point(x: float, y: float) -> Vector2:
+	return Vector2(x, y) * FOREST_WORLD_SCALE
+
+func _forest_rect(x: float, y: float, width: float, height: float) -> Rect2:
+	return Rect2(_forest_point(x, y), Vector2(width, height) * FOREST_WORLD_SCALE)
+
+func _map_data_point(pos_data: Array) -> Vector2:
+	if pos_data.size() < 2:
+		return Vector2.ZERO
+	var point := Vector2(float(pos_data[0]), float(pos_data[1]))
+	if current_map == "forest_boars":
+		return point * FOREST_WORLD_SCALE
+	return point
+
+func _map_data_radius(radius: float) -> float:
+	if current_map == "forest_boars":
+		return radius * FOREST_WORLD_SCALE
+	return radius
+
+func _consume_launcher_auto_start_offline() -> bool:
+	var tree := get_tree()
+	if tree == null:
+		return false
+	if not bool(tree.get_meta("launcher_auto_start_offline", false)):
+		return false
+	tree.remove_meta("launcher_auto_start_offline")
+	return true
+
+func _launcher_auto_class() -> String:
+	var tree := get_tree()
+	if tree == null:
+		return "Guerreiro"
+	var chosen := str(tree.get_meta("launcher_auto_class", "Guerreiro"))
+	tree.remove_meta("launcher_auto_class")
+	if chosen.is_empty():
+		return "Guerreiro"
+	return chosen
+
 func _cave_chunk_path(grid_x: int, grid_y: int) -> String:
 	return "%s/caverna_chunk_%02d_%02d.png" % [CAVE_CHUNKS_DIR, grid_x, grid_y]
 
@@ -2333,6 +2461,8 @@ func _draw_eldoria_background() -> bool:
 	var texture := load(ELDORIA_BACKGROUND_PATH) as Texture2D
 	if texture == null:
 		return false
+	assert(texture.get_width() == 5016)
+	assert(texture.get_height() == 5016)
 	current_map_size = Vector2(texture.get_width(), texture.get_height())
 	var sprite := Sprite2D.new()
 	sprite.texture = texture
@@ -2353,7 +2483,7 @@ func _draw_valdoria_background() -> bool:
 	current_map_size = Vector2(texture.get_width(), texture.get_height())
 	var sprite := Sprite2D.new()
 	sprite.texture = texture
-	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.centered = false
 	sprite.position = Vector2.ZERO
 	sprite.scale = Vector2.ONE
@@ -2363,7 +2493,12 @@ func _draw_valdoria_background() -> bool:
 
 func _draw_forest_background() -> bool:
 	if _forest_chunks_available():
-		current_map_size = FOREST_SOURCE_SIZE
+		current_map_size = FOREST_WORLD_SIZE
+		var chunks_root := Node2D.new()
+		chunks_root.name = "ForestChunks7x7"
+		chunks_root.set_meta("grid", Vector2i(7, 7))
+		chunks_root.set_meta("chunk_count", 49)
+		world.add_child(chunks_root)
 		for grid_y in range(FOREST_CHUNK_GRID.y):
 			for grid_x in range(FOREST_CHUNK_GRID.x):
 				var chunk_path := _forest_chunk_path(grid_x, grid_y)
@@ -2374,10 +2509,14 @@ func _draw_forest_background() -> bool:
 				chunk_sprite.texture = chunk_texture
 				chunk_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 				chunk_sprite.centered = false
-				chunk_sprite.position = Vector2(grid_x * FOREST_CHUNK_SIZE.x, grid_y * FOREST_CHUNK_SIZE.y)
-				chunk_sprite.scale = Vector2.ONE
+				chunk_sprite.position = Vector2(
+					grid_x * FOREST_CHUNK_SIZE.x * FOREST_WORLD_SCALE,
+					grid_y * FOREST_CHUNK_SIZE.y * FOREST_WORLD_SCALE
+				)
+				chunk_sprite.scale = Vector2.ONE * FOREST_WORLD_SCALE
 				chunk_sprite.z_index = -100
-				world.add_child(chunk_sprite)
+				chunk_sprite.name = "ForestChunk_%02d_%02d" % [grid_x, grid_y]
+				chunks_root.add_child(chunk_sprite)
 		return true
 	return false
 
@@ -2416,41 +2555,79 @@ func _draw_cave_background() -> bool:
 	return true
 
 func _register_eldoria_background_collision() -> void:
-	for rect in [
-		_eldoria_rect(0, 0, 1254, 70),
-		_eldoria_rect(0, 70, 62, 1050),
-		_eldoria_rect(1192, 70, 62, 1050),
-		_eldoria_rect(0, 1114, 1254, 140),
-		_eldoria_rect(62, 70, 1130, 86),
-		_eldoria_rect(62, 156, 52, 945),
-		_eldoria_rect(1140, 156, 52, 945),
-		_eldoria_rect(62, 1014, 505, 88),
-		_eldoria_rect(686, 1014, 506, 88),
-		_eldoria_rect(565, 1070, 42, 90),
-		_eldoria_rect(647, 1070, 42, 90),
-		_eldoria_rect(15, 72, 112, 150),
-		_eldoria_rect(1128, 72, 112, 150),
-		_eldoria_rect(15, 940, 112, 190),
-		_eldoria_rect(1128, 940, 112, 190),
-		_eldoria_rect(175, 190, 250, 240),
-		_eldoria_rect(700, 220, 320, 180),
-		_eldoria_rect(170, 655, 265, 185),
-		_eldoria_rect(690, 610, 330, 195),
-		_eldoria_rect(135, 838, 220, 100),
-		_eldoria_rect(270, 875, 260, 175),
-		_eldoria_rect(680, 828, 235, 130),
-		_eldoria_rect(900, 835, 230, 210),
-		_eldoria_rect(575, 493, 112, 126),
-		_eldoria_rect(120, 250, 88, 120),
-		_eldoria_rect(1042, 230, 80, 128),
-		_eldoria_rect(100, 640, 70, 120),
-		_eldoria_rect(1030, 610, 85, 150),
-		_eldoria_rect(462, 650, 84, 118),
-		_eldoria_rect(1035, 805, 95, 150)
-	]:
-		_register_solid_rect(rect)
-	portal_passage_rects.append(_eldoria_rect(548, 1046, 138, 188))
+	_clear_eldoria_collision_root()
+	var root := Node2D.new()
+	root.name = "EldoriaCollisions"
+	world.add_child(root)
+	for group_name in ELDORIA_COLLISIONS.keys():
+		var group_node := Node2D.new()
+		group_node.name = str(group_name)
+		root.add_child(group_node)
+		for item in ELDORIA_COLLISIONS[group_name]:
+			_register_eldoria_collision_item(group_node, item)
+	portal_passage_rects.append(Rect2(Vector2(2320, 4320), Vector2(380, 520)))
 
+func _clear_eldoria_collision_root() -> void:
+	if world == null:
+		return
+	var old_root := world.get_node_or_null("EldoriaCollisions")
+	if old_root != null:
+		old_root.queue_free()
+
+func _register_eldoria_collision_item(parent: Node2D, item: Dictionary) -> void:
+	var kind := str(item.get("type", "rect"))
+	var body := StaticBody2D.new()
+	body.name = str(item.get("name", "Collision"))
+	body.collision_layer = 1
+	body.collision_mask = 0
+	body.input_pickable = false
+	var shape_node := CollisionShape2D.new()
+	shape_node.name = body.name + "_Shape"
+	if kind == "circle":
+		var circle := CircleShape2D.new()
+		circle.radius = float(item.get("r", 0.0))
+		shape_node.shape = circle
+		shape_node.position = Vector2(float(item.get("cx", 0.0)), float(item.get("cy", 0.0)))
+		_register_solid_circle(Vector2(float(item.get("cx", 0.0)), float(item.get("cy", 0.0))), float(item.get("r", 0.0)))
+	else:
+		var rect := Rect2(
+			Vector2(float(item.get("x", 0.0)), float(item.get("y", 0.0))),
+			Vector2(float(item.get("w", 0.0)), float(item.get("h", 0.0)))
+		)
+		var rect_shape := RectangleShape2D.new()
+		rect_shape.size = rect.size
+		shape_node.shape = rect_shape
+		shape_node.position = rect.position + rect.size * 0.5
+		_register_solid_rect(rect)
+	body.add_child(shape_node)
+	parent.add_child(body)
+
+func _register_solid_rect(rect: Rect2) -> void:
+	if rect.size.x <= 0 or rect.size.y <= 0:
+		return
+	solid_obstacles.append({"type": "rect", "rect": rect})
+
+func _register_solid_circle(center: Vector2, radius: float) -> void:
+	if radius <= 0.0:
+		return
+	solid_obstacles.append({"type": "circle", "center": center, "radius": radius})
+
+func _obstacle_contains_point(obstacle: Dictionary, pos: Vector2) -> bool:
+	var kind := str(obstacle.get("type", "rect"))
+	if kind == "circle":
+		var center: Vector2 = obstacle.get("center", Vector2.ZERO)
+		var radius: float = float(obstacle.get("radius", 0.0))
+		return pos.distance_to(center) <= radius
+	var rect: Rect2 = obstacle.get("rect", Rect2())
+	return rect.has_point(pos)
+
+func _obstacle_world_rect(obstacle: Dictionary) -> Rect2:
+	var kind := str(obstacle.get("type", "rect"))
+	if kind == "circle":
+		var center: Vector2 = obstacle.get("center", Vector2.ZERO)
+		var radius: float = float(obstacle.get("radius", 0.0))
+		return Rect2(center - Vector2.ONE * radius, Vector2.ONE * radius * 2.0)
+	return obstacle.get("rect", Rect2())
 func _register_cave_background_collision() -> void:
 	for rect in [
 		Rect2(0, 0, CAVE_SOURCE_SIZE.x, 32),
@@ -2505,31 +2682,31 @@ func _register_valdoria_background_collision() -> void:
 
 func _register_forest_background_collision() -> void:
 	for rect in [
-		Rect2(0, 0, 36, FOREST_SOURCE_SIZE.y),
-		Rect2(0, 0, FOREST_SOURCE_SIZE.x, 34),
-		Rect2(0, FOREST_SOURCE_SIZE.y - 34, FOREST_SOURCE_SIZE.x, 34),
-		Rect2(FOREST_SOURCE_SIZE.x - 34, 0, 34, FOREST_SOURCE_SIZE.y),
-		Rect2(0, 0, 165, 72),
-		Rect2(0, 105, 70, 95),
-		Rect2(330, 0, 65, 235),
-		Rect2(250, 250, 75, 135),
-		Rect2(145, 365, 95, 100),
-		Rect2(35, 510, 90, 210),
-		Rect2(235, 720, 85, 170),
-		Rect2(565, 475, 190, 130),
-		Rect2(710, 0, 240, 110),
-		Rect2(860, 0, 530, 180),
-		Rect2(870, 180, 210, 180),
-		Rect2(1230, 150, 170, 320),
-		Rect2(760, 650, 150, 180),
-		Rect2(1180, 380, 220, 180),
-		Rect2(1280, 560, 120, 250),
-		Rect2(740, 925, 360, 195),
-		Rect2(380, 250, 95, 90),
-		Rect2(540, 260, 130, 100),
-		Rect2(330, 500, 125, 115),
-		Rect2(550, 650, 130, 120),
-		Rect2(865, 815, 140, 110)
+		_forest_rect(0, 0, 36, FOREST_SOURCE_SIZE.y),
+		_forest_rect(0, 0, FOREST_SOURCE_SIZE.x, 34),
+		_forest_rect(0, FOREST_SOURCE_SIZE.y - 34, FOREST_SOURCE_SIZE.x, 34),
+		_forest_rect(FOREST_SOURCE_SIZE.x - 34, 0, 34, FOREST_SOURCE_SIZE.y),
+		_forest_rect(0, 0, 165, 72),
+		_forest_rect(0, 105, 70, 95),
+		_forest_rect(330, 0, 65, 235),
+		_forest_rect(250, 250, 75, 135),
+		_forest_rect(145, 365, 95, 100),
+		_forest_rect(35, 510, 90, 210),
+		_forest_rect(235, 720, 85, 170),
+		_forest_rect(565, 475, 190, 130),
+		_forest_rect(710, 0, 240, 110),
+		_forest_rect(860, 0, 530, 180),
+		_forest_rect(870, 180, 210, 180),
+		_forest_rect(1230, 150, 170, 320),
+		_forest_rect(760, 650, 150, 180),
+		_forest_rect(1180, 380, 220, 180),
+		_forest_rect(1280, 560, 120, 250),
+		_forest_rect(740, 925, 360, 195),
+		_forest_rect(380, 250, 95, 90),
+		_forest_rect(540, 260, 130, 100),
+		_forest_rect(330, 500, 125, 115),
+		_forest_rect(550, 650, 130, 120),
+		_forest_rect(865, 815, 140, 110)
 	]:
 		_register_solid_rect(rect)
 
@@ -2557,21 +2734,21 @@ func _draw_valdoria_terrain() -> void:
 
 func _forest_main_path_points() -> Array[Vector2]:
 	return [
-		Vector2(110, 95),
-		Vector2(170, 170),
-		Vector2(260, 260),
-		Vector2(235, 450),
-		Vector2(350, 560),
-		Vector2(520, 520),
-		Vector2(585, 375),
-		Vector2(650, 210),
-		Vector2(770, 250),
-		Vector2(815, 390),
-		Vector2(760, 555),
-		Vector2(855, 690),
-		Vector2(1010, 725),
-		Vector2(1130, 800),
-		Vector2(1300, 1030)
+		_forest_point(110, 95),
+		_forest_point(170, 170),
+		_forest_point(260, 260),
+		_forest_point(235, 450),
+		_forest_point(350, 560),
+		_forest_point(520, 520),
+		_forest_point(585, 375),
+		_forest_point(650, 210),
+		_forest_point(770, 250),
+		_forest_point(815, 390),
+		_forest_point(760, 555),
+		_forest_point(855, 690),
+		_forest_point(1010, 725),
+		_forest_point(1130, 800),
+		_forest_point(1300, 1030)
 	]
 
 func _draw_forest_terrain() -> void:
@@ -2683,9 +2860,7 @@ func _spawn_map_decor() -> void:
 		for p in [Vector2(1495, 795), Vector2(1690, 850), Vector2(565, 620), Vector2(1300, 625)]:
 			_add_world_sprite("res://assets/sprites/decor_crate.png", p, 1.25, -6)
 	elif current_map == "forest_boars":
-		if _forest_background_available():
-			return
-		_spawn_forest_decor()
+		return
 	elif current_map == "arcane_ruins":
 		for p in [Vector2(180, 170), Vector2(1010, 165), Vector2(300, 475), Vector2(890, 430)]:
 			_add_world_sprite("res://assets/sprites/decor_crystal.png", p, 2.0, -12)
@@ -2787,6 +2962,14 @@ func _distance_to_path_points(point: Vector2, points: Array[Vector2]) -> float:
 		best = minf(best, point.distance_to(projection))
 	return best
 
+func _is_forest_road_walkable(pos: Vector2) -> bool:
+	if current_map != "forest_boars":
+		return false
+	var path_points := _forest_main_path_points()
+	if path_points.size() < 2:
+		return false
+	return _distance_to_path_points(pos, path_points) <= 170.0
+
 func _is_forest_reserved_clear(pos: Vector2) -> bool:
 	for entry in [
 		{"center": Vector2(120, 105), "radius": 190.0},
@@ -2858,21 +3041,18 @@ func _register_sprite_obstacle(path: String, pos: Vector2, sprite_scale: float) 
 	if rect.size != Vector2.ZERO:
 		_register_solid_rect(rect)
 
-func _register_solid_rect(rect: Rect2) -> void:
-	if rect.size.x <= 0 or rect.size.y <= 0:
-		return
-	solid_obstacles.append(rect)
-
 func _is_point_blocked(pos: Vector2) -> bool:
 	if pos.x < 18 or pos.y < 18 or pos.x > current_map_size.x - 18 or pos.y > current_map_size.y - 18:
 		return true
+	if _is_forest_road_walkable(pos):
+		return false
 	for portal_rect in portal_passage_rects:
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
 			if portal_rect.has_point(pos + probe):
 				return false
-	for rect in solid_obstacles:
+	for obstacle in solid_obstacles:
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
-			if rect.has_point(pos + probe):
+			if _obstacle_contains_point(obstacle, pos + probe):
 				return true
 	return false
 
@@ -3073,7 +3253,7 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		world.add_child(npc)
 		npc.setup(npc_data)
 		var pos: Array = npc_data.get("pos", [100, 100])
-		npc.global_position = Vector2(float(pos[0]), float(pos[1]))
+		npc.global_position = _map_data_point(pos)
 		npc.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_npc = npc_ref
@@ -3106,6 +3286,7 @@ func _spawn_portals(map_data: Dictionary) -> void:
 		var shape := CollisionShape2D.new()
 		var rect_shape := RectangleShape2D.new()
 		var is_eldoria_premium_portal := current_map == "city_eldoria" and _eldoria_background_available()
+		var is_forest_portal := current_map == "forest_boars"
 		rect_shape.size = Vector2(150, 230) if is_eldoria_premium_portal else Vector2(130, 200)
 		shape.shape = rect_shape
 		portal.add_child(shape)
@@ -3116,10 +3297,12 @@ func _spawn_portals(map_data: Dictionary) -> void:
 				visual.set("display_scale", portal_scale)
 			portal.add_child(visual)
 		var pos: Array = portal_data.get("pos", [100, 100])
-		portal.global_position = Vector2(float(pos[0]), float(pos[1]))
+		portal.global_position = _map_data_point(pos)
 		var passage_rect := Rect2(portal.global_position - Vector2(90, 120), Vector2(180, 240))
 		if is_eldoria_premium_portal:
 			passage_rect = Rect2(portal.global_position - Vector2(110, 145), Vector2(220, 290))
+		elif is_forest_portal:
+			passage_rect = Rect2(portal.global_position - Vector2(120, 150), Vector2(240, 300))
 		portal_passage_rects.append(passage_rect)
 		world.add_child(portal)
 		portal.body_entered.connect(func(body: Node) -> void:
@@ -3137,8 +3320,8 @@ func _spawn_safe_zones(map_data: Dictionary) -> void:
 		return
 	for zone_data in map_data.get("safe_zones", []):
 		var pos_arr: Array = zone_data.get("pos", [0, 0])
-		var radius: float = float(zone_data.get("radius", 120))
-		var center := Vector2(float(pos_arr[0]), float(pos_arr[1]))
+		var radius: float = _map_data_radius(float(zone_data.get("radius", 120)))
+		var center := _map_data_point(pos_arr)
 		safe_zone_nodes.append({"center": center, "radius": radius})
 		if current_map == "bat_cave":
 			continue
@@ -3163,11 +3346,13 @@ func _is_point_in_safe_zone(pos: Vector2) -> bool:
 	return false
 
 func _spawn_enemies(map_data: Dictionary) -> void:
+	var occupied_spawn_positions: Array[Vector2] = []
 	for spawn in map_data.get("spawns", []):
-		for i in range(int(spawn.get("count", 1))):
-			_spawn_enemy_from_spawn(spawn)
+		var spawn_count := max(1, int(spawn.get("count", 1)))
+		for i in range(spawn_count):
+			_spawn_enemy_from_spawn(spawn, i, spawn_count, occupied_spawn_positions)
 
-func _spawn_enemy_from_spawn(spawn: Dictionary) -> void:
+func _spawn_enemy_from_spawn(spawn: Dictionary, spawn_index: int = 0, spawn_total: int = 1, occupied_spawn_positions: Array[Vector2] = []) -> void:
 	var enemy_name := str(spawn.get("enemy", ""))
 	if enemy_name.is_empty():
 		return
@@ -3177,25 +3362,73 @@ func _spawn_enemy_from_spawn(spawn: Dictionary) -> void:
 	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
 	enemy.safe_zone_checker = Callable(self, "_is_point_in_safe_zone")
 	enemy.obstacle_checker = Callable(self, "_is_point_blocked")
-	enemy.global_position = _random_enemy_spawn_position(spawn)
+	enemy.global_position = _random_enemy_spawn_position(spawn, spawn_index, spawn_total, occupied_spawn_positions)
+	enemy.z_index = clampi(int(enemy.global_position.y), -1024, 1024)
+	occupied_spawn_positions.append(enemy.global_position)
 	enemy.set_meta("spawn_data", spawn.duplicate(true))
 	enemy.set_meta("spawn_map", current_map)
 	if bool(spawn.get("boss", false)):
 		enemy.add_to_group("bosses")
 	enemy.killed.connect(_enemy_killed)
 
-func _random_enemy_spawn_position(spawn: Dictionary = {}) -> Vector2:
+func _spawn_position_is_clear(pos: Vector2, occupied_positions: Array[Vector2], min_distance: float) -> bool:
+	for other_pos in occupied_positions:
+		if pos.distance_to(other_pos) < min_distance:
+			return false
+	return true
+
+func _random_enemy_spawn_position(spawn: Dictionary = {}, spawn_index: int = 0, spawn_total: int = 1, occupied_positions: Array[Vector2] = []) -> Vector2:
 	var zone: Array = spawn.get("zone", [])
 	var pos := Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
+	var min_spacing := 96.0
+	if current_map == "forest_boars":
+		min_spacing = 132.0
 	if zone.size() >= 4:
-		pos = Vector2(randf_range(float(zone[0]), float(zone[0]) + float(zone[2])), randf_range(float(zone[1]), float(zone[1]) + float(zone[3])))
+		var zone_scale := FOREST_WORLD_SCALE if current_map == "forest_boars" else 1.0
+		var zone_origin := Vector2(float(zone[0]), float(zone[1])) * zone_scale
+		var zone_size := Vector2(float(zone[2]), float(zone[3])) * zone_scale
+		var columns := clampi(int(ceil(sqrt(float(spawn_total)))), 1, 4)
+		var rows := maxi(1, int(ceil(float(spawn_total) / float(columns))))
+		var col := spawn_index % columns
+		var row := spawn_index / columns
+		var step_x := zone_size.x / float(columns + 1)
+		var step_y := zone_size.y / float(rows + 1)
+		pos = zone_origin + Vector2(step_x * float(col + 1), step_y * float(row + 1))
+		if current_map == "forest_boars":
+			var jitter_x := sin(float(spawn_index + 1) * 2.137) * zone_size.x * 0.06
+			var jitter_y := cos(float(spawn_index + 2) * 1.781) * zone_size.y * 0.06
+			pos += Vector2(jitter_x, jitter_y)
 	var retries := 0
-	while (_is_point_in_safe_zone(pos) or _is_point_blocked(pos)) and retries < 28:
+	while (_is_point_in_safe_zone(pos) or _is_point_blocked(pos) or not _spawn_position_is_clear(pos, occupied_positions, min_spacing)) and retries < 32:
 		if zone.size() >= 4:
-			pos = Vector2(randf_range(float(zone[0]), float(zone[0]) + float(zone[2])), randf_range(float(zone[1]), float(zone[1]) + float(zone[3])))
+			var zone_scale := FOREST_WORLD_SCALE if current_map == "forest_boars" else 1.0
+			var zone_origin := Vector2(float(zone[0]), float(zone[1])) * zone_scale
+			var zone_size := Vector2(float(zone[2]), float(zone[3])) * zone_scale
+			var base_columns := clampi(int(ceil(sqrt(float(spawn_total)))), 1, 4)
+			var base_rows := maxi(1, int(ceil(float(spawn_total) / float(base_columns))))
+			var base_col := retries % base_columns
+			var base_row := int(retries / base_columns) % base_rows
+			var base_step_x := zone_size.x / float(base_columns + 1)
+			var base_step_y := zone_size.y / float(base_rows + 1)
+			pos = zone_origin + Vector2(base_step_x * float(base_col + 1), base_step_y * float(base_row + 1))
+			if current_map == "forest_boars":
+				var retry_jitter_x := sin(float(retries + 1) * 1.913) * zone_size.x * 0.08
+				var retry_jitter_y := cos(float(retries + 3) * 2.117) * zone_size.y * 0.08
+				pos += Vector2(retry_jitter_x, retry_jitter_y)
 		else:
 			pos = Vector2(randf_range(120, current_map_size.x - 120), randf_range(120, current_map_size.y - 120))
 		retries += 1
+	if current_map == "forest_boars" and (_is_point_in_safe_zone(pos) or _is_point_blocked(pos)):
+		var safe_center := _map_data_point([120, 105])
+		var outward := (pos - safe_center).normalized()
+		if outward == Vector2.ZERO:
+			outward = Vector2.RIGHT
+		pos = safe_center + outward * (_map_data_radius(190.0) + 160.0)
+		if zone.size() >= 4:
+			var zone_scale := FOREST_WORLD_SCALE if current_map == "forest_boars" else 1.0
+			var zone_origin := Vector2(float(zone[0]), float(zone[1])) * zone_scale
+			var zone_size := Vector2(float(zone[2]), float(zone[3])) * zone_scale
+			pos = pos.clamp(zone_origin + Vector2(36, 36), zone_origin + zone_size - Vector2(36, 36))
 	return pos
 
 func _enemy_respawn_delay(enemy_name: String, spawn_data: Dictionary) -> float:
@@ -3708,7 +3941,7 @@ func _spawn_map_collectibles(map_data: Dictionary) -> void:
 		if item_name.is_empty() or pos_data.size() < 2:
 			continue
 		var amount: int = max(1, int(entry.get("amount", 1)))
-		var pos: Vector2 = Vector2(float(pos_data[0]), float(pos_data[1]))
+		var pos: Vector2 = _resolve_unblocked_spawn(_map_data_point(pos_data))
 		var collectible: ItemDrop = DROP_SCENE.instantiate()
 		var local_collectible: ItemDrop = collectible
 		world.add_child(collectible)
@@ -4129,13 +4362,16 @@ func _open_inventory_panel() -> void:
 	bag_box.add_child(_panel_label("Bolsa (20 slots)", 18, Color.WHITE))
 	var scroll := ScrollContainer.new()
 	scroll.custom_minimum_size = Vector2(535, 430)
+	scroll.mouse_filter = Control.MOUSE_FILTER_STOP
 	bag_box.add_child(scroll)
 	var bag_grid := GridContainer.new()
 	bag_grid.columns = 5
 	bag_grid.custom_minimum_size = Vector2(510, 420)
 	bag_grid.add_theme_constant_override("h_separation", 8)
 	bag_grid.add_theme_constant_override("v_separation", 8)
+	bag_grid.mouse_filter = Control.MOUSE_FILTER_PASS
 	scroll.add_child(bag_grid)
+	_enable_touch_scroll(scroll, bag_grid)
 	var keys: Array = player.inventory.items.keys()
 	keys.sort()
 	var shown := 0
@@ -4148,7 +4384,8 @@ func _open_inventory_panel() -> void:
 		var slot_btn := Button.new()
 		slot_btn.custom_minimum_size = Vector2(96, 76)
 		slot_btn.text = ""
-		_add_slot_icon(slot_btn, load(str(data.get("icon", "res://assets/sprites/drop_bag.png"))) as Texture2D, Vector2(48, 48), Vector2(48, 35))
+		slot_btn.mouse_filter = Control.MOUSE_FILTER_PASS
+		_add_slot_icon(slot_btn, load(str(data.get("icon", "res://assets/sprites/drop_bag.png"))) as Texture2D, Vector2(34, 34), Vector2(48, 35))
 		_add_slot_count(slot_btn, "x%d" % amount)
 		slot_btn.tooltip_text = "%s\n%s" % [bag_item_name, str(data.get("description", ""))]
 		_style_panel_button(slot_btn)
@@ -4161,6 +4398,7 @@ func _open_inventory_panel() -> void:
 	while shown < InventorySystem.MAX_SLOTS:
 		var empty_slot := PanelContainer.new()
 		empty_slot.custom_minimum_size = Vector2(96, 76)
+		empty_slot.mouse_filter = Control.MOUSE_FILTER_PASS
 		var style := StyleBoxFlat.new()
 		style.bg_color = Color(0.03, 0.04, 0.05, 0.9)
 		style.border_color = Color(1, 1, 1, 0.2)
@@ -4990,17 +5228,23 @@ func _show_world_map(force_refresh: bool = false) -> void:
 	_draw_world_map_preview(canvas, current_map, map_size, canvas_size)
 	for portal_data in map_data.get("portals", []):
 		var pos_arr: Array = portal_data.get("pos", [0, 0])
+		var portal_world_pos := Vector2(float(pos_arr[0]), float(pos_arr[1]))
+		if current_map == "forest_boars":
+			portal_world_pos *= FOREST_WORLD_SCALE
 		var dot := ColorRect.new()
 		dot.size = Vector2(6, 6)
 		dot.color = Color("#9cd3ff")
-		dot.position = Vector2(5, 5) + _map_canvas_pos(map_size, canvas_size, Vector2(float(pos_arr[0]), float(pos_arr[1]))) - Vector2(3, 3)
+		dot.position = Vector2(5, 5) + _map_canvas_pos(map_size, canvas_size, portal_world_pos) - Vector2(3, 3)
 		canvas.add_child(dot)
 	for npc_data in map_data.get("npcs", []):
 		var pos_arr: Array = npc_data.get("pos", [0, 0])
+		var npc_world_pos := Vector2(float(pos_arr[0]), float(pos_arr[1]))
+		if current_map == "forest_boars":
+			npc_world_pos *= FOREST_WORLD_SCALE
 		var dot := ColorRect.new()
 		dot.size = Vector2(6, 6)
 		dot.color = Color("#74f29b")
-		dot.position = Vector2(5, 5) + _map_canvas_pos(map_size, canvas_size, Vector2(float(pos_arr[0]), float(pos_arr[1]))) - Vector2(3, 3)
+		dot.position = Vector2(5, 5) + _map_canvas_pos(map_size, canvas_size, npc_world_pos) - Vector2(3, 3)
 		canvas.add_child(dot)
 	var player_dot := ColorRect.new()
 	player_dot.size = Vector2(8, 8)
@@ -5068,7 +5312,7 @@ func _draw_world_map_preview(canvas: Control, map_id: String, map_size: Vector2,
 				if texture != null:
 					var preview := TextureRect.new()
 					preview.texture = texture
-					preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+					preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 					preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 					preview.stretch_mode = TextureRect.STRETCH_SCALE
 					preview.position = origin
@@ -5170,12 +5414,12 @@ func _start_modal(title: String, panel_name: String) -> VBoxContainer:
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(spacer)
 	var close := Button.new()
-	close.text = ""
-	close.custom_minimum_size = Vector2(44, 34)
+	close.text = "X"
+	close.custom_minimum_size = Vector2(52, 38)
 	close.focus_mode = Control.FOCUS_NONE
 	close.mouse_filter = Control.MOUSE_FILTER_STOP
-	close.icon = load("res://assets/sprites/icon_menu_close.png")
-	close.expand_icon = true
+	close.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+	close.flat = true
 	var close_style := StyleBoxFlat.new()
 	close_style.bg_color = Color("#9e1d24")
 	close_style.border_color = Color(1, 0.55, 0.55, 0.85)
@@ -5185,7 +5429,10 @@ func _start_modal(title: String, panel_name: String) -> VBoxContainer:
 	close.add_theme_stylebox_override("hover", close_style)
 	close.add_theme_stylebox_override("pressed", close_style)
 	close.add_theme_color_override("font_color", Color.WHITE)
-	close.pressed.connect(Callable(self, "_hide_panel"))
+	close.add_theme_font_size_override("font_size", 18)
+	close.pressed.connect(func() -> void:
+		_hide_panel()
+	)
 	header.add_child(close)
 	var body := VBoxContainer.new()
 	body.custom_minimum_size = Vector2(860, 470)
@@ -5304,17 +5551,28 @@ func _style_equipment_slot(button: Button, empty: bool) -> void:
 func _add_slot_icon(button: Button, texture: Texture2D, max_size: Vector2, center: Vector2) -> void:
 	if texture == null:
 		return
+	button.clip_contents = true
+	var clipper := Control.new()
+	clipper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	clipper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	clipper.clip_contents = true
+	button.add_child(clipper)
 	var icon := TextureRect.new()
 	icon.texture = texture
 	var texture_size := texture.get_size()
 	var scale_factor: float = min(max_size.x / max(1.0, texture_size.x), max_size.y / max(1.0, texture_size.y))
+	scale_factor = clamp(scale_factor, 0.0, 1.0)
 	var draw_size := texture_size * scale_factor
+	if draw_size.x > max_size.x:
+		draw_size.x = max_size.x
+	if draw_size.y > max_size.y:
+		draw_size.y = max_size.y
 	icon.position = center - draw_size * 0.5
 	icon.size = draw_size
 	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	button.add_child(icon)
+	clipper.add_child(icon)
 
 func _add_slot_count(button: Button, text: String) -> void:
 	var label := Label.new()
@@ -5383,6 +5641,7 @@ func _panel_label(text: String, font_size: int = 15, color: Color = Color.WHITE)
 	return label
 
 func _style_panel_button(button: Button) -> void:
+	button.clip_contents = true
 	var normal := StyleBoxFlat.new()
 	normal.bg_color = Color(0.08, 0.095, 0.11, 0.96)
 	normal.border_color = Color(1, 1, 1, 0.18)
@@ -5400,6 +5659,77 @@ func _style_panel_button(button: Button) -> void:
 	button.add_theme_color_override("font_color", Color.WHITE)
 	button.add_theme_color_override("font_disabled_color", Color("#aeb4bd"))
 	button.add_theme_font_size_override("font_size", 14)
+
+func _enable_touch_scroll(scroll: ScrollContainer, content: Control) -> void:
+	if scroll == null:
+		return
+	scroll.set_meta("dragging", false)
+	scroll.set_meta("drag_start_pos", Vector2.ZERO)
+	scroll.set_meta("drag_scroll_start", 0)
+	scroll.set_meta("drag_threshold", 10.0)
+	scroll.gui_input.connect(func(event: InputEvent) -> void:
+		_handle_touch_scroll_input(scroll, content, event)
+	)
+
+func _set_scroll_buttons_mouse_filter(content: Control, filter_mode) -> void:
+	for child in content.get_children():
+		if child is BaseButton:
+			(child as BaseButton).mouse_filter = filter_mode
+
+func _handle_touch_scroll_input(scroll: ScrollContainer, content: Control, event: InputEvent) -> void:
+	if scroll == null or content == null:
+		return
+	var dragging := bool(scroll.get_meta("dragging", false))
+	var start_pos := scroll.get_meta("drag_start_pos", Vector2.ZERO) as Vector2
+	var start_scroll := int(scroll.get_meta("drag_scroll_start", 0))
+	var threshold := float(scroll.get_meta("drag_threshold", 10.0))
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			scroll.set_meta("drag_start_pos", touch.position)
+			scroll.set_meta("drag_scroll_start", scroll.scroll_vertical)
+			scroll.set_meta("dragging", false)
+			_set_scroll_buttons_mouse_filter(content, Control.MOUSE_FILTER_PASS)
+		elif dragging:
+			scroll.set_meta("dragging", false)
+			_set_scroll_buttons_mouse_filter(content, Control.MOUSE_FILTER_PASS)
+			scroll.accept_event()
+	elif event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		var delta := drag.position - start_pos
+		if not dragging and absf(delta.y) > threshold:
+			scroll.set_meta("dragging", true)
+			_set_scroll_buttons_mouse_filter(content, Control.MOUSE_FILTER_IGNORE)
+			dragging = true
+		if dragging:
+			var bar := scroll.get_v_scroll_bar()
+			var max_scroll := int(bar.max_value) if bar != null else 0
+			scroll.scroll_vertical = clampi(start_scroll - int(delta.y), 0, max_scroll)
+			scroll.accept_event()
+	elif event is InputEventMouseButton:
+		var mouse := event as InputEventMouseButton
+		if mouse.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if mouse.pressed:
+			scroll.set_meta("drag_start_pos", mouse.position)
+			scroll.set_meta("drag_scroll_start", scroll.scroll_vertical)
+			scroll.set_meta("dragging", false)
+			_set_scroll_buttons_mouse_filter(content, Control.MOUSE_FILTER_PASS)
+		elif dragging:
+			scroll.set_meta("dragging", false)
+			_set_scroll_buttons_mouse_filter(content, Control.MOUSE_FILTER_PASS)
+			scroll.accept_event()
+	elif event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		var motion := event as InputEventMouseMotion
+		var delta := motion.position - start_pos
+		if not dragging and absf(delta.y) > threshold:
+			scroll.set_meta("dragging", true)
+			_set_scroll_buttons_mouse_filter(content, Control.MOUSE_FILTER_IGNORE)
+			dragging = true
+		if dragging:
+			var bar := scroll.get_v_scroll_bar()
+			var max_scroll := int(bar.max_value) if bar != null else 0
+			scroll.scroll_vertical = clampi(start_scroll - int(delta.y), 0, max_scroll)
 
 func _slot_label(slot: String) -> String:
 	match slot:
@@ -5471,8 +5801,8 @@ func _ensure_player_camera() -> void:
 		player_camera.name = "PlayerCamera"
 		player.add_child(player_camera)
 	player_camera.enabled = true
-	player_camera.position_smoothing_enabled = true
-	player_camera.position_smoothing_speed = 7.0
+	player_camera.position_smoothing_enabled = false
+	player_camera.position_smoothing_speed = 0.0
 	player_camera.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
 	_apply_camera_zoom()
 	player_camera.make_current()
@@ -5696,7 +6026,7 @@ func _add_valdoria_minimap_background() -> void:
 	var map_rect := _valdoria_minimap_rect()
 	var preview := TextureRect.new()
 	preview.texture = texture
-	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview.stretch_mode = TextureRect.STRETCH_SCALE
 	preview.position = map_rect.position
@@ -5728,7 +6058,7 @@ func _add_cave_minimap_background() -> void:
 	var map_rect := Rect2(Vector2.ZERO, minimap_canvas.size)
 	var preview := TextureRect.new()
 	preview.texture = texture
-	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview.stretch_mode = TextureRect.STRETCH_SCALE
 	preview.position = map_rect.position
@@ -5800,12 +6130,15 @@ func _add_minimap_obstacles() -> void:
 		return
 	var view_rect := Rect2(player.global_position - Vector2.ONE * MINIMAP_WORLD_RADIUS, Vector2.ONE * MINIMAP_WORLD_RADIUS * 2.0)
 	var drawn := 0
-	for rect in solid_obstacles:
+	for obstacle in solid_obstacles:
 		if drawn >= 150:
 			break
-		if not rect.intersects(view_rect):
+		var world_rect := _obstacle_world_rect(obstacle)
+		if world_rect.size.x <= 0.0 or world_rect.size.y <= 0.0:
 			continue
-		_add_minimap_rect(rect, Color(0.02, 0.025, 0.02, 0.58))
+		if not world_rect.intersects(view_rect):
+			continue
+		_add_minimap_rect(world_rect, Color(0.02, 0.025, 0.02, 0.58))
 		drawn += 1
 
 func _add_minimap_rect(world_rect: Rect2, color: Color) -> void:

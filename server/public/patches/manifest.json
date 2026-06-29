@@ -39,8 +39,8 @@
     {
       "path": "data/maps.json",
       "url": "/patch/files/maps.json",
-      "sha256": "c560654293498ac00184d3a2e7f27f36f3f123ba80558e6447b1d68280f4831d",
-      "size": 13047
+      "sha256": "7b0220e15eb1e4d6b9ed31efb8fbf2eb6d15bdcf4866690806b692bb66f2f851",
+      "size": 22307
     },
     {
       "path": "data/mmo_achievements.json",
