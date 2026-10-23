@@ -10,10 +10,11 @@ Data da auditoria: 2026-10-23.
 - Branch: `main`.
 - Commit base: `275ca459f9390c41b5c081738170e0444e3869e8` (`275ca45`).
 - Assunto: `Publica Paradise RPG v0.1.16`.
+- Primeiro commit da documentacao de transferencia: `6cbac2c` (`docs: add Claude Code technical handoff`).
 - Upstream: `origin/main`.
 - Divergencia no momento da auditoria: `0` ahead / `0` behind.
 - Staging area: vazia.
-- Estado final esperado apos esta transferencia: 124 arquivos modificados, 9 deletados e 797 nao rastreados, incluindo os tres documentos de handoff.
+- Estado do trabalho do aplicativo apos versionar os documentos: 124 arquivos modificados, 9 deletados e 794 nao rastreados.
 
 **Atencao:** o commit base nao representa o jogo atual. Eldoria, Floresta, assets, scripts, dados e correcoes recentes estao no working tree local. Nao resetar, limpar ou trocar de branch sem preservar esse estado.
 
@@ -163,11 +164,11 @@ Historico verificavel anterior: em 2026-09-12, cenas principais carregaram em Go
 2. Implantar base, colisao, portal, NPCs, mobs e quests somente desse mapa.
 3. Validar fluxo completo antes de iniciar o mapa seguinte.
 
-## Preparacao para commit dos documentos
+## Publicacao dos documentos
 
-Nenhum `git add`, commit, push, tag ou release foi executado nesta tarefa.
+Os tres documentos foram adicionados, commitados e enviados para `origin/main` apos autorizacao explicita. Nenhum arquivo de codigo, dados ou assets do working tree foi incluido nesse commit; nenhuma tag ou release foi criada.
 
-Para revisar e preparar somente a documentacao:
+Para revisar e preparar futuras atualizacoes somente da documentacao:
 
 ```powershell
 git diff --no-index -- NUL PROJECT_CONTEXT.md
@@ -178,13 +179,13 @@ git diff --cached --check
 git diff --cached --stat
 ```
 
-Commit sugerido, somente apos autorizacao:
+Commit sugerido para futuras atualizacoes, somente apos nova autorizacao:
 
 ```powershell
 git commit -m "docs: add Claude Code technical handoff"
 ```
 
-Push sugerido, somente apos autorizacao e depois de decidir como transferir o working tree real:
+Push sugerido para futuras atualizacoes, somente apos nova autorizacao e depois de decidir como transferir o working tree real:
 
 ```powershell
 git push origin main
