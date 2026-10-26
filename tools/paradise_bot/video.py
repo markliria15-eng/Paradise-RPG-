@@ -17,7 +17,7 @@ import time
 import traceback
 from pathlib import Path
 
-from util import Cor, achar_executavel, agora, carregar_json, extrair_json, perguntar, rodar, salvar_json, say
+from util import Cor, achar_executavel, agora, comando_jogo, carregar_json, extrair_json, perguntar, rodar, salvar_json, say
 
 LARG, ALT = 1080, 1920
 
@@ -103,7 +103,8 @@ class BotVideos:
             return
         segundos = int(self.cfg.get("segundos_gravacao", 20))
         say(f"\n🎥 Gravação {rotulo}: vou abrir o jogo.", Cor.CIANO)
-        jogo = subprocess.Popen([self.godot, "--path", str(self.repo)], cwd=self.repo,
+        args, env = comando_jogo(self.cfg, self.repo)
+        jogo = subprocess.Popen(args, cwd=self.repo, env=env,
                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         try:
             time.sleep(6)

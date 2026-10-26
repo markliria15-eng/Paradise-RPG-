@@ -2,22 +2,32 @@
   "foco": "jogabilidade dos mapas ativos (Eldoria e Floresta): combate mais gostoso, feedback visual e sonoro, progressão e recompensas, quests claras, NPCs vivos",
   "ideias_por_rodada": 3,
   "mostrar_raciocinio": false,
-
   "claude_cmd": "claude",
   "claude_model": "",
   "max_tentativas_correcao": 2,
   "commit_ao_aceitar": "perguntar",
-
   "openai_api_key_env": "OPENAI_API_KEY",
   "openai_image_model": "gpt-image-2",
   "openai_image_model_fallback": "gpt-image-1",
   "openai_image_quality": "high",
   "estilo_arte": "Pixel art 2D top-down de RPG medieval de fantasia, no mesmo estilo e paleta dos assets atuais do Paradise RPG. Contornos limpos, sombreamento simples, sem texto, sem marca d'água, sem moldura.",
   "reduzir_cores": 0,
-
-  "godot_exe": ".tools/godot-4.2.2/Godot_v4.2.2-stable_win64_console.exe",
+  "godot_exe": ".tools/godot-4.6.3/Godot_v4.6.3-stable_win64_console.exe",
+  "godot_args_janela": [
+    "--resolution",
+    "1280x720",
+    "--position",
+    "80,50"
+  ],
+  "godot_args_jogo": [
+    "--",
+    "--offline-test"
+  ],
+  "godot_env": {
+    "PARADISE_MMO_ENV": "local"
+  },
+  "godot_quit_after": 600,
   "godot_timeout_s": 240,
-
   "videos_ativos": true,
   "gravacao": "manual",
   "segundos_gravacao": 20,

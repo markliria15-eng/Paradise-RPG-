@@ -6,7 +6,7 @@ import re
 import subprocess
 from pathlib import Path
 
-from util import achar_executavel, rodar
+from util import achar_executavel, comando_jogo, rodar
 
 PADROES_ERRO_GODOT = re.compile(
     r"(SCRIPT ERROR|Parse Error|Failed to load script|Failed loading resource|"
@@ -58,8 +58,8 @@ def validar(repo: Path, arquivos_alterados: list[str], cfg: dict) -> tuple[bool,
     alterou_godot = any(a.endswith((".gd", ".tscn", ".tres", ".godot")) for a in arquivos_alterados)
     if godot and alterou_godot:
         try:
-            r = subprocess.run([godot, "--headless", "--path", str(repo), "--quit-after", "600"],
-                               cwd=repo, capture_output=True, text=True, encoding="utf-8",
+            args, env = comando_jogo(cfg, repo, headless=True)
+            r = subprocess.run(args, cwd=repo, env=env, capture_output=True, text=True, encoding="utf-8",
                                errors="replace", timeout=int(cfg.get("godot_timeout_s", 240)))
             saida = (r.stdout or "") + "\n" + (r.stderr or "")
             erros = [l for l in saida.splitlines() if PADROES_ERRO_GODOT.search(l)]

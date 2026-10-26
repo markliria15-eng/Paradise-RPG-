@@ -127,3 +127,18 @@ def perguntar(texto: str) -> str:
         return input(f"{Cor.AMARELO}{texto}{Cor.RESET} ").strip()
     except EOFError:
         return "SAIR"
+
+
+def comando_jogo(cfg: dict, repo: Path, headless: bool = False) -> tuple[list[str], dict] | tuple[None, None]:
+    """Comando e ambiente para abrir o jogo direto no gameplay offline (igual ao TESTAR_JOGO_OFFLINE.bat)."""
+    godot = achar_executavel(cfg.get("godot_exe", ""), repo)
+    if not godot:
+        return None, None
+    args = [godot, "--path", str(repo)]
+    if headless:
+        args += ["--headless", "--quit-after", str(cfg.get("godot_quit_after", 600))]
+    else:
+        args += list(cfg.get("godot_args_janela", []))
+    args += list(cfg.get("godot_args_jogo", []))
+    env = dict(os.environ, **{k: str(v) for k, v in (cfg.get("godot_env") or {}).items()})
+    return args, env

@@ -22,7 +22,7 @@ from git_snapshot import (ErroGit, commit_dos_arquivos, criar_snapshot, desfazer
                           head_curto, mudancas_desde)
 from openai_assets import ErroOpenAI, GeradorAssets  # noqa: E402
 from prompts import prompt_ajuste, prompt_corrigir, prompt_ideias, prompt_implementar  # noqa: E402
-from util import (BOT_DIR, Cor, achar_executavel, agora, carregar_env_local, carregar_json,  # noqa: E402
+from util import (BOT_DIR, Cor, achar_executavel, agora, comando_jogo, carregar_env_local, carregar_json,  # noqa: E402
                   configurar_console, extrair_json, perguntar, salvar_json, say, titulo)
 from validacao import validar  # noqa: E402
 from video import BotVideos  # noqa: E402
@@ -244,12 +244,12 @@ class ParadiseBot:
         return resumo
 
     def _abrir_jogo(self) -> None:
-        godot = achar_executavel(self.cfg.get("godot_exe", ""), self.repo)
-        if not godot:
+        args, env = comando_jogo(self.cfg, self.repo)
+        if not args:
             say("Configure godot_exe em config.json para testar por aqui.", Cor.AMARELO)
             return
-        say("Abrindo o jogo… feche a janela quando terminar de testar.", Cor.CINZA)
-        subprocess.run([godot, "--path", str(self.repo)], cwd=self.repo)
+        say("Abrindo o jogo (offline, direto no gameplay)… feche a janela quando terminar de testar.", Cor.CINZA)
+        subprocess.run(args, cwd=self.repo, env=env)
 
     # ------------------------------------------------------------------ outros comandos
     def desfazer_ultima(self) -> None:
