@@ -4,14 +4,8 @@ const path = require("path");
 class MapManager {
   constructor() {
     this.maps = {
-      city_eldoria: { pvp: false, width: 2200, height: 1400, safe: true },
-      forest_boars: { pvp: true, width: 2200, height: 1400, safe: false },
-      arcane_ruins: { pvp: true, width: 2200, height: 1400, safe: false },
-      bat_cave: { pvp: true, width: 2200, height: 1400, safe: false },
-      city_valdoria: { pvp: false, width: 2200, height: 1400, safe: true },
-      highland_pass: { pvp: true, width: 2200, height: 1400, safe: false },
-      crystal_mines: { pvp: true, width: 2200, height: 1400, safe: false },
-      ember_fortress: { pvp: true, width: 2200, height: 1400, safe: false }
+      forest_boars: { pvp: false, width: 8000, height: 6400, safe: false },
+      world_reset: { pvp: false, width: 8000, height: 6400, safe: false }
     };
     this.loadMapsFromData();
   }
@@ -43,7 +37,7 @@ class MapManager {
   }
 
   get(mapId) {
-    return this.maps[mapId] || this.maps.city_eldoria;
+    return this.maps[mapId] || this.maps.forest_boars || this.maps.world_reset;
   }
 
   isPvpEnabled(mapId) {

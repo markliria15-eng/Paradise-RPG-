@@ -3,6 +3,7 @@ extends Control
 signal action_pressed(action: String)
 
 const MENU_ITEMS := [
+	"Batalha",
 	"Habilidades",
 	"Roupa",
 	"Bolsa",
@@ -20,21 +21,24 @@ const MENU_ITEMS := [
 	"Conquistas",
 	"Temporada",
 	"VIP",
+	"HUD",
+	"Wikipedia",
 	"Manual",
 	"Configuracoes",
 	"Deslogar"
 ]
 
 const MENU_ICON_BY_ITEM := {
+	"Batalha": "res://assets/ui/buttons/btn_attack.png",
 	"Habilidades": "res://assets/sprites/icon_ui_skills_premium.png",
 	"Roupa": "res://assets/sprites/icon_slot_armor.png",
 	"Bolsa": "res://assets/sprites/icon_ui_bag_premium.png",
 	"Banco": "res://assets/sprites/drop_coin.png",
-	"Missoes": "res://assets/sprites/icon_ui_quests_premium.png",
 	"Mapa": "res://assets/sprites/decor_portal.png",
 	"Party": "res://assets/sprites/icon_slot_amulet.png",
 	"Guild": "res://assets/sprites/icon_slot_shield.png",
 	"Rank": "res://assets/sprites/drop_gem.png",
+	"Missoes": "res://assets/sprites/icon_ui_quests_premium.png",
 	"Profissoes": "res://assets/sprites/drop_ore.png",
 	"Pets": "res://assets/sprites/enemy_lobo.png",
 	"Montarias": "res://assets/sprites/enemy_javali.png",
@@ -43,8 +47,10 @@ const MENU_ICON_BY_ITEM := {
 	"Conquistas": "res://assets/sprites/drop_gem.png",
 	"Temporada": "res://assets/ui/skills/skill_mana_viva.png",
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
+	"HUD": "res://assets/sprites/icon_ui_skills_premium.png",
+	"Wikipedia": "res://assets/sprites/icon_attack_book.png",
 	"Manual": "res://assets/sprites/icon_attack_book.png",
-	"Configuracoes": "res://assets/sprites/icon_menu_close.png",
+	"Configuracoes": "res://assets/ui/buttons/btn_close.png",
 	"Deslogar": "res://assets/sprites/icon_menu_close.png"
 }
 

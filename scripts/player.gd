@@ -48,6 +48,9 @@ var companion_move_speed_pct := 0.0
 var companion_vida_max_pct := 0.0
 var shield_points := 0
 var poison_timer := 0.0
+# Atordoamento (ex.: investida do Rei Javali): sem mover, atacar ou usar skills.
+var stun_timer := 0.0
+var stun_fx: Node2D
 var skills: Dictionary = {}
 var in_safe_zone := false
 
@@ -69,8 +72,24 @@ var current_sprite_direction := "front"
 var walk_anim_time := 0.0
 var walk_anim_frame := 0
 var walk_frame_cache: Dictionary = {}
-const CUSTOM_PLAYER_TARGET_HEIGHT := 104.0
-const FALLBACK_PLAYER_SCALE := 2.45
+var walk_anim_sequence_cache: Dictionary = {}
+var idle_anim_time := 0.0
+# Animacao de acao por cima de parado/andar: "attack", "hurt" ou "death".
+var action_anim := ""
+var action_time := 0.0
+var action_frame_cache: Dictionary = {}
+var is_dying := false
+var death_emitted := false
+const CUSTOM_PLAYER_TARGET_HEIGHT := 128.0
+# Pack frames_192 (quadro 192, corpo ~168 px) reduzido na proporcao 157/192:
+# a textura vira 119 px na tela e o corpo fica com ~104 px.
+const HD_PLAYER_TARGET_HEIGHT := 119.0
+const WALK_FRAME_TIME := 0.11
+const IDLE_FRAME_TIME := 0.2
+const ACTION_FRAME_TIME := {"attack": 0.075, "hurt": 0.07, "death": 0.2}
+const DEATH_HOLD_TIME := 0.7
+const FALLBACK_PLAYER_SCALE := 3.05
+const WALK_CLASS_ASSET_ROOT := "res://assets/sprites/player_frames_caminhada_classes"
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
@@ -110,6 +129,15 @@ func setup(chosen_class: String, data: Dictionary, database: ItemDatabase) -> vo
 
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if is_dying:
+		input = Vector2.ZERO
+	if stun_timer > 0.0:
+		stun_timer -= delta
+		input = Vector2.ZERO
+		if stun_fx != null:
+			stun_fx.rotation += delta * 5.0
+		if stun_timer <= 0.0:
+			_clear_stun()
 	_update_directional_sprite(input, delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
 	move_and_slide()
@@ -151,19 +179,53 @@ func _input(event: InputEvent) -> void:
 		use_skill(2)
 		get_viewport().set_input_as_handled()
 
+func is_stunned() -> bool:
+	return stun_timer > 0.0
+
+func apply_stun(seconds: float) -> void:
+	stun_timer = maxf(stun_timer, seconds)
+	sprite.modulate = Color(0.72, 0.78, 1.0, 1.0)
+	if stun_fx == null:
+		stun_fx = Node2D.new()
+		stun_fx.position = Vector2(0, -92)
+		stun_fx.z_as_relative = false
+		stun_fx.z_index = 1100
+		add_child(stun_fx)
+		for i in 3:
+			var star := Polygon2D.new()
+			var points := PackedVector2Array()
+			for k in 10:
+				var radius := 9.0 if k % 2 == 0 else 4.0
+				var angle := TAU * float(k) / 10.0 - PI / 2.0
+				points.append(Vector2(cos(angle), sin(angle)) * radius)
+			star.polygon = points
+			star.color = Color("#ffe066")
+			var orbit := TAU * float(i) / 3.0
+			star.position = Vector2(cos(orbit) * 26.0, sin(orbit) * 9.0)
+			stun_fx.add_child(star)
+	message_requested.emit("Atordoado!")
+
+func _clear_stun() -> void:
+	stun_timer = 0.0
+	sprite.modulate = Color.WHITE
+	if stun_fx != null:
+		stun_fx.queue_free()
+		stun_fx = null
+
 func basic_attack() -> void:
-	if not can_attack:
+	if not can_attack or is_stunned() or is_dying:
 		return
 	if in_safe_zone:
 		message_requested.emit("Zona segura: ataques bloqueados perto dos portais.")
 		return
 	_gain_speed_attack_xp()
 	attack_requested.emit(1.0, alcance, "basic_attack")
+	_play_action("attack")
 	_start_attack_cooldown()
 
 func use_skill(index: int) -> void:
 	var skills: Array = class_data.get("skills", [])
-	if index >= skills.size():
+	if index >= skills.size() or is_stunned() or is_dying:
 		return
 	var skill: Dictionary = skills[index]
 	if in_safe_zone:
@@ -175,6 +237,7 @@ func use_skill(index: int) -> void:
 	_add_skill_xp("magic", 4)
 	_gain_speed_attack_xp()
 	self_effect_requested.emit(str(skill.get("id", "")))
+	_play_action("attack")
 	_start_attack_cooldown()
 
 func _start_attack_cooldown() -> void:
@@ -196,6 +259,8 @@ func get_attack_value() -> float:
 	return ataque * (1.0 + war_cry_bonus + hero_attack_bonus)
 
 func receive_damage(amount: int, poison_chance: float = 0.0) -> void:
+	if is_dying:
+		return
 	var final_damage := amount
 	if shield_points > 0:
 		var absorbed: int = min(shield_points, final_damage)
@@ -211,18 +276,32 @@ func receive_damage(amount: int, poison_chance: float = 0.0) -> void:
 	if final_damage > 0:
 		_take_raw_damage(final_damage)
 		_gain_defense_xp()
+		if not is_dying and action_anim != "attack":
+			_play_action("hurt")
 	if poison_chance > 0 and randf() <= poison_chance:
 		poison_timer = 5.0
 
 func _take_raw_damage(amount: int) -> void:
-	if amount <= 0:
+	if amount <= 0 or is_dying:
 		return
 	vida = max(0, vida - amount)
 	damage_taken.emit(amount)
 	_update_health_bar()
 	stats_changed.emit()
 	if vida <= 0:
+		_start_death()
+
+# Toca a animacao de morte e so depois avisa o main (que leva o jogador de
+# volta). Sem frames de morte no pack, morre na hora como antes.
+func _start_death() -> void:
+	if _action_frames("death", current_sprite_direction).is_empty() or not is_inside_tree():
 		died.emit()
+		return
+	is_dying = true
+	death_emitted = false
+	_clear_stun()
+	poison_timer = 0.0
+	_play_action("death")
 
 func heal(amount: int) -> void:
 	if amount <= 0:
@@ -459,6 +538,11 @@ func _apply_companion_bonuses() -> void:
 	move_speed_pct += companion_move_speed_pct
 
 func revive_in_city() -> void:
+	_clear_stun()
+	is_dying = false
+	death_emitted = false
+	action_anim = ""
+	action_time = 0.0
 	ouro = int(ouro * 0.95)
 	vida = int(vida_max * 0.5)
 	mana = int(mana_max * 0.5)
@@ -507,7 +591,7 @@ func _update_health_bar() -> void:
 		name_label.text = "%s  Lv %d" % [character_name, level]
 
 func _player_sprite_path(chosen_class: String) -> String:
-	var art_front := _class_direction_sprite_path(chosen_class, "front")
+	var art_front := _class_pack_idle_path(chosen_class, "front")
 	if ResourceLoader.exists(art_front):
 		return art_front
 	match chosen_class:
@@ -519,12 +603,72 @@ func _player_sprite_path(chosen_class: String) -> String:
 			return "res://assets/sprites/player_arqueiro.png"
 	return "res://assets/sprites/player_guerreiro.png"
 
+func _play_action(anim: String) -> void:
+	if _action_frames(anim, current_sprite_direction).is_empty():
+		return
+	action_anim = anim
+	action_time = 0.0
+
+func _action_frames(anim: String, direction: String) -> Array:
+	var key := "%s|%s|%s" % [class_name_selected, anim, direction]
+	if action_frame_cache.has(key):
+		return action_frame_cache[key]
+	var frames: Array[String] = []
+	var base := _class_pack_base_path(class_name_selected)
+	if not base.is_empty():
+		for i in range(1, 9):
+			var path := "%s_%s_%s_%d.png" % [base, anim, direction, i]
+			if not ResourceLoader.exists(path):
+				break
+			frames.append(path)
+	action_frame_cache[key] = frames
+	return frames
+
+# Avanca a animacao de acao; devolve true enquanto ela controla o sprite.
+func _update_action_sprite(delta: float) -> bool:
+	if action_anim.is_empty():
+		return false
+	var frames := _action_frames(action_anim, current_sprite_direction)
+	if frames.is_empty():
+		action_anim = ""
+		return false
+	action_time += delta
+	var frame_time: float = float(ACTION_FRAME_TIME.get(action_anim, 0.08))
+	var index := int(action_time / frame_time)
+	if index >= frames.size():
+		if action_anim != "death":
+			action_anim = ""
+			return false
+		index = frames.size() - 1
+		if not death_emitted and action_time >= frame_time * frames.size() + DEATH_HOLD_TIME:
+			death_emitted = true
+			died.emit()
+	_set_player_sprite(str(frames[index]), false)
+	return true
+
 func _update_directional_sprite(input: Vector2, delta: float) -> void:
+	if input.length() >= 0.08 and not _class_sprite_prefix(class_name_selected).is_empty():
+		if abs(input.y) > abs(input.x):
+			current_sprite_direction = "back" if input.y < 0 else "front"
+		else:
+			current_sprite_direction = "right" if input.x > 0 else "left"
+	if _update_action_sprite(delta):
+		return
 	if input.length() < 0.08:
 		walk_anim_time = 0.0
 		walk_anim_frame = 0
+		var idle_frames := _action_frames("idle", current_sprite_direction)
+		if idle_frames.size() >= 2:
+			# respiracao em vai-e-volta: 1 2 3 4 3 2
+			idle_anim_time += delta
+			var cycle := idle_frames.size() * 2 - 2
+			var step := int(idle_anim_time / IDLE_FRAME_TIME) % cycle
+			var index := step if step < idle_frames.size() else cycle - step
+			_set_player_sprite(str(idle_frames[index]), false)
+			return
 		_set_direction_sprite_or_default(current_sprite_direction, current_sprite_flip, false)
 		return
+	idle_anim_time = 0.0
 	if _class_sprite_prefix(class_name_selected).is_empty():
 		return
 	var next_direction := "front"
@@ -532,8 +676,8 @@ func _update_directional_sprite(input: Vector2, delta: float) -> void:
 	if abs(input.y) > abs(input.x):
 		next_direction = "back" if input.y < 0 else "front"
 	else:
-		next_direction = "side"
-		next_flip = input.x > 0
+		next_direction = "right" if input.x > 0 else "left"
+		next_flip = false
 	if next_direction != current_sprite_direction or next_flip != current_sprite_flip:
 		walk_anim_time = 0.0
 		walk_anim_frame = 0
@@ -541,8 +685,8 @@ func _update_directional_sprite(input: Vector2, delta: float) -> void:
 	var frame_count := _walk_frame_count_for_direction(next_direction)
 	if frame_count <= 0:
 		frame_count = 1
-	while walk_anim_time >= 0.085:
-		walk_anim_time -= 0.085
+	while walk_anim_time >= WALK_FRAME_TIME:
+		walk_anim_time -= WALK_FRAME_TIME
 		walk_anim_frame = (walk_anim_frame + 1) % frame_count
 	_set_direction_sprite_or_default(next_direction, next_flip, true)
 
@@ -552,42 +696,125 @@ func _set_direction_sprite_or_default(direction: String, flip_h: bool, moving: b
 	if moving:
 		var frames: Array = walk_frame_cache.get(direction, [])
 		if not frames.is_empty():
-			path = str(frames[walk_anim_frame % frames.size()])
+			path = str(frames[_walk_sequence_frame_index(direction) % frames.size()])
 		else:
-			path = _class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [walk_anim_frame + 1])
+			path = _class_pack_walk_path(class_name_selected, direction, _walk_sequence_frame_index(direction) + 1)
 	if path.is_empty() or not ResourceLoader.exists(path):
-		path = _class_direction_sprite_path(class_name_selected, direction)
+		path = _class_pack_idle_path(class_name_selected, direction)
+	if (path.is_empty() or not ResourceLoader.exists(path)) and direction in ["left", "right"]:
+		path = _class_pack_idle_path(class_name_selected, "left")
+		if moving:
+			var fallback_frame := _walk_sequence_frame_index(direction) + 1
+			var fallback_walk := _class_pack_walk_path(class_name_selected, "left", fallback_frame)
+			if ResourceLoader.exists(fallback_walk):
+				path = fallback_walk
+				flip_h = direction == "right"
 	if ResourceLoader.exists(path):
 		_set_player_sprite(path, flip_h)
 	else:
 		_set_player_sprite(_player_sprite_path(class_name_selected), false)
 
+func _class_pack_folder(chosen_class: String) -> String:
+	match chosen_class:
+		"Guerreiro":
+			return "guerreiro"
+		"Mago":
+			return "maga_de_fogo"
+		"Maga de Fogo":
+			return "maga_de_fogo"
+		"Maga":
+			return "maga_de_fogo"
+		"Arqueiro":
+			return "arqueiro"
+	return ""
+
+func _class_pack_base_path(chosen_class: String) -> String:
+	var folder := _class_pack_folder(chosen_class)
+	if folder.is_empty():
+		return ""
+	# Unico pack: frames_192 (tools/char_sprites folhas <classe>). Os de 64 px foram apagados.
+	return "%s/%s/frames_192/%s" % [WALK_CLASS_ASSET_ROOT, folder, folder]
+
+func _class_pack_idle_path(chosen_class: String, direction: String) -> String:
+	var base := _class_pack_base_path(chosen_class)
+	if base.is_empty():
+		return ""
+	return "%s_idle_%s.png" % [base, direction]
+
+func _class_pack_walk_path(chosen_class: String, direction: String, frame: int) -> String:
+	var base := _class_pack_base_path(chosen_class)
+	if base.is_empty():
+		return ""
+	return "%s_walk_%s_%d.png" % [base, direction, frame]
+
 func _class_direction_sprite_path(chosen_class: String, direction: String, suffix: String = "") -> String:
+	var normalized_direction := direction
+	if normalized_direction == "side":
+		normalized_direction = "left"
+	if suffix.is_empty():
+		var pack_idle := _class_pack_idle_path(chosen_class, normalized_direction)
+		if ResourceLoader.exists(pack_idle):
+			return pack_idle
+	else:
+		var frame_text := suffix.trim_prefix("_walk_")
+		if frame_text.is_valid_int():
+			var pack_walk := _class_pack_walk_path(chosen_class, normalized_direction, int(frame_text))
+			if ResourceLoader.exists(pack_walk):
+				return pack_walk
 	var prefix := _class_sprite_prefix(chosen_class)
 	if prefix.is_empty():
 		return ""
 	return "res://assets/sprites/player_%s_art_%s%s.png" % [prefix, direction, suffix]
 
 func _walk_frame_count_for_direction(direction: String) -> int:
+	var sequence: PackedInt32Array = _walk_sequence_for_direction(direction)
+	if sequence.size() > 0:
+		return sequence.size()
 	var frames: Array = walk_frame_cache.get(direction, [])
 	if not frames.is_empty():
 		return frames.size()
 	var count := 0
 	for i in range(1, 13):
-		if ResourceLoader.exists(_class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [i])):
+		if ResourceLoader.exists(_class_pack_walk_path(class_name_selected, direction, i)):
 			count = i
 	return max(1, count)
 
 func _refresh_walk_frame_cache() -> void:
 	walk_frame_cache.clear()
-	for direction in ["front", "side", "back"]:
+	walk_anim_sequence_cache.clear()
+	action_frame_cache.clear()
+	for direction in ["front", "left", "right", "back"]:
 		var frames: Array[String] = []
 		for i in range(1, 13):
-			var path := _class_direction_sprite_path(class_name_selected, direction, "_walk_%d" % [i])
+			var path := _class_pack_walk_path(class_name_selected, direction, i)
 			if ResourceLoader.exists(path):
 				frames.append(path)
 		if not frames.is_empty():
 			walk_frame_cache[direction] = frames
+
+func _walk_sequence_for_direction(direction: String) -> PackedInt32Array:
+	if walk_anim_sequence_cache.has(direction):
+		return walk_anim_sequence_cache[direction]
+	var frames: Array = walk_frame_cache.get(direction, [])
+	var sequence := PackedInt32Array([0])
+	if frames.size() >= 4:
+		# pack 192: passo esquerdo, passagem, passo direito, passagem ja desenhados
+		sequence = PackedInt32Array([0, 1, 2, 3])
+	elif frames.size() >= 3:
+		# passo esquerdo -> passagem -> passo direito -> passagem
+		sequence = PackedInt32Array([0, 1, 2, 1])
+	elif frames.size() == 2:
+		sequence = PackedInt32Array([0, 1])
+	elif frames.size() == 1:
+		sequence = PackedInt32Array([0])
+	walk_anim_sequence_cache[direction] = sequence
+	return sequence
+
+func _walk_sequence_frame_index(direction: String) -> int:
+	var sequence := _walk_sequence_for_direction(direction)
+	if sequence.is_empty():
+		return 0
+	return int(sequence[walk_anim_frame % sequence.size()])
 
 func _class_sprite_prefix(chosen_class: String) -> String:
 	match chosen_class:
@@ -600,8 +827,8 @@ func _class_sprite_prefix(chosen_class: String) -> String:
 	return ""
 
 func _class_has_custom_sprite(chosen_class: String) -> bool:
-	for direction in ["front", "side", "back"]:
-		if ResourceLoader.exists(_class_direction_sprite_path(chosen_class, direction)):
+	for direction in ["front", "left", "right", "back"]:
+		if ResourceLoader.exists(_class_pack_idle_path(chosen_class, direction)):
 			return true
 	return false
 
@@ -620,30 +847,35 @@ func _fit_player_sprite() -> void:
 		return
 	_ensure_shadow()
 	if _class_has_custom_sprite(class_name_selected):
-		var target_height := CUSTOM_PLAYER_TARGET_HEIGHT
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
+		var hd := texture_height >= 128.0
+		var target_height := HD_PLAYER_TARGET_HEIGHT if hd else CUSTOM_PLAYER_TARGET_HEIGHT
 		var sprite_scale: float = target_height / texture_height
 		sprite.scale = Vector2(sprite_scale, sprite_scale)
-		sprite.position = Vector2(0, -32)
-		name_label.offset_left = -108
-		name_label.offset_top = -124
-		name_label.offset_right = 108
-		name_label.offset_bottom = -106
-		health_bar.offset_left = -46
-		health_bar.offset_top = -96
-		health_bar.offset_right = 46
-		health_bar.offset_bottom = -88
+		# pes: y=62 de 64 (pack antigo) ou y=184 de 192 (pack HD) -> mesma linha do chao (y~20)
+		sprite.position = Vector2(0, -35 if hd else -40)
+		# nome e vida logo acima da cabeca (~y -85 no pack HD)
+		name_label.add_theme_font_size_override("font_size", 13)
+		name_label.offset_left = -122
+		name_label.offset_top = -127
+		name_label.offset_right = 122
+		name_label.offset_bottom = -109
+		health_bar.offset_left = -56
+		health_bar.offset_top = -95
+		health_bar.offset_right = 56
+		health_bar.offset_bottom = -87
 	else:
 		sprite.scale = Vector2(FALLBACK_PLAYER_SCALE, FALLBACK_PLAYER_SCALE)
-		sprite.position = Vector2(0, -4)
-		name_label.offset_left = -108
-		name_label.offset_top = -104
-		name_label.offset_right = 108
-		name_label.offset_bottom = -86
-		health_bar.offset_left = -42
-		health_bar.offset_top = -82
-		health_bar.offset_right = 42
-		health_bar.offset_bottom = -74
+		sprite.position = Vector2(0, -10)
+		name_label.add_theme_font_size_override("font_size", 13)
+		name_label.offset_left = -122
+		name_label.offset_top = -128
+		name_label.offset_right = 122
+		name_label.offset_bottom = -110
+		health_bar.offset_left = -52
+		health_bar.offset_top = -102
+		health_bar.offset_right = 52
+		health_bar.offset_bottom = -94
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:
@@ -654,8 +886,8 @@ func _ensure_shadow() -> void:
 	shadow_sprite = Sprite2D.new()
 	shadow_sprite.texture = texture
 	shadow_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	shadow_sprite.position = Vector2(0, 18)
-	shadow_sprite.scale = Vector2(0.56, 0.28)
+	shadow_sprite.position = Vector2(0, 22)
+	shadow_sprite.scale = Vector2(0.70, 0.34)
 	shadow_sprite.modulate = Color(1, 1, 1, 0.58)
 	shadow_sprite.z_index = -1
 	add_child(shadow_sprite)

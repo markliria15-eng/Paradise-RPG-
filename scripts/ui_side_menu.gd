@@ -20,6 +20,8 @@ const MENU_ITEMS := [
 	"Conquistas",
 	"Temporada",
 	"VIP",
+	"HUD",
+	"Wikipedia",
 	"Manual",
 	"Configuracoes",
 	"Deslogar"
@@ -44,6 +46,8 @@ const MENU_ICON_BY_ITEM := {
 	"Conquistas": "res://assets/sprites/drop_gem.png",
 	"Temporada": "res://assets/ui/skills/skill_mana_viva.png",
 	"VIP": "res://assets/sprites/icon_slot_jewel.png",
+	"HUD": "res://assets/sprites/icon_ui_skills_premium.png",
+	"Wikipedia": "res://assets/sprites/icon_attack_book.png",
 	"Manual": "res://assets/sprites/icon_attack_book.png",
 	"Configuracoes": "res://assets/ui/buttons/btn_close.png",
 	"Deslogar": "res://assets/sprites/icon_menu_close.png"

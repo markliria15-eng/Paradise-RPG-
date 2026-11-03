@@ -74,6 +74,13 @@ func _apply_visual_profile(name_value: String) -> void:
 
 func _visual_profile_for(name_value: String) -> Dictionary:
 	var lower := name_value.to_lower()
+	var harvest_path := _harvest_sprite_path(lower)
+	if not harvest_path.is_empty():
+		return {
+			"base": harvest_path,
+			"scale": 2.15,
+			"label_offset": Vector2(-66.0, -42.0)
+		}
 	if _is_forest_plant(lower):
 		if lower.contains("flor") or lower.contains("flower"):
 			return {
@@ -126,8 +133,46 @@ func _is_forest_plant(lower: String) -> bool:
 		or lower.contains("musgo")
 	)
 
+func _harvest_sprite_path(lower: String) -> String:
+	if lower.contains("erva curativa") or lower.contains("folha da floresta"):
+		return "res://assets/sprites/harvest/harvest_erva_curativa.png"
+	if lower.contains("erva vermelha"):
+		return "res://assets/sprites/harvest/harvest_erva_vermelha.png"
+	if lower.contains("erva especial"):
+		return "res://assets/sprites/harvest/harvest_erva_especial.png"
+	if lower.contains("erva de caverna"):
+		return "res://assets/sprites/harvest/harvest_erva_caverna.png"
+	if lower.contains("flor medicinal"):
+		return "res://assets/sprites/harvest/harvest_flor_medicinal.png"
+	if lower.contains("planta rara"):
+		return "res://assets/sprites/harvest/harvest_planta_rara.png"
+	if lower.contains("cogumelo"):
+		return "res://assets/sprites/harvest/harvest_cogumelo.png"
+	if lower.contains("fungo luminoso"):
+		return "res://assets/sprites/harvest/harvest_fungo_luminoso.png"
+	if lower.contains("musgo medicinal"):
+		return "res://assets/sprites/harvest/harvest_musgo_medicinal.png"
+	if lower.contains("minerio bruto"):
+		return "res://assets/sprites/harvest/harvest_minerio_bruto.png"
+	if lower.contains("cristal azul"):
+		return "res://assets/sprites/harvest/harvest_cristal_azul.png"
+	if lower.contains("cristal roxo"):
+		return "res://assets/sprites/harvest/harvest_cristal_roxo.png"
+	if lower.contains("cristal arcano"):
+		return "res://assets/sprites/harvest/harvest_cristal_arcano.png"
+	if lower.contains("essencia arcana"):
+		return "res://assets/sprites/harvest/harvest_essencia_arcana.png"
+	if lower.contains("po mistico"):
+		return "res://assets/sprites/harvest/harvest_po_mistico.png"
+	if lower.contains("fragmento de cristal"):
+		return "res://assets/sprites/harvest/harvest_fragmento_cristal.png"
+	return ""
+
 func _sprite_path(name_value: String) -> String:
 	var lower := name_value.to_lower()
+	var harvest_path := _harvest_sprite_path(lower)
+	if not harvest_path.is_empty():
+		return harvest_path
 	if lower.contains("moeda") or lower.contains("ouro"):
 		return "res://assets/sprites/drop_coin.png"
 	if lower.contains("pocao"):
