@@ -1,0 +1,244 @@
+PROMPT PARA O CODEX — ACRESCENTAR FRAMES DE CAMINHADA DAS CLASSES PRINCIPAIS NO PARADISE RPG
+
+OBJETIVO
+Adicionar ao projeto Godot 4 do Paradise RPG as novas sprite sheets de caminhada das 3 classes principais:
+- Guerreiro
+- Arqueiro
+- Maga de Fogo
+
+Os arquivos deste pacote já estão organizados em sprite sheets 4x4 e também em frames separados 64x64.
+
+==================================================
+ARQUIVOS DO PACOTE
+==================================================
+
+Use as sprite sheets principais:
+
+1. guerreiro/guerreiro_walk_sheet_4x4_256x256.png
+2. arqueiro/arqueiro_walk_sheet_4x4_256x256.png
+3. maga_de_fogo/maga_de_fogo_walk_sheet_4x4_256x256.png
+
+Cada sprite sheet tem:
+- 256x256 px
+- 4 colunas
+- 4 linhas
+- cada frame com 64x64 px
+- fundo transparente
+
+Também existem frames separados em:
+- guerreiro/frames_64x64/
+- arqueiro/frames_64x64/
+- maga_de_fogo/frames_64x64/
+
+==================================================
+ORGANIZAÇÃO DOS FRAMES NA SPRITE SHEET
+==================================================
+
+Todas as 3 classes seguem exatamente a mesma ordem:
+
+Linha 1 — Frente / baixo:
+- Coluna 1: idle_front
+- Coluna 2: walk_front_1
+- Coluna 3: walk_front_2
+- Coluna 4: walk_front_3
+
+Linha 2 — Costas / cima:
+- Coluna 1: idle_back
+- Coluna 2: walk_back_1
+- Coluna 3: walk_back_2
+- Coluna 4: walk_back_3
+
+Linha 3 — Esquerda:
+- Coluna 1: idle_left
+- Coluna 2: walk_left_1
+- Coluna 3: walk_left_2
+- Coluna 4: walk_left_3
+
+Linha 4 — Direita:
+- Coluna 1: idle_right
+- Coluna 2: walk_right_1
+- Coluna 3: walk_right_2
+- Coluna 4: walk_right_3
+
+Configuração técnica:
+- hframes = 4
+- vframes = 4
+- frame 0 = idle_front
+- frame 1 = walk_front_1
+- frame 2 = walk_front_2
+- frame 3 = walk_front_3
+- frame 4 = idle_back
+- frame 5 = walk_back_1
+- frame 6 = walk_back_2
+- frame 7 = walk_back_3
+- frame 8 = idle_left
+- frame 9 = walk_left_1
+- frame 10 = walk_left_2
+- frame 11 = walk_left_3
+- frame 12 = idle_right
+- frame 13 = walk_right_1
+- frame 14 = walk_right_2
+- frame 15 = walk_right_3
+
+==================================================
+IMPORTAÇÃO NO GODOT
+==================================================
+
+Copiar os arquivos para:
+
+res://assets/characters/classes/guerreiro/
+res://assets/characters/classes/arqueiro/
+res://assets/characters/classes/maga_de_fogo/
+
+Nas configurações de importação das imagens:
+- Filter: OFF / Nearest
+- Mipmaps: OFF
+- Repeat: Disabled
+- Compress Mode: Lossless
+- Manter transparência PNG
+
+Não esticar, não suavizar e não aplicar blur.
+
+==================================================
+ANIMAÇÕES A CRIAR
+==================================================
+
+Criar/atualizar as animações do player para cada classe:
+
+idle_down  -> frame 0
+walk_down  -> frames [1, 2, 3, 2]
+
+idle_up    -> frame 4
+walk_up    -> frames [5, 6, 7, 6]
+
+idle_left  -> frame 8
+walk_left  -> frames [9, 10, 11, 10]
+
+idle_right -> frame 12
+walk_right -> frames [13, 14, 15, 14]
+
+FPS recomendado:
+- Guerreiro: 7 FPS, caminhada pesada
+- Arqueiro: 9 FPS, caminhada leve e ágil
+- Maga de Fogo: 8 FPS, caminhada elegante/mágica
+
+Loop:
+- Todas as animações de walk devem ficar em loop.
+- Idle pode ficar parado em 1 frame.
+
+==================================================
+REGRAS DE MOVIMENTO
+==================================================
+
+Quando o player estiver parado:
+- Usar idle da última direção olhada.
+
+Quando o player andar para baixo:
+- Reproduzir walk_down.
+
+Quando o player andar para cima:
+- Reproduzir walk_up.
+
+Quando o player andar para esquerda:
+- Reproduzir walk_left.
+
+Quando o player andar para direita:
+- Reproduzir walk_right.
+
+Se movimento diagonal existir:
+- Priorizar a direção com maior força no eixo.
+- Se abs(x) > abs(y), usar left/right.
+- Caso contrário, usar up/down.
+
+==================================================
+EXEMPLO DE LÓGICA EM GDSCRIPT
+==================================================
+
+var last_dir := "down"
+
+func update_class_sprite(class_name: String) -> void:
+    match class_name:
+        "guerreiro":
+            $Sprite2D.texture = preload("res://assets/characters/classes/guerreiro/guerreiro_walk_sheet_4x4_256x256.png")
+        "arqueiro":
+            $Sprite2D.texture = preload("res://assets/characters/classes/arqueiro/arqueiro_walk_sheet_4x4_256x256.png")
+        "maga_de_fogo":
+            $Sprite2D.texture = preload("res://assets/characters/classes/maga_de_fogo/maga_de_fogo_walk_sheet_4x4_256x256.png")
+
+    $Sprite2D.hframes = 4
+    $Sprite2D.vframes = 4
+
+func update_walk_animation(velocity: Vector2, class_name: String) -> void:
+    var moving := velocity.length() > 0.1
+
+    if moving:
+        if abs(velocity.x) > abs(velocity.y):
+            if velocity.x < 0:
+                last_dir = "left"
+            else:
+                last_dir = "right"
+        else:
+            if velocity.y < 0:
+                last_dir = "up"
+            else:
+                last_dir = "down"
+
+        play_walk_anim(class_name, last_dir)
+    else:
+        play_idle_anim(last_dir)
+
+func play_idle_anim(dir: String) -> void:
+    match dir:
+        "down":
+            $Sprite2D.frame = 0
+        "up":
+            $Sprite2D.frame = 4
+        "left":
+            $Sprite2D.frame = 8
+        "right":
+            $Sprite2D.frame = 12
+
+func play_walk_anim(class_name: String, dir: String) -> void:
+    # Implementar usando AnimationPlayer, AnimatedSprite2D/SpriteFrames,
+    # ou sistema atual de animação do projeto.
+    # Sequências:
+    # down  = [1, 2, 3, 2]
+    # up    = [5, 6, 7, 6]
+    # left  = [9, 10, 11, 10]
+    # right = [13, 14, 15, 14]
+    pass
+
+==================================================
+CUIDADOS IMPORTANTES
+==================================================
+
+1. Não substituir a classe errada.
+2. Não misturar frames entre Guerreiro, Arqueiro e Maga de Fogo.
+3. Não redimensionar os frames para tamanhos diferentes.
+4. Não usar filtro bilinear.
+5. Não suavizar a pixel art.
+6. Manter pivô/base nos pés do personagem.
+7. Testar no mapa real para garantir que o personagem não pareça deslizar.
+8. Se o player já usa hitbox/collision, manter a collision atual e trocar apenas a arte/animação.
+9. Confirmar que a troca de classe altera corretamente a sprite sheet ativa.
+10. Conferir no mobile se os sprites continuam legíveis.
+
+==================================================
+CHECKLIST FINAL
+==================================================
+
+[ ] Assets copiados para res://assets/characters/classes/
+[ ] Importação com Filter OFF / Nearest
+[ ] hframes = 4
+[ ] vframes = 4
+[ ] Animações idle criadas
+[ ] Animações walk criadas
+[ ] Guerreiro usando sprite correta
+[ ] Arqueiro usando sprite correta
+[ ] Maga de Fogo usando sprite correta
+[ ] Última direção parada preservada
+[ ] Movimento diagonal tratado
+[ ] Testado no mapa real do jogo
+[ ] Sem blur
+[ ] Sem fundo branco/cinza
+[ ] Sem personagens deslizando

@@ -1,0 +1,118 @@
+{
+  "actors": {
+    "aprendiz_corrompido": [
+      "res://assets/sprites/mobs/generated_strips/outputs/aprendiz_corrompido_attack_chute.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/aprendiz_corrompido_cast.png"
+    ],
+    "arquimago_corrompido": [
+      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_corrompido_golpe.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_fortalecer_aliados.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_lancar_bola_sombria.png"
+    ],
+    "bandido_colinas": [
+      "res://assets/sprites/mobs/generated_strips/outputs/bandido_colinas_ilusao.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/bandido_colinas_roubo.png"
+    ],
+    "cavaleiro_sombrio": [
+      "res://assets/sprites/mobs/generated_strips/outputs/cavaleiro_sombrio_corrompido.png"
+    ],
+    "draco_jovem": [
+      "res://assets/sprites/mobs/generated_strips/outputs/draco_medieval_ataque_cauda.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/draco_medieval_ataque_fogo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/draco_medieval_ataque_mordida.png"
+    ],
+    "espectro_arcano": [
+      "res://assets/sprites/mobs/generated_strips/outputs/espectro_arcano_mundo_espiritual.png"
+    ],
+    "golem_pedra": [
+      "res://assets/sprites/mobs/generated_strips/outputs/golem_pedra_arremesso.png"
+    ],
+    "guardiao_cristalino": [
+      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_cristalino_arremesso_gelo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_cristalino_parede_gelo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_criando_lanca.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_sem_lanca_idle.png"
+    ],
+    "senhor_colinas": [
+      "res://assets/sprites/mobs/generated_strips/outputs/senhor_colinas_investida.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/senhor_colinas_lancamento.png"
+    ],
+    "sentinela_arcano": [
+      "res://assets/sprites/mobs/generated_strips/outputs/sentinela_arcano_invocacao.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/sentinela_arcano_regeneracao.png"
+    ],
+    "tita_cristal": [
+      "res://assets/sprites/mobs/generated_strips/outputs/tita_cristal_arremesso.png"
+    ]
+  },
+  "effects": {
+    "general_infernal": [
+      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_aura_fogo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_bola_fogo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_coluna_fogo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_cortina_fogo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_linha_fogo.png"
+    ],
+    "arquimago_corrompido": [
+      "res://assets/sprites/mobs/generated_strips/outputs/aura_buff_aliado_8frames.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/bola_sombria_voo.png"
+    ],
+    "tita_cristal": [
+      "res://assets/sprites/mobs/generated_strips/outputs/bola_cristal_queda_dano.png"
+    ],
+    "aprendiz_corrompido": [
+      "res://assets/sprites/mobs/generated_strips/outputs/chama_negra_projetil.png"
+    ],
+    "cavaleiro_sombrio": [
+      "res://assets/sprites/mobs/generated_strips/outputs/corrompido_aura_vermelha.png"
+    ],
+    "guardiao_cristalino": [
+      "res://assets/sprites/mobs/generated_strips/outputs/lanca_desfazendo_gelo.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/lanca_queda_area_congelada.png"
+    ],
+    "golem_pedra": [
+      "res://assets/sprites/mobs/generated_strips/outputs/pedra_impacto_chao.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/pedra_voando.png"
+    ]
+  },
+  "pets": {
+    "mini_wolf": [
+      "res://assets/sprites/pets/generated_strips/01_mini_lobo/mini_wolf_mordida_selvagem.png"
+    ],
+    "baby_boar": [
+      "res://assets/sprites/pets/generated_strips/02_javali_bebe/baby_boar_investida_curta.png"
+    ],
+    "forest_sprite": [
+      "res://assets/sprites/pets/generated_strips/03_espirito_floresta/forest_sprite_raizes_vivas.png"
+    ],
+    "arcane_fairy": [
+      "res://assets/sprites/pets/generated_strips/04_fada_arcana/arcane_fairy_agulhas_arcanas.png",
+      "res://assets/sprites/pets/generated_strips/04_fada_arcana/arcane_fairy_brilho_etereo.png"
+    ],
+    "shadow_bat": [
+      "res://assets/sprites/pets/generated_strips/05_morcego_sombrio/shadow_bat_eco_sombrio_v2.png",
+      "res://assets/sprites/pets/generated_strips/05_morcego_sombrio/shadow_bat_presas_noite.png"
+    ],
+    "ember_imp": [
+      "res://assets/sprites/pets/generated_strips/06_diabrete_brasa/ember_imp_chama_mordaz.png",
+      "res://assets/sprites/pets/generated_strips/06_diabrete_brasa/ember_imp_estouro_brasa.png"
+    ],
+    "frost_wisp": [
+      "res://assets/sprites/pets/generated_strips/07_fagulha_gelida/frost_wisp_estilhaco_invernal.png",
+      "res://assets/sprites/pets/generated_strips/07_fagulha_gelida/frost_wisp_toque_gelido.png"
+    ],
+    "stone_turtle": [
+      "res://assets/sprites/pets/generated_strips/08_tartaruga_pedra/stone_turtle_casco_pesado.png",
+      "res://assets/sprites/pets/generated_strips/08_tartaruga_pedra/stone_turtle_ruptura_rochosa.png"
+    ],
+    "venom_spider": [
+      "res://assets/sprites/pets/generated_strips/09_aranha_filhote/venom_spider_picada_toxica.png",
+      "res://assets/sprites/pets/generated_strips/09_aranha_filhote/venom_spider_teia_caustica.png"
+    ],
+    "golden_drake": [
+      "res://assets/sprites/pets/generated_strips/10_draco_dourado/golden_drake_garras_solares.png",
+      "res://assets/sprites/pets/generated_strips/10_draco_dourado/golden_drake_julgamento_aurum_v2.png",
+      "res://assets/sprites/pets/generated_strips/10_draco_dourado/golden_drake_sopro_dourado.png"
+    ]
+  }
+}

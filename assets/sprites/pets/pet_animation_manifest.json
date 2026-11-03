@@ -3,11 +3,11 @@
     "pet_name": "aranha_venenosa_filhote",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "walk": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_run": {
@@ -19,7 +19,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -33,11 +33,11 @@
     "pet_name": "diabrete_de_brasa",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "walk": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_run": {
@@ -49,7 +49,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -63,11 +63,11 @@
     "pet_name": "draco_dourado",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "walk": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_run": {
@@ -79,7 +79,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -93,11 +93,11 @@
     "pet_name": "espirito_da_floresta",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "move_float": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash": {
@@ -109,7 +109,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -123,11 +123,11 @@
     "pet_name": "fada_arcana",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "move_float": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash": {
@@ -139,7 +139,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -153,11 +153,11 @@
     "pet_name": "fagulha_gelida",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "move_float": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash": {
@@ -169,7 +169,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -183,11 +183,11 @@
     "pet_name": "javali_bebe",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "walk": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_run": {
@@ -199,7 +199,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -213,11 +213,11 @@
     "pet_name": "mini_lobo",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "walk": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_run": {
@@ -229,7 +229,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -243,11 +243,11 @@
     "pet_name": "morcego_sombrio",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "fly": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_charge_flight": {
@@ -259,7 +259,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
@@ -273,11 +273,11 @@
     "pet_name": "tartaruga_de_pedra",
     "animations": {
       "idle": {
-        "frames": 6,
+        "frames": 8,
         "fps": 6
       },
       "walk": {
-        "frames": 10,
+        "frames": 8,
         "fps": 10
       },
       "dash_run": {
@@ -289,7 +289,7 @@
         "fps": 12
       },
       "hit": {
-        "frames": 4,
+        "frames": 8,
         "fps": 10
       },
       "death": {
