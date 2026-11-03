@@ -1,0 +1,1017 @@
+﻿{
+  "map": {
+    "name": "Eldoria",
+    "size": {
+      "w": 5020,
+      "h": 5020
+    },
+    "background": "Eldoria_Complete_Background_4x_5020.png",
+    "coordinate_system": "origem no canto superior esquerdo, x direita, y baixo",
+    "notes": "Versão refeita: colisões menores, caminhos livres até NPCs e portal premium inferior."
+  },
+  "important_rule": "Não usar colisões antigas. Não englobar casas/props com retângulos gigantes que bloqueiam ruas. Contornar melhor objetos e deixar passagens laterais livres.",
+  "walkable_corridors": [
+    {
+      "name": "Rua_Central_Vertical",
+      "x": 2230,
+      "y": 620,
+      "w": 560,
+      "h": 3370
+    },
+    {
+      "name": "Rua_Central_Horizontal",
+      "x": 520,
+      "y": 1700,
+      "w": 3980,
+      "h": 520
+    },
+    {
+      "name": "Praca_Fonte",
+      "x": 1900,
+      "y": 1600,
+      "w": 1240,
+      "h": 1220
+    },
+    {
+      "name": "Rua_Mercado_Inferior",
+      "x": 500,
+      "y": 2700,
+      "w": 4100,
+      "h": 430
+    },
+    {
+      "name": "Caminho_Portal_Inferior",
+      "x": 2280,
+      "y": 3900,
+      "w": 480,
+      "h": 1040
+    },
+    {
+      "name": "Acesso_Marco",
+      "x": 1760,
+      "y": 900,
+      "w": 360,
+      "h": 720
+    },
+    {
+      "name": "Acesso_Sarah",
+      "x": 1120,
+      "y": 2520,
+      "w": 500,
+      "h": 320
+    },
+    {
+      "name": "Acesso_Carlos",
+      "x": 3050,
+      "y": 1540,
+      "w": 640,
+      "h": 330
+    },
+    {
+      "name": "Acesso_Manoel",
+      "x": 2940,
+      "y": 2480,
+      "w": 430,
+      "h": 340
+    }
+  ],
+  "npcs": [
+    {
+      "name": "Marco_Mestre_Classes",
+      "x": 1980,
+      "y": 1140,
+      "role": "NPC Mestre das Classes - caminho deve ficar livre"
+    },
+    {
+      "name": "Sarah_Curandeira",
+      "x": 1260,
+      "y": 2640,
+      "role": "NPC Curandeira - acesso pela rua sul/leste livre"
+    },
+    {
+      "name": "Carlos_El_Mercador",
+      "x": 3220,
+      "y": 1560,
+      "role": "NPC Mercador - acesso pela praça/rua livre"
+    },
+    {
+      "name": "Manoel_Ferrugem_Ferreiro",
+      "x": 3060,
+      "y": 2550,
+      "role": "NPC Ferreiro - acesso pela praça central livre"
+    }
+  ],
+  "portal": {
+    "name": "Portal_Premium_Inferior",
+    "type": "area",
+    "x": 2310,
+    "y": 4304,
+    "w": 420,
+    "h": 580,
+    "center_x": 2520,
+    "center_y": 4594,
+    "target": "Floresta"
+  },
+  "collisions": [
+    {
+      "id": "C001",
+      "group": "Water",
+      "name": "Water_Top_Outside_Walls",
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 5020,
+      "h": 300,
+      "notes": "Água acima da muralha norte"
+    },
+    {
+      "id": "C002",
+      "group": "Water",
+      "name": "Water_Left_Outside_Walls",
+      "type": "rect",
+      "x": 0,
+      "y": 300,
+      "w": 210,
+      "h": 3820,
+      "notes": "Água à esquerda da muralha oeste"
+    },
+    {
+      "id": "C003",
+      "group": "Water",
+      "name": "Water_Right_Outside_Walls",
+      "type": "rect",
+      "x": 4810,
+      "y": 300,
+      "w": 210,
+      "h": 3820,
+      "notes": "Água à direita da muralha leste"
+    },
+    {
+      "id": "C004",
+      "group": "Water",
+      "name": "Water_Bottom_Left",
+      "type": "rect",
+      "x": 0,
+      "y": 4210,
+      "w": 2170,
+      "h": 810,
+      "notes": "Água inferior esquerda, sem bloquear caminho do portal"
+    },
+    {
+      "id": "C005",
+      "group": "Water",
+      "name": "Water_Bottom_Right",
+      "type": "rect",
+      "x": 2850,
+      "y": 4210,
+      "w": 2170,
+      "h": 810,
+      "notes": "Água inferior direita, sem bloquear caminho do portal"
+    },
+    {
+      "id": "C006",
+      "group": "Water",
+      "name": "Water_Bottom_Portal_Sides_Left",
+      "type": "rect",
+      "x": 2170,
+      "y": 4470,
+      "w": 250,
+      "h": 550,
+      "notes": "Água lateral esquerda do caminho até portal"
+    },
+    {
+      "id": "C007",
+      "group": "Water",
+      "name": "Water_Bottom_Portal_Sides_Right",
+      "type": "rect",
+      "x": 2600,
+      "y": 4470,
+      "w": 250,
+      "h": 550,
+      "notes": "Água lateral direita do caminho até portal"
+    },
+    {
+      "id": "C008",
+      "group": "Walls",
+      "name": "North_Wall_Left",
+      "type": "rect",
+      "x": 250,
+      "y": 320,
+      "w": 1900,
+      "h": 260,
+      "notes": "Muralha norte esquerda"
+    },
+    {
+      "id": "C009",
+      "group": "Walls",
+      "name": "North_Wall_Center_Gate_Left_Block",
+      "type": "rect",
+      "x": 2120,
+      "y": 320,
+      "w": 220,
+      "h": 560,
+      "notes": "Bloco esquerdo do portão norte"
+    },
+    {
+      "id": "C010",
+      "group": "Walls",
+      "name": "North_Wall_Center_Gate_Right_Block",
+      "type": "rect",
+      "x": 2680,
+      "y": 320,
+      "w": 220,
+      "h": 560,
+      "notes": "Bloco direito do portão norte"
+    },
+    {
+      "id": "C011",
+      "group": "Walls",
+      "name": "North_Wall_Right",
+      "type": "rect",
+      "x": 2900,
+      "y": 320,
+      "w": 1900,
+      "h": 260,
+      "notes": "Muralha norte direita"
+    },
+    {
+      "id": "C012",
+      "group": "Walls",
+      "name": "West_Wall_Upper",
+      "type": "rect",
+      "x": 210,
+      "y": 520,
+      "w": 170,
+      "h": 1650,
+      "notes": "Muralha oeste superior"
+    },
+    {
+      "id": "C013",
+      "group": "Walls",
+      "name": "West_Wall_Middle",
+      "type": "rect",
+      "x": 210,
+      "y": 2170,
+      "w": 170,
+      "h": 1160,
+      "notes": "Muralha oeste média"
+    },
+    {
+      "id": "C014",
+      "group": "Walls",
+      "name": "West_Wall_Lower",
+      "type": "rect",
+      "x": 210,
+      "y": 3330,
+      "w": 170,
+      "h": 780,
+      "notes": "Muralha oeste inferior"
+    },
+    {
+      "id": "C015",
+      "group": "Walls",
+      "name": "East_Wall_Upper",
+      "type": "rect",
+      "x": 4640,
+      "y": 520,
+      "w": 170,
+      "h": 1650,
+      "notes": "Muralha leste superior"
+    },
+    {
+      "id": "C016",
+      "group": "Walls",
+      "name": "East_Wall_Middle",
+      "type": "rect",
+      "x": 4640,
+      "y": 2170,
+      "w": 170,
+      "h": 1160,
+      "notes": "Muralha leste média"
+    },
+    {
+      "id": "C017",
+      "group": "Walls",
+      "name": "East_Wall_Lower",
+      "type": "rect",
+      "x": 4640,
+      "y": 3330,
+      "w": 170,
+      "h": 780,
+      "notes": "Muralha leste inferior"
+    },
+    {
+      "id": "C018",
+      "group": "Walls",
+      "name": "South_Wall_Left",
+      "type": "rect",
+      "x": 250,
+      "y": 3900,
+      "w": 1750,
+      "h": 290,
+      "notes": "Muralha sul esquerda"
+    },
+    {
+      "id": "C019",
+      "group": "Walls",
+      "name": "South_Wall_Right",
+      "type": "rect",
+      "x": 3020,
+      "y": 3900,
+      "w": 1760,
+      "h": 290,
+      "notes": "Muralha sul direita"
+    },
+    {
+      "id": "C020",
+      "group": "Walls",
+      "name": "South_Gate_Left_Tower",
+      "type": "rect",
+      "x": 1980,
+      "y": 3700,
+      "w": 340,
+      "h": 620,
+      "notes": "Torre esquerda do portão sul"
+    },
+    {
+      "id": "C021",
+      "group": "Walls",
+      "name": "South_Gate_Right_Tower",
+      "type": "rect",
+      "x": 2700,
+      "y": 3700,
+      "w": 340,
+      "h": 620,
+      "notes": "Torre direita do portão sul"
+    },
+    {
+      "id": "C022",
+      "group": "Walls",
+      "name": "NW_Corner_Tower",
+      "type": "rect",
+      "x": 70,
+      "y": 120,
+      "w": 430,
+      "h": 600,
+      "notes": "Torre canto noroeste"
+    },
+    {
+      "id": "C023",
+      "group": "Walls",
+      "name": "NE_Corner_Tower",
+      "type": "rect",
+      "x": 4520,
+      "y": 120,
+      "w": 430,
+      "h": 600,
+      "notes": "Torre canto nordeste"
+    },
+    {
+      "id": "C024",
+      "group": "Walls",
+      "name": "SW_Corner_Tower",
+      "type": "rect",
+      "x": 60,
+      "y": 3540,
+      "w": 470,
+      "h": 680,
+      "notes": "Torre canto sudoeste"
+    },
+    {
+      "id": "C025",
+      "group": "Walls",
+      "name": "SE_Corner_Tower",
+      "type": "rect",
+      "x": 4490,
+      "y": 3540,
+      "w": 470,
+      "h": 680,
+      "notes": "Torre canto sudeste"
+    },
+    {
+      "id": "C026",
+      "group": "Buildings",
+      "name": "ClassMaster_Fortress_Upper_Left_Tower",
+      "type": "rect",
+      "x": 790,
+      "y": 600,
+      "w": 360,
+      "h": 500,
+      "notes": "Torre/prédio superior esquerdo do mestre de classes"
+    },
+    {
+      "id": "C027",
+      "group": "Buildings",
+      "name": "ClassMaster_Fortress_Upper_Center",
+      "type": "rect",
+      "x": 1060,
+      "y": 560,
+      "w": 560,
+      "h": 460,
+      "notes": "Parte superior do forte; deixa pátio frontal livre"
+    },
+    {
+      "id": "C028",
+      "group": "Buildings",
+      "name": "ClassMaster_Fortress_Upper_Right_Tower",
+      "type": "rect",
+      "x": 1500,
+      "y": 630,
+      "w": 320,
+      "h": 520,
+      "notes": "Torre/prédio superior direito do forte"
+    },
+    {
+      "id": "C029",
+      "group": "Buildings",
+      "name": "ClassMaster_Fortress_Main_Body",
+      "type": "rect",
+      "x": 880,
+      "y": 1050,
+      "w": 720,
+      "h": 540,
+      "notes": "Corpo principal; deixa calçada e NPC acessíveis"
+    },
+    {
+      "id": "C030",
+      "group": "Buildings",
+      "name": "ClassMaster_Fortress_Steps_Tight",
+      "type": "rect",
+      "x": 1050,
+      "y": 1540,
+      "w": 420,
+      "h": 150,
+      "notes": "Degraus/entrada sólida apenas na base"
+    },
+    {
+      "id": "C031",
+      "group": "Buildings",
+      "name": "Merchant_Main_Roof",
+      "type": "rect",
+      "x": 3100,
+      "y": 900,
+      "w": 920,
+      "h": 430,
+      "notes": "Telhado/prédio superior do mercador"
+    },
+    {
+      "id": "C032",
+      "group": "Buildings",
+      "name": "Merchant_Main_Body",
+      "type": "rect",
+      "x": 3200,
+      "y": 1320,
+      "w": 720,
+      "h": 190,
+      "notes": "Corpo da loja; deixa espaço frontal e lateral"
+    },
+    {
+      "id": "C033",
+      "group": "Buildings",
+      "name": "Merchant_Awning_Counter",
+      "type": "rect",
+      "x": 3020,
+      "y": 1460,
+      "w": 330,
+      "h": 88,
+      "notes": "Banca/toldo do mercado, colisão justa"
+    },
+    {
+      "id": "C034",
+      "group": "Buildings",
+      "name": "Merchant_Crates_Left",
+      "type": "rect",
+      "x": 2920,
+      "y": 1390,
+      "w": 150,
+      "h": 220,
+      "notes": "Caixas menores do lado esquerdo"
+    },
+    {
+      "id": "C035",
+      "group": "Buildings",
+      "name": "Merchant_Crates_Right",
+      "type": "rect",
+      "x": 3960,
+      "y": 1320,
+      "w": 190,
+      "h": 340,
+      "notes": "Caixas à direita sem fechar rua toda"
+    },
+    {
+      "id": "C036",
+      "group": "Buildings",
+      "name": "Healer_Roof",
+      "type": "rect",
+      "x": 740,
+      "y": 1970,
+      "w": 880,
+      "h": 380,
+      "notes": "Telhado da curandeira"
+    },
+    {
+      "id": "C037",
+      "group": "Buildings",
+      "name": "Healer_Body",
+      "type": "rect",
+      "x": 820,
+      "y": 2300,
+      "w": 720,
+      "h": 330,
+      "notes": "Corpo da casa de cura; frente acessível"
+    },
+    {
+      "id": "C038",
+      "group": "Buildings",
+      "name": "Healer_Side_Crates_Left",
+      "type": "rect",
+      "x": 670,
+      "y": 2360,
+      "w": 130,
+      "h": 190,
+      "notes": "Caixas laterais esquerda da curandeira"
+    },
+    {
+      "id": "C039",
+      "group": "Buildings",
+      "name": "Healer_Side_Crates_Right",
+      "type": "rect",
+      "x": 1540,
+      "y": 2320,
+      "w": 150,
+      "h": 230,
+      "notes": "Caixas laterais direita da curandeira"
+    },
+    {
+      "id": "C040",
+      "group": "Buildings",
+      "name": "Blacksmith_Roof",
+      "type": "rect",
+      "x": 3000,
+      "y": 1980,
+      "w": 1000,
+      "h": 430,
+      "notes": "Telhado da forja"
+    },
+    {
+      "id": "C041",
+      "group": "Buildings",
+      "name": "Blacksmith_Body",
+      "type": "rect",
+      "x": 3060,
+      "y": 2380,
+      "w": 820,
+      "h": 150,
+      "notes": "Corpo da forja; acesso ao NPC livre"
+    },
+    {
+      "id": "C042",
+      "group": "Buildings",
+      "name": "Blacksmith_Forge_Anvil",
+      "type": "rect",
+      "x": 3360,
+      "y": 2540,
+      "w": 250,
+      "h": 220,
+      "notes": "Bigorna/forja, colisão pequena"
+    },
+    {
+      "id": "C043",
+      "group": "Buildings",
+      "name": "Blacksmith_Tools_Right_A",
+      "type": "rect",
+      "x": 3840,
+      "y": 2260,
+      "w": 280,
+      "h": 300,
+      "notes": "Ferramentas à direita, sem fechar corredor"
+    },
+    {
+      "id": "C044",
+      "group": "Buildings",
+      "name": "Blacksmith_Tools_Right_B",
+      "type": "rect",
+      "x": 4140,
+      "y": 2400,
+      "w": 210,
+      "h": 260,
+      "notes": "Props de forja externos"
+    },
+    {
+      "id": "C045",
+      "group": "Buildings",
+      "name": "LowerLeft_Market_Stall",
+      "type": "rect",
+      "x": 800,
+      "y": 2900,
+      "w": 520,
+      "h": 300,
+      "notes": "Banca inferior esquerda, mantém rua ao redor"
+    },
+    {
+      "id": "C046",
+      "group": "Buildings",
+      "name": "SW_House_Bottom_Left_Roof",
+      "type": "rect",
+      "x": 720,
+      "y": 3480,
+      "w": 650,
+      "h": 350,
+      "notes": "Casa sudoeste telhado"
+    },
+    {
+      "id": "C047",
+      "group": "Buildings",
+      "name": "SW_House_Bottom_Left_Body",
+      "type": "rect",
+      "x": 820,
+      "y": 3800,
+      "w": 460,
+      "h": 150,
+      "notes": "Base da casa sudoeste"
+    },
+    {
+      "id": "C048",
+      "group": "Buildings",
+      "name": "SW_Blue_House_Roof",
+      "type": "rect",
+      "x": 1370,
+      "y": 3140,
+      "w": 520,
+      "h": 350,
+      "notes": "Casa azul sudoeste telhado"
+    },
+    {
+      "id": "C049",
+      "group": "Buildings",
+      "name": "SW_Blue_House_Body",
+      "type": "rect",
+      "x": 1440,
+      "y": 3480,
+      "w": 380,
+      "h": 220,
+      "notes": "Base casa azul sudoeste"
+    },
+    {
+      "id": "C050",
+      "group": "Buildings",
+      "name": "SE_Market_Roof",
+      "type": "rect",
+      "x": 2840,
+      "y": 3060,
+      "w": 650,
+      "h": 350,
+      "notes": "Mercado sudeste telhado"
+    },
+    {
+      "id": "C051",
+      "group": "Buildings",
+      "name": "SE_Market_Body",
+      "type": "rect",
+      "x": 2940,
+      "y": 3400,
+      "w": 460,
+      "h": 260,
+      "notes": "Mercado sudeste corpo"
+    },
+    {
+      "id": "C052",
+      "group": "Buildings",
+      "name": "SE_Blue_House_Roof",
+      "type": "rect",
+      "x": 3460,
+      "y": 3320,
+      "w": 730,
+      "h": 380,
+      "notes": "Casa azul sudeste telhado"
+    },
+    {
+      "id": "C053",
+      "group": "Buildings",
+      "name": "SE_Blue_House_Body",
+      "type": "rect",
+      "x": 3580,
+      "y": 3680,
+      "w": 480,
+      "h": 220,
+      "notes": "Casa azul sudeste corpo"
+    },
+    {
+      "id": "C054",
+      "group": "Buildings",
+      "name": "SE_Dark_House_Roof",
+      "type": "rect",
+      "x": 3850,
+      "y": 2880,
+      "w": 560,
+      "h": 390,
+      "notes": "Casa escura sudeste telhado"
+    },
+    {
+      "id": "C055",
+      "group": "Buildings",
+      "name": "SE_Dark_House_Body",
+      "type": "rect",
+      "x": 3940,
+      "y": 3250,
+      "w": 380,
+      "h": 260,
+      "notes": "Casa escura sudeste corpo"
+    },
+    {
+      "id": "C056",
+      "group": "Buildings",
+      "name": "SE_Small_House_Roof",
+      "type": "rect",
+      "x": 3160,
+      "y": 3500,
+      "w": 520,
+      "h": 300,
+      "notes": "Casa pequena sudeste"
+    },
+    {
+      "id": "C057",
+      "group": "Buildings",
+      "name": "SE_Small_House_Body",
+      "type": "rect",
+      "x": 3250,
+      "y": 3780,
+      "w": 330,
+      "h": 150,
+      "notes": "Base casa pequena sudeste"
+    },
+    {
+      "id": "C058",
+      "group": "Trees",
+      "name": "NW_Tree_Line_Left_01",
+      "type": "rect",
+      "x": 300,
+      "y": 660,
+      "w": 300,
+      "h": 430,
+      "notes": "Árvores junto à muralha, não bloquear rua"
+    },
+    {
+      "id": "C059",
+      "group": "Trees",
+      "name": "NW_Tree_Line_Left_02",
+      "type": "rect",
+      "x": 310,
+      "y": 1240,
+      "w": 270,
+      "h": 440,
+      "notes": "Árvores esquerda superiores"
+    },
+    {
+      "id": "C060",
+      "group": "Trees",
+      "name": "West_Garden_Trees_01",
+      "type": "rect",
+      "x": 300,
+      "y": 2200,
+      "w": 340,
+      "h": 420,
+      "notes": "Jardim oeste médio"
+    },
+    {
+      "id": "C061",
+      "group": "Trees",
+      "name": "West_Garden_Trees_02",
+      "type": "rect",
+      "x": 300,
+      "y": 2870,
+      "w": 340,
+      "h": 520,
+      "notes": "Jardim oeste inferior"
+    },
+    {
+      "id": "C062",
+      "group": "Trees",
+      "name": "NE_Tree_Line_Right_01",
+      "type": "rect",
+      "x": 4330,
+      "y": 650,
+      "w": 310,
+      "h": 560,
+      "notes": "Árvores direita superiores"
+    },
+    {
+      "id": "C063",
+      "group": "Trees",
+      "name": "East_Garden_Trees_01",
+      "type": "rect",
+      "x": 4290,
+      "y": 1930,
+      "w": 320,
+      "h": 510,
+      "notes": "Árvores direita médias"
+    },
+    {
+      "id": "C064",
+      "group": "Trees",
+      "name": "East_Garden_Trees_02",
+      "type": "rect",
+      "x": 4250,
+      "y": 2750,
+      "w": 360,
+      "h": 650,
+      "notes": "Árvores direita inferiores"
+    },
+    {
+      "id": "C065",
+      "group": "Trees",
+      "name": "CenterLeft_Garden_Tree",
+      "type": "rect",
+      "x": 1660,
+      "y": 1970,
+      "w": 290,
+      "h": 420,
+      "notes": "Árvore central esquerda, deixar ruas laterais"
+    },
+    {
+      "id": "C066",
+      "group": "Trees",
+      "name": "CenterRight_Garden_Tree",
+      "type": "rect",
+      "x": 4120,
+      "y": 2050,
+      "w": 300,
+      "h": 430,
+      "notes": "Árvore central direita, deixar rua ao lado"
+    },
+    {
+      "id": "C067",
+      "group": "Trees",
+      "name": "Lower_Center_Left_Garden",
+      "type": "rect",
+      "x": 1770,
+      "y": 2850,
+      "w": 270,
+      "h": 360,
+      "notes": "Jardim inferior centro esquerdo"
+    },
+    {
+      "id": "C068",
+      "group": "Trees",
+      "name": "Lower_Center_Right_Garden",
+      "type": "rect",
+      "x": 2710,
+      "y": 2860,
+      "w": 270,
+      "h": 360,
+      "notes": "Jardim inferior centro direito"
+    },
+    {
+      "id": "C069",
+      "group": "Props",
+      "name": "Small_Crates_NW_01",
+      "type": "rect",
+      "x": 540,
+      "y": 1710,
+      "w": 130,
+      "h": 130,
+      "notes": "Caixote pequeno, não englobar corredor"
+    },
+    {
+      "id": "C070",
+      "group": "Props",
+      "name": "Barrels_NW_02",
+      "type": "rect",
+      "x": 670,
+      "y": 1760,
+      "w": 120,
+      "h": 140,
+      "notes": "Barris laterais"
+    },
+    {
+      "id": "C071",
+      "group": "Props",
+      "name": "Classmaster_Barrels",
+      "type": "rect",
+      "x": 1660,
+      "y": 1550,
+      "w": 120,
+      "h": 150,
+      "notes": "Barris perto do forte"
+    },
+    {
+      "id": "C072",
+      "group": "Props",
+      "name": "Merchant_Barrels_Front",
+      "type": "rect",
+      "x": 3390,
+      "y": 1640,
+      "w": 160,
+      "h": 150,
+      "notes": "Barris frontais mercador"
+    },
+    {
+      "id": "C073",
+      "group": "Props",
+      "name": "Merchant_Crates_Front",
+      "type": "rect",
+      "x": 3580,
+      "y": 1570,
+      "w": 170,
+      "h": 160,
+      "notes": "Caixas frontais mercador"
+    },
+    {
+      "id": "C074",
+      "group": "Props",
+      "name": "Forge_Logs",
+      "type": "rect",
+      "x": 3370,
+      "y": 2740,
+      "w": 250,
+      "h": 160,
+      "notes": "Madeiras da forja"
+    },
+    {
+      "id": "C075",
+      "group": "Props",
+      "name": "Forge_Target",
+      "type": "rect",
+      "x": 4020,
+      "y": 2630,
+      "w": 170,
+      "h": 170,
+      "notes": "Alvo da forja"
+    },
+    {
+      "id": "C076",
+      "group": "Props",
+      "name": "Lower_Market_Crates",
+      "type": "rect",
+      "x": 720,
+      "y": 3160,
+      "w": 180,
+      "h": 190,
+      "notes": "Caixas mercado inferior"
+    },
+    {
+      "id": "C077",
+      "group": "Props",
+      "name": "SE_Market_Crates",
+      "type": "rect",
+      "x": 2720,
+      "y": 3350,
+      "w": 180,
+      "h": 200,
+      "notes": "Caixas mercado sudeste"
+    },
+    {
+      "id": "C078",
+      "group": "Props",
+      "name": "RightSide_Crates_01",
+      "type": "rect",
+      "x": 4370,
+      "y": 2500,
+      "w": 170,
+      "h": 260,
+      "notes": "Caixas direita"
+    },
+    {
+      "id": "C079",
+      "group": "Props",
+      "name": "Portal_Left_Rock_Block",
+      "type": "rect",
+      "x": 2160,
+      "y": 4380,
+      "w": 130,
+      "h": 210,
+      "notes": "Pedras ao lado esquerdo do portal, caminho central livre"
+    },
+    {
+      "id": "C080",
+      "group": "Props",
+      "name": "Portal_Right_Rock_Block",
+      "type": "rect",
+      "x": 2720,
+      "y": 4380,
+      "w": 130,
+      "h": 210,
+      "notes": "Pedras ao lado direito do portal, caminho central livre"
+    },
+    {
+      "id": "C999",
+      "group": "Fountain",
+      "name": "Fountain_Central_Circle",
+      "type": "circle",
+      "cx": 2500,
+      "cy": 2200,
+      "r": 225,
+      "notes": "Fonte central; deixar caminho ao redor livre"
+    }
+  ],
+  "validation_checklist": [
+    "Player consegue chegar ao Marco/Mestre das Classes",
+    "Player consegue chegar à Sarah Curandeira",
+    "Player consegue chegar ao Carlos El Mercador",
+    "Player consegue chegar ao Manoel Ferrugem/Ferreiro",
+    "Player consegue chegar ao portal premium inferior",
+    "Player consegue contornar a fonte central",
+    "Player não atravessa casas, muralhas, água e fonte",
+    "Não existem colisões fantasmas nas ruas"
+  ]
+}

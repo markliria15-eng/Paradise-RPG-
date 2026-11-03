@@ -1,0 +1,548 @@
+{
+  "sheet_size": [
+    1024,
+    1024
+  ],
+  "frame_size": [
+    256,
+    256
+  ],
+  "columns": 4,
+  "rows": [
+    "frente",
+    "esquerda",
+    "direita",
+    "perfil"
+  ],
+  "frames_per_angle": 4,
+  "fps": 6,
+  "loop": true,
+  "anchor": [
+    128,
+    244
+  ],
+  "portals": [
+    {
+      "name": "floresta",
+      "sheet": "portal_floresta_animado.png",
+      "animations": [
+        {
+          "angle": "frente",
+          "row": 0,
+          "frames": [
+            {
+              "file": "frames/portal_floresta_frente_1.png",
+              "rect": [
+                0,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_frente_2.png",
+              "rect": [
+                256,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_frente_3.png",
+              "rect": [
+                512,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_frente_4.png",
+              "rect": [
+                768,
+                0,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "esquerda",
+          "row": 1,
+          "frames": [
+            {
+              "file": "frames/portal_floresta_esquerda_1.png",
+              "rect": [
+                0,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_esquerda_2.png",
+              "rect": [
+                256,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_esquerda_3.png",
+              "rect": [
+                512,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_esquerda_4.png",
+              "rect": [
+                768,
+                256,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "direita",
+          "row": 2,
+          "frames": [
+            {
+              "file": "frames/portal_floresta_direita_1.png",
+              "rect": [
+                0,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_direita_2.png",
+              "rect": [
+                256,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_direita_3.png",
+              "rect": [
+                512,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_direita_4.png",
+              "rect": [
+                768,
+                512,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "perfil",
+          "row": 3,
+          "frames": [
+            {
+              "file": "frames/portal_floresta_perfil_1.png",
+              "rect": [
+                0,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_perfil_2.png",
+              "rect": [
+                256,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_perfil_3.png",
+              "rect": [
+                512,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_floresta_perfil_4.png",
+              "rect": [
+                768,
+                768,
+                256,
+                256
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "caverna",
+      "sheet": "portal_caverna_animado.png",
+      "animations": [
+        {
+          "angle": "frente",
+          "row": 0,
+          "frames": [
+            {
+              "file": "frames/portal_caverna_frente_1.png",
+              "rect": [
+                0,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_frente_2.png",
+              "rect": [
+                256,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_frente_3.png",
+              "rect": [
+                512,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_frente_4.png",
+              "rect": [
+                768,
+                0,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "esquerda",
+          "row": 1,
+          "frames": [
+            {
+              "file": "frames/portal_caverna_esquerda_1.png",
+              "rect": [
+                0,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_esquerda_2.png",
+              "rect": [
+                256,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_esquerda_3.png",
+              "rect": [
+                512,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_esquerda_4.png",
+              "rect": [
+                768,
+                256,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "direita",
+          "row": 2,
+          "frames": [
+            {
+              "file": "frames/portal_caverna_direita_1.png",
+              "rect": [
+                0,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_direita_2.png",
+              "rect": [
+                256,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_direita_3.png",
+              "rect": [
+                512,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_direita_4.png",
+              "rect": [
+                768,
+                512,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "perfil",
+          "row": 3,
+          "frames": [
+            {
+              "file": "frames/portal_caverna_perfil_1.png",
+              "rect": [
+                0,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_perfil_2.png",
+              "rect": [
+                256,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_perfil_3.png",
+              "rect": [
+                512,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_caverna_perfil_4.png",
+              "rect": [
+                768,
+                768,
+                256,
+                256
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ruina",
+      "sheet": "portal_ruina_animado.png",
+      "animations": [
+        {
+          "angle": "frente",
+          "row": 0,
+          "frames": [
+            {
+              "file": "frames/portal_ruina_frente_1.png",
+              "rect": [
+                0,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_frente_2.png",
+              "rect": [
+                256,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_frente_3.png",
+              "rect": [
+                512,
+                0,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_frente_4.png",
+              "rect": [
+                768,
+                0,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "esquerda",
+          "row": 1,
+          "frames": [
+            {
+              "file": "frames/portal_ruina_esquerda_1.png",
+              "rect": [
+                0,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_esquerda_2.png",
+              "rect": [
+                256,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_esquerda_3.png",
+              "rect": [
+                512,
+                256,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_esquerda_4.png",
+              "rect": [
+                768,
+                256,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "direita",
+          "row": 2,
+          "frames": [
+            {
+              "file": "frames/portal_ruina_direita_1.png",
+              "rect": [
+                0,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_direita_2.png",
+              "rect": [
+                256,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_direita_3.png",
+              "rect": [
+                512,
+                512,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_direita_4.png",
+              "rect": [
+                768,
+                512,
+                256,
+                256
+              ]
+            }
+          ]
+        },
+        {
+          "angle": "perfil",
+          "row": 3,
+          "frames": [
+            {
+              "file": "frames/portal_ruina_perfil_1.png",
+              "rect": [
+                0,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_perfil_2.png",
+              "rect": [
+                256,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_perfil_3.png",
+              "rect": [
+                512,
+                768,
+                256,
+                256
+              ]
+            },
+            {
+              "file": "frames/portal_ruina_perfil_4.png",
+              "rect": [
+                768,
+                768,
+                256,
+                256
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

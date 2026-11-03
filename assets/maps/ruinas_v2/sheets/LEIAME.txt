@@ -1,0 +1,45 @@
+PARADISE RPG — ARCANE RUINS — PRANCHAS CORRIGIDAS
+
+Conteúdo
+01_pisos.png: 4x4, dezesseis células de 256x256; doze materiais e quatro quadros de água.
+02_paredes.png: 4x3, doze módulos/objetos arquitetônicos.
+03_objetos.png: 5x4, vinte objetos das ruínas.
+04_santuario.png: 4x3, onze objetos; última célula totalmente transparente.
+05_selo_animado.png: 2x2, quatro quadros de 512x512 do mesmo selo.
+
+Todos os cinco PNGs são RGBA e medem exatamente 1024x1024.
+As áreas vazias das pranchas de objetos e do selo possuem alfa zero real, sem xadrez pintado.
+Os pisos são a exceção necessária: cada célula é preenchida por terreno opaco (alfa 255), sem fundo vazio, borda ou gutter.
+
+Importação
+Use filtro NEAREST/POINT, sem suavização, compressão com perdas ou mipmaps automáticos.
+atlas.json contém as células, os recortes e os pivôs de cada objeto.
+As células das pranchas 4x3 usam 256x341; a última linha de pixels fica livre.
+A prancha 5x4 usa células de 204x256 e quatro colunas de pixels livres à direita.
+Leia os recortes do JSON para evitar qualquer ambiguidade de divisão inteira.
+Os pivôs estão na base visível dos objetos. A ordenação segue esquerda→direita, cima→baixo.
+
+Escala
+A coluna quebrada mede 100 pixels de altura, referência para uma pessoa.
+A coluna intacta mede 200 pixels. Os três obeliscos medem 220 pixels cada.
+Peças arquitetônicas seguem os eixos horizontal/vertical, com o mesmo enquadramento ortogonal.
+Os cantos em L foram ajustados para a espessura das paredes retas.
+
+Animação
+Água: quatro últimas células da última linha de 01_pisos.png. Apenas 52 pixels de pequenos brilhos variam entre os extremos do ciclo; a estrutura permanece fixa.
+Selo: superior esquerdo → superior direito → inferior esquerdo → inferior direito → repetir.
+O selo usa uma única imagem-base. Posição, geometria e alfa são idênticos nos quatro quadros; somente RGB de luzes e brilhos muda.
+Sugestão inicial: 180 ms por quadro para as duas animações, ajustável no jogo.
+
+Conferência
+Dimensões e modo RGBA conferidos nos cinco arquivos.
+Espaçamento transparente conferido em todas as células de objetos.
+Pixels das bordas opostas dos dezesseis pisos conferidos: idênticos em ambos os eixos.
+Pisos também inspecionados visualmente em repetição 3x3.
+Centro das passagens dos dois arcos e centro do astrolábio transparentes.
+Célula vazia do santuário conferida integralmente.
+Revisão visual das pranchas: sem legendas, texto, números, personagens, monstros, chão adicional ou sombra solta.
+
+Arte corrigida com a ferramenta integrada imagegen; montagem, recortes, registro de animação e conferências técnicas aplicados na finalização.
+A pasta prompts contém as instruções de correção da arte.
+validacao.json contém resultados técnicos e hashes SHA-256 dos PNGs.

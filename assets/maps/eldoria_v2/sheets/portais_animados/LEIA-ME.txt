@@ -1,0 +1,19 @@
+PORTAIS ANIMADOS — ELDORIA
+
+3 pranchas PNG transparentes de 1024x1024.
+Cada prancha: 4 colunas x 4 linhas, células de 256x256.
+Linhas: frente, lateral esquerda, lateral direita, perfil.
+Colunas: quadros 1, 2, 3 e 4. Reprodução em loop a 6 quadros por segundo, ajustável.
+Incluídos também os 48 quadros individuais e manifest.json.
+Abra preview.html com os PNGs na mesma pasta para visualizar.
+
+Estrutura externa fixa por ângulo: verificação registrou zero pixels alterados fora da máscara de animação.
+A visão frontal reutiliza a arte original reduzida; ângulos laterais são novas interpretações do mesmo design geradas pela ferramenta integrada de imagens. A animação foi montada com deslocamento cíclico restrito ao interior, mantendo a estrutura estática.
+Os assets atuais do jogo não foram substituídos. Integração, colisões e escala no motor ainda não foram feitas.
+
+PROMPT PARA OS ÂNGULOS
+Use the attached finished portal as the EXACT design reference. Create a sprite animation atlas, 1024x1024 PNG with true transparent background. EXACT regular invisible 4 columns x 4 rows, 16 cells of 256x256, generous transparent gutters, all objects fully contained in cells. Each row is ONE angle, each column is consecutive animation frame 1,2,3,4. Row1 front facing exactly as reference. Row2 same portal turned 45 degrees facing screen LEFT, real visible stone thickness. Row3 same portal turned 45 degrees facing screen RIGHT. Row4 near side profile, portal turned 75 degrees, magic opening appears narrow but still visible. All sprites same height and baseline within each cell. Classic top-down 3/4 RPG camera, upright vertical arch, no ground or diamond tiles, no cast shadow. Preserve same portal design, palette, ornaments and materials in every angle. Within each row, exterior geometry and every architecture pixel must remain IDENTICAL in all four frames. Animate ONLY the magical veil INSIDE the opening: coherent slow flowing curls, tiny moving glints over a 4 frame cycle. NO moving stone, foliage, lantern, banner, roots or masonry. No scale changes, no shifts, no warping exterior. No labels, no text, no drawn grid. Clean detailed medieval pixel art, sober adult fantasy as reference. Theme: 
+
+floresta: green magic, pale mossy stone, woody roots, ivy, leaf emblem and blue pennants
+caverna: dark cyan magic, rugged gray cave rock, oak supports, iron brackets, two amber lanterns
+ruina: antique amber gold magic, cracked pale limestone carved pillars, worn runes and broken crown

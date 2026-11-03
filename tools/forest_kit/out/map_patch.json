@@ -1,0 +1,506 @@
+{
+ "size": [
+  8000,
+  6400
+ ],
+ "spawn": [
+  240,
+  260
+ ],
+ "portal_entry": [
+  200,
+  190
+ ],
+ "portal_cave": [
+  1815,
+  1185
+ ],
+ "spawns": [
+  {
+   "enemy": "Javali Selvagem",
+   "count": 4,
+   "respawn": 8,
+   "zone": [
+    480,
+    355,
+    170,
+    130
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 3,
+   "respawn": 12,
+   "zone": [
+    860,
+    540,
+    180,
+    150
+   ]
+  },
+  {
+   "enemy": "Javali Selvagem",
+   "count": 3,
+   "respawn": 9,
+   "zone": [
+    880,
+    640,
+    150,
+    90
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 3,
+   "respawn": 14,
+   "zone": [
+    380,
+    1085,
+    170,
+    130
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 3,
+   "respawn": 15,
+   "zone": [
+    740,
+    990,
+    165,
+    140
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 3,
+   "respawn": 20,
+   "zone": [
+    590,
+    1330,
+    120,
+    110
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 3,
+   "respawn": 19,
+   "zone": [
+    1235,
+    225,
+    175,
+    130
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 3,
+   "respawn": 26,
+   "zone": [
+    1640,
+    175,
+    170,
+    115
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 2,
+   "respawn": 13,
+   "zone": [
+    1375,
+    535,
+    135,
+    110
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 3,
+   "respawn": 28,
+   "zone": [
+    1245,
+    850,
+    175,
+    135
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 2,
+   "respawn": 22,
+   "zone": [
+    1260,
+    900,
+    140,
+    90
+   ]
+  },
+  {
+   "enemy": "Rei Javali",
+   "count": 1,
+   "boss": true,
+   "respawn": 180,
+   "zone": [
+    1590,
+    1230,
+    100,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 2,
+   "respawn": 13,
+   "zone": [
+    455,
+    200,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 1,
+   "respawn": 13,
+   "zone": [
+    730,
+    487,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 1,
+   "respawn": 13,
+   "zone": [
+    424,
+    607,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Selvagem",
+   "count": 2,
+   "respawn": 10,
+   "zone": [
+    357,
+    741,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Selvagem",
+   "count": 1,
+   "respawn": 10,
+   "zone": [
+    844,
+    817,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    671,
+    1231,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Selvagem",
+   "count": 2,
+   "respawn": 10,
+   "zone": [
+    1064,
+    406,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 1,
+   "respawn": 13,
+   "zone": [
+    1174,
+    305,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    1458,
+    215,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 2,
+   "respawn": 20,
+   "zone": [
+    1317,
+    334,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    1373,
+    473,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    1335,
+    761,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 2,
+   "respawn": 15,
+   "zone": [
+    1080,
+    749,
+    90,
+    70
+   ]
+  }
+ ],
+ "collectibles": [
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    300,
+    240
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    480,
+    130
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    560,
+    170
+   ]
+  },
+  {
+   "item": "Planta Rara",
+   "amount": 1,
+   "pos": [
+    520,
+    115
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    640,
+    470
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    470,
+    470
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    1000,
+    700
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    860,
+    690
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    420,
+    1000
+   ]
+  },
+  {
+   "item": "Planta Rara",
+   "amount": 1,
+   "pos": [
+    330,
+    1100
+   ]
+  },
+  {
+   "item": "Erva Especial",
+   "amount": 1,
+   "pos": [
+    530,
+    1190
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    450,
+    1215
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    880,
+    1110
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    760,
+    1010
+   ]
+  },
+  {
+   "item": "Erva Especial",
+   "amount": 1,
+   "pos": [
+    640,
+    1420
+   ]
+  },
+  {
+   "item": "Planta Rara",
+   "amount": 1,
+   "pos": [
+    700,
+    1360
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    1260,
+    330
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    1380,
+    260
+   ]
+  },
+  {
+   "item": "Planta Rara",
+   "amount": 1,
+   "pos": [
+    1780,
+    260
+   ]
+  },
+  {
+   "item": "Erva Especial",
+   "amount": 1,
+   "pos": [
+    1690,
+    200
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    1470,
+    610
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    1300,
+    980
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    1400,
+    880
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    1100,
+    500
+   ]
+  },
+  {
+   "item": "Erva Especial",
+   "amount": 1,
+   "pos": [
+    1480,
+    1260
+   ]
+  },
+  {
+   "item": "Planta Rara",
+   "amount": 1,
+   "pos": [
+    1800,
+    1330
+   ]
+  }
+ ]
+}

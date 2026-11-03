@@ -1,0 +1,17 @@
+{
+  "coordinates": "pixels, relative to cropped PNG in sprites/walls; x right, y down",
+  "top_thickness": 64,
+  "front_face_height": 48,
+  "straight_run_length": 192,
+  "vertical_overlap": 48,
+  "ports": [
+    {"file":"01_wall_horizontal.png","west":[0,32],"east":[192,32]},
+    {"file":"02_wall_horizontal_crystals.png","west":[0,32],"east":[192,32]},
+    {"file":"03_wall_vertical.png","north":[32,0],"south":[32,192]},
+    {"file":"04_wall_vertical_roots.png","north":[32,0],"south":[32,192]},
+    {"file":"05_corner_upper_left.png","east":[192,32],"south":[32,192]},
+    {"file":"06_corner_upper_right.png","west":[0,32],"south":[160,192]},
+    {"file":"07_corner_lower_left.png","north":[32,0],"east":[192,160]},
+    {"file":"08_corner_lower_right.png","north":[160,0],"west":[0,160]}
+  ]
+}

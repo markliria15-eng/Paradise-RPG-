@@ -1,0 +1,5 @@
+ground: 16 opaque 256x256 tiles, RGBA; opposite edges identical in all 16; water shares geometry and hue, only brightest teal glints pulse.
+props: 20 sprites; transparent cell gutters >=16px; bases aligned per row.
+walls: 12 sprites; top width 64px, front face 48px, run length 192px; straight and corner connectors use identical pixel cross sections; orthogonal H/V bridges 64px wide.
+boss_lair: 11 sprites; transparent cell gutters >=16px; bases aligned per row.
+crystal_animation: fixed master sprite, 4 exact 512x512 cells, identical RGBA alpha/registration/outline/base; palette drawn from master; only interior glow pixels vary; phases dim/medium/bright/medium.

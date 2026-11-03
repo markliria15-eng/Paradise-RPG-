@@ -1,0 +1,57 @@
+PARADISE RPG — DEEP CAVE — PRANCHAS CORRIGIDAS
+
+ARQUIVOS PRINCIPAIS
+deep_cave_ground.png: 4x4, células de 256x256, 12 pisos e 4 fases de água.
+deep_cave_walls.png: 4x3, 12 peças de paredes, cantos, coluna, arco e pontes.
+deep_cave_props.png: 5x4, 20 objetos de caverna.
+deep_cave_boss_lair.png: 4x3, 11 grupos de objetos; última célula vazia.
+deep_cave_crystal_animation.png: 2x2, quatro células exatas de 512x512.
+
+Todas as pranchas têm 1024x1024 e canal alfa RGBA.
+Objetos: fundo realmente transparente, sem xadrez gravado, chão solto ou sombras.
+Pisos: células completamente preenchidas e opacas, conforme o pedido do atlas de chão.
+As bordas opostas de cada piso foram igualadas e conferidas pixel a pixel.
+A água usa uma única textura registrada; somente pequenos reflexos claros pulsam.
+O cristal usa um único sprite mestre, com contorno, alfa, rochas e alinhamento fixos.
+Só pequenas regiões de brilho interno mudam, usando cores da paleta do mestre.
+Ordem da animação: superior esquerdo, superior direito, inferior esquerdo, inferior direito.
+Fases: fraco, médio, forte, médio. Os dois quadros médios são idênticos.
+
+IMPORTAÇÃO E RECORTE
+sprites/: os objetos já recortados, com a mesma escala em pixels usada nas pranchas.
+tiles/: os 16 pisos/quadros já recortados em 256x256.
+atlas_manifest.json: retângulos exatos de célula e sprite, mais ponto inferior de referência.
+wall_connections.json: encaixes em coordenadas locais dos sprites de parede recortados.
+validacao.txt e verificacao.json: resultados das verificações realizadas.
+
+Em 1024 pixels, cinco colunas ou três linhas não têm divisão inteira uniforme.
+Por isso as colunas de props alternam 204/205 pixels; as linhas dos atlas 4x3
+têm 341, 341 e 342 pixels. Use os retângulos do manifesto ou os sprites separados.
+Não faça recorte automático arredondando todas as células para a mesma largura/altura.
+Há pelo menos 16 pixels de margem transparente dentro de cada célula de objetos.
+
+ESCALA E PAREDES
+Referência de escala: personagem humano com cerca de 160 pixels de altura;
+cogumelo alto com 160 pixels. Objetos pequenos e estruturas enormes mantêm suas
+diferenças de tamanho. A formação de cristal animada é uma formação maior, com 240px.
+Paredes modulares: topo com 64px de espessura, face frontal com 48px de altura,
+trecho reto com 192px de comprimento. Cantos têm braços horizontais e verticais.
+Alinhe os encaixes do arquivo wall_connections.json, não as bordas das células.
+Na direção norte-sul, a face frontal inferior de 48px sobrepõe a peça seguinte;
+ela deve ficar encoberta pelo topo da peça mais ao sul na ordenação de desenho.
+
+GODOT
+Use filtro Nearest para preservar os pixels. Evite mipmaps nas texturas do atlas.
+Para repetir pisos individualmente, use os PNGs de tiles/ com repetição habilitada
+ou configure o atlas no TileSet. Não repita a prancha inteira como uma textura única.
+Luz, sombra, colisão na base, y-sort, área andável, minimapa e chunks ficam no projeto,
+conforme sua divisão de trabalho. Os pontos inferiores do manifesto são referências
+de posicionamento; não representam polígonos de colisão.
+
+PRODUÇÃO
+Arte corrigida com o gerador de imagens integrado a partir das pranchas anteriores.
+Instruções: preservar pixel art de caverna em azul-ardósia, roxo e teal, câmera
+ortogonal 3/4, objetos completos e separados, sem chão, sombra, texto ou personagens;
+carrinho frontal, espada vertical, teias planas sem pedras e portas com passagem alfa.
+Finalização técnica: recorte, registro, padronização de encaixes, empacotamento,
+reconciliação das bordas dos pisos e animação registrada a partir de um sprite mestre.

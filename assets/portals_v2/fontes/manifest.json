@@ -1,0 +1,38 @@
+{
+  "canvas": [
+    512,
+    512
+  ],
+  "anchor_feet": [
+    256,
+    320
+  ],
+  "draw_order": [
+    "base",
+    "magia",
+    "aura_tras",
+    "personagem",
+    "aura_frente"
+  ],
+  "animated_frames": false,
+  "themes": {
+    "floresta": {
+      "base": "floresta/base.png",
+      "magia": "floresta/magia.png",
+      "aura_tras": "floresta/aura_tras.png",
+      "aura_frente": "floresta/aura_frente.png"
+    },
+    "caverna": {
+      "base": "caverna/base.png",
+      "magia": "caverna/magia.png",
+      "aura_tras": "caverna/aura_tras.png",
+      "aura_frente": "caverna/aura_frente.png"
+    },
+    "ruina": {
+      "base": "ruina/base.png",
+      "magia": "ruina/magia.png",
+      "aura_tras": "ruina/aura_tras.png",
+      "aura_frente": "ruina/aura_frente.png"
+    }
+  }
+}

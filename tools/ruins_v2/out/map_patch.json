@@ -1,0 +1,180 @@
+{
+ "size": [
+  7200,
+  5760
+ ],
+ "spawn": [
+  3600,
+  4980
+ ],
+ "portal": [
+  3600,
+  5300
+ ],
+ "spawns": [
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    2290,
+    1430,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    1160,
+    1480,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    1210,
+    630,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    1410,
+    4230,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    5510,
+    4080,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Aprendiz Corrompido",
+   "count": 2,
+   "respawn": 16,
+   "zone": [
+    910,
+    2630,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Aprendiz Corrompido",
+   "count": 2,
+   "respawn": 16,
+   "zone": [
+    1410,
+    3030,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Aprendiz Corrompido",
+   "count": 1,
+   "respawn": 16,
+   "zone": [
+    1510,
+    2380,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 2,
+   "respawn": 18,
+   "zone": [
+    5410,
+    2530,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 2,
+   "respawn": 18,
+   "zone": [
+    6210,
+    3230,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 1,
+   "respawn": 18,
+   "zone": [
+    5810,
+    3630,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Sentinela Arcano",
+   "count": 1,
+   "respawn": 22,
+   "zone": [
+    3210,
+    1480,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Sentinela Arcano",
+   "count": 1,
+   "respawn": 22,
+   "zone": [
+    3810,
+    1480,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Arquimago Corrompido",
+   "count": 1,
+   "respawn": 300,
+   "zone": [
+    3510,
+    1050,
+    180,
+    140
+   ],
+   "boss": true
+  }
+ ],
+ "safe_zones": [
+  {
+   "pos": [
+    3600,
+    5050
+   ],
+   "radius": 520
+  }
+ ]
+}

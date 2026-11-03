@@ -1,0 +1,12 @@
+EDIT TARGET attached sanctuary atlas for Paradise RPG Arcane Ruins. Retain all eleven objects, exact 4-column3-row positions with bottom-right cell empty, blue-grey stone worn gold moss palette, crisp detailed16-bit pixel art dark1px outlines, orthogonal top-down3/4 camera. Genuine transparent PNG background, no ground patches, no shadows, no fringe debris.
+Correct these defects:
+- match common world scale: both tall dark obelisks 220px high in final 1024 atlas, their stone block size same as ruins props obelisk; tall brazier about220px including big violet flame; throne about200px, archway about220px.
+- second-row first object: precisely THREE violet crystals truly FLOATING above a SMALL FLAT RUNE STONE, NOT a cylindrical pedestal. Clearly visible empty transparent gap between all crystals and rune stone, no connecting glow column or supports.
+- portal arch frame: carvings glow GOLD, not violet, open center is genuinely fully transparent, front-facing, no floor.
+- kneeling statue stays obviously kneeling.
+- horizontal curved platform edge and vertical platform edge have same physical thickness and stone size, horizontal and vertical screen axes, flat tops and SHORT front wall, no full platform disk.
+- glowing square floor tile must be perfectly flat from straight overhead, no side faces, no relief, no tilted diamond.
+Order row1 violet rune obelisk; second violet rune obelisk; ornate broken stone/gold front-facing throne; tall stone brazier big violet flame.
+Row2 three floating violet crystals above small flat rune stone; broken front-facing GOLD rune portal frame open transparent passage; broken kneeling mage statue; scattered small gold-trimmed debris.
+Row3 low curved horizontal platform rim; same low platform rim vertical; small square flat glowing cyan/violet geometric rune floor tile; EMPTY.
+No text, readable letters, numbers, characters, monsters, diagonal architecture, grid lines, labels, frames or scenery. Each object complete with bottom base and ample transparent gutter, canvas1024x1024.

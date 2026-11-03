@@ -1,0 +1,935 @@
+{
+  "project": "Paradise RPG",
+  "map": "Arcane Ruins",
+  "version": 2,
+  "pixel_filter": "nearest",
+  "human_height_reference_px": 100,
+  "coordinates": "top-left origin; x right, y down; pivots at visible bottom of sprite",
+  "atlases": [
+    {
+      "file": "02_paredes.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "sprites": [
+        {
+          "name": "wall_horizontal",
+          "cell": [
+            0,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            32,
+            243,
+            192,
+            80
+          ],
+          "pivot": [
+            128,
+            322
+          ]
+        },
+        {
+          "name": "wall_horizontal_rune",
+          "cell": [
+            256,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            288,
+            243,
+            192,
+            80
+          ],
+          "pivot": [
+            384,
+            322
+          ]
+        },
+        {
+          "name": "wall_vertical",
+          "cell": [
+            512,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            613,
+            131,
+            54,
+            192
+          ],
+          "pivot": [
+            640,
+            322
+          ]
+        },
+        {
+          "name": "wall_vertical_ivy",
+          "cell": [
+            768,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            869,
+            131,
+            54,
+            192
+          ],
+          "pivot": [
+            896,
+            322
+          ]
+        },
+        {
+          "name": "corner_upper_left",
+          "cell": [
+            0,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            48,
+            464,
+            160,
+            200
+          ],
+          "pivot": [
+            128,
+            663
+          ]
+        },
+        {
+          "name": "corner_upper_right",
+          "cell": [
+            256,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            296,
+            464,
+            176,
+            200
+          ],
+          "pivot": [
+            384,
+            663
+          ]
+        },
+        {
+          "name": "corner_lower_left",
+          "cell": [
+            512,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            552,
+            464,
+            176,
+            200
+          ],
+          "pivot": [
+            640,
+            663
+          ]
+        },
+        {
+          "name": "corner_lower_right",
+          "cell": [
+            768,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            814,
+            464,
+            164,
+            200
+          ],
+          "pivot": [
+            896,
+            663
+          ]
+        },
+        {
+          "name": "collapsed_wall",
+          "cell": [
+            0,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            44,
+            937,
+            167,
+            68
+          ],
+          "pivot": [
+            127,
+            1004
+          ]
+        },
+        {
+          "name": "broken_archway",
+          "cell": [
+            256,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            292,
+            785,
+            183,
+            220
+          ],
+          "pivot": [
+            383,
+            1004
+          ]
+        },
+        {
+          "name": "staircase",
+          "cell": [
+            512,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            566,
+            801,
+            148,
+            204
+          ],
+          "pivot": [
+            640,
+            1004
+          ]
+        },
+        {
+          "name": "horizontal_bridge",
+          "cell": [
+            768,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            804,
+            895,
+            183,
+            110
+          ],
+          "pivot": [
+            895,
+            1004
+          ]
+        }
+      ]
+    },
+    {
+      "file": "03_objetos.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "grid": [
+        5,
+        4
+      ],
+      "sprites": [
+        {
+          "name": "intact_column",
+          "cell": [
+            0,
+            0,
+            204,
+            256
+          ],
+          "frame": [
+            67,
+            38,
+            70,
+            200
+          ],
+          "pivot": [
+            102,
+            237
+          ]
+        },
+        {
+          "name": "broken_column",
+          "cell": [
+            204,
+            0,
+            204,
+            256
+          ],
+          "frame": [
+            273,
+            138,
+            66,
+            100
+          ],
+          "pivot": [
+            306,
+            237
+          ]
+        },
+        {
+          "name": "fallen_column",
+          "cell": [
+            408,
+            0,
+            204,
+            256
+          ],
+          "frame": [
+            420,
+            170,
+            180,
+            68
+          ],
+          "pivot": [
+            510,
+            237
+          ]
+        },
+        {
+          "name": "headless_mage_statue",
+          "cell": [
+            612,
+            0,
+            204,
+            256
+          ],
+          "frame": [
+            670,
+            63,
+            87,
+            175
+          ],
+          "pivot": [
+            713,
+            237
+          ]
+        },
+        {
+          "name": "cyan_obelisk",
+          "cell": [
+            816,
+            0,
+            204,
+            256
+          ],
+          "frame": [
+            863,
+            18,
+            110,
+            220
+          ],
+          "pivot": [
+            918,
+            237
+          ]
+        },
+        {
+          "name": "bookshelf",
+          "cell": [
+            0,
+            256,
+            204,
+            256
+          ],
+          "frame": [
+            45,
+            344,
+            113,
+            150
+          ],
+          "pivot": [
+            101,
+            493
+          ]
+        },
+        {
+          "name": "books_scrolls",
+          "cell": [
+            204,
+            256,
+            204,
+            256
+          ],
+          "frame": [
+            243,
+            414,
+            125,
+            80
+          ],
+          "pivot": [
+            305,
+            493
+          ]
+        },
+        {
+          "name": "lectern",
+          "cell": [
+            408,
+            256,
+            204,
+            256
+          ],
+          "frame": [
+            466,
+            384,
+            87,
+            110
+          ],
+          "pivot": [
+            509,
+            493
+          ]
+        },
+        {
+          "name": "dry_fountain",
+          "cell": [
+            612,
+            256,
+            204,
+            256
+          ],
+          "frame": [
+            637,
+            374,
+            153,
+            120
+          ],
+          "pivot": [
+            713,
+            493
+          ]
+        },
+        {
+          "name": "dead_tree",
+          "cell": [
+            816,
+            256,
+            204,
+            256
+          ],
+          "frame": [
+            836,
+            314,
+            164,
+            180
+          ],
+          "pivot": [
+            918,
+            493
+          ]
+        },
+        {
+          "name": "small_dead_tree",
+          "cell": [
+            0,
+            512,
+            204,
+            256
+          ],
+          "frame": [
+            58,
+            625,
+            88,
+            125
+          ],
+          "pivot": [
+            102,
+            749
+          ]
+        },
+        {
+          "name": "floating_crystal_pedestal",
+          "cell": [
+            204,
+            512,
+            204,
+            256
+          ],
+          "frame": [
+            265,
+            610,
+            82,
+            140
+          ],
+          "pivot": [
+            306,
+            749
+          ]
+        },
+        {
+          "name": "broken_astrolabe",
+          "cell": [
+            408,
+            512,
+            204,
+            256
+          ],
+          "frame": [
+            440,
+            600,
+            139,
+            150
+          ],
+          "pivot": [
+            509,
+            749
+          ]
+        },
+        {
+          "name": "small_rubble",
+          "cell": [
+            612,
+            512,
+            204,
+            256
+          ],
+          "frame": [
+            673,
+            706,
+            81,
+            44
+          ],
+          "pivot": [
+            713,
+            749
+          ]
+        },
+        {
+          "name": "mossy_boulder",
+          "cell": [
+            816,
+            512,
+            204,
+            256
+          ],
+          "frame": [
+            856,
+            632,
+            124,
+            118
+          ],
+          "pivot": [
+            918,
+            749
+          ]
+        },
+        {
+          "name": "torn_tent",
+          "cell": [
+            0,
+            768,
+            204,
+            256
+          ],
+          "frame": [
+            17,
+            876,
+            170,
+            130
+          ],
+          "pivot": [
+            102,
+            1005
+          ]
+        },
+        {
+          "name": "cold_campfire",
+          "cell": [
+            204,
+            768,
+            204,
+            256
+          ],
+          "frame": [
+            255,
+            946,
+            101,
+            60
+          ],
+          "pivot": [
+            305,
+            1005
+          ]
+        },
+        {
+          "name": "supply_crates",
+          "cell": [
+            408,
+            768,
+            204,
+            256
+          ],
+          "frame": [
+            450,
+            934,
+            120,
+            72
+          ],
+          "pivot": [
+            510,
+            1005
+          ]
+        },
+        {
+          "name": "night_flower_bush",
+          "cell": [
+            612,
+            768,
+            204,
+            256
+          ],
+          "frame": [
+            659,
+            915,
+            110,
+            91
+          ],
+          "pivot": [
+            714,
+            1005
+          ]
+        },
+        {
+          "name": "violet_brazier",
+          "cell": [
+            816,
+            768,
+            204,
+            256
+          ],
+          "frame": [
+            880,
+            866,
+            76,
+            140
+          ],
+          "pivot": [
+            918,
+            1005
+          ]
+        }
+      ]
+    },
+    {
+      "file": "04_santuario.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "sprites": [
+        {
+          "name": "violet_obelisk_a",
+          "cell": [
+            0,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            85,
+            103,
+            85,
+            220
+          ],
+          "pivot": [
+            127,
+            322
+          ]
+        },
+        {
+          "name": "violet_obelisk_b",
+          "cell": [
+            256,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            342,
+            103,
+            84,
+            220
+          ],
+          "pivot": [
+            384,
+            322
+          ]
+        },
+        {
+          "name": "broken_throne",
+          "cell": [
+            512,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            559,
+            123,
+            162,
+            200
+          ],
+          "pivot": [
+            640,
+            322
+          ]
+        },
+        {
+          "name": "tall_violet_brazier",
+          "cell": [
+            768,
+            0,
+            256,
+            341
+          ],
+          "frame": [
+            848,
+            103,
+            96,
+            220
+          ],
+          "pivot": [
+            896,
+            322
+          ]
+        },
+        {
+          "name": "floating_three_crystals",
+          "cell": [
+            0,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            79,
+            514,
+            98,
+            150
+          ],
+          "pivot": [
+            128,
+            663
+          ]
+        },
+        {
+          "name": "gold_rune_portal",
+          "cell": [
+            256,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            297,
+            444,
+            173,
+            220
+          ],
+          "pivot": [
+            383,
+            663
+          ]
+        },
+        {
+          "name": "kneeling_mage_statue",
+          "cell": [
+            512,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            586,
+            499,
+            107,
+            165
+          ],
+          "pivot": [
+            639,
+            663
+          ]
+        },
+        {
+          "name": "gold_trimmed_debris",
+          "cell": [
+            768,
+            341,
+            256,
+            341
+          ],
+          "frame": [
+            850,
+            592,
+            92,
+            72
+          ],
+          "pivot": [
+            896,
+            663
+          ]
+        },
+        {
+          "name": "platform_edge_horizontal",
+          "cell": [
+            0,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            26,
+            915,
+            203,
+            90
+          ],
+          "pivot": [
+            127,
+            1004
+          ]
+        },
+        {
+          "name": "platform_edge_vertical",
+          "cell": [
+            256,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            357,
+            886,
+            54,
+            119
+          ],
+          "pivot": [
+            384,
+            1004
+          ]
+        },
+        {
+          "name": "flat_rune_tile",
+          "cell": [
+            512,
+            682,
+            256,
+            341
+          ],
+          "frame": [
+            596,
+            917,
+            88,
+            88
+          ],
+          "pivot": [
+            640,
+            1004
+          ]
+        }
+      ]
+    }
+  ],
+  "terrain": {
+    "file": "01_pisos.png",
+    "grid": [
+      4,
+      4
+    ],
+    "cell_size": [
+      256,
+      256
+    ],
+    "names": [
+      "stone_slabs",
+      "mossy_cracked_slabs",
+      "broken_paving",
+      "twilight_grass",
+      "cyan_rune_slabs",
+      "violet_gold_mosaic",
+      "rubble_dirt",
+      "violet_cracked_earth",
+      "night_flower_grass",
+      "dead_grass",
+      "wet_stone",
+      "library_planks",
+      "magic_water_0",
+      "magic_water_1",
+      "magic_water_2",
+      "magic_water_3"
+    ],
+    "water_animation_cells": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "water_frame_duration_ms": 180,
+    "alpha": "255 across all ground pixels; no empty background exists in this sheet"
+  },
+  "seal": {
+    "file": "05_selo_animado.png",
+    "grid": [
+      2,
+      2
+    ],
+    "cell_size": [
+      512,
+      512
+    ],
+    "frame_order": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frame_duration_ms": 180,
+    "local_center": [
+      255.5,
+      255.5
+    ],
+    "radius_px": 220
+  },
+  "empty_cell": {
+    "file": "04_santuario.png",
+    "cell": [
+      768,
+      682,
+      256,
+      342
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status":"passed",
+  "sheets":[
+    {"file":"deep_cave_ground.png","size":[1024,1024],"transparent_pixels":0,"partial_alpha_pixels":0},
+    {"file":"deep_cave_walls.png","size":[1024,1024],"transparent_pixels":778205,"partial_alpha_pixels":0},
+    {"file":"deep_cave_props.png","size":[1024,1024],"transparent_pixels":877281,"partial_alpha_pixels":0},
+    {"file":"deep_cave_boss_lair.png","size":[1024,1024],"transparent_pixels":838704,"partial_alpha_pixels":0},
+    {"file":"deep_cave_crystal_animation.png","size":[1024,1024],"transparent_pixels":917908,"partial_alpha_pixels":0}
+  ],
+  "ground_tiles":16,
+  "opposite_edge_mismatches":0,
+  "individual_sprites":47,
+  "minimum_cell_gutter_px":16,
+  "boss_reserved_cell_empty":true,
+  "animation_alpha_mismatches":0,
+  "animation_outline_mismatches":0,
+  "animation_base_mismatches":0,
+  "animation_changed_rgb_pixels":[0,3259,3268,3259],
+  "wall_connector_cross_sections_equal":true
+}

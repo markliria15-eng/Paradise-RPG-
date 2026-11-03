@@ -1,0 +1,58 @@
+{
+  "01_pisos.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "4cc2a2d39ac445e2964020f334776ab73022b47c237972f7bd31c4b5e2328f6d",
+    "fully_opaque_ground": true,
+    "all_16_opposite_edges_match": true,
+    "water_changed_pixels": 52
+  },
+  "02_paredes.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "75e515779c2bc1f939493f0388c10a3dc32cce5f098175753b4dab31560357c4",
+    "outer_edges_transparent": true
+  },
+  "03_objetos.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "5fa78f82aa9184943f48fe2095ee0f3901788c2b3ed3c2d7625e95715a2a6f07",
+    "outer_edges_transparent": true
+  },
+  "04_santuario.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "c816d43be36bbed8e1c659b21e7c7a59497db53a02e97aec6767a28877733be0",
+    "outer_edges_transparent": true
+  },
+  "05_selo_animado.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "cc41fb1670746d81082c3ff123dab34acc86f4d75f4e6bb2f01caa81f427901a",
+    "outer_edges_transparent": true
+  },
+  "reference_scale_heights_px": {
+    "broken_column": 100,
+    "intact_column": 200,
+    "cyan_obelisk": 220,
+    "violet_obelisk_a": 220,
+    "violet_obelisk_b": 220
+  },
+  "archways_and_astrolabe_center_transparent": true,
+  "seal_geometry_alpha_identical": true
+}

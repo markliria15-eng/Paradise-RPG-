@@ -1,0 +1,11960 @@
+{
+ "version": 1,
+ "map_size": [
+  8000,
+  6400
+ ],
+ "chunks": {
+  "dir": "res://assets/maps/floresta_v2/chunks",
+  "prefix": "floresta_v2_chunk",
+  "grid": [
+   10,
+   10
+  ],
+  "chunk_px": [
+   400,
+   320
+  ],
+  "scale": 2.0
+ },
+ "walkable_mask": {
+  "path": "res://assets/maps/floresta_v2/floresta_v2_walkable.png",
+  "cell": 16
+ },
+ "minimap": "res://assets/maps/floresta_v2/floresta_v2_minimap.png",
+ "boss_arena": {
+  "center": [
+   6560,
+   5060
+  ],
+  "radius": [
+   940,
+   760
+  ]
+ },
+ "props": [
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    57.4,
+    125.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    350.1,
+    137.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    528.4,
+    155.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    791.9,
+    73.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -52.0,
+    -70.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1010.1,
+    180.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1181.9,
+    51.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    1460.4,
+    156.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1626.5,
+    109.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1859.1,
+    138.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2198.2,
+    138.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    2331.3,
+    142.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2602.1,
+    85.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    2800.6,
+    87.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3087.0,
+    178.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    3219.2,
+    141.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3456.1,
+    96.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3739.8,
+    67.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    3899.5,
+    156.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    4145.9,
+    48.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -76.5,
+    -140
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4417.9,
+    150.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4597.1,
+    157.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    4850.5,
+    61.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    5066.9,
+    121.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5303.0,
+    172.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    5418.0,
+    56.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    5708.4,
+    75.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    5960.6,
+    161.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6191.5,
+    93.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c53.png",
+   "pos": [
+    6394.3,
+    164.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.5,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6576.4,
+    55.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6777.6,
+    160.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b29.png",
+   "pos": [
+    7038.2,
+    63.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.0,
+    -133
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7226.1,
+    79.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7458.9,
+    145.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    7665.4,
+    162.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.0,
+    -122
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7940.1,
+    102.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a30.png",
+   "pos": [
+    8112.8,
+    128.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.5,
+    -86
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    49.3,
+    366.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -145
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    276.9,
+    299.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    424.2,
+    382.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    640.0,
+    278.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    824.4,
+    336.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1170.9,
+    339.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    1352.4,
+    402.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1556.4,
+    377.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1775.7,
+    308.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a34.png",
+   "pos": [
+    2062.6,
+    268.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2295.2,
+    332.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    2408.4,
+    368.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    2683.4,
+    317.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2852.7,
+    317.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3114.0,
+    345.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3297.4,
+    390.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    3594.2,
+    288.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a37.png",
+   "pos": [
+    3800.3,
+    353.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -69
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    3998.5,
+    403.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4209.5,
+    298.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4543.9,
+    379.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    4756.2,
+    403.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    4975.1,
+    336.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5146.9,
+    366.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    5350.1,
+    397.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.0,
+    -69
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    5596.6,
+    375.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    5837.9,
+    339.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    6001.4,
+    341.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    6286.0,
+    396.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6488.5,
+    281.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6723.9,
+    407.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6913.9,
+    359.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7192.4,
+    373.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7457.9,
+    303.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7619.9,
+    322.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -50.0,
+    -78
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7774.4,
+    399.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    8096.3,
+    273.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    95.0,
+    508.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    1450.7,
+    498.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1667.0,
+    548.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    2593.1,
+    530.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    2818.6,
+    540.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2964.5,
+    524.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3237.6,
+    511.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    3438.9,
+    593.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    3740.9,
+    517.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    3907.4,
+    630.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4097.5,
+    570.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    4409.0,
+    537.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a34.png",
+   "pos": [
+    4520.0,
+    588.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4857.7,
+    587.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4997.9,
+    623.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    5232.4,
+    525.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    5465.4,
+    505.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    5647.9,
+    602.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c51.png",
+   "pos": [
+    5987.7,
+    493.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -28.9
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    6154.8,
+    605.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6312.7,
+    585.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    6589.2,
+    575.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -145
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7226.3,
+    620.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7451.0,
+    592.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    7765.4,
+    602.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7908.2,
+    497.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4.7,
+    790.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    225.4,
+    740.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    1389.1,
+    747.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    1546.4,
+    812.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    2400.5,
+    823.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -145
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c37.png",
+   "pos": [
+    2752.6,
+    847.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -55.0,
+    -143
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2982.4,
+    736.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3129.2,
+    717.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a37.png",
+   "pos": [
+    3324.6,
+    814.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -69
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    3555.3,
+    721.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3755.1,
+    785.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    3986.1,
+    779.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c49.png",
+   "pos": [
+    4326.1,
+    841.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -55.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4517.1,
+    719.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4646.5,
+    727.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4948.8,
+    793.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5202.4,
+    743.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5322.1,
+    716.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    5878.7,
+    741.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7396.6,
+    821.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7654.6,
+    812.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7781.3,
+    809.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    8033.0,
+    715.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    50.1,
+    1070.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    390.3,
+    1037.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c37.png",
+   "pos": [
+    2317.7,
+    1035.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -85.0,
+    -143
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    2520.5,
+    967.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2845.1,
+    949.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3082.0,
+    1054.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3263.8,
+    971.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3444.8,
+    1050.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    3703.1,
+    1055.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    3893.3,
+    1039.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    4158.8,
+    1056.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    4352.3,
+    952.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a24.png",
+   "pos": [
+    4570.0,
+    950.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    7531.2,
+    1050.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7671.9,
+    1058.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    7924.0,
+    1000.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    -40.0,
+    1274.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    290.0,
+    1176.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    421.4,
+    1168.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -55.5,
+    -140
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    690.2,
+    1160.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    908.2,
+    1200.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    1116.5,
+    1177.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2666.7,
+    1179.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2906.6,
+    1250.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3195.8,
+    1297.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3368.8,
+    1171.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    3588.6,
+    1180.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -56.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b25.png",
+   "pos": [
+    3832.7,
+    1300.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -163
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    4068.7,
+    1279.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -76.5,
+    -140
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    4257.4,
+    1230.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a26.png",
+   "pos": [
+    4516.1,
+    1248.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.0,
+    -126
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    6001.2,
+    1240.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6268.4,
+    1257.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6528.0,
+    1185.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6703.6,
+    1283.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    7162.5,
+    1260.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a25.png",
+   "pos": [
+    7417.3,
+    1274.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -150
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7568.3,
+    1172.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7817.7,
+    1282.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -50.0,
+    -78
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    7993.7,
+    1287.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.0,
+    -69
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    109.7,
+    1433.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    344.5,
+    1482.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    585.2,
+    1428.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    731.2,
+    1413.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1024.2,
+    1482.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1235.0,
+    1509.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b25.png",
+   "pos": [
+    1475.6,
+    1522.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -163
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1616.3,
+    1525.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    3089.9,
+    1465.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3189.1,
+    1473.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    3462.8,
+    1466.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    3673.3,
+    1432.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -145
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3869.7,
+    1518.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    4098.5,
+    1463.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4339.9,
+    1444.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    5983.7,
+    1469.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -55.5,
+    -140
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    6189.4,
+    1461.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -52.0,
+    -70.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6453.2,
+    1460.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6572.1,
+    1442.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6829.0,
+    1413.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7046.7,
+    1435.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7265.9,
+    1485.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    7461.5,
+    1423.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7682.0,
+    1436.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7972.8,
+    1405.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c51.png",
+   "pos": [
+    -15.0,
+    1723.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -28.9
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    272.7,
+    1610.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -56.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b28.png",
+   "pos": [
+    424.8,
+    1691.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -64.0,
+    -134
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    627.8,
+    1684.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    870.3,
+    1629.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1099.7,
+    1628.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1301.8,
+    1643.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    1561.3,
+    1746.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    3173.1,
+    1646.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3375.5,
+    1639.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    3536.7,
+    1638.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -89
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3736.3,
+    1689.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3977.1,
+    1669.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    4928.9,
+    1728.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    5196.2,
+    1684.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    6088.0,
+    1640.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -82
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6277.7,
+    1643.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6519.6,
+    1674.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6727.0,
+    1699.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    6885.8,
+    1715.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    7175.5,
+    1730.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    7377.7,
+    1658.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7649.1,
+    1680.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a31.png",
+   "pos": [
+    7797.2,
+    1656.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -79
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    8020.9,
+    1620.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    160.1,
+    1847.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    343.2,
+    1845.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    554.7,
+    1859.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    791.2,
+    1862.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a25.png",
+   "pos": [
+    979.5,
+    1951.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -150
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    1199.5,
+    1946.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    1428.4,
+    1832.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -55
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3194.9,
+    1868.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c37.png",
+   "pos": [
+    3409.1,
+    1943.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -55.0,
+    -143
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3667.1,
+    1862.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a46.png",
+   "pos": [
+    4808.8,
+    1924.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.0,
+    -59
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    5091.4,
+    1972.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5257.5,
+    1857.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5933.0,
+    1956.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6102.0,
+    1868.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6316.8,
+    1968.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6558.1,
+    1851.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6792.5,
+    1845.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    7059.6,
+    1860.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7339.0,
+    1856.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7512.2,
+    1897.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7797.7,
+    1960.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7930.5,
+    1957.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1.5,
+    2187.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    206.0,
+    2189.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    506.1,
+    2173.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b28.png",
+   "pos": [
+    610.2,
+    2187.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -134
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    955.3,
+    2088.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b29.png",
+   "pos": [
+    1113.5,
+    2060.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -133
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    1367.4,
+    2130.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1562.0,
+    2164.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1828.1,
+    2077.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2452.7,
+    2136.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2694.1,
+    2161.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4468.3,
+    2122.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4708.4,
+    2180.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    4955.9,
+    2133.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    5191.4,
+    2117.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    5338.7,
+    2084.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6105.4,
+    2059.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6289.2,
+    2168.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6566.9,
+    2093.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    6759.2,
+    2198.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -56.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6924.8,
+    2143.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    7171.7,
+    2123.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    7327.3,
+    2189.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7605.7,
+    2159.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7905.5,
+    2191.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    126.1,
+    2316.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    354.6,
+    2297.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    544.1,
+    2351.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a36.png",
+   "pos": [
+    738.8,
+    2373.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -40.0,
+    -62.2
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    954.8,
+    2301.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1161.7,
+    2383.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b28.png",
+   "pos": [
+    1513.2,
+    2365.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -64.0,
+    -134
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2382.7,
+    2382.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2516.1,
+    2420.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2808.7,
+    2385.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    4556.6,
+    2371.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4783.3,
+    2348.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a46.png",
+   "pos": [
+    5015.3,
+    2417.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -59
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5325.3,
+    2353.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6231.0,
+    2297.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    6318.0,
+    2373.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6540.4,
+    2382.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    6897.1,
+    2281.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7070.9,
+    2415.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c53.png",
+   "pos": [
+    7248.0,
+    2422.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.5,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7450.7,
+    2408.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7696.0,
+    2352.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    7946.3,
+    2322.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -42
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    -35.5,
+    2621.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    252.6,
+    2581.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a31.png",
+   "pos": [
+    489.1,
+    2555.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -79
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    660.7,
+    2637.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a36.png",
+   "pos": [
+    882.6,
+    2578.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -62.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1181.6,
+    2524.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1323.9,
+    2610.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1505.0,
+    2598.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2310.2,
+    2544.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2456.1,
+    2622.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2753.3,
+    2513.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    2845.1,
+    2566.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4697.1,
+    2565.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4927.6,
+    2518.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    5162.7,
+    2594.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    5370.7,
+    2637.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -55
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    6337.2,
+    2635.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    6563.7,
+    2530.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6733.7,
+    2539.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7010.6,
+    2636.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7238.4,
+    2635.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -50.0,
+    -78
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7397.7,
+    2522.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7608.6,
+    2642.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    7795.3,
+    2552.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    8057.4,
+    2591.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a36.png",
+   "pos": [
+    -90.8,
+    2768.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -62.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    118.2,
+    2843.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -39.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    395.0,
+    2755.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    629.4,
+    2858.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b29.png",
+   "pos": [
+    734.3,
+    2816.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -133
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1041.9,
+    2863.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a26.png",
+   "pos": [
+    1235.5,
+    2814.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.0,
+    -126
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1449.5,
+    2760.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c49.png",
+   "pos": [
+    2123.4,
+    2784.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -55.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2394.6,
+    2778.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    2565.6,
+    2749.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2857.0,
+    2856.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3017.5,
+    2869.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    4646.3,
+    2835.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    4880.7,
+    2834.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.0,
+    -122
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c37.png",
+   "pos": [
+    5033.0,
+    2858.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -85.0,
+    -143
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    5258.7,
+    2833.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5871.6,
+    2842.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6089.5,
+    2741.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    6401.5,
+    2828.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -145
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6631.6,
+    2828.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6774.4,
+    2835.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7022.7,
+    2858.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7320.0,
+    2831.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7463.4,
+    2821.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    7681.7,
+    2793.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7950.5,
+    2857.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    -28.4,
+    3073.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    256.5,
+    3019.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a37.png",
+   "pos": [
+    428.2,
+    3024.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -69
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    643.2,
+    3022.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    871.0,
+    3024.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1088.4,
+    2958.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    1391.2,
+    2962.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1974.3,
+    3087.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    2302.8,
+    2987.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2420.5,
+    3035.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    2696.3,
+    3083.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    2878.1,
+    3018.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3131.6,
+    3068.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4734.7,
+    2973.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    4908.1,
+    2960.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    5089.8,
+    2977.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -89
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a25.png",
+   "pos": [
+    5312.3,
+    3049.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -150
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    5891.8,
+    3070.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    5982.1,
+    2979.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6259.9,
+    3080.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6496.8,
+    3052.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    6759.7,
+    3022.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -76.5,
+    -140
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6945.6,
+    3019.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7160.1,
+    3067.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    7374.8,
+    3017.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7636.1,
+    2955.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a30.png",
+   "pos": [
+    7788.6,
+    3002.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -86
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    8068.7,
+    2980.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    -40.7,
+    3269.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    54.9,
+    3277.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    285.5,
+    3221.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    564.3,
+    3305.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    826.0,
+    3245.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    937.0,
+    3283.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1281.9,
+    3271.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1932.7,
+    3243.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2093.7,
+    3220.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    2351.6,
+    3288.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2585.0,
+    3221.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2830.5,
+    3243.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3073.7,
+    3281.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3219.4,
+    3241.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3926.0,
+    3190.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4089.7,
+    3268.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    5027.2,
+    3200.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -145
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    5925.1,
+    3290.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6223.5,
+    3298.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6318.0,
+    3210.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6624.6,
+    3291.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6763.5,
+    3215.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7022.0,
+    3303.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7324.7,
+    3285.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    7552.4,
+    3284.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a40.png",
+   "pos": [
+    7670.7,
+    3232.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -74
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7886.9,
+    3253.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    -0.3,
+    3537.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    262.6,
+    3486.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    461.6,
+    3423.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -89
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    680.0,
+    3483.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    900.6,
+    3415.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2037.2,
+    3404.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    2216.3,
+    3535.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    2532.5,
+    3463.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2675.6,
+    3455.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    2846.8,
+    3449.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    3178.2,
+    3467.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -50.0,
+    -78
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    3861.9,
+    3527.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -55.5,
+    -140
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    4054.4,
+    3469.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    4211.6,
+    3543.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -43.5,
+    -82
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4410.7,
+    3486.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5983.4,
+    3405.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6249.7,
+    3539.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6506.1,
+    3481.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6695.9,
+    3440.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6906.4,
+    3471.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    7147.4,
+    3483.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -89
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7365.2,
+    3478.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a25.png",
+   "pos": [
+    7644.1,
+    3533.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -150
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7827.2,
+    3504.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    8061.3,
+    3421.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    -59.8,
+    3727.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    149.8,
+    3672.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    1951.9,
+    3751.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    2168.2,
+    3645.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2383.7,
+    3762.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2543.4,
+    3734.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    2856.1,
+    3708.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3070.2,
+    3758.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    3954.7,
+    3749.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4144.5,
+    3702.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    4357.9,
+    3705.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.0,
+    -69
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    4630.7,
+    3716.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    6183.0,
+    3700.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.0,
+    -32.4
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a24.png",
+   "pos": [
+    6312.2,
+    3625.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6658.4,
+    3685.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    6823.5,
+    3638.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6991.8,
+    3753.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    7218.1,
+    3747.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7526.6,
+    3745.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7767.1,
+    3637.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    7917.9,
+    3755.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -42
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    51.9,
+    3984.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    160.4,
+    3925.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    2240.4,
+    3879.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    2488.9,
+    3910.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    2733.5,
+    3972.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    3750.4,
+    3916.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.0,
+    -70.3
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4022.8,
+    3935.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    4197.6,
+    3925.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c50.png",
+   "pos": [
+    4469.0,
+    3909.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.0,
+    -36.8
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4693.9,
+    3910.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6034.5,
+    3954.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b25.png",
+   "pos": [
+    6203.4,
+    3956.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -163
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    6532.4,
+    3907.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    6742.5,
+    3865.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7010.7,
+    3859.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    7236.6,
+    3895.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b29.png",
+   "pos": [
+    7418.5,
+    3979.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.0,
+    -133
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7678.1,
+    3928.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    7899.7,
+    3915.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    8067.2,
+    3904.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a30.png",
+   "pos": [
+    -88.7,
+    4095.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.5,
+    -86
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    49.0,
+    4100.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2090.6,
+    4076.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2398.7,
+    4103.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    2561.8,
+    4103.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -82
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    3961.7,
+    4098.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a31.png",
+   "pos": [
+    4190.8,
+    4158.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -34.0,
+    -79
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    4343.4,
+    4149.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -85
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    4596.0,
+    4091.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    4763.2,
+    4167.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5050.0,
+    4153.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5496.7,
+    4212.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    7323.2,
+    4154.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    7447.5,
+    4094.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7742.8,
+    4112.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7989.2,
+    4137.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    9.2,
+    4344.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    245.8,
+    4402.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2433.4,
+    4334.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4100.7,
+    4383.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4306.3,
+    4364.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a36.png",
+   "pos": [
+    4524.6,
+    4363.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -40.0,
+    -62.2
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4735.5,
+    4308.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4856.8,
+    4415.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5186.0,
+    4433.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    5378.9,
+    4338.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    7681.9,
+    4329.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    7792.1,
+    4400.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -145
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    8018.4,
+    4410.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    -88.2,
+    4607.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    183.1,
+    4565.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    331.4,
+    4525.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    575.8,
+    4570.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1275.9,
+    4586.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2583.5,
+    4554.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a30.png",
+   "pos": [
+    2825.9,
+    4612.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -86
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3943.8,
+    4538.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    4098.1,
+    4589.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4388.5,
+    4574.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b28.png",
+   "pos": [
+    4596.4,
+    4653.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -64.0,
+    -134
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4822.5,
+    4654.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    5092.3,
+    4538.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -55
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    5259.5,
+    4658.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7995.7,
+    4611.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    -54.7,
+    4855.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    174.7,
+    4836.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    440.8,
+    4806.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    651.7,
+    4855.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    854.2,
+    4776.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1148.0,
+    4879.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c53.png",
+   "pos": [
+    1405.0,
+    4845.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.5,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c49.png",
+   "pos": [
+    2432.6,
+    4777.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.0,
+    -55.3
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2672.8,
+    4795.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    3309.2,
+    4804.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a26.png",
+   "pos": [
+    3514.9,
+    4746.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.0,
+    -126
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3811.0,
+    4878.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4002.7,
+    4793.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4215.4,
+    4759.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4457.5,
+    4884.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    4748.2,
+    4791.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -89
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4886.9,
+    4831.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5213.6,
+    4769.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    7862.7,
+    4781.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7996.5,
+    4769.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    -102.3,
+    5011.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    117.0,
+    5088.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    310.3,
+    5094.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    623.8,
+    4989.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    789.0,
+    5093.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1065.8,
+    5039.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1165.5,
+    5038.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1393.3,
+    5012.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1928.1,
+    5036.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2086.0,
+    5057.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    2284.1,
+    5046.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -55
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    2511.9,
+    5092.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3217.6,
+    5099.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3458.4,
+    5074.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    3727.3,
+    4987.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3947.4,
+    5015.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    4097.4,
+    5082.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    4374.8,
+    4988.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4578.2,
+    4984.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    4787.1,
+    4981.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a40.png",
+   "pos": [
+    5063.2,
+    5067.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -74
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    5223.3,
+    5029.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -89
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    7993.6,
+    5102.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    -18.1,
+    5239.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.0,
+    -69
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    193.3,
+    5332.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    400.7,
+    5254.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    709.0,
+    5221.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a40.png",
+   "pos": [
+    882.0,
+    5322.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -74
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    1152.8,
+    5265.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    1302.2,
+    5280.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    1594.0,
+    5235.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1827.6,
+    5279.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b29.png",
+   "pos": [
+    2067.3,
+    5227.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -133
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2184.4,
+    5315.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    3120.6,
+    5215.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    3359.4,
+    5224.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    3630.1,
+    5269.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    3800.6,
+    5251.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    4045.2,
+    5279.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4323.9,
+    5208.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4451.4,
+    5317.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4677.6,
+    5331.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    4925.0,
+    5198.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    5220.9,
+    5277.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.0,
+    -122
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    8078.6,
+    5250.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    55.3,
+    5460.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    390.5,
+    5544.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    509.4,
+    5448.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a36.png",
+   "pos": [
+    824.5,
+    5548.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -62.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1044.3,
+    5419.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a46.png",
+   "pos": [
+    1199.8,
+    5469.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.0,
+    -59
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1511.1,
+    5434.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1742.8,
+    5475.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    1972.3,
+    5417.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    2134.2,
+    5423.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3087.5,
+    5498.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c49.png",
+   "pos": [
+    3261.5,
+    5437.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -55.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3403.9,
+    5478.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3735.3,
+    5475.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    3935.3,
+    5468.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -56.2
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    4074.5,
+    5506.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.0,
+    -122
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c51.png",
+   "pos": [
+    4304.2,
+    5423.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -28.9
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4590.3,
+    5519.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4755.8,
+    5482.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5023.5,
+    5416.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5253.6,
+    5559.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7894.3,
+    5416.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    2.8,
+    5745.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    209.7,
+    5707.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    442.4,
+    5653.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    684.1,
+    5760.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    895.1,
+    5740.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    1114.2,
+    5662.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.0,
+    -70.3
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a30.png",
+   "pos": [
+    1328.5,
+    5674.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -86
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a27.png",
+   "pos": [
+    1625.7,
+    5782.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -76.5,
+    -140
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    1734.9,
+    5700.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    2004.8,
+    5645.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2170.3,
+    5690.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a26.png",
+   "pos": [
+    3150.6,
+    5652.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.0,
+    -126
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    3344.2,
+    5684.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3644.9,
+    5670.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    3737.2,
+    5735.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    4018.8,
+    5772.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4300.5,
+    5651.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    4535.4,
+    5766.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -89
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    4664.5,
+    5707.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    4858.6,
+    5659.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -42
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    5135.3,
+    5686.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    5371.2,
+    5652.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    7796.1,
+    5736.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a25.png",
+   "pos": [
+    -48.6,
+    5988.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -150
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    176.6,
+    5949.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    348.1,
+    5880.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c59.png",
+   "pos": [
+    629.0,
+    5941.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -80
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    745.4,
+    5919.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    1055.8,
+    5951.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1218.2,
+    5872.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    1444.8,
+    6004.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    1617.1,
+    5967.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    1949.8,
+    5869.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -56.2
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2105.2,
+    5937.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2417.5,
+    5931.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2542.7,
+    5918.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    2767.4,
+    5988.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    2960.2,
+    5893.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    3239.2,
+    5871.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3424.3,
+    5873.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    3751.6,
+    5998.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -43.5,
+    -82
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a24.png",
+   "pos": [
+    3913.9,
+    5907.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4080.1,
+    5990.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c53.png",
+   "pos": [
+    4326.3,
+    5903.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.5,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    4533.3,
+    5938.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4803.4,
+    5873.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5103.2,
+    5948.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5277.4,
+    5999.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    5542.7,
+    5979.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7532.5,
+    5882.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7697.1,
+    5937.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -50.0,
+    -78
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    7899.5,
+    5995.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.5,
+    -56
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    -16.7,
+    6090.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    278.5,
+    6146.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a31.png",
+   "pos": [
+    377.0,
+    6184.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -34.0,
+    -79
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    731.9,
+    6141.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    907.7,
+    6106.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    1109.2,
+    6229.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    1275.3,
+    6127.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b28.png",
+   "pos": [
+    1615.9,
+    6129.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -64.0,
+    -134
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    1741.0,
+    6156.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    1979.5,
+    6219.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    2231.3,
+    6220.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2425.4,
+    6135.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2622.6,
+    6105.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2961.5,
+    6121.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    3110.9,
+    6094.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -100
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    3332.9,
+    6116.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    3591.2,
+    6153.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3861.0,
+    6172.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4016.5,
+    6149.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    4260.1,
+    6183.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -145
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    4462.9,
+    6108.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4715.3,
+    6150.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4982.1,
+    6220.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5122.1,
+    6124.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b27.png",
+   "pos": [
+    5348.7,
+    6183.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -145
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    5660.2,
+    6153.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    5879.8,
+    6196.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    6087.3,
+    6114.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -39.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    6302.1,
+    6159.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6463.4,
+    6193.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6952.8,
+    6146.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    7144.8,
+    6229.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    7460.1,
+    6217.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    7644.2,
+    6231.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    7882.8,
+    6114.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    8057.5,
+    6211.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    -111.7,
+    6398.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    121.4,
+    6448.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    333.0,
+    6336.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    590.7,
+    6329.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    788.6,
+    6403.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    981.3,
+    6395.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    1238.4,
+    6446.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -89
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    1472.2,
+    6455.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a40.png",
+   "pos": [
+    1617.0,
+    6393.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -74
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    1871.5,
+    6377.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -144
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    2176.2,
+    6400.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2342.1,
+    6316.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2635.7,
+    6403.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    2755.0,
+    6379.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    2984.0,
+    6332.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    3195.7,
+    6377.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a40.png",
+   "pos": [
+    3469.1,
+    6351.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -74
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    3734.0,
+    6434.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -92.0,
+    -181
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b29.png",
+   "pos": [
+    3861.3,
+    6428.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.0,
+    -133
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    4162.5,
+    6420.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c50.png",
+   "pos": [
+    4297.6,
+    6372.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -17.0,
+    -36.8
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    4561.9,
+    6387.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    4850.5,
+    6361.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    5069.3,
+    6346.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    5286.9,
+    6413.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    5451.8,
+    6453.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    5642.3,
+    6441.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -52.0,
+    -70.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5995.9,
+    6370.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    6121.5,
+    6331.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    6442.3,
+    6398.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    6549.4,
+    6312.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    6783.4,
+    6413.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    7019.5,
+    6365.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7331.5,
+    6425.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    7439.5,
+    6377.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -55
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7743.7,
+    6318.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    7951.5,
+    6343.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -82.0,
+    -172
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    -26.4,
+    6550.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -55
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    636.9,
+    6549.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    3764.5,
+    6539.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    6990.5,
+    6553.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    7635.1,
+    6548.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a34.png",
+   "pos": [
+    1232.2,
+    1152.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c66.png",
+   "pos": [
+    6780.3,
+    632.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -15.0,
+    -39
+   ],
+   "flip_h": false,
+   "collision": [
+    -24.6,
+    -43.0,
+    49.2,
+    48.2
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a30.png",
+   "pos": [
+    3671.9,
+    4366.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.5,
+    -86
+   ],
+   "flip_h": true,
+   "collision": [
+    -19.0,
+    -20.0,
+    38.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    5920.6,
+    2552.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false,
+   "collision": [
+    -10.0,
+    -20.0,
+    20.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    1754.8,
+    1717.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "flip_h": false,
+   "collision": [
+    -6.0,
+    -20.0,
+    12.0,
+    20.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c51.png",
+   "pos": [
+    5593.6,
+    1272.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -28.9
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    2245.3,
+    4559.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false,
+   "collision": [
+    -17.0,
+    -20.0,
+    34.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    3620.0,
+    3782.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.0,
+    -32.4
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b41.png",
+   "pos": [
+    4293.9,
+    2255.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -45
+   ],
+   "flip_h": false,
+   "collision": [
+    -44.3,
+    -49.0,
+    88.6,
+    54.9
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    4247.2,
+    2566.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c56.png",
+   "pos": [
+    1907.3,
+    2109.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.5,
+    -30
+   ],
+   "flip_h": true,
+   "collision": [
+    -27.1,
+    -32.0,
+    54.1,
+    35.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    2255.6,
+    1295.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -56.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    5467.2,
+    1885.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": true,
+   "collision": [
+    -20.0,
+    -20.0,
+    40.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    6882.8,
+    1191.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false,
+   "collision": [
+    -31.0,
+    -26.0,
+    62.0,
+    32.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b40.png",
+   "pos": [
+    3116.9,
+    4938.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.5,
+    -44
+   ],
+   "flip_h": true,
+   "collision": [
+    -45.1,
+    -48.0,
+    90.2,
+    53.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    6086.0,
+    2270.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    2301.4,
+    501.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2669.1,
+    2003.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true,
+   "collision": [
+    -23.0,
+    -24.0,
+    46.0,
+    30.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b41.png",
+   "pos": [
+    2726.7,
+    5771.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -45
+   ],
+   "flip_h": true,
+   "collision": [
+    -44.3,
+    -49.0,
+    88.6,
+    54.9
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b39.png",
+   "pos": [
+    1821.8,
+    887.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -52
+   ],
+   "flip_h": false,
+   "collision": [
+    -45.9,
+    -57.0,
+    91.8,
+    63.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    3260.5,
+    2634.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": true,
+   "collision": [
+    -20.0,
+    -20.0,
+    40.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    2652.5,
+    1582.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false,
+   "collision": [
+    -20.0,
+    -20.0,
+    40.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b24.png",
+   "pos": [
+    4846.0,
+    1121.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -79.0,
+    -181
+   ],
+   "flip_h": false,
+   "collision": [
+    -44.0,
+    -32.0,
+    88.0,
+    40.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    2369.9,
+    5460.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false,
+   "collision": [
+    -31.0,
+    -26.0,
+    62.0,
+    32.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    5773.9,
+    2897.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.0,
+    -70.3
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    5317.6,
+    856.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true,
+   "collision": [
+    -12.0,
+    -22.0,
+    24.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a42.png",
+   "pos": [
+    5314.3,
+    4026.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -37
+   ],
+   "flip_h": false,
+   "collision": [
+    -31.2,
+    -40.0,
+    62.3,
+    44.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c64.png",
+   "pos": [
+    7235.2,
+    1085.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -16.5,
+    -34
+   ],
+   "flip_h": false,
+   "collision": [
+    -27.1,
+    -37.0,
+    54.1,
+    41.4
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a43.png",
+   "pos": [
+    2623.2,
+    5184.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -48
+   ],
+   "flip_h": true,
+   "collision": [
+    -36.1,
+    -52.0,
+    72.2,
+    58.2
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    1243.2,
+    3646.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false,
+   "collision": [
+    -17.0,
+    -20.0,
+    34.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    1488.5,
+    4533.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true,
+   "collision": [
+    -11.0,
+    -20.0,
+    22.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    3999.9,
+    2902.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b30.png",
+   "pos": [
+    2972.5,
+    4101.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.0,
+    -85
+   ],
+   "flip_h": false,
+   "collision": [
+    -12.0,
+    -20.0,
+    24.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    5893.6,
+    858.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true,
+   "collision": [
+    -11.0,
+    -20.0,
+    22.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a23.png",
+   "pos": [
+    3320.0,
+    3632.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -146
+   ],
+   "flip_h": false,
+   "collision": [
+    -31.0,
+    -26.0,
+    62.0,
+    32.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a44.png",
+   "pos": [
+    3433.8,
+    3196.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.5,
+    -59
+   ],
+   "flip_h": true,
+   "collision": [
+    -51.7,
+    -65.0,
+    103.3,
+    72.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    2800.6,
+    4798.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true,
+   "collision": [
+    -24.0,
+    -22.0,
+    48.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c56.png",
+   "pos": [
+    4699.9,
+    1726.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.5,
+    -30
+   ],
+   "flip_h": true,
+   "collision": [
+    -27.1,
+    -32.0,
+    54.1,
+    35.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c35.png",
+   "pos": [
+    2850.9,
+    4309.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -172
+   ],
+   "flip_h": true,
+   "collision": [
+    -30.0,
+    -32.0,
+    60.0,
+    40.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    4192.5,
+    1766.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false,
+   "collision": [
+    -12.0,
+    -22.0,
+    24.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b43.png",
+   "pos": [
+    3408.9,
+    2070.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -38
+   ],
+   "flip_h": true,
+   "collision": [
+    -37.7,
+    -42.0,
+    75.4,
+    47.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    2014.0,
+    416.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -65.5,
+    -149
+   ],
+   "flip_h": false,
+   "collision": [
+    -27.0,
+    -26.0,
+    54.0,
+    32.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    5845.0,
+    2068.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -52.0,
+    -70.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    4582.7,
+    1392.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false,
+   "collision": [
+    -12.0,
+    -22.0,
+    24.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    5475.9,
+    2769.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false,
+   "collision": [
+    -12.0,
+    -22.0,
+    24.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a36.png",
+   "pos": [
+    7252.4,
+    861.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -40.0,
+    -62.2
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    4889.8,
+    3209.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -39.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b33.png",
+   "pos": [
+    5667.9,
+    3399.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -89
+   ],
+   "flip_h": true,
+   "collision": [
+    -11.0,
+    -20.0,
+    22.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    6238.9,
+    806.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -52.0,
+    -70.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a34.png",
+   "pos": [
+    4983.9,
+    3827.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b38.png",
+   "pos": [
+    1790.3,
+    3868.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -34.0,
+    -60
+   ],
+   "flip_h": true,
+   "collision": [
+    -54.1,
+    -66.0,
+    108.2,
+    73.9
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    2433.1,
+    5716.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -60.5,
+    -148
+   ],
+   "flip_h": false,
+   "collision": [
+    -23.0,
+    -24.0,
+    46.0,
+    30.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c63.png",
+   "pos": [
+    3204.5,
+    3853.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -14.0,
+    -27
+   ],
+   "flip_h": false,
+   "collision": [
+    -23.0,
+    -29.0,
+    45.9,
+    32.5
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    5267.1,
+    1475.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -21.0,
+    -32.4
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a29.png",
+   "pos": [
+    1600.7,
+    4311.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -45.0,
+    -87
+   ],
+   "flip_h": false,
+   "collision": [
+    -20.0,
+    -20.0,
+    40.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c50.png",
+   "pos": [
+    2010.3,
+    4938.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -17.0,
+    -36.8
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    3632.5,
+    4074.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.5,
+    -84
+   ],
+   "flip_h": true,
+   "collision": [
+    -17.0,
+    -20.0,
+    34.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    1902.6,
+    2906.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true,
+   "collision": [
+    -24.0,
+    -22.0,
+    48.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a34.png",
+   "pos": [
+    3891.5,
+    2037.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a45.png",
+   "pos": [
+    1591.1,
+    4873.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -61
+   ],
+   "flip_h": false,
+   "collision": [
+    -45.9,
+    -67.0,
+    91.8,
+    75.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a31.png",
+   "pos": [
+    1701.6,
+    3511.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -79
+   ],
+   "flip_h": false,
+   "collision": [
+    -18.0,
+    -20.0,
+    36.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b38.png",
+   "pos": [
+    1701.8,
+    2498.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -33.0,
+    -60
+   ],
+   "flip_h": false,
+   "collision": [
+    -54.1,
+    -66.0,
+    108.2,
+    73.9
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a34.png",
+   "pos": [
+    3503.7,
+    2967.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    5239.1,
+    3293.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    1523.4,
+    1326.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b41.png",
+   "pos": [
+    2906.1,
+    5339.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -45
+   ],
+   "flip_h": true,
+   "collision": [
+    -44.3,
+    -49.0,
+    88.6,
+    54.9
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c63.png",
+   "pos": [
+    1528.8,
+    2921.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -14.0,
+    -27
+   ],
+   "flip_h": false,
+   "collision": [
+    -23.0,
+    -29.0,
+    45.9,
+    32.5
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c56.png",
+   "pos": [
+    3487.5,
+    4551.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.5,
+    -30
+   ],
+   "flip_h": true,
+   "collision": [
+    -27.1,
+    -32.0,
+    54.1,
+    35.8
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    6384.6,
+    1143.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -137
+   ],
+   "flip_h": false,
+   "collision": [
+    -12.0,
+    -22.0,
+    24.0,
+    26.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a32.png",
+   "pos": [
+    5781.7,
+    3611.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.5,
+    -58.8
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    5758.4,
+    1650.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.0,
+    -32.4
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b42.png",
+   "pos": [
+    1484.1,
+    872.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -21.0,
+    -31
+   ],
+   "flip_h": false,
+   "collision": [
+    -34.4,
+    -34.0,
+    68.9,
+    38.1
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_b31.png",
+   "pos": [
+    2509.0,
+    1383.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.0,
+    -70.3
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    3791.4,
+    3266.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -21.0,
+    -32.4
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    3650.5,
+    1994.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true,
+   "collision": [
+    -11.0,
+    -20.0,
+    22.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c66.png",
+   "pos": [
+    5423.8,
+    2258.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -15.0,
+    -39
+   ],
+   "flip_h": false,
+   "collision": [
+    -24.6,
+    -43.0,
+    49.2,
+    48.2
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a35.png",
+   "pos": [
+    2080.3,
+    2494.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.5,
+    -56.2
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c49.png",
+   "pos": [
+    1943.3,
+    4334.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -55.3
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    4834.6,
+    3548.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    5552.0,
+    2535.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.5,
+    -84
+   ],
+   "flip_h": true,
+   "collision": [
+    -11.0,
+    -20.0,
+    22.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c44.png",
+   "pos": [
+    1361.6,
+    3324.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.5,
+    -56
+   ],
+   "flip_h": true,
+   "collision": [
+    -7.0,
+    -20.0,
+    14.0,
+    22.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    6146.6,
+    1147.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    7121.4,
+    674.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -59.7
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    2217.5,
+    4800.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_c38.png",
+   "pos": [
+    4528.9,
+    2956.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -77.0,
+    -144
+   ],
+   "flip_h": false,
+   "collision": [
+    -36.0,
+    -28.0,
+    72.0,
+    34.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c51.png",
+   "pos": [
+    3136.0,
+    1917.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -28.9
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    4961.5,
+    1508.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    4469.3,
+    1973.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -42
+   ],
+   "flip_h": true,
+   "collision": [
+    -6.0,
+    -20.0,
+    12.0,
+    20.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b44.png",
+   "pos": [
+    1769.5,
+    3150.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -27.0,
+    -42
+   ],
+   "flip_h": true,
+   "collision": [
+    -42.6,
+    -46.0,
+    85.3,
+    51.5
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c65.png",
+   "pos": [
+    5753.6,
+    3872.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -25.5,
+    -53
+   ],
+   "flip_h": false,
+   "collision": [
+    -41.8,
+    -58.0,
+    83.6,
+    65.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c64.png",
+   "pos": [
+    1806.2,
+    638.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -16.5,
+    -34
+   ],
+   "flip_h": false,
+   "collision": [
+    -27.1,
+    -37.0,
+    54.1,
+    41.4
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_b26.png",
+   "pos": [
+    4646.0,
+    3428.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -67.5,
+    -148
+   ],
+   "flip_h": true,
+   "collision": [
+    -23.0,
+    -24.0,
+    46.0,
+    30.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    2222.3,
+    733.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -22.0,
+    -32.4
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c41.png",
+   "pos": [
+    3080.3,
+    2296.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -100
+   ],
+   "flip_h": false,
+   "collision": [
+    -10.0,
+    -20.0,
+    20.0,
+    24.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_big_a22.png",
+   "pos": [
+    5855.8,
+    1222.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -71.5,
+    -149
+   ],
+   "flip_h": true,
+   "collision": [
+    -27.0,
+    -26.0,
+    54.0,
+    32.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/waterfall_c76.png",
+   "pos": [
+    860,
+    3648
+   ],
+   "scale": 3.0,
+   "offset": [
+    -48.0,
+    -122.8
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    388,
+    3608
+   ],
+   "scale": 2.5,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c59.png",
+   "pos": [
+    1308,
+    3624
+   ],
+   "scale": 2.5,
+   "offset": [
+    -36.0,
+    -80
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    120,
+    3752
+   ],
+   "scale": 2.5,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    7610.3,
+    5060.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -43.5,
+    -82
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    7582.7,
+    5214.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -43.5,
+    -82
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b42.png",
+   "pos": [
+    7503.8,
+    5355.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -21.0,
+    -31
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c53.png",
+   "pos": [
+    7434.7,
+    5497.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.5,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    7327.8,
+    5625.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a44.png",
+   "pos": [
+    7192.3,
+    5737.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.5,
+    -59
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7011.2,
+    5792.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a37.png",
+   "pos": [
+    6837.1,
+    5847.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -69
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a44.png",
+   "pos": [
+    6655.4,
+    5892.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.5,
+    -59
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c59.png",
+   "pos": [
+    6464.1,
+    5896.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -80
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    6276.0,
+    5867.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -75.0,
+    -104
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a42.png",
+   "pos": [
+    6111.2,
+    5788.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -37
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    5949.5,
+    5713.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -48.0,
+    -69
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a46.png",
+   "pos": [
+    5805.5,
+    5616.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.0,
+    -59
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b43.png",
+   "pos": [
+    5690.1,
+    5495.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -24.0,
+    -38
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a38.png",
+   "pos": [
+    5610.6,
+    5357.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -43.5,
+    -82
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    5567.7,
+    5210.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.0,
+    -69
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c64.png",
+   "pos": [
+    5530.1,
+    5060.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -16.5,
+    -34
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a46.png",
+   "pos": [
+    5545.4,
+    4906.7
+   ],
+   "scale": 2.0,
+   "offset": [
+    -31.0,
+    -59
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a46.png",
+   "pos": [
+    5603.9,
+    4760.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.0,
+    -59
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_c53.png",
+   "pos": [
+    6463.9,
+    4221.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -46.5,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b44.png",
+   "pos": [
+    6655.8,
+    4223.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -42
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b37.png",
+   "pos": [
+    6846.2,
+    4246.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -51.5,
+    -63
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b35.png",
+   "pos": [
+    7013.5,
+    4323.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -74.0,
+    -104
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b41.png",
+   "pos": [
+    7166.3,
+    4410.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -45
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_b36.png",
+   "pos": [
+    7318.3,
+    4501.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -78
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b41.png",
+   "pos": [
+    7541.3,
+    4752.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -45
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a37.png",
+   "pos": [
+    7585.0,
+    4905.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -69
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    7761.1,
+    5162.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -58.0
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c56.png",
+   "pos": [
+    7714.4,
+    5363.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.5,
+    -30
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_b32.png",
+   "pos": [
+    7597.8,
+    5544.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c52.png",
+   "pos": [
+    7455.5,
+    5711.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -21.0,
+    -32.4
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a42.png",
+   "pos": [
+    7256.5,
+    5835.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -37
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    7048.6,
+    5947.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a33.png",
+   "pos": [
+    6807.7,
+    6002.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -37.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_c56.png",
+   "pos": [
+    6560.0,
+    6025.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.5,
+    -30
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    6312.3,
+    6002.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.0,
+    -122
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c42.png",
+   "pos": [
+    6064.3,
+    5960.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -39.0,
+    -59.7
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b41.png",
+   "pos": [
+    5849.0,
+    5851.2
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.0,
+    -45
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_a28.png",
+   "pos": [
+    5661.3,
+    5714.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -42.5,
+    -84
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c49.png",
+   "pos": [
+    5519.6,
+    5545.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -35.0,
+    -55.3
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b39.png",
+   "pos": [
+    5422.6,
+    5358.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -29.0,
+    -52
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c45.png",
+   "pos": [
+    5353.9,
+    5162.5
+   ],
+   "scale": 2.0,
+   "offset": [
+    -26.0,
+    -55
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_a32.png",
+   "pos": [
+    5384.4,
+    4960.1
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.5,
+    -58.8
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b43.png",
+   "pos": [
+    5434.5,
+    4764.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -23.0,
+    -38
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    5520.8,
+    4574.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -44.0,
+    -122
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a44.png",
+   "pos": [
+    6560.0,
+    4085.8
+   ],
+   "scale": 2.0,
+   "offset": [
+    -32.5,
+    -59
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c46.png",
+   "pos": [
+    6809.9,
+    4109.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c43.png",
+   "pos": [
+    7045.2,
+    4179.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -36.0,
+    -58.0
+   ],
+   "flip_h": false
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_a42.png",
+   "pos": [
+    7261.0,
+    4279.9
+   ],
+   "scale": 2.0,
+   "offset": [
+    -20.0,
+    -37
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c39.png",
+   "pos": [
+    7438.6,
+    4420.4
+   ],
+   "scale": 2.0,
+   "offset": [
+    -49.0,
+    -122
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/bush_c50.png",
+   "pos": [
+    7587.5,
+    4580.3
+   ],
+   "scale": 2.0,
+   "offset": [
+    -18.0,
+    -36.8
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_small_b40.png",
+   "pos": [
+    7711.0,
+    4757.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -28.5,
+    -44
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/tree_small_c40.png",
+   "pos": [
+    7741.9,
+    4959.6
+   ],
+   "scale": 2.0,
+   "offset": [
+    -38.0,
+    -137
+   ],
+   "flip_h": true
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    7278.4,
+    5239.7
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    6726.7,
+    5652.9
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    6008.3,
+    5473.2
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    5841.6,
+    4880.3
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    6393.3,
+    4467.1
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    7111.7,
+    4646.8
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a39.png",
+   "pos": [
+    6140.6,
+    4130.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -47.0,
+    -69
+   ],
+   "flip_h": false,
+   "collision": [
+    -77.1,
+    -63.0,
+    154.2,
+    72.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    6116.5,
+    4238.3
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/maps/floresta_v2/props/rock_big_a40.png",
+   "pos": [
+    5779.4,
+    4470.0
+   ],
+   "scale": 2.0,
+   "offset": [
+    -41.0,
+    -74
+   ],
+   "flip_h": false,
+   "collision": [
+    -65.6,
+    -68.9,
+    131.2,
+    78.7
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    5883.5,
+    4457.7
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    616,
+    848
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  },
+  {
+   "texture": "res://assets/sprites/decor_torch.png",
+   "pos": [
+    984,
+    848
+   ],
+   "scale": 2.5,
+   "offset": [
+    -24.5,
+    -68.0
+   ],
+   "flip_h": false,
+   "collision": [
+    -15.0,
+    -20.0,
+    30.0,
+    25.0
+   ]
+  }
+ ]
+}

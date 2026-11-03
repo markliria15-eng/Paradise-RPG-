@@ -1,0 +1,254 @@
+{
+  "map": {
+    "name": "Ruinas Arcanas",
+    "size": {
+      "w": 2200,
+      "h": 1400
+    },
+    "background": "arcane_ruins_background",
+    "notes": "Refino das colisões: deixar livre a rota da Maga Selene, os dois portais e a passagem principal entre as ruínas."
+  },
+  "important_rule": "Não bloquear ruas, corredores ou o caminho de acesso ao NPC e aos portais. As colisões devem contornar apenas ruínas, rochas e pilares sólidos.",
+  "walkable_corridors": [
+    {
+      "name": "Corredor_Principal_Caverna_Selene",
+      "x": 840,
+      "y": 980,
+      "w": 420,
+      "h": 290
+    },
+    {
+      "name": "Corredor_Selene_Boss",
+      "x": 1180,
+      "y": 250,
+      "w": 680,
+      "h": 300
+    },
+    {
+      "name": "Corredor_Boss_Portal_Valdoria",
+      "x": 1560,
+      "y": 120,
+      "w": 440,
+      "h": 260
+    }
+  ],
+  "npcs": [
+    {
+      "name": "Maga Selene",
+      "x": 1035,
+      "y": 1130,
+      "role": "quest"
+    }
+  ],
+  "portals": [
+    {
+      "name": "Portal_Caverna",
+      "target": "bat_cave",
+      "x": 1080,
+      "y": 1300
+    },
+    {
+      "name": "Portal_Valdoria",
+      "target": "city_valdoria",
+      "x": 1900,
+      "y": 240
+    }
+  ],
+  "safe_zones": [
+    {
+      "name": "Safe_Caverna",
+      "x": 1080,
+      "y": 1300,
+      "radius": 160
+    },
+    {
+      "name": "Safe_Valdoria",
+      "x": 1900,
+      "y": 240,
+      "radius": 160
+    }
+  ],
+  "collisions": [
+    {
+      "id": "R001",
+      "group": "Ruins",
+      "name": "NW_Ruins_Outer_01",
+      "type": "rect",
+      "x": 160,
+      "y": 160,
+      "w": 260,
+      "h": 92,
+      "notes": "Massa de ruinas superior esquerda."
+    },
+    {
+      "id": "R002",
+      "group": "Ruins",
+      "name": "NW_Ruins_Outer_02",
+      "type": "rect",
+      "x": 210,
+      "y": 308,
+      "w": 180,
+      "h": 136,
+      "notes": "Coluna/rocha lateral superior esquerda."
+    },
+    {
+      "id": "R003",
+      "group": "Ruins",
+      "name": "West_Ruins_Mid_01",
+      "type": "rect",
+      "x": 160,
+      "y": 520,
+      "w": 210,
+      "h": 122,
+      "notes": "Bloco lateral esquerdo do meio do mapa."
+    },
+    {
+      "id": "R004",
+      "group": "Ruins",
+      "name": "West_Ruins_Mid_02",
+      "type": "rect",
+      "x": 190,
+      "y": 760,
+      "w": 200,
+      "h": 138,
+      "notes": "Rochas laterais para guiar o corredor central."
+    },
+    {
+      "id": "R005",
+      "group": "Ruins",
+      "name": "West_Ruins_Lower_01",
+      "type": "rect",
+      "x": 220,
+      "y": 940,
+      "w": 180,
+      "h": 112,
+      "notes": "Bloco inferior esquerdo sem tocar a rota da maga."
+    },
+    {
+      "id": "R006",
+      "group": "Ruins",
+      "name": "Center_Left_Rubble_01",
+      "type": "rect",
+      "x": 470,
+      "y": 396,
+      "w": 168,
+      "h": 104,
+      "notes": "Borda esquerda das ruinas centrais."
+    },
+    {
+      "id": "R007",
+      "group": "Ruins",
+      "name": "Center_Left_Rubble_02",
+      "type": "rect",
+      "x": 500,
+      "y": 842,
+      "w": 176,
+      "h": 108,
+      "notes": "Borda esquerda inferior das ruinas centrais."
+    },
+    {
+      "id": "R008",
+      "group": "Ruins",
+      "name": "Center_Right_Rubble_01",
+      "type": "rect",
+      "x": 1410,
+      "y": 404,
+      "w": 176,
+      "h": 104,
+      "notes": "Borda direita das ruinas centrais."
+    },
+    {
+      "id": "R009",
+      "group": "Ruins",
+      "name": "Center_Right_Rubble_02",
+      "type": "rect",
+      "x": 1440,
+      "y": 844,
+      "w": 182,
+      "h": 110,
+      "notes": "Borda direita inferior das ruinas centrais."
+    },
+    {
+      "id": "R010",
+      "group": "Ruins",
+      "name": "East_Ruins_Mid_01",
+      "type": "rect",
+      "x": 1568,
+      "y": 560,
+      "w": 148,
+      "h": 100,
+      "notes": "Rochas de apoio no flanco direito do mapa."
+    },
+    {
+      "id": "R011",
+      "group": "Ruins",
+      "name": "East_Ruins_Lower_01",
+      "type": "rect",
+      "x": 1580,
+      "y": 926,
+      "w": 180,
+      "h": 124,
+      "notes": "Rochas laterais inferiores à direita."
+    },
+    {
+      "id": "R012",
+      "group": "Ruins",
+      "name": "Lower_Left_Ruins_01",
+      "type": "rect",
+      "x": 250,
+      "y": 1120,
+      "w": 240,
+      "h": 118,
+      "notes": "Pedras baixas do lado esquerdo, longe da Maga Selene."
+    },
+    {
+      "id": "R013",
+      "group": "Ruins",
+      "name": "Lower_Right_Ruins_01",
+      "type": "rect",
+      "x": 1600,
+      "y": 1110,
+      "w": 240,
+      "h": 128,
+      "notes": "Pedras baixas do lado direito, sem bloquear o portal inferior."
+    },
+    {
+      "id": "R014",
+      "group": "Ruins",
+      "name": "Round_Ruins_NW",
+      "type": "circle",
+      "cx": 300,
+      "cy": 250,
+      "r": 82,
+      "notes": "Rochado arredondado do canto superior esquerdo."
+    },
+    {
+      "id": "R015",
+      "group": "Ruins",
+      "name": "Round_Ruins_SW",
+      "type": "circle",
+      "cx": 305,
+      "cy": 1035,
+      "r": 90,
+      "notes": "Rochado arredondado do canto inferior esquerdo."
+    },
+    {
+      "id": "R016",
+      "group": "Ruins",
+      "name": "Round_Ruins_East_Mid",
+      "type": "circle",
+      "cx": 1515,
+      "cy": 472,
+      "r": 72,
+      "notes": "Bloco arredondado lateral direito do miolo das ruinas."
+    }
+  ],
+  "validation_checklist": [
+    "A Maga Selene continua acessivel",
+    "O portal da Caverna continua livre",
+    "O portal de Valdoria continua livre",
+    "O player consegue contornar as ruinas centrais",
+    "Nao existe colisao atravessando a rota principal",
+    "Nao existem paredes fantasmas ao redor do NPC"
+  ]
+}
