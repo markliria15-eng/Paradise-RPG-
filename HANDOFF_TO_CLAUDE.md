@@ -96,7 +96,7 @@ Use `git diff --numstat`, `git status --short` e revisao por pasta antes de deci
 | Godot 4.6.3 headless | Aprovado apos scan de classes globais: boot curto do launcher sem erros de script |
 | Godot 4.2.2 headless | Inconclusivo: editor iniciou, mas o scan foi abortado durante quit |
 | PostgreSQL/backend local | Nao executado nesta auditoria |
-| Render/login/WebSocket remoto | Nao reconfirmado nesta auditoria |
+| Render/login/WebSocket remoto | HTTP 503 confirmado novamente em 2026-10-26 |
 | APK Android/dispositivo | Nao executado nesta auditoria |
 
 Historico verificavel anterior: em 2026-09-12, cenas principais carregaram em Godot 4.2.2 e o fluxo offline abriu `scenes/main.tscn`; em 2026-10-05, a validacao registrada confirmou 14 casas, 211 colisoes, 81 chunks, 32 chunks de agua animada e vias/deck livres. Esses resultados sao historicos e devem ser repetidos antes de release.
@@ -113,6 +113,17 @@ Historico verificavel anterior: em 2026-09-12, cenas principais carregaram em Go
 8. **Boss em mapa vazio:** evento automatico cria boss em `arcane_ruins`, atualmente base vazia.
 9. **Quest inacessivel:** `tutorial_forest` nao tem gatilho/NPC ativo.
 10. **Sem testes:** features MMO avancadas existem no codigo, mas nao tem cobertura/end-to-end comprovado.
+
+## Atualizacao de desenvolvimento PC (2026-10-26)
+
+- Adicionados perfis `local`, `staging` e `production` em `client/config/`.
+- `MMOClient` escolhe perfil por `PARADISE_MMO_ENV`; desktop usa `staging` e Android usa `production` por padrao.
+- `PatchClient` reutiliza exatamente a configuracao selecionada pelo `MMOClient`.
+- `tools/run_pc_online.bat`, `tools/run_pc_local.bat` e `tools/run_pc_production.bat` iniciam o Godot 4.6.3 com viewport mobile.
+- Mouse passa a simular toque pelo `project.godot`.
+- Smoke tests `local` e `staging` passaram; detalhes em `docs/teste-pc-mobile.md`.
+- O backend Render continua indisponivel com HTTP 503; reativacao/redeploy e a proxima dependencia para testes online reais.
+- A fase atual usa somente teste offline: `TESTAR_JOGO_OFFLINE.bat` pula o launcher e abre o gameplay sem login, patch ou backend. Esse fluxo passou no Godot 4.6.3.
 
 ## Decisoes anteriores que nao devem ser revertidas por acidente
 
@@ -163,6 +174,29 @@ Historico verificavel anterior: em 2026-09-12, cenas principais carregaram em Go
 1. Escolher um unico mapa vazio.
 2. Implantar base, colisao, portal, NPCs, mobs e quests somente desse mapa.
 3. Validar fluxo completo antes de iniciar o mapa seguinte.
+
+## Verificacao contra o codigo (2026-10-26)
+
+Conferencia feita por leitura de arquivos, sem terminal: `git status`/`git diff`, Godot, PostgreSQL e Render nao foram executados nessa conferencia. As contagens de arquivos do Git acima seguem **nao reconfirmadas**.
+
+Confirmado no codigo:
+
+- `data/maps.json` tem 9 IDs; somente `city_eldoria` (0 NPCs, portal para a Floresta) e `forest_boars` (so o Guarda Doran) tem conteudo. `data/quests.json` tem so `furia_javalis` e `tutorial_forest`.
+- `tutorial_forest` inacessivel: `BEGINNER_QUESTS` e `[]` em `scripts/main.gd` e o NPC da quest ("Arion, o Mestre de Classes") nao existe em nenhum mapa.
+- Boss em mapa vazio: `server/src/managers/eventManager.js` cria o Rei Esqueleto em `arcane_ruins` a cada 20 minutos e anuncia o boss; o mapa e vazio e `safe: false`.
+- `server/src/managers/mapManager.js` define PvP como `!safe`, entao os mapas vazios viram PvP.
+- `ELDORIA_REBUILD_BASE_ONLY` continua `true` e a cena usa `EldoriaChunks9x9`; o 7x7 e so historico.
+- `server/src/index.js` faz `pool.query("SELECT 1")` antes do `listen`: `/health` depende do banco.
+- Contrato WebSocket: o cliente envia 21 tipos de mensagem, todos tratados por `wsGateway.js`; o gateway aceita 9 a mais (trade, guild, party e `boss_attack`) que o cliente nao envia.
+- `project.godot` mantem `config/features` 4.2 e a cena inicial e o launcher; `client/config/mmo_client_config.json` esta com `online_enabled: true`.
+
+Achados novos:
+
+- **Loja inacessivel:** a unica chamada de `_show_shop()` fica no tratamento de NPC do tipo curandeira (`healer`) e Eldoria nao tem NPCs; pelo codigo nao ha caminho para a loja no jogo atual. Falta confirmar jogando.
+- `scripts/main.gd` tem 7.132 linhas (os documentos citavam 7.075).
+- `AGENTS.md` nao existe na raiz e `.agents/` esta vazia.
+
+Proximas correcoes pequenas sugeridas, uma de cada vez e com autorizacao: (1) parar ou redirecionar o evento do boss; (2) decidir `tutorial_forest` e a loja (recolocar NPCs de Eldoria, a Curandeira primeiro); (3) desacoplar `/health` do banco.
 
 ## Publicacao dos documentos
 

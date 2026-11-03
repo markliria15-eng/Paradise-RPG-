@@ -192,6 +192,12 @@ npm run start
 2. Use a cena inicial configurada no projeto.
 3. Rode o jogo pelo editor ou exporte pelos presets.
 
+### Desenvolvimento rapido no PC
+
+Use `TESTAR_JOGO_OFFLINE.bat` para abrir diretamente o jogo offline no Windows com viewport e toque mobile simulados, sem login, servidor ou APK. Os atalhos online ficam reservados para uma etapa futura.
+
+Os perfis `local`, `staging` e `production` e o fluxo recomendado de emulador estao documentados em `docs/teste-pc-mobile.md`.
+
 ## Conta e save online
 
 O client agora envia autosave quando esta conectado no modo online. O servidor salva level, XP, HP, mana, ouro, mapa, posicao e skills no PostgreSQL, e o login carrega esses dados quando o jogador entra novamente.

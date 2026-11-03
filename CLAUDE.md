@@ -45,6 +45,7 @@ Regras permanentes para continuar o Paradise RPG com Claude Code.
 - Dados: JSONs em `data/`; alguns podem ser substituidos em runtime por patches em `user://patches/data/`.
 - Backend: Node/Express/WebSocket em `server/src/`; PostgreSQL em `database/schema.sql`.
 - Deploy: Render por `render.yaml`, Pages por `website/`, Android por `.github/workflows/release-android.yml`.
+- Ambientes do client: `local`, `staging` e `production`, selecionados por `PARADISE_MMO_ENV`; Windows usa `staging` por padrao e Android usa `production`.
 
 ## Estado de mapas que deve ser preservado
 
@@ -108,10 +109,15 @@ Get-ChildItem server/src -Recurse -Filter *.js | ForEach-Object {
 Godot local:
 
 ```powershell
-.\.tools\godot-4.2.2\Godot_v4.2.2-stable_win64_console.exe --path .
+./TESTAR_JOGO_OFFLINE.bat
+./tools/run_pc.ps1 -Environment local -MobilePreview -Offline
+.\tools\run_pc.ps1 -Environment staging -MobilePreview
+.\tools\run_pc.ps1 -Environment local -MobilePreview
 ```
 
-O projeto declara Godot 4.2, mas a CI Android usa 4.6.3. Teste compatibilidade antes de release.
+Durante a fase atual, prefira `TESTAR_JOGO_OFFLINE.bat`; ele entra direto no gameplay sem login, patch ou backend.
+
+Os atalhos usam Godot 4.6.3. O projeto ainda declara Godot 4.2; teste compatibilidade antes de release.
 
 Banco e backend, somente quando o ambiente estiver preparado:
 
