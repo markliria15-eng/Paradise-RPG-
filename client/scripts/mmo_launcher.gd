@@ -1,5 +1,7 @@
 extends Control
 
+const MAIN_SCENE := preload("res://scenes/main.tscn")
+
 @onready var status_label: Label = $Root/Panel/Margin/VBox/Status
 @onready var tabs: TabContainer = $Root/Panel/Margin/VBox/Tabs
 @onready var login_input: LineEdit = $Root/Panel/Margin/VBox/Tabs/Entrar/Login
@@ -37,7 +39,15 @@ func _ready() -> void:
 			mmo.connect("world_connected", Callable(self, "_on_world_connected"))
 		if not mmo.is_connected("world_message", Callable(self, "_on_world_message")):
 			mmo.connect("world_message", Callable(self, "_on_world_message"))
-	_set_status("Entre na sua conta ou registre uma nova.", false)
+	var environment := ""
+	if mmo != null and mmo.has_method("get_environment_label"):
+		environment = str(mmo.call("get_environment_label"))
+	var intro := "Entre na sua conta ou registre uma nova."
+	if not environment.is_empty():
+		intro = "%s: %s" % [environment, intro]
+	_set_status(intro, false)
+	if OS.get_cmdline_user_args().has("--offline-test"):
+		call_deferred("_on_open_game_pressed")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch and event.pressed:
@@ -87,6 +97,9 @@ func _on_open_game_pressed() -> void:
 	_set_login_busy(false)
 	_set_status("Abrindo jogo offline...", false)
 	print("Launcher: open game pressed")
+	var mmo := _mmo()
+	if mmo != null and mmo.has_method("prepare_offline_start"):
+		mmo.call("prepare_offline_start", "Guerreiro")
 	call_deferred("_go_to_main_scene", true)
 
 func _on_login_ok(payload: Dictionary) -> void:
@@ -130,8 +143,9 @@ func _go_to_main_scene(start_offline := false) -> void:
 	if start_offline:
 		tree.set_meta("launcher_auto_start_offline", true)
 		tree.set_meta("launcher_auto_class", "Guerreiro")
-	print("Launcher: switching to main scene")
-	tree.change_scene_to_file("res://scenes/main.tscn")
+	var error := tree.change_scene_to_packed(MAIN_SCENE)
+	if error != OK:
+		_set_status("Erro: nao foi possivel abrir o jogo offline.", true)
 
 func _handle_launcher_tap(pos: Vector2) -> bool:
 	var open_rect := Rect2(open_game_button.global_position, open_game_button.size)

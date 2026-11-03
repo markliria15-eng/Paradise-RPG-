@@ -34,13 +34,24 @@ func check_for_patches() -> void:
 	_request(patch_manifest_url, Callable(self, "_on_manifest_loaded"))
 
 func _load_config() -> void:
+	var mmo := get_node_or_null("/root/MMOClient")
+	if mmo != null and mmo.has_method("get_active_config"):
+		var shared_config = mmo.call("get_active_config")
+		if typeof(shared_config) == TYPE_DICTIONARY and not shared_config.is_empty():
+			_apply_config(shared_config)
+			return
 	var file := FileAccess.open("res://client/config/mmo_client_config.json", FileAccess.READ)
 	if file == null:
 		return
 	var parsed = JSON.parse_string(file.get_as_text())
 	if typeof(parsed) != TYPE_DICTIONARY:
 		return
+	_apply_config(parsed)
+
+func _apply_config(parsed: Dictionary) -> void:
 	http_base_url = str(parsed.get("http_base_url", http_base_url))
+	if http_base_url.ends_with("/"):
+		http_base_url = http_base_url.substr(0, http_base_url.length() - 1)
 	patch_manifest_url = str(parsed.get("patch_manifest_url", http_base_url + "/patch/manifest"))
 	patch_enabled = bool(parsed.get("patch_enabled", true))
 
