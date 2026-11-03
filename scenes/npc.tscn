@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_npc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_npc"]
-size = Vector2(42, 42)
+size = Vector2(54, 62)
 
 [node name="Npc" type="Area2D"]
 z_index = 16
@@ -15,8 +15,9 @@ script = ExtResource("1_npc")
 shape = SubResource("RectangleShape2D_npc")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -70.0
-offset_top = -44.0
-offset_right = 100.0
-offset_bottom = -18.0
+offset_left = -110.0
+offset_top = -92.0
+offset_right = 110.0
+offset_bottom = -70.0
 text = "NPC"
+theme_override_font_sizes/font_size = 13
