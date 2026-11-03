@@ -1,0 +1,49 @@
+{
+  "foco": "jogabilidade dos mapas ativos (Eldoria e Floresta): combate mais gostoso, feedback visual e sonoro, progressão e recompensas, quests claras, NPCs vivos",
+  "ideias_por_rodada": 3,
+  "mostrar_raciocinio": false,
+  "claude_cmd": "claude",
+  "claude_model": "",
+  "max_tentativas_correcao": 2,
+  "commit_ao_aceitar": "perguntar",
+  "openai_api_key_env": "OPENAI_API_KEY",
+  "openai_image_model": "gpt-image-2",
+  "openai_image_model_fallback": "gpt-image-1",
+  "openai_image_quality": "high",
+  "estilo_arte": "Pixel art 2D top-down de RPG medieval de fantasia, no mesmo estilo e paleta dos assets atuais do Paradise RPG. Contornos limpos, sombreamento simples, sem texto, sem marca d'água, sem moldura.",
+  "reduzir_cores": 0,
+  "godot_exe": ".tools/godot-4.6.3/Godot_v4.6.3-stable_win64_console.exe",
+  "godot_args_janela": [
+    "--resolution",
+    "1280x720",
+    "--position",
+    "80,50"
+  ],
+  "godot_args_jogo": [
+    "--",
+    "--offline-test"
+  ],
+  "godot_env": {
+    "PARADISE_MMO_ENV": "local"
+  },
+  "godot_quit_after": 600,
+  "godot_timeout_s": 240,
+  "videos_ativos": true,
+  "gravacao": "manual",
+  "segundos_gravacao": 20,
+  "ffmpeg": "ffmpeg",
+  "ffprobe": "ffprobe",
+  "tts_provider": "piper",
+  "tts_fallback_openai": true,
+  "piper_voice": "pt_BR-faber-medium",
+  "piper_model_dir": ".paradise_bot/voices",
+  "piper_length_scale": 0.92,
+  "piper_sentence_pause": 0.24,
+  "piper_clause_pause": 0.14,
+  "piper_initial_silence": 0.25,
+  "piper_final_silence": 0.55,
+  "piper_words_per_caption": 3,
+  "openai_tts_model": "gpt-4o-mini-tts",
+  "openai_tts_voice": "onyx",
+  "openai_tts_instrucoes": "Fale em português do Brasil, tom animado de criador de conteúdo de games, ritmo rápido e natural."
+}
