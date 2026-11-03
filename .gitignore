@@ -37,3 +37,10 @@ assets/site_maps/**/*.import
 *.exe
 *.zip
 !website/**/*.zip
+
+# Local credentials and generated bot state
+.paradise_bot/
+tools/paradise_bot/config.json
+__pycache__/
+*.pyc
+ci/android/paradise-release.keystore
