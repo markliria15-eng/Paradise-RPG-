@@ -167,7 +167,7 @@
     "stats": {
       "ataque": 5
     },
-    "icon": "res://assets/sprites/icon_attack_sword.png"
+    "icon": "res://assets/weapons/leather/leather_sword.png"
   },
   "Arco de Madeira": {
     "id": "wooden_bow",
@@ -179,7 +179,7 @@
     "stats": {
       "ataque_distancia": 4
     },
-    "icon": "res://assets/sprites/icon_attack_bow.png"
+    "icon": "res://assets/weapons/leather/leather_bow.png"
   },
   "Cajado Simples": {
     "id": "simple_staff",
@@ -192,7 +192,7 @@
       "ataque_magico": 3,
       "mana_max": 20
     },
-    "icon": "res://assets/sprites/icon_attack_book.png"
+    "icon": "res://assets/weapons/leather/leather_staff.png"
   },
   "Escudo de Madeira": {
     "id": "wooden_shield",
@@ -274,7 +274,7 @@
     "stats": {
       "mana_max": 10
     },
-    "icon": "res://assets/sprites/icon_slot_ring.png"
+    "icon": "res://assets/jewelry/leather/leather_ring.png"
   },
   "Amuleto Fraco": {
     "id": "weak_amulet",
@@ -286,7 +286,7 @@
     "stats": {
       "vida_max": 15
     },
-    "icon": "res://assets/sprites/icon_slot_amulet.png"
+    "icon": "res://assets/jewelry/leather/leather_amulet.png"
   },
   "Capuz de Couro": {
     "id": "armor_leather_helmet",
@@ -334,7 +334,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/leather/leather_glove_l.png"
   },
   "Calcas de Couro": {
     "id": "leather_old_pants",
@@ -346,7 +346,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/leather/leather_legs.png"
   },
   "Botas de Couro": {
     "id": "leather_old_boots",
@@ -358,7 +358,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/leather/leather_boot_l.png"
   },
   "Elmo de Ferro": {
     "id": "armor_iron_helmet",
@@ -404,7 +404,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/armor_sets/iron/iron_glove_l.png"
   },
   "Perneiras de Ferro": {
     "id": "iron_legs",
@@ -414,7 +414,7 @@
     "stats": {
       "defesa": 3
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/iron/iron_legs.png"
   },
   "Botas de Ferro": {
     "id": "iron_boots",
@@ -424,7 +424,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/iron/iron_boot_l.png"
   },
   "Chapeu Arcano": {
     "id": "arcane_hat",
@@ -558,7 +558,7 @@
       "ataque": 22,
       "physical_damage_pct": 0.04
     },
-    "icon": "res://assets/sprites/icon_attack_sword.png"
+    "icon": "res://assets/weapons/titanium/titanium_sword.png"
   },
   "Arco Cristalino": {
     "id": "crystal_bow",
@@ -571,7 +571,7 @@
       "ataque_distancia": 24,
       "attack_speed_pct": 0.04
     },
-    "icon": "res://assets/sprites/icon_attack_bow.png"
+    "icon": "res://assets/weapons/mithril/mithril_bow.png"
   },
   "Cajado de Cristal": {
     "id": "crystal_staff",
@@ -584,7 +584,7 @@
       "ataque_magico": 22,
       "mana_max": 80
     },
-    "icon": "res://assets/sprites/icon_attack_book.png"
+    "icon": "res://assets/weapons/mithril/mithril_staff.png"
   },
   "Elmo de Aco Sombrio": {
     "id": "shadow_steel_helmet",
@@ -598,7 +598,7 @@
       "defesa": 12,
       "vida_max": 45
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_helmet.png"
   },
   "Armadura de Aco Sombrio": {
     "id": "shadow_steel_armor",
@@ -612,7 +612,7 @@
       "defesa": 20,
       "vida_max": 95
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_chest.png"
   },
   "Luvas de Aco Sombrio": {
     "id": "shadow_steel_gloves",
@@ -626,7 +626,7 @@
       "defesa": 6,
       "attack_speed_pct": 0.07
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_glove_l.png"
   },
   "Calca de Aco Sombrio": {
     "id": "shadow_steel_pants",
@@ -640,7 +640,7 @@
       "defesa": 12,
       "vida_max": 35
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_legs.png"
   },
   "Botas de Aco Sombrio": {
     "id": "shadow_steel_boots",
@@ -654,7 +654,7 @@
       "defesa": 7,
       "move_speed_pct": 0.08
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_boot_l.png"
   },
   "Chapeu de Cristal Ancestral": {
     "id": "ancestral_crystal_hat",
@@ -668,7 +668,7 @@
       "mana_max": 75,
       "ataque_magico": 7
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_helmet.png"
   },
   "Manto de Cristal Ancestral": {
     "id": "ancestral_crystal_robe",
@@ -683,7 +683,7 @@
       "ataque_magico": 10,
       "defesa": 8
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_chest.png"
   },
   "Luvas de Cristal Ancestral": {
     "id": "ancestral_crystal_gloves",
@@ -697,7 +697,7 @@
       "ataque_magico": 6,
       "attack_speed_pct": 0.06
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_glove_l.png"
   },
   "Calca de Cristal Ancestral": {
     "id": "ancestral_crystal_pants",
@@ -711,7 +711,7 @@
       "mana_max": 65,
       "defesa": 6
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_legs.png"
   },
   "Botas de Cristal Ancestral": {
     "id": "ancestral_crystal_boots",
@@ -725,7 +725,7 @@
       "mana_max": 45,
       "move_speed_pct": 0.09
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_boot_l.png"
   },
   "Espada Infernal": {
     "id": "infernal_sword",
@@ -738,7 +738,7 @@
       "ataque": 38,
       "physical_damage_pct": 0.1
     },
-    "icon": "res://assets/sprites/icon_attack_sword.png"
+    "icon": "res://assets/weapons/obsidian/obsidian_sword.png"
   },
   "Armadura Infernal": {
     "id": "infernal_armor",
@@ -781,7 +781,7 @@
       "ataque": 5,
       "physical_damage_pct": 0.05
     },
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/jewelry/gold/gold_jewel.png"
   },
   "Safira da Mana": {
     "id": "sapphire_mana",
@@ -794,7 +794,7 @@
       "mana_max": 40,
       "mana_regen_pct": 0.08
     },
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/jewelry/titanium/titanium_jewel.png"
   },
   "Esmeralda da Agilidade": {
     "id": "emerald_agility",
@@ -2204,5 +2204,513 @@
     "type": "material",
     "description": "Erva de alto valor encontrada no fundo da floresta.",
     "icon": "res://assets/sprites/harvest/harvest_erva_especial.png"
+  },
+  "Espada de Ferro": {
+    "id": "weapon_iron_sword",
+    "name": "Espada de Ferro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "uncommon",
+    "description": "Arma Ferro (Guerreiro). +9 ataque.",
+    "stats": {
+      "ataque": 9
+    },
+    "icon": "res://assets/weapons/iron/iron_sword.png"
+  },
+  "Cajado de Ferro": {
+    "id": "weapon_iron_staff",
+    "name": "Cajado de Ferro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "uncommon",
+    "description": "Arma Ferro (Mago). +7 ataque magico e +30 mana.",
+    "stats": {
+      "ataque_magico": 7,
+      "mana_max": 30
+    },
+    "icon": "res://assets/weapons/iron/iron_staff.png"
+  },
+  "Arco de Ferro": {
+    "id": "weapon_iron_bow",
+    "name": "Arco de Ferro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "uncommon",
+    "description": "Arma Ferro (Arqueiro). +8 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 8
+    },
+    "icon": "res://assets/weapons/iron/iron_bow.png"
+  },
+  "Espada de Ouro": {
+    "id": "weapon_gold_sword",
+    "name": "Espada de Ouro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma Ouro (Guerreiro). +14 ataque.",
+    "stats": {
+      "ataque": 14
+    },
+    "icon": "res://assets/weapons/gold/gold_sword.png"
+  },
+  "Cajado de Ouro": {
+    "id": "weapon_gold_staff",
+    "name": "Cajado de Ouro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma Ouro (Mago). +12 ataque magico e +45 mana.",
+    "stats": {
+      "ataque_magico": 12,
+      "mana_max": 45
+    },
+    "icon": "res://assets/weapons/gold/gold_staff.png"
+  },
+  "Arco de Ouro": {
+    "id": "weapon_gold_bow",
+    "name": "Arco de Ouro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma Ouro (Arqueiro). +13 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 13
+    },
+    "icon": "res://assets/weapons/gold/gold_bow.png"
+  },
+  "Espada de Titanio": {
+    "id": "weapon_titanium_sword",
+    "name": "Espada de Titanio",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "super_rare",
+    "description": "Arma Titanio (Guerreiro). +20 ataque.",
+    "stats": {
+      "ataque": 20,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/weapons/titanium/titanium_sword.png"
+  },
+  "Cajado de Titanio": {
+    "id": "weapon_titanium_staff",
+    "name": "Cajado de Titanio",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "super_rare",
+    "description": "Arma Titanio (Mago). +18 ataque magico e +60 mana.",
+    "stats": {
+      "ataque_magico": 18,
+      "mana_max": 60,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/weapons/titanium/titanium_staff.png"
+  },
+  "Arco de Titanio": {
+    "id": "weapon_titanium_bow",
+    "name": "Arco de Titanio",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "super_rare",
+    "description": "Arma Titanio (Arqueiro). +19 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 19,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/weapons/titanium/titanium_bow.png"
+  },
+  "Espada de Mithril": {
+    "id": "weapon_mithril_sword",
+    "name": "Espada de Mithril",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma Mithril (Guerreiro). +27 ataque.",
+    "stats": {
+      "ataque": 27
+    },
+    "icon": "res://assets/weapons/mithril/mithril_sword.png"
+  },
+  "Cajado de Mithril": {
+    "id": "weapon_mithril_staff",
+    "name": "Cajado de Mithril",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma Mithril (Mago). +25 ataque magico e +80 mana.",
+    "stats": {
+      "ataque_magico": 25,
+      "mana_max": 80
+    },
+    "icon": "res://assets/weapons/mithril/mithril_staff.png"
+  },
+  "Arco de Mithril": {
+    "id": "weapon_mithril_bow",
+    "name": "Arco de Mithril",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma Mithril (Arqueiro). +26 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 26
+    },
+    "icon": "res://assets/weapons/mithril/mithril_bow.png"
+  },
+  "Espada de Obsidiana": {
+    "id": "weapon_obsidian_sword",
+    "name": "Espada de Obsidiana",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "mega_legendary",
+    "description": "Arma Obsidiana (Guerreiro). +35 ataque.",
+    "stats": {
+      "ataque": 35,
+      "physical_damage_pct": 0.05
+    },
+    "icon": "res://assets/weapons/obsidian/obsidian_sword.png"
+  },
+  "Cajado de Obsidiana": {
+    "id": "weapon_obsidian_staff",
+    "name": "Cajado de Obsidiana",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "mega_legendary",
+    "description": "Arma Obsidiana (Mago). +33 ataque magico e +100 mana.",
+    "stats": {
+      "ataque_magico": 33,
+      "mana_max": 100
+    },
+    "icon": "res://assets/weapons/obsidian/obsidian_staff.png"
+  },
+  "Arco de Obsidiana": {
+    "id": "weapon_obsidian_bow",
+    "name": "Arco de Obsidiana",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "mega_legendary",
+    "description": "Arma Obsidiana (Arqueiro). +34 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 34,
+      "physical_damage_pct": 0.05
+    },
+    "icon": "res://assets/weapons/obsidian/obsidian_bow.png"
+  },
+  "Espada Celeste": {
+    "id": "weapon_crystal_sword",
+    "name": "Espada Celeste",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "god",
+    "description": "Arma Cristal Celeste (Guerreiro). +45 ataque.",
+    "stats": {
+      "ataque": 45,
+      "mana_regen_pct": 0.04
+    },
+    "icon": "res://assets/weapons/crystal/crystal_sword.png"
+  },
+  "Cajado Celeste": {
+    "id": "weapon_crystal_staff",
+    "name": "Cajado Celeste",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "god",
+    "description": "Arma Cristal Celeste (Mago). +43 ataque magico e +130 mana.",
+    "stats": {
+      "ataque_magico": 43,
+      "mana_max": 130,
+      "mana_regen_pct": 0.04
+    },
+    "icon": "res://assets/weapons/crystal/crystal_staff.png"
+  },
+  "Arco Celeste": {
+    "id": "weapon_crystal_bow",
+    "name": "Arco Celeste",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "god",
+    "description": "Arma Cristal Celeste (Arqueiro). +44 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 44,
+      "mana_regen_pct": 0.04
+    },
+    "icon": "res://assets/weapons/crystal/crystal_bow.png"
+  },
+  "Joia de Ambar": {
+    "id": "jewelry_leather_jewel",
+    "name": "Joia de Ambar",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "common",
+    "description": "Joia Ambar. +2 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 2,
+      "ataque_magico": 2,
+      "ataque_distancia": 2
+    },
+    "icon": "res://assets/jewelry/leather/leather_jewel.png"
+  },
+  "Joia de Ferro": {
+    "id": "jewelry_iron_jewel",
+    "name": "Joia de Ferro",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "uncommon",
+    "description": "Joia Ferro. +3 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 3,
+      "ataque_magico": 3,
+      "ataque_distancia": 3
+    },
+    "icon": "res://assets/jewelry/iron/iron_jewel.png"
+  },
+  "Amuleto de Ferro": {
+    "id": "jewelry_iron_amulet",
+    "name": "Amuleto de Ferro",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "uncommon",
+    "description": "Amuleto Ferro. +30 vida e +1 defesa.",
+    "stats": {
+      "vida_max": 30,
+      "defesa": 1
+    },
+    "icon": "res://assets/jewelry/iron/iron_amulet.png"
+  },
+  "Anel de Ferro": {
+    "id": "jewelry_iron_ring",
+    "name": "Anel de Ferro",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "uncommon",
+    "description": "Anel Ferro. +20 mana e +1.0% vel. de ataque.",
+    "stats": {
+      "mana_max": 20,
+      "attack_speed_pct": 0.01
+    },
+    "icon": "res://assets/jewelry/iron/iron_ring.png"
+  },
+  "Joia de Ouro": {
+    "id": "jewelry_gold_jewel",
+    "name": "Joia de Ouro",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "rare",
+    "description": "Joia Ouro. +5 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 5,
+      "ataque_magico": 5,
+      "ataque_distancia": 5
+    },
+    "icon": "res://assets/jewelry/gold/gold_jewel.png"
+  },
+  "Amuleto de Ouro": {
+    "id": "jewelry_gold_amulet",
+    "name": "Amuleto de Ouro",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "rare",
+    "description": "Amuleto Ouro. +50 vida e +2 defesa.",
+    "stats": {
+      "vida_max": 50,
+      "defesa": 2
+    },
+    "icon": "res://assets/jewelry/gold/gold_amulet.png"
+  },
+  "Anel de Ouro": {
+    "id": "jewelry_gold_ring",
+    "name": "Anel de Ouro",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "rare",
+    "description": "Anel Ouro. +35 mana e +1.5% vel. de ataque.",
+    "stats": {
+      "mana_max": 35,
+      "attack_speed_pct": 0.015
+    },
+    "icon": "res://assets/jewelry/gold/gold_ring.png"
+  },
+  "Joia de Titanio": {
+    "id": "jewelry_titanium_jewel",
+    "name": "Joia de Titanio",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "super_rare",
+    "description": "Joia Titanio. +8 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 8,
+      "ataque_magico": 8,
+      "ataque_distancia": 8
+    },
+    "icon": "res://assets/jewelry/titanium/titanium_jewel.png"
+  },
+  "Amuleto de Titanio": {
+    "id": "jewelry_titanium_amulet",
+    "name": "Amuleto de Titanio",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "super_rare",
+    "description": "Amuleto Titanio. +75 vida e +3 defesa.",
+    "stats": {
+      "vida_max": 75,
+      "defesa": 3
+    },
+    "icon": "res://assets/jewelry/titanium/titanium_amulet.png"
+  },
+  "Anel de Titanio": {
+    "id": "jewelry_titanium_ring",
+    "name": "Anel de Titanio",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "super_rare",
+    "description": "Anel Titanio. +55 mana e +2.0% vel. de ataque.",
+    "stats": {
+      "mana_max": 55,
+      "attack_speed_pct": 0.02
+    },
+    "icon": "res://assets/jewelry/titanium/titanium_ring.png"
+  },
+  "Joia de Mithril": {
+    "id": "jewelry_mithril_jewel",
+    "name": "Joia de Mithril",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "legendary",
+    "description": "Joia Mithril. +11 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 11,
+      "ataque_magico": 11,
+      "ataque_distancia": 11
+    },
+    "icon": "res://assets/jewelry/mithril/mithril_jewel.png"
+  },
+  "Amuleto de Mithril": {
+    "id": "jewelry_mithril_amulet",
+    "name": "Amuleto de Mithril",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "legendary",
+    "description": "Amuleto Mithril. +105 vida e +4 defesa.",
+    "stats": {
+      "vida_max": 105,
+      "defesa": 4
+    },
+    "icon": "res://assets/jewelry/mithril/mithril_amulet.png"
+  },
+  "Anel de Mithril": {
+    "id": "jewelry_mithril_ring",
+    "name": "Anel de Mithril",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "legendary",
+    "description": "Anel Mithril. +80 mana e +3.0% vel. de ataque.",
+    "stats": {
+      "mana_max": 80,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/jewelry/mithril/mithril_ring.png"
+  },
+  "Joia de Obsidiana": {
+    "id": "jewelry_obsidian_jewel",
+    "name": "Joia de Obsidiana",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "mega_legendary",
+    "description": "Joia Obsidiana. +15 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 15,
+      "ataque_magico": 15,
+      "ataque_distancia": 15
+    },
+    "icon": "res://assets/jewelry/obsidian/obsidian_jewel.png"
+  },
+  "Amuleto de Obsidiana": {
+    "id": "jewelry_obsidian_amulet",
+    "name": "Amuleto de Obsidiana",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "mega_legendary",
+    "description": "Amuleto Obsidiana. +140 vida e +5 defesa.",
+    "stats": {
+      "vida_max": 140,
+      "defesa": 5
+    },
+    "icon": "res://assets/jewelry/obsidian/obsidian_amulet.png"
+  },
+  "Anel de Obsidiana": {
+    "id": "jewelry_obsidian_ring",
+    "name": "Anel de Obsidiana",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "mega_legendary",
+    "description": "Anel Obsidiana. +110 mana e +4.0% vel. de ataque.",
+    "stats": {
+      "mana_max": 110,
+      "attack_speed_pct": 0.04
+    },
+    "icon": "res://assets/jewelry/obsidian/obsidian_ring.png"
+  },
+  "Joia Celeste": {
+    "id": "jewelry_crystal_jewel",
+    "name": "Joia Celeste",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "god",
+    "description": "Joia Cristal Celeste. +20 em ataque, ataque magico e ataque a distancia.",
+    "stats": {
+      "ataque": 20,
+      "ataque_magico": 20,
+      "ataque_distancia": 20
+    },
+    "icon": "res://assets/jewelry/crystal/crystal_jewel.png"
+  },
+  "Amuleto Celeste": {
+    "id": "jewelry_crystal_amulet",
+    "name": "Amuleto Celeste",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "god",
+    "description": "Amuleto Cristal Celeste. +180 vida e +7 defesa.",
+    "stats": {
+      "vida_max": 180,
+      "defesa": 7
+    },
+    "icon": "res://assets/jewelry/crystal/crystal_amulet.png"
+  },
+  "Anel Celeste": {
+    "id": "jewelry_crystal_ring",
+    "name": "Anel Celeste",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "god",
+    "description": "Anel Cristal Celeste. +150 mana e +5.0% vel. de ataque.",
+    "stats": {
+      "mana_max": 150,
+      "attack_speed_pct": 0.05
+    },
+    "icon": "res://assets/jewelry/crystal/crystal_ring.png"
+  },
+  "Bolsa de Ombro": {
+    "id": "bag_shoulder",
+    "name": "Bolsa de Ombro",
+    "type": "equipment",
+    "slot": "backpack",
+    "rarity": "uncommon",
+    "description": "Equipe no slot Mochila: +20 slots na bolsa (total 40).",
+    "bag_slots": 20,
+    "stats": {},
+    "price": 250,
+    "icon": "res://assets/bags/bolsa_ombro.png"
+  },
+  "Mochila de Viajante": {
+    "id": "bag_backpack",
+    "name": "Mochila de Viajante",
+    "type": "equipment",
+    "slot": "backpack",
+    "rarity": "rare",
+    "description": "Equipe no slot Mochila: +50 slots na bolsa (total 70).",
+    "bag_slots": 50,
+    "stats": {},
+    "price": 1200,
+    "icon": "res://assets/bags/mochila_viajante.png"
   }
 }

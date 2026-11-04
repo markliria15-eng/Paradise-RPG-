@@ -25,7 +25,7 @@
   },
   "tutorial_forest": {
     "title": "Passo 1: Trilha da Floresta",
-    "npc": "Arion, o Mestre de Classes",
+    "npc": "Marcos o mestre",
     "map": "forest_boars",
     "objectives": [
       {

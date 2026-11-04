@@ -9,7 +9,7 @@
     "color": "#4d6f58",
     "spawn": [
       3600,
-      2880
+      3150
     ],
     "npcs": [],
     "portals": [
@@ -17,12 +17,12 @@
         "label": "Floresta",
         "target": "forest_boars",
         "pos": [
-          3600,
-          5520
+          3830,
+          5590
         ],
         "spawn": [
-          120,
-          105
+          960,
+          1040
         ]
       }
     ]
@@ -31,13 +31,13 @@
     "name": "Floresta dos Javalis",
     "safe": false,
     "size": [
-      5600,
-      4480
+      8000,
+      6400
     ],
     "color": "#315d32",
     "spawn": [
-      130,
-      125
+      240,
+      260
     ],
     "npcs": [
       {
@@ -45,8 +45,8 @@
         "role": "quest",
         "quest": "furia_javalis",
         "pos": [
-          760,
-          420
+          310,
+          215
         ],
         "sprite": "res://assets/sprites/npc_custom_1_pixel.png"
       }
@@ -56,29 +56,36 @@
         "label": "Eldoria",
         "target": "city_eldoria",
         "pos": [
-          120,
-          105
+          200,
+          190
         ],
         "spawn": [
           3600,
-          2880
+          5450
         ]
+      },
+      {
+        "label": "Caverna",
+        "target": "bat_cave",
+        "pos": [
+          1815,
+          1185
+        ],
+        "spawn": [
+          760,
+          3300
+        ],
+        "requires_boss_clear": true,
+        "boss_enemy": "Rei Javali"
       }
     ],
     "safe_zones": [
       {
         "pos": [
-          120,
-          105
+          200,
+          190
         ],
-        "radius": 60
-      },
-      {
-        "pos": [
-          1300,
-          1030
-        ],
-        "radius": 55
+        "radius": 70
       }
     ],
     "collectibles": [
@@ -86,168 +93,184 @@
         "item": "Erva Curativa",
         "amount": 1,
         "pos": [
-          160,
-          210
+          300,
+          240
         ]
       },
       {
         "item": "Flor Medicinal",
         "amount": 1,
         "pos": [
-          220,
+          480,
+          130
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          560,
           170
         ]
       },
       {
-        "item": "Cogumelo",
-        "amount": 1,
-        "pos": [
-          310,
-          620
-        ]
-      },
-      {
-        "item": "Erva Curativa",
-        "amount": 1,
-        "pos": [
-          260,
-          360
-        ]
-      },
-      {
         "item": "Planta Rara",
         "amount": 1,
         "pos": [
-          610,
-          160
-        ]
-      },
-      {
-        "item": "Flor Medicinal",
-        "amount": 1,
-        "pos": [
-          510,
-          120
+          520,
+          115
         ]
       },
       {
         "item": "Erva Curativa",
         "amount": 1,
         "pos": [
-          560,
-          220
-        ]
-      },
-      {
-        "item": "Cogumelo",
-        "amount": 1,
-        "pos": [
-          480,
-          510
-        ]
-      },
-      {
-        "item": "Flor Medicinal",
-        "amount": 1,
-        "pos": [
-          650,
+          640,
           470
         ]
       },
       {
-        "item": "Erva Especial",
+        "item": "Cogumelo",
         "amount": 1,
         "pos": [
-          980,
-          950
-        ]
-      },
-      {
-        "item": "Planta Rara",
-        "amount": 1,
-        "pos": [
-          810,
-          870
+          470,
+          470
         ]
       },
       {
         "item": "Erva Curativa",
         "amount": 1,
         "pos": [
-          690,
-          580
-        ]
-      },
-      {
-        "item": "Cogumelo",
-        "amount": 1,
-        "pos": [
-          730,
-          820
-        ]
-      },
-      {
-        "item": "Flor Medicinal",
-        "amount": 1,
-        "pos": [
-          840,
-          650
-        ]
-      },
-      {
-        "item": "Erva Especial",
-        "amount": 1,
-        "pos": [
-          1150,
+          1000,
           700
         ]
       },
       {
-        "item": "Planta Rara",
-        "amount": 1,
-        "pos": [
-          1060,
-          500
-        ]
-      },
-      {
         "item": "Flor Medicinal",
         "amount": 1,
         "pos": [
-          1010,
-          760
+          860,
+          690
         ]
       },
       {
         "item": "Cogumelo",
         "amount": 1,
         "pos": [
-          960,
-          340
-        ]
-      },
-      {
-        "item": "Erva Curativa",
-        "amount": 1,
-        "pos": [
-          780,
+          420,
           1000
-        ]
-      },
-      {
-        "item": "Flor Medicinal",
-        "amount": 1,
-        "pos": [
-          1230,
-          980
         ]
       },
       {
         "item": "Planta Rara",
         "amount": 1,
         "pos": [
-          1330,
-          250
+          330,
+          1100
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          530,
+          1190
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          450,
+          1215
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          880,
+          1110
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          760,
+          1010
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          640,
+          1420
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          700,
+          1360
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          1260,
+          330
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          1380,
+          260
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          1780,
+          260
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          1690,
+          200
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          1470,
+          610
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          1300,
+          980
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          1400,
+          880
         ]
       },
       {
@@ -255,163 +278,301 @@
         "amount": 1,
         "pos": [
           1100,
-          130
-        ]
-      },
-      {
-        "item": "Cogumelo",
-        "amount": 1,
-        "pos": [
-          1290,
-          760
+          500
         ]
       },
       {
         "item": "Erva Especial",
         "amount": 1,
         "pos": [
-          1300,
-          1020
+          1480,
+          1260
         ]
       },
       {
-        "item": "Flor Medicinal",
+        "item": "Planta Rara",
         "amount": 1,
         "pos": [
-          1260,
-          430
-        ]
-      },
-      {
-        "item": "Erva Curativa",
-        "amount": 1,
-        "pos": [
-          135,
-          940
+          1800,
+          1330
         ]
       }
     ],
     "spawns": [
       {
         "enemy": "Javali Selvagem",
-        "count": 5,
-        "respawn": 5,
+        "count": 4,
+        "respawn": 8,
         "zone": [
-          70,
-          80,
-          260,
-          170
+          480,
+          355,
+          170,
+          130
         ]
       },
       {
         "enemy": "Lobo Cinzento",
-        "count": 4,
-        "respawn": 7,
+        "count": 3,
+        "respawn": 12,
         "zone": [
-          250,
-          120,
-          260,
-          180
+          860,
+          540,
+          180,
+          150
         ]
       },
       {
         "enemy": "Javali Selvagem",
-        "count": 4,
-        "respawn": 6,
+        "count": 3,
+        "respawn": 9,
         "zone": [
-          120,
-          300,
-          280,
-          180
+          880,
+          640,
+          150,
+          90
         ]
       },
       {
         "enemy": "Aranha Venenosa",
-        "count": 4,
-        "respawn": 8,
+        "count": 3,
+        "respawn": 14,
         "zone": [
-          360,
-          320,
-          250,
-          180
+          380,
+          1085,
+          170,
+          130
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 3,
+        "respawn": 15,
+        "zone": [
+          740,
+          990,
+          165,
+          140
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 3,
+        "respawn": 20,
+        "zone": [
+          590,
+          1330,
+          120,
+          110
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 3,
+        "respawn": 19,
+        "zone": [
+          1235,
+          225,
+          175,
+          130
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 3,
+        "respawn": 26,
+        "zone": [
+          1640,
+          175,
+          170,
+          115
         ]
       },
       {
         "enemy": "Lobo Cinzento",
-        "count": 4,
-        "respawn": 9,
-        "zone": [
-          470,
-          500,
-          260,
-          180
-        ]
-      },
-      {
-        "enemy": "Javali Bruto",
-        "count": 4,
+        "count": 2,
         "respawn": 13,
         "zone": [
-          640,
-          140,
-          250,
-          180
-        ]
-      },
-      {
-        "enemy": "Aranha Venenosa",
-        "count": 4,
-        "respawn": 12,
-        "zone": [
-          680,
-          430,
-          230,
-          190
+          1375,
+          535,
+          135,
+          110
         ]
       },
       {
         "enemy": "Lobo Alfa",
-        "count": 4,
-        "respawn": 18,
+        "count": 3,
+        "respawn": 28,
         "zone": [
-          860,
-          200,
-          250,
-          190
+          1245,
+          850,
+          175,
+          135
         ]
       },
       {
         "enemy": "Javali Bruto",
-        "count": 4,
-        "respawn": 15,
+        "count": 2,
+        "respawn": 22,
         "zone": [
-          940,
-          600,
-          250,
-          210
-        ]
-      },
-      {
-        "enemy": "Lobo Alfa",
-        "count": 4,
-        "respawn": 20,
-        "zone": [
-          1080,
-          500,
-          220,
-          220
+          1260,
+          900,
+          140,
+          90
         ]
       },
       {
         "enemy": "Rei Javali",
         "count": 1,
         "boss": true,
-        "respawn": 120,
+        "respawn": 300,
         "zone": [
-          1120,
-          820,
-          220,
-          200
+          1590,
+          1230,
+          100,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 2,
+        "respawn": 13,
+        "zone": [
+          455,
+          200,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 1,
+        "respawn": 13,
+        "zone": [
+          730,
+          487,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 1,
+        "respawn": 13,
+        "zone": [
+          424,
+          607,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Selvagem",
+        "count": 2,
+        "respawn": 10,
+        "zone": [
+          357,
+          741,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Selvagem",
+        "count": 1,
+        "respawn": 10,
+        "zone": [
+          844,
+          817,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          671,
+          1231,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Selvagem",
+        "count": 2,
+        "respawn": 10,
+        "zone": [
+          1064,
+          406,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 1,
+        "respawn": 13,
+        "zone": [
+          1174,
+          305,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          1458,
+          215,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          1317,
+          334,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          1373,
+          473,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          1335,
+          761,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 2,
+        "respawn": 15,
+        "zone": [
+          1080,
+          749,
+          90,
+          70
         ]
       }
     ]
@@ -420,18 +581,195 @@
     "name": "Ruinas Arcanas",
     "safe": false,
     "size": [
-      2200,
-      1400
+      7200,
+      5760
     ],
     "color": "#3c3d68",
     "spawn": [
-      1080,
-      1240
+      3600,
+      4980
     ],
     "npcs": [],
-    "portals": [],
-    "safe_zones": [],
-    "spawns": [],
+    "portals": [
+      {
+        "label": "Caverna",
+        "target": "bat_cave",
+        "pos": [
+          3600,
+          5300
+        ],
+        "spawn": [
+          3950,
+          900
+        ]
+      }
+    ],
+    "safe_zones": [
+      {
+        "pos": [
+          3600,
+          5050
+        ],
+        "radius": 520
+      }
+    ],
+    "spawns": [
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          2290,
+          1430,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          1160,
+          1480,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          1210,
+          630,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          1410,
+          4230,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          5510,
+          4080,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Aprendiz Corrompido",
+        "count": 2,
+        "respawn": 16,
+        "zone": [
+          910,
+          2630,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Aprendiz Corrompido",
+        "count": 2,
+        "respawn": 16,
+        "zone": [
+          1410,
+          3030,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Aprendiz Corrompido",
+        "count": 1,
+        "respawn": 16,
+        "zone": [
+          1510,
+          2380,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 2,
+        "respawn": 18,
+        "zone": [
+          5410,
+          2530,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 2,
+        "respawn": 18,
+        "zone": [
+          6210,
+          3230,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 1,
+        "respawn": 18,
+        "zone": [
+          5810,
+          3630,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Sentinela Arcano",
+        "count": 1,
+        "respawn": 22,
+        "zone": [
+          3210,
+          1480,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Sentinela Arcano",
+        "count": 1,
+        "respawn": 22,
+        "zone": [
+          3810,
+          1480,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Arquimago Corrompido",
+        "count": 1,
+        "respawn": 300,
+        "zone": [
+          3510,
+          1050,
+          180,
+          140
+        ],
+        "boss": true
+      }
+    ],
     "collectibles": []
   },
   "city_valdoria": {
@@ -510,31 +848,178 @@
     "name": "Caverna Profunda",
     "safe": false,
     "size": [
-      1400,
-      1120
+      4800,
+      3840
     ],
     "color": "#252835",
     "spawn": [
-      126,
-      166
+      760,
+      3300
     ],
     "npcs": [],
-    "portals": [],
-    "safe_zones": [],
+    "portals": [
+      {
+        "label": "Floresta",
+        "target": "forest_boars",
+        "pos": [
+          640,
+          3330
+        ],
+        "spawn": [
+          7000,
+          4900
+        ]
+      },
+      {
+        "label": "Ruinas Arcanas",
+        "target": "arcane_ruins",
+        "pos": [
+          3950,
+          720
+        ],
+        "spawn": [
+          3600,
+          4980
+        ],
+        "requires_boss_clear": true,
+        "boss_enemy": "Matriarca Venenosa"
+      }
+    ],
+    "safe_zones": [
+      {
+        "pos": [
+          760,
+          3300
+        ],
+        "radius": 300
+      }
+    ],
     "collectibles": [],
-    "spawns": []
+    "spawns": [
+      {
+        "enemy": "Morcego Pequeno",
+        "count": 4,
+        "respawn": 10,
+        "zone": [
+          620,
+          1050,
+          520,
+          360
+        ]
+      },
+      {
+        "enemy": "Morcego Pequeno",
+        "count": 3,
+        "respawn": 10,
+        "zone": [
+          760,
+          2000,
+          260,
+          500
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 3,
+        "respawn": 14,
+        "zone": [
+          1760,
+          3120,
+          400,
+          280
+        ]
+      },
+      {
+        "enemy": "Morcego Pequeno",
+        "count": 2,
+        "respawn": 10,
+        "zone": [
+          1150,
+          1420,
+          400,
+          260
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 3,
+        "respawn": 14,
+        "zone": [
+          1980,
+          1900,
+          360,
+          420
+        ]
+      },
+      {
+        "enemy": "Morcego Sombrio",
+        "count": 2,
+        "respawn": 16,
+        "zone": [
+          2700,
+          2150,
+          420,
+          260
+        ]
+      },
+      {
+        "enemy": "Morcego Sombrio",
+        "count": 3,
+        "respawn": 16,
+        "zone": [
+          3100,
+          2900,
+          300,
+          300
+        ]
+      },
+      {
+        "enemy": "Aranha Rainha",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          3700,
+          3000,
+          400,
+          300
+        ]
+      },
+      {
+        "enemy": "Aranha Rainha",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          3900,
+          1900,
+          300,
+          500
+        ]
+      },
+      {
+        "enemy": "Matriarca Venenosa",
+        "count": 1,
+        "boss": true,
+        "respawn": 300,
+        "zone": [
+          3780,
+          1080,
+          200,
+          160
+        ]
+      }
+    ]
   },
   "world_reset": {
     "name": "Floresta Base",
     "safe": false,
     "size": [
-      5600,
-      4480
+      8000,
+      6400
     ],
     "color": "#4b6b2d",
     "spawn": [
-      120,
-      105
+      240,
+      260
     ],
     "npcs": [],
     "portals": [],

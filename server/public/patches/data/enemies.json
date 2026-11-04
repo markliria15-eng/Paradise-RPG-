@@ -191,13 +191,13 @@
   "Rei Javali": {
     "level": 10,
     "boss": true,
-    "vida": 420,
-    "ataque": 26,
-    "defesa": 9,
-    "xp": 260,
+    "vida": 950,
+    "ataque": 28,
+    "defesa": 11,
+    "xp": 600,
     "ouro": [
-      80,
-      130
+      200,
+      320
     ],
     "speed": 92,
     "color": "#a66a42",
