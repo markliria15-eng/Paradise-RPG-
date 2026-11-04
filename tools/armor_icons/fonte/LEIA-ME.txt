@@ -1,0 +1,2 @@
+Extraia aqui o zip armaduras_paradise_codex_corrigido_v4.zip (pasta paradise_rpg_7_sets_codex_pack/ com o conteudo dela direto nesta pasta: 01_comum/, 02_incomum/ ...)
+e rode: python tools/armor_icons/fit_armor_icons.py

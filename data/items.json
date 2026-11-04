@@ -334,7 +334,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/leather/leather_glove_l.png"
   },
   "Calcas de Couro": {
     "id": "leather_old_pants",
@@ -346,7 +346,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/leather/leather_legs.png"
   },
   "Botas de Couro": {
     "id": "leather_old_boots",
@@ -358,7 +358,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/leather/leather_boot_l.png"
   },
   "Elmo de Ferro": {
     "id": "armor_iron_helmet",
@@ -404,7 +404,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/armor_sets/iron/iron_glove_l.png"
   },
   "Perneiras de Ferro": {
     "id": "iron_legs",
@@ -414,7 +414,7 @@
     "stats": {
       "defesa": 3
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/iron/iron_legs.png"
   },
   "Botas de Ferro": {
     "id": "iron_boots",
@@ -424,7 +424,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/iron/iron_boot_l.png"
   },
   "Chapeu Arcano": {
     "id": "arcane_hat",
@@ -598,7 +598,7 @@
       "defesa": 12,
       "vida_max": 45
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_helmet.png"
   },
   "Armadura de Aco Sombrio": {
     "id": "shadow_steel_armor",
@@ -612,7 +612,7 @@
       "defesa": 20,
       "vida_max": 95
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_chest.png"
   },
   "Luvas de Aco Sombrio": {
     "id": "shadow_steel_gloves",
@@ -626,7 +626,7 @@
       "defesa": 6,
       "attack_speed_pct": 0.07
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_glove_l.png"
   },
   "Calca de Aco Sombrio": {
     "id": "shadow_steel_pants",
@@ -640,7 +640,7 @@
       "defesa": 12,
       "vida_max": 35
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_legs.png"
   },
   "Botas de Aco Sombrio": {
     "id": "shadow_steel_boots",
@@ -654,7 +654,7 @@
       "defesa": 7,
       "move_speed_pct": 0.08
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/titanium/titanium_boot_l.png"
   },
   "Chapeu de Cristal Ancestral": {
     "id": "ancestral_crystal_hat",
@@ -668,7 +668,7 @@
       "mana_max": 75,
       "ataque_magico": 7
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_helmet.png"
   },
   "Manto de Cristal Ancestral": {
     "id": "ancestral_crystal_robe",
@@ -683,7 +683,7 @@
       "ataque_magico": 10,
       "defesa": 8
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_chest.png"
   },
   "Luvas de Cristal Ancestral": {
     "id": "ancestral_crystal_gloves",
@@ -697,7 +697,7 @@
       "ataque_magico": 6,
       "attack_speed_pct": 0.06
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_glove_l.png"
   },
   "Calca de Cristal Ancestral": {
     "id": "ancestral_crystal_pants",
@@ -711,7 +711,7 @@
       "mana_max": 65,
       "defesa": 6
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_legs.png"
   },
   "Botas de Cristal Ancestral": {
     "id": "ancestral_crystal_boots",
@@ -725,7 +725,7 @@
       "mana_max": 45,
       "move_speed_pct": 0.09
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/armor_sets/crystal/crystal_boot_l.png"
   },
   "Espada Infernal": {
     "id": "infernal_sword",

@@ -5457,7 +5457,7 @@ func _open_inventory_panel() -> void:
 		slot_btn.custom_minimum_size = Vector2(96, 76)
 		slot_btn.text = ""
 		slot_btn.mouse_filter = Control.MOUSE_FILTER_PASS
-		_add_slot_icon(slot_btn, load(str(data.get("icon", "res://assets/sprites/drop_bag.png"))) as Texture2D, Vector2(34, 34), Vector2(48, 35))
+		_add_slot_icon(slot_btn, load(str(data.get("icon", "res://assets/sprites/drop_bag.png"))) as Texture2D, Vector2(44, 44), Vector2(46, 41))
 		_add_slot_count(slot_btn, "x%d" % amount)
 		slot_btn.tooltip_text = "%s\n%s" % [bag_item_name, str(data.get("description", ""))]
 		_style_panel_button(slot_btn)
@@ -6592,8 +6592,20 @@ func _equipment_slot_button(slot: String, slot_data: Dictionary) -> Button:
 	var fallback_icon := str(info.get("icon", "res://assets/sprites/icon_slot_weapon.png"))
 	var button := Button.new()
 	button.custom_minimum_size = Vector2(132, 78)
-	button.text = EquipmentSystem.slot_label(slot)
-	_add_slot_icon(button, UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon), Vector2(48, 48), Vector2(66, 30))
+	button.text = ""
+	_add_slot_icon(button, UIEquipmentWindow.slot_icon(item_db, item_name, fallback_icon), Vector2(50, 50), Vector2(66, 31))
+	var caption := Label.new()
+	caption.text = EquipmentSystem.slot_label(slot)
+	caption.position = Vector2(0, 57)
+	caption.size = Vector2(132, 18)
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.add_theme_font_size_override("font_size", 11)
+	caption.add_theme_color_override("font_color", Color(1, 1, 1, 0.55 if item_name.is_empty() else 0.95))
+	caption.add_theme_color_override("font_shadow_color", Color.BLACK)
+	caption.add_theme_constant_override("shadow_offset_x", 1)
+	caption.add_theme_constant_override("shadow_offset_y", 1)
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(caption)
 	button.tooltip_text = UIEquipmentWindow.slot_tooltip(slot, item_name)
 	_style_equipment_slot(button, item_name.is_empty())
 	button.pressed.connect(func() -> void:
@@ -6641,10 +6653,13 @@ func _add_slot_icon(button: Button, texture: Texture2D, max_size: Vector2, cente
 		draw_size.x = max_size.x
 	if draw_size.y > max_size.y:
 		draw_size.y = max_size.y
-	icon.position = center - draw_size * 0.5
-	icon.size = draw_size
+	# expand_mode antes do tamanho: senao o TextureRect trava no tamanho da textura
+	# (ex.: 512 px) e o icone vaza/some do quadrado.
 	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.custom_minimum_size = Vector2.ZERO
+	icon.position = center - draw_size * 0.5
+	icon.size = draw_size
 	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	clipper.add_child(icon)
 
