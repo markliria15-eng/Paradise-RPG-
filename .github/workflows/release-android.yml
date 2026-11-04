@@ -9,7 +9,7 @@ on:
       tag:
         description: "Release tag, for example v0.1.11"
         required: true
-        default: "v0.1.11"
+        default: "v0.1.22"
 
 permissions:
   contents: write
@@ -114,6 +114,30 @@ jobs:
           text = re.sub(r'version/name="[^"]*"', f'version/name="{os.environ["VERSION_NAME"]}"', text)
           preset.write_text(text, encoding="utf-8")
           PY
+
+      - name: Restore release keystore from secrets
+        shell: bash
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_BASE64 }}
+          KEY_ALIAS: ${{ secrets.ANDROID_RELEASE_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          # A chave saiu do Git (commit b0b7b15). Ela vem dos secrets do repositorio;
+          # sem ela o build para aqui, para nao publicar APK com assinatura diferente
+          # (o celular recusaria atualizar por cima da versao instalada).
+          if [ -z "${KEYSTORE_B64}" ] || [ -z "${KEY_PASSWORD}" ]; then
+            echo "::error::Faltam os secrets ANDROID_RELEASE_KEYSTORE_BASE64 e ANDROID_RELEASE_KEY_PASSWORD (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+          echo "::add-mask::${KEY_PASSWORD}"
+          KEYSTORE_PATH="${RUNNER_TEMP}/paradise-release.keystore"
+          printf '%s' "${KEYSTORE_B64}" | base64 -d > "${KEYSTORE_PATH}"
+          {
+            echo "GODOT_ANDROID_KEYSTORE_RELEASE_PATH=${KEYSTORE_PATH}"
+            echo "GODOT_ANDROID_KEYSTORE_RELEASE_USER=${KEY_ALIAS:-arcadia}"
+            echo "GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD=${KEY_PASSWORD}"
+          } >> "${GITHUB_ENV}"
 
       - name: Export full Android APK
         shell: bash
