@@ -1224,5 +1224,293 @@
     },
     "success_chance": 55,
     "source": "armor_sets_manifest"
+  },
+  "Espada de Ferro": {
+    "result": "Espada de Ferro",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 400,
+    "materials": {
+      "Espada Enferrujada": 1,
+      "Minerio de Ferro": 12,
+      "Carvao": 2,
+      "Tira de Couro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Cajado de Ferro": {
+    "result": "Cajado de Ferro",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 400,
+    "materials": {
+      "Cajado Simples": 1,
+      "Minerio de Ferro": 12,
+      "Carvao": 2,
+      "Tira de Couro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Arco de Ferro": {
+    "result": "Arco de Ferro",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 400,
+    "materials": {
+      "Arco de Madeira": 1,
+      "Minerio de Ferro": 12,
+      "Carvao": 2,
+      "Tira de Couro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Espada de Ouro": {
+    "result": "Espada de Ouro",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 600,
+    "materials": {
+      "Espada de Ferro": 1,
+      "Lingote de Ouro": 12,
+      "Fragmento de Rubi": 2,
+      "Placa de Ferro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Cajado de Ouro": {
+    "result": "Cajado de Ouro",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 600,
+    "materials": {
+      "Cajado de Ferro": 1,
+      "Lingote de Ouro": 12,
+      "Fragmento de Rubi": 2,
+      "Placa de Ferro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Arco de Ouro": {
+    "result": "Arco de Ouro",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 600,
+    "materials": {
+      "Arco de Ferro": 1,
+      "Lingote de Ouro": 12,
+      "Fragmento de Rubi": 2,
+      "Placa de Ferro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Espada de Titanio": {
+    "result": "Espada de Titanio",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 800,
+    "materials": {
+      "Espada de Ouro": 1,
+      "Minerio de Titanio": 12,
+      "Cristal Azul": 2,
+      "Rebite de Ouro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Cajado de Titanio": {
+    "result": "Cajado de Titanio",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 800,
+    "materials": {
+      "Cajado de Ouro": 1,
+      "Minerio de Titanio": 12,
+      "Cristal Azul": 2,
+      "Rebite de Ouro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Arco de Titanio": {
+    "result": "Arco de Titanio",
+    "tier": "basic",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 800,
+    "materials": {
+      "Arco de Ouro": 1,
+      "Minerio de Titanio": 12,
+      "Cristal Azul": 2,
+      "Rebite de Ouro": 3
+    },
+    "success_chance": 100,
+    "source": "weapon_icons"
+  },
+  "Espada de Mithril": {
+    "result": "Espada de Mithril",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 1000,
+    "materials": {
+      "Espada de Titanio": 1,
+      "Minerio de Mithril": 12,
+      "Cristal Arcano": 2,
+      "Placa de Titanio": 3
+    },
+    "success_chance": 85,
+    "source": "weapon_icons"
+  },
+  "Cajado de Mithril": {
+    "result": "Cajado de Mithril",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 1000,
+    "materials": {
+      "Cajado de Titanio": 1,
+      "Minerio de Mithril": 12,
+      "Cristal Arcano": 2,
+      "Placa de Titanio": 3
+    },
+    "success_chance": 85,
+    "source": "weapon_icons"
+  },
+  "Arco de Mithril": {
+    "result": "Arco de Mithril",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 1000,
+    "materials": {
+      "Arco de Titanio": 1,
+      "Minerio de Mithril": 12,
+      "Cristal Arcano": 2,
+      "Placa de Titanio": 3
+    },
+    "success_chance": 85,
+    "source": "weapon_icons"
+  },
+  "Espada de Obsidiana": {
+    "result": "Espada de Obsidiana",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 1200,
+    "materials": {
+      "Espada de Mithril": 1,
+      "Fragmento de Obsidiana": 12,
+      "Essencia Sombria": 2,
+      "Placa de Mithril": 3
+    },
+    "success_chance": 70,
+    "source": "weapon_icons"
+  },
+  "Cajado de Obsidiana": {
+    "result": "Cajado de Obsidiana",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 1200,
+    "materials": {
+      "Cajado de Mithril": 1,
+      "Fragmento de Obsidiana": 12,
+      "Essencia Sombria": 2,
+      "Placa de Mithril": 3
+    },
+    "success_chance": 70,
+    "source": "weapon_icons"
+  },
+  "Arco de Obsidiana": {
+    "result": "Arco de Obsidiana",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 1200,
+    "materials": {
+      "Arco de Mithril": 1,
+      "Fragmento de Obsidiana": 12,
+      "Essencia Sombria": 2,
+      "Placa de Mithril": 3
+    },
+    "success_chance": 70,
+    "source": "weapon_icons"
+  },
+  "Espada Celeste": {
+    "result": "Espada Celeste",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1400,
+    "materials": {
+      "Espada de Obsidiana": 1,
+      "Cristal Divino": 12,
+      "Essencia Celestial": 2,
+      "Nucleo de Obsidiana": 3
+    },
+    "success_chance": 55,
+    "source": "weapon_icons"
+  },
+  "Cajado Celeste": {
+    "result": "Cajado Celeste",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1400,
+    "materials": {
+      "Cajado de Obsidiana": 1,
+      "Cristal Divino": 12,
+      "Essencia Celestial": 2,
+      "Nucleo de Obsidiana": 3
+    },
+    "success_chance": 55,
+    "source": "weapon_icons"
+  },
+  "Arco Celeste": {
+    "result": "Arco Celeste",
+    "tier": "rare",
+    "category": "armas",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1400,
+    "materials": {
+      "Arco de Obsidiana": 1,
+      "Cristal Divino": 12,
+      "Essencia Celestial": 2,
+      "Nucleo de Obsidiana": 3
+    },
+    "success_chance": 55,
+    "source": "weapon_icons"
   }
 }

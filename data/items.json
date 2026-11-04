@@ -167,7 +167,7 @@
     "stats": {
       "ataque": 5
     },
-    "icon": "res://assets/sprites/icon_attack_sword.png"
+    "icon": "res://assets/weapons/leather/leather_sword.png"
   },
   "Arco de Madeira": {
     "id": "wooden_bow",
@@ -179,7 +179,7 @@
     "stats": {
       "ataque_distancia": 4
     },
-    "icon": "res://assets/sprites/icon_attack_bow.png"
+    "icon": "res://assets/weapons/leather/leather_bow.png"
   },
   "Cajado Simples": {
     "id": "simple_staff",
@@ -192,7 +192,7 @@
       "ataque_magico": 3,
       "mana_max": 20
     },
-    "icon": "res://assets/sprites/icon_attack_book.png"
+    "icon": "res://assets/weapons/leather/leather_staff.png"
   },
   "Escudo de Madeira": {
     "id": "wooden_shield",
@@ -558,7 +558,7 @@
       "ataque": 22,
       "physical_damage_pct": 0.04
     },
-    "icon": "res://assets/sprites/icon_attack_sword.png"
+    "icon": "res://assets/weapons/titanium/titanium_sword.png"
   },
   "Arco Cristalino": {
     "id": "crystal_bow",
@@ -571,7 +571,7 @@
       "ataque_distancia": 24,
       "attack_speed_pct": 0.04
     },
-    "icon": "res://assets/sprites/icon_attack_bow.png"
+    "icon": "res://assets/weapons/mithril/mithril_bow.png"
   },
   "Cajado de Cristal": {
     "id": "crystal_staff",
@@ -584,7 +584,7 @@
       "ataque_magico": 22,
       "mana_max": 80
     },
-    "icon": "res://assets/sprites/icon_attack_book.png"
+    "icon": "res://assets/weapons/mithril/mithril_staff.png"
   },
   "Elmo de Aco Sombrio": {
     "id": "shadow_steel_helmet",
@@ -738,7 +738,7 @@
       "ataque": 38,
       "physical_damage_pct": 0.1
     },
-    "icon": "res://assets/sprites/icon_attack_sword.png"
+    "icon": "res://assets/weapons/obsidian/obsidian_sword.png"
   },
   "Armadura Infernal": {
     "id": "infernal_armor",
@@ -2204,5 +2204,235 @@
     "type": "material",
     "description": "Erva de alto valor encontrada no fundo da floresta.",
     "icon": "res://assets/sprites/harvest/harvest_erva_especial.png"
+  },
+  "Espada de Ferro": {
+    "id": "weapon_iron_sword",
+    "name": "Espada de Ferro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "uncommon",
+    "description": "Arma Ferro (Guerreiro). +9 ataque.",
+    "stats": {
+      "ataque": 9
+    },
+    "icon": "res://assets/weapons/iron/iron_sword.png"
+  },
+  "Cajado de Ferro": {
+    "id": "weapon_iron_staff",
+    "name": "Cajado de Ferro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "uncommon",
+    "description": "Arma Ferro (Mago). +7 ataque magico e +30 mana.",
+    "stats": {
+      "ataque_magico": 7,
+      "mana_max": 30
+    },
+    "icon": "res://assets/weapons/iron/iron_staff.png"
+  },
+  "Arco de Ferro": {
+    "id": "weapon_iron_bow",
+    "name": "Arco de Ferro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "uncommon",
+    "description": "Arma Ferro (Arqueiro). +8 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 8
+    },
+    "icon": "res://assets/weapons/iron/iron_bow.png"
+  },
+  "Espada de Ouro": {
+    "id": "weapon_gold_sword",
+    "name": "Espada de Ouro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma Ouro (Guerreiro). +14 ataque.",
+    "stats": {
+      "ataque": 14
+    },
+    "icon": "res://assets/weapons/gold/gold_sword.png"
+  },
+  "Cajado de Ouro": {
+    "id": "weapon_gold_staff",
+    "name": "Cajado de Ouro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma Ouro (Mago). +12 ataque magico e +45 mana.",
+    "stats": {
+      "ataque_magico": 12,
+      "mana_max": 45
+    },
+    "icon": "res://assets/weapons/gold/gold_staff.png"
+  },
+  "Arco de Ouro": {
+    "id": "weapon_gold_bow",
+    "name": "Arco de Ouro",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "rare",
+    "description": "Arma Ouro (Arqueiro). +13 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 13
+    },
+    "icon": "res://assets/weapons/gold/gold_bow.png"
+  },
+  "Espada de Titanio": {
+    "id": "weapon_titanium_sword",
+    "name": "Espada de Titanio",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "super_rare",
+    "description": "Arma Titanio (Guerreiro). +20 ataque.",
+    "stats": {
+      "ataque": 20,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/weapons/titanium/titanium_sword.png"
+  },
+  "Cajado de Titanio": {
+    "id": "weapon_titanium_staff",
+    "name": "Cajado de Titanio",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "super_rare",
+    "description": "Arma Titanio (Mago). +18 ataque magico e +60 mana.",
+    "stats": {
+      "ataque_magico": 18,
+      "mana_max": 60,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/weapons/titanium/titanium_staff.png"
+  },
+  "Arco de Titanio": {
+    "id": "weapon_titanium_bow",
+    "name": "Arco de Titanio",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "super_rare",
+    "description": "Arma Titanio (Arqueiro). +19 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 19,
+      "attack_speed_pct": 0.03
+    },
+    "icon": "res://assets/weapons/titanium/titanium_bow.png"
+  },
+  "Espada de Mithril": {
+    "id": "weapon_mithril_sword",
+    "name": "Espada de Mithril",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma Mithril (Guerreiro). +27 ataque.",
+    "stats": {
+      "ataque": 27
+    },
+    "icon": "res://assets/weapons/mithril/mithril_sword.png"
+  },
+  "Cajado de Mithril": {
+    "id": "weapon_mithril_staff",
+    "name": "Cajado de Mithril",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma Mithril (Mago). +25 ataque magico e +80 mana.",
+    "stats": {
+      "ataque_magico": 25,
+      "mana_max": 80
+    },
+    "icon": "res://assets/weapons/mithril/mithril_staff.png"
+  },
+  "Arco de Mithril": {
+    "id": "weapon_mithril_bow",
+    "name": "Arco de Mithril",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "Arma Mithril (Arqueiro). +26 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 26
+    },
+    "icon": "res://assets/weapons/mithril/mithril_bow.png"
+  },
+  "Espada de Obsidiana": {
+    "id": "weapon_obsidian_sword",
+    "name": "Espada de Obsidiana",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "mega_legendary",
+    "description": "Arma Obsidiana (Guerreiro). +35 ataque.",
+    "stats": {
+      "ataque": 35,
+      "physical_damage_pct": 0.05
+    },
+    "icon": "res://assets/weapons/obsidian/obsidian_sword.png"
+  },
+  "Cajado de Obsidiana": {
+    "id": "weapon_obsidian_staff",
+    "name": "Cajado de Obsidiana",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "mega_legendary",
+    "description": "Arma Obsidiana (Mago). +33 ataque magico e +100 mana.",
+    "stats": {
+      "ataque_magico": 33,
+      "mana_max": 100
+    },
+    "icon": "res://assets/weapons/obsidian/obsidian_staff.png"
+  },
+  "Arco de Obsidiana": {
+    "id": "weapon_obsidian_bow",
+    "name": "Arco de Obsidiana",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "mega_legendary",
+    "description": "Arma Obsidiana (Arqueiro). +34 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 34,
+      "physical_damage_pct": 0.05
+    },
+    "icon": "res://assets/weapons/obsidian/obsidian_bow.png"
+  },
+  "Espada Celeste": {
+    "id": "weapon_crystal_sword",
+    "name": "Espada Celeste",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "god",
+    "description": "Arma Cristal Celeste (Guerreiro). +45 ataque.",
+    "stats": {
+      "ataque": 45,
+      "mana_regen_pct": 0.04
+    },
+    "icon": "res://assets/weapons/crystal/crystal_sword.png"
+  },
+  "Cajado Celeste": {
+    "id": "weapon_crystal_staff",
+    "name": "Cajado Celeste",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "god",
+    "description": "Arma Cristal Celeste (Mago). +43 ataque magico e +130 mana.",
+    "stats": {
+      "ataque_magico": 43,
+      "mana_max": 130,
+      "mana_regen_pct": 0.04
+    },
+    "icon": "res://assets/weapons/crystal/crystal_staff.png"
+  },
+  "Arco Celeste": {
+    "id": "weapon_crystal_bow",
+    "name": "Arco Celeste",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "god",
+    "description": "Arma Cristal Celeste (Arqueiro). +44 ataque a distancia.",
+    "stats": {
+      "ataque_distancia": 44,
+      "mana_regen_pct": 0.04
+    },
+    "icon": "res://assets/weapons/crystal/crystal_bow.png"
   }
 }
