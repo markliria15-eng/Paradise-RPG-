@@ -42,6 +42,11 @@ if ($Offline) {
 }
 	Write-Host "Paradise RPG - ambiente: $effectiveEnvironment - modo: $mode"
     Write-Host "Mouse simula toque; viewport mobile: 1280x720."
+    if (-not $SmokeTest) {
+        # Sem o editor o Godot nao reimporta PNGs novos/alterados: atualiza o cache antes.
+        Write-Host "Atualizando importacao de assets (.godot/imported)..."
+        & $godot --headless --path $repoRoot --import | Out-Null
+    }
     & $godot @arguments
     $exitCode = $LASTEXITCODE
 }

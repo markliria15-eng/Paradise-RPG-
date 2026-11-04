@@ -33,6 +33,10 @@ static func load_json_array(path: String) -> Array:
 static func resolve_data_path(path: String) -> String:
 	if not path.begins_with("res://data/"):
 		return path
+	# Teste offline usa sempre os dados do projeto: um patch antigo baixado numa sessao
+	# online escondia itens novos (armas, bijuterias, bolsas) de data/.
+	if "--offline-test" in OS.get_cmdline_user_args():
+		return path
 	var file_name := path.get_file()
 	var patched_path := "user://patches/data/" + file_name
 	if FileAccess.file_exists(patched_path):

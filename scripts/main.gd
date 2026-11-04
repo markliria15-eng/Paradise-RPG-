@@ -26,10 +26,10 @@ const SKILL_BUTTON_POSITIONS := [
 ]
 const SKILL_BUTTON_SIZE := Vector2(74, 68)
 const QUICK_TOP_BUTTON_POSITIONS := [
-	Vector2(1018, 78),
-	Vector2(1086, 78),
-	Vector2(1154, 78),
-	Vector2(1218, 78)
+	Vector2(1000, 78),
+	Vector2(1068, 78),
+	Vector2(1136, 78),
+	Vector2(1204, 78)
 ]
 const QUICK_TOP_BUTTON_SIZE := Vector2(68, 62)
 const CHAT_PANEL_POS := Vector2(18, 166)
@@ -334,6 +334,8 @@ var input_guard: ColorRect
 var side_menu_panel: PanelContainer
 var side_menu_toggle_button: Button
 var side_menu_visible := false
+var last_ui_tap_ms := -1000
+var last_ui_tap_pos := Vector2(-999, -999)
 var selected_npc: Npc
 var selected_portal: Area2D
 var portal_nodes: Array[Area2D] = []
@@ -592,6 +594,13 @@ func _handle_touch_ui_event(event: InputEvent) -> bool:
 		active = true
 	if not active:
 		return false
+	# Com emulate_touch_from_mouse/emulate_mouse_from_touch ligados, um toque chega duas
+	# vezes (mouse + toque emulado). Sem isso o MENU abria e fechava no mesmo clique.
+	var now_ms := Time.get_ticks_msec()
+	if now_ms - last_ui_tap_ms < 180 and pos.distance_to(last_ui_tap_pos) < 24.0:
+		return true
+	last_ui_tap_ms = now_ms
+	last_ui_tap_pos = pos
 	for button in touch_buttons:
 		if button == null or not is_instance_valid(button) or button.disabled or not button.visible:
 			continue
@@ -1704,9 +1713,10 @@ func _build_touch_controls() -> void:
 	quests_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[2], QUICK_TOP_BUTTON_SIZE, _show_quests)
 	chat_button = _make_tap_button("CHAT", QUICK_TOP_BUTTON_POSITIONS[3], QUICK_TOP_BUTTON_SIZE, _toggle_chat_panel)
 	_style_quick_top_button(inventory_button, "res://assets/ui/buttons/btn_inventory.png", "Bolsa")
-	_style_quick_top_button(character_button, "res://assets/ui/skills/skill_protecao.png", "Habilidades")
+	_style_quick_top_button(character_button, "res://assets/ui/buttons/btn_character.png", "Habilidades")
 	_style_quick_top_button(quests_button, "res://assets/ui/buttons/btn_quest.png", "Missoes")
-	_style_quick_text_button(chat_button, "Chat")
+	_style_quick_top_button(chat_button, "res://assets/ui/buttons/btn_chat.png", "Chat")
+	chat_button.text = ""
 
 func _prepare_skill_button_feedback(button: Button) -> void:
 	if button == null:
@@ -2009,7 +2019,7 @@ func _toggle_chat_panel() -> void:
 		_close_chat_panel()
 		return
 	chat_panel.visible = true
-	chat_panel.raise()
+	chat_panel.move_to_front()
 	if chat_input != null:
 		chat_input.clear()
 		chat_input.grab_focus()
@@ -2186,9 +2196,9 @@ func _toggle_side_menu() -> void:
 			panel_blocker.visible = false
 		if input_guard != null:
 			input_guard.visible = false
-		side_menu_panel.raise()
+		side_menu_panel.move_to_front()
 		if side_menu_toggle_button != null:
-			side_menu_toggle_button.raise()
+			side_menu_toggle_button.move_to_front()
 	_sync_side_menu_mouse_filter()
 
 func _logout_to_start() -> void:
