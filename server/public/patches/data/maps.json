@@ -589,7 +589,18 @@
       3600,
       4980
     ],
-    "npcs": [],
+    "npcs": [
+      {
+        "name": "Maga Selene",
+        "role": "talk",
+        "pos": [
+          3380,
+          5000
+        ],
+        "sprite": "res://assets/characters/npcs/npc_maga_selene_idle_4f_128.png",
+        "greeting": "Voce atravessou a caverna? As runas daqui ainda guardam o poder do Arquimago. Prepare-se."
+      }
+    ],
     "portals": [
       {
         "label": "Caverna",
@@ -784,7 +795,58 @@
       627,
       1100
     ],
-    "npcs": [],
+    "npcs": [
+      {
+        "name": "Liora, Curandeira",
+        "role": "healer",
+        "pos": [
+          400,
+          620
+        ],
+        "sprite": "res://assets/characters/npcs/npc_liora_curandeira_idle_4f_128.png",
+        "greeting": "O templo de Valdoria cura qualquer ferida."
+      },
+      {
+        "name": "Varek, Mercador",
+        "role": "shop",
+        "pos": [
+          850,
+          620
+        ],
+        "sprite": "res://assets/characters/npcs/npc_varek_mercador_idle_4f_128.png",
+        "greeting": "Os melhores precos do porto, amigo!"
+      },
+      {
+        "name": "Mira, Vendedora de Pets",
+        "role": "pet_shop",
+        "pos": [
+          300,
+          860
+        ],
+        "sprite": "res://assets/characters/npcs/npc_mira_pets_idle_4f_128.png",
+        "greeting": "Quer um companheiro de aventura?"
+      },
+      {
+        "name": "Torin, Mestre de Montarias",
+        "role": "mount_shop",
+        "pos": [
+          950,
+          860
+        ],
+        "sprite": "res://assets/characters/npcs/npc_torin_montarias_idle_4f_128.png",
+        "greeting": "Uma boa montaria encurta qualquer viagem."
+      },
+      {
+        "name": "Durnan, Forja Rara",
+        "role": "rare_forge",
+        "pos": [
+          627,
+          480
+        ],
+        "sprite": "res://assets/characters/npcs/npc_durnan_forja_rara_idle_4f_128.png",
+        "greeting": "Runas e aco raro. Traga os materiais certos."
+      }
+    ],
     "portals": [],
     "spawns": [],
     "collectibles": [],
@@ -856,7 +918,18 @@
       760,
       3300
     ],
-    "npcs": [],
+    "npcs": [
+      {
+        "name": "Mineiro Perdido",
+        "role": "talk",
+        "pos": [
+          1000,
+          3200
+        ],
+        "sprite": "res://assets/characters/npcs/npc_mineiro_perdido_idle_4f_128.png",
+        "greeting": "Me perdi nessa mina faz dias... Cuidado com as aranhas: a Matriarca guarda a saida para as Ruinas."
+      }
+    ],
     "portals": [
       {
         "label": "Floresta",

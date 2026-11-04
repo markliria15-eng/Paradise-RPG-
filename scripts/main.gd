@@ -4290,6 +4290,7 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		var pos: Array = npc_data.get("pos", [100, 100])
 		npc.global_position = _map_data_point(pos)
 		var npc_greeting := str(npc_data.get("greeting", ""))
+		npc.set_meta("greeting", npc_greeting)
 		npc.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_npc = npc_ref
@@ -5135,6 +5136,11 @@ func _interact() -> void:
 				_flash("Marcos: treine usando ataque, defesa e velocidade em combate real.")
 			"quest":
 				_handle_quest_npc(selected_npc.quest_id)
+			"talk":
+				# NPC so de conversa (Mineiro Perdido, Maga Selene): repete a fala dele.
+				var line := str(selected_npc.get_meta("greeting", ""))
+				if not line.is_empty():
+					_show_npc_bubble(selected_npc, line)
 		return
 	if _collect_nearest_manual_drop():
 		return

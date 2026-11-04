@@ -155,9 +155,9 @@ func _premium_sprite_path(npc_role: String) -> String:
 		"quest":
 			return "res://assets/characters/npcs/npc_guarda_doran_idle_4f_128.png"
 		"pet_shop":
-			return "res://assets/characters/npcs/npc_borin_mercador_idle_4f_128.png"
+			return "res://assets/characters/npcs/npc_mira_pets_idle_4f_128.png"
 		"mount_shop":
-			return "res://assets/characters/npcs/npc_bakka_ferreiro_idle_4f_128.png"
+			return "res://assets/characters/npcs/npc_torin_montarias_idle_4f_128.png"
 		"rare_forge":
-			return "res://assets/characters/npcs/npc_bakka_ferreiro_idle_4f_128.png"
+			return "res://assets/characters/npcs/npc_durnan_forja_rara_idle_4f_128.png"
 	return "res://assets/characters/npcs/npc_guarda_doran_idle_4f_128.png"
