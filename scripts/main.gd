@@ -287,6 +287,8 @@ const MAPS_REBUILD_BASE_ONLY := {
 const HUD_LAYOUT_PATH := "user://hud_layout.json"
 const HUD_LAYOUT_VERSION := 6
 const MINIMAP_SIZE := Vector2(124, 106)
+const SIDE_MENU_TAB_SIZE := Vector2(222, 68)
+const SIDE_MENU_PANEL_SIZE := Vector2(470, 618)
 const MINIMAP_CANVAS_POS := Vector2(19, 206)
 const MINIMAP_FRAME_POS := Vector2(10, 182)
 const MINIMAP_FRAME_SIZE := Vector2(150, 146)
@@ -1928,8 +1930,8 @@ func _build_side_menu() -> void:
 	ui.add_child(side_menu_toggle_button)
 
 	side_menu_panel = PanelContainer.new()
-	side_menu_panel.position = Vector2(980, 54)
-	side_menu_panel.size = Vector2(286, 618)
+	side_menu_panel.position = Vector2(1272 - SIDE_MENU_PANEL_SIZE.x, 54)
+	side_menu_panel.size = SIDE_MENU_PANEL_SIZE
 	side_menu_panel.visible = false
 	side_menu_panel.z_index = 941
 	var style := StyleBoxFlat.new()
@@ -1939,8 +1941,8 @@ func _build_side_menu() -> void:
 	style.set_corner_radius_all(9)
 	side_menu_panel.add_theme_stylebox_override("panel", style)
 	var scroller := ScrollContainer.new()
-	scroller.custom_minimum_size = Vector2(274, 606)
-	scroller.size = Vector2(274, 606)
+	scroller.custom_minimum_size = SIDE_MENU_PANEL_SIZE - Vector2(12, 12)
+	scroller.size = SIDE_MENU_PANEL_SIZE - Vector2(12, 12)
 	scroller.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroller.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	side_menu_panel.add_child(scroller)
@@ -1955,17 +1957,51 @@ func _build_side_menu() -> void:
 		button.text = item_label
 		button.focus_mode = Control.FOCUS_NONE
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
-		var icon_path := str(UISideMenu.MENU_ICON_BY_ITEM.get(item_label, ""))
-		if not icon_path.is_empty():
-			button.icon = load(icon_path)
-			button.expand_icon = true
-		UISideMenu.style_button(button)
+		var tab_path := "res://assets/ui/menu_tabs/%s.png" % item_label
+		if ResourceLoader.exists(tab_path):
+			_style_side_menu_tab(button, load(tab_path) as Texture2D, item_label)
+		else:
+			var icon_path := str(UISideMenu.MENU_ICON_BY_ITEM.get(item_label, ""))
+			if not icon_path.is_empty():
+				button.icon = load(icon_path)
+				button.expand_icon = true
+			UISideMenu.style_button(button)
+			button.custom_minimum_size = SIDE_MENU_TAB_SIZE
 		button.set_meta("menu_item", item_label)
 		button.pressed.connect(Callable(self, "_handle_side_menu").bind(item_label))
 		list.add_child(button)
 		side_menu_buttons.append(button)
 	ui.add_child(side_menu_panel)
 	_sync_side_menu_mouse_filter()
+
+# Aba premium (assets/ui/menu_tabs/<item>.png, tools/menu_tabs): a arte ja traz o nome.
+# Todas na mesma largura e com a base alinhada; o icone que sai por cima da moldura
+# pode passar do botao.
+func _style_side_menu_tab(button: Button, texture: Texture2D, item_label: String) -> void:
+	button.text = ""
+	button.icon = null
+	button.tooltip_text = item_label
+	button.custom_minimum_size = SIDE_MENU_TAB_SIZE
+	button.clip_contents = false
+	var empty := StyleBoxEmpty.new()
+	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
+		button.add_theme_stylebox_override(state, empty)
+	if texture == null:
+		return
+	var art := TextureRect.new()
+	art.texture = texture
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_SCALE
+	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var tex_size := texture.get_size()
+	var h := SIDE_MENU_TAB_SIZE.x * tex_size.y / maxf(1.0, tex_size.x)
+	art.custom_minimum_size = Vector2.ZERO
+	art.position = Vector2(0, SIDE_MENU_TAB_SIZE.y - h)
+	art.size = Vector2(SIDE_MENU_TAB_SIZE.x, h)
+	button.add_child(art)
+	# clareia ao tocar
+	button.button_down.connect(func() -> void: art.modulate = Color(1.25, 1.2, 1.05))
+	button.button_up.connect(func() -> void: art.modulate = Color.WHITE)
 
 func _handle_side_menu(item: String) -> void:
 	match item:
