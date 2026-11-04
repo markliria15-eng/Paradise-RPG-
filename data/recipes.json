@@ -1512,5 +1512,307 @@
     },
     "success_chance": 55,
     "source": "weapon_icons"
+  },
+  "Joia de Ambar": {
+    "result": "Joia de Ambar",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 1,
+    "gold": 80,
+    "materials": {
+      "Fragmento de Cristal": 2,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Joia de Ferro": {
+    "result": "Joia de Ferro",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 300,
+    "materials": {
+      "Joia de Ambar": 1,
+      "Minerio de Ferro": 6,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Amuleto de Ferro": {
+    "result": "Amuleto de Ferro",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 300,
+    "materials": {
+      "Amuleto Fraco": 1,
+      "Minerio de Ferro": 6,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Anel de Ferro": {
+    "result": "Anel de Ferro",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 2,
+    "gold": 300,
+    "materials": {
+      "Anel Simples": 1,
+      "Minerio de Ferro": 6,
+      "Carvao": 1,
+      "Tira de Couro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Joia de Ouro": {
+    "result": "Joia de Ouro",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 450,
+    "materials": {
+      "Joia de Ferro": 1,
+      "Lingote de Ouro": 6,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Amuleto de Ouro": {
+    "result": "Amuleto de Ouro",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 450,
+    "materials": {
+      "Amuleto de Ferro": 1,
+      "Lingote de Ouro": 6,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Anel de Ouro": {
+    "result": "Anel de Ouro",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 3,
+    "gold": 450,
+    "materials": {
+      "Anel de Ferro": 1,
+      "Lingote de Ouro": 6,
+      "Fragmento de Rubi": 1,
+      "Placa de Ferro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Joia de Titanio": {
+    "result": "Joia de Titanio",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 600,
+    "materials": {
+      "Joia de Ouro": 1,
+      "Minerio de Titanio": 6,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Amuleto de Titanio": {
+    "result": "Amuleto de Titanio",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 600,
+    "materials": {
+      "Amuleto de Ouro": 1,
+      "Minerio de Titanio": 6,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Anel de Titanio": {
+    "result": "Anel de Titanio",
+    "tier": "basic",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 4,
+    "gold": 600,
+    "materials": {
+      "Anel de Ouro": 1,
+      "Minerio de Titanio": 6,
+      "Cristal Azul": 1,
+      "Rebite de Ouro": 2
+    },
+    "success_chance": 100,
+    "source": "jewel_icons"
+  },
+  "Joia de Mithril": {
+    "result": "Joia de Mithril",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 750,
+    "materials": {
+      "Joia de Titanio": 1,
+      "Minerio de Mithril": 6,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "jewel_icons"
+  },
+  "Amuleto de Mithril": {
+    "result": "Amuleto de Mithril",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 750,
+    "materials": {
+      "Amuleto de Titanio": 1,
+      "Minerio de Mithril": 6,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "jewel_icons"
+  },
+  "Anel de Mithril": {
+    "result": "Anel de Mithril",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 5,
+    "gold": 750,
+    "materials": {
+      "Anel de Titanio": 1,
+      "Minerio de Mithril": 6,
+      "Cristal Arcano": 1,
+      "Placa de Titanio": 2
+    },
+    "success_chance": 85,
+    "source": "jewel_icons"
+  },
+  "Joia de Obsidiana": {
+    "result": "Joia de Obsidiana",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 900,
+    "materials": {
+      "Joia de Mithril": 1,
+      "Fragmento de Obsidiana": 6,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "jewel_icons"
+  },
+  "Amuleto de Obsidiana": {
+    "result": "Amuleto de Obsidiana",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 900,
+    "materials": {
+      "Amuleto de Mithril": 1,
+      "Fragmento de Obsidiana": 6,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "jewel_icons"
+  },
+  "Anel de Obsidiana": {
+    "result": "Anel de Obsidiana",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 6,
+    "gold": 900,
+    "materials": {
+      "Anel de Mithril": 1,
+      "Fragmento de Obsidiana": 6,
+      "Essencia Sombria": 1,
+      "Placa de Mithril": 2
+    },
+    "success_chance": 70,
+    "source": "jewel_icons"
+  },
+  "Joia Celeste": {
+    "result": "Joia Celeste",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1050,
+    "materials": {
+      "Joia de Obsidiana": 1,
+      "Cristal Divino": 6,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "jewel_icons"
+  },
+  "Amuleto Celeste": {
+    "result": "Amuleto Celeste",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1050,
+    "materials": {
+      "Amuleto de Obsidiana": 1,
+      "Cristal Divino": 6,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "jewel_icons"
+  },
+  "Anel Celeste": {
+    "result": "Anel Celeste",
+    "tier": "rare",
+    "category": "joias",
+    "profession": "blacksmithing",
+    "profession_level_required": 7,
+    "gold": 1050,
+    "materials": {
+      "Anel de Obsidiana": 1,
+      "Cristal Divino": 6,
+      "Essencia Celestial": 1,
+      "Nucleo de Obsidiana": 2
+    },
+    "success_chance": 55,
+    "source": "jewel_icons"
   }
 }

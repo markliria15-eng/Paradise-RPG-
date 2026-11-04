@@ -19,7 +19,7 @@ static func can_craft(player, recipe: Dictionary) -> bool:
 	var result := str(recipe.get("result", ""))
 	if result.is_empty():
 		return false
-	if not player.inventory.items.has(result) and player.inventory.items.size() >= InventorySystem.MAX_SLOTS:
+	if not player.inventory.items.has(result) and player.inventory.items.size() >= player.inventory.capacity():
 		return false
 	var materials: Dictionary = recipe.get("materials", {})
 	for material in materials.keys():

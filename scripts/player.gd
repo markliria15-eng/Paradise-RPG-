@@ -418,6 +418,7 @@ func recalculate_equipment() -> void:
 	var magic_level := int(skills.get("magic", {}).get("level", 10))
 	mana_max = int(base.get("mana", mana_max)) + (level - 1) * 5 + max(0, magic_level - 10) * 3
 	ataque = raw_ataque
+	inventory.extra_slots = int(item_db.get_item(str(inventory.equipment.get("backpack", ""))).get("bag_slots", 0))
 	ataque_distancia = 0
 	defesa = raw_defesa
 	ataque_magico = 0

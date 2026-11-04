@@ -5436,7 +5436,7 @@ func _open_inventory_panel() -> void:
 	var bag_box := VBoxContainer.new()
 	bag_box.custom_minimum_size = Vector2(535, 470)
 	root.add_child(bag_box)
-	bag_box.add_child(_panel_label("Bolsa (20 slots)", 18, Color.WHITE))
+	bag_box.add_child(_panel_label("Bolsa (%d slots)" % player.inventory.capacity(), 18, Color.WHITE))
 	var scroll := ScrollContainer.new()
 	scroll.custom_minimum_size = Vector2(535, 430)
 	scroll.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -5453,7 +5453,7 @@ func _open_inventory_panel() -> void:
 	keys.sort()
 	var shown := 0
 	for item_name in keys:
-		if shown >= InventorySystem.MAX_SLOTS:
+		if shown >= player.inventory.capacity():
 			break
 		var bag_item_name := str(item_name)
 		var data := item_db.get_item(bag_item_name)
@@ -5472,7 +5472,7 @@ func _open_inventory_panel() -> void:
 		)
 		bag_grid.add_child(slot_btn)
 		shown += 1
-	while shown < InventorySystem.MAX_SLOTS:
+	while shown < player.inventory.capacity():
 		var empty_slot := PanelContainer.new()
 		empty_slot.custom_minimum_size = Vector2(96, 76)
 		empty_slot.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -5495,13 +5495,18 @@ func _use_or_equip_item(item_name: String) -> void:
 			if not slot.is_empty():
 				player.recalculate_equipment()
 				_flash("Equipado em " + EquipmentSystem.slot_label(slot) + ": " + item_name)
+			elif EquipmentSystem.normalize_slot(str(data.get("slot", ""))) == "backpack":
+				_flash_red("Essa bolsa e menor: libere espaco antes de trocar.")
 		_:
 			_flash(str(data.get("description", "Item sem acao.")))
 
 func _remove_equipped_item(slot: String) -> void:
 	var removed: String = player.inventory.remove_equipment(slot)
 	if removed.is_empty():
-		_flash("Slot vazio.")
+		if EquipmentSystem.normalize_slot(slot) == "backpack" and not str(player.inventory.equipment.get("backpack", "")).is_empty():
+			_flash_red("Esvazie a bolsa antes de tirar: sem ela cabem %d itens." % InventorySystem.MAX_SLOTS)
+		else:
+			_flash("Slot vazio.")
 		return
 	player.recalculate_equipment()
 	_flash("Removido: " + removed)

@@ -3,7 +3,7 @@ class_name InventorySystem
 
 # Inventario baseado em pilhas por nome de item. O banco de itens define se algo
 # e consumivel, equipamento, joia, material ou item de missao.
-const MAX_SLOTS := 20
+const MAX_SLOTS := 20  # base sem bolsa; a bolsa equipada (slot backpack) soma "bag_slots"
 const EQUIPMENT_SLOTS := [
 	"amulet", "head", "backpack",
 	"shoulder_left", "chest", "shoulder_right",
@@ -15,6 +15,7 @@ const EQUIPMENT_SLOTS := [
 
 var items: Dictionary = {}
 var equipment: Dictionary = {}
+var extra_slots := 0  # atualizado por Player.recalculate_equipment a partir da bolsa equipada
 
 func _init() -> void:
 	equipment = EquipmentSystem.empty_equipment()
@@ -22,10 +23,13 @@ func _init() -> void:
 func add_item(item_name: String, amount: int = 1) -> bool:
 	if item_name.is_empty():
 		return false
-	if not items.has(item_name) and items.size() >= MAX_SLOTS:
+	if not items.has(item_name) and items.size() >= capacity():
 		return false
 	items[item_name] = int(items.get(item_name, 0)) + amount
 	return true
+
+func capacity() -> int:
+	return MAX_SLOTS + max(0, extra_slots)
 
 func remove_item(item_name: String, amount: int = 1) -> bool:
 	if int(items.get(item_name, 0)) < amount:

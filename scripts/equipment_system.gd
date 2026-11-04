@@ -96,6 +96,15 @@ static func equip_item(inventory, item_name: String, item_data: Dictionary) -> S
 		return ""
 	var slot := normalize_slot(str(item_data.get("slot", "")))
 	var previous := str(inventory.equipment.get(slot, ""))
+	if slot == "backpack":
+		# trocar por uma bolsa menor so se os itens couberem nela
+		var after: int = inventory.items.size()
+		if int(inventory.items.get(item_name, 0)) <= 1:
+			after -= 1
+		if not previous.is_empty() and not inventory.items.has(previous):
+			after += 1
+		if after > InventorySystem.MAX_SLOTS + int(item_data.get("bag_slots", 0)):
+			return ""
 	inventory.equipment[slot] = item_name
 	inventory.remove_item(item_name, 1)
 	if not previous.is_empty():
@@ -107,6 +116,11 @@ static func remove_item(inventory, slot: String) -> String:
 	var item_name := str(inventory.equipment.get(normalized, ""))
 	if item_name.is_empty():
 		return ""
+	if normalized == "backpack":
+		# sem bolsa a capacidade volta para a base: os itens (e a bolsa) precisam caber
+		var after: int = inventory.items.size() + (0 if inventory.items.has(item_name) else 1)
+		if after > InventorySystem.MAX_SLOTS:
+			return ""
 	if not inventory.add_item(item_name, 1):
 		return ""
 	inventory.equipment[normalized] = ""
