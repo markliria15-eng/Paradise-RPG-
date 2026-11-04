@@ -5423,10 +5423,15 @@ func _open_inventory_panel() -> void:
 	equip_grid.add_theme_constant_override("h_separation", 6)
 	equip_grid.add_theme_constant_override("v_separation", 6)
 	equipment_box.add_child(equip_grid)
-	for slot in EquipmentSystem.SLOT_ORDER:
-		var slot_name := str(slot)
-		var button := _inventory_equipment_slot_button(slot_name, slot_data)
-		equip_grid.add_child(button)
+	for row in EquipmentSystem.SLOT_GRID:
+		for slot in row:
+			var slot_name := str(slot)
+			if slot_name.is_empty():
+				var spacer := Control.new()
+				spacer.custom_minimum_size = Vector2(86, 62)
+				equip_grid.add_child(spacer)
+				continue
+			equip_grid.add_child(_inventory_equipment_slot_button(slot_name, slot_data))
 
 	var bag_box := VBoxContainer.new()
 	bag_box.custom_minimum_size = Vector2(535, 470)
@@ -5560,10 +5565,12 @@ func _show_equipment_window() -> void:
 	for row in EquipmentSystem.SLOT_GRID:
 		for slot in row:
 			var slot_name := str(slot)
+			if slot_name.is_empty():
+				var spacer := Control.new()
+				spacer.custom_minimum_size = Vector2(132, 78)
+				grid.add_child(spacer)
+				continue
 			grid.add_child(_equipment_slot_button(slot_name, slot_data))
-		if row.size() == 1:
-			grid.add_child(Control.new())
-			grid.add_child(Control.new())
 
 func _show_quests() -> void:
 	if panel.visible and current_panel == "quests":

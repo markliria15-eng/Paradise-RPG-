@@ -9,13 +9,16 @@ const SLOT_ORDER := [
 	"hand_right", "legs", "pants",
 	"foot_left", "boots", "foot_right"
 ]
+# Grade das janelas (corpo do personagem; "" = espaco vazio). "pants" e "boots"
+# continuam em SLOT_ORDER so por compatibilidade de save: os aliases mandam calca
+# para "legs" e bota para "foot_left", entao esses dois quadrados nunca recebem item.
 const SLOT_GRID := [
 	["amulet", "head", "backpack"],
 	["shoulder_left", "chest", "shoulder_right"],
-	["shield", "hand_left", "weapon"],
-	["ring", "belt", "jewel"],
-	["hand_right", "legs", "pants"],
-	["foot_left", "boots", "foot_right"]
+	["hand_left", "belt", "hand_right"],
+	["weapon", "legs", "shield"],
+	["foot_left", "", "foot_right"],
+	["ring", "", "jewel"]
 ]
 const SLOT_LABELS := {
 	"amulet": "Amuleto",
