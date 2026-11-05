@@ -1999,574 +1999,574 @@
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3010,
     900
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3390,
     900
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3010,
     1330
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3390,
     1330
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3010,
     1760
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3390,
     1760
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3010,
     3480
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3390,
     3480
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3010,
     3910
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3390,
     3910
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3010,
     4340
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3390,
     4340
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     800,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     1420,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     2040,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     2660,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3900,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     4520,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     5140,
     1717.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     800,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     1420,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     2040,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     2660,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3900,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     4520,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     5140,
     3017.0
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
@@ -2794,7 +2794,7 @@
    "name": "bed_mixed",
    "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
    "pos": [
-    2407.8,
+    4257.8,
     2264.3
    ],
    "offset": [
@@ -2816,7 +2816,7 @@
    "name": "tree_white",
    "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
    "pos": [
-    2430.8,
+    4280.8,
     2651.0
    ],
    "offset": [
@@ -2838,7 +2838,7 @@
    "name": "tree_blue",
    "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
    "pos": [
-    2011.7,
+    3861.7,
     2487.5
    ],
    "offset": [
@@ -2860,7 +2860,7 @@
    "name": "tree_blue",
    "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
    "pos": [
-    2546.0,
+    4396.0,
     2674.8
    ],
    "offset": [
@@ -2875,94 +2875,6 @@
      -46,
      95.83865546218487,
      46
-    ]
-   ]
-  },
-  {
-   "name": "tree_blue",
-   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
-   "pos": [
-    3976.8,
-    2583.7
-   ],
-   "offset": [
-    -99.0,
-    -238
-   ],
-   "scale": 1.5126,
-   "flip_h": false,
-   "collisions": [
-    [
-     -47.91932773109244,
-     -46,
-     95.83865546218487,
-     46
-    ]
-   ]
-  },
-  {
-   "name": "bed_mixed",
-   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
-   "pos": [
-    4433.9,
-    2423.8
-   ],
-   "offset": [
-    -101.5,
-    -165
-   ],
-   "scale": 0.7273,
-   "flip_h": false,
-   "collisions": [
-    [
-     -62.007272727272735,
-     -40,
-     124.01454545454547,
-     40
-    ]
-   ]
-  },
-  {
-   "name": "bed_mixed",
-   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
-   "pos": [
-    3836.7,
-    2709.0
-   ],
-   "offset": [
-    -101.5,
-    -165
-   ],
-   "scale": 0.7273,
-   "flip_h": false,
-   "collisions": [
-    [
-     -62.007272727272735,
-     -40,
-     124.01454545454547,
-     40
-    ]
-   ]
-  },
-  {
-   "name": "bush_flower",
-   "texture": "res://assets/maps/eldoria_v2/props/bush_flower.png",
-   "pos": [
-    4288.2,
-    2768.6
-   ],
-   "offset": [
-    -71.0,
-    -127
-   ],
-   "scale": 0.748,
-   "flip_h": false,
-   "collisions": [
-    [
-     -40.36377952755906,
-     -40,
-     80.72755905511812,
-     40
     ]
    ]
   },
@@ -3165,222 +3077,1053 @@
    ]
   },
   {
-   "name": "barrel",
-   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
-   "pos": [
-    900,
-    4580
-   ],
-   "offset": [
-    -62.5,
-    -172
-   ],
-   "scale": 0.4651,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23.25581395348837,
-     -34,
-     46.51162790697674,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "barrel",
-   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
-   "pos": [
-    1500,
-    4580
-   ],
-   "offset": [
-    -62.5,
-    -172
-   ],
-   "scale": 0.4651,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23.25581395348837,
-     -34,
-     46.51162790697674,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "barrel",
-   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
-   "pos": [
-    2100,
-    4580
-   ],
-   "offset": [
-    -62.5,
-    -172
-   ],
-   "scale": 0.4651,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23.25581395348837,
-     -34,
-     46.51162790697674,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "barrel",
-   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
-   "pos": [
-    2600,
-    4580
-   ],
-   "offset": [
-    -62.5,
-    -172
-   ],
-   "scale": 0.4651,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23.25581395348837,
-     -34,
-     46.51162790697674,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "crate",
-   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
-   "pos": [
-    3900,
-    4580
-   ],
-   "offset": [
-    -65.5,
-    -148
-   ],
-   "scale": 0.4865,
-   "flip_h": false,
-   "collisions": [
-    [
-     -26.766486486486485,
-     -34,
-     53.53297297297297,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "crate",
-   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
-   "pos": [
-    4400,
-    4580
-   ],
-   "offset": [
-    -65.5,
-    -148
-   ],
-   "scale": 0.4865,
-   "flip_h": false,
-   "collisions": [
-    [
-     -26.766486486486485,
-     -34,
-     53.53297297297297,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "barrel",
-   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
-   "pos": [
-    4900,
-    4580
-   ],
-   "offset": [
-    -62.5,
-    -172
-   ],
-   "scale": 0.4651,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23.25581395348837,
-     -34,
-     46.51162790697674,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "cart",
-   "texture": "res://assets/maps/eldoria_v2/props/cart.png",
-   "pos": [
-    1900,
-    4520
-   ],
-   "offset": [
-    -120.5,
-    -170
-   ],
-   "scale": 0.8299,
-   "flip_h": false,
-   "collisions": [
-    [
-     -84.0,
-     -46,
-     168.0,
-     46
-    ]
-   ]
-  },
-  {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3090,
     5250
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
-     -26,
-     29.2078431372549,
-     26
+     -7.5,
+     -22,
+     15.0,
+     22
     ]
    ]
   },
   {
-   "name": "lamp",
-   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "name": "gas_lamp",
+   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
    "pos": [
     3310,
     5250
    ],
    "offset": [
-    -49.0,
-    -255
+    -25.0,
+    -240
    ],
-   "scale": 0.7451,
+   "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14.60392156862745,
+     -7.5,
+     -22,
+     15.0,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "furnace",
+   "texture": "res://assets/maps/valdoria_v2/props/furnace.png",
+   "pos": [
+    2250,
+    2420
+   ],
+   "offset": [
+    -165.0,
+    -400
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -141.9,
+     -120,
+     283.8,
+     120
+    ]
+   ]
+  },
+  {
+   "name": "chimney",
+   "texture": "res://assets/maps/valdoria_v2/props/chimney.png",
+   "pos": [
+    2560,
+    2330
+   ],
+   "offset": [
+    -61.5,
+    -430
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -43.0,
+     -60,
+     86.1,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "chimney",
+   "texture": "res://assets/maps/valdoria_v2/props/chimney.png",
+   "pos": [
+    1960,
+    2300
+   ],
+   "offset": [
+    -61.5,
+    -430
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -43.0,
+     -60,
+     86.1,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "anvil",
+   "texture": "res://assets/maps/valdoria_v2/props/anvil.png",
+   "pos": [
+    2050,
+    2620
+   ],
+   "offset": [
+    -47.5,
+    -110
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -33.2,
+     -34,
+     66.5,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "workbench",
+   "texture": "res://assets/maps/valdoria_v2/props/workbench.png",
+   "pos": [
+    2470,
+    2640
+   ],
+   "offset": [
+    -110.5,
+    -200
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -93.9,
+     -50,
+     187.8,
+     50
+    ]
+   ]
+  },
+  {
+   "name": "coal",
+   "texture": "res://assets/maps/valdoria_v2/props/coal.png",
+   "pos": [
+    2620,
+    2520
+   ],
+   "offset": [
+    -60.0,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.0,
+     -30,
+     96.0,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "firewood",
+   "texture": "res://assets/maps/valdoria_v2/props/firewood.png",
+   "pos": [
+    1980,
+    2780
+   ],
+   "offset": [
+    -70.0,
+    -88
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -59.5,
+     -34,
+     119.0,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "cogwheel",
+   "texture": "res://assets/maps/valdoria_v2/props/cogwheel.png",
+   "pos": [
+    2600,
+    2860
+   ],
+   "offset": [
+    -132.5,
+    -270
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -112.6,
+     -70,
+     225.2,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "mine_cart",
+   "texture": "res://assets/maps/valdoria_v2/props/mine_cart.png",
+   "pos": [
+    2250,
+    2870
+   ],
+   "offset": [
+    -115.0,
+    -163
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -97.8,
+     -50,
+     195.5,
+     50
+    ]
+   ]
+  },
+  {
+   "name": "rail_curved",
+   "texture": "res://assets/maps/valdoria_v2/props/rail_curved.png",
+   "pos": [
+    2000,
+    2930
+   ],
+   "offset": [
+    -115.0,
+    -235
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "layer": "ground"
+  },
+  {
+   "name": "hand_cart",
+   "texture": "res://assets/maps/valdoria_v2/props/hand_cart.png",
+   "pos": [
+    2420,
+    2900
+   ],
+   "offset": [
+    -90.0,
+    -125
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -76.5,
+     -40,
+     153.0,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "carriage_luxury_parked",
+   "texture": "res://assets/maps/valdoria_v2/props/carriage_luxury_parked.png",
+   "pos": [
+    3800,
+    1770
+   ],
+   "offset": [
+    -160.0,
+    -217
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -136.0,
+     -70,
+     272.0,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "carriage_luxury_parked",
+   "texture": "res://assets/maps/valdoria_v2/props/carriage_luxury_parked.png",
+   "pos": [
+    2600,
+    1770
+   ],
+   "offset": [
+    -160.0,
+    -217
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -136.0,
+     -70,
+     272.0,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "carriage_luxury_left",
+   "texture": "res://assets/maps/valdoria_v2/props/carriage_luxury_left.png",
+   "pos": [
+    4400,
+    1960
+   ],
+   "offset": [
+    -270.0,
+    -254
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -243.0,
+     -70,
+     486.0,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "carriage_luxury_right",
+   "texture": "res://assets/maps/valdoria_v2/props/carriage_luxury_right.png",
+   "pos": [
+    2000,
+    3260
+   ],
+   "offset": [
+    -270.0,
+    -254
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -243.0,
+     -70,
+     486.0,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "cart_worker_left",
+   "texture": "res://assets/maps/valdoria_v2/props/cart_worker_left.png",
+   "pos": [
+    4400,
+    3270
+   ],
+   "offset": [
+    -190.0,
+    -179
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -171.0,
+     -60,
+     342.0,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "cart_worker_right",
+   "texture": "res://assets/maps/valdoria_v2/props/cart_worker_right.png",
+   "pos": [
+    1700,
+    1960
+   ],
+   "offset": [
+    -190.0,
+    -179
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -171.0,
+     -60,
+     342.0,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "wagon_cargo",
+   "texture": "res://assets/maps/valdoria_v2/props/wagon_cargo.png",
+   "pos": [
+    4700,
+    4380
+   ],
+   "offset": [
+    -280.0,
+    -265
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -252.0,
+     -70,
+     504.0,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "hand_cart",
+   "texture": "res://assets/maps/valdoria_v2/props/hand_cart.png",
+   "pos": [
+    3480,
+    4100
+   ],
+   "offset": [
+    -90.0,
+    -125
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -76.5,
+     -40,
+     153.0,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "banner_flagpole",
+   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "pos": [
+    2730,
+    2130
+   ],
+   "offset": [
+    -54.0,
+    -330
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -18.9,
      -26,
-     29.2078431372549,
+     37.8,
      26
+    ]
+   ]
+  },
+  {
+   "name": "banner_flagpole",
+   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "pos": [
+    3670,
+    2130
+   ],
+   "offset": [
+    -54.0,
+    -330
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -18.9,
+     -26,
+     37.8,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "banner_flagpole",
+   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "pos": [
+    3000,
+    4380
+   ],
+   "offset": [
+    -54.0,
+    -330
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -18.9,
+     -26,
+     37.8,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "banner_flagpole",
+   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "pos": [
+    3400,
+    4380
+   ],
+   "offset": [
+    -54.0,
+    -330
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -18.9,
+     -26,
+     37.8,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "notice_board",
+   "texture": "res://assets/maps/valdoria_v2/props/notice_board.png",
+   "pos": [
+    3530,
+    3080
+   ],
+   "offset": [
+    -94.5,
+    -210
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -75.6,
+     -30,
+     151.2,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "ship_docked",
+   "texture": "res://assets/maps/valdoria_v2/props/ship_docked.png",
+   "pos": [
+    2420,
+    5540
+   ],
+   "offset": [
+    -650.0,
+    -933
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "fishing_boat",
+   "texture": "res://assets/maps/valdoria_v2/props/fishing_boat.png",
+   "pos": [
+    3700,
+    5080
+   ],
+   "offset": [
+    -260.0,
+    -393
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "rowboat",
+   "texture": "res://assets/maps/valdoria_v2/props/rowboat.png",
+   "pos": [
+    1250,
+    4760
+   ],
+   "offset": [
+    -130.0,
+    -102
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "rowboat",
+   "texture": "res://assets/maps/valdoria_v2/props/rowboat.png",
+   "pos": [
+    4500,
+    4760
+   ],
+   "offset": [
+    -130.0,
+    -102
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "rowboat",
+   "texture": "res://assets/maps/valdoria_v2/props/rowboat.png",
+   "pos": [
+    5000,
+    4790
+   ],
+   "offset": [
+    -130.0,
+    -102
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "crane",
+   "texture": "res://assets/maps/valdoria_v2/props/crane.png",
+   "pos": [
+    2480,
+    4590
+   ],
+   "offset": [
+    -243.5,
+    -580
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -231.3,
+     -70,
+     170.4,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "cargo_scale",
+   "texture": "res://assets/maps/valdoria_v2/props/cargo_scale.png",
+   "pos": [
+    2700,
+    4560
+   ],
+   "offset": [
+    -69.5,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -59.1,
+     -50,
+     118.1,
+     50
+    ]
+   ]
+  },
+  {
+   "name": "anchor",
+   "texture": "res://assets/maps/valdoria_v2/props/anchor.png",
+   "pos": [
+    3460,
+    4560
+   ],
+   "offset": [
+    -49.0,
+    -130
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -24.5,
+     -30,
+     49.0,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "water_wheel",
+   "texture": "res://assets/maps/valdoria_v2/props/water_wheel.png",
+   "pos": [
+    5660,
+    4600
+   ],
+   "offset": [
+    -135.5,
+    -320
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -108.4,
+     -60,
+     216.8,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    1100,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    1700,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    2250,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    3360,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    3600,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    4200,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    4800,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "mooring_bollard",
+   "texture": "res://assets/maps/valdoria_v2/props/mooring_bollard.png",
+   "pos": [
+    5400,
+    4594
+   ],
+   "offset": [
+    -29.5,
+    -80
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20.6,
+     -30,
+     41.3,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "rope_coil",
+   "texture": "res://assets/maps/valdoria_v2/props/rope_coil.png",
+   "pos": [
+    1400,
+    4570
+   ],
+   "offset": [
+    -35.0,
+    -71
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "rope_coil",
+   "texture": "res://assets/maps/valdoria_v2/props/rope_coil.png",
+   "pos": [
+    3900,
+    4570
+   ],
+   "offset": [
+    -35.0,
+    -71
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "rope_coil",
+   "texture": "res://assets/maps/valdoria_v2/props/rope_coil.png",
+   "pos": [
+    5150,
+    4570
+   ],
+   "offset": [
+    -35.0,
+    -71
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "crates",
+   "texture": "res://assets/maps/valdoria_v2/props/crates.png",
+   "pos": [
+    800,
+    4510
+   ],
+   "offset": [
+    -95.0,
+    -183
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -80.8,
+     -70,
+     161.5,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "grain_sacks",
+   "texture": "res://assets/maps/valdoria_v2/props/grain_sacks.png",
+   "pos": [
+    1550,
+    4510
+   ],
+   "offset": [
+    -75.0,
+    -133
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -63.8,
+     -44,
+     127.5,
+     44
+    ]
+   ]
+  },
+  {
+   "name": "barrels",
+   "texture": "res://assets/maps/valdoria_v2/props/barrels.png",
+   "pos": [
+    2050,
+    4510
+   ],
+   "offset": [
+    -90.0,
+    -161
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -76.5,
+     -60,
+     153.0,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "crates",
+   "texture": "res://assets/maps/valdoria_v2/props/crates.png",
+   "pos": [
+    4050,
+    4510
+   ],
+   "offset": [
+    -95.0,
+    -183
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -80.8,
+     -70,
+     161.5,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "barrels",
+   "texture": "res://assets/maps/valdoria_v2/props/barrels.png",
+   "pos": [
+    5420,
+    4510
+   ],
+   "offset": [
+    -90.0,
+    -161
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -76.5,
+     -60,
+     153.0,
+     60
     ]
    ]
   },

@@ -137,11 +137,14 @@ def paint(building_boxes):
     img = mix(img, cob, inside.astype(np.float32))
     # jardins (grama com flores) nos quarteiroes livres
     gardens = np.zeros(XX.shape, bool)
-    for (x0, y0, x1, y1) in [(1900, 700, 2600, 1600), (3800, 700, 4500, 1600), (1900, 2000, 2650, 2900),
+    for (x0, y0, x1, y1) in [(1900, 700, 2600, 1600), (3800, 700, 4500, 1600),
                              (3750, 2000, 4500, 2900), (3500, 3350, 4450, 4150), (500, 3380, 760, 4150)]:
         gardens |= rect(x0, y0, x1, y1)
     gardens &= (noise(40, 3) > -0.55)
     img = mix(img, tiled("grass_flowers"), soft(gardens, 6) * 0.95)
+    # patio industrial: cascalho com manchas de terra
+    yard = rect(1880, 2000, 2700, 2960)
+    img = mix(img, mix(tiled("gravel"), tiled("dirt"), np.clip(noise(50, 5) + 0.3, 0, 0.6)), soft(yard, 4))
     # feira: tijolos
     img = mix(img, tiled("brick"), soft(rect(3560, 3420, 4400, 4120), 3) * 0.55)
     # ruas de pedra clara
@@ -212,6 +215,47 @@ def walls():
     return props, solids, (vw, seg_h)
 
 
+# Pacote "valdoria-industrial-harbor" (tools/valdoria_v2/fonte_industrial): tamanho no mundo
+# (("w"|"h"), px) e colisao (fracao da largura, altura em px a partir dos pes; None = sem colisao).
+IND_SIZE = {
+    "anchor": ("h", 130, 0.5, 30), "anvil": ("h", 110, 0.7, 34), "banner_flagpole": ("h", 330, 0.35, 26),
+    "barrels": ("w", 180, 0.85, 60), "cargo_scale": ("h", 150, 0.85, 50), "carriage_luxury_left": ("w", 540, 0.9, 70),
+    "carriage_luxury_right": ("w", 540, 0.9, 70), "carriage_luxury_parked": ("w", 320, 0.85, 70),
+    "cart_worker_left": ("w", 380, 0.9, 60), "cart_worker_right": ("w", 380, 0.9, 60), "chimney": ("h", 430, 0.7, 60),
+    "coal": ("w", 120, 0.8, 30), "cogwheel": ("h", 270, 0.85, 70), "crane": ("h", 580, 0.35, 70),
+    "crates": ("w", 190, 0.85, 70), "firewood": ("w", 140, 0.85, 34), "fishing_boat": ("w", 520, None, 0),
+    "furnace": ("h", 400, 0.86, 120), "gas_lamp": ("h", 240, 0.3, 22), "grain_sacks": ("w", 150, 0.85, 44),
+    "hand_cart": ("w", 180, 0.85, 40), "mine_cart": ("w", 230, 0.85, 50), "mooring_bollard": ("h", 80, 0.7, 30),
+    "notice_board": ("h", 210, 0.8, 30), "rail_curved": ("w", 230, None, 0), "rope_coil": ("w", 70, None, 0),
+    "rowboat": ("w", 260, None, 0), "ship_docked": ("w", 1300, None, 0), "wagon_cargo": ("w", 560, 0.9, 70),
+    "water_wheel": ("h", 320, 0.8, 60), "workbench": ("h", 200, 0.85, 50),
+}
+IND_SRC = HERE / "fonte_industrial"
+_ind_done = set()
+
+
+def ind(name, foot, ground=False, col_dx=0.0):
+    """Prop do pacote industrial, gravado em assets/maps/valdoria_v2/props no tamanho do mundo (escala 1)."""
+    axis, size, cw, ch = IND_SIZE[name]
+    out = KIT / "props" / f"{name}.png"
+    if name not in _ind_done:
+        im = Image.open(IND_SRC / f"valdoria_{name}.png").convert("RGBA")
+        im = im.crop(im.getbbox())
+        k = size / (im.width if axis == "w" else im.height)
+        im = im.resize((max(1, round(im.width * k)), max(1, round(im.height * k))), Image.LANCZOS)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        im.save(out, optimize=True)
+        _ind_done.add(name)
+    w, h = Image.open(out).size
+    e = {"name": name, "texture": f"{RES}assets/maps/valdoria_v2/props/{name}.png", "pos": [round(foot[0], 1), round(foot[1], 1)],
+         "offset": [-w / 2, -h], "scale": 1.0, "flip_h": False}
+    if cw:
+        e["collisions"] = [[round(-w * cw / 2 + w * col_dx, 1), -ch, round(w * cw, 1), ch]]
+    if ground:
+        e["layer"] = "ground"
+    return e
+
+
 def decorations():
     d = []
     D = eld.deco
@@ -226,14 +270,14 @@ def decorations():
         if abs(y - PLAZA[1]) < PLAZA[2] + 80:
             continue
         for x in (CX - AVENUE_HW - 40, CX + AVENUE_HW + 40):
-            d.append(D("lamp", (x, y)))
+            d.append(ind("gas_lamp", (x, y)))
     for sy in STREETS_Y:
         for x in range(800, 5700, 620):
             if abs(x - CX) < 500:
                 continue
-            d.append(D("lamp", (x, sy - 140)))
+            d.append(ind("gas_lamp", (x, sy - 140)))
     # jardins
-    for (x0, y0, x1, y1, n) in [(1950, 760, 2550, 1500, 5), (3850, 760, 4450, 1500, 5), (1950, 2100, 2600, 2800, 4),
+    for (x0, y0, x1, y1, n) in [(1950, 760, 2550, 1500, 5), (3850, 760, 4450, 1500, 5),
                                 (3800, 2100, 4450, 2800, 4)]:
         for _ in range(n):
             nm = rng.choice(["tree_blue", "tree_white", "bush", "bush_flower", "bed_mixed", "tree_white"])
@@ -247,11 +291,33 @@ def decorations():
     for p in ((4120, 4060), (4180, 4080)):
         d.append(D("barrel", p))
     # cais
-    for x in (900, 1500, 2100, 2600, 3900, 4400, 4900):
-        d.append(D(rng.choice(["barrel", "crate", "barrel"]), (x, BOARDWALK[3] - 20)))
-    d.append(D("cart", (1900, BOARDWALK[1] + 110)))
-    d.append(D("lamp", (CX - PIER_C[2] + 20, 5250)))
-    d.append(D("lamp", (CX + PIER_C[2] - 20, 5250)))
+    d.append(ind("gas_lamp", (CX - PIER_C[2] + 20, 5250)))
+    d.append(ind("gas_lamp", (CX + PIER_C[2] - 20, 5250)))
+    # patio industrial ao lado da Forja Rara (antigo jardim da linha 2)
+    d += [ind("furnace", (2250, 2420)), ind("chimney", (2560, 2330)), ind("chimney", (1960, 2300)),
+          ind("anvil", (2050, 2620)), ind("workbench", (2470, 2640)), ind("coal", (2620, 2520)),
+          ind("firewood", (1980, 2780)), ind("cogwheel", (2600, 2860)), ind("mine_cart", (2250, 2870)),
+          ind("rail_curved", (2000, 2930), ground=True), ind("hand_cart", (2420, 2900))]
+    # carruagens e charretes nas ruas
+    d += [ind("carriage_luxury_parked", (3800, 1770)), ind("carriage_luxury_parked", (2600, 1770)),
+          ind("carriage_luxury_left", (4400, 1960)), ind("carriage_luxury_right", (2000, 3260)),
+          ind("cart_worker_left", (4400, 3270)), ind("cart_worker_right", (1700, 1960)),
+          ind("wagon_cargo", (4700, 4380)), ind("hand_cart", (3480, 4100))]
+    # bandeiras e mural
+    for x, y in ((CX - 470, PLAZA[1] - 430), (CX + 470, PLAZA[1] - 430), (CX - 200, 4380), (CX + 200, 4380)):
+        d.append(ind("banner_flagpole", (x, y)))
+    d.append(ind("notice_board", (CX + 330, PLAZA[1] + 520)))
+    # porto: navio atracado a oeste do pier, pesqueiro a leste, botes junto ao calcadao
+    d += [ind("ship_docked", (2420, 5540)), ind("fishing_boat", (3700, 5080)), ind("rowboat", (1250, 4760)),
+          ind("rowboat", (4500, 4760)), ind("rowboat", (5000, 4790))]
+    d += [ind("crane", (2480, 4590), col_dx=-0.3), ind("cargo_scale", (2700, 4560)), ind("anchor", (3460, 4560)),
+          ind("water_wheel", (5660, 4600))]
+    for x in (1100, 1700, 2250, 3360, 3600, 4200, 4800, 5400):
+        d.append(ind("mooring_bollard", (x, BOARDWALK[3] - 6)))
+    for x in (1400, 3900, 5150):
+        d.append(ind("rope_coil", (x, BOARDWALK[3] - 30)))
+    for x, nm in ((800, "crates"), (1550, "grain_sacks"), (2050, "barrels"), (4050, "crates"), (5420, "barrels")):
+        d.append(ind(nm, (x, BOARDWALK[1] + 100)))
     # portal e poco
     d.append(D("sign", (PORTAL[0] + 200, PORTAL[1] - 120)))
     d.append(D("well", (2780, 3320)))
