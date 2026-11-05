@@ -4348,6 +4348,9 @@ func _spawn_npcs(map_data: Dictionary) -> void:
 		npc.global_position = _map_data_point(pos)
 		var npc_greeting := str(npc_data.get("greeting", ""))
 		npc.set_meta("greeting", npc_greeting)
+		npc.set_meta("unlock_flag", str(npc_data.get("unlock_flag", "")))
+		npc.set_meta("unlock_text", str(npc_data.get("unlock_text", "")))
+		npc.set_meta("unlocked_text", str(npc_data.get("unlocked_text", "")))
 		npc.body_entered.connect(func(body: Node) -> void:
 			if body == player:
 				selected_npc = npc_ref
@@ -4383,11 +4386,29 @@ func _eldoria_active_npc_list() -> Array:
 		})
 	return result
 
-func _spawn_portals(map_data: Dictionary) -> void:
+# Liberacoes do mundo (ex.: rota de barco Eldoria <-> Valdoria) ficam em quest_system.completed
+# como "flag:<id>", assim entram no save local sem mudar o formato do arquivo.
+func _has_world_flag(flag: String) -> bool:
+	return flag.is_empty() or (quest_system != null and quest_system.completed.has("flag:" + flag))
+
+func _set_world_flag(flag: String) -> void:
+	if quest_system == null or flag.is_empty() or _has_world_flag(flag):
+		return
+	quest_system.completed.append("flag:" + flag)
+	if player != null and not online_mode:
+		SaveSystem.save_game(player, quest_system, current_map, exploration_by_map, mmo_cache)
+
+# Portal com "requires_flag" so aparece depois da liberacao; only_flag cria so os dessa liberacao.
+func _spawn_portals(map_data: Dictionary, only_flag: String = "") -> void:
 	# Eldoria antiga (base em reconstrucao) ficava sem portal; a v2 tem o da ilhota.
 	if current_map == "city_eldoria" and _get_eldoria_kit_data().is_empty():
 		return
 	for portal_data in map_data.get("portals", []):
+		var portal_flag := str(portal_data.get("requires_flag", ""))
+		if not only_flag.is_empty() and portal_flag != only_flag:
+			continue
+		if not _has_world_flag(portal_flag):
+			continue
 		var portal_label_text := str(portal_data.get("label", "Portal"))
 		var requires_boss := bool(portal_data.get("requires_boss_clear", false)) and not PORTALS_FREE_ACCESS
 		if requires_boss:
@@ -5198,6 +5219,8 @@ func _interact() -> void:
 				var line := str(selected_npc.get_meta("greeting", ""))
 				if not line.is_empty():
 					_show_npc_bubble(selected_npc, line)
+			"harbor":
+				_use_harbor_master(selected_npc)
 		return
 	if _collect_nearest_manual_drop():
 		return
@@ -5219,6 +5242,20 @@ func _interact() -> void:
 			_send_online_save_state()
 		return
 	_hide_panel()
+
+# Mestre do porto (Valdoria): a primeira conversa libera a rota entre as cidades
+# e ja abre o portal de volta no mapa atual.
+func _use_harbor_master(npc: Npc) -> void:
+	var flag := str(npc.get_meta("unlock_flag", ""))
+	if flag.is_empty():
+		return
+	if _has_world_flag(flag):
+		_show_npc_bubble(npc, str(npc.get_meta("unlocked_text", "A rota ja esta aberta.")))
+		return
+	_set_world_flag(flag)
+	_show_npc_bubble(npc, str(npc.get_meta("unlock_text", "Rota liberada!")))
+	_flash("Rota liberada: portal entre Eldoria e Valdoria aberto!")
+	_spawn_portals(maps.get(current_map, {}), flag)
 
 func _use_healer() -> void:
 	var healer_name := "Helena"

@@ -24,6 +24,19 @@
           960,
           1040
         ]
+      },
+      {
+        "label": "Valdoria",
+        "target": "city_valdoria",
+        "pos": [
+          3370,
+          5590
+        ],
+        "spawn": [
+          3200,
+          4950
+        ],
+        "requires_flag": "rota_valdoria"
       }
     ]
   },
@@ -859,6 +872,19 @@
         ],
         "sprite": "res://assets/characters/npcs/npc_durnan_forja_rara_idle_4f_128.png",
         "greeting": "Runas e aco raro. Traga os materiais certos."
+      },
+      {
+        "name": "Capitao Maren, Mestre do Porto",
+        "role": "harbor",
+        "pos": [
+          2900,
+          4520
+        ],
+        "sprite": "res://assets/characters/npcs/npc_capitao_maren_idle_4f_128.png",
+        "greeting": "Bem-vindo ao porto de Valdoria! Fale comigo para abrir a rota ate Eldoria.",
+        "unlock_flag": "rota_valdoria",
+        "unlock_text": "Rota liberada! O barco agora liga Eldoria e Valdoria.",
+        "unlocked_text": "A rota para Eldoria esta aberta: o portal fica no fim do pier."
       }
     ],
     "portals": [
@@ -872,6 +898,31 @@
         "spawn": [
           3600,
           1000
+        ]
+      },
+      {
+        "label": "Eldoria",
+        "target": "city_eldoria",
+        "pos": [
+          3200,
+          5170
+        ],
+        "spawn": [
+          3370,
+          5440
+        ],
+        "requires_flag": "rota_valdoria"
+      },
+      {
+        "label": "Passagem Alta",
+        "target": "highland_pass",
+        "pos": [
+          5750,
+          1857
+        ],
+        "spawn": [
+          420,
+          700
         ]
       }
     ],
@@ -888,11 +939,24 @@
     ],
     "color": "#3f6847",
     "spawn": [
-      1080,
-      1240
+      420,
+      700
     ],
     "npcs": [],
-    "portals": [],
+    "portals": [
+      {
+        "label": "Valdoria",
+        "target": "city_valdoria",
+        "pos": [
+          200,
+          700
+        ],
+        "spawn": [
+          5550,
+          1857
+        ]
+      }
+    ],
     "safe_zones": [],
     "spawns": [],
     "collectibles": []
