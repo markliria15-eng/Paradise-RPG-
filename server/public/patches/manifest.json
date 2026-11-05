@@ -2,9 +2,9 @@
   "ok": true,
   "game": "Paradise RPG",
   "channel": "beta",
-  "version": "2026.11.05b",
+  "version": "2026.11.05c",
   "min_app_version": "0.1.7",
-  "generated_at": "2026-11-05T13:11:40.600Z",
+  "generated_at": "2026-11-05T18:23:44.662Z",
   "files": [
     {
       "path": "data/armor_sets_manifest.json",
@@ -39,8 +39,8 @@
     {
       "path": "data/maps.json",
       "url": "/patch/files/maps.json",
-      "sha256": "9f3702d55e7ce29b70cc447a85e74917aae3fb29851e43a8641bb5042dba3abe",
-      "size": 20781
+      "sha256": "2eaf5d6bde3d5540d77f5adb7f1a33d7e712e819568085ffb2ffc3c17c2b6cd1",
+      "size": 20799
     },
     {
       "path": "data/mmo_achievements.json",

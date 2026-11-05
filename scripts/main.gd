@@ -758,7 +758,10 @@ func _start_online_game_from_session() -> void:
 	if not maps.has(map_id):
 		map_id = FOREST_PRIMARY_MAP_ID
 		spawn = Vector2(1100.0, 700.0)
-	_load_map(map_id, spawn)
+	if maps.has("city_eldoria"):
+		_load_home_city()
+	else:
+		_load_map(map_id, spawn)
 	flash_online_help()
 
 func flash_online_help() -> void:
@@ -2542,7 +2545,7 @@ func _start_new_game(chosen_class: String) -> void:
 	_ensure_beginner_quests()
 	_connect_player()
 	_update_action_icons()
-	_load_map(FOREST_PRIMARY_MAP_ID, Vector2(1100, 700))
+	_load_home_city()
 	_flash("Mapa base carregado. Vamos reconstruir do zero.")
 
 func launcher_boot_offline(chosen_class: String = "Guerreiro") -> void:
@@ -2568,13 +2571,8 @@ func _spawn_player_from_save(save: Dictionary) -> void:
 	_connect_player()
 	_update_action_icons()
 	_apply_companion_bonuses()
-	var pos_arr: Array = save.get("position", [640, 380])
-	var saved_map := _resolve_map_id(str(save.get("current_map", FOREST_PRIMARY_MAP_ID)))
-	var saved_pos := Vector2(float(pos_arr[0]), float(pos_arr[1]))
-	if not maps.has(saved_map):
-		saved_map = FOREST_PRIMARY_MAP_ID
-		saved_pos = Vector2(1100, 700)
-	_load_map(saved_map, saved_pos)
+	# O jogo sempre comeca na cidade base (Eldoria, ou Valdoria depois de chegar la).
+	_load_home_city()
 	_flash("Save carregado.")
 
 func _connect_player() -> void:
@@ -2600,9 +2598,20 @@ func _ensure_beginner_quests() -> void:
 		if not quest_system.active.has(quest_id):
 			quest_system.accept(quest_id)
 
+# Cidade de renascimento/inicio: Eldoria ate o jogador chegar em Valdoria.
+func _home_city() -> String:
+	if maps.has("city_valdoria") and _has_world_flag("chegou_valdoria"):
+		return "city_valdoria"
+	return "city_eldoria" if maps.has("city_eldoria") else FOREST_PRIMARY_MAP_ID
+
+func _load_home_city() -> void:
+	_load_map(_home_city())
+
 func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	var resolved_map_id := _resolve_map_id(map_id)
 	current_map = resolved_map_id
+	if resolved_map_id == "city_valdoria" and quest_system != null and not _has_world_flag("chegou_valdoria"):
+		quest_system.completed.append("flag:chegou_valdoria")
 	_ensure_map_exploration(resolved_map_id)
 	safe_zone_nodes.clear()
 	solid_obstacles.clear()
@@ -7689,8 +7698,8 @@ func _current_equipped_mount_code() -> String:
 
 func _player_died() -> void:
 	player.revive_in_city()
-	_load_map(FOREST_PRIMARY_MAP_ID, Vector2(1100, 700))
-	_flash("Voce morreu, perdeu 5% do ouro e voltou para o mapa base.")
+	_load_home_city()
+	_flash("Voce morreu, perdeu 5%% do ouro e voltou para %s." % ("Valdoria" if current_map == "city_valdoria" else "Eldoria"))
 
 func _update_hud() -> void:
 	if player == null:
