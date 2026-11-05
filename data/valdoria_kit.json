@@ -1,0 +1,3476 @@
+{
+ "version": 1,
+ "world_size": [
+  6400,
+  5760
+ ],
+ "ground_scale": 2,
+ "chunk_grid": [
+  8,
+  9
+ ],
+ "chunk_px": [
+  400,
+  320
+ ],
+ "chunks_dir": "res://assets/maps/valdoria_v2/chunks",
+ "chunk_prefix": "valdoria_v2_chunk",
+ "walkable_mask": {
+  "path": "res://assets/maps/valdoria_v2/valdoria_v2_walkable.png",
+  "cell": 16
+ },
+ "lake": {
+  "rect": [
+   0,
+   4250,
+   6400,
+   1510
+  ],
+  "water_frames": [
+   "res://assets/maps/eldoria_v2/tiles/water_0.png",
+   "res://assets/maps/eldoria_v2/tiles/water_1.png",
+   "res://assets/maps/eldoria_v2/tiles/water_2.png",
+   "res://assets/maps/eldoria_v2/tiles/water_3.png"
+  ]
+ },
+ "minimap": "res://assets/maps/valdoria_v2/valdoria_v2_minimap.png",
+ "spawn": [
+  930,
+  1840
+ ],
+ "portal_ruins": [
+  720,
+  1840
+ ],
+ "npcs": {
+  "Liora, Curandeira": [
+   3200,
+   1695
+  ],
+  "Durnan, Forja Rara": [
+   1300,
+   2995
+  ],
+  "Varek, Mercador": [
+   5100,
+   2995
+  ],
+  "Mira, Vendedora de Pets": [
+   1300,
+   4295
+  ],
+  "Torin, Mestre de Montarias": [
+   5100,
+   4295
+  ]
+ },
+ "solids": [
+  [
+   300,
+   300,
+   5800,
+   220.5
+  ],
+  [
+   300,
+   300,
+   167.2,
+   4170
+  ],
+  [
+   5932.8,
+   300,
+   167.2,
+   4170
+  ]
+ ],
+ "props": [
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    791.1,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h_banner",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h_banner.png",
+   "pos": [
+    1192.6,
+    520.5
+   ],
+   "offset": [
+    -154.5,
+    -159
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    1594.1,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    1995.6,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h_banner",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h_banner.png",
+   "pos": [
+    2397.0,
+    520.5
+   ],
+   "offset": [
+    -154.5,
+    -159
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    2798.5,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    3200.0,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h_banner",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h_banner.png",
+   "pos": [
+    3601.5,
+    520.5
+   ],
+   "offset": [
+    -154.5,
+    -159
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    4003.0,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    4404.4,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h_banner",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h_banner.png",
+   "pos": [
+    4805.9,
+    520.5
+   ],
+   "offset": [
+    -154.5,
+    -159
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    5207.4,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_h",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_h.png",
+   "pos": [
+    5608.9,
+    520.5
+   ],
+   "offset": [
+    -151.5,
+    -149
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    383.6,
+    1041.9
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    383.6,
+    1465.4
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    383.6,
+    1888.9
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    383.6,
+    2312.4
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    383.6,
+    2735.9
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    383.6,
+    3159.4
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    383.6,
+    3583.0
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    383.6,
+    4006.5
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    383.6,
+    4430.0
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    6016.4,
+    1041.9
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    6016.4,
+    1465.4
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    6016.4,
+    1888.9
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    6016.4,
+    2312.4
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    6016.4,
+    2735.9
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    6016.4,
+    3159.4
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    6016.4,
+    3583.0
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v_alt",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v_alt.png",
+   "pos": [
+    6016.4,
+    4006.5
+   ],
+   "offset": [
+    -57.0,
+    -308
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "wall_v",
+   "texture": "res://assets/maps/eldoria_v2/props/wall_v.png",
+   "pos": [
+    6016.4,
+    4430.0
+   ],
+   "offset": [
+    -56.5,
+    -304
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "corner_ul",
+   "texture": "res://assets/maps/eldoria_v2/props/corner_ul.png",
+   "pos": [
+    461.3,
+    653.7
+   ],
+   "offset": [
+    -109.0,
+    -239
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "corner_ur",
+   "texture": "res://assets/maps/eldoria_v2/props/corner_ur.png",
+   "pos": [
+    5938.7,
+    653.7
+   ],
+   "offset": [
+    -106.0,
+    -239
+   ],
+   "scale": 1.48,
+   "flip_h": false
+  },
+  {
+   "name": "tower",
+   "texture": "res://assets/maps/eldoria_v2/props/tower.png",
+   "pos": [
+    383.6,
+    4470
+   ],
+   "offset": [
+    -94.5,
+    -285
+   ],
+   "scale": 1.48,
+   "flip_h": false,
+   "collisions": [
+    [
+     -117.48239999999998,
+     -231.99000000000004,
+     234.96479999999997,
+     231.99000000000004
+    ]
+   ]
+  },
+  {
+   "name": "tower",
+   "texture": "res://assets/maps/eldoria_v2/props/tower.png",
+   "pos": [
+    6016.4,
+    4470
+   ],
+   "offset": [
+    -94.5,
+    -285
+   ],
+   "scale": 1.48,
+   "flip_h": false,
+   "collisions": [
+    [
+     -117.48239999999998,
+     -231.99000000000004,
+     234.96479999999997,
+     231.99000000000004
+    ]
+   ]
+  },
+  {
+   "name": "tower",
+   "texture": "res://assets/maps/eldoria_v2/props/tower.png",
+   "pos": [
+    2150,
+    570.5
+   ],
+   "offset": [
+    -94.5,
+    -285
+   ],
+   "scale": 1.48,
+   "flip_h": false,
+   "collisions": [
+    [
+     -117.48239999999998,
+     -231.99000000000004,
+     234.96479999999997,
+     231.99000000000004
+    ]
+   ]
+  },
+  {
+   "name": "tower",
+   "texture": "res://assets/maps/eldoria_v2/props/tower.png",
+   "pos": [
+    4250,
+    570.5
+   ],
+   "offset": [
+    -94.5,
+    -285
+   ],
+   "scale": 1.48,
+   "flip_h": false,
+   "collisions": [
+    [
+     -117.48239999999998,
+     -231.99000000000004,
+     234.96479999999997,
+     231.99000000000004
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_house_a",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_house_a.png",
+   "pos": [
+    1300,
+    1650
+   ],
+   "offset": [
+    -579.0,
+    -1128
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -301.3,
+     -417.5,
+     621.1,
+     20.2
+    ],
+    [
+     -301.3,
+     -397.3,
+     621.1,
+     20.2
+    ],
+    [
+     -309.7,
+     -377.2,
+     637.9,
+     20.2
+    ],
+    [
+     -309.7,
+     -357.0,
+     637.9,
+     20.2
+    ],
+    [
+     -303.0,
+     -336.8,
+     624.4,
+     20.2
+    ],
+    [
+     -299.6,
+     -316.7,
+     616.9,
+     20.2
+    ],
+    [
+     -301.3,
+     -296.5,
+     621.1,
+     20.2
+    ],
+    [
+     -299.6,
+     -276.4,
+     616.9,
+     20.2
+    ],
+    [
+     -299.6,
+     -256.2,
+     616.9,
+     20.2
+    ],
+    [
+     -299.6,
+     -236.0,
+     616.9,
+     20.2
+    ],
+    [
+     -299.6,
+     -215.9,
+     616.9,
+     20.2
+    ],
+    [
+     -299.6,
+     -195.7,
+     616.9,
+     20.2
+    ],
+    [
+     -299.6,
+     -175.6,
+     616.9,
+     20.2
+    ],
+    [
+     -304.7,
+     -155.4,
+     628.6,
+     20.2
+    ],
+    [
+     -309.7,
+     -135.2,
+     637.9,
+     20.2
+    ],
+    [
+     -308.9,
+     -115.1,
+     637.0,
+     20.2
+    ],
+    [
+     -307.2,
+     -94.9,
+     633.7,
+     20.2
+    ],
+    [
+     -311.4,
+     -74.8,
+     641.2,
+     20.2
+    ],
+    [
+     -311.4,
+     -54.6,
+     641.2,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_temple",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_temple.png",
+   "pos": [
+    3200,
+    1650
+   ],
+   "offset": [
+    -563.5,
+    -1158
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -370.0,
+     -428.4,
+     802.1,
+     20.2
+    ],
+    [
+     -359.9,
+     -408.2,
+     782.7,
+     20.2
+    ],
+    [
+     -356.5,
+     -388.1,
+     776.0,
+     20.2
+    ],
+    [
+     -349.8,
+     -367.9,
+     762.6,
+     20.2
+    ],
+    [
+     -347.3,
+     -347.8,
+     756.7,
+     20.2
+    ],
+    [
+     -347.3,
+     -327.6,
+     756.7,
+     20.2
+    ],
+    [
+     -347.3,
+     -307.4,
+     756.7,
+     20.2
+    ],
+    [
+     -347.3,
+     -287.3,
+     756.7,
+     20.2
+    ],
+    [
+     -347.3,
+     -267.1,
+     756.7,
+     20.2
+    ],
+    [
+     -347.3,
+     -247.0,
+     756.7,
+     20.2
+    ],
+    [
+     -350.6,
+     -226.8,
+     763.4,
+     20.2
+    ],
+    [
+     -354.0,
+     -206.6,
+     771.0,
+     20.2
+    ],
+    [
+     -350.6,
+     -186.5,
+     764.3,
+     20.2
+    ],
+    [
+     -356.5,
+     -166.3,
+     776.0,
+     20.2
+    ],
+    [
+     -356.5,
+     -146.2,
+     776.0,
+     20.2
+    ],
+    [
+     -356.5,
+     -126.0,
+     776.0,
+     20.2
+    ],
+    [
+     -356.5,
+     -105.8,
+     776.0,
+     20.2
+    ],
+    [
+     -360.7,
+     -85.7,
+     784.4,
+     20.2
+    ],
+    [
+     -359.9,
+     -65.5,
+     781.9,
+     20.2
+    ],
+    [
+     -331.3,
+     -45.4,
+     724.8,
+     20.2
+    ],
+    [
+     -178.4,
+     -25.2,
+     421.5,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_house_b",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_house_b.png",
+   "pos": [
+    5100,
+    1650
+   ],
+   "offset": [
+    -579.0,
+    -939
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -360.1,
+     -347.8,
+     734.5,
+     20.2
+    ],
+    [
+     -360.1,
+     -327.6,
+     734.5,
+     20.2
+    ],
+    [
+     -367.7,
+     -307.4,
+     748.7,
+     20.2
+    ],
+    [
+     -367.7,
+     -287.3,
+     748.7,
+     20.2
+    ],
+    [
+     -363.5,
+     -267.1,
+     741.2,
+     20.2
+    ],
+    [
+     -360.1,
+     -247.0,
+     734.5,
+     20.2
+    ],
+    [
+     -361.8,
+     -226.8,
+     736.1,
+     20.2
+    ],
+    [
+     -361.8,
+     -206.6,
+     736.1,
+     20.2
+    ],
+    [
+     -360.9,
+     -186.5,
+     735.3,
+     20.2
+    ],
+    [
+     -361.8,
+     -166.3,
+     736.1,
+     20.2
+    ],
+    [
+     -361.8,
+     -146.2,
+     737.8,
+     20.2
+    ],
+    [
+     -367.7,
+     -126.0,
+     747.1,
+     20.2
+    ],
+    [
+     -363.5,
+     -105.8,
+     739.5,
+     20.2
+    ],
+    [
+     -367.7,
+     -85.7,
+     747.1,
+     20.2
+    ],
+    [
+     -367.7,
+     -65.5,
+     747.1,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_rare_forge",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_rare_forge.png",
+   "pos": [
+    1300,
+    2950
+   ],
+   "offset": [
+    -579.0,
+    -1154
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -355.9,
+     -426.7,
+     723.5,
+     20.2
+    ],
+    [
+     -370.2,
+     -406.6,
+     752.9,
+     20.2
+    ],
+    [
+     -384.5,
+     -386.4,
+     781.5,
+     20.2
+    ],
+    [
+     -404.6,
+     -366.2,
+     821.8,
+     20.2
+    ],
+    [
+     -413.0,
+     -346.1,
+     839.5,
+     20.2
+    ],
+    [
+     -413.0,
+     -325.9,
+     839.5,
+     20.2
+    ],
+    [
+     -393.7,
+     -305.8,
+     802.5,
+     20.2
+    ],
+    [
+     -383.6,
+     -285.6,
+     781.5,
+     20.2
+    ],
+    [
+     -377.7,
+     -265.4,
+     769.7,
+     20.2
+    ],
+    [
+     -380.3,
+     -245.3,
+     773.1,
+     20.2
+    ],
+    [
+     -380.3,
+     -225.1,
+     773.1,
+     20.2
+    ],
+    [
+     -375.2,
+     -205.0,
+     763.9,
+     20.2
+    ],
+    [
+     -378.6,
+     -184.8,
+     767.2,
+     20.2
+    ],
+    [
+     -378.6,
+     -164.6,
+     767.2,
+     20.2
+    ],
+    [
+     -380.3,
+     -144.5,
+     771.4,
+     20.2
+    ],
+    [
+     -380.3,
+     -124.3,
+     773.9,
+     20.2
+    ],
+    [
+     -387.8,
+     -104.2,
+     790.7,
+     20.2
+    ],
+    [
+     -393.7,
+     -84.0,
+     797.5,
+     20.2
+    ],
+    [
+     -393.7,
+     -63.8,
+     800.0,
+     20.2
+    ],
+    [
+     -393.7,
+     -43.7,
+     800.0,
+     20.2
+    ],
+    [
+     -294.6,
+     -23.5,
+     426.2,
+     18.5
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_market_hall",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_market_hall.png",
+   "pos": [
+    5100,
+    2950
+   ],
+   "offset": [
+    -579.0,
+    -1132
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -321.5,
+     -419.2,
+     705.1,
+     20.2
+    ],
+    [
+     -321.5,
+     -399.0,
+     714.3,
+     20.2
+    ],
+    [
+     -321.5,
+     -378.8,
+     722.7,
+     20.2
+    ],
+    [
+     -324.8,
+     -358.7,
+     726.1,
+     20.2
+    ],
+    [
+     -330.7,
+     -338.5,
+     728.6,
+     20.2
+    ],
+    [
+     -330.7,
+     -318.4,
+     710.1,
+     20.2
+    ],
+    [
+     -321.5,
+     -298.2,
+     635.3,
+     20.2
+    ],
+    [
+     -314.7,
+     -278.0,
+     625.3,
+     20.2
+    ],
+    [
+     -314.7,
+     -257.9,
+     625.3,
+     20.2
+    ],
+    [
+     -314.7,
+     -237.7,
+     625.3,
+     20.2
+    ],
+    [
+     -314.7,
+     -217.6,
+     625.3,
+     20.2
+    ],
+    [
+     -314.7,
+     -197.4,
+     625.3,
+     20.2
+    ],
+    [
+     -320.6,
+     -177.2,
+     631.1,
+     20.2
+    ],
+    [
+     -327.3,
+     -157.1,
+     655.5,
+     20.2
+    ],
+    [
+     -327.3,
+     -136.9,
+     655.5,
+     20.2
+    ],
+    [
+     -339.1,
+     -116.8,
+     675.7,
+     20.2
+    ],
+    [
+     -339.1,
+     -96.6,
+     678.2,
+     20.2
+    ],
+    [
+     -337.4,
+     -76.4,
+     676.5,
+     20.2
+    ],
+    [
+     -339.1,
+     -56.3,
+     678.2,
+     20.2
+    ],
+    [
+     -337.4,
+     -36.1,
+     622.7,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_pet_shop",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_pet_shop.png",
+   "pos": [
+    1300,
+    4250
+   ],
+   "offset": [
+    -577.0,
+    -1158
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -340.9,
+     -428.4,
+     712.1,
+     20.2
+    ],
+    [
+     -340.9,
+     -408.2,
+     712.1,
+     20.2
+    ],
+    [
+     -340.9,
+     -388.1,
+     712.1,
+     20.2
+    ],
+    [
+     -340.9,
+     -367.9,
+     712.1,
+     20.2
+    ],
+    [
+     -340.9,
+     -347.8,
+     712.1,
+     20.2
+    ],
+    [
+     -340.9,
+     -327.6,
+     712.1,
+     20.2
+    ],
+    [
+     -365.3,
+     -307.4,
+     759.9,
+     20.2
+    ],
+    [
+     -369.5,
+     -287.3,
+     769.2,
+     20.2
+    ],
+    [
+     -369.5,
+     -267.1,
+     769.2,
+     20.2
+    ],
+    [
+     -366.9,
+     -247.0,
+     763.3,
+     20.2
+    ],
+    [
+     -366.9,
+     -226.8,
+     763.3,
+     20.2
+    ],
+    [
+     -375.3,
+     -206.6,
+     780.9,
+     20.2
+    ],
+    [
+     -377.9,
+     -186.5,
+     785.1,
+     20.2
+    ],
+    [
+     -374.5,
+     -166.3,
+     779.3,
+     20.2
+    ],
+    [
+     -374.5,
+     -146.2,
+     779.3,
+     20.2
+    ],
+    [
+     -377.9,
+     -126.0,
+     785.1,
+     20.2
+    ],
+    [
+     -377.9,
+     -105.8,
+     785.1,
+     20.2
+    ],
+    [
+     -375.3,
+     -85.7,
+     780.1,
+     20.2
+    ],
+    [
+     -375.3,
+     -65.5,
+     780.1,
+     20.2
+    ],
+    [
+     -379.5,
+     -45.4,
+     788.5,
+     20.2
+    ],
+    [
+     -379.5,
+     -25.2,
+     788.5,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_house_c",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_house_c.png",
+   "pos": [
+    2330,
+    4250
+   ],
+   "offset": [
+    -572.5,
+    -1158
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -282.8,
+     -428.4,
+     593.4,
+     20.2
+    ],
+    [
+     -285.3,
+     -408.2,
+     597.6,
+     20.2
+    ],
+    [
+     -294.6,
+     -388.1,
+     615.2,
+     20.2
+    ],
+    [
+     -306.3,
+     -367.9,
+     627.8,
+     20.2
+    ],
+    [
+     -318.9,
+     -347.8,
+     633.7,
+     20.2
+    ],
+    [
+     -330.7,
+     -327.6,
+     637.9,
+     20.2
+    ],
+    [
+     -339.1,
+     -307.4,
+     642.1,
+     20.2
+    ],
+    [
+     -334.9,
+     -287.3,
+     637.9,
+     20.2
+    ],
+    [
+     -320.6,
+     -267.1,
+     623.6,
+     20.2
+    ],
+    [
+     -308.9,
+     -247.0,
+     611.9,
+     20.2
+    ],
+    [
+     -304.7,
+     -226.8,
+     607.7,
+     20.2
+    ],
+    [
+     -302.1,
+     -206.6,
+     605.1,
+     20.2
+    ],
+    [
+     -303.0,
+     -186.5,
+     616.1,
+     20.2
+    ],
+    [
+     -303.0,
+     -166.3,
+     622.8,
+     20.2
+    ],
+    [
+     -306.3,
+     -146.2,
+     616.1,
+     20.2
+    ],
+    [
+     -311.4,
+     -126.0,
+     626.1,
+     20.2
+    ],
+    [
+     -311.4,
+     -105.8,
+     626.1,
+     20.2
+    ],
+    [
+     -311.4,
+     -85.7,
+     626.1,
+     20.2
+    ],
+    [
+     -310.5,
+     -65.5,
+     625.3,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_stables",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_stables.png",
+   "pos": [
+    5100,
+    4250
+   ],
+   "offset": [
+    -579.0,
+    -1128
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -442.4,
+     -417.5,
+     884.0,
+     20.2
+    ],
+    [
+     -413.9,
+     -397.3,
+     826.9,
+     20.2
+    ],
+    [
+     -409.7,
+     -377.2,
+     818.5,
+     20.2
+    ],
+    [
+     -409.7,
+     -357.0,
+     818.5,
+     20.2
+    ],
+    [
+     -409.7,
+     -336.8,
+     818.5,
+     20.2
+    ],
+    [
+     -406.3,
+     -316.7,
+     812.6,
+     20.2
+    ],
+    [
+     -406.3,
+     -296.5,
+     812.6,
+     20.2
+    ],
+    [
+     -406.3,
+     -276.4,
+     812.6,
+     20.2
+    ],
+    [
+     -406.3,
+     -256.2,
+     812.6,
+     20.2
+    ],
+    [
+     -412.2,
+     -236.0,
+     823.5,
+     20.2
+    ],
+    [
+     -415.5,
+     -215.9,
+     831.1,
+     20.2
+    ],
+    [
+     -415.5,
+     -195.7,
+     831.1,
+     20.2
+    ],
+    [
+     -415.5,
+     -175.6,
+     831.1,
+     20.2
+    ],
+    [
+     -415.5,
+     -155.4,
+     831.1,
+     20.2
+    ]
+   ]
+  },
+  {
+   "name": "valdoria_lighthouse",
+   "texture": "res://assets/maps/valdoria_v2/buildings/valdoria_lighthouse.png",
+   "pos": [
+    5300,
+    5290
+   ],
+   "offset": [
+    -554.5,
+    -1158
+   ],
+   "scale": 0.84,
+   "flip_h": false,
+   "collisions": [
+    [
+     -100.1,
+     -370.4,
+     188.4,
+     20.2
+    ],
+    [
+     -103.4,
+     -350.3,
+     196.0,
+     20.2
+    ],
+    [
+     -121.9,
+     -330.1,
+     233.8,
+     20.2
+    ],
+    [
+     -142.1,
+     -310.0,
+     275.8,
+     20.2
+    ],
+    [
+     -155.5,
+     -289.8,
+     301.8,
+     20.2
+    ],
+    [
+     -169.8,
+     -269.6,
+     329.5,
+     20.2
+    ],
+    [
+     -169.8,
+     -249.5,
+     329.5,
+     20.2
+    ],
+    [
+     -159.7,
+     -229.3,
+     310.2,
+     20.2
+    ],
+    [
+     -158.9,
+     -209.2,
+     308.5,
+     20.2
+    ],
+    [
+     -158.9,
+     -189.0,
+     308.5,
+     20.2
+    ],
+    [
+     -163.1,
+     -168.8,
+     318.6,
+     20.2
+    ],
+    [
+     -167.3,
+     -148.7,
+     326.2,
+     20.2
+    ],
+    [
+     -172.3,
+     -128.5,
+     335.4,
+     20.2
+    ],
+    [
+     -177.4,
+     -108.4,
+     346.3,
+     20.2
+    ],
+    [
+     -178.2,
+     -88.2,
+     348.0,
+     20.2
+    ],
+    [
+     -179.9,
+     -68.0,
+     350.5,
+     20.2
+    ],
+    [
+     -179.9,
+     -47.9,
+     350.5,
+     20.2
+    ],
+    [
+     -163.9,
+     -27.7,
+     319.4,
+     20.2
+    ],
+    [
+     -146.3,
+     -7.6,
+     283.3,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "fountain",
+   "texture": "res://assets/maps/eldoria_v2/props/fountain_0.png",
+   "pos": [
+    3200,
+    2730
+   ],
+   "offset": [
+    -219.5,
+    -446
+   ],
+   "scale": 1.3667,
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/eldoria_v2/props/fountain_0.png",
+    "res://assets/maps/eldoria_v2/props/fountain_1.png",
+    "res://assets/maps/eldoria_v2/props/fountain_2.png",
+    "res://assets/maps/eldoria_v2/props/fountain_3.png"
+   ],
+   "fps": 6,
+   "collisions": [
+    [
+     -264.0,
+     -230,
+     528.0,
+     230
+    ]
+   ]
+  },
+  {
+   "name": "bench",
+   "texture": "res://assets/maps/eldoria_v2/props/bench.png",
+   "pos": [
+    2870,
+    2310
+   ],
+   "offset": [
+    -138.0,
+    -154
+   ],
+   "scale": 0.6884,
+   "flip_h": false,
+   "collisions": [
+    [
+     -85.5,
+     -34,
+     171.0,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "bench",
+   "texture": "res://assets/maps/eldoria_v2/props/bench.png",
+   "pos": [
+    3530,
+    2310
+   ],
+   "offset": [
+    -138.0,
+    -154
+   ],
+   "scale": 0.6884,
+   "flip_h": true,
+   "collisions": [
+    [
+     -85.5,
+     -34,
+     171.0,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "bench",
+   "texture": "res://assets/maps/eldoria_v2/props/bench.png",
+   "pos": [
+    2870,
+    2890
+   ],
+   "offset": [
+    -138.0,
+    -154
+   ],
+   "scale": 0.6884,
+   "flip_h": false,
+   "collisions": [
+    [
+     -85.5,
+     -34,
+     171.0,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "bench",
+   "texture": "res://assets/maps/eldoria_v2/props/bench.png",
+   "pos": [
+    3530,
+    2890
+   ],
+   "offset": [
+    -138.0,
+    -154
+   ],
+   "scale": 0.6884,
+   "flip_h": true,
+   "collisions": [
+    [
+     -85.5,
+     -34,
+     171.0,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "statue",
+   "texture": "res://assets/maps/eldoria_v2/props/statue.png",
+   "pos": [
+    2680,
+    2620
+   ],
+   "offset": [
+    -72.5,
+    -241
+   ],
+   "scale": 0.9959,
+   "flip_h": false,
+   "collisions": [
+    [
+     -57.75933609958506,
+     -60,
+     115.51867219917013,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "tree_blue",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
+   "pos": [
+    2680,
+    2230
+   ],
+   "offset": [
+    -99.0,
+    -238
+   ],
+   "scale": 1.5126,
+   "flip_h": false,
+   "collisions": [
+    [
+     -47.91932773109244,
+     -46,
+     95.83865546218487,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "statue",
+   "texture": "res://assets/maps/eldoria_v2/props/statue.png",
+   "pos": [
+    3720,
+    2620
+   ],
+   "offset": [
+    -72.5,
+    -241
+   ],
+   "scale": 0.9959,
+   "flip_h": false,
+   "collisions": [
+    [
+     -57.75933609958506,
+     -60,
+     115.51867219917013,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    3720,
+    2230
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3010,
+    900
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3390,
+    900
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3010,
+    1330
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3390,
+    1330
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3010,
+    1760
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3390,
+    1760
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3010,
+    3480
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3390,
+    3480
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3010,
+    3910
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3390,
+    3910
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3010,
+    4340
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3390,
+    4340
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    800,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    1420,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    2040,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    2660,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3900,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    4520,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    5140,
+    1717.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    800,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    1420,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    2040,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    2660,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3900,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    4520,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    5140,
+    3017.0
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "bush",
+   "texture": "res://assets/maps/eldoria_v2/props/bush.png",
+   "pos": [
+    2145.5,
+    1029.1
+   ],
+   "offset": [
+    -91.5,
+    -152
+   ],
+   "scale": 0.8224,
+   "flip_h": false,
+   "collisions": [
+    [
+     -57.18749999999999,
+     -40,
+     114.37499999999999,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "tree_blue",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
+   "pos": [
+    2125.4,
+    1470.9
+   ],
+   "offset": [
+    -99.0,
+    -238
+   ],
+   "scale": 1.5126,
+   "flip_h": false,
+   "collisions": [
+    [
+     -47.91932773109244,
+     -46,
+     95.83865546218487,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "bed_mixed",
+   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
+   "pos": [
+    2092.7,
+    1224.7
+   ],
+   "offset": [
+    -101.5,
+    -165
+   ],
+   "scale": 0.7273,
+   "flip_h": false,
+   "collisions": [
+    [
+     -62.007272727272735,
+     -40,
+     124.01454545454547,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    2250.4,
+    1407.7
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_blue",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
+   "pos": [
+    2451.3,
+    1188.2
+   ],
+   "offset": [
+    -99.0,
+    -238
+   ],
+   "scale": 1.5126,
+   "flip_h": false,
+   "collisions": [
+    [
+     -47.91932773109244,
+     -46,
+     95.83865546218487,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    4154.4,
+    1398.1
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    4048.9,
+    952.7
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "bed_mixed",
+   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
+   "pos": [
+    4317.2,
+    1211.1
+   ],
+   "offset": [
+    -101.5,
+    -165
+   ],
+   "scale": 0.7273,
+   "flip_h": false,
+   "collisions": [
+    [
+     -62.007272727272735,
+     -40,
+     124.01454545454547,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    3985.4,
+    924.6
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    4268.3,
+    1438.7
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "bed_mixed",
+   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
+   "pos": [
+    2407.8,
+    2264.3
+   ],
+   "offset": [
+    -101.5,
+    -165
+   ],
+   "scale": 0.7273,
+   "flip_h": false,
+   "collisions": [
+    [
+     -62.007272727272735,
+     -40,
+     124.01454545454547,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    2430.8,
+    2651.0
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_blue",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
+   "pos": [
+    2011.7,
+    2487.5
+   ],
+   "offset": [
+    -99.0,
+    -238
+   ],
+   "scale": 1.5126,
+   "flip_h": false,
+   "collisions": [
+    [
+     -47.91932773109244,
+     -46,
+     95.83865546218487,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_blue",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
+   "pos": [
+    2546.0,
+    2674.8
+   ],
+   "offset": [
+    -99.0,
+    -238
+   ],
+   "scale": 1.5126,
+   "flip_h": false,
+   "collisions": [
+    [
+     -47.91932773109244,
+     -46,
+     95.83865546218487,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_blue",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_blue.png",
+   "pos": [
+    3976.8,
+    2583.7
+   ],
+   "offset": [
+    -99.0,
+    -238
+   ],
+   "scale": 1.5126,
+   "flip_h": false,
+   "collisions": [
+    [
+     -47.91932773109244,
+     -46,
+     95.83865546218487,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "bed_mixed",
+   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
+   "pos": [
+    4433.9,
+    2423.8
+   ],
+   "offset": [
+    -101.5,
+    -165
+   ],
+   "scale": 0.7273,
+   "flip_h": false,
+   "collisions": [
+    [
+     -62.007272727272735,
+     -40,
+     124.01454545454547,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "bed_mixed",
+   "texture": "res://assets/maps/eldoria_v2/props/bed_mixed.png",
+   "pos": [
+    3836.7,
+    2709.0
+   ],
+   "offset": [
+    -101.5,
+    -165
+   ],
+   "scale": 0.7273,
+   "flip_h": false,
+   "collisions": [
+    [
+     -62.007272727272735,
+     -40,
+     124.01454545454547,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "bush_flower",
+   "texture": "res://assets/maps/eldoria_v2/props/bush_flower.png",
+   "pos": [
+    4288.2,
+    2768.6
+   ],
+   "offset": [
+    -71.0,
+    -127
+   ],
+   "scale": 0.748,
+   "flip_h": false,
+   "collisions": [
+    [
+     -40.36377952755906,
+     -40,
+     80.72755905511812,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "stall",
+   "texture": "res://assets/maps/eldoria_v2/props/stall.png",
+   "pos": [
+    3680,
+    3640
+   ],
+   "offset": [
+    -129.5,
+    -197
+   ],
+   "scale": 1.0425,
+   "flip_h": false,
+   "collisions": [
+    [
+     -121.5,
+     -60,
+     243.0,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "stall",
+   "texture": "res://assets/maps/eldoria_v2/props/stall.png",
+   "pos": [
+    3960,
+    3640
+   ],
+   "offset": [
+    -129.5,
+    -197
+   ],
+   "scale": 1.0425,
+   "flip_h": false,
+   "collisions": [
+    [
+     -121.5,
+     -60,
+     243.0,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "stall",
+   "texture": "res://assets/maps/eldoria_v2/props/stall.png",
+   "pos": [
+    4240,
+    3640
+   ],
+   "offset": [
+    -129.5,
+    -197
+   ],
+   "scale": 1.0425,
+   "flip_h": false,
+   "collisions": [
+    [
+     -121.5,
+     -60,
+     243.0,
+     60
+    ]
+   ]
+  },
+  {
+   "name": "cart",
+   "texture": "res://assets/maps/eldoria_v2/props/cart.png",
+   "pos": [
+    3720,
+    4020
+   ],
+   "offset": [
+    -120.5,
+    -170
+   ],
+   "scale": 0.8299,
+   "flip_h": false,
+   "collisions": [
+    [
+     -84.0,
+     -46,
+     168.0,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "crate",
+   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
+   "pos": [
+    4300,
+    3980
+   ],
+   "offset": [
+    -65.5,
+    -148
+   ],
+   "scale": 0.4865,
+   "flip_h": false,
+   "collisions": [
+    [
+     -26.766486486486485,
+     -34,
+     53.53297297297297,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "crate",
+   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
+   "pos": [
+    4360,
+    4040
+   ],
+   "offset": [
+    -65.5,
+    -148
+   ],
+   "scale": 0.4865,
+   "flip_h": false,
+   "collisions": [
+    [
+     -26.766486486486485,
+     -34,
+     53.53297297297297,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "crate",
+   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
+   "pos": [
+    3600,
+    3980
+   ],
+   "offset": [
+    -65.5,
+    -148
+   ],
+   "scale": 0.4865,
+   "flip_h": false,
+   "collisions": [
+    [
+     -26.766486486486485,
+     -34,
+     53.53297297297297,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    4120,
+    4060
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    4180,
+    4080
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    900,
+    4580
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    1500,
+    4580
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    2100,
+    4580
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    2600,
+    4580
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "crate",
+   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
+   "pos": [
+    3900,
+    4580
+   ],
+   "offset": [
+    -65.5,
+    -148
+   ],
+   "scale": 0.4865,
+   "flip_h": false,
+   "collisions": [
+    [
+     -26.766486486486485,
+     -34,
+     53.53297297297297,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "crate",
+   "texture": "res://assets/maps/eldoria_v2/props/crate.png",
+   "pos": [
+    4400,
+    4580
+   ],
+   "offset": [
+    -65.5,
+    -148
+   ],
+   "scale": 0.4865,
+   "flip_h": false,
+   "collisions": [
+    [
+     -26.766486486486485,
+     -34,
+     53.53297297297297,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "barrel",
+   "texture": "res://assets/maps/eldoria_v2/props/barrel.png",
+   "pos": [
+    4900,
+    4580
+   ],
+   "offset": [
+    -62.5,
+    -172
+   ],
+   "scale": 0.4651,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23.25581395348837,
+     -34,
+     46.51162790697674,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "cart",
+   "texture": "res://assets/maps/eldoria_v2/props/cart.png",
+   "pos": [
+    1900,
+    4520
+   ],
+   "offset": [
+    -120.5,
+    -170
+   ],
+   "scale": 0.8299,
+   "flip_h": false,
+   "collisions": [
+    [
+     -84.0,
+     -46,
+     168.0,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3090,
+    5250
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "lamp",
+   "texture": "res://assets/maps/eldoria_v2/props/lamp.png",
+   "pos": [
+    3310,
+    5250
+   ],
+   "offset": [
+    -49.0,
+    -255
+   ],
+   "scale": 0.7451,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14.60392156862745,
+     -26,
+     29.2078431372549,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "sign",
+   "texture": "res://assets/maps/eldoria_v2/props/sign.png",
+   "pos": [
+    920,
+    1720
+   ],
+   "offset": [
+    -64.5,
+    -209
+   ],
+   "scale": 0.7177,
+   "flip_h": false,
+   "collisions": [
+    [
+     -13.88755980861244,
+     -22,
+     27.77511961722488,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "well",
+   "texture": "res://assets/maps/eldoria_v2/props/well.png",
+   "pos": [
+    2780,
+    3320
+   ],
+   "offset": [
+    -82.0,
+    -214
+   ],
+   "scale": 0.9813,
+   "flip_h": false,
+   "collisions": [
+    [
+     -67.59252336448597,
+     -70,
+     135.18504672897194,
+     70
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    560,
+    3420
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  },
+  {
+   "name": "tree_white",
+   "texture": "res://assets/maps/eldoria_v2/props/tree_white.png",
+   "pos": [
+    560,
+    3900
+   ],
+   "offset": [
+    -101.0,
+    -239
+   ],
+   "scale": 1.5063,
+   "flip_h": false,
+   "collisions": [
+    [
+     -48.68284518828452,
+     -46,
+     97.36569037656903,
+     46
+    ]
+   ]
+  }
+ ]
+}

@@ -613,6 +613,20 @@
           3950,
           900
         ]
+      },
+      {
+        "label": "Valdoria",
+        "target": "city_valdoria",
+        "pos": [
+          3600,
+          760
+        ],
+        "spawn": [
+          1000,
+          1840
+        ],
+        "requires_boss_clear": true,
+        "boss_enemy": "Arquimago Corrompido"
       }
     ],
     "safe_zones": [
@@ -787,21 +801,21 @@
     "name": "Valdoria Cidade",
     "safe": true,
     "size": [
-      1254,
-      1254
+      6400,
+      5760
     ],
     "color": "#394b63",
     "spawn": [
-      627,
-      1100
+      930,
+      1840
     ],
     "npcs": [
       {
         "name": "Liora, Curandeira",
         "role": "healer",
         "pos": [
-          400,
-          620
+          3200,
+          1695
         ],
         "sprite": "res://assets/characters/npcs/npc_liora_curandeira_idle_4f_128.png",
         "greeting": "O templo de Valdoria cura qualquer ferida."
@@ -810,8 +824,8 @@
         "name": "Varek, Mercador",
         "role": "shop",
         "pos": [
-          850,
-          620
+          5100,
+          2995
         ],
         "sprite": "res://assets/characters/npcs/npc_varek_mercador_idle_4f_128.png",
         "greeting": "Os melhores precos do porto, amigo!"
@@ -820,8 +834,8 @@
         "name": "Mira, Vendedora de Pets",
         "role": "pet_shop",
         "pos": [
-          300,
-          860
+          1300,
+          4295
         ],
         "sprite": "res://assets/characters/npcs/npc_mira_pets_idle_4f_128.png",
         "greeting": "Quer um companheiro de aventura?"
@@ -830,8 +844,8 @@
         "name": "Torin, Mestre de Montarias",
         "role": "mount_shop",
         "pos": [
-          950,
-          860
+          5100,
+          4295
         ],
         "sprite": "res://assets/characters/npcs/npc_torin_montarias_idle_4f_128.png",
         "greeting": "Uma boa montaria encurta qualquer viagem."
@@ -840,14 +854,27 @@
         "name": "Durnan, Forja Rara",
         "role": "rare_forge",
         "pos": [
-          627,
-          480
+          1300,
+          2995
         ],
         "sprite": "res://assets/characters/npcs/npc_durnan_forja_rara_idle_4f_128.png",
         "greeting": "Runas e aco raro. Traga os materiais certos."
       }
     ],
-    "portals": [],
+    "portals": [
+      {
+        "label": "Ruinas Arcanas",
+        "target": "arcane_ruins",
+        "pos": [
+          720,
+          1840
+        ],
+        "spawn": [
+          3600,
+          1000
+        ]
+      }
+    ],
     "spawns": [],
     "collectibles": [],
     "safe_zones": []

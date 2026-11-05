@@ -276,6 +276,8 @@ const CAVE_SOURCE_SIZE := Vector2(1400, 1120)
 const CAVE_CHUNK_SIZE := Vector2(280, 280)
 # Caverna v2 (tools/cave_v2/generate_cave_v2.py): chunks + mascara + lago + props.
 const CAVE_KIT_DATA_PATH := "res://data/cave_kit.json"
+# Valdoria v2 (tools/valdoria_v2/generate_valdoria_v2.py): cidade portuaria em kit (chunks + mascara + mar + predios).
+const VALDORIA_KIT_DATA_PATH := "res://data/valdoria_kit.json"
 const MAPS_REBUILD_BASE_ONLY := {
 	"arcane_ruins": true,
 	"bat_cave": true,
@@ -417,6 +419,7 @@ var arcane_ruins_collision_data: Dictionary = {}
 var cave_collision_data: Dictionary = {}
 var forest_kit_data: Dictionary = {}
 var cave_kit_data: Dictionary = {}
+var valdoria_kit_data: Dictionary = {}
 var forest_walk_image: Image
 var forest_walk_cell := 16.0
 var last_valid_player_position := Vector2.ZERO
@@ -2614,6 +2617,9 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	current_map_size = Vector2(float(size_data[0]), float(size_data[1]))
 	if _is_new_eldoria_map():
 		current_map_size = ELDORIA_WORLD_SIZE
+	elif _valdoria_v2_active():
+		var valdoria_size: Array = _get_valdoria_kit_data().get("world_size", [6400, 5760])
+		current_map_size = Vector2(float(valdoria_size[0]), float(valdoria_size[1]))
 	elif _is_new_valdoria_map():
 		current_map_size = VALDORIA_WORLD_SIZE
 	elif _is_forest_runtime_map() and _forest_chunks_available():
@@ -2646,7 +2652,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 
 func _draw_map_background(map_data: Dictionary) -> void:
 	_draw_map_terrain(map_data)
-	if current_map == "city_eldoria" or _ruins_v2_active() or _cave_v2_active():
+	if current_map == "city_eldoria" or _ruins_v2_active() or _cave_v2_active() or _valdoria_v2_active():
 		return
 	_spawn_ground_details()
 	if current_map != "city_eldoria" and not _is_new_eldoria_map() and not _is_forest_base_map():
@@ -2662,6 +2668,8 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 	if current_map == "arcane_ruins" and _draw_ruins_v2():
 		return
 	if current_map == "bat_cave" and _draw_cave_v2():
+		return
+	if current_map == "city_valdoria" and _draw_valdoria_v2():
 		return
 	if _is_rebuild_base_only_map():
 		_draw_rebuild_base_terrain(map_data)
@@ -2776,6 +2784,8 @@ func _is_new_eldoria_map() -> bool:
 	return current_map == "city_eldoria" and _eldoria_background_available()
 
 func _valdoria_background_available() -> bool:
+	if not _get_valdoria_kit_data().is_empty():
+		return false
 	return ResourceLoader.exists(VALDORIA_BACKGROUND_PATH)
 
 func _is_new_valdoria_map() -> bool:
@@ -2910,6 +2920,53 @@ func _cave_minimap_path() -> String:
 	if _cave_v2_active():
 		return str(_get_cave_kit_data().get("minimap", ""))
 	return CAVE_MINIMAP_PATH
+
+func _get_valdoria_kit_data() -> Dictionary:
+	if not valdoria_kit_data.is_empty():
+		return valdoria_kit_data
+	if not FileAccess.file_exists(VALDORIA_KIT_DATA_PATH):
+		return {}
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string(VALDORIA_KIT_DATA_PATH))
+	if typeof(parsed) == TYPE_DICTIONARY:
+		valdoria_kit_data = parsed
+	return valdoria_kit_data
+
+func _valdoria_v2_active() -> bool:
+	return current_map == "city_valdoria" and not _get_valdoria_kit_data().is_empty()
+
+# Valdoria v2: mesmo formato de kit da caverna (chunks com mar transparente sobre a agua animada).
+func _draw_valdoria_v2() -> bool:
+	var data := _get_valdoria_kit_data()
+	if data.is_empty():
+		return false
+	var size_data: Array = data.get("world_size", [6400, 5760])
+	current_map_size = Vector2(float(size_data[0]), float(size_data[1]))
+	var grid_data: Array = data.get("chunk_grid", [8, 9])
+	var chunk_px_data: Array = data.get("chunk_px", [400, 320])
+	var ground_scale := float(data.get("ground_scale", 2.0))
+	var chunks_root := Node2D.new()
+	chunks_root.name = "ValdoriaV2Chunks"
+	world.add_child(chunks_root)
+	for grid_y in range(int(grid_data[1])):
+		for grid_x in range(int(grid_data[0])):
+			var path := "%s/%s_%02d_%02d.png" % [str(data.get("chunks_dir", "")), str(data.get("chunk_prefix", "")), grid_x, grid_y]
+			var chunk_texture := load(path) as Texture2D
+			if chunk_texture == null:
+				continue
+			var chunk := Sprite2D.new()
+			chunk.texture = chunk_texture
+			chunk.centered = false
+			chunk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			chunk.scale = Vector2.ONE * ground_scale
+			chunk.position = Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale
+			chunk.z_index = -100
+			chunks_root.add_child(chunk)
+	forest_walk_image = null
+	_spawn_map_kit(data)
+	for rect_data in data.get("solids", []):
+		if typeof(rect_data) == TYPE_ARRAY and rect_data.size() >= 4:
+			_register_solid_rect(Rect2(float(rect_data[0]), float(rect_data[1]), float(rect_data[2]), float(rect_data[3])))
+	return true
 
 # Caverna v2: mesmo formato de kit das Ruinas v2 (chunks, mascara andavel, lago e props).
 func _draw_cave_v2() -> bool:
@@ -4086,7 +4143,7 @@ func _is_point_blocked(pos: Vector2) -> bool:
 				return false
 	if current_map == "bat_cave" and not _cave_v2_active() and _cave_background_available() and not _is_cave_walkable(pos):
 		return true
-	if (_is_forest_runtime_map() or _ruins_v2_active() or _cave_v2_active()) and forest_walk_image != null:
+	if (_is_forest_runtime_map() or _ruins_v2_active() or _cave_v2_active() or _valdoria_v2_active()) and forest_walk_image != null:
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
 			if not _is_forest_walkable(pos + probe):
 				return true
@@ -6460,6 +6517,21 @@ func _draw_world_map_preview(canvas: Control, map_id: String, map_size: Vector2,
 					return
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(0, 0, map_size.x, map_size.y), Color("#2b2f3f"), origin)
 			_map_preview_rect(canvas, map_size, canvas_size, Rect2(240, 130, map_size.x - 480, map_size.y - 220), Color("#3c4152"), origin)
+		"city_valdoria":
+			var valdoria_preview_path := str(_get_valdoria_kit_data().get("minimap", ""))
+			if not valdoria_preview_path.is_empty() and ResourceLoader.exists(valdoria_preview_path):
+				var texture := load(valdoria_preview_path) as Texture2D
+				if texture != null:
+					var preview := TextureRect.new()
+					preview.texture = texture
+					preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+					preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+					preview.stretch_mode = TextureRect.STRETCH_SCALE
+					preview.position = origin
+					preview.size = canvas_size
+					preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+					canvas.add_child(preview)
+					return
 
 func _map_preview_rect(canvas: Control, map_size: Vector2, canvas_size: Vector2, world_rect: Rect2, color: Color, origin: Vector2) -> void:
 	var p := _map_canvas_pos(map_size, canvas_size, world_rect.position) + origin
@@ -7122,6 +7194,8 @@ func _use_eldoria_image_minimap() -> bool:
 	return ResourceLoader.exists(ELDORIA_MINIMAP_PATH)
 
 func _use_valdoria_image_minimap() -> bool:
+	if _valdoria_v2_active():
+		return false
 	return current_map == "city_valdoria" and ResourceLoader.exists(VALDORIA_MINIMAP_PATH)
 
 func _use_forest_image_minimap() -> bool:
@@ -7207,6 +7281,8 @@ func _kit_minimap_path() -> String:
 		return FOREST_MINIMAP_PATH
 	if current_map == "arcane_ruins":
 		return str(_get_ruins_kit_data().get("minimap", ""))
+	if _valdoria_v2_active():
+		return str(_get_valdoria_kit_data().get("minimap", ""))
 	return ""
 
 func _add_forest_minimap_background() -> void:
