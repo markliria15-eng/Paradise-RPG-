@@ -21,7 +21,7 @@ var _updated_files := 0
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_load_config()
-	if not patch_enabled:
+	if not patch_enabled or OS.get_cmdline_user_args().has("--offline-test") or bool(ProjectSettings.get_setting("paradise/offline_only", false)):
 		return
 	_http = HTTPRequest.new()
 	add_child(_http)

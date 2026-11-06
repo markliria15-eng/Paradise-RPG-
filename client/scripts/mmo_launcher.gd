@@ -46,7 +46,8 @@ func _ready() -> void:
 	if not environment.is_empty():
 		intro = "%s: %s" % [environment, intro]
 	_set_status(intro, false)
-	if OS.get_cmdline_user_args().has("--offline-test"):
+	# Teste offline (--offline-test) ou fase so offline (paradise/offline_only no project.godot).
+	if OS.get_cmdline_user_args().has("--offline-test") or bool(ProjectSettings.get_setting("paradise/offline_only", false)):
 		call_deferred("_on_open_game_pressed")
 
 func _input(event: InputEvent) -> void:

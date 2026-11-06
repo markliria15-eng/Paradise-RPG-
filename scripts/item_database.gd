@@ -35,7 +35,7 @@ static func resolve_data_path(path: String) -> String:
 		return path
 	# Teste offline usa sempre os dados do projeto: um patch antigo baixado numa sessao
 	# online escondia itens novos (armas, bijuterias, bolsas) de data/.
-	if "--offline-test" in OS.get_cmdline_user_args():
+	if OS.get_cmdline_user_args().has("--offline-test") or bool(ProjectSettings.get_setting("paradise/offline_only", false)):
 		return path
 	var file_name := path.get_file()
 	var patched_path := "user://patches/data/" + file_name

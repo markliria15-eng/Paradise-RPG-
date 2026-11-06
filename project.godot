@@ -8,6 +8,12 @@ config/name="Paradise RPG"
 run/main_scene="res://client/scenes/mmo_launcher.tscn"
 config/features=PackedStringArray("4.2")
 
+[paradise]
+
+; Fase de testes: o jogo abre direto no offline (sem login, patch ou servidor).
+; Trocar para false quando o servidor online voltar.
+offline_only=true
+
 [autoload]
 MMOClient="*res://client/scripts/mmo_client.gd"
 PatchClient="*res://client/scripts/patch_client.gd"
