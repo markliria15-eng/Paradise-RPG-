@@ -2000,7 +2000,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3010,
     900
@@ -2011,6 +2011,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2022,7 +2029,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3390,
     900
@@ -2033,6 +2040,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2044,7 +2058,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3010,
     1330
@@ -2055,6 +2069,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2066,7 +2087,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3390,
     1330
@@ -2077,6 +2098,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2088,7 +2116,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3010,
     1760
@@ -2099,6 +2127,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2110,7 +2145,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3390,
     1760
@@ -2121,6 +2156,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2132,7 +2174,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3010,
     3480
@@ -2143,6 +2185,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2154,7 +2203,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3390,
     3480
@@ -2165,6 +2214,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2176,7 +2232,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3010,
     3910
@@ -2187,6 +2243,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2198,7 +2261,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3390,
     3910
@@ -2209,6 +2272,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2220,7 +2290,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3010,
     4340
@@ -2231,6 +2301,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2242,7 +2319,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3390,
     4340
@@ -2253,6 +2330,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2264,7 +2348,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     800,
     1717.0
@@ -2275,6 +2359,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2286,7 +2377,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     1420,
     1717.0
@@ -2297,6 +2388,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2308,7 +2406,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     2040,
     1717.0
@@ -2319,6 +2417,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2330,7 +2435,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     2660,
     1717.0
@@ -2341,6 +2446,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2352,7 +2464,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3900,
     1717.0
@@ -2363,6 +2475,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2374,7 +2493,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     4520,
     1717.0
@@ -2385,6 +2504,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2396,7 +2522,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     5140,
     1717.0
@@ -2407,6 +2533,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2418,7 +2551,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     800,
     3017.0
@@ -2429,6 +2562,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2440,7 +2580,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     1420,
     3017.0
@@ -2451,6 +2591,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2462,7 +2609,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     2040,
     3017.0
@@ -2473,6 +2620,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2484,7 +2638,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     2660,
     3017.0
@@ -2495,6 +2649,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2506,7 +2667,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3900,
     3017.0
@@ -2517,6 +2678,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2528,7 +2696,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     4520,
     3017.0
@@ -2539,6 +2707,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -2550,7 +2725,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     5140,
     3017.0
@@ -2561,6 +2736,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -3078,7 +3260,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3090,
     5250
@@ -3089,6 +3271,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -3100,7 +3289,7 @@
   },
   {
    "name": "gas_lamp",
-   "texture": "res://assets/maps/valdoria_v2/props/gas_lamp.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
    "pos": [
     3310,
     5250
@@ -3111,6 +3300,13 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/gas_lamp_flicker_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
      -7.5,
@@ -3122,66 +3318,95 @@
   },
   {
    "name": "furnace",
-   "texture": "res://assets/maps/valdoria_v2/props/furnace.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/furnace_glow_none/0.png",
    "pos": [
     2250,
     2420
    ],
    "offset": [
-    -165.0,
+    -165.5,
     -400
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/furnace_glow_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/furnace_glow_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/furnace_glow_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/furnace_glow_none/3.png"
+   ],
+   "fps": 6,
    "collisions": [
     [
-     -141.9,
+     -142.3,
      -120,
-     283.8,
+     284.7,
      120
     ]
    ]
   },
   {
    "name": "chimney",
-   "texture": "res://assets/maps/valdoria_v2/props/chimney.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/0.png",
    "pos": [
     2560,
     2330
    ],
    "offset": [
-    -61.5,
-    -430
+    -63.5,
+    -440
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/5.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/6.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/7.png"
+   ],
+   "fps": 7,
    "collisions": [
     [
-     -43.0,
+     -44.4,
      -60,
-     86.1,
+     88.9,
      60
     ]
    ]
   },
   {
    "name": "chimney",
-   "texture": "res://assets/maps/valdoria_v2/props/chimney.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/0.png",
    "pos": [
     1960,
     2300
    ],
    "offset": [
-    -61.5,
-    -430
+    -63.5,
+    -440
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/5.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/6.png",
+    "res://assets/maps/valdoria_v2/anim/chimney_smoke_none/7.png"
+   ],
+   "fps": 7,
    "collisions": [
     [
-     -43.0,
+     -44.4,
      -60,
-     86.1,
+     88.9,
      60
     ]
    ]
@@ -3400,116 +3625,6 @@
    ]
   },
   {
-   "name": "carriage_luxury_left",
-   "texture": "res://assets/maps/valdoria_v2/props/carriage_luxury_left.png",
-   "pos": [
-    4400,
-    1960
-   ],
-   "offset": [
-    -270.0,
-    -254
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -243.0,
-     -70,
-     486.0,
-     70
-    ]
-   ]
-  },
-  {
-   "name": "carriage_luxury_right",
-   "texture": "res://assets/maps/valdoria_v2/props/carriage_luxury_right.png",
-   "pos": [
-    2000,
-    3260
-   ],
-   "offset": [
-    -270.0,
-    -254
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -243.0,
-     -70,
-     486.0,
-     70
-    ]
-   ]
-  },
-  {
-   "name": "cart_worker_left",
-   "texture": "res://assets/maps/valdoria_v2/props/cart_worker_left.png",
-   "pos": [
-    4400,
-    3270
-   ],
-   "offset": [
-    -190.0,
-    -179
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -171.0,
-     -60,
-     342.0,
-     60
-    ]
-   ]
-  },
-  {
-   "name": "cart_worker_right",
-   "texture": "res://assets/maps/valdoria_v2/props/cart_worker_right.png",
-   "pos": [
-    1700,
-    1960
-   ],
-   "offset": [
-    -190.0,
-    -179
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -171.0,
-     -60,
-     342.0,
-     60
-    ]
-   ]
-  },
-  {
-   "name": "wagon_cargo",
-   "texture": "res://assets/maps/valdoria_v2/props/wagon_cargo.png",
-   "pos": [
-    4700,
-    4380
-   ],
-   "offset": [
-    -280.0,
-    -265
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -252.0,
-     -70,
-     504.0,
-     70
-    ]
-   ]
-  },
-  {
    "name": "hand_cart",
    "texture": "res://assets/maps/valdoria_v2/props/hand_cart.png",
    "pos": [
@@ -3532,8 +3647,129 @@
    ]
   },
   {
+   "name": "horse",
+   "texture": "res://assets/maps/valdoria_v2/anim/horse_idle_right/0.png",
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/horse_idle_right/0.png",
+    "res://assets/maps/valdoria_v2/anim/horse_idle_right/1.png",
+    "res://assets/maps/valdoria_v2/anim/horse_idle_right/2.png",
+    "res://assets/maps/valdoria_v2/anim/horse_idle_right/3.png"
+   ],
+   "fps": 4,
+   "pos": [
+    4640,
+    4330
+   ],
+   "offset": [
+    -125.0,
+    -230
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -100.0,
+     -40,
+     200.0,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "horse",
+   "texture": "res://assets/maps/valdoria_v2/anim/horse_idle_left/0.png",
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/horse_idle_left/0.png",
+    "res://assets/maps/valdoria_v2/anim/horse_idle_left/1.png",
+    "res://assets/maps/valdoria_v2/anim/horse_idle_left/2.png",
+    "res://assets/maps/valdoria_v2/anim/horse_idle_left/3.png"
+   ],
+   "fps": 4,
+   "pos": [
+    5560,
+    4330
+   ],
+   "offset": [
+    -125.0,
+    -230
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -100.0,
+     -40,
+     200.0,
+     40
+    ]
+   ]
+  },
+  {
+   "name": "seagull",
+   "texture": "res://assets/maps/valdoria_v2/anim/seagull_idle_none/0.png",
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/3.png"
+   ],
+   "fps": 3,
+   "pos": [
+    1700,
+    4594
+   ],
+   "offset": [
+    -26.0,
+    -109
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "seagull",
+   "texture": "res://assets/maps/valdoria_v2/anim/seagull_idle_none/0.png",
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/3.png"
+   ],
+   "fps": 3,
+   "pos": [
+    3600,
+    4594
+   ],
+   "offset": [
+    -26.0,
+    -109
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "seagull",
+   "texture": "res://assets/maps/valdoria_v2/anim/seagull_idle_none/0.png",
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/seagull_idle_none/3.png"
+   ],
+   "fps": 3,
+   "pos": [
+    4800,
+    4594
+   ],
+   "offset": [
+    -26.0,
+    -109
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
    "name": "banner_flagpole",
-   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
    "pos": [
     2730,
     2130
@@ -3544,6 +3780,15 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/5.png"
+   ],
+   "fps": 8,
    "collisions": [
     [
      -18.9,
@@ -3555,7 +3800,7 @@
   },
   {
    "name": "banner_flagpole",
-   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
    "pos": [
     3670,
     2130
@@ -3566,6 +3811,15 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/5.png"
+   ],
+   "fps": 8,
    "collisions": [
     [
      -18.9,
@@ -3577,7 +3831,7 @@
   },
   {
    "name": "banner_flagpole",
-   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
    "pos": [
     3000,
     4380
@@ -3588,6 +3842,15 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/5.png"
+   ],
+   "fps": 8,
    "collisions": [
     [
      -18.9,
@@ -3599,7 +3862,7 @@
   },
   {
    "name": "banner_flagpole",
-   "texture": "res://assets/maps/valdoria_v2/props/banner_flagpole.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
    "pos": [
     3400,
     4380
@@ -3610,6 +3873,15 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/banner_flagpole_wave_none/5.png"
+   ],
+   "fps": 8,
    "collisions": [
     [
      -18.9,
@@ -3643,77 +3915,116 @@
   },
   {
    "name": "ship_docked",
-   "texture": "res://assets/maps/valdoria_v2/props/ship_docked.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/0.png",
    "pos": [
     2420,
     5540
    ],
    "offset": [
-    -650.0,
-    -933
+    -325.0,
+    -469
    ],
-   "scale": 1.0,
-   "flip_h": false
+   "scale": 2.0,
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/ship_docked_bob_none/5.png"
+   ],
+   "fps": 3
   },
   {
    "name": "fishing_boat",
-   "texture": "res://assets/maps/valdoria_v2/props/fishing_boat.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/0.png",
    "pos": [
     3700,
     5080
    ],
    "offset": [
     -260.0,
-    -393
+    -397
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/fishing_boat_bob_none/5.png"
+   ],
+   "fps": 4
   },
   {
    "name": "rowboat",
-   "texture": "res://assets/maps/valdoria_v2/props/rowboat.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/0.png",
    "pos": [
     1250,
     4760
    ],
    "offset": [
     -130.0,
-    -102
+    -105
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/3.png"
+   ],
+   "fps": 4
   },
   {
    "name": "rowboat",
-   "texture": "res://assets/maps/valdoria_v2/props/rowboat.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/0.png",
    "pos": [
     4500,
     4760
    ],
    "offset": [
     -130.0,
-    -102
+    -105
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/3.png"
+   ],
+   "fps": 4
   },
   {
    "name": "rowboat",
-   "texture": "res://assets/maps/valdoria_v2/props/rowboat.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/0.png",
    "pos": [
     5000,
     4790
    ],
    "offset": [
     -130.0,
-    -102
+    -105
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/rowboat_bob_none/3.png"
+   ],
+   "fps": 4
   },
   {
    "name": "crane",
-   "texture": "res://assets/maps/valdoria_v2/props/crane.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/crane_work_none/0.png",
    "pos": [
     2480,
     4590
@@ -3724,6 +4035,17 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/5.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/6.png",
+    "res://assets/maps/valdoria_v2/anim/crane_work_none/7.png"
+   ],
+   "fps": 3,
    "collisions": [
     [
      -231.3,
@@ -3779,7 +4101,7 @@
   },
   {
    "name": "water_wheel",
-   "texture": "res://assets/maps/valdoria_v2/props/water_wheel.png",
+   "texture": "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/0.png",
    "pos": [
     5660,
     4600
@@ -3790,6 +4112,17 @@
    ],
    "scale": 1.0,
    "flip_h": false,
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/5.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/6.png",
+    "res://assets/maps/valdoria_v2/anim/water_wheel_spin_none/7.png"
+   ],
+   "fps": 8,
    "collisions": [
     [
      -108.4,
@@ -4212,6 +4545,573 @@
      -46,
      97.36569037656903,
      46
+    ]
+   ]
+  }
+ ],
+ "vehicles": [
+  {
+   "name": "carriage_luxury",
+   "speed": 150,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_left/7.png"
+     ],
+     "offset": [
+      -270.0,
+      -254
+     ],
+     "fps": 10
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_right/7.png"
+     ],
+     "offset": [
+      -270.0,
+      -254
+     ],
+     "fps": 10
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/7.png"
+     ],
+     "offset": [
+      -84.0,
+      -398
+     ],
+     "fps": 10
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/7.png"
+     ],
+     "offset": [
+      -108.0,
+      -398
+     ],
+     "fps": 10
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_left/3.png"
+     ],
+     "offset": [
+      -270.0,
+      -254
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_right/3.png"
+     ],
+     "offset": [
+      -270.0,
+      -254
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     900,
+     1902.0,
+     3
+    ],
+    [
+     3200,
+     1902.0,
+     4
+    ],
+    [
+     3200,
+     2057.0,
+     0
+    ],
+    [
+     2730,
+     2410,
+     0
+    ],
+    [
+     2730,
+     2730,
+     0
+    ],
+    [
+     3140,
+     3202.0,
+     0
+    ],
+    [
+     4700,
+     3202.0,
+     5
+    ],
+    [
+     3260,
+     3252.0,
+     0
+    ],
+    [
+     3670,
+     2730,
+     0
+    ],
+    [
+     3670,
+     2410,
+     0
+    ],
+    [
+     3260,
+     2057.0,
+     0
+    ],
+    [
+     3260,
+     1952.0,
+     0
+    ],
+    [
+     900,
+     1952.0,
+     0
+    ]
+   ]
+  },
+  {
+   "name": "cart_worker",
+   "speed": 120,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_left/7.png"
+     ],
+     "offset": [
+      -190.0,
+      -180
+     ],
+     "fps": 9
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_right/7.png"
+     ],
+     "offset": [
+      -190.0,
+      -180
+     ],
+     "fps": 9
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/7.png"
+     ],
+     "offset": [
+      -56.5,
+      -281
+     ],
+     "fps": 9
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/7.png"
+     ],
+     "offset": [
+      -76.5,
+      -281
+     ],
+     "fps": 9
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_left/3.png"
+     ],
+     "offset": [
+      -190.0,
+      -180
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/cart_worker_idle_right/3.png"
+     ],
+     "offset": [
+      -190.0,
+      -180
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     800,
+     3177.0,
+     3
+    ],
+    [
+     3140,
+     3177.0,
+     0
+    ],
+    [
+     3140,
+     4340,
+     5
+    ],
+    [
+     3260,
+     4340,
+     0
+    ],
+    [
+     3260,
+     3227.0,
+     0
+    ],
+    [
+     800,
+     3227.0,
+     0
+    ]
+   ]
+  },
+  {
+   "name": "wagon_cargo",
+   "speed": 85,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_left/7.png"
+     ],
+     "offset": [
+      -280.0,
+      -256
+     ],
+     "fps": 8
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_right/7.png"
+     ],
+     "offset": [
+      -280.0,
+      -256
+     ],
+     "fps": 8
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/7.png"
+     ],
+     "offset": [
+      -76.0,
+      -398
+     ],
+     "fps": 8
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/7.png"
+     ],
+     "offset": [
+      -113.0,
+      -398
+     ],
+     "fps": 8
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_left/3.png"
+     ],
+     "offset": [
+      -280.0,
+      -256
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_right/3.png"
+     ],
+     "offset": [
+      -280.0,
+      -256
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     5650,
+     3227.0,
+     6
+    ],
+    [
+     3700,
+     3227.0,
+     4
+    ]
+   ]
+  },
+  {
+   "name": "rowboat",
+   "speed": 55,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_left/7.png"
+     ],
+     "offset": [
+      -100.0,
+      -149
+     ],
+     "fps": 8
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/rowboat_rowing_right/7.png"
+     ],
+     "offset": [
+      -100.0,
+      -149
+     ],
+     "fps": 8
+    }
+   },
+   "route": [
+    [
+     4150,
+     4950,
+     2
+    ],
+    [
+     5050,
+     4950,
+     2
+    ]
+   ]
+  },
+  {
+   "name": "seagull",
+   "speed": 230,
+   "flying": true,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/5.png"
+     ],
+     "offset": [
+      -39.0,
+      -21
+     ],
+     "fps": 10
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/5.png"
+     ],
+     "offset": [
+      -39.0,
+      -21
+     ],
+     "fps": 10
+    }
+   },
+   "route": [
+    [
+     500,
+     4300,
+     0
+    ],
+    [
+     5900,
+     4380,
+     0
+    ]
+   ]
+  },
+  {
+   "name": "seagull",
+   "speed": 200,
+   "flying": true,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_left/5.png"
+     ],
+     "offset": [
+      -39.0,
+      -21
+     ],
+     "fps": 10
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/seagull_fly_right/5.png"
+     ],
+     "offset": [
+      -39.0,
+      -21
+     ],
+     "fps": 10
+    }
+   },
+   "route": [
+    [
+     5800,
+     4950,
+     0
+    ],
+    [
+     900,
+     4820,
+     0
     ]
    ]
   }

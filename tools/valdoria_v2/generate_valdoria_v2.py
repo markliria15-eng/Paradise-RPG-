@@ -233,6 +233,70 @@ IND_SIZE = {
 IND_SRC = HERE / "fonte_industrial"
 _ind_done = set()
 
+# Pacote "valdoria-animated-sprites" (tools/valdoria_v2/fonte_anim): folhas horizontais
+# valdoria_<obj>_<anim>_<dir>_<N>f_<W>x<H>.png. Props fixos com folha animada viram "frames".
+ANIM_SRC = HERE / "fonte_anim"
+ANIM_OF = {"gas_lamp": ("gas_lamp_flicker_none", 6), "furnace": ("furnace_glow_none", 6),
+           "chimney": ("chimney_smoke_none", 7), "banner_flagpole": ("banner_flagpole_wave_none", 8),
+           "ship_docked": ("ship_docked_bob_none", 3), "fishing_boat": ("fishing_boat_bob_none", 4),
+           "rowboat": ("rowboat_bob_none", 4), "crane": ("crane_work_none", 3), "water_wheel": ("water_wheel_spin_none", 8)}
+_anim_cache = {}
+
+
+def _sheet(key):
+    path = next(ANIM_SRC.glob(f"valdoria_{key}_*f_*x*.png"))
+    n, fw, fh = [int(v) for v in __import__("re").search(r"_(\d+)f_(\d+)x(\d+)\.png$", path.name).groups()]
+    im = Image.open(path).convert("RGBA")
+    return [im.crop((i * fw, 0, (i + 1) * fw, fh)) for i in range(n)]
+
+
+ANIM_STORE = {"ship_docked_bob_none": 0.5}  # guardado em meia resolucao (scale 2 no jogo) para poupar memoria
+
+
+def anim_frames(key, k=None, axis=None, size=None):
+    """Recorta a folha no contorno comum dos quadros (pes fixos), escala k e grava os quadros.
+    Devolve (lista res://, offset [-w/2, -h], k)."""
+    if key in _anim_cache:
+        return _anim_cache[key]
+    frames = _sheet(key)
+    boxes = [f.getbbox() for f in frames]
+    box = (min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes))
+    if k is None:
+        b0 = boxes[0]
+        k = size / ((b0[2] - b0[0]) if axis == "w" else (b0[3] - b0[1]))
+    out_dir = KIT / "anim" / key
+    out_dir.mkdir(parents=True, exist_ok=True)
+    paths = []
+    w = h = 0
+    for i, f in enumerate(frames):
+        c = f.crop(box)
+        ks = k * ANIM_STORE.get(key, 1.0)
+        c = c.resize((max(1, round(c.width * ks)), max(1, round(c.height * ks))), Image.LANCZOS)
+        a = c.getchannel("A").point(lambda v: 0 if v < 24 else v)
+        c.putalpha(a)
+        c = c.quantize(colors=255, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.NONE)
+        c.save(out_dir / f"{i}.png", optimize=True)
+        paths.append(f"{RES}assets/maps/valdoria_v2/anim/{key}/{i}.png")
+        w, h = c.size
+    _anim_cache[key] = (paths, [-w / 2, -h], k, (w, h))
+    return _anim_cache[key]
+
+
+# Veiculos que andam pelas ruas (main.gd: _spawn_kit_vehicles). Escala = mesma largura do prop fixo.
+VEHICLE_WIDTH = {"carriage_luxury": 540, "cart_worker": 380, "wagon_cargo": 560}
+
+
+def vehicle(kind, route, speed, fps=10, flying=False, keys=None, width=None):
+    base = keys or {"move_left": f"{kind}_move_left", "move_right": f"{kind}_move_right", "move_up": f"{kind}_move_up",
+                    "move_down": f"{kind}_move_down", "idle_left": f"{kind}_idle_left", "idle_right": f"{kind}_idle_right"}
+    first = next(iter(base.values()))
+    _, _, k, _ = anim_frames(first, axis="w", size=width or VEHICLE_WIDTH[kind])
+    anims = {}
+    for anim, key in base.items():
+        paths, offset, _, _ = anim_frames(key, k=k)
+        anims[anim] = {"frames": paths, "offset": offset, "fps": (4 if anim.startswith("idle") else fps)}
+    return {"name": kind, "speed": speed, "flying": flying, "anims": anims, "route": [list(p) for p in route]}
+
 
 def ind(name, foot, ground=False, col_dx=0.0):
     """Prop do pacote industrial, gravado em assets/maps/valdoria_v2/props no tamanho do mundo (escala 1)."""
@@ -249,6 +313,11 @@ def ind(name, foot, ground=False, col_dx=0.0):
     w, h = Image.open(out).size
     e = {"name": name, "texture": f"{RES}assets/maps/valdoria_v2/props/{name}.png", "pos": [round(foot[0], 1), round(foot[1], 1)],
          "offset": [-w / 2, -h], "scale": 1.0, "flip_h": False}
+    if name in ANIM_OF:
+        key, fps = ANIM_OF[name]
+        paths, offset, _, (w, h) = anim_frames(key, axis=axis, size=size)
+        e.update({"texture": paths[0], "frames": paths, "fps": fps, "offset": offset, "scale": 1.0 / ANIM_STORE.get(key, 1.0)})
+        w, h = w / ANIM_STORE.get(key, 1.0), h / ANIM_STORE.get(key, 1.0)
     if cw:
         e["collisions"] = [[round(-w * cw / 2 + w * col_dx, 1), -ch, round(w * cw, 1), ch]]
     if ground:
@@ -300,9 +369,16 @@ def decorations():
           ind("rail_curved", (2000, 2930), ground=True), ind("hand_cart", (2420, 2900))]
     # carruagens e charretes nas ruas
     d += [ind("carriage_luxury_parked", (3800, 1770)), ind("carriage_luxury_parked", (2600, 1770)),
-          ind("carriage_luxury_left", (4400, 1960)), ind("carriage_luxury_right", (2000, 3260)),
-          ind("cart_worker_left", (4400, 3270)), ind("cart_worker_right", (1700, 1960)),
-          ind("wagon_cargo", (4700, 4380)), ind("hand_cart", (3480, 4100))]
+          ind("hand_cart", (3480, 4100))]
+    # cavalos parados respirando perto dos Estabulos e gaivotas pousadas nos cabecos do cais
+    for x, side in ((4640, "right"), (5560, "left")):
+        paths, offset, _, (w, h) = anim_frames(f"horse_idle_{side}", axis="h", size=230)
+        d.append({"name": "horse", "texture": paths[0], "frames": paths, "fps": 4, "pos": [x, 4330], "offset": offset,
+                  "scale": 1.0, "flip_h": False, "collisions": [[-w * 0.4, -40, w * 0.8, 40]]})
+    for x in (1700, 3600, 4800):
+        paths, offset, _, _ = anim_frames("seagull_idle_none", axis="w", size=52)
+        d.append({"name": "seagull", "texture": paths[0], "frames": paths, "fps": 3, "pos": [x, BOARDWALK[3] - 6],
+                  "offset": [offset[0], offset[1] - 62], "scale": 1.0, "flip_h": False})
     # bandeiras e mural
     for x, y in ((CX - 470, PLAZA[1] - 430), (CX + 470, PLAZA[1] - 430), (CX - 200, 4380), (CX + 200, 4380)):
         d.append(ind("banner_flagpole", (x, y)))
@@ -324,6 +400,31 @@ def decorations():
     for p in ((560, 3420), (560, 3900)):
         d.append(D("tree_white", p))
     return d
+
+
+def vehicles():
+    s1, s2 = STREETS_Y
+    v = [
+        # carruagem de luxo: rua do Templo (para na frente dele), contorna a praca, para no Mercado e volta
+        vehicle("carriage_luxury", [(900, s1 + 45, 3), (CX, s1 + 45, 4), (CX, s1 + 200, 0), (CX - 470, PLAZA[1] - 150, 0),
+                                    (CX - 470, PLAZA[1] + 170, 0), (CX - 60, s2 + 45, 0), (4700, s2 + 45, 5),
+                                    (CX + 60, s2 + 95, 0), (CX + 470, PLAZA[1] + 170, 0), (CX + 470, PLAZA[1] - 150, 0),
+                                    (CX + 60, s1 + 200, 0), (CX + 60, s1 + 95, 0), (900, s1 + 95, 0)], 150),
+        # charrete: rua oeste da linha 2 e desce a avenida ate o porto
+        vehicle("cart_worker", [(800, s2 + 20, 3), (CX - 60, s2 + 20, 0), (CX - 60, SHORE_Y - 110, 5),
+                                (CX + 60, SHORE_Y - 110, 0), (CX + 60, s2 + 70, 0), (800, s2 + 70, 0)], 120, fps=9),
+        # carroca de carga: vai e volta na rua leste da linha 2, parando perto dos Estabulos
+        vehicle("wagon_cargo", [(5650, s2 + 70, 6), (3700, s2 + 70, 4)], 85, fps=8),
+        # bote a remo no mar, a leste do pier
+        vehicle("rowboat", [(4150, 4950, 2), (5050, 4950, 2)], 55, fps=8,
+                keys={"move_left": "rowboat_rowing_left", "move_right": "rowboat_rowing_right"}, width=200),
+        # gaivotas voando sobre o porto (sem colisao, por cima de tudo)
+        vehicle("seagull", [(500, 4300, 0), (5900, 4380, 0)], 230, fps=10, flying=True,
+                keys={"move_left": "seagull_fly_left", "move_right": "seagull_fly_right"}, width=78),
+        vehicle("seagull", [(5800, 4950, 0), (900, 4820, 0)], 200, fps=10, flying=True,
+                keys={"move_left": "seagull_fly_left", "move_right": "seagull_fly_right"}, width=70),
+    ]
+    return v
 
 
 def main():
@@ -364,7 +465,7 @@ def main():
         "lake": {"rect": [0, SHORE_Y - 200, WORLD[0], WORLD[1] - SHORE_Y + 200], "water_frames": [f"{RES}assets/maps/eldoria_v2/tiles/water_{i}.png" for i in range(4)]},
         "minimap": f"{RES}assets/maps/valdoria_v2/valdoria_v2_minimap.png",
         "spawn": list(SPAWN), "portal_ruins": list(PORTAL), "npcs": npcs,
-        "solids": [[round(v, 1) for v in r] for r in solids], "props": props,
+        "solids": [[round(v, 1) for v in r] for r in solids], "props": props, "vehicles": vehicles(),
     }
     DATA_PATH.write_text(json.dumps(kit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # preview / minimapa

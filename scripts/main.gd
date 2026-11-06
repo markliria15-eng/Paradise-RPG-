@@ -420,6 +420,8 @@ var cave_collision_data: Dictionary = {}
 var forest_kit_data: Dictionary = {}
 var cave_kit_data: Dictionary = {}
 var valdoria_kit_data: Dictionary = {}
+# Veiculos/animais que andam por rotas no mapa atual (kit "vehicles"); refeito a cada _load_map.
+var kit_vehicles: Array = []
 var forest_walk_image: Image
 var forest_walk_cell := 16.0
 var last_valid_player_position := Vector2.ZERO
@@ -480,6 +482,7 @@ func _process(delta: float) -> void:
 	if player == null:
 		return
 	_enforce_world_collision()
+	_update_kit_vehicles(delta)
 	regen_timer += delta
 	if regen_timer >= 1.0:
 		regen_timer = 0
@@ -2617,6 +2620,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	solid_obstacles.clear()
 	portal_passage_rects.clear()
 	portal_nodes.clear()
+	kit_vehicles.clear()
 	for child in world.get_children():
 		if child != player:
 			child.queue_free()
@@ -2975,7 +2979,95 @@ func _draw_valdoria_v2() -> bool:
 	for rect_data in data.get("solids", []):
 		if typeof(rect_data) == TYPE_ARRAY and rect_data.size() >= 4:
 			_register_solid_rect(Rect2(float(rect_data[0]), float(rect_data[1]), float(rect_data[2]), float(rect_data[3])))
+	_spawn_kit_vehicles(data.get("vehicles", []))
 	return true
+
+# Veiculo do kit: AnimatedSprite2D com animacoes move_<dir>/idle_<lado>, cada uma com seu offset
+# (pes do veiculo no ponto da rota). Anda de ponto em ponto, espera "wait" segundos parado
+# (idle respirando) e volta ao inicio. Nao tem colisao: so da vida a cidade.
+func _spawn_kit_vehicles(vehicle_list: Array) -> void:
+	for vehicle_data in vehicle_list:
+		if typeof(vehicle_data) != TYPE_DICTIONARY:
+			continue
+		var route: Array = vehicle_data.get("route", [])
+		if route.size() < 2:
+			continue
+		var frames := SpriteFrames.new()
+		frames.remove_animation("default")
+		var offsets := {}
+		var anims: Dictionary = vehicle_data.get("anims", {})
+		for anim_name in anims.keys():
+			var anim: Dictionary = anims[anim_name]
+			frames.add_animation(anim_name)
+			frames.set_animation_speed(anim_name, float(anim.get("fps", 8.0)))
+			for frame_path in anim.get("frames", []):
+				var frame_texture := load(str(frame_path)) as Texture2D
+				if frame_texture != null:
+					frames.add_frame(anim_name, frame_texture)
+			var offset_data: Array = anim.get("offset", [0.0, 0.0])
+			offsets[anim_name] = Vector2(float(offset_data[0]), float(offset_data[1]))
+		if frames.get_animation_names().is_empty():
+			continue
+		var sprite := AnimatedSprite2D.new()
+		sprite.sprite_frames = frames
+		sprite.centered = false
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		var start: Array = route[0]
+		sprite.position = Vector2(float(start[0]), float(start[1]))
+		world.add_child(sprite)
+		var flying := bool(vehicle_data.get("flying", false))
+		var state := {"node": sprite, "route": route, "index": 0, "wait": float(start[2]) if start.size() > 2 else 0.0,
+			"speed": float(vehicle_data.get("speed", 100.0)), "offsets": offsets, "facing": "left", "flying": flying, "anim": ""}
+		kit_vehicles.append(state)
+		_set_kit_vehicle_anim(state, "idle_left" if frames.has_animation("idle_left") else frames.get_animation_names()[0])
+
+func _set_kit_vehicle_anim(state: Dictionary, anim_name: String) -> void:
+	var sprite := state.get("node") as AnimatedSprite2D
+	if sprite == null or not sprite.sprite_frames.has_animation(anim_name) or str(state.get("anim", "")) == anim_name:
+		return
+	state["anim"] = anim_name
+	sprite.offset = state["offsets"].get(anim_name, Vector2.ZERO)
+	sprite.play(anim_name)
+
+func _update_kit_vehicles(delta: float) -> void:
+	for state in kit_vehicles:
+		var sprite := state.get("node") as AnimatedSprite2D
+		if sprite == null or not is_instance_valid(sprite):
+			continue
+		var route: Array = state["route"]
+		if float(state["wait"]) > 0.0:
+			state["wait"] = float(state["wait"]) - delta
+			var idle_name := "idle_%s" % str(state["facing"])
+			if sprite.sprite_frames.has_animation(idle_name):
+				_set_kit_vehicle_anim(state, idle_name)
+			else:
+				sprite.pause()
+				state["anim"] = ""
+			continue
+		var next_index := (int(state["index"]) + 1) % route.size()
+		var target_data: Array = route[next_index]
+		var target := Vector2(float(target_data[0]), float(target_data[1]))
+		var to_target := target - sprite.position
+		var step := float(state["speed"]) * delta
+		var direction := ""
+		if abs(to_target.x) >= abs(to_target.y):
+			direction = "left" if to_target.x < 0.0 else "right"
+			state["facing"] = direction
+		else:
+			direction = "up" if to_target.y < 0.0 else "down"
+		var move_name := "move_%s" % direction
+		if not sprite.sprite_frames.has_animation(move_name):
+			move_name = "move_%s" % str(state["facing"])
+		_set_kit_vehicle_anim(state, move_name)
+		if not sprite.is_playing():
+			sprite.play()
+		if to_target.length() <= step:
+			sprite.position = target
+			state["index"] = next_index
+			state["wait"] = float(target_data[2]) if target_data.size() > 2 else 0.0
+		else:
+			sprite.position += to_target.normalized() * step
+		sprite.z_index = 1100 if bool(state["flying"]) else clampi(int(sprite.position.y), -1024, 1024)
 
 # Caverna v2: mesmo formato de kit das Ruinas v2 (chunks, mascara andavel, lago e props).
 func _draw_cave_v2() -> bool:
