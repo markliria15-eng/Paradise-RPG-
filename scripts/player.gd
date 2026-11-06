@@ -284,6 +284,9 @@ func receive_damage(amount: int, poison_chance: float = 0.0) -> void:
 func _take_raw_damage(amount: int) -> void:
 	if amount <= 0 or is_dying:
 		return
+	# PROVISORIO (fase de testes): paradise/invencivel no project.godot deixa a vida infinita.
+	if bool(ProjectSettings.get_setting("paradise/invencivel", false)):
+		return
 	vida = max(0, vida - amount)
 	damage_taken.emit(amount)
 	_update_health_bar()

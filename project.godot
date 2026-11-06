@@ -13,6 +13,8 @@ config/features=PackedStringArray("4.2")
 ; Fase de testes: o jogo abre direto no offline (sem login, patch ou servidor).
 ; Trocar para false quando o servidor online voltar.
 offline_only=true
+; PROVISORIO: vida infinita para explorar os mapas sem morrer. Tirar (ou false) depois dos testes.
+invencivel=true
 
 [autoload]
 MMOClient="*res://client/scripts/mmo_client.gd"
