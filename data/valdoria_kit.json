@@ -1794,31 +1794,33 @@
    ]
   },
   {
-   "name": "fountain",
-   "texture": "res://assets/maps/eldoria_v2/props/fountain_0.png",
+   "name": "fountain_poseidon",
+   "texture": "res://assets/maps/valdoria_v2/anim/fountain_flow_none/0.png",
+   "frames": [
+    "res://assets/maps/valdoria_v2/anim/fountain_flow_none/0.png",
+    "res://assets/maps/valdoria_v2/anim/fountain_flow_none/1.png",
+    "res://assets/maps/valdoria_v2/anim/fountain_flow_none/2.png",
+    "res://assets/maps/valdoria_v2/anim/fountain_flow_none/3.png",
+    "res://assets/maps/valdoria_v2/anim/fountain_flow_none/4.png",
+    "res://assets/maps/valdoria_v2/anim/fountain_flow_none/5.png"
+   ],
+   "fps": 6,
    "pos": [
     3200,
     2730
    ],
    "offset": [
-    -219.5,
-    -446
+    -280.0,
+    -674
    ],
-   "scale": 1.3667,
+   "scale": 1.0,
    "flip_h": false,
-   "frames": [
-    "res://assets/maps/eldoria_v2/props/fountain_0.png",
-    "res://assets/maps/eldoria_v2/props/fountain_1.png",
-    "res://assets/maps/eldoria_v2/props/fountain_2.png",
-    "res://assets/maps/eldoria_v2/props/fountain_3.png"
-   ],
-   "fps": 6,
    "collisions": [
     [
-     -264.0,
-     -230,
-     528.0,
-     230
+     -240.8,
+     -283.1,
+     481.6,
+     283.1
     ]
    ]
   },
@@ -2006,7 +2008,7 @@
     900
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2020,9 +2022,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2035,7 +2037,7 @@
     900
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2049,9 +2051,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2064,7 +2066,7 @@
     1330
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2078,9 +2080,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2093,7 +2095,7 @@
     1330
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2107,9 +2109,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2122,7 +2124,7 @@
     1760
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2136,9 +2138,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2151,7 +2153,7 @@
     1760
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2165,9 +2167,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2180,7 +2182,7 @@
     3480
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2194,9 +2196,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2209,7 +2211,7 @@
     3480
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2223,9 +2225,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2238,7 +2240,7 @@
     3910
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2252,9 +2254,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2267,7 +2269,7 @@
     3910
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2281,9 +2283,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2296,7 +2298,7 @@
     4340
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2310,9 +2312,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2325,7 +2327,7 @@
     4340
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2339,9 +2341,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2354,7 +2356,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2368,9 +2370,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2383,7 +2385,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2397,9 +2399,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2412,7 +2414,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2426,9 +2428,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2441,7 +2443,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2455,9 +2457,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2470,7 +2472,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2484,9 +2486,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2499,7 +2501,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2513,9 +2515,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2528,7 +2530,7 @@
     1717.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2542,9 +2544,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2557,7 +2559,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2571,9 +2573,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2586,7 +2588,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2600,9 +2602,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2615,7 +2617,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2629,9 +2631,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2644,7 +2646,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2658,9 +2660,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2673,7 +2675,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2687,9 +2689,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2702,7 +2704,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2716,9 +2718,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -2731,7 +2733,7 @@
     3017.0
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -2745,9 +2747,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -3266,7 +3268,7 @@
     5250
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -3280,9 +3282,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -3295,7 +3297,7 @@
     5250
    ],
    "offset": [
-    -25.0,
+    -31.0,
     -240
    ],
    "scale": 1.0,
@@ -3309,9 +3311,9 @@
    "fps": 6,
    "collisions": [
     [
-     -7.5,
+     -9.3,
      -22,
-     15.0,
+     18.6,
      22
     ]
    ]
@@ -3324,7 +3326,7 @@
     2420
    ],
    "offset": [
-    -165.5,
+    -165.0,
     -400
    ],
    "scale": 1.0,
@@ -3338,9 +3340,9 @@
    "fps": 6,
    "collisions": [
     [
-     -142.3,
+     -141.9,
      -120,
-     284.7,
+     283.8,
      120
     ]
    ]
@@ -3353,8 +3355,8 @@
     2330
    ],
    "offset": [
-    -63.5,
-    -440
+    -61.5,
+    -447
    ],
    "scale": 1.0,
    "flip_h": false,
@@ -3371,9 +3373,9 @@
    "fps": 7,
    "collisions": [
     [
-     -44.4,
+     -43.0,
      -60,
-     88.9,
+     86.1,
      60
     ]
    ]
@@ -3386,8 +3388,8 @@
     2300
    ],
    "offset": [
-    -63.5,
-    -440
+    -61.5,
+    -447
    ],
    "scale": 1.0,
    "flip_h": false,
@@ -3404,9 +3406,9 @@
    "fps": 7,
    "collisions": [
     [
-     -44.4,
+     -43.0,
      -60,
-     88.9,
+     86.1,
      60
     ]
    ]
@@ -3661,16 +3663,16 @@
     4330
    ],
    "offset": [
-    -125.0,
+    -131.5,
     -230
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -100.0,
+     -105.2,
      -40,
-     200.0,
+     210.4,
      40
     ]
    ]
@@ -3690,16 +3692,16 @@
     4330
    ],
    "offset": [
-    -125.0,
+    -131.5,
     -230
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -100.0,
+     -105.2,
      -40,
-     200.0,
+     210.4,
      40
     ]
    ]
@@ -4030,7 +4032,7 @@
     4590
    ],
    "offset": [
-    -243.5,
+    -251.5,
     -580
    ],
    "scale": 1.0,
@@ -4048,9 +4050,9 @@
    "fps": 3,
    "collisions": [
     [
-     -231.3,
+     -238.9,
      -70,
-     170.4,
+     176.0,
      70
     ]
    ]
@@ -4107,8 +4109,8 @@
     4600
    ],
    "offset": [
-    -135.5,
-    -320
+    -140.0,
+    -324
    ],
    "scale": 1.0,
    "flip_h": false,
@@ -4125,9 +4127,9 @@
    "fps": 8,
    "collisions": [
     [
-     -108.4,
+     -112.0,
      -60,
-     216.8,
+     224.0,
      60
     ]
    ]
@@ -4982,7 +4984,7 @@
      ],
      "offset": [
       -100.0,
-      -149
+      -171
      ],
      "fps": 8
     },
@@ -4999,7 +5001,7 @@
      ],
      "offset": [
       -100.0,
-      -149
+      -171
      ],
      "fps": 8
     }
@@ -5032,8 +5034,8 @@
       "res://assets/maps/valdoria_v2/anim/seagull_fly_left/5.png"
      ],
      "offset": [
-      -39.0,
-      -21
+      -56.0,
+      -79
      ],
      "fps": 10
     },
@@ -5047,8 +5049,8 @@
       "res://assets/maps/valdoria_v2/anim/seagull_fly_right/5.png"
      ],
      "offset": [
-      -39.0,
-      -21
+      -56.0,
+      -79
      ],
      "fps": 10
     }
@@ -5081,8 +5083,8 @@
       "res://assets/maps/valdoria_v2/anim/seagull_fly_left/5.png"
      ],
      "offset": [
-      -39.0,
-      -21
+      -56.0,
+      -79
      ],
      "fps": 10
     },
@@ -5096,8 +5098,8 @@
       "res://assets/maps/valdoria_v2/anim/seagull_fly_right/5.png"
      ],
      "offset": [
-      -39.0,
-      -21
+      -56.0,
+      -79
      ],
      "fps": 10
     }
@@ -5112,6 +5114,468 @@
      900,
      4820,
      0
+    ]
+   ]
+  },
+  {
+   "name": "city_guard",
+   "speed": 55,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_left/7.png"
+     ],
+     "offset": [
+      -21.5,
+      -120
+     ],
+     "fps": 9
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_right/7.png"
+     ],
+     "offset": [
+      -21.5,
+      -120
+     ],
+     "fps": 9
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_up/7.png"
+     ],
+     "offset": [
+      -25.5,
+      -120
+     ],
+     "fps": 9
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_walk_down/7.png"
+     ],
+     "offset": [
+      -24.5,
+      -120
+     ],
+     "fps": 9
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_left/3.png"
+     ],
+     "offset": [
+      -15.5,
+      -118
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/city_guard_idle_right/3.png"
+     ],
+     "offset": [
+      -15.5,
+      -118
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     950,
+     1737.0,
+     3
+    ],
+    [
+     2450,
+     1737.0,
+     3
+    ]
+   ]
+  },
+  {
+   "name": "noble_lady",
+   "speed": 40,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_left/7.png"
+     ],
+     "offset": [
+      -25.5,
+      -121
+     ],
+     "fps": 8
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_right/7.png"
+     ],
+     "offset": [
+      -25.5,
+      -121
+     ],
+     "fps": 8
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_up/7.png"
+     ],
+     "offset": [
+      -30.5,
+      -120
+     ],
+     "fps": 8
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_walk_down/7.png"
+     ],
+     "offset": [
+      -30.0,
+      -120
+     ],
+     "fps": 8
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_left/3.png"
+     ],
+     "offset": [
+      -24.5,
+      -119
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/noble_lady_idle_right/3.png"
+     ],
+     "offset": [
+      -24.5,
+      -119
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     2960,
+     2880,
+     4
+    ],
+    [
+     3440,
+     2880,
+     4
+    ]
+   ]
+  },
+  {
+   "name": "town_boy",
+   "speed": 95,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_left/7.png"
+     ],
+     "offset": [
+      -23.5,
+      -98
+     ],
+     "fps": 12
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_right/7.png"
+     ],
+     "offset": [
+      -23.5,
+      -98
+     ],
+     "fps": 12
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_up/7.png"
+     ],
+     "offset": [
+      -23.0,
+      -98
+     ],
+     "fps": 12
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_walk_down/7.png"
+     ],
+     "offset": [
+      -22.5,
+      -98
+     ],
+     "fps": 12
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_left/3.png"
+     ],
+     "offset": [
+      -15.0,
+      -94
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/town_boy_idle_right/3.png"
+     ],
+     "offset": [
+      -15.0,
+      -94
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     3650,
+     3057.0,
+     1
+    ],
+    [
+     4750,
+     3057.0,
+     2
+    ],
+    [
+     4750,
+     3117.0,
+     0
+    ],
+    [
+     3650,
+     3117.0,
+     1
+    ]
+   ]
+  },
+  {
+   "name": "dock_worker",
+   "speed": 50,
+   "flying": false,
+   "anims": {
+    "move_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/3.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/4.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/5.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/6.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_left/7.png"
+     ],
+     "offset": [
+      -31.0,
+      -120
+     ],
+     "fps": 9
+    },
+    "move_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/3.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/4.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/5.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/6.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_right/7.png"
+     ],
+     "offset": [
+      -31.0,
+      -120
+     ],
+     "fps": 9
+    },
+    "move_up": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/0.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/1.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/2.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/3.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/4.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/5.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/6.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_up/7.png"
+     ],
+     "offset": [
+      -31.5,
+      -120
+     ],
+     "fps": 9
+    },
+    "move_down": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/0.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/1.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/2.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/3.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/4.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/5.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/6.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_walk_down/7.png"
+     ],
+     "offset": [
+      -30.0,
+      -120
+     ],
+     "fps": 9
+    },
+    "idle_left": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_left/0.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_left/1.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_left/2.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_left/3.png"
+     ],
+     "offset": [
+      -29.0,
+      -118
+     ],
+     "fps": 4
+    },
+    "idle_right": {
+     "frames": [
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_right/0.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_right/1.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_right/2.png",
+      "res://assets/maps/valdoria_v2/anim/dock_worker_idle_right/3.png"
+     ],
+     "offset": [
+      -29.0,
+      -118
+     ],
+     "fps": 4
+    }
+   },
+   "route": [
+    [
+     1000,
+     4585,
+     2
+    ],
+    [
+     2250,
+     4585,
+     2
     ]
    ]
   }

@@ -284,6 +284,21 @@ def anim_frames(key, k=None, axis=None, size=None):
 
 # Veiculos que andam pelas ruas (main.gd: _spawn_kit_vehicles). Escala = mesma largura do prop fixo.
 VEHICLE_WIDTH = {"carriage_luxury": 540, "cart_worker": 380, "wagon_cargo": 560}
+FOUNTAIN_W = 560
+# Pedestres (pacote de Valdoria): andam pelo mesmo sistema de rotas dos veiculos, sem colisao.
+# Escala pela altura do corpo: adulto ~118 px no mundo, perto dos NPCs parados (~96-124 px).
+PED_K = 118 / 106
+PED_KINDS = ("city_guard", "noble_lady", "town_boy", "dock_worker")
+
+
+def pedestrian(kind, route, speed, fps=9):
+    keys = {"move_left": f"{kind}_walk_left", "move_right": f"{kind}_walk_right", "move_up": f"{kind}_walk_up",
+            "move_down": f"{kind}_walk_down", "idle_left": f"{kind}_idle_left", "idle_right": f"{kind}_idle_right"}
+    anims = {}
+    for anim, key in keys.items():
+        paths, offset, _, _ = anim_frames(key, k=PED_K)
+        anims[anim] = {"frames": paths, "offset": offset, "fps": (4 if anim.startswith("idle") else fps)}
+    return {"name": kind, "speed": speed, "flying": False, "anims": anims, "route": [list(p) for p in route]}
 
 
 def vehicle(kind, route, speed, fps=10, flying=False, keys=None, width=None):
@@ -328,7 +343,11 @@ def ind(name, foot, ground=False, col_dx=0.0):
 def decorations():
     d = []
     D = eld.deco
-    d.append(D("fountain", (PLAZA[0], PLAZA[1] + 170)))
+    # fonte de Poseidon (pacote de Valdoria) com a agua animada por tools/valdoria_v2/animar_efeitos.py
+    paths, offset, _, (w, h) = anim_frames("fountain_flow_none", axis="w", size=FOUNTAIN_W)
+    d.append({"name": "fountain_poseidon", "texture": paths[0], "frames": paths, "fps": 6,
+              "pos": [PLAZA[0], PLAZA[1] + 170], "offset": offset, "scale": 1.0, "flip_h": False,
+              "collisions": [[round(-w * 0.43, 1), -round(h * 0.42, 1), round(w * 0.86, 1), round(h * 0.42, 1)]]})
     for dx, dy in ((-330, -250), (330, -250), (-330, 330), (330, 330)):
         d.append(D("bench", (PLAZA[0] + dx, PLAZA[1] + dy), flip=dx > 0))
     for dx in (-520, 520):
@@ -423,6 +442,12 @@ def vehicles():
                 keys={"move_left": "seagull_fly_left", "move_right": "seagull_fly_right"}, width=78),
         vehicle("seagull", [(5800, 4950, 0), (900, 4820, 0)], 200, fps=10, flying=True,
                 keys={"move_left": "seagull_fly_left", "move_right": "seagull_fly_right"}, width=70),
+        # pedestres: guarda faz ronda na rua do portal, dama passeia na frente da fonte,
+        # menino corre pela rua da feira e o estivador leva sacos pelo calcadao do porto
+        pedestrian("city_guard", [(950, s1 - 120, 3), (2450, s1 - 120, 3)], 55),
+        pedestrian("noble_lady", [(PLAZA[0] - 240, PLAZA[1] + 320, 4), (PLAZA[0] + 240, PLAZA[1] + 320, 4)], 40, fps=8),
+        pedestrian("town_boy", [(3650, s2 - 100, 1), (4750, s2 - 100, 2), (4750, s2 - 40, 0), (3650, s2 - 40, 1)], 95, fps=12),
+        pedestrian("dock_worker", [(1000, BOARDWALK[3] - 15, 2), (2250, BOARDWALK[3] - 15, 2)], 50),
     ]
     return v
 
@@ -458,6 +483,15 @@ def main():
     Image.fromarray((small * 255).astype(np.uint8)).save(KIT / "valdoria_v2_walkable.png")
     for p in [SPAWN, PORTAL] + list(npcs.values()):
         assert small[int(p[1]) // CELL, int(p[0]) // CELL], ("ponto bloqueado", p)
+    veh = vehicles()
+    for v in veh:  # pedestres precisam andar so em chao livre (veiculos e barcos tem rotas proprias)
+        if v["name"] not in PED_KINDS:
+            continue
+        r = v["route"] + [v["route"][0]]
+        for a, b in zip(r, r[1:]):
+            for t in np.linspace(0, 1, 40):
+                x, y = a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t
+                assert small[int(y) // CELL, int(x) // CELL], ("rota de pedestre fora do chao", v["name"], (x, y))
     kit = {
         "version": 1, "world_size": list(WORLD), "ground_scale": GS, "chunk_grid": list(GRID), "chunk_px": list(CHUNK),
         "chunks_dir": f"{RES}assets/maps/valdoria_v2/chunks", "chunk_prefix": "valdoria_v2_chunk",
@@ -465,7 +499,7 @@ def main():
         "lake": {"rect": [0, SHORE_Y - 200, WORLD[0], WORLD[1] - SHORE_Y + 200], "water_frames": [f"{RES}assets/maps/eldoria_v2/tiles/water_{i}.png" for i in range(4)]},
         "minimap": f"{RES}assets/maps/valdoria_v2/valdoria_v2_minimap.png",
         "spawn": list(SPAWN), "portal_ruins": list(PORTAL), "npcs": npcs,
-        "solids": [[round(v, 1) for v in r] for r in solids], "props": props, "vehicles": vehicles(),
+        "solids": [[round(v, 1) for v in r] for r in solids], "props": props, "vehicles": veh,
     }
     DATA_PATH.write_text(json.dumps(kit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # preview / minimapa
