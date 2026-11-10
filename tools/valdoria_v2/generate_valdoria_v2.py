@@ -283,6 +283,7 @@ def anim_frames(key, k=None, axis=None, size=None):
 
 
 # Veiculos que andam pelas ruas (main.gd: _spawn_kit_vehicles). Escala = mesma largura do prop fixo.
+# Cavalos: tools/valdoria_v2/montar_cavalos.py; fps baixo para o passo casar com a velocidade na rua.
 VEHICLE_WIDTH = {"carriage_luxury": 540, "cart_worker": 380, "wagon_cargo": 560}
 FOUNTAIN_W = 560
 # Pedestres (pacote de Valdoria): andam pelo mesmo sistema de rotas dos veiculos, sem colisao.
@@ -428,12 +429,12 @@ def vehicles():
         vehicle("carriage_luxury", [(900, s1 + 45, 3), (CX, s1 + 45, 4), (CX, s1 + 200, 0), (CX - 470, PLAZA[1] - 150, 0),
                                     (CX - 470, PLAZA[1] + 170, 0), (CX - 60, s2 + 45, 0), (4700, s2 + 45, 5),
                                     (CX + 60, s2 + 95, 0), (CX + 470, PLAZA[1] + 170, 0), (CX + 470, PLAZA[1] - 150, 0),
-                                    (CX + 60, s1 + 200, 0), (CX + 60, s1 + 95, 0), (900, s1 + 95, 0)], 150),
+                                    (CX + 60, s1 + 200, 0), (CX + 60, s1 + 95, 0), (900, s1 + 95, 0)], 150, fps=6),
         # charrete: rua oeste da linha 2 e desce a avenida ate o porto
         vehicle("cart_worker", [(800, s2 + 20, 3), (CX - 60, s2 + 20, 0), (CX - 60, SHORE_Y - 110, 5),
-                                (CX + 60, SHORE_Y - 110, 0), (CX + 60, s2 + 70, 0), (800, s2 + 70, 0)], 120, fps=9),
+                                (CX + 60, SHORE_Y - 110, 0), (CX + 60, s2 + 70, 0), (800, s2 + 70, 0)], 110, fps=6),
         # carroca de carga: vai e volta na rua leste da linha 2, parando perto dos Estabulos
-        vehicle("wagon_cargo", [(5650, s2 + 70, 6), (3700, s2 + 70, 4)], 85, fps=8),
+        vehicle("wagon_cargo", [(5650, s2 + 70, 6), (3700, s2 + 70, 4)], 85, fps=5),
         # bote a remo no mar, a leste do pier
         vehicle("rowboat", [(4150, 4950, 2), (5050, 4950, 2)], 55, fps=8,
                 keys={"move_left": "rowboat_rowing_left", "move_right": "rowboat_rowing_right"}, width=200),

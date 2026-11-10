@@ -4570,9 +4570,9 @@
      ],
      "offset": [
       -270.0,
-      -254
+      -271
      ],
-     "fps": 10
+     "fps": 6
     },
     "move_right": {
      "frames": [
@@ -4587,9 +4587,9 @@
      ],
      "offset": [
       -270.0,
-      -254
+      -271
      ],
-     "fps": 10
+     "fps": 6
     },
     "move_up": {
      "frames": [
@@ -4603,10 +4603,10 @@
       "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_up/7.png"
      ],
      "offset": [
-      -84.0,
-      -398
+      -89.0,
+      -460
      ],
-     "fps": 10
+     "fps": 6
     },
     "move_down": {
      "frames": [
@@ -4620,10 +4620,10 @@
       "res://assets/maps/valdoria_v2/anim/carriage_luxury_move_down/7.png"
      ],
      "offset": [
-      -108.0,
-      -398
+      -115.0,
+      -424
      ],
-     "fps": 10
+     "fps": 6
     },
     "idle_left": {
      "frames": [
@@ -4633,8 +4633,8 @@
       "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_left/3.png"
      ],
      "offset": [
-      -270.0,
-      -254
+      -271.0,
+      -269
      ],
      "fps": 4
     },
@@ -4646,8 +4646,8 @@
       "res://assets/maps/valdoria_v2/anim/carriage_luxury_idle_right/3.png"
      ],
      "offset": [
-      -270.0,
-      -254
+      -271.0,
+      -269
      ],
      "fps": 4
     }
@@ -4722,7 +4722,7 @@
   },
   {
    "name": "cart_worker",
-   "speed": 120,
+   "speed": 110,
    "flying": false,
    "anims": {
     "move_left": {
@@ -4738,9 +4738,9 @@
      ],
      "offset": [
       -190.0,
-      -180
+      -194
      ],
-     "fps": 9
+     "fps": 6
     },
     "move_right": {
      "frames": [
@@ -4755,9 +4755,9 @@
      ],
      "offset": [
       -190.0,
-      -180
+      -194
      ],
-     "fps": 9
+     "fps": 6
     },
     "move_up": {
      "frames": [
@@ -4771,10 +4771,10 @@
       "res://assets/maps/valdoria_v2/anim/cart_worker_move_up/7.png"
      ],
      "offset": [
-      -56.5,
-      -281
+      -60.5,
+      -332
      ],
-     "fps": 9
+     "fps": 6
     },
     "move_down": {
      "frames": [
@@ -4788,10 +4788,10 @@
       "res://assets/maps/valdoria_v2/anim/cart_worker_move_down/7.png"
      ],
      "offset": [
-      -76.5,
-      -281
+      -82.0,
+      -303
      ],
-     "fps": 9
+     "fps": 6
     },
     "idle_left": {
      "frames": [
@@ -4802,7 +4802,7 @@
      ],
      "offset": [
       -190.0,
-      -180
+      -194
      ],
      "fps": 4
     },
@@ -4815,7 +4815,7 @@
      ],
      "offset": [
       -190.0,
-      -180
+      -194
      ],
      "fps": 4
     }
@@ -4871,9 +4871,9 @@
      ],
      "offset": [
       -280.0,
-      -256
+      -261
      ],
-     "fps": 8
+     "fps": 5
     },
     "move_right": {
      "frames": [
@@ -4888,9 +4888,9 @@
      ],
      "offset": [
       -280.0,
-      -256
+      -261
      ],
-     "fps": 8
+     "fps": 5
     },
     "move_up": {
      "frames": [
@@ -4904,10 +4904,10 @@
       "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_up/7.png"
      ],
      "offset": [
-      -76.0,
-      -398
+      -108.5,
+      -463
      ],
-     "fps": 8
+     "fps": 5
     },
     "move_down": {
      "frames": [
@@ -4921,10 +4921,10 @@
       "res://assets/maps/valdoria_v2/anim/wagon_cargo_move_down/7.png"
      ],
      "offset": [
-      -113.0,
-      -398
+      -115.0,
+      -405
      ],
-     "fps": 8
+     "fps": 5
     },
     "idle_left": {
      "frames": [
@@ -4934,8 +4934,8 @@
       "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_left/3.png"
      ],
      "offset": [
-      -280.0,
-      -256
+      -281.0,
+      -261
      ],
      "fps": 4
     },
@@ -4947,8 +4947,8 @@
       "res://assets/maps/valdoria_v2/anim/wagon_cargo_idle_right/3.png"
      ],
      "offset": [
-      -280.0,
-      -256
+      -281.0,
+      -261
      ],
      "fps": 4
     }

@@ -514,6 +514,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		var key_event := event as InputEventKey
 		if key_event.pressed and not key_event.echo:
+			if key_event.keycode == KEY_ESCAPE and panel != null and panel.visible:
+				_hide_panel()
+				get_viewport().set_input_as_handled()
+				return
 			if key_event.keycode in [KEY_ENTER, KEY_KP_ENTER]:
 				if panel == null or not panel.visible:
 					_interact()
@@ -4508,7 +4512,8 @@ func _spawn_portals(map_data: Dictionary, only_flag: String = "") -> void:
 		var portal_flag := str(portal_data.get("requires_flag", ""))
 		if not only_flag.is_empty() and portal_flag != only_flag:
 			continue
-		if not _has_world_flag(portal_flag):
+		# Fase de testes (PORTALS_FREE_ACCESS): portais de rota (ex.: Eldoria <-> Valdoria) ja aparecem.
+		if not PORTALS_FREE_ACCESS and not _has_world_flag(portal_flag):
 			continue
 		var portal_label_text := str(portal_data.get("label", "Portal"))
 		var requires_boss := bool(portal_data.get("requires_boss_clear", false)) and not PORTALS_FREE_ACCESS
@@ -5356,7 +5361,8 @@ func _use_harbor_master(npc: Npc) -> void:
 	_set_world_flag(flag)
 	_show_npc_bubble(npc, str(npc.get_meta("unlock_text", "Rota liberada!")))
 	_flash("Rota liberada: portal entre Eldoria e Valdoria aberto!")
-	_spawn_portals(maps.get(current_map, {}), flag)
+	if not PORTALS_FREE_ACCESS:  # com acesso livre o portal ja existe; nao duplica
+		_spawn_portals(maps.get(current_map, {}), flag)
 
 func _use_healer() -> void:
 	var healer_name := "Helena"
@@ -5473,8 +5479,19 @@ func _show_shop(title: String = "Loja do Carlos") -> void:
 	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
 	for item_name in NpcShop.GOODS:
 		var item := item_db.get_item(item_name)
+		var line := HBoxContainer.new()
+		line.add_theme_constant_override("separation", 10)
+		box.add_child(line)
+		var icon := TextureRect.new()
+		var icon_path := str(item.get("icon", ""))
+		icon.texture = load(icon_path) if not icon_path.is_empty() and ResourceLoader.exists(icon_path) else load("res://assets/sprites/drop_bag.png")
+		icon.custom_minimum_size = Vector2(40, 40)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		line.add_child(icon)
 		var btn := Button.new()
 		btn.text = "%s - %d ouro" % [item_name, int(item.get("price", 0))]
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		_style_panel_button(btn)
 		btn.pressed.connect(func() -> void:
 			if NpcShop.buy(player, item_db, item_name):
@@ -5484,7 +5501,7 @@ func _show_shop(title: String = "Loja do Carlos") -> void:
 			else:
 				_flash("Ouro insuficiente.")
 		)
-		box.add_child(btn)
+		line.add_child(btn)
 
 func _show_pet_shop() -> void:
 	if panel.visible and current_panel == "pet_shop":
@@ -5494,12 +5511,7 @@ func _show_pet_shop() -> void:
 	var box := _start_modal("Mercado de Pets de Valdoria", "pet_shop")
 	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
 	box.add_child(_panel_label("Pets atacam seu alvo automatico e aplicam passivas/debuffs.", 13, Color("#cfd6df")))
-	var grid := GridContainer.new()
-	grid.columns = 2
-	grid.add_theme_constant_override("h_separation", 10)
-	grid.add_theme_constant_override("v_separation", 10)
-	grid.custom_minimum_size = Vector2(840, 400)
-	box.add_child(grid)
+	var grid := _market_grid(box)
 	for def in pet_definitions:
 		if typeof(def) != TYPE_DICTIONARY:
 			continue
@@ -5543,12 +5555,7 @@ func _show_mount_shop() -> void:
 	var box := _start_modal("Mercado de Montarias", "mount_shop")
 	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
 	box.add_child(_panel_label("Montarias sao exclusivas para velocidade. Raras custam mais e correm mais.", 13, Color("#cfd6df")))
-	var grid := GridContainer.new()
-	grid.columns = 2
-	grid.add_theme_constant_override("h_separation", 10)
-	grid.add_theme_constant_override("v_separation", 10)
-	grid.custom_minimum_size = Vector2(840, 360)
-	box.add_child(grid)
+	var grid := _market_grid(box)
 	for def in mount_definitions:
 		if typeof(def) != TYPE_DICTIONARY:
 			continue
@@ -5563,7 +5570,7 @@ func _show_mount_shop() -> void:
 		icon.texture = load(_mount_icon_path(code))
 		icon.custom_minimum_size = Vector2(76, 76)
 		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		icon.stretch_mode = TextureRect.STRETCH_SCALE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		row.add_child(icon)
 		var info := VBoxContainer.new()
 		info.custom_minimum_size = Vector2(280, 116)
@@ -5582,6 +5589,24 @@ func _show_mount_shop() -> void:
 				_flash("Ouro insuficiente para comprar esta montaria.")
 		)
 		info.add_child(buy)
+
+# Grade de cartoes das lojas dentro de uma rolagem: com muitos itens (10 pets) a janela
+# nao passa da tela e o botao X continua alcancavel.
+func _market_grid(box: VBoxContainer) -> GridContainer:
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(850, 400)
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	box.add_child(scroll)
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 10)
+	grid.add_theme_constant_override("v_separation", 10)
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(grid)
+	return grid
 
 func _market_card() -> PanelContainer:
 	var card := PanelContainer.new()
@@ -6821,6 +6846,9 @@ func _refresh_modal_layout() -> void:
 	var height: float = clampf(viewport_size.y * 0.86, 460.0, desired.y)
 	panel.size = Vector2(width, height)
 	panel.position = (viewport_size - panel.size) * 0.5
+	# se o conteudo crescer alem da altura, mantem o topo (titulo e botao X) dentro da tela
+	panel.position.y = maxf(panel.position.y, 8.0)
+	panel.position.x = maxf(panel.position.x, 8.0)
 
 func _set_game_controls_enabled(enabled: bool) -> void:
 	ui_controls_enabled = enabled
@@ -7632,6 +7660,9 @@ func _pet_bonus_text(bonus: Dictionary) -> String:
 func _mount_icon_path(code: String) -> String:
 	match code:
 		"brown_horse":
+			var horse := "res://assets/maps/valdoria_v2/anim/horse_idle_right/0.png"
+			if ResourceLoader.exists(horse):
+				return horse
 			return "res://assets/sprites/enemy_lobo.png"
 		"gray_wolf":
 			return "res://assets/sprites/enemy_lobo.png"
