@@ -7605,7 +7605,16 @@ func _update_pet_combat(delta: float) -> void:
 	if effects.is_empty():
 		_spawn_pet_attack_line(from, pet_allowed_target.global_position)
 	else:
-		PetCombatVisuals.play(world, str(effects[pet_special_visual_index % effects.size()]), pet_allowed_target.global_position, pet_allowed_target.global_position.x > from.x)
+		# efeito no meio do corpo do alvo e do tamanho dele (antes ficava pequeno e atras de alvos grandes)
+		var hit_pos := pet_allowed_target.global_position + Vector2(0, -30)
+		var hit_size := 140.0
+		var target_sprite := pet_allowed_target.get("sprite") as Sprite2D
+		if target_sprite != null and target_sprite.texture != null:
+			var body_rect := target_sprite.get_rect()
+			var body_scale := target_sprite.global_scale.abs()
+			hit_pos = target_sprite.global_position + body_rect.get_center() * body_scale
+			hit_size = clampf(maxf(body_rect.size.x * body_scale.x, body_rect.size.y * body_scale.y) * 0.85, 110.0, 240.0)
+		PetCombatVisuals.play(world, str(effects[pet_special_visual_index % effects.size()]), hit_pos, pet_allowed_target.global_position.x > from.x, hit_size, true, pet_allowed_target.global_position.y)
 		pet_special_visual_index += 1
 	pet_attack_visual_timer = 0.42
 	pet_allowed_target.receive_damage(damage)
@@ -7658,6 +7667,10 @@ func _pet_bonus_text(bonus: Dictionary) -> String:
 	return "Bonus desconhecido"
 
 func _mount_icon_path(code: String) -> String:
+	# arte propria da montaria (assets/sprites/mounts/<code>.png, gerada no ChatGPT); sem ela, os provisorios
+	var own := "res://assets/sprites/mounts/%s.png" % code
+	if ResourceLoader.exists(own):
+		return own
 	match code:
 		"brown_horse":
 			var horse := "res://assets/maps/valdoria_v2/anim/horse_idle_right/0.png"
@@ -7794,10 +7807,15 @@ func _update_companion_visuals(delta: float) -> void:
 			mount_follower.z_index = 13
 			world.add_child(mount_follower)
 		mount_follower.texture = load(_mount_icon_path(mount_code))
-		mount_follower.scale = Vector2(1.45, 1.45) * (1.0 + abs(sin(companion_anim_time * 7.0)) * 0.018)
-		mount_follower.modulate = Color(1, 1, 1, 0.65)
+		# escala pela altura da imagem (~120 px no mundo), para arte de qualquer tamanho
+		var mount_height := 96.0
+		if mount_follower.texture != null:
+			mount_height = maxf(1.0, float(mount_follower.texture.get_height()))
+		mount_follower.scale = Vector2.ONE * (140.0 / mount_height) * (1.0 + abs(sin(companion_anim_time * 7.0)) * 0.018)
+		# arte propria aparece inteira; os provisorios (lobo/javali inimigos) seguem meio transparentes
+		mount_follower.modulate = Color(1, 1, 1, 1.0 if _mount_icon_path(mount_code).begins_with("res://assets/sprites/mounts/") else 0.65)
 		mount_follower.flip_h = player.velocity.x > 8.0
-		mount_follower.global_position = player.global_position + Vector2(0, 16 + bob * 0.4)
+		mount_follower.global_position = player.global_position + Vector2(0, 30 + bob * 0.4)
 	else:
 		if mount_follower != null and is_instance_valid(mount_follower):
 			mount_follower.queue_free()

@@ -77,42 +77,42 @@
   },
   "pets": {
     "mini_wolf": [
-      "res://assets/sprites/pets/generated_strips/01_mini_lobo/mini_wolf_mordida_selvagem.png"
+      "res://assets/sprites/pets/effects/mini_wolf_mordida_selvagem_8f_274x315.png"
     ],
     "baby_boar": [
-      "res://assets/sprites/pets/generated_strips/02_javali_bebe/baby_boar_investida_curta.png"
+      "res://assets/sprites/pets/effects/baby_boar_investida_curta_8f_288x266.png"
     ],
     "forest_sprite": [
-      "res://assets/sprites/pets/generated_strips/03_espirito_floresta/forest_sprite_raizes_vivas.png"
+      "res://assets/sprites/pets/effects/forest_sprite_raizes_vivas_8f_289x278.png"
     ],
     "arcane_fairy": [
-      "res://assets/sprites/pets/generated_strips/04_fada_arcana/arcane_fairy_agulhas_arcanas.png",
-      "res://assets/sprites/pets/generated_strips/04_fada_arcana/arcane_fairy_brilho_etereo.png"
+      "res://assets/sprites/pets/effects/arcane_fairy_agulhas_arcanas_8f_289x192.png",
+      "res://assets/sprites/pets/effects/arcane_fairy_brilho_etereo_8f_432x256.png"
     ],
     "shadow_bat": [
-      "res://assets/sprites/pets/generated_strips/05_morcego_sombrio/shadow_bat_eco_sombrio_v2.png",
-      "res://assets/sprites/pets/generated_strips/05_morcego_sombrio/shadow_bat_presas_noite.png"
+      "res://assets/sprites/pets/effects/shadow_bat_eco_sombrio_v2_8f_347x364.png",
+      "res://assets/sprites/pets/effects/shadow_bat_presas_noite_8f_272x252.png"
     ],
     "ember_imp": [
-      "res://assets/sprites/pets/generated_strips/06_diabrete_brasa/ember_imp_chama_mordaz.png",
-      "res://assets/sprites/pets/generated_strips/06_diabrete_brasa/ember_imp_estouro_brasa.png"
+      "res://assets/sprites/pets/effects/ember_imp_chama_mordaz_8f_341x297.png",
+      "res://assets/sprites/pets/effects/ember_imp_estouro_brasa_8f_356x334.png"
     ],
     "frost_wisp": [
-      "res://assets/sprites/pets/generated_strips/07_fagulha_gelida/frost_wisp_estilhaco_invernal.png",
-      "res://assets/sprites/pets/generated_strips/07_fagulha_gelida/frost_wisp_toque_gelido.png"
+      "res://assets/sprites/pets/effects/frost_wisp_estilhaco_invernal_8f_298x227.png",
+      "res://assets/sprites/pets/effects/frost_wisp_toque_gelido_8f_267x253.png"
     ],
     "stone_turtle": [
-      "res://assets/sprites/pets/generated_strips/08_tartaruga_pedra/stone_turtle_casco_pesado.png",
-      "res://assets/sprites/pets/generated_strips/08_tartaruga_pedra/stone_turtle_ruptura_rochosa.png"
+      "res://assets/sprites/pets/effects/stone_turtle_casco_pesado_8f_377x255.png",
+      "res://assets/sprites/pets/effects/stone_turtle_ruptura_rochosa_8f_272x285.png"
     ],
     "venom_spider": [
-      "res://assets/sprites/pets/generated_strips/09_aranha_filhote/venom_spider_picada_toxica.png",
-      "res://assets/sprites/pets/generated_strips/09_aranha_filhote/venom_spider_teia_caustica.png"
+      "res://assets/sprites/pets/effects/venom_spider_picada_toxica_8f_262x244.png",
+      "res://assets/sprites/pets/effects/venom_spider_teia_caustica_8f_303x236.png"
     ],
     "golden_drake": [
-      "res://assets/sprites/pets/generated_strips/10_draco_dourado/golden_drake_garras_solares.png",
-      "res://assets/sprites/pets/generated_strips/10_draco_dourado/golden_drake_julgamento_aurum_v2.png",
-      "res://assets/sprites/pets/generated_strips/10_draco_dourado/golden_drake_sopro_dourado.png"
+      "res://assets/sprites/pets/effects/golden_drake_garras_solares_8f_336x282.png",
+      "res://assets/sprites/pets/effects/golden_drake_julgamento_aurum_v2_8f_295x315.png",
+      "res://assets/sprites/pets/effects/golden_drake_sopro_dourado_8f_388x279.png"
     ]
   }
 }
