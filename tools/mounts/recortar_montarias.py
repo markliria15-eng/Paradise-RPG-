@@ -31,7 +31,8 @@ for k in range(1, n):
     cuts.append(lo + int(best[np.argmin(np.abs(best + lo - nom))]))
 cuts.append(w)
 pieces = [im.crop((cuts[i], 0, cuts[i + 1], im.height)) for i in range(n)]
-pieces = [p.crop(p.getbbox()) for p in pieces]
+# apara pelo alfa > 12: a folha tem pixels quase invisiveis espalhados que inflavam a caixa
+pieces = [p.crop(p.getchannel("A").point(lambda v: 255 if v > 12 else 0).getbbox()) for p in pieces]
 k = ALTURA / max(p.height for p in pieces)
 OUT.mkdir(parents=True, exist_ok=True)
 for code, p in zip(CODES, pieces):

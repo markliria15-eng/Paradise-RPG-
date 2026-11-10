@@ -1,0 +1,82 @@
+{
+  "brown_horse": {
+    "frame": [
+      215,
+      209
+    ],
+    "feet_y": 207,
+    "center_x": 94.1,
+    "seat_auto": [
+      124.0,
+      92.0
+    ],
+    "seat": [
+      124.0,
+      77.0
+    ]
+  },
+  "gray_wolf": {
+    "frame": [
+      220,
+      179
+    ],
+    "feet_y": 177,
+    "center_x": 95.6,
+    "seat_auto": [
+      125.0,
+      66.0
+    ],
+    "seat": [
+      122.0,
+      64.0
+    ]
+  },
+  "war_boar": {
+    "frame": [
+      243,
+      179
+    ],
+    "feet_y": 177,
+    "center_x": 114.8,
+    "seat_auto": [
+      164.0,
+      74.0
+    ],
+    "seat": [
+      163.0,
+      58.0
+    ]
+  },
+  "shadow_panther": {
+    "frame": [
+      230,
+      174
+    ],
+    "feet_y": 172,
+    "center_x": 99.1,
+    "seat_auto": [
+      131.0,
+      60.1
+    ],
+    "seat": [
+      135.0,
+      53.0
+    ]
+  },
+  "crystal_stag": {
+    "frame": [
+      180,
+      244
+    ],
+    "feet_y": 242,
+    "center_x": 71.6,
+    "seat_auto": [
+      74.0,
+      22.0
+    ],
+    "seat": [
+      103.0,
+      119.0
+    ]
+  }
+}

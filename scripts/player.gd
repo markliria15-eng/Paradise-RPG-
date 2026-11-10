@@ -67,6 +67,7 @@ var agility_timer := 0.0
 var agility_move_bonus := 0.0
 var agility_attack_bonus := 0.0
 var current_sprite_path := ""
+var mount_lift := 0.0  # px que o heroi sobe quando esta montado (main.gd _update_mount_rider)
 var current_sprite_flip := false
 var current_sprite_direction := "front"
 var walk_anim_time := 0.0
@@ -846,6 +847,13 @@ func _set_player_sprite(path: String, flip_h: bool) -> void:
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_fit_player_sprite()
 
+# Sobe o heroi (sprite, nome e vida) para sentar na sela; 0 = no chao.
+func set_mount_lift(value: float) -> void:
+	if absf(value - mount_lift) < 0.01:
+		return
+	mount_lift = value
+	_fit_player_sprite()
+
 func _fit_player_sprite() -> void:
 	if sprite.texture == null:
 		return
@@ -880,6 +888,15 @@ func _fit_player_sprite() -> void:
 		health_bar.offset_top = -102
 		health_bar.offset_right = 52
 		health_bar.offset_bottom = -94
+	if mount_lift > 0.0:
+		# montado: heroi, nome e vida sobem ate a sela; a sombra do heroi some (a montaria tem o corpo no chao)
+		sprite.position.y -= mount_lift
+		name_label.offset_top -= mount_lift
+		name_label.offset_bottom -= mount_lift
+		health_bar.offset_top -= mount_lift
+		health_bar.offset_bottom -= mount_lift
+	if shadow_sprite != null:
+		shadow_sprite.visible = mount_lift <= 0.0
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

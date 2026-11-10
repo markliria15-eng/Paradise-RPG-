@@ -385,6 +385,16 @@ var pet_definitions: Array = []
 var mount_definitions: Array = []
 var pet_follower: Sprite2D
 var mount_follower: Sprite2D
+# Montaria de verdade: camada de tras (montaria inteira, atras do heroi) e da frente (corpo
+# abaixo da sela, na frente das pernas dele), as duas filhas do player; o heroi sobe ate a sela.
+var mount_back_sprite: Sprite2D
+var mount_front_sprite: Sprite2D
+var mount_anim_time := 0.0
+var mount_facing_right := false
+var mount_rig_cache: Dictionary = {}
+var mount_frames_cache: Dictionary = {}
+const MOUNT_GROUND_Y := 22.0      # pes do heroi no espaco local do player
+const HERO_HIP_TO_FEET := 50.0    # quadril do heroi ate os pes (sprite HD de 119 px)
 const PetCombatVisuals = preload("res://scripts/combat_visuals.gd")
 var pet_special_visual_index := 0
 var pet_attack_timer := 0.0
@@ -407,6 +417,12 @@ var pet_animation_frame := 0
 var pet_animation_timer := 0.0
 var pet_animation_actual_direction := "front"
 var pet_last_direction := "front"
+# Pet passeando em volta do heroi (posicao propria, alvo de passeio e se esta andando)
+var pet_pos := Vector2.ZERO
+var pet_wander_offset := Vector2(-70, 30)
+var pet_wander_timer := 0.0
+var pet_moving := false
+const PET_TARGET_HEIGHT := 125.0  # altura do quadro 192 px na tela (corpo do pet ~75 px, perto de 2/3 do heroi)
 var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
 var solid_obstacles: Array[Dictionary] = []
@@ -7711,6 +7727,40 @@ func _pet_animation_frames(asset: String, animation: String, direction: String) 
 	pet_animation_cache[key] = frames
 	return frames
 
+# O pet anda sozinho em volta do heroi: escolhe um ponto perto dele de tempos em tempos,
+# corre atras quando o heroi se afasta e chega perto do alvo quando esta atacando.
+func _update_pet_wander(delta: float) -> void:
+	pet_wander_timer -= delta
+	if pet_wander_timer <= 0.0:
+		var angle := randf() * TAU
+		var radius := randf_range(70.0, 125.0)
+		pet_wander_offset = Vector2(cos(angle) * radius, sin(angle) * radius * 0.55 + 20.0)
+		pet_wander_timer = randf_range(1.8, 3.6)
+	var desired := player.global_position + pet_wander_offset
+	var fighting := pet_attack_visual_timer > 0.0 and pet_allowed_target != null and is_instance_valid(pet_allowed_target)
+	if fighting:
+		var from_target := player.global_position - pet_allowed_target.global_position
+		desired = pet_allowed_target.global_position + from_target.normalized() * 85.0 + Vector2(0, 10)
+	var to := desired - pet_pos
+	var dist := to.length()
+	if dist > 900.0:  # trocou de mapa / teleportou: aparece do lado do heroi
+		pet_pos = desired
+		to = Vector2.ZERO
+		dist = 0.0
+	var speed := clampf(dist * 2.2, 70.0, 460.0)
+	var step := minf(dist, speed * delta)
+	var moved := to.normalized() * step if dist > 0.5 else Vector2.ZERO
+	pet_pos += moved
+	pet_moving = dist > 6.0 and step > 0.4
+	var face := moved
+	if fighting:
+		face = pet_allowed_target.global_position - pet_pos
+	if face.length() > 0.5 and (pet_moving or fighting):
+		if abs(face.x) >= abs(face.y) * 0.8:
+			pet_last_direction = "right" if face.x > 0.0 else "left"
+		else:
+			pet_last_direction = "back" if face.y < 0.0 else "front"
+
 func _pet_direction_from_player() -> String:
 	if player == null:
 		return pet_last_direction
@@ -7727,10 +7777,10 @@ func _pet_animation_texture(code: String, delta: float) -> Texture2D:
 	var asset := _pet_asset_name(code)
 	if asset.is_empty():
 		return null
-	var direction := _pet_direction_from_player()
+	var direction := pet_last_direction
 	if pet_attack_visual_timer > 0.0:
 		pet_attack_visual_timer -= delta
-	var moving := player != null and player.velocity.length() > 8.0
+	var moving := pet_moving
 	var animation := "attack" if pet_attack_visual_timer > 0.0 else (_pet_move_animation(asset) if moving else "idle")
 	var requested_direction := direction
 	var frame_direction := "left" if requested_direction == "right" else requested_direction
@@ -7782,44 +7832,133 @@ func _update_companion_visuals(delta: float) -> void:
 			pet_follower.z_index = 14
 			pet_follower.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 			world.add_child(pet_follower)
+			pet_pos = player.global_position + pet_wander_offset
+		_update_pet_wander(delta)
 		var texture := _pet_animation_texture(pet_code, delta)
 		if texture != null:
 			pet_follower.texture = texture
 		else:
 			pet_follower.texture = load(_pet_icon_path(pet_code))
-		var target_height := 44.0
 		if pet_follower.texture != null:
 			var height := maxf(1.0, float(pet_follower.texture.get_height()))
-			var scale_value: float = target_height / height
-			pet_follower.scale = Vector2(scale_value, scale_value) * (1.0 + sin(companion_anim_time * 10.0) * 0.018)
+			var scale_value: float = PET_TARGET_HEIGHT / height
+			pet_follower.scale = Vector2(scale_value, scale_value)
 			pet_follower.centered = true
 			pet_follower.offset = Vector2(0, -height * 0.5)
 		pet_follower.flip_h = pet_last_direction == "right" and pet_animation_actual_direction == "left"
-		pet_follower.global_position = player.global_position + Vector2(-32, 24 + bob)
+		pet_follower.global_position = pet_pos
+		pet_follower.z_index = clampi(int(pet_pos.y), -1024, 1024)
 	else:
 		if pet_follower != null and is_instance_valid(pet_follower):
 			pet_follower.queue_free()
 			pet_follower = null
 	var mount_code := _current_equipped_mount_code()
-	if not mount_code.is_empty():
+	if not mount_code.is_empty() and _mount_rig(mount_code).is_empty():
+		# montaria sem animacao: imagem parada embaixo do heroi (provisorio)
+		_clear_mount_rider()
 		if mount_follower == null or not is_instance_valid(mount_follower):
 			mount_follower = Sprite2D.new()
 			mount_follower.z_index = 13
 			world.add_child(mount_follower)
 		mount_follower.texture = load(_mount_icon_path(mount_code))
-		# escala pela altura da imagem (~120 px no mundo), para arte de qualquer tamanho
 		var mount_height := 96.0
 		if mount_follower.texture != null:
 			mount_height = maxf(1.0, float(mount_follower.texture.get_height()))
-		mount_follower.scale = Vector2.ONE * (140.0 / mount_height) * (1.0 + abs(sin(companion_anim_time * 7.0)) * 0.018)
-		# arte propria aparece inteira; os provisorios (lobo/javali inimigos) seguem meio transparentes
-		mount_follower.modulate = Color(1, 1, 1, 1.0 if _mount_icon_path(mount_code).begins_with("res://assets/sprites/mounts/") else 0.65)
+		mount_follower.scale = Vector2.ONE * (140.0 / mount_height)
+		mount_follower.modulate = Color(1, 1, 1, 0.65)
 		mount_follower.flip_h = player.velocity.x > 8.0
 		mount_follower.global_position = player.global_position + Vector2(0, 30 + bob * 0.4)
 	else:
 		if mount_follower != null and is_instance_valid(mount_follower):
 			mount_follower.queue_free()
 			mount_follower = null
+		if mount_code.is_empty():
+			_clear_mount_rider()
+		else:
+			_update_mount_rider(mount_code, delta)
+
+func _mount_rig(code: String) -> Dictionary:
+	if mount_rig_cache.is_empty():
+		var data = JSON.parse_string(FileAccess.get_file_as_string("res://assets/sprites/mounts/mounts_rig.json"))
+		mount_rig_cache = data if data is Dictionary else {"_": {}}
+	var rig = mount_rig_cache.get(code, {})
+	if rig is Dictionary and rig.has("seat") and ResourceLoader.exists("res://assets/sprites/mounts/%s/walk/0.png" % code):
+		return rig
+	return {}
+
+func _mount_frames(code: String, anim: String, front_cut: int) -> Array:
+	var key := "%s|%s|%d" % [code, anim, front_cut]
+	if mount_frames_cache.has(key):
+		return mount_frames_cache[key]
+	var frames: Array = []
+	for i in range(16):
+		var path := "res://assets/sprites/mounts/%s/%s/%d.png" % [code, anim, i]
+		if not ResourceLoader.exists(path):
+			break
+		var tex := load(path) as Texture2D
+		if front_cut > 0:
+			var atlas := AtlasTexture.new()
+			atlas.atlas = tex
+			atlas.region = Rect2(0, front_cut, tex.get_width(), tex.get_height() - front_cut)
+			frames.append(atlas)
+		else:
+			frames.append(tex)
+	mount_frames_cache[key] = frames
+	return frames
+
+func _update_mount_rider(code: String, delta: float) -> void:
+	var rig := _mount_rig(code)
+	var frame_size: Array = rig.get("frame", [160, 160])
+	var w := float(frame_size[0])
+	var feet_y := float(rig.get("feet_y", frame_size[1]))
+	var seat: Array = rig.get("seat", [w * 0.5, feet_y * 0.4])
+	var seat_x := float(seat[0])
+	var seat_y := float(seat[1])
+	var front_cut := int(seat_y + float(rig.get("front_below_seat", 8)))
+	if mount_back_sprite == null or not is_instance_valid(mount_back_sprite):
+		mount_back_sprite = Sprite2D.new()
+		mount_back_sprite.centered = false
+		mount_back_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		mount_back_sprite.z_index = -1
+		player.add_child(mount_back_sprite)
+		mount_front_sprite = Sprite2D.new()
+		mount_front_sprite.centered = false
+		mount_front_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		mount_front_sprite.z_index = 1
+		player.add_child(mount_front_sprite)
+	if player.velocity.x > 8.0:
+		mount_facing_right = true
+	elif player.velocity.x < -8.0:
+		mount_facing_right = false
+	var moving := player.velocity.length() > 8.0
+	var anim := "walk" if moving else "idle"
+	var back_frames := _mount_frames(code, anim, 0)
+	var front_frames := _mount_frames(code, anim, front_cut)
+	if back_frames.is_empty():
+		return
+	mount_anim_time += delta
+	var fps := 10.0 if moving else 5.0
+	var index := int(mount_anim_time * fps) % back_frames.size()
+	mount_back_sprite.texture = back_frames[index]
+	mount_front_sprite.texture = front_frames[index]
+	# a arte olha para a esquerda; virada para a direita espelha em volta da sela
+	var anchor_x := (w - seat_x) if mount_facing_right else seat_x
+	mount_back_sprite.flip_h = mount_facing_right
+	mount_front_sprite.flip_h = mount_facing_right
+	mount_back_sprite.position = Vector2(-anchor_x, MOUNT_GROUND_Y - feet_y)
+	mount_front_sprite.position = Vector2(-anchor_x, MOUNT_GROUND_Y - feet_y + front_cut)
+	# heroi sobe ate a sela: quadril na altura do assento
+	player.set_mount_lift(maxf(0.0, (feet_y - seat_y) - HERO_HIP_TO_FEET))
+
+func _clear_mount_rider() -> void:
+	if mount_back_sprite != null and is_instance_valid(mount_back_sprite):
+		mount_back_sprite.queue_free()
+	if mount_front_sprite != null and is_instance_valid(mount_front_sprite):
+		mount_front_sprite.queue_free()
+	mount_back_sprite = null
+	mount_front_sprite = null
+	if player != null and player.has_method("set_mount_lift"):
+		player.set_mount_lift(0.0)
 
 func _current_equipped_pet_code() -> String:
 	var payload: Dictionary = mmo_cache.get("pets_state", {})
