@@ -1,0 +1,105 @@
+{
+  "guerreiro": {
+    "frame": [
+      94,
+      121
+    ],
+    "seat": [
+      40.3,
+      77.9
+    ],
+    "head_y": 6.9,
+    "front": {
+      "frame": [
+        95,
+        112
+      ],
+      "seat": [
+        47.5,
+        74.3
+      ],
+      "head_y": 3.3
+    },
+    "back": {
+      "frame": [
+        83,
+        114
+      ],
+      "seat": [
+        40.4,
+        73.6
+      ],
+      "head_y": 2.6
+    }
+  },
+  "maga_de_fogo": {
+    "frame": [
+      90,
+      123
+    ],
+    "seat": [
+      33.4,
+      82.2
+    ],
+    "head_y": 11.2,
+    "front": {
+      "frame": [
+        90,
+        90
+      ],
+      "seat": [
+        48.0,
+        82.9
+      ],
+      "head_y": 11.9,
+      "provisorio": true
+    },
+    "back": {
+      "frame": [
+        90,
+        88
+      ],
+      "seat": [
+        40.1,
+        80.7
+      ],
+      "head_y": 9.7,
+      "provisorio": true
+    }
+  },
+  "arqueiro": {
+    "frame": [
+      93,
+      119
+    ],
+    "seat": [
+      43.5,
+      80.6
+    ],
+    "head_y": 9.6,
+    "front": {
+      "frame": [
+        84,
+        81
+      ],
+      "seat": [
+        40.0,
+        74.0
+      ],
+      "head_y": 3.0,
+      "provisorio": true
+    },
+    "back": {
+      "frame": [
+        81,
+        82
+      ],
+      "seat": [
+        39.0,
+        74.7
+      ],
+      "head_y": 3.7,
+      "provisorio": true
+    }
+  }
+}

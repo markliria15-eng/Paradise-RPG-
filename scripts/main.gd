@@ -385,10 +385,14 @@ var pet_definitions: Array = []
 var mount_definitions: Array = []
 var pet_follower: Sprite2D
 var mount_follower: Sprite2D
-# Montaria de verdade: camada de tras (montaria inteira, atras do heroi) e da frente (corpo
-# abaixo da sela, na frente das pernas dele), as duas filhas do player; o heroi sobe ate a sela.
+# Montaria de verdade: a montaria inteira atras (filha do player) e, na frente dela, o heroi
+# MONTADO desenhado sentado com uma perna de cada lado (assets/sprites/mounts/riders/<classe>).
+# Enquanto montado o sprite normal do heroi fica escondido; nome e vida sobem com a cabeca.
 var mount_back_sprite: Sprite2D
-var mount_front_sprite: Sprite2D
+var mount_rider_sprite: Sprite2D
+var mount_view := "side"           # side / front / back: de lado, descendo (de frente) ou subindo (de costas)
+var mount_riders_cache: Dictionary = {}
+const HERO_HEAD_Y := -85.0        # topo da cabeca do heroi em pe no espaco local do player
 var mount_anim_time := 0.0
 var mount_facing_right := false
 var mount_rig_cache: Dictionary = {}
@@ -423,6 +427,14 @@ var pet_wander_offset := Vector2(-70, 30)
 var pet_wander_timer := 0.0
 var pet_moving := false
 const PET_TARGET_HEIGHT := 125.0  # altura do quadro 192 px na tela (corpo do pet ~75 px, perto de 2/3 do heroi)
+# Pets de chao nao passam por cima do heroi/montaria: atras da linha dos pes ficam atras,
+# do lado ficam do lado, e na frente so longe o bastante para nao cobrir o desenho.
+# Os voadores continuam livres.
+const PET_FLYING_ASSETS := ["fada_arcana", "morcego_sombrio", "espirito_da_floresta", "fagulha_gelida"]
+const PET_HALF_WIDTH := 38.0      # meia largura do corpo do pet na tela
+const PET_FRONT_DEPTH := 72.0     # altura do corpo do pet: abaixo disso dos pes do heroi ele cobriria o desenho
+var pet_was_behind := false
+var pet_stuck_time := 0.0
 var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
 var solid_obstacles: Array[Dictionary] = []
@@ -3081,6 +3093,19 @@ func _update_kit_vehicles(delta: float) -> void:
 		_set_kit_vehicle_anim(state, move_name)
 		if not sprite.is_playing():
 			sprite.play()
+		var next_pos := target if to_target.length() <= step else sprite.position + to_target.normalized() * step
+		if not bool(state["flying"]) and player != null:
+			var hero_rect := _hero_footprint(player.global_position)
+			var next_rect := _kit_vehicle_rect(state, next_pos)
+			if next_rect.intersects(hero_rect) and next_rect.get_center().distance_to(hero_rect.get_center()) < _kit_vehicle_rect(state, sprite.position).get_center().distance_to(hero_rect.get_center()):
+				# o heroi (ou a montaria) esta no caminho: espera parado ate ele sair
+				var wait_name := "idle_%s" % str(state["facing"])
+				if sprite.sprite_frames.has_animation(wait_name):
+					_set_kit_vehicle_anim(state, wait_name)
+				else:
+					sprite.pause()
+					state["anim"] = ""
+				continue
 		if to_target.length() <= step:
 			sprite.position = target
 			state["index"] = next_index
@@ -4290,10 +4315,109 @@ func _enforce_world_collision() -> void:
 		return
 	if last_valid_player_position == Vector2.ZERO:
 		last_valid_player_position = player.global_position
-	if _is_point_blocked(player.global_position):
-		player.global_position = last_valid_player_position
-	else:
-		last_valid_player_position = player.global_position
+	var old := last_valid_player_position
+	var new_pos := player.global_position
+	if new_pos == old:
+		return
+	if not _hero_move_blocked(old, new_pos):
+		last_valid_player_position = new_pos
+		return
+	# esbarrou: tenta deslizar so na horizontal ou so na vertical
+	for slide in [Vector2(new_pos.x, old.y), Vector2(old.x, new_pos.y)]:
+		if slide != old and not _hero_move_blocked(old, slide):
+			player.global_position = slide
+			last_valid_player_position = slide
+			return
+	player.global_position = old
+
+# Regras de mundo do heroi: o ponto dele (mascara/solidos como antes) e, montado, a pegada da
+# montaria inteira; e nao atravessa NPCs nem pedestres/carrocas. Se ja estava preso (montou
+# encostado numa parede, um pedestre chegou nele), deixa sair.
+func _hero_move_blocked(old: Vector2, new_pos: Vector2) -> bool:
+	if _is_point_blocked(new_pos):
+		return true
+	if _hero_mounted_visual() and _footprint_blocked(new_pos) and not _footprint_blocked(old):
+		return true
+	var foot_old := _hero_footprint(old)
+	var foot_new := _hero_footprint(new_pos)
+	for actor in _world_actor_rects():
+		var rect: Rect2 = actor
+		if foot_new.intersects(rect) and (not foot_old.intersects(rect) or foot_new.get_center().distance_to(rect.get_center()) < foot_old.get_center().distance_to(rect.get_center())):
+			return true
+	return false
+
+func _hero_mounted_visual() -> bool:
+	return mount_back_sprite != null and is_instance_valid(mount_back_sprite) and mount_back_sprite.texture != null
+
+# pegada no chao (linha dos pes) do heroi, ou da montaria quando montado, com o player em pos
+func _hero_footprint(pos: Vector2) -> Rect2:
+	var foot := pos.y + MOUNT_GROUND_Y
+	if _hero_mounted_visual():
+		var w := float(mount_back_sprite.texture.get_width())
+		if mount_view == "side":
+			var left := pos.x + mount_back_sprite.position.x + w * 0.12
+			return Rect2(left, foot - 12.0, w * 0.76, 24.0)
+		# de frente/costas o corpo ocupa o chao na profundidade (para cima da linha dos pes)
+		return Rect2(pos.x - w * 0.28, foot - 44.0, w * 0.56, 54.0)
+	return Rect2(pos.x - 14.0, foot - 8.0, 28.0, 16.0)
+
+# pontos da pegada da montaria testados na mascara andavel (no mesmo referencial do player)
+func _footprint_blocked(pos: Vector2) -> bool:
+	var rect := _hero_footprint(pos)
+	var cy := rect.get_center().y - MOUNT_GROUND_Y
+	var points: Array[Vector2] = [Vector2(rect.position.x, cy), Vector2(rect.end.x, cy), Vector2(rect.get_center().x, cy),
+		Vector2(rect.position.x + rect.size.x * 0.25, cy), Vector2(rect.position.x + rect.size.x * 0.75, cy),
+		Vector2(pos.x, rect.position.y - MOUNT_GROUND_Y), Vector2(pos.x, rect.end.y - MOUNT_GROUND_Y)]
+	for point in points:
+		if _is_point_blocked(point):
+			return true
+	# props solidos (fonte, estatuas, bancas): o desenho e mais largo que a colisao; a montaria
+	# nao encosta pelos lados para nao sumir por baixo do desenho
+	var body := Rect2(rect.position - Vector2(0, MOUNT_GROUND_Y), rect.size)
+	for obstacle in solid_obstacles:
+		if str(obstacle.get("type", "rect")) == "circle":
+			var center: Vector2 = obstacle.get("center", Vector2.ZERO)
+			var radius := float(obstacle.get("radius", 0.0)) + 30.0
+			var nearest := Vector2(clampf(center.x, body.position.x, body.end.x), clampf(center.y, body.position.y, body.end.y))
+			if nearest.distance_to(center) < radius:
+				return true
+		else:
+			var solid: Rect2 = obstacle.get("rect", Rect2())
+			# so props (muros e agua longos nao: portoes estreitos continuam passaveis)
+			if solid.size.x < 700.0 and solid.size.y < 700.0 and solid.grow_individual(40.0, 60.0, 40.0, 10.0).intersects(body):
+				return true
+	return false
+
+# NPCs e pedestres/carrocas (o que anda no chao) como retangulos na linha dos pes
+func _world_actor_rects() -> Array:
+	var rects: Array = []
+	for npc in get_tree().get_nodes_in_group("npcs"):
+		if npc is Node2D and is_instance_valid(npc) and (npc as Node2D).is_visible_in_tree():
+			var p: Vector2 = (npc as Node2D).global_position + Vector2(0, 14)
+			rects.append(Rect2(p.x - 22.0, p.y - 12.0, 44.0, 24.0))
+	for state in kit_vehicles:
+		if bool(state.get("flying", false)):
+			continue
+		var sprite := state.get("node") as AnimatedSprite2D
+		if sprite == null or not is_instance_valid(sprite):
+			continue
+		rects.append(_kit_vehicle_rect(state, sprite.position))
+	return rects
+
+func _kit_vehicle_rect(state: Dictionary, feet: Vector2) -> Rect2:
+	if not state.has("foot_rx"):
+		var sprite := state.get("node") as AnimatedSprite2D
+		var w := 80.0
+		if sprite != null and sprite.sprite_frames != null:
+			var names := sprite.sprite_frames.get_animation_names()
+			if not names.is_empty() and sprite.sprite_frames.get_frame_count(names[0]) > 0:
+				w = float(sprite.sprite_frames.get_frame_texture(names[0], 0).get_width())
+		# pedestre (quadro ~118 px) vira ~30 px de pe; carroca larga ocupa bem mais
+		state["foot_rx"] = clampf(w * 0.14, 14.0, 130.0) if w < 200.0 else clampf(w * 0.32, 40.0, 150.0)
+		state["foot_ry"] = 12.0 if w < 200.0 else 26.0
+	var rx := float(state["foot_rx"])
+	var ry := float(state["foot_ry"])
+	return Rect2(feet.x - rx, feet.y - ry, rx * 2.0, ry * 2.0)
 
 func _add_world_rect(rect: Rect2, color: Color, z: int) -> ColorRect:
 	var node := ColorRect.new()
@@ -7729,12 +7853,43 @@ func _pet_animation_frames(asset: String, animation: String, direction: String) 
 
 # O pet anda sozinho em volta do heroi: escolhe um ponto perto dele de tempos em tempos,
 # corre atras quando o heroi se afasta e chega perto do alvo quando esta atacando.
+func _pet_is_ground() -> bool:
+	return not PET_FLYING_ASSETS.has(_pet_asset_name(_current_equipped_pet_code()))
+
+func _hero_foot_y() -> float:
+	return player.global_position.y + MOUNT_GROUND_Y
+
+# x da esquerda e da direita do corpo do heroi (ou da montaria) no mundo
+func _hero_body_span() -> Vector2:
+	var x := player.global_position.x
+	if mount_back_sprite != null and is_instance_valid(mount_back_sprite) and mount_back_sprite.texture != null:
+		var w := float(mount_back_sprite.texture.get_width())
+		var left := x + mount_back_sprite.position.x
+		return Vector2(left + w * 0.08, left + w * 0.92)
+	return Vector2(x - 28.0, x + 28.0)
+
+# na frente do heroi/montaria e perto o bastante para o pet ficar desenhado por cima dele
+func _pet_in_front_zone(p: Vector2) -> bool:
+	var span := _hero_body_span()
+	var foot := _hero_foot_y()
+	return p.x > span.x - PET_HALF_WIDTH and p.x < span.y + PET_HALF_WIDTH and p.y > foot and p.y < foot + PET_FRONT_DEPTH
+
 func _update_pet_wander(delta: float) -> void:
+	var ground := _pet_is_ground()
 	pet_wander_timer -= delta
 	if pet_wander_timer <= 0.0:
-		var angle := randf() * TAU
-		var radius := randf_range(70.0, 125.0)
-		pet_wander_offset = Vector2(cos(angle) * radius, sin(angle) * radius * 0.55 + 20.0)
+		var span := _hero_body_span()
+		var half := (span.y - span.x) * 0.5
+		var r_min := maxf(70.0, half + PET_HALF_WIDTH + 8.0)
+		for attempt in range(12):
+			var angle := randf() * TAU
+			var radius := randf_range(r_min, r_min + 60.0)
+			pet_wander_offset = Vector2(cos(angle) * radius, sin(angle) * radius * 0.55 + 20.0)
+			var spot := player.global_position + pet_wander_offset
+			if (not ground or not _pet_in_front_zone(spot)) and not _pet_point_blocked(spot):
+				break
+			if attempt == 11:
+				pet_wander_offset = Vector2(signf(pet_wander_offset.x + 0.01) * r_min, MOUNT_GROUND_Y)
 		pet_wander_timer = randf_range(1.8, 3.6)
 	var desired := player.global_position + pet_wander_offset
 	var fighting := pet_attack_visual_timer > 0.0 and pet_allowed_target != null and is_instance_valid(pet_allowed_target)
@@ -7751,6 +7906,20 @@ func _update_pet_wander(delta: float) -> void:
 	var step := minf(dist, speed * delta)
 	var moved := to.normalized() * step if dist > 0.5 else Vector2.ZERO
 	pet_pos += moved
+	if dist <= 900.0:
+		var before := pet_pos - moved
+		pet_pos = _pet_world_rules(before, pet_pos)
+		# preso atras de parede/fonte enquanto o heroi se afasta: reaparece do lado dele
+		pet_stuck_time = pet_stuck_time + delta if dist > 220.0 and pet_pos.distance_to(before) < 0.5 else 0.0
+		if pet_stuck_time > 1.2:
+			pet_stuck_time = 0.0
+			for spot in [desired, player.global_position + Vector2(-90, 20), player.global_position + Vector2(90, 20), player.global_position + Vector2(0, -40)]:
+				if not _pet_point_blocked(spot) and not _pet_actor_hit(spot).has_area():
+					pet_pos = spot
+					break
+	if ground and dist <= 900.0:
+		pet_pos = _pet_keep_off_hero(pet_pos, desired, speed * delta)
+	pet_was_behind = pet_pos.y <= _hero_foot_y()
 	pet_moving = dist > 6.0 and step > 0.4
 	var face := moved
 	if fighting:
@@ -7760,6 +7929,68 @@ func _update_pet_wander(delta: float) -> void:
 			pet_last_direction = "right" if face.x > 0.0 else "left"
 		else:
 			pet_last_direction = "back" if face.y < 0.0 else "front"
+
+# Pets seguem as regras do mundo: nao passam por paredes, agua, fonte e solidos (mascara andavel),
+# e esbarram em NPCs e pedestres; se algo andou para cima dele, ele sai pelo lado mais perto.
+func _pet_point_blocked(p: Vector2) -> bool:
+	# a mascara andavel e calibrada para o centro do heroi; os pes do pet ficam ~MOUNT_GROUND_Y abaixo
+	return _is_point_blocked(p - Vector2(0, MOUNT_GROUND_Y))
+
+func _pet_actor_hit(p: Vector2) -> Rect2:
+	for actor in _world_actor_rects():
+		var rect: Rect2 = actor
+		if rect.grow(10.0).has_point(p):
+			return rect.grow(10.0)
+	return Rect2()
+
+func _pet_world_rules(old: Vector2, new_pos: Vector2) -> Vector2:
+	var old_blocked := _pet_point_blocked(old)
+	var candidates: Array[Vector2] = [new_pos, Vector2(new_pos.x, old.y), Vector2(old.x, new_pos.y)]
+	var result := old
+	for c in candidates:
+		if old_blocked or not _pet_point_blocked(c):
+			var hit := _pet_actor_hit(c)
+			if not hit.has_area() or _pet_actor_hit(old).has_area():
+				result = c
+				break
+	# um pedestre/NPC chegou em cima do pet: sai pela borda mais perto
+	var inside := _pet_actor_hit(result)
+	if inside.has_area():
+		var exits: Array[Vector2] = [Vector2(inside.position.x - 1.0, result.y), Vector2(inside.end.x + 1.0, result.y),
+			Vector2(result.x, inside.position.y - 1.0), Vector2(result.x, inside.end.y + 1.0)]
+		var best := exits[0]
+		for e in exits:
+			if e.distance_to(result) < best.distance_to(result) and not _pet_point_blocked(e):
+				best = e
+		result = result.move_toward(best, 6.0)
+	return result
+
+# Empurra o pet de chao para fora da frente do heroi/montaria pelo caminho mais curto. Quem
+# estava atras pode encostar na linha dos pes (fica atras); quem estava na frente e barrado
+# pelo corpo e contorna pelo lado mais perto quando quer passar para tras.
+func _pet_keep_off_hero(p: Vector2, desired: Vector2, step: float) -> Vector2:
+	if not _pet_in_front_zone(p):
+		return p
+	var span := _hero_body_span()
+	var foot := _hero_foot_y()
+	var options: Array = [
+		[p.x - (span.x - PET_HALF_WIDTH), Vector2(span.x - PET_HALF_WIDTH, p.y)],
+		[(span.y + PET_HALF_WIDTH) - p.x, Vector2(span.y + PET_HALF_WIDTH, p.y)],
+	]
+	if pet_was_behind:
+		options.append([p.y - foot, Vector2(p.x, foot)])
+	else:
+		options.append([foot + PET_FRONT_DEPTH - p.y, Vector2(p.x, foot + PET_FRONT_DEPTH)])
+	var best: Array = options[0]
+	for option in options:
+		if float(option[0]) < float(best[0]):
+			best = option
+	var out: Vector2 = best[1]
+	# barrado em cima/embaixo mas o destino esta do outro lado: anda de lado ate sair do corpo
+	if absf(out.x - p.x) < 0.01 and (desired.y <= foot) != pet_was_behind:
+		var middle := (span.x + span.y) * 0.5
+		out.x += -step if p.x < middle else step
+	return out
 
 func _pet_direction_from_player() -> String:
 	if player == null:
@@ -7847,7 +8078,12 @@ func _update_companion_visuals(delta: float) -> void:
 			pet_follower.offset = Vector2(0, -height * 0.5)
 		pet_follower.flip_h = pet_last_direction == "right" and pet_animation_actual_direction == "left"
 		pet_follower.global_position = pet_pos
-		pet_follower.z_index = clampi(int(pet_pos.y), -1024, 1024)
+		# profundidade pela linha dos pes, igual ao player e aos props
+		var pet_z := clampi(int(pet_pos.y), -1024, 1024)
+		if _pet_is_ground() and absf(pet_pos.x - player.global_position.x) < 260.0 and absf(pet_pos.y - _hero_foot_y()) < 140.0:
+			# perto do heroi decide sem empate: atras da montaria (z do player - 1) ou na frente do cavaleiro (+1)
+			pet_z = player.z_index - 2 if pet_pos.y <= _hero_foot_y() else player.z_index + 2
+		pet_follower.z_index = pet_z
 	else:
 		if pet_follower != null and is_instance_valid(pet_follower):
 			pet_follower.queue_free()
@@ -7906,57 +8142,118 @@ func _mount_frames(code: String, anim: String, front_cut: int) -> Array:
 	mount_frames_cache[key] = frames
 	return frames
 
+func _mount_rider_info(view: String = "side") -> Dictionary:
+	# quadros do heroi montado da classe atual na vista pedida:
+	# {"frames": [Texture2D], "frame": [w, h], "seat": [x, y], "head_y": y}
+	var folder: String = player._class_pack_folder(player.class_name_selected) if player != null and player.has_method("_class_pack_folder") else ""
+	var key := folder + "|" + view
+	if mount_riders_cache.has(key):
+		return mount_riders_cache[key]
+	var info: Dictionary = {}
+	var data = JSON.parse_string(FileAccess.get_file_as_string("res://assets/sprites/mounts/riders/riders.json"))
+	if not folder.is_empty() and data is Dictionary and data.has(folder):
+		var entry: Dictionary = data[folder]
+		if view != "side":
+			entry = entry.get(view, {})
+		var base := "res://assets/sprites/mounts/riders/%s/" % folder + ("" if view == "side" else view + "/")
+		var frames: Array = []
+		for i in range(8):
+			var path := base + "%d.png" % i
+			if not ResourceLoader.exists(path):
+				break
+			frames.append(load(path))
+		if not frames.is_empty() and entry.has("seat"):
+			info = entry.duplicate()
+			info["frames"] = frames
+	mount_riders_cache[key] = info
+	return info
+
+# vista da montaria pelo movimento: subindo = de costas, descendo = de frente, para os lados = de lado
+func _mount_view_for(code: String) -> String:
+	var v := player.velocity
+	var view := mount_view
+	if v.length() > 8.0:
+		if absf(v.y) > absf(v.x) * 1.1:
+			view = "back" if v.y < 0.0 else "front"
+		else:
+			view = "side"
+	if view != "side":
+		var rig := _mount_rig(code)
+		if not (rig.get(view, {}) as Dictionary).has("seat") or not ResourceLoader.exists("res://assets/sprites/mounts/%s/walk_%s/0.png" % [code, view]) or _mount_rider_info(view).is_empty():
+			view = "side"
+	return view
+
 func _update_mount_rider(code: String, delta: float) -> void:
 	var rig := _mount_rig(code)
-	var frame_size: Array = rig.get("frame", [160, 160])
+	mount_view = _mount_view_for(code)
+	var view_rig: Dictionary = rig if mount_view == "side" else rig.get(mount_view, {})
+	var frame_size: Array = view_rig.get("frame", [160, 160])
 	var w := float(frame_size[0])
-	var feet_y := float(rig.get("feet_y", frame_size[1]))
-	var seat: Array = rig.get("seat", [w * 0.5, feet_y * 0.4])
+	var feet_y := float(view_rig.get("feet_y", frame_size[1]))
+	var seat: Array = view_rig.get("seat", [w * 0.5, feet_y * 0.4])
 	var seat_x := float(seat[0])
 	var seat_y := float(seat[1])
-	var front_cut := int(seat_y + float(rig.get("front_below_seat", 8)))
 	if mount_back_sprite == null or not is_instance_valid(mount_back_sprite):
 		mount_back_sprite = Sprite2D.new()
 		mount_back_sprite.centered = false
 		mount_back_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		mount_back_sprite.z_index = -1
 		player.add_child(mount_back_sprite)
-		mount_front_sprite = Sprite2D.new()
-		mount_front_sprite.centered = false
-		mount_front_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		mount_front_sprite.z_index = 1
-		player.add_child(mount_front_sprite)
+		mount_rider_sprite = Sprite2D.new()
+		mount_rider_sprite.centered = false
+		mount_rider_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		mount_rider_sprite.z_index = 1
+		player.add_child(mount_rider_sprite)
 	if player.velocity.x > 8.0:
 		mount_facing_right = true
 	elif player.velocity.x < -8.0:
 		mount_facing_right = false
 	var moving := player.velocity.length() > 8.0
 	var anim := "walk" if moving else "idle"
+	if mount_view != "side":
+		anim += "_" + mount_view
 	var back_frames := _mount_frames(code, anim, 0)
-	var front_frames := _mount_frames(code, anim, front_cut)
 	if back_frames.is_empty():
 		return
 	mount_anim_time += delta
 	var fps := 10.0 if moving else 5.0
 	var index := int(mount_anim_time * fps) % back_frames.size()
 	mount_back_sprite.texture = back_frames[index]
-	mount_front_sprite.texture = front_frames[index]
-	# a arte olha para a esquerda; virada para a direita espelha em volta da sela
-	var anchor_x := (w - seat_x) if mount_facing_right else seat_x
-	mount_back_sprite.flip_h = mount_facing_right
-	mount_front_sprite.flip_h = mount_facing_right
+	# de lado a arte olha para a esquerda; virada para a direita espelha em volta da sela
+	var flip := mount_facing_right and mount_view == "side"
+	var anchor_x := (w - seat_x) if flip else seat_x
+	mount_back_sprite.flip_h = flip
 	mount_back_sprite.position = Vector2(-anchor_x, MOUNT_GROUND_Y - feet_y)
-	mount_front_sprite.position = Vector2(-anchor_x, MOUNT_GROUND_Y - feet_y + front_cut)
-	# heroi sobe ate a sela: quadril na altura do assento
-	player.set_mount_lift(maxf(0.0, (feet_y - seat_y) - HERO_HIP_TO_FEET))
+	var seat_local_y := MOUNT_GROUND_Y - feet_y + seat_y
+	var rider := _mount_rider_info(mount_view)
+	if rider.is_empty():
+		# classe sem arte montada: heroi normal em cima da sela
+		mount_rider_sprite.visible = false
+		player.set_mount_lift(maxf(0.0, (feet_y - seat_y) - HERO_HIP_TO_FEET))
+		return
+	var rider_frames: Array = rider["frames"]
+	var rider_size: Array = rider.get("frame", [96, 120])
+	var rider_seat: Array = rider.get("seat", [48, 80])
+	# o cavaleiro balanca junto com a passada (2 quadros da montaria por quadro dele)
+	var rider_index := (index / 2) % rider_frames.size() if moving else int(mount_anim_time * 2.5) % rider_frames.size()
+	mount_rider_sprite.visible = true
+	mount_rider_sprite.texture = rider_frames[rider_index]
+	mount_rider_sprite.flip_h = flip
+	# de frente o cavaleiro fica atras da cabeca/peito da montaria; de lado e de costas, na frente
+	mount_rider_sprite.z_index = -2 if mount_view == "front" else 1
+	var rider_anchor_x := (float(rider_size[0]) - float(rider_seat[0])) if flip else float(rider_seat[0])
+	mount_rider_sprite.position = Vector2(-rider_anchor_x, seat_local_y - float(rider_seat[1]))
+	mount_rider_sprite.modulate = player.sprite.modulate if player.get("sprite") != null else Color.WHITE
+	var head_local_y := seat_local_y - float(rider_seat[1]) + float(rider.get("head_y", 0.0))
+	player.set_mount_lift(maxf(0.0, HERO_HEAD_Y - head_local_y), true)
 
 func _clear_mount_rider() -> void:
 	if mount_back_sprite != null and is_instance_valid(mount_back_sprite):
 		mount_back_sprite.queue_free()
-	if mount_front_sprite != null and is_instance_valid(mount_front_sprite):
-		mount_front_sprite.queue_free()
+	if mount_rider_sprite != null and is_instance_valid(mount_rider_sprite):
+		mount_rider_sprite.queue_free()
 	mount_back_sprite = null
-	mount_front_sprite = null
+	mount_rider_sprite = null
 	if player != null and player.has_method("set_mount_lift"):
 		player.set_mount_lift(0.0)
 

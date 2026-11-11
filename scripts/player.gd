@@ -68,6 +68,7 @@ var agility_move_bonus := 0.0
 var agility_attack_bonus := 0.0
 var current_sprite_path := ""
 var mount_lift := 0.0  # px que o heroi sobe quando esta montado (main.gd _update_mount_rider)
+var mount_hide_body := false
 var current_sprite_flip := false
 var current_sprite_direction := "front"
 var walk_anim_time := 0.0
@@ -142,7 +143,9 @@ func _physics_process(delta: float) -> void:
 	_update_directional_sprite(input, delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
 	move_and_slide()
-	z_index = clampi(int(global_position.y), -1024, 1024)
+	# profundidade pela linha dos pes (~20 px abaixo do centro), como os props (base) e os pets;
+	# assim heroi e montaria nao ficam desenhados atras da fonte com os pes na frente dela
+	z_index = clampi(int(global_position.y + 20.0), -1024, 1024)
 	_update_health_bar()
 	if war_cry_timer > 0:
 		war_cry_timer -= delta
@@ -848,10 +851,12 @@ func _set_player_sprite(path: String, flip_h: bool) -> void:
 	_fit_player_sprite()
 
 # Sobe o heroi (sprite, nome e vida) para sentar na sela; 0 = no chao.
-func set_mount_lift(value: float) -> void:
-	if absf(value - mount_lift) < 0.01:
+func set_mount_lift(value: float, hide_body: bool = false) -> void:
+	# hide_body: main.gd desenha o heroi montado (sentado na sela); o sprite em pe some
+	if absf(value - mount_lift) < 0.01 and hide_body == mount_hide_body:
 		return
 	mount_lift = value
+	mount_hide_body = hide_body
 	_fit_player_sprite()
 
 func _fit_player_sprite() -> void:
@@ -897,6 +902,7 @@ func _fit_player_sprite() -> void:
 		health_bar.offset_bottom -= mount_lift
 	if shadow_sprite != null:
 		shadow_sprite.visible = mount_lift <= 0.0
+	sprite.visible = not mount_hide_body
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:
