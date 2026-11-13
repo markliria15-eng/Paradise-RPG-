@@ -1,0 +1,252 @@
+{
+  "afinidade": {
+    "inicial": 20,
+    "ganho_pedido": 5,
+    "perda_pedido_ignorado": 2,
+    "carinho_ganho": 1,
+    "carinho_cooldown_s": 600,
+    "jogar_junto_ganho": 1,
+    "jogar_junto_intervalo_s": 900,
+    "perda_por_dia_sem_jogar": 2,
+    "faixas": [
+      {
+        "min": 0,
+        "bonus": 0.0
+      },
+      {
+        "min": 20,
+        "bonus": 0.02
+      },
+      {
+        "min": 40,
+        "bonus": 0.05
+      },
+      {
+        "min": 60,
+        "bonus": 0.08
+      },
+      {
+        "min": 80,
+        "bonus": 0.12
+      },
+      {
+        "min": 100,
+        "bonus": 0.15
+      }
+    ]
+  },
+  "pedidos": {
+    "primeiro_apos_s": [
+      180,
+      360
+    ],
+    "intervalo_s": [
+      480,
+      900
+    ],
+    "tempo_para_atender_s": 240,
+    "pesos": {
+      "maca": 25,
+      "bola": 25,
+      "espadas": 30,
+      "carinho": 20
+    }
+  },
+  "montaria": {
+    "espera_remontar_s": 12,
+    "golpe_recarga_s": 8,
+    "vantagens": {
+      "brown_horse": {
+        "remount": 12,
+        "armor": false,
+        "regen": 0,
+        "text": "Cavalo Marrom: +15% velocidade. Montaria equilibrada para viagens."
+      },
+      "gray_wolf": {
+        "remount": 8,
+        "armor": false,
+        "regen": 0,
+        "text": "Lobo Cinzento: +20% velocidade. Remonta rapida apos combate."
+      },
+      "war_boar": {
+        "remount": 12,
+        "armor": true,
+        "regen": 0,
+        "text": "Javali de Guerra: +23% velocidade. Aguenta 1 golpe antes de desmontar. Protecao recarrega em 8 segundos."
+      },
+      "shadow_panther": {
+        "remount": 6,
+        "armor": false,
+        "regen": 0,
+        "text": "Pantera Sombria: +27% velocidade. Remonta extremamente rapida."
+      },
+      "crystal_stag": {
+        "remount": 10,
+        "armor": false,
+        "regen": 0.005,
+        "text": "Cervo de Cristal: +32% velocidade. Regenera 0.5% da vida maxima por segundo enquanto montado, fora de combate."
+      }
+    },
+    "estabulo": {
+      "preco": 75,
+      "duracao_s": 1800,
+      "bonus_velocidade": 0.05
+    }
+  },
+  "diarias": [
+    {
+      "id": "kill_any",
+      "text": "Derrote %d monstros",
+      "goal": [
+        12,
+        20
+      ],
+      "reward": 45
+    },
+    {
+      "id": "kill_boar",
+      "text": "Derrote %d javalis selvagens",
+      "goal": [
+        6,
+        12
+      ],
+      "reward": 40
+    },
+    {
+      "id": "collect",
+      "text": "Colete %d unidades de Carne Crua",
+      "goal": [
+        2,
+        4
+      ],
+      "reward": 35,
+      "item": "Carne Crua"
+    },
+    {
+      "id": "pet_need",
+      "text": "Atenda %d pedidos do seu pet",
+      "goal": [
+        2,
+        4
+      ],
+      "reward": 40
+    },
+    {
+      "id": "ride",
+      "text": "Percorra %d metros montado",
+      "goal": [
+        500,
+        1200
+      ],
+      "reward": 35
+    },
+    {
+      "id": "event",
+      "text": "Venca %d eventos aleatorios",
+      "goal": [
+        1,
+        1
+      ],
+      "reward": 65
+    },
+    {
+      "id": "boss",
+      "text": "Derrote %d chefes",
+      "goal": [
+        1,
+        1
+      ],
+      "reward": 90
+    }
+  ],
+  "eventos": {
+    "primeiro_apos_s": [
+      600,
+      900
+    ],
+    "intervalo_s": [
+      1200,
+      2100
+    ],
+    "mercador": {
+      "duracao_s": 300,
+      "ofertas": [
+        {
+          "item": "Carne Crua",
+          "amount": 3,
+          "price": 20,
+          "text": "Pacote com 3 Carnes Cruas por 20 ouro."
+        },
+        {
+          "item": "Pocao pequena de vida",
+          "amount": 3,
+          "price": 36,
+          "text": "Pacote com 3 Pocoes Pequenas de Vida por 36 ouro."
+        },
+        {
+          "item": "Pocao pequena de mana",
+          "amount": 3,
+          "price": 36,
+          "text": "Pacote com 3 Pocoes Pequenas de Mana por 36 ouro."
+        },
+        {
+          "item": "Pocao media de vida",
+          "amount": 2,
+          "price": 55,
+          "text": "Pacote com 2 Pocoes Medias de Vida por 55 ouro."
+        },
+        {
+          "item": "Pocao media de mana",
+          "amount": 2,
+          "price": 55,
+          "text": "Pacote com 2 Pocoes Medias de Mana por 55 ouro."
+        }
+      ]
+    },
+    "ladrao": {
+      "duracao_s": 90,
+      "velocidade": 115,
+      "recompensa": 45
+    },
+    "corrida": {
+      "duracao_s": 120,
+      "distancia_px": [
+        900,
+        1800
+      ],
+      "recompensa": 50
+    }
+  },
+  "npcs": {
+    "saudacoes": [
+      "Ola, %s! Bem-vindo de volta!",
+      "Que bom te ver, %s!",
+      "As estradas estao perigosas, %s. Tenha cuidado!",
+      "Sua fama esta crescendo, %s!",
+      "Os monstros andam agitados. Fique atento, %s!",
+      "Eldoria sempre tera um lugar para voce, %s!",
+      "Ouvi historias sobre suas aventuras, %s!",
+      "Seu pet parece feliz ao seu lado, %s!",
+      "Um verdadeiro aventureiro nunca desiste, %s!",
+      "Que os antigos guardioes protejam sua jornada, %s!",
+      "Voltou de outra aventura, %s?",
+      "Espero que tenha encontrado bons tesouros, %s!",
+      "Valdoria precisa de herois como voce, %s!",
+      "A floresta guarda muitos segredos, %s!",
+      "Continue ficando mais forte, %s!"
+    ],
+    "presente_na_visita": 5,
+    "presente_ouro": 50,
+    "presente_itens": [
+      {
+        "item": "Pocao pequena de vida",
+        "amount": 2
+      },
+      {
+        "item": "Pocao pequena de mana",
+        "amount": 1
+      }
+    ]
+  },
+  "_origem": "Regras e numeros desenhados pelo ChatGPT (game designer); o jogo le este arquivo em scripts/main.gd e scripts/game_extras.gd."
+}

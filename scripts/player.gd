@@ -46,6 +46,7 @@ var companion_mana_regen_pct := 0.0
 var companion_attack_speed_pct := 0.0
 var companion_move_speed_pct := 0.0
 var companion_vida_max_pct := 0.0
+var companion_defense_pct := 0.0  # afinidade alta com pets defensivos (main.gd _pet_affinity_bonus)
 var shield_points := 0
 var poison_timer := 0.0
 # Atordoamento (ex.: investida do Rei Javali): sem mover, atacar ou usar skills.
@@ -544,6 +545,8 @@ func _apply_companion_bonuses() -> void:
 	mana_regen_pct += companion_mana_regen_pct
 	attack_speed_pct += companion_attack_speed_pct
 	move_speed_pct += companion_move_speed_pct
+	if companion_defense_pct > 0:
+		defesa += int(ceil(float(defesa) * companion_defense_pct))
 
 func revive_in_city() -> void:
 	_clear_stun()

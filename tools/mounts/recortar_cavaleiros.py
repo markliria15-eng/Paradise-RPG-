@@ -31,13 +31,13 @@ CLASSES = {
 # por vista, quadril na sela e topo da cabeca no quadro 1 da linha (coordenadas do recorte)
 CLASSES_FC = {
     "guerreiro": ("paradise_cavaleiro_guerreiro_fc_v1.png", {"front": ((150, 270), 5), "back": ((137, 255), 2)}),
+    "maga_de_fogo": ("paradise_cavaleiro_maga_fc_v1.png", {"front": ((150, 255), 15), "back": ((153, 250), 22)}),
+    "arqueiro": ("paradise_cavaleiro_arqueiro_fc_v1.png", {"front": ((130, 250), 5), "back": ((130, 245), 5)}),
 }
 # PROVISORIO enquanto a arte de frente/costas montada nao vem do ChatGPT: a metade de cima do
 # heroi em pe (de frente/costas), cortada no quadril. De frente o corte fica escondido atras da
 # cabeca da montaria; de costas fica sobre a sela. (quadril y, topo da cabeca y no quadro 192)
 HERO_TORSO = {
-    "maga_de_fogo": {"front": (122, 26), "back": (122, 26)},
-    "arqueiro": {"front": (116, 20), "back": (116, 18)},
 }
 HERO_FRAMES = ROOT / "assets" / "sprites" / "player_frames_caminhada_classes"
 HEAD_TO_SEAT = 71.0  # px no jogo do topo da cabeca ao quadril (heroi em pe tem ~105 px)

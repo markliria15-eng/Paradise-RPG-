@@ -426,6 +426,62 @@ var pet_pos := Vector2.ZERO
 var pet_wander_offset := Vector2(-70, 30)
 var pet_wander_timer := 0.0
 var pet_moving := false
+# Vantagem de cada montaria (alem da velocidade de data/mmo_mounts.json).
+# remount: segundos depois da luta para poder montar de novo (padrao MOUNT_REMOUNT_DELAY)
+# armor: aguenta 1 golpe sem derrubar o heroi (recarrega em MOUNT_ARMOR_RECHARGE)
+# regen: fracao da vida maxima recuperada por segundo montado e fora de luta
+const MOUNT_REMOUNT_DELAY := 3.0
+const MOUNT_ARMOR_RECHARGE := 12.0
+const MOUNT_PERKS := {
+	"brown_horse": {"remount": 1.5, "text": "Remonta rapida: monta de novo 1,5 s depois da luta."},
+	"gray_wolf": {"remount": 1.5, "text": "Faro de cacador: monta de novo 1,5 s depois da luta."},
+	"war_boar": {"armor": true, "text": "Couraca: aguenta 1 golpe sem te derrubar (recarrega em 12 s)."},
+	"shadow_panther": {"armor": true, "remount": 1.5, "text": "Sombra: aguenta 1 golpe e monta de novo em 1,5 s."},
+	"crystal_stag": {"regen": 0.01, "remount": 1.5, "text": "Cristal vivo: cura 1% da vida por segundo montado."},
+}
+const MOUNT_BUTTON_POS := Vector2(1166, 388)
+const MOUNT_BUTTON_SIZE := Vector2(64, 58)
+var mount_last_code := ""           # ultima montaria usada: o botao rapido monta nela de novo
+var mount_combat_until := 0.0       # ate quando nao pode montar (acabou de lutar/apanhar)
+var mount_armor_ready_at := 0.0
+var mount_regen_acc := 0.0
+var mount_button: Button
+# Regras e numeros desenhados pelo ChatGPT (data/game_rules.json): afinidade, pedidos do pet,
+# montarias, estabulo, diarias, eventos e NPCs. Sem o arquivo valem os padroes do codigo.
+var game_rules: Dictionary = {}
+var game_extras: GameExtras  # missoes diarias, eventos, colecao, modo foto... (scripts/game_extras.gd)
+# Personalidade do pet: balaozinho de emocao em cima dele (assets/sprites/pets/emotes)
+const PET_EMOTE_GAP := 2.5          # segundos minimos entre dois baloes
+var pet_emote_ready_at := 0.0
+var pet_last_level := -1
+var pet_low_hp_next := 0.0
+var pet_idle_time := 0.0
+var pet_last_code_seen := ""
+var pet_shadow: Sprite2D
+# Afinidade com o pet (0-100, salva em mmo_cache["pet_affinity"][codigo]). Sobe atendendo os
+# pedidos dele (fome, brincar, lutar, carinho) e jogando junto; cai quando o pedido e ignorado
+# e quando voce fica dias sem jogar. Afinidade alta da bonus de dano ou de defesa.
+const PET_NEEDS := ["maca", "bola", "espadas", "carinho"]
+const PET_NEED_TEXT := {
+	"maca": "esta com fome: de Carne Crua (cai dos javalis)",
+	"bola": "quer brincar",
+	"espadas": "quer lutar: derrote um monstro com ele por perto",
+	"carinho": "quer carinho",
+}
+const PET_NEED_TIMEOUT := 45.0
+const PET_AFFINITY_DECAY_PER_DAY := 10.0
+const PET_FOOD := "Carne Crua"
+var pet_need := ""
+var pet_need_until := 0.0
+var pet_next_need_at := 0.0
+var pet_need_bubble: Sprite2D
+var pet_play_until := 0.0
+var pet_together_time := 0.0
+var pet_pet_cooldown_until := 0.0
+var pet_affinity_checked := false
+var pet_button: Button
+var pet_button_label: Label
+const PET_BUTTON_POS := Vector2(1166, 322)
 const PET_TARGET_HEIGHT := 125.0  # altura do quadro 192 px na tela (corpo do pet ~75 px, perto de 2/3 do heroi)
 # Pets de chao nao passam por cima do heroi/montaria: atras da linha dos pes ficam atras,
 # do lado ficam do lado, e na frente so longe o bastante para nao cobrir o desenho.
@@ -475,6 +531,8 @@ func _ready() -> void:
 	enemies_db = ItemDatabase.load_json("res://data/enemies.json")
 	pet_definitions = _load_json_array("res://data/mmo_pets.json")
 	mount_definitions = _load_json_array("res://data/mmo_mounts.json")
+	var rules_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/game_rules.json"))
+	game_rules = rules_data if rules_data is Dictionary else {}
 	quest_system.load_quests()
 	_load_hud_layout()
 	_build_ui()
@@ -539,6 +597,14 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if player == null:
 		return
+	# tocar no pet: atende o pedido dele ou faz carinho
+	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
+		if pet_follower != null and is_instance_valid(pet_follower):
+			var center := pet_follower.global_position + Vector2(0, -PET_TARGET_HEIGHT * 0.35)
+			if get_global_mouse_position().distance_to(center) < 46.0:
+				_interact_with_pet()
+				get_viewport().set_input_as_handled()
+				return
 	if event is InputEventKey:
 		var key_event := event as InputEventKey
 		if key_event.pressed and not key_event.echo:
@@ -561,6 +627,8 @@ func _unhandled_input(event: InputEvent) -> void:
 						_use_potion_slot(2)
 					KEY_F4:
 						_use_potion_slot(3)
+					KEY_R:
+						_toggle_mount()
 					_:
 						pass
 	if event.is_action_pressed("inventory"):
@@ -933,6 +1001,7 @@ func _dismount_current_mount(reason: String = "") -> void:
 	var code := _current_equipped_mount_code()
 	if code.is_empty():
 		return
+	mount_last_code = code
 	var payload: Dictionary = mmo_cache.get("mounts_state", {})
 	var owned: Array = payload.get("mounts", [])
 	for i in range(owned.size()):
@@ -943,6 +1012,351 @@ func _dismount_current_mount(reason: String = "") -> void:
 	_apply_companion_bonuses()
 	if not reason.is_empty():
 		_flash(reason)
+
+func _pet_emote(kind: String, force: bool = false) -> void:
+	if pet_follower == null or not is_instance_valid(pet_follower):
+		return
+	if not force and _now_s() < pet_emote_ready_at:
+		return
+	var tex := load("res://assets/sprites/pets/emotes/%s.png" % kind) as Texture2D
+	if tex == null:
+		return
+	pet_emote_ready_at = _now_s() + PET_EMOTE_GAP
+	var bubble := Sprite2D.new()
+	bubble.texture = tex
+	bubble.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	# acima da cabeca do pet; filho dele para acompanhar enquanto anda
+	pet_follower.add_child(bubble)
+	var s := 1.0 / maxf(0.01, pet_follower.scale.x)
+	bubble.z_index = 50
+	bubble.position = pet_follower.offset + Vector2(18.0 * s, -pet_follower.texture.get_height() * 0.36)
+	bubble.scale = Vector2.ZERO
+	var tween := bubble.create_tween()
+	tween.tween_property(bubble, "scale", Vector2(s, s) * 1.15, 0.14)
+	tween.tween_property(bubble, "scale", Vector2(s, s), 0.08)
+	tween.tween_interval(1.1)
+	tween.parallel().tween_property(bubble, "position:y", bubble.position.y - 10.0 * s, 1.1)
+	tween.tween_property(bubble, "modulate:a", 0.0, 0.3)
+	tween.tween_callback(bubble.queue_free)
+
+# reacoes do pet ao que acontece com o heroi
+func _update_pet_mood(delta: float) -> void:
+	var code := _current_equipped_pet_code()
+	if code.is_empty():
+		pet_last_code_seen = ""
+		return
+	if code != pet_last_code_seen:
+		pet_last_code_seen = code
+		_pet_emote("coracao", true)  # pet novo/trocado
+	if pet_last_level < 0:
+		pet_last_level = player.level
+	elif player.level > pet_last_level:
+		pet_last_level = player.level
+		_pet_emote("nota", true)
+	if player.vida > 0 and float(player.vida) < float(player.vida_max) * 0.3:
+		if _now_s() >= pet_low_hp_next:
+			pet_low_hp_next = _now_s() + 5.0
+			_pet_emote("preocupado", true)
+	pet_idle_time = pet_idle_time + delta if player.velocity.length() < 4.0 else 0.0
+	if pet_idle_time > 12.0:
+		pet_idle_time = 4.0  # repete a cada ~8 s enquanto o heroi fica parado
+		_pet_emote("sono")
+
+func _pet_affinity_store() -> Dictionary:
+	if not mmo_cache.has("pet_affinity") or typeof(mmo_cache["pet_affinity"]) != TYPE_DICTIONARY:
+		mmo_cache["pet_affinity"] = {}
+	return mmo_cache["pet_affinity"]
+
+func _pet_affinity(code: String = "") -> float:
+	if code.is_empty():
+		code = _current_equipped_pet_code()
+	var entry = _pet_affinity_store().get(code, {})
+	var start := float(_rule(["afinidade", "inicial"], 50.0))
+	return float(entry.get("value", start)) if typeof(entry) == TYPE_DICTIONARY else start
+
+func _pet_affinity_tier(value: float) -> float:
+	var bands: Variant = _rule(["afinidade", "faixas"], null)
+	if typeof(bands) == TYPE_ARRAY and not (bands as Array).is_empty():
+		var best := 0.0
+		for band in bands:
+			if typeof(band) == TYPE_DICTIONARY and value >= float(band.get("min", 0.0)):
+				best = maxf(best, float(band.get("bonus", 0.0)))
+		return best
+	if value >= 100.0:
+		return 0.10
+	if value >= 80.0:
+		return 0.06
+	if value >= 50.0:
+		return 0.03
+	return 0.0
+
+# pets de ataque ganham dano; os outros (tartaruga, espirito, fada...) ganham defesa
+func _pet_affinity_kind(code: String) -> String:
+	var def := _definition_by_code(pet_definitions, code)
+	var bonus: Dictionary = def.get("base_bonus", {})
+	for key in ["physical_attack_pct", "magic_damage_pct", "attack_speed_pct"]:
+		if float(bonus.get(key, 0.0)) > 0.0:
+			return "dano"
+	return "defesa"
+
+func _change_pet_affinity(delta_value: float, reason: String = "") -> void:
+	var code := _current_equipped_pet_code()
+	if code.is_empty():
+		return
+	var store := _pet_affinity_store()
+	var before := _pet_affinity(code)
+	var after := clampf(before + delta_value, 0.0, 100.0)
+	store[code] = {"value": after, "last_seen": Time.get_unix_time_from_system()}
+	if _pet_affinity_tier(after) != _pet_affinity_tier(before):
+		_apply_companion_bonuses()
+		var tier := int(round(_pet_affinity_tier(after) * 100.0))
+		if after > before:
+			_flash("Afinidade %d%%! Seu pet agora te da +%d%% de %s." % [int(after), tier, _pet_affinity_kind(code)])
+			_pet_emote("coracao", true)
+		else:
+			_flash_red("A afinidade com seu pet caiu para %d%%." % int(after))
+	elif not reason.is_empty():
+		_flash("%s (afinidade %d%%)" % [reason, int(after)])
+
+# ao abrir o jogo: tira afinidade pelos dias sem jogar
+func _apply_pet_affinity_absence() -> void:
+	var now := Time.get_unix_time_from_system()
+	var store := _pet_affinity_store()
+	for code in store.keys():
+		var entry = store[code]
+		if typeof(entry) != TYPE_DICTIONARY:
+			continue
+		var last := float(entry.get("last_seen", now))
+		var days := (now - last) / 86400.0
+		if days >= 1.0:
+			entry["value"] = clampf(float(entry.get("value", 50.0)) - floorf(days) * float(_rule(["afinidade", "perda_por_dia_sem_jogar"], PET_AFFINITY_DECAY_PER_DAY)), 0.0, 100.0)
+		entry["last_seen"] = now
+		store[code] = entry
+
+func _show_pet_need_bubble() -> void:
+	if pet_need_bubble != null and is_instance_valid(pet_need_bubble):
+		pet_need_bubble.queue_free()
+	pet_need_bubble = null
+	if pet_need.is_empty() or pet_follower == null or not is_instance_valid(pet_follower):
+		return
+	var tex := load("res://assets/sprites/pets/emotes/%s.png" % pet_need) as Texture2D
+	if tex == null:
+		return
+	pet_need_bubble = Sprite2D.new()
+	pet_need_bubble.texture = tex
+	pet_need_bubble.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	pet_need_bubble.z_index = 50
+	pet_follower.add_child(pet_need_bubble)
+
+func _finish_pet_need(satisfied: bool) -> void:
+	var need := pet_need
+	pet_need = ""
+	_show_pet_need_bubble()
+	pet_next_need_at = _now_s() + _rule_range(["pedidos", "intervalo_s"], 50.0, 100.0)
+	if satisfied:
+		_change_pet_affinity(float(_rule(["afinidade", "ganho_pedido"], 8.0)), "Seu pet ficou feliz!")
+		if game_extras != null:
+			game_extras.daily_progress("pet_need")
+		_pet_emote("coracao" if need != "bola" else "nota", true)
+	else:
+		_change_pet_affinity(-float(_rule(["afinidade", "perda_pedido_ignorado"], 5.0)), "Seu pet ficou triste: ninguem atendeu o pedido.")
+		_pet_emote("preocupado", true)
+
+# Tocar no pet, no botao do pet ou apertar E perto dele: atende o pedido ou faz carinho
+func _interact_with_pet() -> bool:
+	var code := _current_equipped_pet_code()
+	if code.is_empty() or pet_follower == null or not is_instance_valid(pet_follower):
+		return false
+	var pet_name := str(_definition_by_code(pet_definitions, code).get("name", "Seu pet"))
+	match pet_need:
+		"maca":
+			if not player.inventory.remove_item(PET_FOOD, 1):
+				_flash_red("%s esta com fome. Consiga %s nos javalis da floresta." % [pet_name, PET_FOOD])
+				return true
+			_finish_pet_need(true)
+		"bola":
+			pet_play_until = _now_s() + 1.6
+			_finish_pet_need(true)
+		"carinho":
+			_finish_pet_need(true)
+		"espadas":
+			_flash("%s quer lutar: derrote um monstro com ele por perto." % pet_name)
+		_:
+			if _now_s() >= pet_pet_cooldown_until:
+				pet_pet_cooldown_until = _now_s() + float(_rule(["afinidade", "carinho_cooldown_s"], 30.0))
+				_change_pet_affinity(float(_rule(["afinidade", "carinho_ganho"], 1.0)), "Voce fez carinho no %s." % pet_name)
+			_pet_emote("coracao", true)
+	return true
+
+func _pick_pet_need() -> String:
+	var weights: Variant = _rule(["pedidos", "pesos"], {})
+	var total := 0.0
+	for need in PET_NEEDS:
+		total += float((weights as Dictionary).get(need, 1.0)) if typeof(weights) == TYPE_DICTIONARY else 1.0
+	var roll := randf() * total
+	for need in PET_NEEDS:
+		roll -= float((weights as Dictionary).get(need, 1.0)) if typeof(weights) == TYPE_DICTIONARY else 1.0
+		if roll <= 0.0:
+			return need
+	return PET_NEEDS[0]
+
+func _update_pet_affinity(delta: float) -> void:
+	var code := _current_equipped_pet_code()
+	if code.is_empty():
+		if not pet_need.is_empty():
+			pet_need = ""
+			_show_pet_need_bubble()
+		return
+	if not pet_affinity_checked:
+		pet_affinity_checked = true
+		_apply_pet_affinity_absence()
+		pet_next_need_at = _now_s() + _rule_range(["pedidos", "primeiro_apos_s"], 25.0, 50.0)
+		_apply_companion_bonuses()
+	# jogar junto: +1 a cada 3 minutos
+	pet_together_time += delta
+	if pet_together_time >= float(_rule(["afinidade", "jogar_junto_intervalo_s"], 180.0)):
+		pet_together_time = 0.0
+		_change_pet_affinity(float(_rule(["afinidade", "jogar_junto_ganho"], 1.0)))
+	if pet_need.is_empty():
+		if _now_s() >= pet_next_need_at:
+			pet_need = _pick_pet_need()
+			pet_need_until = _now_s() + float(_rule(["pedidos", "tempo_para_atender_s"], PET_NEED_TIMEOUT))
+			_show_pet_need_bubble()
+			var pet_name := str(_definition_by_code(pet_definitions, code).get("name", "Seu pet"))
+			_flash("%s %s. Toque no pet ou no botao dele." % [pet_name, str(PET_NEED_TEXT.get(pet_need, ""))])
+	elif _now_s() >= pet_need_until:
+		_finish_pet_need(false)
+	if pet_need_bubble != null and is_instance_valid(pet_need_bubble) and pet_follower != null and is_instance_valid(pet_follower):
+		var s := 1.0 / maxf(0.01, pet_follower.scale.x)
+		pet_need_bubble.scale = Vector2(s, s)
+		pet_need_bubble.position = pet_follower.offset + Vector2(-16.0 * s, -pet_follower.texture.get_height() * 0.36 + sin(companion_anim_time * 4.0) * 3.0 * s)
+	# brincando: o pet da pulinhos
+	if pet_follower != null and is_instance_valid(pet_follower) and _now_s() < pet_play_until:
+		pet_follower.global_position.y -= absf(sin((pet_play_until - _now_s()) * 9.0)) * 22.0
+	_update_pet_button()
+
+func _update_pet_button() -> void:
+	if pet_button == null or not is_instance_valid(pet_button):
+		return
+	var code := _current_equipped_pet_code()
+	pet_button.visible = not code.is_empty()
+	if code.is_empty():
+		return
+	if pet_button.get_meta("icon_code", "") != code:
+		pet_button.set_meta("icon_code", code)
+		pet_button.icon = load(_pet_icon_path(code))
+	if pet_button_label != null:
+		pet_button_label.text = "%d%%" % int(_pet_affinity(code))
+	pet_button.modulate = Color(1.0, 0.85, 0.5) if not pet_need.is_empty() else Color.WHITE
+	pet_button.tooltip_text = "Pet: atender pedido / carinho [E perto dele]"
+
+# _rule(["afinidade", "ganho_pedido"], 8.0) -> valor de data/game_rules.json ou o padrao
+func _rule(path: Array, default_value: Variant) -> Variant:
+	var node: Variant = game_rules
+	for key in path:
+		if typeof(node) != TYPE_DICTIONARY or not (node as Dictionary).has(key):
+			return default_value
+		node = node[key]
+	return node
+
+func _rule_range(path: Array, a: float, b: float) -> float:
+	var value: Variant = _rule(path, [a, b])
+	if typeof(value) == TYPE_ARRAY and (value as Array).size() >= 2:
+		return randf_range(float(value[0]), float(value[1]))
+	return randf_range(a, b)
+
+func _now_s() -> float:
+	return float(Time.get_ticks_msec()) / 1000.0
+
+func _mount_perk(code: String) -> Dictionary:
+	var from_rules: Variant = _rule(["montaria", "vantagens", code], null)
+	if typeof(from_rules) == TYPE_DICTIONARY:
+		return from_rules
+	return MOUNT_PERKS.get(code, {})
+
+# Atacou, usou habilidade ou apanhou: desce da montaria e so pode montar de novo depois de um tempo
+func _enter_combat_dismount(reason: String) -> void:
+	var code := _current_equipped_mount_code()
+	if code.is_empty():
+		code = mount_last_code
+	mount_combat_until = _now_s() + float(_mount_perk(code).get("remount", _rule(["montaria", "espera_remontar_s"], MOUNT_REMOUNT_DELAY)))
+	_dismount_current_mount(reason)
+
+func _owned_mount_codes() -> Array:
+	var codes: Array = []
+	var payload: Dictionary = mmo_cache.get("mounts_state", {})
+	for entry in payload.get("mounts", []):
+		if typeof(entry) == TYPE_DICTIONARY and not str(entry.get("code", "")).is_empty():
+			codes.append(str(entry.get("code", "")))
+	return codes
+
+# Botao rapido (tecla R): montado desce; a pe monta na ultima montaria usada
+func _toggle_mount() -> void:
+	if player == null:
+		return
+	_ensure_local_companion_state()
+	if not _current_equipped_mount_code().is_empty():
+		_dismount_current_mount("Voce desceu da montaria.")
+		return
+	var owned := _owned_mount_codes()
+	if owned.is_empty():
+		_flash("Voce ainda nao tem montaria. Compre uma no Mercado de Montarias.")
+		return
+	var wait := mount_combat_until - _now_s()
+	if wait > 0.0:
+		_flash_red("Em luta: da para montar em %.1f s" % wait)
+		return
+	var code := mount_last_code if owned.has(mount_last_code) else str(owned[0])
+	_equip_local_mount(code)
+	var def := _definition_by_code(mount_definitions, code)
+	_flash("Montou: %s" % str(def.get("name", code)))
+	_pet_emote("nota")
+
+func _update_mount_button() -> void:
+	if mount_button == null or not is_instance_valid(mount_button):
+		return
+	var owned := _owned_mount_codes()
+	var current := _current_equipped_mount_code()
+	var code := current if not current.is_empty() else (mount_last_code if owned.has(mount_last_code) else (str(owned[0]) if not owned.is_empty() else ""))
+	mount_button.visible = not code.is_empty()
+	if code.is_empty():
+		return
+	if mount_button.get_meta("icon_code", "") != code:
+		mount_button.set_meta("icon_code", code)
+		mount_button.icon = load(_mount_icon_path(code))
+	var wait := mount_combat_until - _now_s()
+	var locked := current.is_empty() and wait > 0.0
+	mount_button.modulate = Color(1, 1, 1, 0.45) if locked else (Color(1, 1, 1, 1) if current.is_empty() else Color(1.0, 0.9, 0.55, 1))
+	var label := mount_button.get_node_or_null("CooldownLabel") as Label
+	if label != null:
+		label.visible = locked
+		label.text = "%.0f" % ceilf(wait)
+	mount_button.tooltip_text = "Descer da montaria [R]" if not current.is_empty() else "Montar [R]"
+
+# Couraca (javali/pantera) segura um golpe; regeneracao do cervo
+func _mount_absorbs_hit() -> bool:
+	var code := _current_equipped_mount_code()
+	if code.is_empty() or not bool(_mount_perk(code).get("armor", false)):
+		return false
+	if _now_s() < mount_armor_ready_at:
+		return false
+	mount_armor_ready_at = _now_s() + float(_rule(["montaria", "golpe_recarga_s"], MOUNT_ARMOR_RECHARGE))
+	return true
+
+func _update_mount_perks(delta: float) -> void:
+	var code := _current_equipped_mount_code()
+	var regen := float(_mount_perk(code).get("regen", 0.0))
+	if code.is_empty() or regen <= 0.0 or _now_s() < mount_combat_until or player.vida >= player.vida_max:
+		mount_regen_acc = 0.0
+		return
+	mount_regen_acc += float(player.vida_max) * regen * delta
+	if mount_regen_acc >= 1.0:
+		var amount := int(mount_regen_acc)
+		mount_regen_acc -= amount
+		player.vida = mini(player.vida_max, player.vida + amount)
+		if player.has_method("_update_health_bar"):
+			player._update_health_bar()
+		player.stats_changed.emit()
 
 func _apply_companion_bonuses() -> void:
 	if player == null:
@@ -962,6 +1376,17 @@ func _apply_companion_bonuses() -> void:
 	player.companion_move_speed_pct += float(pet_bonus.get("move_speed_pct", 0.0))
 	var mount_def := _definition_by_code(mount_definitions, _current_equipped_mount_code())
 	player.companion_move_speed_pct += float(mount_def.get("speed_bonus", 0.0))
+	if not mount_def.is_empty() and game_extras != null:
+		player.companion_move_speed_pct += game_extras.mount_care_bonus()  # estabulo
+	# afinidade: 50% = +3%, 80% = +6%, 100% = +10% de dano (pets de ataque) ou de defesa
+	player.companion_defense_pct = 0.0
+	var pet_code := _current_equipped_pet_code()
+	if not pet_code.is_empty():
+		var tier := _pet_affinity_tier(_pet_affinity(pet_code))
+		if _pet_affinity_kind(pet_code) == "dano":
+			player.companion_physical_damage_pct += tier
+		else:
+			player.companion_defense_pct += tier
 	player.recalculate_equipment()
 
 func _on_mmo_world_message(payload: Dictionary) -> void:
@@ -1517,6 +1942,10 @@ func _build_ui() -> void:
 	_build_touch_controls()
 	_build_chat_panel()
 	_build_side_menu()
+	game_extras = GameExtras.new()
+	game_extras.name = "GameExtras"
+	add_child(game_extras)
+	game_extras.setup(self)
 	_apply_hud_layout_to_touch_controls()
 	_refresh_modal_layout()
 
@@ -1749,6 +2178,29 @@ func _build_touch_controls() -> void:
 	_prepare_skill_button_feedback(skill_3)
 	_add_shortcut_badge(skill_3, "4")
 	skill_buttons.append(skill_3)
+	pet_button = _make_tap_button("", PET_BUTTON_POS, MOUNT_BUTTON_SIZE, func() -> void:
+		_interact_with_pet()
+	)
+	pet_button.expand_icon = true
+	pet_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	pet_button_label = Label.new()
+	pet_button_label.position = Vector2(0, 38)
+	pet_button_label.size = Vector2(64, 18)
+	pet_button_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	pet_button_label.add_theme_font_size_override("font_size", 13)
+	pet_button_label.add_theme_color_override("font_color", Color("#ffb3c8"))
+	pet_button_label.add_theme_color_override("font_shadow_color", Color.BLACK)
+	pet_button_label.add_theme_constant_override("shadow_offset_x", 1)
+	pet_button_label.add_theme_constant_override("shadow_offset_y", 1)
+	pet_button_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pet_button.add_child(pet_button_label)
+	pet_button.visible = false
+	mount_button = _make_tap_button("", MOUNT_BUTTON_POS, MOUNT_BUTTON_SIZE, _toggle_mount)
+	mount_button.expand_icon = true
+	mount_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_prepare_skill_button_feedback(mount_button)
+	_add_shortcut_badge(mount_button, "R")
+	mount_button.visible = false
 	interact_button = _make_tap_button("OK", INTERACT_BUTTON_POS, INTERACT_BUTTON_SIZE, _interact)
 	_style_interact_button(interact_button)
 	inventory_button = _make_tap_button("", QUICK_TOP_BUTTON_POSITIONS[0], QUICK_TOP_BUTTON_SIZE, _show_inventory)
@@ -2074,6 +2526,19 @@ func _handle_side_menu(item: String) -> void:
 			_show_vip()
 		"Conquistas":
 			_show_achievements()
+		"Diarias":
+			if game_extras != null:
+				game_extras.show_daily()
+		"Colecao":
+			if game_extras != null:
+				game_extras.show_collection()
+		"Eventos":
+			if game_extras != null:
+				game_extras.show_events()
+		"Foto":
+			if game_extras != null:
+				_toggle_side_menu()
+				game_extras.toggle_photo_mode()
 		"Temporada":
 			_show_season()
 		"HUD":
@@ -2616,7 +3081,11 @@ func _connect_player() -> void:
 	player.dash_requested.connect(_player_dash)
 	player.self_effect_requested.connect(_player_self_effect)
 	player.damage_taken.connect(func(amount: int) -> void:
-		_dismount_current_mount("Voce desceu da montaria ao tomar dano.")
+		if _mount_absorbs_hit():
+			mount_combat_until = _now_s() + float(_rule(["montaria", "espera_remontar_s"], MOUNT_REMOUNT_DELAY))
+			_flash("A couraca da montaria aguentou o golpe!")
+		else:
+			_enter_combat_dismount("Voce desceu da montaria ao tomar dano.")
 		_spawn_floating_text(player.global_position + Vector2(0, -42), "-%d" % amount, Color("#ff4f4f"))
 	)
 	player.healed.connect(func(amount: int) -> void:
@@ -4925,6 +5394,8 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
 		_flash_red("Nao pode atacar em zona segura")
 		return
+	# atacar sempre tira da montaria, mesmo errando o golpe
+	_enter_combat_dismount("Voce desceu da montaria para lutar.")
 	var multiplier := power
 	if player.class_name_selected == "Arqueiro":
 		multiplier *= CombatSystem.roll_critical(0.10, 1.5)
@@ -4967,6 +5438,7 @@ func _player_area_attack(power: float, radius: float, skill_id: String) -> void:
 	if player.in_safe_zone:
 		_flash_red("Nao pode atacar em zona segura")
 		return
+	_enter_combat_dismount("Voce desceu da montaria para lutar.")
 	var hits := 0
 	var center := player.global_position
 	if skill_id in ["arrow_rain", "fire_hurricane"]:
@@ -5090,6 +5562,7 @@ func _set_current_target(enemy: Enemy) -> void:
 		current_target.set_targeted(true)
 
 func _player_dash(distance: float, skill_id: String) -> void:
+	_enter_combat_dismount("Voce desceu da montaria para lutar.")
 	var start: Vector2 = player.global_position
 	var dir: Vector2 = -player.global_position.direction_to(get_global_mouse_position())
 	if dir.length() == 0:
@@ -5098,6 +5571,7 @@ func _player_dash(distance: float, skill_id: String) -> void:
 	_spawn_dash_effect(start, player.global_position, skill_id)
 
 func _player_self_effect(skill_id: String) -> void:
+	_enter_combat_dismount("Voce desceu da montaria para lutar.")
 	if skill_id in ["war_cry", "mystic_shield", "hero_hour", "agility"]:
 		if skill_id in ["hero_hour"]:
 			_dismount_current_mount("Voce desceu da montaria para lutar.")
@@ -5319,10 +5793,14 @@ func _skill_color(skill_id: String) -> Color:
 func _enemy_killed(enemy: Enemy) -> void:
 	if pet_allowed_target == enemy:
 		pet_allowed_target = null
+	if pet_need == "espadas" and is_instance_valid(enemy) and pet_pos.distance_to(enemy.global_position) < 520.0:
+		_finish_pet_need(true)
 	var spawn_data: Dictionary = enemy.get_meta("spawn_data", {})
 	var spawn_map := str(enemy.get_meta("spawn_map", current_map))
 	var was_boss := bool(enemy.boss) or bool(spawn_data.get("boss", false))
 	var result := drop_system.roll(enemy.enemy_name)
+	if game_extras != null:
+		game_extras.on_kill(enemy.enemy_name, was_boss)
 	player.gain_xp(int(result["xp"]))
 	player.on_enemy_killed()
 	quest_system.register_kill(enemy.enemy_name)
@@ -5431,18 +5909,28 @@ func _collect_drop(drop: ItemDrop) -> bool:
 		player.ouro += drop.amount
 		drop.queue_free()
 		_flash("+%d ouro" % drop.amount)
+		_pet_emote("brilho")
 		return true
 	if player.inventory.add_item(drop.item_name, drop.amount):
 		quest_system.register_collect(drop.item_name, drop.amount)
+		if game_extras != null:
+			game_extras.daily_progress("collect", drop.amount, drop.item_name)
 		drop.queue_free()
 		_flash("Coletado: " + drop.item_name)
+		_pet_emote("alerta")
 		return true
 	return false
 
 func _interact() -> void:
 	if selected_npc != null and not is_instance_valid(selected_npc):
 		selected_npc = null
+	# pet pedindo algo e perto do heroi: E/OK atende o pet
+	if selected_npc == null and not pet_need.is_empty() and player != null and pet_pos.distance_to(player.global_position) < 220.0:
+		_interact_with_pet()
+		return
 	if selected_npc != null:
+		if game_extras != null:
+			game_extras.on_npc(selected_npc)
 		match selected_npc.role:
 			"healer":
 				_use_healer()
@@ -5675,6 +6163,9 @@ func _show_pet_shop() -> void:
 		info.add_child(_panel_label("%d ouro  |  Dano %d" % [int(def.get("price", 0)), int(def.get("attack", 1))], 13, Color("#ffd36b")))
 		info.add_child(_panel_label("Passiva: %s" % str(def.get("passive_desc", "")), 12, Color("#d8e6f2")))
 		info.add_child(_panel_label("Ataque: %s" % str(def.get("active_desc", "")), 12, Color("#c7d6e5")))
+		if not _owned_entry("pets_state", "pets", code).is_empty():
+			var aff := _pet_affinity(code)
+			info.add_child(_panel_label("Afinidade %d%%  |  +%d%% de %s" % [int(aff), int(round(_pet_affinity_tier(aff) * 100.0)), _pet_affinity_kind(code)], 12, Color("#ffb3c8")))
 		var buy := Button.new()
 		buy.text = "Equipar" if owned else "Comprar"
 		_style_panel_button(buy)
@@ -5694,7 +6185,20 @@ func _show_mount_shop() -> void:
 	_ensure_local_companion_state()
 	var box := _start_modal("Mercado de Montarias", "mount_shop")
 	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
-	box.add_child(_panel_label("Montarias sao exclusivas para velocidade. Raras custam mais e correm mais.", 13, Color("#cfd6df")))
+	box.add_child(_panel_label("Montarias dao velocidade e cada uma tem uma vantagem. Monte e desca com o botao rapido (tecla R); atacar desce da montaria.", 13, Color("#cfd6df")))
+	if game_extras != null:
+		var care_row := HBoxContainer.new()
+		box.add_child(care_row)
+		care_row.add_child(_panel_label(game_extras.mount_care_text(), 13, Color("#8fe3a8")))
+		if not game_extras.mount_care_active():
+			var care := Button.new()
+			care.text = "Cuidar"
+			_style_panel_button(care)
+			care.pressed.connect(func() -> void:
+				game_extras.care_for_mount()
+				_show_mount_shop()
+			)
+			care_row.add_child(care)
 	var grid := _market_grid(box)
 	for def in mount_definitions:
 		if typeof(def) != TYPE_DICTIONARY:
@@ -5718,6 +6222,9 @@ func _show_mount_shop() -> void:
 		info.add_child(_panel_label("%s  |  %s" % [str(def.get("name", code)), str(def.get("rarity", "common")).to_upper()], 15, Color.WHITE))
 		info.add_child(_panel_label("%d ouro  |  +%d%% velocidade" % [int(def.get("price", 0)), int(round(float(def.get("speed_bonus", 0.0)) * 100.0))], 13, Color("#ffd36b")))
 		info.add_child(_panel_label(str(def.get("desc", "")), 12, Color("#c8d3e0")))
+		var perk_text := str(_mount_perk(code).get("text", ""))
+		if not perk_text.is_empty():
+			info.add_child(_panel_label(perk_text, 12, Color("#8fe3a8")))
 		var buy := Button.new()
 		buy.text = "Montar" if owned else "Comprar"
 		_style_panel_button(buy)
@@ -7757,12 +8264,15 @@ func _update_pet_combat(delta: float) -> void:
 		PetCombatVisuals.play(world, str(effects[pet_special_visual_index % effects.size()]), hit_pos, pet_allowed_target.global_position.x > from.x, hit_size, true, pet_allowed_target.global_position.y)
 		pet_special_visual_index += 1
 	pet_attack_visual_timer = 0.42
-	pet_allowed_target.receive_damage(damage)
-	_spawn_floating_text(pet_allowed_target.global_position + Vector2(0, -48), "-%d pet" % damage, Color("#8eea77"))
+	# o golpe pode matar o alvo e _enemy_killed zera pet_allowed_target: guarda antes
+	var target := pet_allowed_target
+	var target_pos := target.global_position
+	target.receive_damage(damage)
+	_spawn_floating_text(target_pos + Vector2(0, -48), "-%d pet" % damage, Color("#8eea77"))
 	var debuff: Dictionary = pet_def.get("debuff", {})
-	if not debuff.is_empty():
-		pet_allowed_target.apply_pet_debuff(str(debuff.get("type", "")), float(debuff.get("amount", 0.0)), float(debuff.get("duration", 2.0)))
-		_spawn_floating_text(pet_allowed_target.global_position + Vector2(0, -64), "debuff", Color("#b68cff"))
+	if not debuff.is_empty() and is_instance_valid(target) and pet_allowed_target == target:
+		target.apply_pet_debuff(str(debuff.get("type", "")), float(debuff.get("amount", 0.0)), float(debuff.get("duration", 2.0)))
+		_spawn_floating_text(target_pos + Vector2(0, -64), "debuff", Color("#b68cff"))
 
 func _spawn_pet_attack_line(from: Vector2, to: Vector2) -> void:
 	var line := Line2D.new()
@@ -8054,6 +8564,12 @@ func _pet_animation_texture(code: String, delta: float) -> Texture2D:
 func _update_companion_visuals(delta: float) -> void:
 	if player == null:
 		return
+	_update_mount_button()
+	_update_mount_perks(delta)
+	if game_extras != null:
+		game_extras.process(delta)
+	_update_pet_mood(delta)
+	_update_pet_affinity(delta)
 	companion_anim_time += delta
 	var bob := sin(companion_anim_time * 8.0) * 3.0
 	var pet_code := _current_equipped_pet_code()
@@ -8078,6 +8594,23 @@ func _update_companion_visuals(delta: float) -> void:
 			pet_follower.offset = Vector2(0, -height * 0.5)
 		pet_follower.flip_h = pet_last_direction == "right" and pet_animation_actual_direction == "left"
 		pet_follower.global_position = pet_pos
+		# voadores ficam no ar balancando, com a sombra no chao mostrando onde estao
+		var flying := not _pet_is_ground()
+		if flying:
+			pet_follower.global_position.y -= 30.0 + sin(companion_anim_time * 3.0) * 5.0
+			if pet_shadow == null or not is_instance_valid(pet_shadow):
+				pet_shadow = Sprite2D.new()
+				pet_shadow.texture = load("res://assets/sprites/decor_shadow_soft.png")
+				pet_shadow.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+				pet_shadow.modulate = Color(1, 1, 1, 0.45)
+				world.add_child(pet_shadow)
+			var lift := 30.0 + sin(companion_anim_time * 3.0) * 5.0
+			pet_shadow.global_position = pet_pos
+			pet_shadow.scale = Vector2(0.5, 0.24) * (1.0 - (lift - 25.0) / 60.0)
+			pet_shadow.z_index = clampi(int(pet_pos.y) - 1, -1024, 1024)
+		elif pet_shadow != null and is_instance_valid(pet_shadow):
+			pet_shadow.queue_free()
+			pet_shadow = null
 		# profundidade pela linha dos pes, igual ao player e aos props
 		var pet_z := clampi(int(pet_pos.y), -1024, 1024)
 		if _pet_is_ground() and absf(pet_pos.x - player.global_position.x) < 260.0 and absf(pet_pos.y - _hero_foot_y()) < 140.0:
@@ -8088,6 +8621,9 @@ func _update_companion_visuals(delta: float) -> void:
 		if pet_follower != null and is_instance_valid(pet_follower):
 			pet_follower.queue_free()
 			pet_follower = null
+		if pet_shadow != null and is_instance_valid(pet_shadow):
+			pet_shadow.queue_free()
+			pet_shadow = null
 	var mount_code := _current_equipped_mount_code()
 	if not mount_code.is_empty() and _mount_rig(mount_code).is_empty():
 		# montaria sem animacao: imagem parada embaixo do heroi (provisorio)
