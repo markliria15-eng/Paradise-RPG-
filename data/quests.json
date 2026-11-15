@@ -46,5 +46,99 @@
         "Pocao pequena de vida"
       ]
     }
+  },
+  "valdoria_barco_danificado": {
+    "title": "O Barco Danificado",
+    "npc": "Borin, Pescador",
+    "map": "city_valdoria",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Madeira Bruta",
+        "amount": 3
+      },
+      {
+        "type": "collect",
+        "target": "Carne Crua",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Varek, Mercador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 110,
+      "ouro": 65,
+      "items": [
+        "Pocao media de vida"
+      ]
+    },
+    "intro": "Preciso de Madeira Bruta para consertar meu barco e Carne Crua para preparar iscas. Traga os materiais e passe no mercador para conferir os suprimentos.",
+    "done": "Excelente! Meu barco vai navegar outra vez!"
+  },
+  "valdoria_rota_segura": {
+    "title": "Rota Segura",
+    "npc": "Kael, Guarda do Porto",
+    "map": "city_valdoria",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Lobo Cinzento",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Presa de Lobo",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Capitao Maren, Mestre do Porto",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 145,
+      "ouro": 85,
+      "items": [
+        "Fragmento de Rubi"
+      ]
+    },
+    "intro": "Criaturas perigosas estao ameacando as caravanas que abastecem nosso porto. Elimine os inimigos e avise o Capitao Maren quando a rota estiver segura.",
+    "done": "Bom trabalho! O porto esta mais seguro."
+  },
+  "valdoria_mapas_arcanos": {
+    "title": "Mapas Arcanos",
+    "npc": "Elira, Cartografa",
+    "map": "city_valdoria",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Espirito Fraco",
+        "amount": 4
+      },
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Liora, Curandeira",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 150,
+      "ouro": 75,
+      "items": [
+        "Pocao media de mana",
+        "Pedra Runica"
+      ]
+    },
+    "intro": "Estou estudando antigas rotas magicas para atualizar os mapas de Valdoria. Preciso de materiais arcanos e da ajuda da curandeira para verificar se sao seguros.",
+    "done": "Incrivel! Meus mapas estao completos!"
   }
 }

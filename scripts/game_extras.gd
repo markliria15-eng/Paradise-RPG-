@@ -100,6 +100,8 @@ func process(delta: float) -> void:
 	_pet_tricks()
 	_update_mount_care()
 	_update_event(delta)
+	_update_quest_marks(delta)
+	_update_ambient(delta)
 
 
 # ======================= 1. missoes diarias =======================
@@ -649,3 +651,219 @@ func _enemy_icon(enemy_name: String) -> String:
 	var path := str(probe.call("_sprite_path", enemy_name))
 	probe.free()
 	return path
+
+
+# ======================= 8. cidade viva: esbarroes =======================
+const BUMP_FALLBACK := ["Ei! Olha por onde anda!", "Cuidado, aventureiro!", "Com licenca tambem funciona!"]
+var bump_last_at := -10.0
+var bump_actor_at: Dictionary = {}
+
+
+# chamado pelo main quando o heroi (a pe ou montado) esbarra num NPC ou pedestre
+func on_bump(actor: Dictionary, mounted: bool) -> void:
+	var node: Node2D = actor.get("node")
+	if node == null or not is_instance_valid(node):
+		return
+	var now := _now()
+	var key := node.get_instance_id()
+	if now - bump_last_at < 1.5 or now - float(bump_actor_at.get(key, -100.0)) < 6.0:
+		return
+	bump_last_at = now
+	bump_actor_at[key] = now
+	var lines: Variant = null
+	var npc_name := str(actor.get("name", ""))
+	if not npc_name.is_empty():
+		lines = main._rule(["esbarrao", "npcs", npc_name], null)
+	if lines == null and mounted and randf() < 0.6:
+		lines = main._rule(["esbarrao", "montado"], null)
+	if lines == null:
+		lines = main._rule(["esbarrao", "pedestres"], BUMP_FALLBACK)
+	if typeof(lines) != TYPE_ARRAY or (lines as Array).is_empty():
+		lines = BUMP_FALLBACK
+	var line := str(lines[randi() % (lines as Array).size()])
+	if node is Npc:
+		main._show_npc_bubble(node, line)
+	else:
+		_bump_bubble(node, line)
+
+
+# balaozinho que sobe e some em cima do pedestre (filho dele: acompanha se ele andar)
+func _bump_bubble(node: Node2D, text: String) -> void:
+	var old := node.get_node_or_null("BumpBubble")
+	if old != null:
+		old.queue_free()
+	var bubble := PanelContainer.new()
+	bubble.name = "BumpBubble"
+	bubble.z_index = 4000
+	bubble.z_as_relative = false
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.98, 0.96, 0.9, 0.95)
+	style.border_color = Color("#5b4422")
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(10)
+	style.content_margin_left = 8
+	style.content_margin_right = 8
+	style.content_margin_top = 3
+	style.content_margin_bottom = 3
+	bubble.add_theme_stylebox_override("panel", style)
+	var label := Label.new()
+	label.text = text
+	label.add_theme_font_size_override("font_size", 14)
+	label.add_theme_color_override("font_color", Color("#2a1d0c"))
+	bubble.add_child(label)
+	node.add_child(bubble)
+	bubble.reset_size()
+	# a origem do pedestre/carroca e o ponto dos pes no centro; o balao fica acima do desenho
+	var top := -150.0
+	var sprite := node as AnimatedSprite2D
+	if sprite != null and sprite.sprite_frames != null:
+		top = sprite.offset.y - bubble.size.y - 6.0
+	bubble.position = Vector2(-bubble.size.x * 0.5, top)
+	var tween := bubble.create_tween()
+	tween.tween_property(bubble, "position:y", bubble.position.y - 14.0, 0.25)
+	tween.tween_interval(1.8)
+	tween.tween_property(bubble, "modulate:a", 0.0, 0.4)
+	tween.tween_callback(bubble.queue_free)
+
+
+# ======================= 9. cidade viva: marcas de missao =======================
+var quest_mark_timer := 0.0
+
+
+func _update_quest_marks(delta: float) -> void:
+	quest_mark_timer -= delta
+	if quest_mark_timer > 0.0:
+		return
+	quest_mark_timer = 0.5
+	var qs = main.quest_system
+	if qs == null:
+		return
+	for npc in get_tree().get_nodes_in_group("npcs"):
+		if not (npc is Npc) or not is_instance_valid(npc):
+			continue
+		var text := ""
+		var color := Color("#ffd23f")
+		var quest_id: String = str(npc.quest_id)
+		if str(npc.role) == "quest" and not quest_id.is_empty() and qs.quests.has(quest_id):
+			if qs.completed.has(quest_id):
+				text = ""
+			elif not qs.active.has(quest_id):
+				text = "!"
+			elif qs.is_ready(quest_id):
+				text = "?"
+			else:
+				text = "?"
+				color = Color("#b8b8b8")
+		if text.is_empty() and qs.has_method("pending_talk_quest") and not qs.pending_talk_quest(str(npc.npc_name)).is_empty():
+			text = "!"
+			color = Color("#6fd3ff")
+		_set_quest_mark(npc, text, color)
+
+
+func _set_quest_mark(npc: Node2D, text: String, color: Color) -> void:
+	var mark := npc.get_node_or_null("QuestMark") as Label
+	if text.is_empty():
+		if mark != null:
+			mark.queue_free()
+		return
+	if mark == null:
+		mark = Label.new()
+		mark.name = "QuestMark"
+		mark.add_theme_font_size_override("font_size", 46)
+		mark.add_theme_color_override("font_outline_color", Color.BLACK)
+		mark.add_theme_constant_override("outline_size", 8)
+		mark.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		mark.size = Vector2(40, 56)
+		mark.position = Vector2(-20, -164)
+		mark.z_index = 4000
+		mark.z_as_relative = false
+		npc.add_child(mark)
+		var tween := mark.create_tween().set_loops()
+		tween.tween_property(mark, "position:y", -172.0, 0.5).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(mark, "position:y", -164.0, 0.5).set_trans(Tween.TRANS_SINE)
+	mark.text = text
+	mark.add_theme_color_override("font_color", color)
+
+
+# ======================= 10. som ambiente =======================
+const AMBIENT_DIR := "res://assets/audio/ambiente/"
+const AMBIENT_FADE := 1.5
+var ambient_players: Array = []
+var ambient_active := 0
+var ambient_map := ""
+
+
+func _ambient_volume() -> float:
+	return clampf(float(_cache().get("ambient_volume", 0.7)), 0.0, 1.0)
+
+
+func _ambient_db(scale: float) -> float:
+	var v := _ambient_volume() * scale
+	return -60.0 if v <= 0.001 else linear_to_db(v) - 6.0
+
+
+func _update_ambient(delta: float) -> void:
+	if ambient_players.is_empty():
+		for i in 2:
+			var p := AudioStreamPlayer.new()
+			p.name = "Ambiente%d" % i
+			p.volume_db = -60.0
+			add_child(p)
+			ambient_players.append(p)
+	var map_id := str(main.current_map)
+	if map_id == "world_reset":
+		map_id = "forest_boars"
+	if map_id != ambient_map:
+		ambient_map = map_id
+		var path := AMBIENT_DIR + map_id + ".ogg"
+		var next: AudioStreamPlayer = ambient_players[1 - ambient_active]
+		next.stop()
+		next.stream = null
+		if ResourceLoader.exists(path):
+			var stream := load(path) as AudioStreamOggVorbis
+			if stream != null:
+				stream.loop = true
+				next.stream = stream
+				next.volume_db = -60.0
+				next.play(randf() * maxf(stream.get_length() - 1.0, 0.0))
+		ambient_active = 1 - ambient_active
+	# crossfade: o ativo sobe ate o volume escolhido, o outro desce e para
+	for i in 2:
+		var p: AudioStreamPlayer = ambient_players[i]
+		if not p.playing:
+			continue
+		var target := _ambient_db(1.0) if i == ambient_active else -60.0
+		var step := 60.0 / AMBIENT_FADE * delta
+		p.volume_db = move_toward(p.volume_db, target, step)
+		if i != ambient_active and p.volume_db <= -59.0:
+			p.stop()
+
+
+func show_settings() -> void:
+	var box: VBoxContainer = main._start_modal("Configuracoes", "settings")
+	box.add_child(main._panel_label("Som ambiente (mar, passaros, vento, caverna...)", 16, Color("#fff3cf")))
+	var row := HBoxContainer.new()
+	box.add_child(row)
+	var slider := HSlider.new()
+	slider.min_value = 0
+	slider.max_value = 100
+	slider.step = 5
+	slider.value = round(_ambient_volume() * 100.0)
+	slider.custom_minimum_size = Vector2(300, 36)
+	row.add_child(slider)
+	var value_label: Label = main._panel_label("%d%%" % int(slider.value), 16, Color("#ffd36b"))
+	row.add_child(value_label)
+	slider.value_changed.connect(func(v: float) -> void:
+		_cache()["ambient_volume"] = v / 100.0
+		value_label.text = "%d%%" % int(v)
+	)
+	var mute := Button.new()
+	mute.text = "Desligar som ambiente" if _ambient_volume() > 0.0 else "Ligar som ambiente"
+	main._style_panel_button(mute)
+	mute.pressed.connect(func() -> void:
+		var v := 0.0 if _ambient_volume() > 0.0 else 0.7
+		_cache()["ambient_volume"] = v
+		slider.value = round(v * 100.0)
+		mute.text = "Desligar som ambiente" if v > 0.0 else "Ligar som ambiente"
+	)
+	box.add_child(mute)

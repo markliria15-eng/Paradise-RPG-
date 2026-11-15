@@ -885,6 +885,39 @@
         "unlock_flag": "rota_valdoria",
         "unlock_text": "Rota liberada! O barco agora liga Eldoria e Valdoria.",
         "unlocked_text": "A rota para Eldoria esta aberta: o portal fica no fim do pier."
+      },
+      {
+        "name": "Borin, Pescador",
+        "role": "quest",
+        "quest": "valdoria_barco_danificado",
+        "pos": [
+          1900,
+          4520
+        ],
+        "sprite": "res://assets/characters/npcs/npc_borin_pescador_idle_4f_128.png",
+        "greeting": "O mar anda agitado, aventureiro!"
+      },
+      {
+        "name": "Kael, Guarda do Porto",
+        "role": "quest",
+        "quest": "valdoria_rota_segura",
+        "pos": [
+          3700,
+          4520
+        ],
+        "sprite": "res://assets/characters/npcs/npc_kael_guarda_porto_idle_4f_128.png",
+        "greeting": "Alto! Preciso de alguem de confianca."
+      },
+      {
+        "name": "Elira, Cartografa",
+        "role": "quest",
+        "quest": "valdoria_mapas_arcanos",
+        "pos": [
+          3720,
+          2950
+        ],
+        "sprite": "res://assets/characters/npcs/npc_elira_cartografa_idle_4f_128.png",
+        "greeting": "Ei! Voce parece conhecer estas terras!"
       }
     ],
     "portals": [

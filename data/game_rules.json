@@ -248,5 +248,266 @@
       }
     ]
   },
-  "_origem": "Regras e numeros desenhados pelo ChatGPT (game designer); o jogo le este arquivo em scripts/main.gd e scripts/game_extras.gd."
+  "_origem": "Regras e numeros desenhados pelo ChatGPT (game designer); o jogo le este arquivo em scripts/main.gd e scripts/game_extras.gd.",
+  "esbarrao": {
+    "pedestres": [
+      "Ei! Olha por onde anda!",
+      "Cuidado, aventureiro!",
+      "Minha nossa! Que susto!",
+      "Esta com pressa de morrer?",
+      "O caminho e grande, amigo!",
+      "Quase derrubou minhas compras!",
+      "Ei! Nao sou um monstro!",
+      "Com licenca tambem funciona!",
+      "Calma! A cidade nao vai fugir!",
+      "Voce anda de olhos fechados?",
+      "Tudo bem, acontece!",
+      "Ora, que falta de educacao!",
+      "Minha armadura e invisivel?",
+      "Por pouco nao cai no chao!",
+      "Sem problemas, viajante!",
+      "Esta treinando investidas?"
+    ],
+    "montado": [
+      "Controle essa montaria!",
+      "Ei! Seu cavalo me assustou!",
+      "Isso aqui nao e uma corrida!",
+      "Quase fui pisoteado!",
+      "Sua montaria precisa de freios!",
+      "Desacelere, cavaleiro!",
+      "Isso e um cavalo ou um furacao?",
+      "Cuidado com essas patas!"
+    ],
+    "npcs": {
+      "Liora, Curandeira": [
+        "Cuidado para nao se ferir!",
+        "A calma tambem cura.",
+        "Nao desperdice sua saude!"
+      ],
+      "Varek, Mercador": [
+        "Ei! Cuidado com as mercadorias!",
+        "Quebrou, comprou!",
+        "Isso vai custar ouro!"
+      ],
+      "Mira, Vendedora de Pets": [
+        "Ei! Voce assustou os pets!",
+        "Cuidado com os pequeninos!",
+        "Eles nao gostam de empurroes!"
+      ],
+      "Torin, Mestre de Montarias": [
+        "Segure firme as redeas!",
+        "Um bom cavaleiro tem controle!",
+        "Olhe a postura, aventureiro!"
+      ],
+      "Durnan, Forja Rara": [
+        "Ei! Aqui tem metal quente!",
+        "Cuidado com meu martelo!",
+        "Quer acabar na bigorna?"
+      ],
+      "Capitao Maren, Mestre do Porto": [
+        "Mantenha a ordem no cais!",
+        "Ei! Respeite os marinheiros!",
+        "Atencao por onde caminha!"
+      ],
+      "Borin, Pescador": [
+        "Ei! Quase perdi meu peixe!",
+        "Cuidado com minhas redes!",
+        "O mar ja me derruba bastante!"
+      ],
+      "Kael, Guarda do Porto": [
+        "Pare! Identifique-se!",
+        "Mantenha a disciplina!",
+        "Mais respeito com a guarda!"
+      ],
+      "Elira, Cartografa": [
+        "Ai! Meus mapas!",
+        "Cuidado! Minha tinta!",
+        "Voce saiu da rota, hein?"
+      ]
+    }
+  },
+  "sons_ambiente": {
+    "city_eldoria": [
+      {
+        "som": "vento_suave",
+        "volume": 0.3
+      },
+      {
+        "som": "passaros_cidade",
+        "volume": 0.45
+      },
+      {
+        "som": "fonte_agua",
+        "volume": 0.55
+      },
+      {
+        "som": "conversas_distantes",
+        "volume": 0.25
+      },
+      {
+        "som": "passos_pedestres",
+        "volume": 0.2
+      },
+      {
+        "som": "martelo_ferreiro_distante",
+        "volume": 0.18
+      },
+      {
+        "som": "sino_cidade_ocasional",
+        "volume": 0.35
+      }
+    ],
+    "city_valdoria": [
+      {
+        "som": "ondas_porto",
+        "volume": 0.55
+      },
+      {
+        "som": "gaivotas",
+        "volume": 0.45
+      },
+      {
+        "som": "vento_maritimo",
+        "volume": 0.35
+      },
+      {
+        "som": "cordas_barcos",
+        "volume": 0.25
+      },
+      {
+        "som": "madeira_barcos_rangendo",
+        "volume": 0.3
+      },
+      {
+        "som": "sino_navio_distante",
+        "volume": 0.3
+      },
+      {
+        "som": "marinheiros_conversando",
+        "volume": 0.3
+      },
+      {
+        "som": "passos_cais_madeira",
+        "volume": 0.2
+      },
+      {
+        "som": "mercado_portuario",
+        "volume": 0.3
+      },
+      {
+        "som": "agua_batendo_no_cais",
+        "volume": 0.45
+      },
+      {
+        "som": "martelo_forja_distante",
+        "volume": 0.18
+      },
+      {
+        "som": "buzina_navio_distante",
+        "volume": 0.2
+      }
+    ],
+    "forest_boars": [
+      {
+        "som": "vento_folhagem",
+        "volume": 0.45
+      },
+      {
+        "som": "passaros_floresta",
+        "volume": 0.4
+      },
+      {
+        "som": "insetos_floresta",
+        "volume": 0.3
+      },
+      {
+        "som": "folhas_secas",
+        "volume": 0.25
+      },
+      {
+        "som": "riacho_distante",
+        "volume": 0.3
+      },
+      {
+        "som": "grunhidos_javali_distantes",
+        "volume": 0.25
+      },
+      {
+        "som": "uivos_lobo_distantes",
+        "volume": 0.2
+      },
+      {
+        "som": "galhos_estalando",
+        "volume": 0.2
+      }
+    ],
+    "bat_cave": [
+      {
+        "som": "gotas_agua",
+        "volume": 0.5
+      },
+      {
+        "som": "vento_subterraneo",
+        "volume": 0.25
+      },
+      {
+        "som": "morcegos_guinchos",
+        "volume": 0.35
+      },
+      {
+        "som": "asas_morcegos",
+        "volume": 0.3
+      },
+      {
+        "som": "agua_subterranea",
+        "volume": 0.25
+      },
+      {
+        "som": "eco_caverna",
+        "volume": 0.3
+      },
+      {
+        "som": "pedras_caindo_distantes",
+        "volume": 0.15
+      },
+      {
+        "som": "zumbido_sombrio",
+        "volume": 0.2
+      }
+    ],
+    "arcane_ruins": [
+      {
+        "som": "vento_ruinas",
+        "volume": 0.4
+      },
+      {
+        "som": "zumbido_magico",
+        "volume": 0.5
+      },
+      {
+        "som": "cristais_ressonando",
+        "volume": 0.35
+      },
+      {
+        "som": "sussurros_espirituais",
+        "volume": 0.25
+      },
+      {
+        "som": "pedras_antigas_rangendo",
+        "volume": 0.2
+      },
+      {
+        "som": "energia_arcana_pulsando",
+        "volume": 0.4
+      },
+      {
+        "som": "ecos_magicos_distantes",
+        "volume": 0.3
+      },
+      {
+        "som": "descargas_magicas_ocasionais",
+        "volume": 0.25
+      }
+    ]
+  }
 }

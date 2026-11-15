@@ -506,6 +506,7 @@ var cave_kit_data: Dictionary = {}
 var valdoria_kit_data: Dictionary = {}
 # Veiculos/animais que andam por rotas no mapa atual (kit "vehicles"); refeito a cada _load_map.
 var kit_vehicles: Array = []
+var hero_bump_actor: Dictionary = {}
 var forest_walk_image: Image
 var forest_walk_cell := 16.0
 var last_valid_player_position := Vector2.ZERO
@@ -2548,7 +2549,10 @@ func _handle_side_menu(item: String) -> void:
 		"Manual":
 			_show_wikipedia()
 		"Configuracoes":
-			_flash("Sistema de configuracoes ainda em desenvolvimento.")
+			if game_extras != null:
+				game_extras.show_settings()
+			else:
+				_flash("Sistema de configuracoes ainda em desenvolvimento.")
 		"Deslogar":
 			_logout_to_start()
 		_:
@@ -4328,7 +4332,8 @@ func _draw_ruins_v2() -> bool:
 # Mascara andavel (reaproveita forest_walk_image), lago animado e props de um kit.
 func _spawn_map_kit(data: Dictionary) -> void:
 	var mask_info: Dictionary = data.get("walkable_mask", {})
-	var mask_texture := load(str(mask_info.get("path", ""))) as Texture2D
+	var mask_path := str(mask_info.get("path", ""))
+	var mask_texture := load(mask_path) as Texture2D if not mask_path.is_empty() else null
 	if mask_texture != null:
 		forest_walk_image = mask_texture.get_image()
 		if forest_walk_image != null and forest_walk_image.is_compressed():
@@ -4340,7 +4345,8 @@ func _spawn_map_kit(data: Dictionary) -> void:
 	if lake_rect_data.size() >= 4:
 		var lake_rect := Rect2(float(lake_rect_data[0]), float(lake_rect_data[1]), float(lake_rect_data[2]), float(lake_rect_data[3]))
 		_spawn_water_layer("ForestLakeWater", lake_rect, lake.get("water_frames", []), -102)
-		var overlay_texture := load(str(lake.get("overlay", ""))) as Texture2D
+		var overlay_path := str(lake.get("overlay", ""))
+		var overlay_texture := load(overlay_path) as Texture2D if not overlay_path.is_empty() else null
 		if overlay_texture != null:
 			var overlay := Sprite2D.new()
 			overlay.name = "ForestLakeOverlay"
@@ -4788,9 +4794,12 @@ func _enforce_world_collision() -> void:
 	var new_pos := player.global_position
 	if new_pos == old:
 		return
+	hero_bump_actor = {}
 	if not _hero_move_blocked(old, new_pos):
 		last_valid_player_position = new_pos
 		return
+	if not hero_bump_actor.is_empty() and game_extras != null:
+		game_extras.on_bump(hero_bump_actor, _hero_mounted_visual())
 	# esbarrou: tenta deslizar so na horizontal ou so na vertical
 	for slide in [Vector2(new_pos.x, old.y), Vector2(old.x, new_pos.y)]:
 		if slide != old and not _hero_move_blocked(old, slide):
@@ -4809,9 +4818,10 @@ func _hero_move_blocked(old: Vector2, new_pos: Vector2) -> bool:
 		return true
 	var foot_old := _hero_footprint(old)
 	var foot_new := _hero_footprint(new_pos)
-	for actor in _world_actor_rects():
-		var rect: Rect2 = actor
+	for actor in _world_actors():
+		var rect: Rect2 = actor["rect"]
 		if foot_new.intersects(rect) and (not foot_old.intersects(rect) or foot_new.get_center().distance_to(rect.get_center()) < foot_old.get_center().distance_to(rect.get_center())):
+			hero_bump_actor = actor
 			return true
 	return false
 
@@ -4860,18 +4870,25 @@ func _footprint_blocked(pos: Vector2) -> bool:
 # NPCs e pedestres/carrocas (o que anda no chao) como retangulos na linha dos pes
 func _world_actor_rects() -> Array:
 	var rects: Array = []
+	for actor in _world_actors():
+		rects.append(actor["rect"])
+	return rects
+
+# o mesmo, com quem e cada um (para o NPC/pedestre reagir ao esbarrao)
+func _world_actors() -> Array:
+	var actors: Array = []
 	for npc in get_tree().get_nodes_in_group("npcs"):
 		if npc is Node2D and is_instance_valid(npc) and (npc as Node2D).is_visible_in_tree():
 			var p: Vector2 = (npc as Node2D).global_position + Vector2(0, 14)
-			rects.append(Rect2(p.x - 22.0, p.y - 12.0, 44.0, 24.0))
+			actors.append({"rect": Rect2(p.x - 22.0, p.y - 12.0, 44.0, 24.0), "node": npc, "name": str(npc.get("npc_name"))})
 	for state in kit_vehicles:
 		if bool(state.get("flying", false)):
 			continue
 		var sprite := state.get("node") as AnimatedSprite2D
 		if sprite == null or not is_instance_valid(sprite):
 			continue
-		rects.append(_kit_vehicle_rect(state, sprite.position))
-	return rects
+		actors.append({"rect": _kit_vehicle_rect(state, sprite.position), "node": sprite, "name": ""})
+	return actors
 
 func _kit_vehicle_rect(state: Dictionary, feet: Vector2) -> Rect2:
 	if not state.has("foot_rx"):
@@ -5931,11 +5948,12 @@ func _interact() -> void:
 	if selected_npc != null:
 		if game_extras != null:
 			game_extras.on_npc(selected_npc)
+		_deliver_quest_talk(selected_npc)
 		match selected_npc.role:
 			"healer":
 				_use_healer()
 			"shop":
-				_show_shop()
+				_show_shop("Loja do %s" % selected_npc.npc_name.get_slice(",", 0).strip_edges())
 			"forge":
 				_show_forge()
 			"rare_forge":
@@ -6012,6 +6030,16 @@ func _use_healer() -> void:
 	if not shop_title.is_empty():
 		_show_shop(shop_title)
 
+# Missoes com objetivo "talk" (recado/entrega): falar com o NPC certo depois de cumprir o resto
+func _deliver_quest_talk(npc: Npc) -> void:
+	if quest_system == null or npc == null:
+		return
+	for quest_id in quest_system.register_talk(npc.npc_name):
+		var quest: Dictionary = quest_system.quests.get(quest_id, {})
+		var giver := str(quest.get("npc", "")).get_slice(",", 0)
+		_flash("Recado entregue a %s! Volte para %s." % [npc.npc_name.get_slice(",", 0), giver])
+		_spawn_floating_text(npc.global_position + Vector2(0, -90), "RECADO ENTREGUE", Color("#ffd36b"))
+
 func _handle_quest_npc(quest_id: String) -> void:
 	if selected_npc != null:
 		_show_npc_bubble(selected_npc, _quest_intro_text(quest_id))
@@ -6023,7 +6051,10 @@ func _handle_quest_npc(quest_id: String) -> void:
 		player.ouro += int(rewards.get("ouro", 0))
 		for item_name in rewards.get("items", []):
 			player.inventory.add_item(str(item_name), 1)
-		_show_quest_dialog(quest_id, "Voce voltou com tudo que eu precisava. Aqui esta sua recompensa.", false)
+		var done_text := str(quest_system.quests.get(quest_id, {}).get("done", "Voce voltou com tudo que eu precisava. Aqui esta sua recompensa."))
+		if selected_npc != null:
+			_show_npc_bubble(selected_npc, done_text)
+		_show_quest_dialog(quest_id, done_text, false)
 	elif quest_system.active.has(quest_id):
 		_show_quest_dialog(quest_id, _quest_intro_text(quest_id), false)
 	else:
@@ -6035,7 +6066,7 @@ func _show_npc_bubble(npc: Npc, text: String) -> void:
 	if not is_inside_tree():
 		return
 	dialog_bubble = PanelContainer.new()
-	dialog_bubble.z_index = 1100
+	dialog_bubble.z_index = 4000
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.02, 0.02, 0.025, 0.88)
 	style.border_color = Color("#d8b45a")
@@ -6060,6 +6091,9 @@ func _show_npc_bubble(npc: Npc, text: String) -> void:
 	)
 
 func _quest_intro_text(quest_id: String) -> String:
+	var intro := str(quest_system.quests.get(quest_id, {}).get("intro", "")) if quest_system != null else ""
+	if not intro.is_empty():
+		return intro
 	match quest_id:
 		"furia_javalis":
 			return "Preciso de couro e presas para preparar uma pocao de cura para minha esposa. Traga os materiais e eu lhe recompensarei."
