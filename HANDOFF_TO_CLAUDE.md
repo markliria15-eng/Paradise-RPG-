@@ -106,7 +106,7 @@ Historico verificavel anterior: em 2026-09-12, cenas principais carregaram em Go
 1. **Segredo Android rastreado:** existe keystore de release versionado e configuracao sensivel no preset. Nao exibir valores. Remover do Git, rotacionar quando aplicavel e migrar a CI para secrets antes de nova publicacao.
 2. **Estado nao reproduzivel:** 930 arquivos modificados/deletados/nao rastreados nao estao em `origin/main`. Publicar apenas os documentos nao transfere o projeto atual.
 3. **Versao divergente:** HEAD/tag `v0.1.16`, preset local `0.1.21` e default manual antigo no workflow.
-4. **Engine divergente:** projeto declara Godot 4.2; CI usa 4.6.3.
+4. **Engine:** resolvido em 2026-11-15; `project.godot`, CI e atalhos usam Godot 4.6.3.
 5. **Online nao confirmado:** ultimo teste registrado do Render retornou servico suspenso em 2026-09-12; estado atual desconhecido.
 6. **Health acoplado ao DB:** Express so escuta depois de conectar ao PostgreSQL.
 7. **Autoridade parcial:** servidor nao valida colisoes/portais e PvE continua majoritariamente no cliente.

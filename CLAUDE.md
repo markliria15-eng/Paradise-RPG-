@@ -40,7 +40,7 @@ Regras permanentes para continuar o Paradise RPG com Claude Code.
 
 - Godot: `project.godot` -> `client/scenes/mmo_launcher.tscn` -> `scenes/main.tscn`.
 - Autoloads: `MMOClient`, `PatchClient`, `ThemeManager`, `AudioManager`.
-- Orquestrador principal: `scripts/main.gd` (aprox. 7 mil linhas; alto risco de regressao).
+- Orquestrador principal: `scripts/main.gd` (no Main da cena), dividido desde 2026-11-15 numa cadeia de heranca em `scripts/main_partes/`: `main_estado` (todas as variaveis/constantes) -> `main_util` -> `main_mundo` -> `main_combate` -> `main_companheiros` -> `main_interface` -> `main.gd`. Uma parte so pode chamar funcoes dela ou das de baixo (senao o Godot nao compila); funcao nova que precisa de varias partes vai no `main.gd`. Variavel nova vai no `main_estado.gd`.
 - Gameplay: `scripts/player.gd`, `scripts/enemy.gd`, `scripts/npc.gd`, `scripts/item_drop.gd`, sistemas em `scripts/` e cenas em `scenes/`.
 - Dados: JSONs em `data/`; alguns podem ser substituidos em runtime por patches em `user://patches/data/`.
 - Backend: Node/Express/WebSocket em `server/src/`; PostgreSQL em `database/schema.sql`.
@@ -59,7 +59,7 @@ Regras permanentes para continuar o Paradise RPG com Claude Code.
 
 ## Arquivos e acoplamentos criticos
 
-- `scripts/main.gd`: mapa, UI, combate, save, online, NPCs, portais, minimapa e companions.
+- `scripts/main.gd` + `scripts/main_partes/*.gd`: mapa, UI, combate, save, online, NPCs, portais, minimapa e companions. Depois de mexer, rode `RODAR_TESTES.bat`.
 - `data/maps.json`: consumido pelo cliente e por `server/src/managers/mapManager.js`.
 - `data/items.json`, `data/quests.json` e demais JSONs: podem exigir regenerar `server/public/patches/manifest.json`.
 - `data/eldoria_house_kit.json`: nao esta no manifesto de patches; alteracoes exigem build do cliente.
@@ -117,7 +117,8 @@ Godot local:
 
 Durante a fase atual, prefira `TESTAR_JOGO_OFFLINE.bat`; ele entra direto no gameplay sem login, patch ou backend.
 
-Os atalhos usam Godot 4.6.3. O projeto ainda declara Godot 4.2; teste compatibilidade antes de release.
+Versao suportada: Godot 4.6.3 (atalhos, CI e `project.godot` desde 2026-11-15). O 4.2.2 em `.tools/` nao e mais usado.
+Teste automatico: `RODAR_TESTES.bat` (dados + abre os 5 mapas no modo offline; seu save e preservado).
 
 Banco e backend, somente quando o ambiente estiver preparado:
 
