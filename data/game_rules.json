@@ -1333,5 +1333,114 @@
       }
     ]
   },
-  "talentos_resetar_ouro_por_ponto": 25
+  "talentos_resetar_ouro_por_ponto": 25,
+  "tamanhos": {
+    "_doc": "Regra de tamanhos (Mark, 2026-11-17). Medida = altura VISIVEL na tela (sem borda transparente), em multiplos da altura do heroi (heroi_px). 'lado' = maior lado (altura ou comprimento), usado para bichos deitados/compridos. Conferido por tests/medir_tamanhos.tscn e pelo teste automatico.",
+    "heroi_px": 104,
+    "portes": {
+      "humanoide": {
+        "altura": [
+          0.95,
+          1.08
+        ],
+        "_doc": "pessoa adulta: NPCs, pedestres, guardas, bandidos, magos"
+      },
+      "crianca": {
+        "altura": [
+          0.65,
+          0.85
+        ]
+      },
+      "humanoide_sentado": {
+        "altura": [
+          0.6,
+          0.8
+        ],
+        "_doc": "cocheiro na carroca"
+      },
+      "monstro": {
+        "altura": [
+          0.95,
+          1.4
+        ],
+        "_doc": "monstro em forma de gente ou constructo (aprendiz, espectro, sentinela)"
+      },
+      "criatura_pequena": {
+        "lado": [
+          0.3,
+          0.65
+        ],
+        "_doc": "morcego, gaivota, gato, espirito fraco"
+      },
+      "animal": {
+        "altura": [
+          0.45,
+          0.75
+        ],
+        "lado": [
+          0.6,
+          1.1
+        ],
+        "_doc": "bicho normal menor que uma pessoa (lobo, javali, cachorro)"
+      },
+      "animal_grande": {
+        "altura": [
+          1.15,
+          1.45
+        ],
+        "_doc": "cavalo, boi (cabeca erguida)"
+      },
+      "mutante": {
+        "altura": [
+          0.75,
+          1.6
+        ],
+        "lado": [
+          1.0,
+          1.7
+        ],
+        "_doc": "bicho mutante/gigante: do tamanho de uma pessoa ou maior (lobo alfa, javali bruto, aranhas)"
+      },
+      "chefe": {
+        "altura": [
+          1.4,
+          3.2
+        ],
+        "lado": [
+          1.8,
+          3.2
+        ],
+        "_doc": "chefao: bem maior que o heroi"
+      },
+      "casa": {
+        "porta": [
+          1.2,
+          1.6
+        ],
+        "_doc": "porta da casa um pouco mais alta que o heroi"
+      },
+      "objeto": {
+        "_doc": "objetos na proporcao real: barril ~0.5, caixote ~0.45, banco ~0.45 de altura, poste/lampiao ~1.6"
+      }
+    },
+    "inimigos": {
+      "Javali Selvagem": "animal",
+      "Lobo Cinzento": "animal",
+      "Morcego Pequeno": "criatura_pequena",
+      "Morcego Sombrio": "criatura_pequena",
+      "Espirito Fraco": "criatura_pequena",
+      "Javali Bruto": "mutante",
+      "Lobo Alfa": "mutante",
+      "Aranha Venenosa": "mutante",
+      "Aranha Rainha": "mutante",
+      "Aprendiz Corrompido": "monstro",
+      "Espectro Arcano": "monstro",
+      "Sentinela Arcano": "monstro",
+      "Bandido das Colinas": "humanoide",
+      "Cavaleiro Sombrio": "monstro",
+      "Golem de Pedra": "monstro",
+      "Guardiao Cristalino": "monstro",
+      "Draco Jovem": "mutante"
+    }
+  }
 }

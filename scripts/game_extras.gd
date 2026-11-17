@@ -416,6 +416,7 @@ func _show_merchant() -> void:
 
 
 var thief_offsets: Dictionary = {}
+var thief_scale := Vector2.ONE
 
 func _pedestrian_frames() -> SpriteFrames:
 	for state in main.kit_vehicles:
@@ -426,6 +427,7 @@ func _pedestrian_frames() -> SpriteFrames:
 			var w := float(main._kit_vehicle_rect(state, sprite.position).size.x)
 			if w < 80.0:  # pedestre, nao carroca
 				thief_offsets = state.get("offsets", {})
+				thief_scale = sprite.scale
 				return sprite.sprite_frames
 	return null
 
@@ -449,6 +451,7 @@ func _spawn_thief() -> bool:
 	thief.centered = false  # como os pedestres: a posicao e o pe
 	thief.modulate = Color(0.55, 0.45, 0.75)  # roupa escura de ladrao
 	thief.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	thief.scale = thief_scale
 	thief.position = start
 	var tag := Label.new()
 	tag.text = "LADRAO!"
@@ -738,7 +741,8 @@ func _bump_bubble(node: Node2D, text: String) -> void:
 	var sprite := node as AnimatedSprite2D
 	if sprite != null and sprite.sprite_frames != null:
 		top = sprite.offset.y - bubble.size.y - 6.0
-	bubble.position = Vector2(-bubble.size.x * 0.5, top)
+	bubble.scale = Vector2.ONE / node.scale  # pedestre encolhido pela regra de tamanhos: texto igual
+	bubble.position = Vector2(-bubble.size.x * 0.5 * bubble.scale.x, top)
 	var tween := bubble.create_tween()
 	tween.tween_property(bubble, "position:y", bubble.position.y - 14.0, 0.25)
 	tween.tween_interval(1.8)

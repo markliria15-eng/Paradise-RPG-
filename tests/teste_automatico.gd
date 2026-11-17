@@ -321,6 +321,7 @@ func _testar_jogo() -> void:
 		Input.action_release("move_down")
 		await _esperar(0.2)
 		_checar(not bool(main.call("_is_point_blocked", player.global_position)), "%s: andar nao deixa o heroi preso em parede" % map_id)
+		_conferir_tamanhos(map_id)
 		_coletar_erros(map_id)
 
 	# --- missao de Valdoria com recado (estamos em Valdoria) ---
@@ -407,3 +408,50 @@ func _tocar(pos: Vector2) -> void:
 		main.call("_input", mouse)
 		await _esperar(0.1)
 	await _esperar(0.4)
+
+
+# Regra de tamanhos (game_rules.json -> tamanhos): NPCs com a altura de uma pessoa e inimigos
+# dentro da faixa do porte deles (animal, mutante, chefe...). Mede o desenho visivel na tela.
+func _altura_visivel(spr: Sprite2D) -> Vector2:
+	var tex := spr.texture
+	if tex == null:
+		return Vector2.ZERO
+	var img := tex.get_image()
+	if img.is_compressed():
+		img.decompress()
+	var fw := tex.get_width() / maxi(1, spr.hframes)
+	var u := img.get_region(Rect2i(spr.frame * fw, 0, fw, tex.get_height())).get_used_rect()
+	return Vector2(u.size.x, u.size.y) * spr.global_scale.abs()
+
+
+func _conferir_tamanhos(map_id: String) -> void:
+	var regras: Dictionary = (_json("res://data/game_rules.json") as Dictionary).get("tamanhos", {})
+	var h := float(regras.get("heroi_px", 104.0))
+	var portes: Dictionary = regras.get("portes", {})
+	var problemas: Array = []
+	for n in get_tree().get_nodes_in_group("npcs"):
+		var spr: Sprite2D = n.get_node_or_null("Sprite2D")
+		if spr == null or not (n as Node2D).is_visible_in_tree():
+			continue
+		var t := _altura_visivel(spr).y / h
+		var faixa: Array = portes.get("humanoide", {}).get("altura", [0.95, 1.08])
+		if t < float(faixa[0]) or t > float(faixa[1]):
+			problemas.append("%s %.2f" % [n.get("npc_name"), t])
+	var classes: Dictionary = regras.get("inimigos", {})
+	for e in get_tree().get_nodes_in_group("enemies"):
+		var nome := str(e.get("enemy_name"))
+		var porte := "chefe" if bool(e.get("boss")) else str(classes.get(nome, ""))
+		var spr: Sprite2D = e.get("sprite")
+		if porte.is_empty() or spr == null:
+			continue
+		var r: Dictionary = portes.get(porte, {})
+		var tam := _altura_visivel(spr) / h
+		var lado := maxf(tam.x, tam.y)
+		var ok := true
+		if r.has("altura"):
+			ok = ok and tam.y >= float(r["altura"][0]) - 0.03 and tam.y <= float(r["altura"][1]) + 0.03
+		if r.has("lado"):
+			ok = ok and lado >= float(r["lado"][0]) - 0.03 and lado <= float(r["lado"][1]) + 0.03
+		if not ok:
+			problemas.append("%s (%s) altura %.2f lado %.2f" % [nome, porte, tam.y, lado])
+	_checar(problemas.is_empty(), "%s: tamanhos seguem a regra%s" % [map_id, "" if problemas.is_empty() else " -> " + ", ".join(problemas)])

@@ -14,8 +14,6 @@ var _idle_breath_frame_time := 0.28
 # tem o personagem em posicoes diferentes em cada frame).
 var _frame_offsets_x: PackedFloat32Array = PackedFloat32Array()
 var _hd := false
-# Escala da arte nova igual a dos personagens (Player.HD_PLAYER_TARGET_HEIGHT / 192).
-const HD_PIXEL_SCALE := 119.0 / 192.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var label: Label = $Label
@@ -87,31 +85,49 @@ func _apply_frame_offset(frame_index: int) -> void:
 		return
 	sprite.offset.x = _frame_offsets_x[frame_index]
 
+# Regra de tamanhos (game_rules.json -> tamanhos): toda pessoa tem a mesma altura VISIVEL na tela
+# (heroi_px), qualquer que seja a folga do desenho no quadro. Pes sempre no chao do NPC (y = 18.5).
+const NPC_GROUND_Y := 18.5
+static var _heroi_px := 0.0
+
+static func altura_pessoa() -> float:
+	if _heroi_px <= 0.0:
+		_heroi_px = 104.0
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://data/game_rules.json"))
+		if parsed is Dictionary:
+			_heroi_px = float(parsed.get("tamanhos", {}).get("heroi_px", 104.0))
+	return _heroi_px
+
 func _fit_sprite_to_npc() -> void:
 	if sprite.texture == null:
 		return
 	_ensure_shadow()
-	if _hd:
-		sprite.scale = Vector2(HD_PIXEL_SCALE, HD_PIXEL_SCALE)
-		# pes em y=248 do quadro de 256 -> mesmo chao dos sprites antigos (y~18)
-		sprite.position = Vector2(0, -56)
-		label.add_theme_font_size_override("font_size", 14)
-		label.offset_left = -110
-		label.offset_right = 110
-		label.offset_top = -114
-		label.offset_bottom = -88
-		return
-	var target_height := 109.5
-	var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
-	var sprite_scale: float = target_height / texture_height
+	var image := sprite.texture.get_image()
+	if image != null and image.is_compressed():
+		image.decompress()
+	var frame_w := sprite.texture.get_width() / maxi(1, sprite.hframes)
+	var frame_h := sprite.texture.get_height()
+	var top := frame_h
+	var feet := 0
+	if image != null:
+		for i in sprite.hframes:
+			var used := image.get_region(Rect2i(i * frame_w, 0, frame_w, frame_h)).get_used_rect()
+			if used.size.y > 0:
+				top = mini(top, used.position.y)
+				feet = maxi(feet, used.end.y)
+	if feet <= top:
+		top = 0
+		feet = frame_h
+	var sprite_scale: float = altura_pessoa() / float(feet - top)
 	sprite.scale = Vector2(sprite_scale, sprite_scale)
-	# Ajusta para manter os pes no "chao" do NPC.
-	sprite.position = Vector2(0, -28.5)
+	# sprite centrado: pes (linha "feet" do quadro) no chao do NPC
+	sprite.position = Vector2(0, NPC_GROUND_Y - (float(feet) - frame_h * 0.5) * sprite_scale)
+	var head_y: float = NPC_GROUND_Y - altura_pessoa()
 	label.add_theme_font_size_override("font_size", 14)
 	label.offset_left = -110
 	label.offset_right = 110
-	label.offset_top = -104
-	label.offset_bottom = -78
+	label.offset_top = head_y - 28.0
+	label.offset_bottom = head_y - 2.0
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

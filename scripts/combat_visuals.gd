@@ -33,20 +33,34 @@ static func frames(path: String, actor: bool = false) -> Array:
 		rows = 2
 	var width := float(image.get_width()) / cols
 	var height := float(image.get_height()) / rows
+	# Pose de mob ja no canvas do jogo (192x192, pes na linha 184, mesma escala do idle;
+	# tools/mob_sprites/import_mob_strip.py --tira): usa como esta, sem reescalar.
+	var pronta := actor and roundi(width) == 192 and roundi(height) == 192
+	var cells: Array = []
 	for row in range(rows):
 		for col in range(cols):
 			var cell := image.get_region(Rect2i(roundi(col * width), roundi(row * height), roundi(width), roundi(height)))
-			if actor:
+			if actor and not pronta:
 				var bounds := cell.get_used_rect()
 				if not bounds.has_area():
 					continue
 				cell = cell.get_region(bounds)
-				var factor := minf(120.0 / cell.get_height(), 184.0 / cell.get_width())
-				cell.resize(maxi(1, roundi(cell.get_width() * factor)), maxi(1, roundi(cell.get_height() * factor)), Image.INTERPOLATE_LANCZOS)
-				var canvas := Image.create(192, 192, false, Image.FORMAT_RGBA8)
-				canvas.blit_rect(cell, Rect2i(Vector2i.ZERO, cell.get_size()), Vector2i((192 - cell.get_width()) / 2, 184 - cell.get_height()))
-				cell = canvas
-			result.append(ImageTexture.create_from_image(cell))
+			cells.append(cell)
+	# Folha bruta: UMA escala para a tira inteira (a do 1o quadro, a pose parada). Antes cada
+	# quadro era reescalado sozinho e o mob encolhia quando erguia a arma ou esticava o braco.
+	var factor := 1.0
+	if actor and not pronta and not cells.is_empty():
+		factor = 120.0 / float((cells[0] as Image).get_height())
+		for c in cells:
+			factor = minf(factor, minf(184.0 / float((c as Image).get_height()), 192.0 / float((c as Image).get_width())))
+	for c in cells:
+		var cell: Image = c
+		if actor and not pronta:
+			cell.resize(maxi(1, roundi(cell.get_width() * factor)), maxi(1, roundi(cell.get_height() * factor)), Image.INTERPOLATE_LANCZOS)
+			var canvas := Image.create(192, 192, false, Image.FORMAT_RGBA8)
+			canvas.blit_rect(cell, Rect2i(Vector2i.ZERO, cell.get_size()), Vector2i((192 - cell.get_width()) / 2, 184 - cell.get_height()))
+			cell = canvas
+		result.append(ImageTexture.create_from_image(cell))
 	cache[key] = result
 	return result
 

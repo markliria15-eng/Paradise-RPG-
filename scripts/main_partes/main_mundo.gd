@@ -376,6 +376,9 @@ func _spawn_kit_vehicles(vehicle_list: Array) -> void:
 		sprite.sprite_frames = frames
 		sprite.centered = false
 		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		# "scale": regra de tamanhos (game_rules.json -> tamanhos); o offset e em px da textura,
+		# entao os pes continuam no ponto da rota
+		sprite.scale = Vector2.ONE * float(vehicle_data.get("scale", 1.0))
 		var start: Array = route[0]
 		sprite.position = Vector2(float(start[0]), float(start[1]))
 		world.add_child(sprite)
@@ -1204,17 +1207,33 @@ func _spawn_kit_prop(prop: Dictionary) -> void:
 		sprite.flip_h = bool(prop.get("flip_h", false))
 		visual = sprite
 	visual.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	visual.scale = Vector2.ONE * float(prop.get("scale", 1.0))
+	var prop_scale := float(prop.get("scale", 1.0))
+	visual.scale = Vector2.ONE * prop_scale
 	visual.position = pos
+	# Casa (tools/casas/gerar_corpo_casas.py): a ordem de desenho vem da linha da base (pe da casa).
+	# Quem esta na frente (pes abaixo da base) fica por cima; o desenho continua no mesmo lugar.
+	var sort_y := pos.y
+	if prop.has("base"):
+		sort_y = pos.y + float(prop["base"])
+		visual.position.y = sort_y
+		var shift := Vector2(0.0, float(prop["base"]) / maxf(0.001, prop_scale))
+		if visual is Sprite2D:
+			(visual as Sprite2D).offset -= shift
+		elif visual is AnimatedSprite2D:
+			(visual as AnimatedSprite2D).offset -= shift
 	if str(prop.get("layer", "")) == "ground":
 		visual.z_index = -99  # logo acima dos chunks (-100), abaixo de tudo que anda
 	else:
-		visual.z_index = clampi(int(pos.y), -1024, 1024)
+		visual.z_index = clampi(int(sort_y), -1024, 1024)
 	world.add_child(visual)
 	var collisions: Array = prop.get("collisions", [])
 	var single: Array = prop.get("collision", [])
 	if single.size() >= 4:
 		collisions = collisions + [single]
+	# corpo inteiro da casa e solido: nao da para entrar atras dela (nem pelos cantos)
+	var corpo: Array = prop.get("corpo", [])
+	if corpo.size() >= 4:
+		collisions = collisions + [corpo]
 	for collision in collisions:
 		if typeof(collision) == TYPE_ARRAY and collision.size() >= 4:
 			_register_solid_rect(Rect2(
@@ -1607,6 +1626,7 @@ func _kit_vehicle_rect(state: Dictionary, feet: Vector2) -> Rect2:
 			var names := sprite.sprite_frames.get_animation_names()
 			if not names.is_empty() and sprite.sprite_frames.get_frame_count(names[0]) > 0:
 				w = float(sprite.sprite_frames.get_frame_texture(names[0], 0).get_width())
+		w *= absf(sprite.scale.x) if sprite != null else 1.0
 		# pedestre (quadro ~118 px) vira ~30 px de pe; carroca larga ocupa bem mais
 		state["foot_rx"] = clampf(w * 0.14, 14.0, 130.0) if w < 200.0 else clampf(w * 0.32, 40.0, 150.0)
 		state["foot_ry"] = 12.0 if w < 200.0 else 26.0

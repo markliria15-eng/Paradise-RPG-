@@ -57,7 +57,7 @@ const ATTACK_FRAME_TIME := 0.07
 const DEATH_FRAME_TIME := 0.09
 const DEATH_HOLD_TIME := 0.6
 # Mobs cujos frames de morte atuais estao quebrados; remover ao regenerar a arte.
-const DEATH_ANIM_BLOCKLIST := ["javali_selvagem", "javali_rei", "lobo_selvagem"]
+const DEATH_ANIM_BLOCKLIST := ["javali_selvagem", "javali_rei"]
 static var _side_only_cache := {}
 # Pasta em assets/sprites/mobs/ de cada mob a refazer (ver docs/PROMPT_SPRITES_MOBS.md).
 const PACKED_MOB_ASSETS := {
@@ -88,22 +88,22 @@ const ENEMY_SIZE := {
 	"Espirito Fraco": 0.6,
 	"Morcego Pequeno": 0.5,
 	"Morcego Sombrio": 0.6,
-	"Aranha Venenosa": 0.65,
+	"Aranha Venenosa": 1.04,  # mutante: do tamanho do heroi (game_rules -> tamanhos)
 	"Javali Selvagem": 0.7,
 	"Lobo Cinzento": 0.72,
-	"Javali Bruto": 0.85,
-	"Lobo Alfa": 0.85,
-	"Aprendiz Corrompido": 1.0,
-	"Bandido das Colinas": 1.0,
-	"Espectro Arcano": 1.05,
-	"Sentinela Arcano": 1.1,
+	"Javali Bruto": 1.0,
+	"Lobo Alfa": 0.98,
+	"Aprendiz Corrompido": 1.33,
+	"Bandido das Colinas": 1.3,
+	"Espectro Arcano": 1.3,
+	"Sentinela Arcano": 1.38,
 	"Cavaleiro Sombrio": 1.15,
 	"Aranha Rainha": 1.1,
 	"Draco Jovem": 1.45,
 	"Guardiao Cristalino": 1.5,
 	"Golem de Pedra": 1.6,
 	"Rei Javali": 1.9,
-	"Arquimago Corrompido": 1.9,
+	"Arquimago Corrompido": 2.4,  # chefe humanoide: bem maior que o heroi
 	"Matriarca Venenosa": 2.1,
 	"Senhor das Colinas": 2.1,
 	"General Infernal": 2.3,

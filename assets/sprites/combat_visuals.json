@@ -5,9 +5,9 @@
       "res://assets/sprites/mobs/generated_strips/outputs/aprendiz_corrompido_cast.png"
     ],
     "arquimago_corrompido": [
-      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_corrompido_golpe.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_fortalecer_aliados.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_lancar_bola_sombria.png"
+      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_golpe_v2_6f_192x192.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_fortalecer_v2_6f_192x192.png",
+      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_bola_v2_6f_192x192.png"
     ],
     "bandido_colinas": [
       "res://assets/sprites/mobs/generated_strips/outputs/bandido_colinas_ilusao.png",
