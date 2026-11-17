@@ -4,6 +4,7 @@ class_name UISideMenu
 const MENU_ITEMS := [
 	"Batalha",
 	"Habilidades",
+	"Talentos",
 	"Roupa",
 	"Bolsa",
 	"Banco",
@@ -34,6 +35,7 @@ const MENU_ITEMS := [
 const MENU_ICON_BY_ITEM := {
 	"Batalha": "res://assets/ui/buttons/btn_attack.png",
 	"Habilidades": "res://assets/sprites/icon_ui_skills_premium.png",
+	"Talentos": "res://assets/ui/skills/skill_protecao.png",
 	"Roupa": "res://assets/sprites/icon_slot_armor.png",
 	"Bolsa": "res://assets/sprites/icon_ui_bag_premium.png",
 	"Banco": "res://assets/sprites/drop_coin.png",

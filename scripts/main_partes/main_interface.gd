@@ -480,6 +480,7 @@ func _refresh_chat_channel_buttons() -> void:
 		button.add_theme_color_override("font_color", Color.WHITE if selected else Color("#e3d3aa"))
 
 func _toggle_side_menu() -> void:
+	AudioManager.play_sfx("abrir")
 	if panel.visible:
 		return
 	side_menu_visible = not side_menu_visible
@@ -688,6 +689,7 @@ func _show_quest_dialog(quest_id: String, intro: String, can_accept: bool) -> vo
 		_style_panel_button(accept)
 		accept.pressed.connect(func() -> void:
 			quest_system.accept(quest_id)
+			AudioManager.play_sfx("missao_aceita")
 			quest_system.register_visit(current_map)  # "visite X" ja conta se a missao foi pega em X
 			_flash("Missao aceita: " + title)
 			_show_quests()

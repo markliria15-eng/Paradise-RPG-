@@ -54,6 +54,19 @@ var stun_timer := 0.0
 # Lentidao (golpes de chefe: poca de gelo/cristal, pedras): reduz a velocidade por alguns segundos
 var slow_timer := 0.0
 var slow_pct := 0.0
+# Esquiva (rolamento): game_rules.json -> "esquiva"; main.gd passa a config em dodge_cfg
+var dodge_cfg: Dictionary = {}
+var dodge_timer := 0.0
+var dodge_cooldown := 0.0
+var invuln_timer := 0.0
+var dodge_dir := Vector2.DOWN
+var last_move_dir := Vector2.DOWN
+# Talentos (game_rules.json -> talentos -> classe): talents = {id: nivel} (salvo no mmo_cache pelo main)
+var talents: Dictionary = {}
+var talent_tree: Array = []
+var talent_dodge_cdr := 0.0
+# Quem deu o ultimo golpe (para a tela de morte): {"golpe": "...", "de": "..."}
+var last_hit: Dictionary = {}
 var stun_fx: Node2D
 var skills: Dictionary = {}
 var in_safe_zone := false
@@ -144,6 +157,22 @@ func _physics_process(delta: float) -> void:
 			stun_fx.rotation += delta * 5.0
 		if stun_timer <= 0.0:
 			_clear_stun()
+	if input != Vector2.ZERO:
+		last_move_dir = input.normalized()
+	if dodge_cooldown > 0.0:
+		dodge_cooldown -= delta
+	if invuln_timer > 0.0:
+		invuln_timer -= delta
+	if dodge_timer > 0.0:
+		dodge_timer -= delta
+		var dodge_speed := float(dodge_cfg.get("distancia_px", 155.0)) / maxf(0.1, float(dodge_cfg.get("duracao_s", 0.42)))
+		velocity = dodge_dir * dodge_speed
+		move_and_slide()
+		if sprite != null:
+			sprite.modulate.a = 0.55 if dodge_timer > 0.0 else 1.0
+		z_index = clampi(int(global_position.y + 20.0), -1024, 1024)
+		_update_health_bar()
+		return
 	_update_directional_sprite(input, delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
 	if slow_timer > 0.0:
@@ -176,9 +205,16 @@ func _physics_process(delta: float) -> void:
 	if poison_timer > 0:
 		poison_timer -= delta
 		if int(poison_timer * 10) % 10 == 0:
+			if vida <= 1:
+				last_hit = {"golpe": "veneno", "de": str(last_hit.get("de", ""))}
 			_take_raw_damage(1)
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and (event.keycode == KEY_SPACE or event.keycode == KEY_SHIFT):
+		if start_dodge():
+			AudioManager.play_sfx("abrir", 0.8, 0.1)
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("attack"):
 		basic_attack()
 		get_viewport().set_input_as_handled()
@@ -194,6 +230,64 @@ func _input(event: InputEvent) -> void:
 
 func is_stunned() -> bool:
 	return stun_timer > 0.0
+
+func talent_points_total() -> int:
+	return maxi(0, level - 1)
+
+func talent_points_spent() -> int:
+	var n := 0
+	for k in talents:
+		n += int(talents[k])
+	return n
+
+func _apply_talents() -> void:
+	talent_dodge_cdr = 0.0
+	for branch in talent_tree:
+		for t in branch.get("talentos", []):
+			var rank := int(talents.get(str(t.get("id", "")), 0))
+			if rank <= 0:
+				continue
+			var bonus: Dictionary = t.get("bonus_por_nivel", {})
+			for stat in bonus:
+				var v: float = float(bonus[stat]) * rank
+				match str(stat):
+					"vida_max":
+						vida_max += int(v)
+					"mana_max":
+						mana_max += int(v)
+					"ataque":
+						ataque += int(v)
+					"ataque_distancia":
+						ataque_distancia += int(v)
+					"defesa":
+						defesa += int(v)
+					"ataque_magico":
+						ataque_magico += int(v)
+					"physical_damage_pct":
+						physical_damage_pct += v
+					"mana_regen_pct":
+						mana_regen_pct += v
+					"attack_speed_pct":
+						attack_speed_pct += v
+					"move_speed_pct":
+						move_speed_pct += v
+					"esquiva_recarga_pct":
+						talent_dodge_cdr += v
+
+func can_dodge() -> bool:
+	return dodge_cooldown <= 0.0 and not is_dying and not is_stunned() and mana >= int(dodge_cfg.get("custo_mana", 8))
+
+# Rolamento na direcao do movimento: alguns instantes sem levar dano
+func start_dodge() -> bool:
+	if not can_dodge():
+		return false
+	mana -= int(dodge_cfg.get("custo_mana", 8))
+	dodge_dir = last_move_dir
+	dodge_timer = float(dodge_cfg.get("duracao_s", 0.42))
+	invuln_timer = float(dodge_cfg.get("invencivel_s", 0.3))
+	dodge_cooldown = float(dodge_cfg.get("recarga_s", 2.5)) * (1.0 - clampf(talent_dodge_cdr, 0.0, 0.5))
+	stats_changed.emit()
+	return true
 
 func apply_slow(pct: float, seconds: float) -> void:
 	slow_pct = clampf(pct, 0.0, 0.8)
@@ -276,7 +370,7 @@ func get_attack_value() -> float:
 	return ataque * (1.0 + war_cry_bonus + hero_attack_bonus)
 
 func receive_damage(amount: int, poison_chance: float = 0.0) -> void:
-	if is_dying:
+	if is_dying or invuln_timer > 0.0:
 		return
 	var final_damage := amount
 	if shield_points > 0:
@@ -475,6 +569,7 @@ func recalculate_equipment() -> void:
 					move_speed_pct += float(stats[stat])
 	defesa += SkillProgressionSystem.protection_defense_bonus(skills)
 	_apply_set_bonuses()
+	_apply_talents()
 	vida = clamp(int(vida_max * keep_hp_ratio), 1, vida_max)
 	mana = clamp(int(mana_max * keep_mp_ratio), 0, mana_max)
 	stats_changed.emit()

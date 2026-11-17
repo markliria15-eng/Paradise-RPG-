@@ -595,8 +595,11 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	# atacar sempre tira da montaria, mesmo errando o golpe
 	_enter_combat_dismount("Voce desceu da montaria para lutar.")
 	var multiplier := power
+	var crit := false
 	if player.class_name_selected == "Arqueiro":
-		multiplier *= CombatSystem.roll_critical(0.10, 1.5)
+		var crit_mult := CombatSystem.roll_critical(0.10, 1.5)
+		crit = crit_mult > 1.0
+		multiplier *= crit_mult
 	var enemy := _get_closest_enemy_in_range(radius)
 	if enemy == null:
 		_flash("Ataque errou: aproxime-se ou mire melhor.")
@@ -620,7 +623,10 @@ func _player_attack(power: float, radius: float, skill_id: String) -> void:
 	var damage := CombatSystem.physical_damage(attack_value, enemy.defesa, multiplier, player.physical_damage_pct)
 	enemy.receive_damage(damage)
 	CombatJuice.on_enemy_hit(self, player_camera, enemy, player.global_position, enemy.vida <= 0, skill_id != "basic_attack")
-	_spawn_floating_text(enemy.global_position + Vector2(0, -34), "-%d" % damage, Color("#ff4c4c"))
+	if crit:
+		_spawn_floating_text(enemy.global_position + Vector2(0, -44), "-%d!" % damage, Color("#ffd23f"), true)
+	else:
+		_spawn_floating_text(enemy.global_position + Vector2(0, -34), "-%d" % damage, Color("#ffffff") if skill_id == "basic_attack" else Color("#ff9d4a"), skill_id != "basic_attack")
 	var skill_data := _skill_data(skill_id)
 	if skill_id == "burning_fireball":
 		enemy.apply_burn(int(skill_data.get("burn_damage", 4)), float(skill_data.get("burn_duration", 4.0)))
@@ -757,6 +763,7 @@ func _collect_drop(drop: ItemDrop) -> bool:
 		return false
 	if drop.is_coin:
 		player.ouro += drop.amount
+		AudioManager.play_sfx("moeda")
 		drop.queue_free()
 		_flash("+%d ouro" % drop.amount)
 		_pet_emote("brilho")
@@ -766,6 +773,7 @@ func _collect_drop(drop: ItemDrop) -> bool:
 		if game_extras != null:
 			game_extras.daily_progress("collect", drop.amount, drop.item_name)
 		drop.queue_free()
+		AudioManager.play_sfx("item")
 		_flash("Coletado: " + drop.item_name)
 		_pet_emote("alerta")
 		return true

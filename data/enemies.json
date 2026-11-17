@@ -269,6 +269,10 @@
       {
         "item": "Fragmento de Rubi",
         "chance": 0.1
+      },
+      {
+        "item": "Presa do Rei Javali",
+        "chance": 0.12
       }
     ]
   },
@@ -680,6 +684,10 @@
       {
         "item": "Rebite de Ouro",
         "chance": 0.12
+      },
+      {
+        "item": "Olho da Matriarca",
+        "chance": 0.09
       }
     ]
   },
@@ -793,6 +801,10 @@
       },
       {
         "item": "Armadura de Aco Sombrio",
+        "chance": 0.08
+      },
+      {
+        "item": "Botas do Colosso",
         "chance": 0.08
       }
     ]
@@ -934,6 +946,10 @@
       {
         "item": "Nucleo de Obsidiana",
         "chance": 0.08
+      },
+      {
+        "item": "Coroa da Tita",
+        "chance": 0.055
       }
     ]
   },
@@ -1029,6 +1045,10 @@
       {
         "item": "Nucleo de Obsidiana",
         "chance": 0.08
+      },
+      {
+        "item": "Lamina do General Infernal",
+        "chance": 0.04
       }
     ]
   },
@@ -1082,6 +1102,10 @@
       {
         "item": "Essencia Sombria",
         "chance": 0.12
+      },
+      {
+        "item": "Nucleo do Arquimago",
+        "chance": 0.05
       }
     ]
   }

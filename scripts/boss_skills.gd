@@ -277,6 +277,7 @@ func _hit_player(a: Dictionary, scale: float) -> void:
 	if player == null or player.in_safe_zone or player.is_dying:
 		return
 	var raw := float(enemy.ataque) * float(a.get("dano_mult", 0.6)) * scale
+	player.last_hit = {"golpe": str(a.get("nome", "")), "de": enemy.enemy_name}
 	player.receive_damage(CombatSystem.physical_damage(raw, player.defesa))
 	var secs := float(a.get("efeito_s", 0.0))
 	match str(a.get("efeito", "nenhum")):
@@ -394,6 +395,7 @@ func _clear_markers() -> void:
 func _shout(text: String, color: Color) -> void:
 	if text.is_empty() or enemy == null:
 		return
+	AudioManager.play_sfx("chefe_aviso", 0.9, 0.3)
 	var label := Label.new()
 	label.text = text
 	label.add_theme_font_size_override("font_size", 22)

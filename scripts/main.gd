@@ -1024,6 +1024,7 @@ func _build_side_menu() -> void:
 	_sync_side_menu_mouse_filter()
 
 func _handle_side_menu(item: String) -> void:
+	AudioManager.play_sfx("clique")
 	match item:
 		"Habilidades":
 			_show_skills_window()
@@ -1046,7 +1047,10 @@ func _handle_side_menu(item: String) -> void:
 		"Dungeon":
 			_show_dungeons()
 		"Rank":
-			_show_rank()
+			if not online_mode and game_extras != null:  # offline: recordes locais contra chefes
+				game_extras.show_records()
+			else:
+				_show_rank()
 		"Mercado":
 			_show_market()
 		"VIP":
@@ -1059,6 +1063,9 @@ func _handle_side_menu(item: String) -> void:
 		"Colecao":
 			if game_extras != null:
 				game_extras.show_collection()
+		"Talentos":
+			if game_extras != null:
+				game_extras.show_talents()
 		"Eventos":
 			if game_extras != null:
 				game_extras.show_events()
@@ -1256,6 +1263,12 @@ func _connect_player() -> void:
 	)
 	player.message_requested.connect(_flash)
 	player.died.connect(_player_died)
+	player.dodge_cfg = _rule(["esquiva"], {})
+	if not mmo_cache.has("talentos") or typeof(mmo_cache["talentos"]) != TYPE_DICTIONARY:
+		mmo_cache["talentos"] = {}
+	player.talents = mmo_cache["talentos"]
+	player.talent_tree = _rule(["talentos", player.class_name_selected], [])
+	player.recalculate_equipment()
 	_ensure_player_camera()
 
 func _ensure_beginner_quests() -> void:
@@ -1400,6 +1413,14 @@ func _spawn_boss_minion(enemy_name: String, pos: Vector2) -> Variant:
 	enemy.killed.connect(_enemy_killed)
 	return enemy
 
+# Chefe de evento (game_rules.json -> chefes_evento): entra no grupo "bosses" e nao renasce
+func _spawn_event_boss(enemy_name: String, pos: Vector2) -> Enemy:
+	var enemy: Variant = _spawn_boss_minion(enemy_name, pos)
+	if enemy == null:
+		return null
+	(enemy as Enemy).add_to_group("bosses")
+	return enemy
+
 func _spawn_position_is_clear(pos: Vector2, occupied_positions: Array[Vector2], min_distance: float) -> bool:
 	for other_pos in occupied_positions:
 		if pos.distance_to(other_pos) < min_distance:
@@ -1484,6 +1505,8 @@ func _enemy_killed(enemy: Enemy) -> void:
 	var was_boss := bool(enemy.boss) or bool(spawn_data.get("boss", false))
 	var result := drop_system.roll(enemy.enemy_name)
 	if game_extras != null:
+		if was_boss:
+			game_extras.note_boss_fight(enemy)
 		game_extras.on_kill(enemy.enemy_name, was_boss)
 	player.gain_xp(int(result["xp"]))
 	player.on_enemy_killed()
@@ -1640,6 +1663,17 @@ func _npc_quest_state(npc_name: String) -> String:
 
 var npc_quest_offer_toggle: Dictionary = {}
 
+# mapa onde fica o NPC (maps.json ou os NPCs fixos de Eldoria)
+func _npc_home_map(npc_name: String) -> String:
+	for npc_id in ELDORIA_ACTIVE_NPCS:
+		if str(ELDORIA_FUTURE_NPC_LOCATIONS.get(npc_id, {}).get("name", "")) == npc_name:
+			return "city_eldoria"
+	for map_id in maps:
+		for npc in maps[map_id].get("npcs", []):
+			if str(npc.get("name", "")) == npc_name:
+				return str(map_id)
+	return ""
+
 # Entrega missao pronta ou oferece missao nova. NPC com outra funcao (loja, cura, porto...)
 # alterna: uma conversa mostra a missao, a seguinte abre a funcao normal dele.
 func _offer_npc_quests(npc: Npc) -> bool:
@@ -1673,6 +1707,7 @@ func _handle_quest_npc(quest_id: String) -> void:
 		_show_quest_dialog(quest_id, "Missao ja concluida. Obrigado pela ajuda, aventureiro.", false)
 	elif quest_system.active.has(quest_id) and quest_system.is_ready(quest_id):
 		var rewards := quest_system.complete(quest_id)
+		AudioManager.play_sfx("missao_concluida")
 		player.gain_xp(int(rewards.get("xp", 0)))
 		player.ouro += int(rewards.get("ouro", 0))
 		for item_name in rewards.get("items", []):
@@ -1759,6 +1794,10 @@ func _update_pet_combat(delta: float) -> void:
 		_spawn_floating_text(target_pos + Vector2(0, -64), "debuff", Color("#b68cff"))
 
 func _player_died() -> void:
+	var killer: Dictionary = player.last_hit.duplicate()
+	player.last_hit = {}
+	if game_extras != null:
+		game_extras.call_deferred("show_death", killer)
 	player.revive_in_city()
 	_load_home_city()
 	_flash("Voce morreu, perdeu 5%% do ouro e voltou para %s." % ("Valdoria" if current_map == "city_valdoria" else "Eldoria"))

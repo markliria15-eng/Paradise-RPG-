@@ -268,20 +268,27 @@ func _style_panel_button(button: Button) -> void:
 	button.add_theme_color_override("font_disabled_color", Color("#aeb4bd"))
 	button.add_theme_font_size_override("font_size", 14)
 
-func _spawn_floating_text(pos: Vector2, text: String, color: Color) -> void:
+# Numeros de dano: maiores, com contorno, "pulo" ao aparecer e um leve desvio para nao empilhar.
+# big = critico/golpe forte (maior e amarelo dourado quando a cor for a padrao).
+func _spawn_floating_text(pos: Vector2, text: String, color: Color, big: bool = false) -> void:
 	var label := Label.new()
 	label.text = text
+	pos += Vector2(randf_range(-12.0, 12.0), 0.0)
 	label.position = pos
-	label.z_index = 130
-	label.add_theme_font_size_override("font_size", 14)
+	label.z_as_relative = false
+	label.z_index = 3000
+	label.add_theme_font_size_override("font_size", 28 if big else 19)
 	label.add_theme_color_override("font_color", color)
-	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.85))
-	label.add_theme_constant_override("shadow_offset_x", 1)
-	label.add_theme_constant_override("shadow_offset_y", 1)
+	label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.9))
+	label.add_theme_constant_override("outline_size", 6 if big else 4)
+	label.pivot_offset = Vector2(20, 12)
+	label.scale = Vector2(0.5, 0.5)
 	world.add_child(label)
 	var tween := create_tween()
-	tween.tween_property(label, "position", pos + Vector2(0, -34), 0.55)
-	tween.parallel().tween_property(label, "modulate", Color(1, 1, 1, 0), 0.55)
+	tween.tween_property(label, "scale", Vector2(1.25, 1.25) if big else Vector2.ONE, 0.09)
+	tween.tween_property(label, "scale", Vector2(1.1, 1.1) if big else Vector2(0.95, 0.95), 0.08)
+	tween.tween_property(label, "position", pos + Vector2(0, -40 if big else -30), 0.6)
+	tween.parallel().tween_property(label, "modulate", Color(1, 1, 1, 0), 0.6).set_delay(0.25)
 	tween.tween_callback(func() -> void:
 		if is_instance_valid(label):
 			label.queue_free()
@@ -292,6 +299,7 @@ func _flash(text: String) -> void:
 	message_label.modulate = Color("#f7d67a")
 
 func _flash_red(text: String) -> void:
+	AudioManager.play_sfx("erro", 0.7, 0.4)
 	message_label.text = text
 	message_label.modulate = Color("#ff4b4b")
 

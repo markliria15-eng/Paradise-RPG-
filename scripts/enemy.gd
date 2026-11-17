@@ -151,6 +151,7 @@ var charge_duration := CHARGE_DURATION
 var charge_damage_mult := CHARGE_DAMAGE_MULT
 var charge_stun := CHARGE_STUN_SECONDS
 var charge_range_min := CHARGE_RANGE_MIN
+var charge_name := "Investida"
 # Golpes proprios de cada chefe (data/game_rules.json -> "chefes") e invocacao de lacaios pelo main
 var boss_skills: BossSkills
 var summon_callback: Callable
@@ -262,12 +263,15 @@ func _physics_process(delta: float) -> void:
 			attack_timer = BOSS_ENRAGED_ATTACK_INTERVAL if _is_enraged() else BOSS_ATTACK_INTERVAL
 		var damage := CombatSystem.physical_damage(ataque, target.defesa)
 		_prepare_special_visual()
+		target.last_hit = {"golpe": "chefe_corpo_a_corpo" if boss else "inimigo_comum", "de": enemy_name}
 		target.receive_damage(damage, poison_chance)
 		visual_attack_timer = max(0.18, float(_attack_frames().size()) * ATTACK_FRAME_TIME)
 	_update_visual_animation(delta)
 	z_index = clampi(int(global_position.y), -1024, 1024)
 
 func receive_damage(amount: int) -> void:
+	if boss and not has_meta("luta_inicio_ms") and amount > 0:
+		set_meta("luta_inicio_ms", Time.get_ticks_msec())  # cronometro do recorde contra chefe
 	vida = max(0, vida - amount)
 	_update_health_bar()
 	if vida <= 0:
@@ -357,6 +361,7 @@ func _update_charge(delta: float) -> bool:
 				charge_hit_done = true
 				var damage := CombatSystem.physical_damage(int(round(ataque * charge_damage_mult)), target.defesa)
 				_prepare_special_visual()
+				target.last_hit = {"golpe": charge_name, "de": enemy_name}
 				target.receive_damage(damage, poison_chance)
 				if target.has_method("apply_stun"):
 					target.apply_stun(charge_stun)
@@ -388,6 +393,7 @@ func _update_boss(delta: float) -> bool:
 	return boss_skills.update(delta)
 
 func begin_charge(a: Dictionary) -> void:
+	charge_name = str(a.get("nome", "Investida"))
 	charge_speed = float(a.get("velocidade", CHARGE_SPEED))
 	charge_windup = maxf(0.6, float(a.get("aviso_s", CHARGE_WINDUP)))
 	charge_damage_mult = float(a.get("dano_mult", CHARGE_DAMAGE_MULT))

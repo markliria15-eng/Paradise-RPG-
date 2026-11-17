@@ -2712,5 +2712,96 @@
     "stats": {},
     "price": 1200,
     "icon": "res://assets/bags/mochila_viajante.png"
+  },
+  "Presa do Rei Javali": {
+    "id": "trofeu_presa_rei_javali",
+    "name": "Presa do Rei Javali",
+    "type": "equipment",
+    "slot": "amulet",
+    "rarity": "epic",
+    "description": "+6 ataque, +35 vida e +3% dano fisico.",
+    "stats": {
+      "ataque": 6,
+      "vida_max": 35,
+      "physical_damage_pct": 0.03
+    },
+    "icon": "res://assets/items/trofeus/trofeu_presa_rei_javali.png",
+    "trofeu_de": "Rei Javali"
+  },
+  "Olho da Matriarca": {
+    "id": "trofeu_olho_matriarca",
+    "name": "Olho da Matriarca",
+    "type": "equipment",
+    "slot": "ring",
+    "rarity": "epic",
+    "description": "+65 vida, +12 defesa e +4% velocidade de ataque.",
+    "stats": {
+      "vida_max": 65,
+      "defesa": 12,
+      "attack_speed_pct": 0.04
+    },
+    "icon": "res://assets/items/trofeus/trofeu_olho_matriarca.png",
+    "trofeu_de": "Matriarca Venenosa"
+  },
+  "Nucleo do Arquimago": {
+    "id": "trofeu_nucleo_arquimago",
+    "name": "Nucleo do Arquimago",
+    "type": "equipment",
+    "slot": "jewel",
+    "rarity": "legendary",
+    "description": "+22 ataque magico, +100 mana e +6% regeneracao de mana.",
+    "stats": {
+      "ataque_magico": 22,
+      "mana_max": 100,
+      "mana_regen_pct": 0.06
+    },
+    "icon": "res://assets/items/trofeus/trofeu_nucleo_arquimago.png",
+    "trofeu_de": "Arquimago Corrompido"
+  },
+  "Botas do Colosso": {
+    "id": "trofeu_botas_colosso",
+    "name": "Botas do Colosso",
+    "type": "equipment",
+    "slot": "boots",
+    "rarity": "epic",
+    "description": "+14 defesa, +75 vida e +5% velocidade de movimento.",
+    "stats": {
+      "defesa": 14,
+      "vida_max": 75,
+      "move_speed_pct": 0.05
+    },
+    "icon": "res://assets/items/trofeus/trofeu_botas_colosso.png",
+    "trofeu_de": "Senhor das Colinas"
+  },
+  "Coroa da Tita": {
+    "id": "trofeu_coroa_tita",
+    "name": "Coroa da Tita",
+    "type": "equipment",
+    "slot": "helmet",
+    "rarity": "legendary",
+    "description": "+18 defesa, +90 vida, +60 mana e +10 ataque magico.",
+    "stats": {
+      "defesa": 18,
+      "vida_max": 90,
+      "mana_max": 60,
+      "ataque_magico": 10
+    },
+    "icon": "res://assets/items/trofeus/trofeu_coroa_tita.png",
+    "trofeu_de": "Tita de Cristal"
+  },
+  "Lamina do General Infernal": {
+    "id": "trofeu_lamina_general",
+    "name": "Lamina do General Infernal",
+    "type": "equipment",
+    "slot": "weapon",
+    "rarity": "legendary",
+    "description": "+28 ataque, +6% dano fisico e +4% velocidade de ataque.",
+    "stats": {
+      "ataque": 28,
+      "physical_damage_pct": 0.06,
+      "attack_speed_pct": 0.04
+    },
+    "icon": "res://assets/items/trofeus/trofeu_lamina_general.png",
+    "trofeu_de": "General Infernal"
   }
 }

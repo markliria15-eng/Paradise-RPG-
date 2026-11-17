@@ -66,6 +66,7 @@ func setup(owner_main: Node) -> void:
 	event_label = _hud_button(Vector2(452, 68), Vector2(376, 30), func() -> void: show_events())
 	event_label.visible = false
 	_ensure_daily()
+	AudioManager.sfx_volume = clampf(float(_cache().get("sfx_volume", 0.8)), 0.0, 1.0)
 
 
 func _now() -> float:
@@ -102,6 +103,12 @@ func process(delta: float) -> void:
 	_update_event(delta)
 	_update_quest_marks(delta)
 	_update_ambient(delta)
+	_update_sfx_hooks(delta)
+	_update_tracker(delta)
+	_update_boss_bar(delta)
+	_update_dodge_button()
+	_update_event_bosses(delta)
+	_update_gear_aura(delta)
 
 
 # ======================= 1. missoes diarias =======================
@@ -566,6 +573,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # ======================= 7. colecao =======================
 func on_kill(enemy_name: String, boss: bool) -> void:
+	if boss:
+		_victory_banner(enemy_name)
+		_give_trophy_first_kill(enemy_name)
+		_event_boss_reward(enemy_name)
 	var col: Dictionary = _cache().get("collection", {})
 	var monsters: Dictionary = col.get("monsters", {})
 	var first := not monsters.has(enemy_name)
@@ -617,6 +628,15 @@ func show_collection() -> void:
 		var has := owned_mounts.has(code)
 		var d: Dictionary = main._definition_by_code(main.mount_definitions, str(code))
 		return [main._mount_icon_path(str(code)), str(d.get("name", code)) + ("\nna sua cocheira" if has else "\nnao tem"), has]
+	))
+	var trophies: Dictionary = main._rule(["trofeus"], {})
+	var got: Dictionary = _cache().get("trofeus", {})
+	list.add_child(main._panel_label("Trofeus de chefe: %d de %d" % [got.size(), trophies.size()], 18, Color("#ffd36b")))
+	list.add_child(_icon_grid(trophies.keys(), func(boss_name) -> Array:
+		var item_name := str(trophies[boss_name])
+		var has := got.has(boss_name)
+		var item: Dictionary = main.item_db.get_item(item_name) if main.item_db != null else {}
+		return [str(item.get("icon", "")), (item_name + "\n" + str(boss_name)) if has else "???\nvenca: " + str(boss_name), has]
 	))
 
 
@@ -864,3 +884,704 @@ func show_settings() -> void:
 		mute.text = "Desligar som ambiente" if v > 0.0 else "Ligar som ambiente"
 	)
 	box.add_child(mute)
+	box.add_child(main._panel_label("Efeitos sonoros (golpes, moedas, menus...)", 16, Color("#fff3cf")))
+	var row2 := HBoxContainer.new()
+	box.add_child(row2)
+	var sfx_slider := HSlider.new()
+	sfx_slider.min_value = 0
+	sfx_slider.max_value = 100
+	sfx_slider.step = 5
+	sfx_slider.value = round(AudioManager.sfx_volume * 100.0)
+	sfx_slider.custom_minimum_size = Vector2(300, 36)
+	row2.add_child(sfx_slider)
+	var sfx_label: Label = main._panel_label("%d%%" % int(sfx_slider.value), 16, Color("#ffd36b"))
+	row2.add_child(sfx_label)
+	sfx_slider.value_changed.connect(func(v: float) -> void:
+		AudioManager.sfx_volume = v / 100.0
+		_cache()["sfx_volume"] = v / 100.0
+		sfx_label.text = "%d%%" % int(v)
+		AudioManager.play_sfx("moeda", 1.0, 0.2)
+	)
+
+
+# ======================= 11. sons de acao =======================
+var sfx_hooked_player: Node = null
+var sfx_last_level := -1
+var hoof_timer := 0.0
+
+
+func _update_sfx_hooks(delta: float) -> void:
+	var player: Player = main.player
+	if player != sfx_hooked_player:
+		sfx_hooked_player = player
+		sfx_last_level = player.level
+		player.attack_requested.connect(func(_p, _r, _s) -> void: AudioManager.play_sfx("golpe", 0.8, 0.08))
+		player.skill_area_requested.connect(func(_p, _r, _s) -> void: AudioManager.play_sfx("golpe", 1.0, 0.08))
+		player.dash_requested.connect(func(_d, _s) -> void: AudioManager.play_sfx("golpe", 0.9, 0.08))
+		player.damage_taken.connect(func(_a) -> void: AudioManager.play_sfx("dano", 0.7, 0.18))
+	if player.level > sfx_last_level and sfx_last_level >= 0:
+		AudioManager.play_sfx("nivel")
+		if not player.talent_tree.is_empty():
+			main._flash("Nivel %d! Voce ganhou 1 ponto de talento (Menu > Talentos)." % player.level)
+	sfx_last_level = player.level
+	# passos da montaria
+	hoof_timer -= delta
+	if hoof_timer <= 0.0 and not str(main._current_equipped_mount_code()).is_empty() and player.velocity.length() > 30.0:
+		hoof_timer = 0.34
+		AudioManager.play_sfx("casco", 0.45, 0.2)
+
+
+# ======================= 12. rastreador de missao + seta =======================
+const TRACKER_POS := Vector2(12, 338)
+const TRACKER_SIZE := Vector2(268, 70)
+var tracker_button: Button
+var tracker_arrow: Polygon2D
+var tracker_timer := 0.0
+var tracker_dest := Vector2.INF
+var tracker_dest_node: Node2D = null
+
+
+func _tracked_quest() -> String:
+	var qs = main.quest_system
+	if qs == null or qs.active.is_empty():
+		return ""
+	var ids: Array = qs.active.keys()
+	ids.sort()
+	for quest_id in ids:
+		if str(quest_id).begins_with("jornada_"):
+			return str(quest_id)
+	return str(ids[0])
+
+
+func _update_tracker(delta: float) -> void:
+	if tracker_button == null:
+		tracker_button = _hud_button(TRACKER_POS, TRACKER_SIZE, func() -> void: main._show_quests())
+		tracker_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		tracker_button.add_theme_font_size_override("font_size", 13)
+		tracker_button.clip_text = true
+	if tracker_arrow == null or not is_instance_valid(tracker_arrow):
+		tracker_arrow = Polygon2D.new()
+		tracker_arrow.polygon = PackedVector2Array([Vector2(42, 0), Vector2(-16, -24), Vector2(-5, 0), Vector2(-16, 24)])
+		tracker_arrow.color = Color("#ffd23f")
+		var outline := Line2D.new()
+		outline.points = PackedVector2Array([Vector2(42, 0), Vector2(-16, -24), Vector2(-5, 0), Vector2(-16, 24), Vector2(42, 0)])
+		outline.width = 3.0
+		outline.default_color = Color(0.1, 0.06, 0.0, 0.9)
+		tracker_arrow.add_child(outline)
+		tracker_arrow.z_as_relative = false
+		tracker_arrow.z_index = 3900
+		main.world.add_child(tracker_arrow)
+	tracker_timer -= delta
+	if tracker_timer <= 0.0:
+		tracker_timer = 0.5
+		_refresh_tracker()
+	var player_pos: Vector2 = main.player.global_position
+	var dest := tracker_dest
+	if tracker_dest_node != null and is_instance_valid(tracker_dest_node):
+		dest = tracker_dest_node.global_position
+	var show := dest != Vector2.INF and dest.distance_to(player_pos) > 150.0 and not photo_mode
+	tracker_arrow.visible = show
+	if show:
+		var dir := player_pos.direction_to(dest)
+		tracker_arrow.global_position = player_pos + Vector2(0, -20) + dir * 95.0
+		tracker_arrow.rotation = dir.angle()
+		tracker_arrow.modulate.a = 0.65 + 0.35 * sin(_now() * 6.0)
+
+
+func _refresh_tracker() -> void:
+	var quest_id := _tracked_quest()
+	tracker_button.visible = not quest_id.is_empty() and not photo_mode
+	tracker_dest = Vector2.INF
+	tracker_dest_node = null
+	if quest_id.is_empty():
+		return
+	var qs = main.quest_system
+	var quest: Dictionary = qs.quests.get(quest_id, {})
+	var lines: Array = []
+	var title := str(quest.get("title", quest_id))
+	var target_map := ""
+	var target_kind := ""
+	var target_name := ""
+	if qs.is_ready(quest_id):
+		lines.append("Volte para %s" % str(quest.get("npc", "")).get_slice(",", 0))
+		target_kind = "npc"
+		target_name = str(quest.get("npc", ""))
+		target_map = str(main._npc_home_map(target_name))
+	else:
+		var others_done := true
+		for o in quest.get("objectives", []):
+			if o.get("type") != "talk" and int(qs.active[quest_id].get(qs._objective_key(o), 0)) < int(o.get("amount", 1)):
+				others_done = false
+		for o in quest.get("objectives", []):
+			var have := int(qs.active[quest_id].get(qs._objective_key(o), 0))
+			var need := int(o.get("amount", 1))
+			if have >= need:
+				continue
+			var kind := str(o.get("type", ""))
+			var target := str(o.get("target", ""))
+			if kind == "talk" and not others_done:
+				continue
+			var label: String = str(qs.OBJECTIVE_VERBS.get(kind, kind)) + " " + (str(qs.MAP_NAMES.get(target, target)) if kind == "visit" else target.get_slice(",", 0))
+			lines.append("%s %d/%d" % [label, have, need] if need > 1 else label)
+			if target_kind.is_empty():
+				target_kind = kind
+				target_name = target
+				target_map = _objective_map(kind, target)
+	tracker_button.text = "> " + title + "\n  " + "\n  ".join(lines.slice(0, 2))
+	if target_map.is_empty():
+		return
+	var current := str(main.current_map)
+	if current == "world_reset":
+		current = "forest_boars"
+	if target_map != current:
+		var next_map := _next_map_toward(current, target_map)
+		for portal in main.portal_nodes:
+			if is_instance_valid(portal) and str(portal.get_meta("target", "")) == next_map:
+				tracker_dest_node = portal
+				return
+		return
+	match target_kind:
+		"npc", "talk":
+			for npc in get_tree().get_nodes_in_group("npcs"):
+				if str(npc.get("npc_name")) == target_name:
+					tracker_dest_node = npc
+					return
+		"kill":
+			tracker_dest_node = _nearest(get_tree().get_nodes_in_group("enemies").filter(func(e): return is_instance_valid(e) and str(e.enemy_name) == target_name))
+		"collect":
+			var candidates: Array = []
+			for child in main.world.get_children():
+				if child is ItemDrop and str(child.item_name) == target_name:
+					candidates.append(child)
+			if candidates.is_empty():
+				var droppers := _droppers_of(target_name)
+				candidates = get_tree().get_nodes_in_group("enemies").filter(func(e): return is_instance_valid(e) and droppers.has(str(e.enemy_name)))
+			tracker_dest_node = _nearest(candidates)
+
+
+func _nearest(nodes: Array) -> Node2D:
+	var best: Node2D = null
+	var best_d := INF
+	var p: Vector2 = main.player.global_position
+	for n in nodes:
+		var d: float = p.distance_squared_to((n as Node2D).global_position)
+		if d < best_d:
+			best_d = d
+			best = n
+	return best
+
+
+func _droppers_of(item_name: String) -> Array:
+	var out: Array = []
+	for enemy_name in main.enemies_db:
+		for d in main.enemies_db[enemy_name].get("drops", []):
+			if str(d.get("item", "")) == item_name:
+				out.append(str(enemy_name))
+	return out
+
+
+# em que mapa da para cumprir o objetivo (o mais perto, contando portais)
+func _objective_map(kind: String, target: String) -> String:
+	var current := str(main.current_map)
+	var options: Array = []
+	match kind:
+		"visit":
+			return target
+		"talk":
+			return str(main._npc_home_map(target))
+		"kill":
+			for map_id in main.maps:
+				for s in main.maps[map_id].get("spawns", []):
+					if str(s.get("enemy", "")) == target:
+						options.append(str(map_id))
+		"collect":
+			var droppers := _droppers_of(target)
+			for map_id in main.maps:
+				for s in main.maps[map_id].get("spawns", []):
+					if droppers.has(str(s.get("enemy", ""))):
+						options.append(str(map_id))
+				for c in main.maps[map_id].get("collectibles", []):
+					if typeof(c) == TYPE_DICTIONARY and str(c.get("item", "")) == target:
+						options.append(str(map_id))
+	var best := ""
+	var best_d := 999
+	for map_id in options:
+		var d := _map_distance(current, map_id)
+		if d < best_d:
+			best_d = d
+			best = map_id
+	return best
+
+
+func _map_links(map_id: String) -> Array:
+	var out: Array = []
+	for portal in main.maps.get(map_id, {}).get("portals", []):
+		out.append(str(portal.get("target", "")))
+	return out
+
+
+func _bfs_parents(start: String) -> Dictionary:
+	var parents := {start: ""}
+	var queue: Array = [start]
+	while not queue.is_empty():
+		var m: String = queue.pop_front()
+		for n in _map_links(m):
+			if not parents.has(n) and main.maps.has(n):
+				parents[n] = m
+				queue.append(n)
+	return parents
+
+
+func _map_distance(a: String, b: String) -> int:
+	var parents := _bfs_parents(a)
+	if not parents.has(b):
+		return 999
+	var d := 0
+	var m := b
+	while m != a:
+		m = parents[m]
+		d += 1
+	return d
+
+
+func _next_map_toward(a: String, b: String) -> String:
+	var parents := _bfs_parents(a)
+	if not parents.has(b):
+		return ""
+	var m := b
+	while str(parents[m]) != a:
+		m = parents[m]
+	return m
+
+
+# ======================= 13. barra do chefe + vitoria =======================
+var boss_panel: Control
+var boss_name_label: Label
+var boss_bar: ProgressBar
+var boss_tracked: Node2D = null
+var boss_timer := 0.0
+
+
+func _update_boss_bar(delta: float) -> void:
+	if boss_panel == null:
+		var host: Node = daily_label.get_parent()
+		boss_panel = VBoxContainer.new()
+		boss_panel.position = Vector2(390, 104)
+		boss_panel.size = Vector2(500, 56)
+		boss_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		host.add_child(boss_panel)
+		boss_name_label = main._panel_label("", 18, Color("#ffd36b"))
+		boss_name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		boss_name_label.add_theme_color_override("font_outline_color", Color.BLACK)
+		boss_name_label.add_theme_constant_override("outline_size", 6)
+		boss_panel.add_child(boss_name_label)
+		boss_bar = ProgressBar.new()
+		boss_bar.custom_minimum_size = Vector2(500, 18)
+		boss_bar.show_percentage = false
+		var bg := StyleBoxFlat.new()
+		bg.bg_color = Color(0.05, 0.02, 0.02, 0.85)
+		bg.border_color = Color("#c49b3f")
+		bg.set_border_width_all(2)
+		bg.set_corner_radius_all(6)
+		var fill := StyleBoxFlat.new()
+		fill.bg_color = Color("#c8261c")
+		fill.set_corner_radius_all(5)
+		boss_bar.add_theme_stylebox_override("background", bg)
+		boss_bar.add_theme_stylebox_override("fill", fill)
+		boss_panel.add_child(boss_bar)
+		boss_panel.visible = false
+	boss_timer -= delta
+	if boss_timer <= 0.0:
+		boss_timer = 0.25
+		var p: Vector2 = main.player.global_position
+		if boss_tracked == null or not is_instance_valid(boss_tracked) or boss_tracked.global_position.distance_to(p) > 900.0:
+			boss_tracked = null
+			for b in get_tree().get_nodes_in_group("bosses"):
+				if is_instance_valid(b) and b.global_position.distance_to(p) < 620.0:
+					boss_tracked = b
+					break
+	var show := boss_tracked != null and is_instance_valid(boss_tracked) and not photo_mode
+	boss_panel.visible = show
+	if show:
+		var e: Enemy = boss_tracked
+		boss_name_label.text = "%s  Lv %d%s" % [e.enemy_name, e.level, "  -  FURIA!" if e._is_enraged() else ""]
+		boss_bar.max_value = e.vida_max
+		boss_bar.value = e.vida
+
+
+func _victory_banner(enemy_name: String) -> void:
+	AudioManager.play_sfx("vitoria", 1.0, 1.0)
+	var host: Node = daily_label.get_parent()
+	var label := Label.new()
+	label.text = "VITORIA!\n%s derrotado" % enemy_name + _record_line(enemy_name)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 46)
+	label.add_theme_color_override("font_color", Color("#ffd23f"))
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 12)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.size = Vector2(800, 140)
+	label.position = Vector2(240, 200)
+	label.pivot_offset = Vector2(400, 70)
+	label.scale = Vector2(0.6, 0.6)
+	host.add_child(label)
+	var tween := label.create_tween()
+	tween.tween_property(label, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(2.2)
+	tween.tween_property(label, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(label.queue_free)
+
+
+# ======================= 14. bloco 2: esquiva, morte, trofeus, chefes de evento =======================
+var dodge_button: Button
+
+
+func _update_dodge_button() -> void:
+	var player: Player = main.player
+	if dodge_button == null:
+		dodge_button = _hud_button(Vector2(752, 616), Vector2(108, 58), func() -> void:
+			if main.player.start_dodge():
+				AudioManager.play_sfx("abrir", 0.8, 0.1)
+			elif main.player.dodge_cooldown <= 0.0:
+				main._flash_red("Sem mana para esquivar")
+		)
+		dodge_button.add_theme_font_size_override("font_size", 16)
+		var round_style := StyleBoxFlat.new()
+		round_style.bg_color = Color(0.08, 0.1, 0.16, 0.85)
+		round_style.border_color = Color("#7fc8ff")
+		round_style.set_border_width_all(2)
+		round_style.set_corner_radius_all(29)
+		for state in ["normal", "hover", "pressed", "disabled", "focus"]:
+			dodge_button.add_theme_stylebox_override(state, round_style)
+	dodge_button.visible = not photo_mode
+	if player.dodge_cooldown > 0.0:
+		dodge_button.text = "%.1f" % player.dodge_cooldown
+		dodge_button.modulate = Color(1, 1, 1, 0.55)
+	else:
+		dodge_button.text = "ESQUIVA"
+		dodge_button.modulate = Color.WHITE
+
+
+func show_death(killer: Dictionary) -> void:
+	var golpe := str(killer.get("golpe", ""))
+	var de := str(killer.get("de", ""))
+	var tips: Dictionary = main._rule(["dicas_morte"], {})
+	var list: Variant = tips.get(golpe, tips.get("inimigo_comum", []))
+	var tip := ""
+	if typeof(list) == TYPE_ARRAY and not (list as Array).is_empty():
+		tip = str(list[randi() % (list as Array).size()])
+	var box: VBoxContainer = main._start_modal("Voce foi derrotado", "death")
+	var what := ""
+	match golpe:
+		"":
+			what = "Voce caiu em combate."
+		"veneno":
+			what = "O veneno acabou com voce" + (" (de %s)." % de if not de.is_empty() else ".")
+		"inimigo_comum", "chefe_corpo_a_corpo":
+			what = "Derrotado por: %s" % de
+		_:
+			what = "Derrotado por: %s de %s" % [golpe, de]
+	box.add_child(main._panel_label(what, 20, Color("#ff8a7a")))
+	if not tip.is_empty():
+		var tip_label: Label = main._panel_label("Dica: " + tip, 17, Color("#ffe7a3"))
+		tip_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		tip_label.custom_minimum_size = Vector2(560, 0)
+		box.add_child(tip_label)
+	if golpe != "" and golpe != "inimigo_comum" and golpe != "veneno":
+		box.add_child(main._panel_label("Lembre: ESPACO (ou o botao ESQUIVA) rola para fora do golpe.", 14, Color("#b8c6d8")))
+	box.add_child(main._panel_label("Voce perdeu 5% do ouro e voltou para a cidade.", 14, Color("#b8c6d8")))
+
+
+func _give_trophy_first_kill(boss_name: String) -> void:
+	var trophies: Dictionary = main._rule(["trofeus"], {})
+	if not trophies.has(boss_name):
+		return
+	var got: Dictionary = _cache().get("trofeus", {})
+	if got.has(boss_name):
+		return
+	var item_name := str(trophies[boss_name])
+	got[boss_name] = true
+	_cache()["trofeus"] = got
+	main.player.inventory.add_item(item_name)
+	main._flash("TROFEU! %s foi para a sua bolsa." % item_name)
+	AudioManager.play_sfx("item", 1.0, 0.1)
+
+
+var event_boss_next: Dictionary = {}
+var event_boss_alive: Node2D = null
+var event_boss_name := ""
+var event_boss_until := 0.0
+var event_boss_check := 0.0
+
+
+func _update_event_bosses(delta: float) -> void:
+	event_boss_check -= delta
+	if event_boss_check > 0.0:
+		return
+	event_boss_check = 2.0
+	var now := _now()
+	if event_boss_alive != null:
+		if not is_instance_valid(event_boss_alive):
+			event_boss_alive = null
+		elif now > event_boss_until or str(event_boss_alive.get_meta("spawn_map", "")) != str(main.current_map):
+			event_boss_alive.queue_free()
+			event_boss_alive = null
+			main._flash("%s foi embora..." % event_boss_name)
+		return
+	var cfg: Dictionary = main._rule(["chefes_evento"], {})
+	for boss_name in cfg:
+		var c: Dictionary = cfg[boss_name]
+		if not event_boss_next.has(boss_name):
+			event_boss_next[boss_name] = now + randf_range(float(c.get("intervalo_min_s", 2700)), float(c.get("intervalo_max_s", 4500)))
+		if now < float(event_boss_next[boss_name]):
+			continue
+		if str(main.current_map) != str(c.get("mapa", "")) or main.player.level < int(c.get("nivel_minimo_jogador", 1)):
+			continue
+		if spawn_event_boss(str(boss_name)):
+			event_boss_next[boss_name] = now + randf_range(float(c.get("intervalo_min_s", 2700)), float(c.get("intervalo_max_s", 4500)))
+			return
+
+
+# tambem usado para testar: game_extras.spawn_event_boss("Tita de Cristal")
+func spawn_event_boss(boss_name: String) -> bool:
+	var c: Dictionary = main._rule(["chefes_evento", boss_name], {})
+	var p: Vector2 = main.player.global_position
+	for _i in 12:
+		var pos := p + Vector2.from_angle(randf() * TAU) * randf_range(420.0, 560.0)
+		var boss: Variant = main._spawn_event_boss(boss_name, pos)
+		if boss != null:
+			event_boss_alive = boss
+			event_boss_name = boss_name
+			event_boss_until = _now() + float(c.get("dura_s", 600))
+			var banner := str(c.get("anuncio", "%s apareceu!" % boss_name))
+			main._flash(banner)
+			_big_banner(banner, Color("#ff7a4a"))
+			AudioManager.play_sfx("chefe_aviso", 1.0, 0.5)
+			return true
+	return false
+
+
+func _event_boss_reward(boss_name: String) -> void:
+	if boss_name != event_boss_name:
+		return
+	var c: Dictionary = main._rule(["chefes_evento", boss_name], {})
+	var data: Dictionary = main.enemies_db.get(boss_name, {})
+	var xp := int(float(data.get("xp", 100)) * (float(c.get("bonus_xp_mult", 1.0)) - 1.0))
+	var ouro_data: Variant = data.get("ouro", 50)
+	var gold_base := (float(ouro_data[0]) + float(ouro_data[1])) * 0.5 if typeof(ouro_data) == TYPE_ARRAY else float(ouro_data)
+	var gold := int(gold_base * (float(c.get("bonus_ouro_mult", 1.0)) - 1.0))
+	if xp > 0:
+		main.player.gain_xp(xp)
+	if gold > 0:
+		main.player.ouro += gold
+	main._flash("Bonus do evento: +%d XP e +%d ouro!" % [xp, gold])
+	event_boss_name = ""
+
+
+func _big_banner(text: String, color: Color) -> void:
+	var host: Node = daily_label.get_parent()
+	var label := Label.new()
+	label.text = text
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.add_theme_font_size_override("font_size", 30)
+	label.add_theme_color_override("font_color", color)
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 10)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.size = Vector2(900, 100)
+	label.position = Vector2(190, 170)
+	host.add_child(label)
+	var tween := label.create_tween()
+	tween.tween_interval(3.0)
+	tween.tween_property(label, "modulate:a", 0.0, 0.6)
+	tween.tween_callback(label.queue_free)
+
+
+# ======================= 15. bloco 3: talentos =======================
+func _branch_spent(player: Player, branch: Dictionary) -> int:
+	var n := 0
+	for t in branch.get("talentos", []):
+		n += int(player.talents.get(str(t.get("id", "")), 0))
+	return n
+
+
+func show_talents() -> void:
+	var player: Player = main.player
+	var box: VBoxContainer = main._start_modal("Talentos - %s" % player.class_name_selected, "talents")
+	if player.talent_tree.is_empty():
+		box.add_child(main._panel_label("Sua classe ainda nao tem talentos.", 16, Color.WHITE))
+		return
+	var free := player.talent_points_total() - player.talent_points_spent()
+	var head := HBoxContainer.new()
+	box.add_child(head)
+	head.add_child(main._panel_label("Pontos livres: %d   (1 ponto por nivel)" % free, 18, Color("#ffd36b")))
+	var spent := player.talent_points_spent()
+	if spent > 0:
+		var cost := spent * int(main._rule(["talentos_resetar_ouro_por_ponto"], 25))
+		var reset := Button.new()
+		reset.text = "Refazer (%d ouro)" % cost
+		main._style_panel_button(reset)
+		reset.pressed.connect(func() -> void:
+			if player.ouro < cost:
+				main._flash_red("Ouro insuficiente para refazer os talentos.")
+				return
+			player.ouro -= cost
+			player.talents.clear()
+			player.recalculate_equipment()
+			player.stats_changed.emit()
+			show_talents()
+		)
+		head.add_child(reset)
+	var cols := HBoxContainer.new()
+	cols.add_theme_constant_override("separation", 10)
+	box.add_child(cols)
+	for branch in player.talent_tree:
+		var col := VBoxContainer.new()
+		col.custom_minimum_size = Vector2(280, 0)
+		cols.add_child(col)
+		var color := Color(str(branch.get("cor", "#ffd36b")))
+		var in_branch := _branch_spent(player, branch)
+		col.add_child(main._panel_label("%s  (%d)" % [str(branch.get("nome", "")), in_branch], 18, color))
+		for t in branch.get("talentos", []):
+			var tid := str(t.get("id", ""))
+			var rank := int(player.talents.get(tid, 0))
+			var mx := int(t.get("max", 3))
+			var need := int(t.get("requer_pontos_no_ramo", 0))
+			var locked := in_branch < need
+			var row := HBoxContainer.new()
+			col.add_child(row)
+			var info := VBoxContainer.new()
+			info.custom_minimum_size = Vector2(220, 0)
+			row.add_child(info)
+			var name_label: Label = main._panel_label("%s  %d/%d" % [str(t.get("nome", tid)), rank, mx], 15, Color("#8a93a0") if locked else Color.WHITE)
+			info.add_child(name_label)
+			var desc := str(t.get("descricao", ""))
+			var values := _talent_values(t, maxi(rank, 1))
+			if desc.count("%s") == values.size():
+				desc = desc % values
+			else:
+				desc = desc.replace("%s", " / ".join(values))
+			if locked:
+				desc = "Libera com %d pontos neste ramo" % need
+			var desc_label: Label = main._panel_label(desc, 12, Color("#b8c6d8"))
+			desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			desc_label.custom_minimum_size = Vector2(215, 0)
+			info.add_child(desc_label)
+			var plus := Button.new()
+			plus.text = "+"
+			plus.custom_minimum_size = Vector2(46, 40)
+			main._style_panel_button(plus)
+			plus.disabled = locked or rank >= mx or free <= 0
+			plus.pressed.connect(func() -> void:
+				player.talents[tid] = rank + 1
+				player.recalculate_equipment()
+				player.stats_changed.emit()
+				AudioManager.play_sfx("item", 0.8, 0.05)
+				show_talents()
+			)
+			row.add_child(plus)
+
+
+func _talent_values(t: Dictionary, rank: int) -> Array:
+	var parts: Array = []
+	var bonus: Dictionary = t.get("bonus_por_nivel", {})
+	for stat in bonus:
+		var v := float(bonus[stat]) * rank
+		if str(stat).ends_with("_pct"):
+			parts.append("%d%%" % int(round(v * 100.0)))
+		else:
+			parts.append("%d" % int(v))
+	return parts
+
+
+# ======================= 16. bloco 3: equipamento aparece no heroi (aura por raridade) =======================
+# O desenho do heroi ainda nao troca por peca (precisaria de arte de cada conjunto em cada classe);
+# por enquanto o melhor item equipado da uma aura no chao com a cor da raridade.
+const RARITY_ORDER := ["common", "uncommon", "rare", "super_rare", "epic", "legendary", "mega_legendary", "god"]
+const RARITY_COLORS := {"rare": Color("#4aa3ff"), "super_rare": Color("#38e0d0"), "epic": Color("#b061ff"),
+	"legendary": Color("#ff9a2e"), "mega_legendary": Color("#ff4a4a"), "god": Color("#fff27a")}
+var gear_aura: Polygon2D
+var gear_aura_check := 0.0
+var gear_aura_rarity := ""
+
+
+func _update_gear_aura(delta: float) -> void:
+	var player: Player = main.player
+	if gear_aura == null or not is_instance_valid(gear_aura) or gear_aura.get_parent() != player:
+		gear_aura = Polygon2D.new()
+		var pts := PackedVector2Array()
+		for i in 28:
+			var ang := TAU * float(i) / 28.0
+			pts.append(Vector2(cos(ang) * 38.0, sin(ang) * 13.0))
+		gear_aura.polygon = pts
+		gear_aura.position = Vector2(0, 20)
+		var ring := Line2D.new()
+		ring.name = "Ring"
+		pts.append(pts[0])
+		ring.points = pts
+		ring.width = 3.0
+		gear_aura.add_child(ring)
+		gear_aura.z_index = -1
+		gear_aura.visible = false
+		player.add_child(gear_aura)
+		gear_aura_rarity = ""
+	gear_aura_check -= delta
+	if gear_aura_check <= 0.0:
+		gear_aura_check = 1.0
+		var best := -1
+		for item_name in player.inventory.equipment.values():
+			if str(item_name).is_empty():
+				continue
+			var r := RARITY_ORDER.find(str(main.item_db.get_item(str(item_name)).get("rarity", "common")))
+			best = maxi(best, r)
+		gear_aura_rarity = RARITY_ORDER[best] if best >= 0 else ""
+	var color: Variant = RARITY_COLORS.get(gear_aura_rarity, null)
+	gear_aura.visible = color != null and str(main._current_equipped_mount_code()).is_empty()
+	if gear_aura.visible:
+		var c: Color = color
+		var pulse := 0.5 + 0.5 * sin(_now() * 3.0)
+		gear_aura.color = Color(c.r, c.g, c.b, 0.35 + 0.2 * pulse)
+		(gear_aura.get_node("Ring") as Line2D).default_color = Color(c.r, c.g, c.b, 0.7 + 0.3 * pulse)
+
+
+# ======================= 17. bloco 4: recorde de tempo contra cada chefe =======================
+# O cronometro comeca no primeiro dano do heroi no chefe (enemy.gd: meta luta_inicio_ms).
+var last_boss_fight_s := -1.0
+
+
+func note_boss_fight(enemy: Node) -> void:
+	last_boss_fight_s = -1.0
+	if enemy != null and is_instance_valid(enemy) and enemy.has_meta("luta_inicio_ms"):
+		last_boss_fight_s = float(Time.get_ticks_msec() - int(enemy.get_meta("luta_inicio_ms"))) / 1000.0
+
+
+func _record_line(boss_name: String) -> String:
+	if last_boss_fight_s <= 0.0:
+		return ""
+	var secs := last_boss_fight_s
+	last_boss_fight_s = -1.0
+	var records: Dictionary = _cache().get("recordes_chefes", {})
+	var best := float(records.get(boss_name, 0.0))
+	if best <= 0.0 or secs < best:
+		records[boss_name] = snappedf(secs, 0.1)
+		_cache()["recordes_chefes"] = records
+		return "\nNOVO RECORDE: %s" % _fmt_time(secs)
+	return "\nTempo: %s  (recorde %s)" % [_fmt_time(secs), _fmt_time(best)]
+
+
+func _fmt_time(secs: float) -> String:
+	var s := int(round(secs))
+	return "%d:%02d" % [s / 60, s % 60] if s >= 60 else "%d s" % s
+
+
+func show_records() -> void:
+	var box: VBoxContainer = main._start_modal("Recordes contra chefes", "records")
+	var records: Dictionary = _cache().get("recordes_chefes", {})
+	box.add_child(main._panel_label("Seu menor tempo para derrotar cada chefe (desde o primeiro golpe).", 15, Color("#b8c6d8")))
+	var names: Array = main._rule(["trofeus"], {}).keys()
+	for boss_name in names:
+		var t := float(records.get(boss_name, 0.0))
+		var txt := "%s:  %s" % [boss_name, _fmt_time(t) if t > 0.0 else "ainda nao venceu"]
+		box.add_child(main._panel_label(txt, 18, Color("#ffd36b") if t > 0.0 else Color("#8a93a0")))
+	box.add_child(main._panel_label("Desafie quem assiste: poste o print do seu recorde!", 14, Color("#b8c6d8")))

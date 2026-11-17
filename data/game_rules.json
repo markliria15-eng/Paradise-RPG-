@@ -761,5 +761,577 @@
         "extra": "Carga Infernal deixa um rastro de fogo e Chao em Chamas cria 7 areas flamejantes."
       }
     }
-  }
+  },
+  "esquiva": {
+    "distancia_px": 155,
+    "duracao_s": 0.42,
+    "invencivel_s": 0.3,
+    "recarga_s": 2.5,
+    "custo_mana": 8
+  },
+  "chefes_evento": {
+    "Senhor das Colinas": {
+      "mapa": "forest_boars",
+      "nivel_minimo_jogador": 24,
+      "intervalo_min_s": 2700,
+      "intervalo_max_s": 4500,
+      "dura_s": 600,
+      "anuncio": "A terra treme! O Senhor das Colinas despertou na floresta!",
+      "bonus_ouro_mult": 1.5,
+      "bonus_xp_mult": 1.4
+    },
+    "Tita de Cristal": {
+      "mapa": "bat_cave",
+      "nivel_minimo_jogador": 34,
+      "intervalo_min_s": 4500,
+      "intervalo_max_s": 7200,
+      "dura_s": 720,
+      "anuncio": "Cristais brilham na escuridao! A Tita de Cristal surgiu!",
+      "bonus_ouro_mult": 1.8,
+      "bonus_xp_mult": 1.6
+    },
+    "General Infernal": {
+      "mapa": "arcane_ruins",
+      "nivel_minimo_jogador": 42,
+      "intervalo_min_s": 7200,
+      "intervalo_max_s": 10800,
+      "dura_s": 900,
+      "anuncio": "Chamas invadem as ruinas! O General Infernal chegou!",
+      "bonus_ouro_mult": 2.0,
+      "bonus_xp_mult": 1.8
+    }
+  },
+  "dicas_morte": {
+    "Investida Selvagem": [
+      "O javali corre em linha reta! Esquive para o lado.",
+      "Quando ele preparar a corrida, saia da frente!"
+    ],
+    "Pisao Brutal": [
+      "Afaste-se quando o chefe levantar as patas!",
+      "O pisao atinge perto do chefe. Mantenha distancia!"
+    ],
+    "Chuva Venenosa": [
+      "Observe o chao e saia das areas marcadas!",
+      "Nao fique parado! O veneno cai nas zonas indicadas."
+    ],
+    "Rajada de Presas": [
+      "Esquive de lado quando as presas forem lancadas!",
+      "Mantenha distancia e procure espacos entre os projeteis."
+    ],
+    "Ninhada Mortal": [
+      "Elimine os filhotes antes que eles cerquem voce!",
+      "Nao deixe os pequenos inimigos se acumularem!"
+    ],
+    "Orbes do Caos": [
+      "Observe os orbes e desvie entre eles!",
+      "Movimente-se de lado para escapar dos orbes magicos."
+    ],
+    "Ruptura Dimensional": [
+      "Saia da area marcada antes da ruptura!",
+      "Guarde sua esquiva para escapar da explosao dimensional."
+    ],
+    "Legiao Corrompida": [
+      "Derrote os inimigos invocados antes de atacar o chefe!",
+      "Evite ser cercado! Abra caminho entre os inimigos."
+    ],
+    "Esmagamento Colossal": [
+      "O golpe e lento, mas poderoso! Saia da area marcada.",
+      "Nao tente resistir ao impacto. Use sua esquiva!"
+    ],
+    "Pedras Arremessadas": [
+      "Observe a trajetoria das pedras e mova-se de lado!",
+      "Nao corra em linha reta! Varie sua direcao."
+    ],
+    "Espinhos Cristalinos": [
+      "Saia das marcas no chao antes dos cristais surgirem!",
+      "Os espinhos avisam antes de nascer. Fique atento!"
+    ],
+    "Fragmentacao Arcana": [
+      "Afaste-se do cristal antes que ele exploda!",
+      "Observe os fragmentos e procure um espaco seguro."
+    ],
+    "Pulso Cristalino": [
+      "Afaste-se do centro antes da onda de energia!",
+      "Guarde a esquiva para atravessar o pulso!"
+    ],
+    "Carga Infernal": [
+      "O General avanca em linha reta! Desvie para o lado.",
+      "Espere o sinal da carga e role para longe!"
+    ],
+    "Chao em Chamas": [
+      "Nao fique sobre as chamas! Procure terreno seguro.",
+      "Saia das areas vermelhas antes que o fogo apareca!"
+    ],
+    "Lancas Flamejantes": [
+      "Observe onde as lancas vao cair e mude de posicao!",
+      "Movimente-se entre as marcas para evitar as lancas."
+    ],
+    "veneno": [
+      "O veneno causa dano com o tempo! Recupere sua vida.",
+      "Evite novas doses de veneno enquanto se recupera!"
+    ],
+    "inimigo_comum": [
+      "Enfrente poucos inimigos por vez e use suas pocoes!",
+      "Melhore seus equipamentos antes de voltar a lutar!"
+    ],
+    "chefe_corpo_a_corpo": [
+      "Ataque depois do golpe do chefe e recue!",
+      "Nao fique colado no chefe! Use a esquiva para sair."
+    ]
+  },
+  "trofeus": {
+    "Rei Javali": "Presa do Rei Javali",
+    "Matriarca Venenosa": "Olho da Matriarca",
+    "Arquimago Corrompido": "Nucleo do Arquimago",
+    "Senhor das Colinas": "Botas do Colosso",
+    "Tita de Cristal": "Coroa da Tita",
+    "General Infernal": "Lamina do General Infernal"
+  },
+  "talentos": {
+    "Guerreiro": [
+      {
+        "id": "furia",
+        "nome": "Furia",
+        "cor": "#D94A38",
+        "talentos": [
+          {
+            "id": "golpe_brutal",
+            "nome": "Golpe Brutal",
+            "descricao": "+%s de ataque.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "ataque": 1
+            }
+          },
+          {
+            "id": "sangue_quente",
+            "nome": "Sangue Quente",
+            "descricao": "+%s de dano fisico.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "physical_damage_pct": 0.01
+            }
+          },
+          {
+            "id": "ritmo_de_batalha",
+            "nome": "Ritmo de Batalha",
+            "descricao": "+%s de velocidade de ataque.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "attack_speed_pct": 0.01
+            }
+          },
+          {
+            "id": "furia_implacavel",
+            "nome": "Furia Implacavel",
+            "descricao": "+%s de ataque e +%s de dano fisico.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "ataque": 1,
+              "physical_damage_pct": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "muralha",
+        "nome": "Muralha",
+        "cor": "#4679B8",
+        "talentos": [
+          {
+            "id": "pele_de_ferro",
+            "nome": "Pele de Ferro",
+            "descricao": "+%s de defesa.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "defesa": 2
+            }
+          },
+          {
+            "id": "vigor_de_aco",
+            "nome": "Vigor de Aco",
+            "descricao": "+%s de vida maxima.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "vida_max": 8
+            }
+          },
+          {
+            "id": "guardiao",
+            "nome": "Guardiao",
+            "descricao": "+%s de defesa e +%s de vida maxima.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "defesa": 1,
+              "vida_max": 5
+            }
+          },
+          {
+            "id": "fortaleza_viva",
+            "nome": "Fortaleza Viva",
+            "descricao": "+%s de defesa e +%s de vida maxima.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "defesa": 2,
+              "vida_max": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "campeao",
+        "nome": "Campeao",
+        "cor": "#D9A441",
+        "talentos": [
+          {
+            "id": "passos_de_guerra",
+            "nome": "Passos de Guerra",
+            "descricao": "+%s de velocidade de movimento.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "move_speed_pct": 0.01
+            }
+          },
+          {
+            "id": "reflexos_de_combate",
+            "nome": "Reflexos de Combate",
+            "descricao": "-%s na recarga da esquiva.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "esquiva_recarga_pct": 0.02
+            }
+          },
+          {
+            "id": "disciplina_marcial",
+            "nome": "Disciplina Marcial",
+            "descricao": "+%s de ataque e +%s de defesa.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "ataque": 1,
+              "defesa": 1
+            }
+          },
+          {
+            "id": "lenda_da_arena",
+            "nome": "Lenda da Arena",
+            "descricao": "+%s de vida maxima e +%s de dano fisico.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "vida_max": 10,
+              "physical_damage_pct": 0.01
+            }
+          }
+        ]
+      }
+    ],
+    "Mago": [
+      {
+        "id": "piromancia",
+        "nome": "Piromancia",
+        "cor": "#E45B35",
+        "talentos": [
+          {
+            "id": "chama_interior",
+            "nome": "Chama Interior",
+            "descricao": "+%s de ataque magico.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "ataque_magico": 2
+            }
+          },
+          {
+            "id": "fogo_concentrado",
+            "nome": "Fogo Concentrado",
+            "descricao": "+%s de ataque magico e +%s de mana maxima.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "ataque_magico": 1,
+              "mana_max": 5
+            }
+          },
+          {
+            "id": "combustao_arcana",
+            "nome": "Combustao Arcana",
+            "descricao": "+%s de ataque magico.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "ataque_magico": 2
+            }
+          },
+          {
+            "id": "inferno_vivo",
+            "nome": "Inferno Vivo",
+            "descricao": "+%s de ataque magico e +%s de mana maxima.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "ataque_magico": 2,
+              "mana_max": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "arcano",
+        "nome": "Arcano",
+        "cor": "#8E5BD9",
+        "talentos": [
+          {
+            "id": "reservatorio_arcano",
+            "nome": "Reservatorio Arcano",
+            "descricao": "+%s de mana maxima.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "mana_max": 10
+            }
+          },
+          {
+            "id": "fluxo_de_mana",
+            "nome": "Fluxo de Mana",
+            "descricao": "+%s de regeneracao de mana.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "mana_regen_pct": 0.02
+            }
+          },
+          {
+            "id": "mente_arcana",
+            "nome": "Mente Arcana",
+            "descricao": "+%s de mana maxima e +%s de ataque magico.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "mana_max": 8,
+              "ataque_magico": 1
+            }
+          },
+          {
+            "id": "mestre_do_arcano",
+            "nome": "Mestre do Arcano",
+            "descricao": "+%s de ataque magico e +%s de regeneracao de mana.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "ataque_magico": 2,
+              "mana_regen_pct": 0.02
+            }
+          }
+        ]
+      },
+      {
+        "id": "sobrevivencia_magica",
+        "nome": "Sobrevivencia Magica",
+        "cor": "#42B9C7",
+        "talentos": [
+          {
+            "id": "barreira_mistica",
+            "nome": "Barreira Mistica",
+            "descricao": "+%s de defesa.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "defesa": 1
+            }
+          },
+          {
+            "id": "vitalidade_mistica",
+            "nome": "Vitalidade Mistica",
+            "descricao": "+%s de vida maxima.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "vida_max": 6
+            }
+          },
+          {
+            "id": "passo_etereo",
+            "nome": "Passo Etereo",
+            "descricao": "-%s na recarga da esquiva.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "esquiva_recarga_pct": 0.025
+            }
+          },
+          {
+            "id": "guardiao_astral",
+            "nome": "Guardiao Astral",
+            "descricao": "+%s de defesa e +%s de vida maxima.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "defesa": 2,
+              "vida_max": 8
+            }
+          }
+        ]
+      }
+    ],
+    "Arqueiro": [
+      {
+        "id": "precisao",
+        "nome": "Precisao",
+        "cor": "#58A96B",
+        "talentos": [
+          {
+            "id": "mira_firme",
+            "nome": "Mira Firme",
+            "descricao": "+%s de ataque a distancia.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "ataque_distancia": 2
+            }
+          },
+          {
+            "id": "flecha_penetrante",
+            "nome": "Flecha Penetrante",
+            "descricao": "+%s de dano fisico.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "physical_damage_pct": 0.01
+            }
+          },
+          {
+            "id": "olhos_de_aguia",
+            "nome": "Olhos de Aguia",
+            "descricao": "+%s de ataque a distancia.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "ataque_distancia": 2
+            }
+          },
+          {
+            "id": "tiro_perfeito",
+            "nome": "Tiro Perfeito",
+            "descricao": "+%s de ataque a distancia e +%s de dano fisico.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "ataque_distancia": 2,
+              "physical_damage_pct": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "rajada",
+        "nome": "Rajada",
+        "cor": "#D6A13D",
+        "talentos": [
+          {
+            "id": "maos_rapidas",
+            "nome": "Maos Rapidas",
+            "descricao": "+%s de velocidade de ataque.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "attack_speed_pct": 0.01
+            }
+          },
+          {
+            "id": "ritmo_do_cacador",
+            "nome": "Ritmo do Cacador",
+            "descricao": "+%s de velocidade de ataque.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "attack_speed_pct": 0.01
+            }
+          },
+          {
+            "id": "flechas_velozes",
+            "nome": "Flechas Velozes",
+            "descricao": "+%s de velocidade de ataque e +%s de ataque a distancia.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "attack_speed_pct": 0.01,
+              "ataque_distancia": 1
+            }
+          },
+          {
+            "id": "tempestade_de_flechas",
+            "nome": "Tempestade de Flechas",
+            "descricao": "+%s de velocidade de ataque e +%s de dano fisico.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "attack_speed_pct": 0.01,
+              "physical_damage_pct": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "explorador",
+        "nome": "Explorador",
+        "cor": "#3C9C9C",
+        "talentos": [
+          {
+            "id": "passos_silenciosos",
+            "nome": "Passos Silenciosos",
+            "descricao": "+%s de velocidade de movimento.",
+            "max": 5,
+            "requer_pontos_no_ramo": 0,
+            "bonus_por_nivel": {
+              "move_speed_pct": 0.01
+            }
+          },
+          {
+            "id": "instinto_de_fuga",
+            "nome": "Instinto de Fuga",
+            "descricao": "-%s na recarga da esquiva.",
+            "max": 5,
+            "requer_pontos_no_ramo": 3,
+            "bonus_por_nivel": {
+              "esquiva_recarga_pct": 0.02
+            }
+          },
+          {
+            "id": "resistencia_da_mata",
+            "nome": "Resistencia da Mata",
+            "descricao": "+%s de vida maxima e +%s de defesa.",
+            "max": 4,
+            "requer_pontos_no_ramo": 6,
+            "bonus_por_nivel": {
+              "vida_max": 6,
+              "defesa": 1
+            }
+          },
+          {
+            "id": "lenda_da_floresta",
+            "nome": "Lenda da Floresta",
+            "descricao": "+%s de ataque a distancia e +%s de movimento.",
+            "max": 3,
+            "requer_pontos_no_ramo": 10,
+            "bonus_por_nivel": {
+              "ataque_distancia": 2,
+              "move_speed_pct": 0.01
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "talentos_resetar_ouro_por_ponto": 25
 }
