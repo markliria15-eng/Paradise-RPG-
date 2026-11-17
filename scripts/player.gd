@@ -51,6 +51,9 @@ var shield_points := 0
 var poison_timer := 0.0
 # Atordoamento (ex.: investida do Rei Javali): sem mover, atacar ou usar skills.
 var stun_timer := 0.0
+# Lentidao (golpes de chefe: poca de gelo/cristal, pedras): reduz a velocidade por alguns segundos
+var slow_timer := 0.0
+var slow_pct := 0.0
 var stun_fx: Node2D
 var skills: Dictionary = {}
 var in_safe_zone := false
@@ -143,6 +146,11 @@ func _physics_process(delta: float) -> void:
 			_clear_stun()
 	_update_directional_sprite(input, delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
+	if slow_timer > 0.0:
+		slow_timer -= delta
+		velocity *= 1.0 - slow_pct
+		if sprite != null:
+			sprite.self_modulate = Color(0.7, 0.85, 1.0) if slow_timer > 0.0 else Color.WHITE
 	move_and_slide()
 	# profundidade pela linha dos pes (~20 px abaixo do centro), como os props (base) e os pets;
 	# assim heroi e montaria nao ficam desenhados atras da fonte com os pes na frente dela
@@ -186,6 +194,10 @@ func _input(event: InputEvent) -> void:
 
 func is_stunned() -> bool:
 	return stun_timer > 0.0
+
+func apply_slow(pct: float, seconds: float) -> void:
+	slow_pct = clampf(pct, 0.0, 0.8)
+	slow_timer = maxf(slow_timer, seconds)
 
 func apply_stun(seconds: float) -> void:
 	stun_timer = maxf(stun_timer, seconds)

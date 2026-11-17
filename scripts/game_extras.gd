@@ -743,15 +743,12 @@ func _update_quest_marks(delta: float) -> void:
 			continue
 		var text := ""
 		var color := Color("#ffd23f")
-		var quest_id: String = str(npc.quest_id)
-		if str(npc.role) == "quest" and not quest_id.is_empty() and qs.quests.has(quest_id):
-			if qs.completed.has(quest_id):
-				text = ""
-			elif not qs.active.has(quest_id):
+		match str(main._npc_quest_state(str(npc.npc_name))):
+			"available":
 				text = "!"
-			elif qs.is_ready(quest_id):
+			"ready":
 				text = "?"
-			else:
+			"progress":
 				text = "?"
 				color = Color("#b8b8b8")
 		if text.is_empty() and qs.has_method("pending_talk_quest") and not qs.pending_talk_quest(str(npc.npc_name)).is_empty():

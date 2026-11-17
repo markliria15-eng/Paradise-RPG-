@@ -216,6 +216,11 @@ func _testar_dados() -> void:
 		for spawn in m.get("spawns", []):
 			if not enemies.has(str(spawn.get("enemy", ""))):
 				problemas.append("%s cria inimigo inexistente %s" % [map_id, spawn.get("enemy")])
+	# NPCs de Eldoria ficam em constantes do main (main_estado.gd), nao no maps.json
+	var consts: Dictionary = load("res://scripts/main_partes/main_estado.gd").get_script_constant_map()
+	var nomes: Dictionary = consts.get("ELDORIA_FUTURE_NPC_LOCATIONS", {})
+	for npc_id in consts.get("ELDORIA_ACTIVE_NPCS", {}):
+		npc_names[str(nomes.get(npc_id, {}).get("name", npc_id))] = "city_eldoria"
 	_checar(problemas.is_empty(), "NPCs, portais e inimigos dos 5 mapas existem" + _resumo(problemas))
 
 	problemas = []

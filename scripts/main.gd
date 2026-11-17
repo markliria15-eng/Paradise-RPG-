@@ -1374,6 +1374,7 @@ func _spawn_enemy_from_spawn(spawn: Dictionary, spawn_index: int = 0, spawn_tota
 	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
 	enemy.safe_zone_checker = Callable(self, "_is_point_in_safe_zone")
 	enemy.obstacle_checker = Callable(self, "_is_point_blocked")
+	enemy.summon_callback = Callable(self, "_spawn_boss_minion")
 	enemy.global_position = _random_enemy_spawn_position(spawn, spawn_index, spawn_total, occupied_spawn_positions)
 	enemy.z_index = clampi(int(enemy.global_position.y), -1024, 1024)
 	occupied_spawn_positions.append(enemy.global_position)
@@ -1382,6 +1383,22 @@ func _spawn_enemy_from_spawn(spawn: Dictionary, spawn_index: int = 0, spawn_tota
 	if bool(spawn.get("boss", false)):
 		enemy.add_to_group("bosses")
 	enemy.killed.connect(_enemy_killed)
+
+# Lacaio chamado por golpe de chefe ("invocar"): nao renasce (sem spawn_data) e da XP/drop normal.
+func _spawn_boss_minion(enemy_name: String, pos: Vector2) -> Variant:
+	if not enemies_db.has(enemy_name) or _is_point_blocked(pos) or _is_point_in_safe_zone(pos):
+		return null
+	var enemy: Enemy = ENEMY_SCENE.instantiate()
+	world.add_child(enemy)
+	enemy.add_to_group("enemies")
+	enemy.setup(enemy_name, enemies_db.get(enemy_name, {}), player)
+	enemy.safe_zone_checker = Callable(self, "_is_point_in_safe_zone")
+	enemy.obstacle_checker = Callable(self, "_is_point_blocked")
+	enemy.global_position = pos
+	enemy.z_index = clampi(int(pos.y), -1024, 1024)
+	enemy.set_meta("spawn_map", current_map)
+	enemy.killed.connect(_enemy_killed)
+	return enemy
 
 func _spawn_position_is_clear(pos: Vector2, occupied_positions: Array[Vector2], min_distance: float) -> bool:
 	for other_pos in occupied_positions:
@@ -1499,6 +1516,8 @@ func _interact() -> void:
 		if game_extras != null:
 			game_extras.on_npc(selected_npc)
 		_deliver_quest_talk(selected_npc)
+		if _offer_npc_quests(selected_npc):
+			return
 		match selected_npc.role:
 			"healer":
 				_use_healer()
@@ -1589,6 +1608,63 @@ func _deliver_quest_talk(npc: Npc) -> void:
 		var giver := str(quest.get("npc", "")).get_slice(",", 0)
 		_flash("Recado entregue a %s! Volte para %s." % [npc.npc_name.get_slice(",", 0), giver])
 		_spawn_floating_text(npc.global_position + Vector2(0, -90), "RECADO ENTREGUE", Color("#ffd36b"))
+
+# ---- missoes por NPC (qualquer NPC pode dar missoes: campo "npc" do quests.json) ----
+# "requires" no quests.json = missao anterior da cadeia (A Jornada).
+func _npc_quest_ids(npc_name: String) -> Array:
+	var ids: Array = []
+	if quest_system == null:
+		return ids
+	for quest_id in quest_system.quests:
+		if str(quest_system.quests[quest_id].get("npc", "")) == npc_name:
+			ids.append(quest_id)
+	return ids
+
+func _quest_available(quest_id: String) -> bool:
+	if quest_system.active.has(quest_id) or quest_system.completed.has(quest_id):
+		return false
+	var req := str(quest_system.quests.get(quest_id, {}).get("requires", ""))
+	return req.is_empty() or quest_system.completed.has(req)
+
+# "ready" (pode entregar), "available" (missao nova), "progress" (em andamento) ou ""
+func _npc_quest_state(npc_name: String) -> String:
+	var state := ""
+	for quest_id in _npc_quest_ids(npc_name):
+		if quest_system.active.has(quest_id) and quest_system.is_ready(quest_id):
+			return "ready"
+		if _quest_available(quest_id):
+			state = "available"
+		elif quest_system.active.has(quest_id) and state.is_empty():
+			state = "progress"
+	return state
+
+var npc_quest_offer_toggle: Dictionary = {}
+
+# Entrega missao pronta ou oferece missao nova. NPC com outra funcao (loja, cura, porto...)
+# alterna: uma conversa mostra a missao, a seguinte abre a funcao normal dele.
+func _offer_npc_quests(npc: Npc) -> bool:
+	var ids := _npc_quest_ids(npc.npc_name)
+	if ids.is_empty():
+		return false
+	for quest_id in ids:
+		if quest_system.active.has(quest_id) and quest_system.is_ready(quest_id):
+			_handle_quest_npc(quest_id)
+			return true
+	var quest_only := npc.role == "quest" or npc.role == "talk"
+	if not quest_only and bool(npc_quest_offer_toggle.get(npc.npc_name, false)):
+		npc_quest_offer_toggle[npc.npc_name] = false  # mostrou missao na ultima conversa: agora a funcao normal
+		return false
+	for quest_id in ids:
+		if _quest_available(quest_id):
+			npc_quest_offer_toggle[npc.npc_name] = true
+			_handle_quest_npc(quest_id)
+			return true
+	if quest_only:
+		for quest_id in ids:
+			if quest_system.active.has(quest_id):
+				_handle_quest_npc(quest_id)
+				return true
+	return false
 
 func _handle_quest_npc(quest_id: String) -> void:
 	if selected_npc != null:

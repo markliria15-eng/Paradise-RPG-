@@ -674,7 +674,11 @@ func _show_quest_dialog(quest_id: String, intro: String, can_accept: bool) -> vo
 	var quest: Dictionary = quest_system.quests.get(quest_id, {})
 	var title := str(quest.get("title", "Missao"))
 	var box := _start_modal(title, "quest_dialog")
-	box.add_child(_panel_label(intro, 15, Color("#fff3cf")))
+	# textos de missao podem ser longos (intro do quests.json): quebra a linha em vez de esticar o painel
+	var intro_label := _panel_label(intro, 15, Color("#fff3cf"))
+	intro_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	intro_label.custom_minimum_size = Vector2(600, 0)
+	box.add_child(intro_label)
 	box.add_child(_panel_label(quest_system.quest_text(quest_id), 14, Color("#d7e3f1")))
 	var actions := HBoxContainer.new()
 	box.add_child(actions)
@@ -684,6 +688,7 @@ func _show_quest_dialog(quest_id: String, intro: String, can_accept: bool) -> vo
 		_style_panel_button(accept)
 		accept.pressed.connect(func() -> void:
 			quest_system.accept(quest_id)
+			quest_system.register_visit(current_map)  # "visite X" ja conta se a missao foi pega em X
 			_flash("Missao aceita: " + title)
 			_show_quests()
 		)

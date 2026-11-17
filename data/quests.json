@@ -45,7 +45,8 @@
       "items": [
         "Pocao pequena de vida"
       ]
-    }
+    },
+    "requires": "jornada_1_primeiros_passos"
   },
   "valdoria_barco_danificado": {
     "title": "O Barco Danificado",
@@ -140,5 +141,371 @@
     },
     "intro": "Estou estudando antigas rotas magicas para atualizar os mapas de Valdoria. Preciso de materiais arcanos e da ajuda da curandeira para verificar se sao seguros.",
     "done": "Incrivel! Meus mapas estao completos!"
+  },
+  "jornada_1_primeiros_passos": {
+    "title": "A Jornada - Primeiros Passos",
+    "npc": "Marcos o mestre",
+    "map": "city_eldoria",
+    "intro": "Bem-vindo a Eldoria, aventureiro! Antes de partir pelo mundo, preciso que conheca a floresta e aprenda a coletar recursos para sua jornada.",
+    "done": "Muito bem! Voce ja conhece o caminho para fora da cidade e sabe coletar recursos.",
+    "objectives": [
+      {
+        "type": "visit",
+        "target": "forest_boars",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Erva Curativa",
+        "amount": 2
+      },
+      {
+        "type": "talk",
+        "target": "Marcos o mestre",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 80,
+      "ouro": 40,
+      "items": [
+        "Pocao pequena de vida",
+        "Pocao pequena de mana"
+      ]
+    }
+  },
+  "jornada_2_rastros_na_floresta": {
+    "title": "A Jornada - Rastros na Floresta",
+    "npc": "Guarda Doran",
+    "map": "forest_boars",
+    "requires": "jornada_1_primeiros_passos",
+    "intro": "Tenho encontrado rastros estranhos perto da entrada da floresta. Investigue os lobos e descubra o que esta atraindo essas criaturas para perto da cidade.",
+    "done": "Excelente trabalho! Os rastros indicam que algo muito mais perigoso esta dominando a floresta.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Lobo Cinzento",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Presa de Lobo",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Guarda Doran",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 220,
+      "ouro": 110,
+      "items": [
+        "Pocao pequena de vida",
+        "Esmeralda da Agilidade"
+      ]
+    }
+  },
+  "jornada_3_a_fenda_subterranea": {
+    "title": "A Jornada - A Fenda Subterranea",
+    "npc": "Mineiro Perdido",
+    "map": "bat_cave",
+    "requires": "jornada_2_rastros_na_floresta",
+    "intro": "Encontrei uma passagem para uma caverna profunda, mas as criaturas de la impediram minha exploracao. Preciso que investigue o lugar e encontre minerais que possam revelar o que esta acontecendo.",
+    "done": "Voce conseguiu explorar a caverna! Ha sinais de uma criatura muito poderosa nas profundezas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Morcego Sombrio",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Minerio de Ferro",
+        "amount": 5
+      },
+      {
+        "type": "visit",
+        "target": "bat_cave",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 650,
+      "ouro": 280,
+      "items": [
+        "Pocao media de vida",
+        "Pocao pequena de mana"
+      ]
+    }
+  },
+  "jornada_4_a_matriz_da_caverna": {
+    "title": "A Jornada - A Matriz da Caverna",
+    "npc": "Mineiro Perdido",
+    "map": "bat_cave",
+    "requires": "jornada_3_a_fenda_subterranea",
+    "intro": "Os mineiros acreditam que uma criatura gigantesca controla todas as aranhas da caverna. A Matriarca Venenosa precisa ser derrotada antes que seu veneno alcance a superficie.",
+    "done": "A Matriarca caiu! A caverna esta mais segura, mas encontramos sinais de magia corrompida em seus arredores.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Aranha Rainha",
+        "amount": 5
+      },
+      {
+        "type": "kill",
+        "target": "Matriarca Venenosa",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Presa Venenosa",
+        "amount": 4
+      }
+    ],
+    "rewards": {
+      "xp": 1100,
+      "ouro": 520,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Safira da Mana"
+      ]
+    }
+  },
+  "jornada_5_segredos_das_ruinas": {
+    "title": "A Jornada - Segredos das Ruinas",
+    "npc": "Maga Selene",
+    "map": "arcane_ruins",
+    "requires": "jornada_4_a_matriz_da_caverna",
+    "intro": "A magia encontrada na caverna possui a mesma assinatura das Ruinas Arcanas. Viaje ate la e investigue os espiritos e aprendizes que protegem os antigos saloes.",
+    "done": "Essas essencias confirmam minhas suspeitas. Alguem esta usando magia proibida para controlar as ruinas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Aprendiz Corrompido",
+        "amount": 7
+      },
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 6
+      },
+      {
+        "type": "visit",
+        "target": "arcane_ruins",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 1600,
+      "ouro": 750,
+      "items": [
+        "Pocao media de vida",
+        "Safira da Mana",
+        "Fragmento de Rubi"
+      ]
+    }
+  },
+  "jornada_6_o_guardiao_arcano": {
+    "title": "A Jornada - O Guardiao Arcano",
+    "npc": "Maga Selene",
+    "map": "arcane_ruins",
+    "requires": "jornada_5_segredos_das_ruinas",
+    "intro": "O Arquimago Corrompido esta por tras da energia que contaminou as ruinas. Derrote seus guardioes e enfrente o responsavel por essa corrupcao.",
+    "done": "O Arquimago foi derrotado! A energia das ruinas esta enfraquecendo e uma antiga passagem comecou a despertar.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Sentinela Arcano",
+        "amount": 5
+      },
+      {
+        "type": "kill",
+        "target": "Arquimago Corrompido",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Po Mistico",
+        "amount": 5
+      }
+    ],
+    "rewards": {
+      "xp": 2400,
+      "ouro": 1100,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Pedra Runica"
+      ]
+    }
+  },
+  "jornada_7_o_caminho_do_destino": {
+    "title": "A Jornada - O Caminho do Destino",
+    "npc": "Capitao Maren, Mestre do Porto",
+    "map": "city_valdoria",
+    "requires": "jornada_6_o_guardiao_arcano",
+    "intro": "As noticias sobre a queda do Arquimago chegaram ate Valdoria. Alem do oceano existem terras perigosas que precisam de um aventureiro capaz de enfrentar ameacas muito maiores.",
+    "done": "Voce esta preparado para seguir adiante! O caminho para as terras distantes finalmente esta aberto.",
+    "objectives": [
+      {
+        "type": "visit",
+        "target": "city_valdoria",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Cristal",
+        "amount": 8
+      },
+      {
+        "type": "talk",
+        "target": "Capitao Maren, Mestre do Porto",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 3000,
+      "ouro": 1500,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Lingote de Ouro"
+      ]
+    }
+  },
+  "jornada_8_o_fim_da_jornada": {
+    "title": "A Jornada - O Fim da Jornada",
+    "npc": "Capitao Maren, Mestre do Porto",
+    "map": "city_valdoria",
+    "requires": "jornada_7_o_caminho_do_destino",
+    "intro": "Voce percorreu um longo caminho e superou inimigos que pareciam invenciveis. Agora sua jornada entra para a historia: prepare-se para enfrentar as maiores ameacas do mundo.",
+    "done": "Voce chegou ao fim desta jornada e provou ser um verdadeiro heroi! Seu nome sera lembrado por todas as terras conhecidas.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 10
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Cristal",
+        "amount": 10
+      },
+      {
+        "type": "talk",
+        "target": "Capitao Maren, Mestre do Porto",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 4500,
+      "ouro": 2500,
+      "items": [
+        "Rubi da Forca",
+        "Safira da Mana",
+        "Esmeralda da Agilidade",
+        "Pedra Runica"
+      ]
+    }
+  },
+  "paralela_1_ervas_de_eldoria": {
+    "title": "Ervas para a Curandeira",
+    "npc": "Sarah, Curandeira",
+    "map": "city_eldoria",
+    "intro": "Meus estoques de ervas estao acabando e preciso preparar remedios para os moradores. Traga algumas plantas medicinais da floresta para ajudar nossa cidade.",
+    "done": "Essas ervas serao muito uteis para preparar novos remedios. Agradeco sua ajuda!",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Erva Curativa",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Flor Medicinal",
+        "amount": 5
+      },
+      {
+        "type": "talk",
+        "target": "Sarah, Curandeira",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 180,
+      "ouro": 90,
+      "items": [
+        "Pocao pequena de vida",
+        "Pocao pequena de mana"
+      ]
+    }
+  },
+  "paralela_2_materiais_do_ferreiro": {
+    "title": "Materiais para uma Nova Forja",
+    "npc": "Manoel ferrugem o ferreiro",
+    "map": "city_eldoria",
+    "intro": "Minha forja precisa de novos materiais para produzir equipamentos melhores. Traga minerio de ferro e madeira resistente para que eu possa trabalhar.",
+    "done": "Excelente material! Agora posso preparar equipamentos muito melhores para os aventureiros.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Minerio de Ferro",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Madeira Bruta",
+        "amount": 6
+      },
+      {
+        "type": "talk",
+        "target": "Manoel ferrugem o ferreiro",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 350,
+      "ouro": 180,
+      "items": [
+        "Lingote de Ouro",
+        "Fragmento de Rubi"
+      ]
+    }
+  },
+  "paralela_3_mercadorias_raras": {
+    "title": "Mercadorias Raras",
+    "npc": "Varek, Mercador",
+    "map": "city_valdoria",
+    "intro": "Estou procurando mercadorias raras para abastecer minha loja em Valdoria. Preciso de essencias arcanas e fragmentos de cristal para meus clientes mais exigentes.",
+    "done": "Negocio fechado! Essas mercadorias valem uma fortuna. Aqui esta sua recompensa.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Cristal",
+        "amount": 5
+      },
+      {
+        "type": "talk",
+        "target": "Varek, Mercador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 1800,
+      "ouro": 950,
+      "items": [
+        "Pocao media de vida",
+        "Safira da Mana",
+        "Lingote de Ouro"
+      ]
+    }
   }
 }

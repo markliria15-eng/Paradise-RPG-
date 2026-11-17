@@ -509,5 +509,257 @@
         "volume": 0.25
       }
     ]
+  },
+  "chefes": {
+    "Rei Javali": {
+      "tema": "Forca bruta e dominio territorial da floresta.",
+      "ataques": [
+        {
+          "tipo": "investida",
+          "nome": "Investida Selvagem",
+          "recarga_s": 8,
+          "aviso_s": 1.5,
+          "dano_mult": 0.85,
+          "alcance_min": 100,
+          "alcance_max": 650,
+          "velocidade": 390,
+          "atordoa_s": 0.8
+        },
+        {
+          "tipo": "nova",
+          "nome": "Pisao Brutal",
+          "recarga_s": 13,
+          "aviso_s": 1.2,
+          "dano_mult": 0.65,
+          "raio": 145,
+          "efeito": "lento",
+          "efeito_s": 2
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.7,
+        "extra": "Investidas mais rapidas e Pisao Brutal com raio aumentado em 25%."
+      }
+    },
+    "Matriarca Venenosa": {
+      "tema": "Uma predadora que controla o terreno com veneno, teias e aranhas.",
+      "ataques": [
+        {
+          "tipo": "pocas",
+          "nome": "Chuva Venenosa",
+          "recarga_s": 11,
+          "aviso_s": 1.6,
+          "dano_mult": 0.65,
+          "quantidade": 5,
+          "raio": 55,
+          "espalhamento": 240,
+          "dura_s": 4,
+          "efeito": "veneno",
+          "efeito_s": 4
+        },
+        {
+          "tipo": "projeteis",
+          "nome": "Rajada de Presas",
+          "recarga_s": 8,
+          "aviso_s": 1.1,
+          "dano_mult": 0.55,
+          "quantidade": 7,
+          "padrao": "leque",
+          "abertura_graus": 75,
+          "velocidade": 270,
+          "raio": 12,
+          "efeito": "veneno",
+          "efeito_s": 3
+        },
+        {
+          "tipo": "invocar",
+          "nome": "Ninhada Mortal",
+          "recarga_s": 19,
+          "aviso_s": 1.4,
+          "dano_mult": 0.35,
+          "inimigo": "Aranha Venenosa",
+          "quantidade": 3,
+          "max_vivos": 4
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.7,
+        "extra": "Chuva Venenosa cria 7 poças e Ninhada Mortal pode invocar 4 aranhas. Veneno tem maior duracao."
+      }
+    },
+    "Arquimago Corrompido": {
+      "tema": "Magia proibida, projeteis arcanos e invocacoes espirituais.",
+      "ataques": [
+        {
+          "tipo": "projeteis",
+          "nome": "Orbes do Caos",
+          "recarga_s": 9,
+          "aviso_s": 1.3,
+          "dano_mult": 0.7,
+          "quantidade": 8,
+          "padrao": "anel",
+          "abertura_graus": 360,
+          "velocidade": 240,
+          "raio": 14,
+          "efeito": "nenhum",
+          "efeito_s": 0
+        },
+        {
+          "tipo": "teleporte",
+          "nome": "Ruptura Dimensional",
+          "recarga_s": 12,
+          "aviso_s": 1.5,
+          "dano_mult": 0.75,
+          "distancia_do_jogador": 190,
+          "raio_explosao": 105
+        },
+        {
+          "tipo": "invocar",
+          "nome": "Legiao Corrompida",
+          "recarga_s": 20,
+          "aviso_s": 1.6,
+          "dano_mult": 0.35,
+          "inimigo": "Espirito Fraco",
+          "quantidade": 3,
+          "max_vivos": 4
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.65,
+        "extra": "Orbes do Caos disparam mais rapidamente e o teleporte deixa uma explosao secundaria menor."
+      }
+    },
+    "Senhor das Colinas": {
+      "tema": "Um gigante brutal que esmaga o chao e arremessa pedras.",
+      "ataques": [
+        {
+          "tipo": "nova",
+          "nome": "Esmagamento Colossal",
+          "recarga_s": 10,
+          "aviso_s": 1.8,
+          "dano_mult": 0.85,
+          "raio": 175,
+          "efeito": "atordoa",
+          "efeito_s": 0.8
+        },
+        {
+          "tipo": "projeteis",
+          "nome": "Pedras Arremessadas",
+          "recarga_s": 8,
+          "aviso_s": 1.2,
+          "dano_mult": 0.65,
+          "quantidade": 3,
+          "padrao": "leque",
+          "abertura_graus": 45,
+          "velocidade": 220,
+          "raio": 24,
+          "efeito": "lento",
+          "efeito_s": 2
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.7,
+        "extra": "Esmagamento Colossal ganha 30% de raio e as pedras passam a ser 5."
+      }
+    },
+    "Tita de Cristal": {
+      "tema": "Um golem magico que controla cristais e energia arcana.",
+      "ataques": [
+        {
+          "tipo": "pocas",
+          "nome": "Espinhos Cristalinos",
+          "recarga_s": 10,
+          "aviso_s": 1.7,
+          "dano_mult": 0.75,
+          "quantidade": 6,
+          "raio": 48,
+          "espalhamento": 260,
+          "dura_s": 3,
+          "efeito": "lento",
+          "efeito_s": 2
+        },
+        {
+          "tipo": "projeteis",
+          "nome": "Fragmentacao Arcana",
+          "recarga_s": 9,
+          "aviso_s": 1.2,
+          "dano_mult": 0.65,
+          "quantidade": 9,
+          "padrao": "mirado",
+          "abertura_graus": 35,
+          "velocidade": 290,
+          "raio": 13,
+          "efeito": "nenhum",
+          "efeito_s": 0
+        },
+        {
+          "tipo": "nova",
+          "nome": "Pulso Cristalino",
+          "recarga_s": 16,
+          "aviso_s": 1.5,
+          "dano_mult": 0.8,
+          "raio": 155,
+          "efeito": "lento",
+          "efeito_s": 3
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.7,
+        "extra": "Espinhos Cristalinos deixam poças por 5 segundos e Pulso Cristalino ganha 25% de raio."
+      }
+    },
+    "General Infernal": {
+      "tema": "Um comandante de fogo que combina investidas e explosoes flamejantes.",
+      "ataques": [
+        {
+          "tipo": "investida",
+          "nome": "Carga Infernal",
+          "recarga_s": 9,
+          "aviso_s": 1.5,
+          "dano_mult": 0.85,
+          "alcance_min": 120,
+          "alcance_max": 700,
+          "velocidade": 370,
+          "atordoa_s": 0.6
+        },
+        {
+          "tipo": "pocas",
+          "nome": "Chao em Chamas",
+          "recarga_s": 12,
+          "aviso_s": 1.7,
+          "dano_mult": 0.7,
+          "quantidade": 5,
+          "raio": 65,
+          "espalhamento": 250,
+          "dura_s": 4,
+          "efeito": "lento",
+          "efeito_s": 2
+        },
+        {
+          "tipo": "projeteis",
+          "nome": "Lancas Flamejantes",
+          "recarga_s": 10,
+          "aviso_s": 1.3,
+          "dano_mult": 0.7,
+          "quantidade": 5,
+          "padrao": "leque",
+          "abertura_graus": 60,
+          "velocidade": 310,
+          "raio": 16,
+          "efeito": "nenhum",
+          "efeito_s": 0
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.65,
+        "extra": "Carga Infernal deixa um rastro de fogo e Chao em Chamas cria 7 areas flamejantes."
+      }
+    }
   }
 }

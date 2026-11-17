@@ -144,6 +144,16 @@ var charge_cooldown := 2.0
 var charge_dir := Vector2.ZERO
 var charge_hit_done := false
 var charge_marker: Polygon2D
+# Parametros da investida (o padrao e o do Rei Javali antigo; boss_skills.gd troca por golpe)
+var charge_speed := CHARGE_SPEED
+var charge_windup := CHARGE_WINDUP
+var charge_duration := CHARGE_DURATION
+var charge_damage_mult := CHARGE_DAMAGE_MULT
+var charge_stun := CHARGE_STUN_SECONDS
+var charge_range_min := CHARGE_RANGE_MIN
+# Golpes proprios de cada chefe (data/game_rules.json -> "chefes") e invocacao de lacaios pelo main
+var boss_skills: BossSkills
+var summon_callback: Callable
 
 func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	collision_layer = 2
@@ -169,6 +179,13 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	speed = float(data.get("speed", 90))
 	poison_chance = float(data.get("poison_chance", 0.0))
 	boss = bool(data.get("boss", false))
+	if boss:
+		var boss_config := BossSkills.config_for(name_value)
+		if not boss_config.is_empty():
+			boss_skills = BossSkills.new()
+			boss_skills.name = "BossSkills"
+			add_child(boss_skills)
+			boss_skills.setup(self, boss_config)
 	_ensure_shadow()
 	var sprite_path := _sprite_path(name_value)
 	sprite.texture = load(sprite_path)
@@ -222,7 +239,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		_update_visual_animation(delta)
 		return
-	if boss and _update_charge(delta):
+	if boss and _update_boss(delta):
 		z_index = clampi(int(global_position.y), -1024, 1024)
 		return
 	var distance := global_position.distance_to(target.global_position)
@@ -288,7 +305,7 @@ func _update_charge(delta: float) -> bool:
 			charge_cooldown -= delta
 			if charge_cooldown > 0.0 or distance > CHARGE_RANGE_MAX:
 				return false
-			if distance < CHARGE_RANGE_MIN:
+			if distance < charge_range_min:
 				# Colado no jogador: recua alguns passos para ganhar distancia.
 				charge_state = "backoff"
 				charge_timer = 0.9
@@ -309,9 +326,9 @@ func _update_charge(delta: float) -> bool:
 				global_position = back_previous
 				charge_timer = 0.0
 			_update_visual_animation(delta)
-			if charge_timer <= 0.0 or distance >= CHARGE_RANGE_MIN + 60.0:
+			if charge_timer <= 0.0 or distance >= charge_range_min + 60.0:
 				charge_state = "windup"
-				charge_timer = CHARGE_WINDUP
+				charge_timer = charge_windup
 				charge_dir = global_position.direction_to(target.global_position)
 				_show_charge_marker()
 				velocity = Vector2.ZERO
@@ -324,13 +341,13 @@ func _update_charge(delta: float) -> bool:
 			sprite.modulate = Color(1.7, 0.55, 0.45, 1.0) if int(charge_timer * 14.0) % 2 == 0 else _rest_modulate()
 			if charge_timer <= 0.0:
 				charge_state = "dash"
-				charge_timer = CHARGE_DURATION
+				charge_timer = charge_duration
 				charge_hit_done = false
 				sprite.modulate = _rest_modulate()
 			return true
 		"dash":
 			charge_timer -= delta
-			velocity = charge_dir * CHARGE_SPEED
+			velocity = charge_dir * charge_speed
 			var previous_position := global_position
 			move_and_slide()
 			if obstacle_checker.is_valid() and bool(obstacle_checker.call(global_position)):
@@ -338,11 +355,11 @@ func _update_charge(delta: float) -> bool:
 				charge_timer = 0.0
 			if not charge_hit_done and global_position.distance_to(target.global_position) <= CHARGE_HIT_RADIUS:
 				charge_hit_done = true
-				var damage := CombatSystem.physical_damage(int(round(ataque * CHARGE_DAMAGE_MULT)), target.defesa)
+				var damage := CombatSystem.physical_damage(int(round(ataque * charge_damage_mult)), target.defesa)
 				_prepare_special_visual()
 				target.receive_damage(damage, poison_chance)
 				if target.has_method("apply_stun"):
-					target.apply_stun(CHARGE_STUN_SECONDS)
+					target.apply_stun(charge_stun)
 				CombatJuice.shake(get_viewport().get_camera_2d(), 9.0, 0.3)
 			_update_visual_animation(delta)
 			if charge_timer <= 0.0:
@@ -363,6 +380,31 @@ func _update_charge(delta: float) -> bool:
 			return true
 	return false
 
+# Chefe com golpes no game_rules.json: o boss_skills escolhe o golpe; a investida usa a maquina abaixo.
+# Chefe sem golpes cadastrados continua so com a investida antiga.
+func _update_boss(delta: float) -> bool:
+	if not charge_state.is_empty() or boss_skills == null or not boss_skills.has_attacks():
+		return _update_charge(delta)
+	return boss_skills.update(delta)
+
+func begin_charge(a: Dictionary) -> void:
+	charge_speed = float(a.get("velocidade", CHARGE_SPEED))
+	charge_windup = maxf(0.6, float(a.get("aviso_s", CHARGE_WINDUP)))
+	charge_damage_mult = float(a.get("dano_mult", CHARGE_DAMAGE_MULT))
+	charge_stun = float(a.get("atordoa_s", CHARGE_STUN_SECONDS))
+	charge_range_min = float(a.get("alcance_min", CHARGE_RANGE_MIN))
+	charge_duration = clampf(float(a.get("alcance_max", 340.0)) / maxf(1.0, charge_speed), 0.5, 1.6)
+	var distance := global_position.distance_to(target.global_position)
+	charge_dir = global_position.direction_to(target.global_position)
+	if distance < charge_range_min:
+		charge_state = "backoff"
+		charge_timer = 0.9
+		return
+	charge_state = "windup"
+	charge_timer = charge_windup
+	_show_charge_marker()
+	velocity = Vector2.ZERO
+
 func _is_enraged() -> bool:
 	return boss and vida_max > 0 and float(vida) / float(vida_max) <= BOSS_ENRAGE_HP_PCT
 
@@ -380,7 +422,7 @@ func _show_charge_marker() -> void:
 	var world := get_parent()
 	if world == null:
 		return
-	var length := CHARGE_SPEED * CHARGE_DURATION + 40.0
+	var length := charge_speed * charge_duration + 40.0
 	var half := CHARGE_HIT_RADIUS * 0.55
 	charge_marker = Polygon2D.new()
 	charge_marker.polygon = PackedVector2Array([Vector2(0, -half), Vector2(length, -half), Vector2(length + 30.0, 0), Vector2(length, half), Vector2(0, half)])
