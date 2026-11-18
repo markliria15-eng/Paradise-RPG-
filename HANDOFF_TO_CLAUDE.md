@@ -47,7 +47,7 @@ RPG 2D top-down em Godot 4 com modo offline jogavel e estrutura MMO parcial. O b
 - `forest_boars`: ativo, 5600x4480, 7x7 chunks, Guarda Doran, seis tipos de mob, coletaveis e portal para Eldoria.
 - `world_reset`: alias/base de compatibilidade da Floresta.
 - `arcane_ruins`, `bat_cave`, `city_valdoria`, `highland_pass`, `crystal_mines`, `ember_fortress`: IDs preservados com bases vazias; nao reimplantar em lote.
-- `pantano`: assets existem, mas nao ha ID ativo em `data/maps.json`.
+- `pantano`: chunks antigos apagados em 2026-11-17; sera refeito como kit (igual Valdoria v2).
 
 ### Dados ativos
 

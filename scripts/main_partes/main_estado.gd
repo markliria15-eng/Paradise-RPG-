@@ -532,3 +532,7 @@ var hud_potions_offset := Vector2.ZERO
 var hud_potions_scale := 1.0
 var hud_zoom_index := 1
 var launcher_boot_started := false
+
+# Chao do mapa carregado por proximidade (main.gd -> _update_map_stream)
+const MAP_STREAM_MARGIN := 420.0
+var map_stream_timer := 0.0

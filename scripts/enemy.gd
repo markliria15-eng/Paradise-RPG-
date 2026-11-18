@@ -200,8 +200,15 @@ func setup(name_value: String, data: Dictionary, player: Player) -> void:
 	label.visible = true
 	_update_health_bar()
 
+# Inimigo longe do heroi (fora da tela, sem nada acontecendo) fica parado sem gastar processamento.
+const SLEEP_DISTANCE := 1200.0
+
 func _physics_process(delta: float) -> void:
 	if target == null:
+		return
+	if not boss and burn_timer <= 0.0 and knockback_velocity == Vector2.ZERO \
+			and global_position.distance_squared_to(target.global_position) > SLEEP_DISTANCE * SLEEP_DISTANCE:
+		velocity = Vector2.ZERO
 		return
 	if debuff_timer > 0:
 		debuff_timer -= delta

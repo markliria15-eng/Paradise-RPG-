@@ -9,6 +9,10 @@ resultado (sempre parte do original do Git).
 - boca: achada em cada quadro pela ponta do focinho (pixel mais a esquerda da cabeca);
 - redea: curva com leve barriga, 2 px de couro com contorno escuro, desenhada por cima do cavalo.
 
+ATENCAO (2026-11-17): depois disto os quadros foram recortados e reduzidos por
+tools/kits/otimizar_texturas_kit.py (offset/scale no kit mudaram). Para redesenhar as redeas, restaure
+os quadros E o valdoria_kit.json do commit 520a77b6, rode este script e depois o otimizador de novo.
+
 uso (raiz do projeto): python tools/valdoria_v2/desenhar_redeas.py
 """
 import io

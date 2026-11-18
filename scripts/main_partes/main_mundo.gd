@@ -327,17 +327,9 @@ func _draw_valdoria_v2() -> bool:
 	for grid_y in range(int(grid_data[1])):
 		for grid_x in range(int(grid_data[0])):
 			var path := "%s/%s_%02d_%02d.png" % [str(data.get("chunks_dir", "")), str(data.get("chunk_prefix", "")), grid_x, grid_y]
-			var chunk_texture := load(path) as Texture2D
-			if chunk_texture == null:
+			if not ResourceLoader.exists(path):
 				continue
-			var chunk := Sprite2D.new()
-			chunk.texture = chunk_texture
-			chunk.centered = false
-			chunk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			chunk.scale = Vector2.ONE * ground_scale
-			chunk.position = Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale
-			chunk.z_index = -100
-			chunks_root.add_child(chunk)
+			chunks_root.add_child(_stream_chunk(path, Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale, ground_scale, Vector2(float(chunk_px_data[0]), float(chunk_px_data[1]))))
 	forest_walk_image = null
 	_spawn_map_kit(data)
 	for rect_data in data.get("solids", []):
@@ -384,7 +376,7 @@ func _spawn_kit_vehicles(vehicle_list: Array) -> void:
 		world.add_child(sprite)
 		var flying := bool(vehicle_data.get("flying", false))
 		var state := {"node": sprite, "route": route, "index": 0, "wait": float(start[2]) if start.size() > 2 else 0.0,
-			"speed": float(vehicle_data.get("speed", 100.0)), "offsets": offsets, "facing": "left", "flying": flying, "anim": ""}
+			"speed": float(vehicle_data.get("speed", 100.0)), "offsets": offsets, "pe_largura": float(vehicle_data.get("pe_largura", 0.0)), "facing": "left", "flying": flying, "anim": ""}
 		kit_vehicles.append(state)
 		_set_kit_vehicle_anim(state, "idle_left" if frames.has_animation("idle_left") else frames.get_animation_names()[0])
 
@@ -412,17 +404,9 @@ func _draw_cave_v2() -> bool:
 	for grid_y in range(int(grid_data[1])):
 		for grid_x in range(int(grid_data[0])):
 			var path := "%s/%s_%02d_%02d.png" % [str(data.get("chunks_dir", "")), str(data.get("chunk_prefix", "")), grid_x, grid_y]
-			var chunk_texture := load(path) as Texture2D
-			if chunk_texture == null:
+			if not ResourceLoader.exists(path):
 				continue
-			var chunk := Sprite2D.new()
-			chunk.texture = chunk_texture
-			chunk.centered = false
-			chunk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			chunk.scale = Vector2.ONE * ground_scale
-			chunk.position = Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale
-			chunk.z_index = -100
-			chunks_root.add_child(chunk)
+			chunks_root.add_child(_stream_chunk(path, Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale, ground_scale, Vector2(float(chunk_px_data[0]), float(chunk_px_data[1]))))
 	forest_walk_image = null
 	_spawn_map_kit(data)
 	for rect_data in data.get("solids", []):
@@ -517,6 +501,21 @@ func _get_eldoria_kit_data() -> Dictionary:
 		eldoria_kit_data = parsed
 	return eldoria_kit_data
 
+# Chao do mapa em pedacos que so carregam perto da camera (main.gd -> _update_map_stream).
+# O pedaco nasce sem textura; quando a camera chega perto, a textura e carregada (em segundo plano)
+# e, quando a camera vai para longe, a textura e solta da memoria.
+func _stream_chunk(path: String, pos: Vector2, ground_scale: float, size_px: Vector2) -> Sprite2D:
+	var chunk := Sprite2D.new()
+	chunk.centered = false
+	chunk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	chunk.scale = Vector2.ONE * ground_scale
+	chunk.position = pos
+	chunk.z_index = -100
+	chunk.set_meta("stream_path", path)
+	chunk.set_meta("stream_rect", Rect2(pos, size_px * ground_scale))
+	chunk.add_to_group("map_stream")
+	return chunk
+
 func _eldoria_v2_chunk_path(data: Dictionary, grid_x: int, grid_y: int) -> String:
 	return "%s/eldoria_v2_chunk_%02d_%02d.png" % [str(data.get("chunks_dir", "")), grid_x, grid_y]
 
@@ -536,17 +535,10 @@ func _draw_eldoria_v2() -> bool:
 	world.add_child(chunks_root)
 	for grid_y in range(int(grid_data[1])):
 		for grid_x in range(int(grid_data[0])):
-			var chunk_texture := load(_eldoria_v2_chunk_path(data, grid_x, grid_y)) as Texture2D
-			if chunk_texture == null:
+			var chunk_path := _eldoria_v2_chunk_path(data, grid_x, grid_y)
+			if not ResourceLoader.exists(chunk_path):
 				continue
-			var chunk := Sprite2D.new()
-			chunk.texture = chunk_texture
-			chunk.centered = false
-			chunk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			chunk.scale = Vector2.ONE * ground_scale
-			chunk.position = Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale
-			chunk.z_index = -100
-			chunks_root.add_child(chunk)
+			chunks_root.add_child(_stream_chunk(chunk_path, Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale, ground_scale, Vector2(float(chunk_px_data[0]), float(chunk_px_data[1]))))
 	for prop in data.get("props", []):
 		if typeof(prop) == TYPE_DICTIONARY:
 			_spawn_kit_prop(prop)
@@ -728,19 +720,12 @@ func _draw_forest_background() -> bool:
 		for grid_y in range(FOREST_CHUNK_GRID.y):
 			for grid_x in range(FOREST_CHUNK_GRID.x):
 				var chunk_path := _forest_chunk_path(grid_x, grid_y)
-				var chunk_texture := load(chunk_path) as Texture2D
-				if chunk_texture == null:
+				if not ResourceLoader.exists(chunk_path):
 					return false
-				var chunk_sprite := Sprite2D.new()
-				chunk_sprite.texture = chunk_texture
-				chunk_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-				chunk_sprite.centered = false
-				chunk_sprite.position = Vector2(
+				var chunk_sprite := _stream_chunk(chunk_path, Vector2(
 					grid_x * FOREST_CHUNK_SIZE.x * FOREST_WORLD_SCALE,
 					grid_y * FOREST_CHUNK_SIZE.y * FOREST_WORLD_SCALE
-				)
-				chunk_sprite.scale = Vector2.ONE * FOREST_GROUND_SCALE
-				chunk_sprite.z_index = -100
+				), FOREST_GROUND_SCALE, FOREST_CHUNK_SIZE * FOREST_WORLD_SCALE / FOREST_GROUND_SCALE)
 				chunk_sprite.name = "ForestChunk_%02d_%02d" % [grid_x, grid_y]
 				chunks_root.add_child(chunk_sprite)
 		return true
@@ -1120,17 +1105,9 @@ func _draw_ruins_v2() -> bool:
 	for grid_y in range(int(grid_data[1])):
 		for grid_x in range(int(grid_data[0])):
 			var path := "%s/%s_%02d_%02d.png" % [str(data.get("chunks_dir", "")), str(data.get("chunk_prefix", "")), grid_x, grid_y]
-			var chunk_texture := load(path) as Texture2D
-			if chunk_texture == null:
+			if not ResourceLoader.exists(path):
 				continue
-			var chunk := Sprite2D.new()
-			chunk.texture = chunk_texture
-			chunk.centered = false
-			chunk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			chunk.scale = Vector2.ONE * ground_scale
-			chunk.position = Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale
-			chunk.z_index = -100
-			chunks_root.add_child(chunk)
+			chunks_root.add_child(_stream_chunk(path, Vector2(grid_x * float(chunk_px_data[0]), grid_y * float(chunk_px_data[1])) * ground_scale, ground_scale, Vector2(float(chunk_px_data[0]), float(chunk_px_data[1]))))
 	forest_walk_image = null
 	_spawn_map_kit(data)
 	for rect_data in data.get("solids", []):
@@ -1627,6 +1604,8 @@ func _kit_vehicle_rect(state: Dictionary, feet: Vector2) -> Rect2:
 			if not names.is_empty() and sprite.sprite_frames.get_frame_count(names[0]) > 0:
 				w = float(sprite.sprite_frames.get_frame_texture(names[0], 0).get_width())
 		w *= absf(sprite.scale.x) if sprite != null else 1.0
+		if float(state.get("pe_largura", 0.0)) > 0.0:
+			w = float(state["pe_largura"])  # largura do quadro antes do recorte (tools/kits/otimizar_texturas_kit.py)
 		# pedestre (quadro ~118 px) vira ~30 px de pe; carroca larga ocupa bem mais
 		state["foot_rx"] = clampf(w * 0.14, 14.0, 130.0) if w < 200.0 else clampf(w * 0.32, 40.0, 150.0)
 		state["foot_ry"] = 12.0 if w < 200.0 else 26.0

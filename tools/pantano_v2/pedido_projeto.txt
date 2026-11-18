@@ -1,0 +1,27 @@
+Você é o designer de níveis do meu RPG 2D top-down em pixel art (Godot), "Paradise RPG". Preciso do PROJETO do novo mapa PÂNTANO, que eu (Claude) vou montar em código igual montei a cidade de Valdoria. Responda SÓ com um JSON válido dentro de um bloco de código.
+
+CONTEXTO DO JOGO
+- Ordem atual dos mapas: Eldoria (cidade inicial) -> Floresta dos Javalis (lobos, javalis, chefe Rei Javali) -> Caverna dos Morcegos (morcegos, aranhas, chefe Matriarca Venenosa) -> Ruínas Arcanas (aprendiz, espectro, sentinela, chefe Arquimago Corrompido) -> Valdoria (cidade-porto). O pântano é um mapa NOVO de caça depois de Valdoria, nível de monstros ~38-46.
+- Formato do mapa: mundo de 6400 x 5760 px, chão em 16 x 18 pedaços de 400x320 px desenhados em escala 2 (cada pedaço cobre 800x640 no mundo). Por cima do chão vão OBJETOS separados (árvores, pedras, cabanas, pontes...), cada um uma imagem própria, ordenados pela linha do pé.
+- Tamanho: o herói tem 104 px de altura na tela. Pessoa = 1,0; animal normal 0,45-0,75; mutante >= 1,0; chefe >= 1,8 no maior lado. Porta de casa 1,2-1,6 do herói.
+- REGRA DE COLISÃO (obrigatória para cada objeto), campo "porte":
+  * "baixo": pedrinha, raiz, mato rasteiro, lírio d'água -> sem colisão, o herói passa por cima.
+  * "joelho": pedra média, tronco caído baixo, degrau -> o herói sobe (não bloqueia).
+  * "cintura": pedra grande, árvore, cabana, totem -> sólido. Quem vem de frente esbarra o pé no pé do objeto e fica desenhado por cima; pela lateral, quando o pé do herói passa de 1/3 da profundidade do objeto, ele consegue ir para trás e fica desenhado atrás.
+  Para cada objeto dê também "pe_px": [largura, profundidade] da faixa do pé no chão, em px do mundo.
+- Água funda do pântano bloqueia (só passa por ponte/passarela); lama rasa deixa mais lento.
+
+O QUE O JSON DEVE TER
+{
+ "id": "swamp_...", "nome": "...", "nivel": [min,max], "clima_visual": "...",
+ "zonas": [ {"nome","retangulo_px":[x,y,w,h],"terreno","descricao","inimigos":[...]} ],   (6 a 9 zonas cobrindo o mapa)
+ "terrenos": [ {"id","descricao","andavel":true/false,"lento":true/false} ],
+ "caminhos": [ {"nome","pontos_px":[[x,y],...],"largura_px","tipo":"passarela de madeira|trilha|ponte"} ],
+ "agua": [ {"tipo":"funda|rasa","poligono_px":[[x,y],...]} ],
+ "objetos": [ {"id","nome","porte","tamanho_na_tela_px":[l,a],"pe_px":[l,p],"quantidade","onde","animado":true/false} ],  (25 a 40 tipos)
+ "inimigos": [ {"nome","tipo":"animal|mutante|monstro|chefe","nivel","descricao_visual","comportamento"} ],  (4 comuns + 1 chefe, nomes em português)
+ "npcs": [ {"nome","papel","onde_px":[x,y],"fala"} ],
+ "portais": [ {"para","onde_px":[x,y],"requisito"} ],
+ "spawn_px": [x,y],
+ "folhas_de_arte": [ {"arquivo","conteudo":[ids],"prompt_para_gerar"} ]  (pedidos de imagem que vou te fazer depois, um por folha, fundo verde chroma #00FF00, objetos separados com muito espaço)
+}

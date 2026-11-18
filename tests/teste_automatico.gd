@@ -178,7 +178,7 @@ func _json(path: String) -> Variant:
 		_falha("arquivo nao existe: %s" % path)
 		return null
 	var text := FileAccess.get_file_as_string(path)
-	if text.begins_with("﻿"):
+	if text.begins_with(char(0xFEFF)):  # BOM (literal some no script exportado)
 		text = text.substr(1)
 	var data: Variant = JSON.parse_string(text)
 	if data == null:

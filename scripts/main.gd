@@ -49,6 +49,10 @@ func _process(delta: float) -> void:
 		return
 	_enforce_world_collision()
 	_update_kit_vehicles(delta)
+	map_stream_timer -= delta
+	if map_stream_timer <= 0.0:
+		map_stream_timer = 0.15
+		_update_map_stream(false)
 	regen_timer += delta
 	if regen_timer >= 1.0:
 		regen_timer = 0
@@ -1281,6 +1285,42 @@ func _ensure_beginner_quests() -> void:
 func _load_home_city() -> void:
 	_load_map(_home_city())
 
+# Carrega so o chao que esta na tela (com uma folga) e solta o que ficou longe.
+# sync=true: carrega na hora (chegada no mapa); senao pede em segundo plano e encaixa quando pronto.
+func _update_map_stream(sync: bool) -> void:
+	if player == null:
+		return
+	var view_size := get_viewport().get_visible_rect().size
+	var zoom := player_camera.zoom if player_camera != null else Vector2.ONE
+	var half := view_size / zoom / 2.0
+	var center := player.global_position
+	var screen := Rect2(center - half, half * 2.0)
+	var near := screen.grow(MAP_STREAM_MARGIN)
+	var far := near.grow(MAP_STREAM_MARGIN * 2.0)
+	for node in get_tree().get_nodes_in_group("map_stream"):
+		var chunk := node as Sprite2D
+		if chunk == null or not chunk.is_inside_tree():
+			continue
+		var rect: Rect2 = chunk.get_meta("stream_rect")
+		var path := str(chunk.get_meta("stream_path"))
+		if near.intersects(rect):
+			if chunk.texture != null:
+				continue
+			if sync or screen.intersects(rect):
+				# ja esta na tela (chegada, teleporte, renascer): nao deixa buraco preto
+				chunk.texture = load(path) as Texture2D
+				continue
+			var status := ResourceLoader.load_threaded_get_status(path)
+			if status == ResourceLoader.THREAD_LOAD_LOADED:
+				chunk.texture = ResourceLoader.load_threaded_get(path) as Texture2D
+			elif status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE or status == ResourceLoader.THREAD_LOAD_FAILED:
+				if ResourceLoader.has_cached(path):
+					chunk.texture = load(path) as Texture2D
+				else:
+					ResourceLoader.load_threaded_request(path, "Texture2D")
+		elif chunk.texture != null and not far.intersects(rect):
+			chunk.texture = null  # solta a memoria do pedaco que ficou longe
+
 func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	var resolved_map_id := _resolve_map_id(map_id)
 	current_map = resolved_map_id
@@ -1331,6 +1371,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	_spawn_map_collectibles(map_data)
 	_update_safe_zone_state()
 	_update_camera_limits()
+	_update_map_stream(true)  # o chao em volta do ponto de chegada ja aparece no 1o quadro
 	_cleanup_remote_players_for_map()
 	_flash(str(map_data.get("name", resolved_map_id)))
 

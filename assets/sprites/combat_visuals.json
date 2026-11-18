@@ -1,78 +1,78 @@
 {
   "actors": {
     "aprendiz_corrompido": [
-      "res://assets/sprites/mobs/generated_strips/outputs/aprendiz_corrompido_attack_chute.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/aprendiz_corrompido_cast.png"
+      "res://assets/sprites/mobs/visuais/aprendiz_corrompido_attack_chute_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/aprendiz_corrompido_cast_8f_192x192.png"
     ],
     "arquimago_corrompido": [
-      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_golpe_v2_6f_192x192.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_fortalecer_v2_6f_192x192.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/arquimago_bola_v2_6f_192x192.png"
+      "res://assets/sprites/mobs/visuais/arquimago_golpe_v2_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/arquimago_fortalecer_v2_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/arquimago_bola_v2_6f_192x192.png"
     ],
     "bandido_colinas": [
-      "res://assets/sprites/mobs/generated_strips/outputs/bandido_colinas_ilusao.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/bandido_colinas_roubo.png"
+      "res://assets/sprites/mobs/visuais/bandido_colinas_ilusao_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/bandido_colinas_roubo_8f_192x192.png"
     ],
     "cavaleiro_sombrio": [
-      "res://assets/sprites/mobs/generated_strips/outputs/cavaleiro_sombrio_corrompido.png"
+      "res://assets/sprites/mobs/visuais/cavaleiro_sombrio_corrompido_8f_192x192.png"
     ],
     "draco_jovem": [
-      "res://assets/sprites/mobs/generated_strips/outputs/draco_medieval_ataque_cauda.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/draco_medieval_ataque_fogo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/draco_medieval_ataque_mordida.png"
+      "res://assets/sprites/mobs/visuais/draco_medieval_ataque_cauda_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/draco_medieval_ataque_fogo_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/draco_medieval_ataque_mordida_8f_192x192.png"
     ],
     "espectro_arcano": [
-      "res://assets/sprites/mobs/generated_strips/outputs/espectro_arcano_mundo_espiritual.png"
+      "res://assets/sprites/mobs/visuais/espectro_arcano_mundo_espiritual_8f_192x192.png"
     ],
     "golem_pedra": [
-      "res://assets/sprites/mobs/generated_strips/outputs/golem_pedra_arremesso.png"
+      "res://assets/sprites/mobs/visuais/golem_pedra_arremesso_8f_192x192.png"
     ],
     "guardiao_cristalino": [
-      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_cristalino_arremesso_gelo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_cristalino_parede_gelo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_criando_lanca.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/guardiao_sem_lanca_idle.png"
+      "res://assets/sprites/mobs/visuais/guardiao_cristalino_arremesso_gelo_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/guardiao_cristalino_parede_gelo_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/guardiao_criando_lanca_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/guardiao_sem_lanca_idle_8f_192x192.png"
     ],
     "senhor_colinas": [
-      "res://assets/sprites/mobs/generated_strips/outputs/senhor_colinas_investida.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/senhor_colinas_lancamento.png"
+      "res://assets/sprites/mobs/visuais/senhor_colinas_investida_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/senhor_colinas_lancamento_8f_192x192.png"
     ],
     "sentinela_arcano": [
-      "res://assets/sprites/mobs/generated_strips/outputs/sentinela_arcano_invocacao.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/sentinela_arcano_regeneracao.png"
+      "res://assets/sprites/mobs/visuais/sentinela_arcano_invocacao_8f_192x192.png",
+      "res://assets/sprites/mobs/visuais/sentinela_arcano_regeneracao_8f_192x192.png"
     ],
     "tita_cristal": [
-      "res://assets/sprites/mobs/generated_strips/outputs/tita_cristal_arremesso.png"
+      "res://assets/sprites/mobs/visuais/tita_cristal_arremesso_8f_192x192.png"
     ]
   },
   "effects": {
     "general_infernal": [
-      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_aura_fogo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_bola_fogo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_coluna_fogo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_cortina_fogo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/general_infernal_linha_fogo.png"
+      "res://assets/sprites/mobs/visuais/general_infernal_aura_fogo_8f_210x280.png",
+      "res://assets/sprites/mobs/visuais/general_infernal_bola_fogo_8f_210x280.png",
+      "res://assets/sprites/mobs/visuais/general_infernal_coluna_fogo_8f_210x280.png",
+      "res://assets/sprites/mobs/visuais/general_infernal_cortina_fogo_8f_280x280.png",
+      "res://assets/sprites/mobs/visuais/general_infernal_linha_fogo_8f_210x280.png"
     ],
     "arquimago_corrompido": [
-      "res://assets/sprites/mobs/generated_strips/outputs/aura_buff_aliado_8frames.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/bola_sombria_voo.png"
+      "res://assets/sprites/mobs/visuais/aura_buff_aliado_8frames_8f_105x280.png",
+      "res://assets/sprites/mobs/visuais/bola_sombria_voo_8f_105x280.png"
     ],
     "tita_cristal": [
-      "res://assets/sprites/mobs/generated_strips/outputs/bola_cristal_queda_dano.png"
+      "res://assets/sprites/mobs/visuais/bola_cristal_queda_dano_8f_280x280.png"
     ],
     "aprendiz_corrompido": [
-      "res://assets/sprites/mobs/generated_strips/outputs/chama_negra_projetil.png"
+      "res://assets/sprites/mobs/visuais/chama_negra_projetil_8f_105x280.png"
     ],
     "cavaleiro_sombrio": [
-      "res://assets/sprites/mobs/generated_strips/outputs/corrompido_aura_vermelha.png"
+      "res://assets/sprites/mobs/visuais/corrompido_aura_vermelha_8f_210x280.png"
     ],
     "guardiao_cristalino": [
-      "res://assets/sprites/mobs/generated_strips/outputs/lanca_desfazendo_gelo.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/lanca_queda_area_congelada.png"
+      "res://assets/sprites/mobs/visuais/lanca_desfazendo_gelo_8f_280x280.png",
+      "res://assets/sprites/mobs/visuais/lanca_queda_area_congelada_8f_280x280.png"
     ],
     "golem_pedra": [
-      "res://assets/sprites/mobs/generated_strips/outputs/pedra_impacto_chao.png",
-      "res://assets/sprites/mobs/generated_strips/outputs/pedra_voando.png"
+      "res://assets/sprites/mobs/visuais/pedra_impacto_chao_8f_105x280.png",
+      "res://assets/sprites/mobs/visuais/pedra_voando_8f_105x280.png"
     ]
   },
   "pets": {
