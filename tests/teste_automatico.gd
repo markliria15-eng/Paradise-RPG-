@@ -10,7 +10,7 @@ extends Node
 # Saida: lista OK/FALHOU e codigo de saida 0 (tudo certo) ou 1 (algo falhou).
 # O save do jogador (user://) e copiado antes e devolvido no fim, mesmo se o teste anterior caiu.
 
-const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria"]
+const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria", "swamp_almas"]
 const ARQUIVOS_DO_JOGADOR := ["user://arcadia_realms_save.json", "user://hud_layout.json"]
 const PASTA_BACKUP := "user://_backup_teste_automatico"
 const TEMPO_MAXIMO_S := 240.0

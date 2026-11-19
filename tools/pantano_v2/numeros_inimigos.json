@@ -1,0 +1,315 @@
+{
+ "inimigos": {
+  "Jacare do Pantano": {
+   "level": 38,
+   "level_range": [
+    36,
+    40
+   ],
+   "vida": 640,
+   "ataque": 78,
+   "defesa": 38,
+   "xp": 510,
+   "ouro": [
+    205,
+    305
+   ],
+   "speed": 115,
+   "color": "#345e38",
+   "drops": [
+    {
+     "item": "Couro Reforcado",
+     "chance": 0.6
+    },
+    {
+     "item": "Presa Venenosa",
+     "chance": 0.28
+    },
+    {
+     "item": "Carne Crua",
+     "chance": 0.45
+    },
+    {
+     "item": "Fragmento de Obsidiana",
+     "chance": 0.25
+    },
+    {
+     "item": "Placa de Titanio",
+     "chance": 0.14
+    },
+    {
+     "item": "Essencia Sombria",
+     "chance": 0.12
+    },
+    {
+     "item": "Pocao media de vida",
+     "chance": 0.16
+    }
+   ],
+   "respawn_s": 65,
+   "grupo": 2
+  },
+  "Sapo Venenoso Gigante": {
+   "level": 40,
+   "level_range": [
+    38,
+    42
+   ],
+   "vida": 590,
+   "ataque": 91,
+   "defesa": 30,
+   "xp": 590,
+   "ouro": [
+    235,
+    350
+   ],
+   "speed": 92,
+   "color": "#85d12c",
+   "magical": true,
+   "drops": [
+    {
+     "item": "Presa Venenosa",
+     "chance": 0.68
+    },
+    {
+     "item": "Fungo Luminoso",
+     "chance": 0.52
+    },
+    {
+     "item": "Musgo Medicinal",
+     "chance": 0.4
+    },
+    {
+     "item": "Cristal Roxo",
+     "chance": 0.32
+    },
+    {
+     "item": "Po Mistico",
+     "chance": 0.35
+    },
+    {
+     "item": "Essencia Arcana",
+     "chance": 0.2
+    },
+    {
+     "item": "Pocao media de mana",
+     "chance": 0.16
+    }
+   ],
+   "respawn_s": 75,
+   "grupo": 2
+  },
+  "Mosquito Mutante": {
+   "level": 42,
+   "level_range": [
+    40,
+    44
+   ],
+   "vida": 465,
+   "ataque": 96,
+   "defesa": 22,
+   "xp": 640,
+   "ouro": [
+    255,
+    375
+   ],
+   "speed": 175,
+   "color": "#752caa",
+   "drops": [
+    {
+     "item": "Presa Venenosa",
+     "chance": 0.48
+    },
+    {
+     "item": "Essencia Sombria",
+     "chance": 0.32
+    },
+    {
+     "item": "Po Mistico",
+     "chance": 0.38
+    },
+    {
+     "item": "Cristal Roxo",
+     "chance": 0.26
+    },
+    {
+     "item": "Esmeralda da Agilidade",
+     "chance": 0.012
+    },
+    {
+     "item": "Pocao media de vida",
+     "chance": 0.14
+    },
+    {
+     "item": "Planta Rara",
+     "chance": 0.2
+    }
+   ],
+   "respawn_s": 55,
+   "grupo": 3
+  },
+  "Afogado do Pantano": {
+   "level": 44,
+   "level_range": [
+    42,
+    46
+   ],
+   "vida": 920,
+   "ataque": 112,
+   "defesa": 49,
+   "xp": 810,
+   "ouro": [
+    330,
+    490
+   ],
+   "speed": 78,
+   "color": "#657e6b",
+   "drops": [
+    {
+     "item": "Aco Negro",
+     "chance": 0.55
+    },
+    {
+     "item": "Essencia Sombria",
+     "chance": 0.48
+    },
+    {
+     "item": "Fragmento de Obsidiana",
+     "chance": 0.38
+    },
+    {
+     "item": "Placa de Mithril",
+     "chance": 0.22
+    },
+    {
+     "item": "Nucleo de Obsidiana",
+     "chance": 0.09
+    },
+    {
+     "item": "Elmo de Aco Sombrio",
+     "chance": 0.015
+    },
+    {
+     "item": "Armadura de Aco Sombrio",
+     "chance": 0.01
+    },
+    {
+     "item": "Pocao media de vida",
+     "chance": 0.18
+    }
+   ],
+   "respawn_s": 100,
+   "grupo": 2
+  },
+  "Rei Afogado": {
+   "level": 46,
+   "level_range": [
+    46,
+    46
+   ],
+   "boss": true,
+   "vida": 4100,
+   "ataque": 139,
+   "defesa": 66,
+   "xp": 4800,
+   "ouro": [
+    1500,
+    2100
+   ],
+   "speed": 96,
+   "color": "#234e50",
+   "magical": true,
+   "drops": [
+    {
+     "item": "Essencia Sombria",
+     "chance": 1
+    },
+    {
+     "item": "Nucleo de Obsidiana",
+     "chance": 0.85
+    },
+    {
+     "item": "Placa de Mithril",
+     "chance": 0.7
+    },
+    {
+     "item": "Aco Negro",
+     "chance": 0.75
+    },
+    {
+     "item": "Cristal Divino",
+     "chance": 0.22
+    },
+    {
+     "item": "Essencia Celestial",
+     "chance": 0.14
+    },
+    {
+     "item": "Cristal Arcano",
+     "chance": 0.35
+    },
+    {
+     "item": "Armadura de Aco Sombrio",
+     "chance": 0.075
+    },
+    {
+     "item": "Elmo de Aco Sombrio",
+     "chance": 0.065
+    },
+    {
+     "item": "Manto de Cristal Ancestral",
+     "chance": 0.025
+    }
+   ]
+  }
+ },
+ "chefe": {
+  "Rei Afogado": {
+   "tema": "O soberano morto-vivo do Pantano das Almas Perdidas controla aguas corrompidas, convoca guerreiros afogados e transforma o campo de batalha em um pantano mortal.",
+   "ataques": [
+    {
+     "tipo": "pocas",
+     "nome": "Lama dos Condenados",
+     "recarga_s": 13,
+     "aviso_s": 1.8,
+     "dano_mult": 0.65,
+     "quantidade": 5,
+     "raio": 72,
+     "espalhamento": 280,
+     "dura_s": 5,
+     "efeito": "lento",
+     "efeito_s": 2.5
+    },
+    {
+     "tipo": "projeteis",
+     "nome": "Ondas do Abismo",
+     "recarga_s": 10,
+     "aviso_s": 1.4,
+     "dano_mult": 0.8,
+     "quantidade": 5,
+     "padrao": "leque",
+     "abertura_graus": 65,
+     "velocidade": 320,
+     "raio": 20,
+     "efeito": "lento",
+     "efeito_s": 1.5
+    },
+    {
+     "tipo": "invocar",
+     "nome": "Legiao dos Afogados",
+     "recarga_s": 22,
+     "aviso_s": 1.8,
+     "dano_mult": 0.3,
+     "inimigo": "Afogado do Pantano",
+     "quantidade": 2,
+     "max_vivos": 2
+    }
+   ],
+   "furia": {
+    "vida_pct": 0.35,
+    "recarga_mult": 0.65,
+    "extra": "O Rei Afogado entra em furia ao atingir 35% de vida. Lama dos Condenados cria 7 pocas de lama, Ondas do Abismo dispara 7 projeteis em leque e Legiao dos Afogados continua limitada a 2 inimigos vivos."
+   }
+  }
+ }
+}

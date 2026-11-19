@@ -47,7 +47,7 @@ RPG 2D top-down em Godot 4 com modo offline jogavel e estrutura MMO parcial. O b
 - `forest_boars`: ativo, 5600x4480, 7x7 chunks, Guarda Doran, seis tipos de mob, coletaveis e portal para Eldoria.
 - `world_reset`: alias/base de compatibilidade da Floresta.
 - `arcane_ruins`, `bat_cave`, `city_valdoria`, `highland_pass`, `crystal_mines`, `ember_fortress`: IDs preservados com bases vazias; nao reimplantar em lote.
-- `pantano`: chunks antigos apagados em 2026-11-17; sera refeito como kit (igual Valdoria v2).
+- `swamp_almas` (Pantano das Almas Perdidas): kit novo de 2026-11-18, entrada pelo portal leste de Valdoria, 4 inimigos + chefe Rei Afogado (ver PROJECT_CONTEXT, historico 2026-11-18). Chunks antigos de `pantano` apagados em 2026-11-17.
 
 ### Dados ativos
 

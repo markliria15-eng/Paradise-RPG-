@@ -6,7 +6,7 @@ extends Node
 # uso: godot --headless --path . res://tests/medir_tamanhos.tscn -- --offline-test
 # Saida: linhas "TAM <mapa> <categoria> <altura> <largura> <nome>" e o resumo no fim.
 
-const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria"]
+const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria", "swamp_almas"]
 var main: Node = null
 static var _rects := {}
 

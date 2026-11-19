@@ -1,0 +1,50 @@
+[
+ {
+  "arquivo": "swamp_terrenos_01.png",
+  "prompt": "Agora gere a imagem da folha de TERRENOS do Pântano das Almas Perdidas para Paradise RPG: pixel art medieval sombria detalhada, vista de cima (top-down). Uma grade 4 colunas x 2 linhas com 8 quadrados de textura de chão, cada quadrado preenchido por inteiro, SEM contorno, SEM moldura e com um espaço verde chroma #00FF00 entre os quadrados. Cada textura deve ser contínua e repetível (sem objetos grandes, sem sombras direcionais, iluminação uniforme), na ordem: 1 terra_firme (terra escura com musgo e folhinhas), 2 grama_pantanosa (vegetação verde-oliva encharcada), 3 lama_rasa (lama marrom-esverdeada com bolhinhas), 4 agua_rasa (água verde turva rasa com ondulações), 5 agua_funda (água quase preta com reflexos verdes), 6 madeira_passarela (tábuas velhas horizontais), 7 pedra_antiga (pavimento de ruína com musgo), 8 terra_corrompida (solo escuro com rachaduras violeta brilhantes). Sem texto, sem números."
+ },
+ {
+  "arquivo": "swamp_arvores_01.png",
+  "prompt": "Gere a imagem: Crie uma folha de sprites para Paradise RPG, pixel art medieval sombria detalhada, perspectiva 2D top-down de aproximadamente 45 graus. Exatamente quatro arvores diferentes em uma unica linha horizontal: arvore pantanosa grande, arvore pantanosa media, arvore morta retorcida e arvore de raizes gigantes. Troncos grossos, galhos tortos, musgo pendurado e raizes expostas. Cada arvore inteira, sem cortes e bem separada das outras. Respeitar proporcoes relativas. Fundo verde chroma puro #00FF00, uniforme, sem sombras no chao, sem texto, sem numeros, sem grade e sem bordas. Muito espaco vazio entre objetos. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_raizes_pedras_01.png",
+  "prompt": "Gere a imagem: Folha de seis objetos separados em duas linhas e tres colunas, estilo pixel art detalhada de Paradise RPG. Linha 1: raiz exposta rasteira, raiz elevada e tronco antigo caido. Linha 2: pedra musgosa pequena, pedra musgosa media e pedra musgosa grande. Todos em perspectiva top-down 45 graus, totalmente visiveis, separados por grandes espacos vazios, sem contato entre sprites. Fundo verde chroma #00FF00 puro, sem sombras, sem texto, sem numeros, sem grade e sem moldura. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_vegetacao_01.png",
+  "prompt": "Gere a imagem: Folha de seis elementos de vegetacao em duas linhas e tres colunas para RPG 2D top-down em pixel art. Linha 1: capim pantanoso verde-oliva, junco alto de pantano e lirio de agua com folha circular. Linha 2: cogumelo venenoso verde e roxo, cogumelo luminoso azul-ciano e flor pantanosa roxa. Objetos isolados, corpo inteiro, perspectiva top-down 45 graus, cores de fantasia sombria, muito espaco entre cada objeto, fundo verde chroma #00FF00 puro, sem sombras, textos, grades ou bordas. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_efeitos_01.png",
+  "prompt": "Gere a imagem: Folha de efeitos ambientais do Pantano das Almas Perdidas, estilo pixel art 2D top-down de Paradise RPG. Dois elementos amplamente separados: um conjunto de bolhas marrons e verdes saindo de lama e uma nuvem baixa de nevoa pantanosa verde-esverdeada com bordas suaves em pixel art. Elementos inteiros, sem cortes, sem contato. Fundo verde chroma puro #00FF00, sem texto, sem numeros, sem grade, sem chao e sem sombra. Para a nevoa verde, usar tons claramente diferentes do chroma puro. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_pontes_01.png",
+  "prompt": "Gere a imagem: Folha com exatamente tres estruturas de madeira antigas para Paradise RPG, estilo pixel art detalhada 2D top-down. Primeira: segmento de passarela reta feito de tabuas e estacas. Segunda: segmento de passarela curva de madeira irregular. Terceira: ponte de madeira antiga maior, com algumas cordas e suportes laterais. Perspectiva top-down 45 graus, superficie superior bem visivel para passagem do heroi, sem agua nem solo desenhado. Estruturas completas, muito afastadas umas das outras. Fundo verde chroma #00FF00 uniforme, sem sombras, texto, numeros, grade ou bordas. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_cabanas_01.png",
+  "prompt": "Gere a imagem: Folha com duas cabanas de pantano em pixel art medieval detalhada, perspectiva top-down 45 graus, Paradise RPG. Esquerda: cabana abandonada com madeira podre, telhado quebrado, musgo e janela destruida. Direita: cabana de pescador preservada, madeira escura, telhado de palha e pequena varanda. Portas voltadas para a camera, largura aproximada de 145 px para permitir passagem visual do heroi de 104 px de altura. Cabanas completas, afastadas e sem sobreposicao. Fundo verde chroma puro #00FF00, sem chao, sombras, texto, numeros ou moldura. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_aldeia_objetos_01.png",
+  "prompt": "Gere a imagem: Folha com quatro objetos da aldeia afundada de Paradise RPG, em uma linha horizontal: barco de madeira quebrado, cerca antiga destruida, barril envelhecido e caixote de madeira. Pixel art detalhada medieval, perspectiva top-down 45 graus, madeira umida escura com musgo. Cada objeto separado com muito espaco vazio, inteiro e sem cortes. Fundo verde chroma puro #00FF00, sem sombras, texto, numeros, grades ou bordas. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_cemiterio_01.png",
+  "prompt": "Gere a imagem: Folha de quatro estruturas para cemiterio e ruinas de Paradise RPG, em uma linha horizontal. Lapide antiga inclinada coberta de musgo, mausoleu medieval destruido, estatua de guerreiro antigo partida e coluna de pedra arruinada. Pixel art detalhada, fantasia sombria, perspectiva top-down 45 graus, tons cinzentos com detalhes verdes. Objetos inteiros e muito separados, sem contato ou cortes. Fundo verde chroma #00FF00 uniforme, sem chao, sombras, textos, numeros ou grade. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_rituais_01.png",
+  "prompt": "Gere a imagem: Folha com quatro objetos sobrenaturais de pantano para Paradise RPG, em uma unica linha: altar de pedra corrompido com runas violeta, totem pantanoso de madeira com cranio de criatura ficticia, tocha medieval com chama verde-esmeralda e lanterna espiritual de metal enferrujado com brilho ciano. Pixel art detalhada, perspectiva top-down 45 graus, fantasia sombria. Objetos isolados e inteiros com muito espaco entre eles. Fundo verde chroma puro #00FF00, sem sombra no chao, texto, numeros, grades ou bordas. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_restos_01.png",
+  "prompt": "Gere a imagem: Folha com dois objetos ambientais de um pantano sombrio para Paradise RPG. Esquerda: carcaca antiga de animal fantastico parcialmente decomposta, sem sangue explicito. Direita: pequeno conjunto de ossos envelhecidos espalhados sobre o solo, sem desenhar o solo. Pixel art medieval detalhada, perspectiva top-down 45 graus, objetos inteiros e amplamente separados. Fundo verde chroma puro #00FF00, sem sombras, textos, numeros, grade ou bordas. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ },
+ {
+  "arquivo": "swamp_portais_01.png",
+  "prompt": "Gere a imagem: Folha com dois portais de RPG medieval em pixel art detalhada, perspectiva 2D top-down 45 graus, Paradise RPG. Esquerda: portal de retorno para Valdoria, estrutura de pedra antiga com energia azul-ciano. Direita: portal da Fronteira Sombria, arco de pedra coberto de raizes com energia violeta e verde, visual misterioso. Aberturas suficientemente largas para um heroi de 104 px, bases visiveis e sprites inteiros. Portais separados por muito espaco vazio. Fundo verde chroma puro #00FF00, sem sombra no chao, texto, numeros, grade ou bordas. Cada objeto inteiro, separado dos outros por muito espaço vazio verde, nenhum objeto encostando no outro nem na borda."
+ }
+]

@@ -1,0 +1,1054 @@
+{
+  "id": "swamp_pantano_das_almas_perdidas",
+  "nome": "Pantano das Almas Perdidas",
+  "nivel": [38, 46],
+  "clima_visual": "Pantano medieval sombrio em pixel art 2D top-down, com atmosfera de fantasia sombria. Agua verde-escura, lama marrom, vegetacao densa, arvores retorcidas, raizes gigantes, cogumelos luminosos azulados, nevoa esverdeada, ruinas antigas e cabanas abandonadas. Luz ambiente fria, com pontos de iluminacao verde, ciano e violeta. A regiao central possui agua profunda e passarelas de madeira. Ao norte, uma ilha abriga o chefe. Estilo visual coerente com Paradise RPG, utilizando pixel art detalhada, contornos escuros e perspectiva top-down de aproximadamente 45 graus.",
+  "configuracao_mapa": {
+    "largura_px": 6400,
+    "altura_px": 5760,
+    "grade_colunas": 16,
+    "grade_linhas": 18,
+    "total_pedacos": 288,
+    "pedaco_arte_px": [400, 320],
+    "escala": 2,
+    "pedaco_mundo_px": [800, 640],
+    "observacao_grade": "Existe uma incompatibilidade entre 16x18 pedacos e o mundo de 6400x5760 quando cada pedaco cobre 800x640 px. A grade solicitada cobre 12800x11520 px. Para preservar o mundo de 6400x5760, cada celula logica deve ocupar 400x320 px no mundo. As imagens de 400x320 devem ser usadas em escala 1, ou deve ser utilizada uma grade de 8x9 pedacos de 800x640 com escala 2.",
+    "grade_recomendada": {
+      "colunas": 16,
+      "linhas": 18,
+      "largura_celula_mundo_px": 400,
+      "altura_celula_mundo_px": 320,
+      "escala_arte": 1
+    },
+    "ordenacao_objetos": "Ordenar pelo Y do pe do objeto. Sprite que estiver com o pe mais abaixo deve aparecer na frente.",
+    "colisao_heroi": {
+      "referencia": "Centro dos pes do heroi",
+      "porte_baixo": "Sem colisao. Heroi atravessa normalmente.",
+      "porte_joelho": "Nao bloqueia deslocamento. Heroi pode atravessar e ser desenhado acima do objeto quando necessario.",
+      "porte_cintura": "Colisao solida na faixa dos pes. Aproximacao frontal bloqueia os pes do heroi junto a faixa de colisao, com heroi renderizado na frente. Aproximacao lateral permite sobreposicao visual atras do objeto quando os pes do heroi ultrapassam um terco da profundidade visual, respeitando a colisao fisica da base.",
+      "agua_funda": "Bloqueia movimento, exceto nas regioes explicitamente liberadas por pontes e passarelas.",
+      "agua_rasa": "Permite movimento, com reducao de velocidade.",
+      "observacao": "As regras de sobreposicao visual nao devem desativar a colisao fisica das bases solidas."
+    },
+    "profundidade_ordenacao": "Usar y_sort_enabled na organizacao dos objetos e personagens.",
+    "referencia_tamanho_heroi_px": 104
+  },
+  "terrenos": [
+    {
+      "id": "terra_firme",
+      "descricao": "Terra escura com musgo e pequenas folhas.",
+      "andavel": true,
+      "lento": false
+    },
+    {
+      "id": "lama_rasa",
+      "descricao": "Lama marrom-esverdeada com pequenas bolhas.",
+      "andavel": true,
+      "lento": true
+    },
+    {
+      "id": "agua_rasa",
+      "descricao": "Agua verde turva ate os tornozelos, com pequenas ondulacoes.",
+      "andavel": true,
+      "lento": true
+    },
+    {
+      "id": "agua_funda",
+      "descricao": "Agua quase preta com reflexos verdes e vegetacao submersa.",
+      "andavel": false,
+      "lento": false
+    },
+    {
+      "id": "madeira_passarela",
+      "descricao": "Tabuas antigas presas sobre estacas.",
+      "andavel": true,
+      "lento": false
+    },
+    {
+      "id": "pedra_antiga",
+      "descricao": "Pavimento de ruinas coberto por musgo.",
+      "andavel": true,
+      "lento": false
+    },
+    {
+      "id": "grama_pantanosa",
+      "descricao": "Vegetacao verde-oliva, encharcada e irregular.",
+      "andavel": true,
+      "lento": false
+    },
+    {
+      "id": "terra_corrompida",
+      "descricao": "Solo escuro com pequenas rachaduras luminosas violeta.",
+      "andavel": true,
+      "lento": false
+    }
+  ],
+  "zonas": [
+    {
+      "nome": "Entrada de Valdoria",
+      "retangulo_px": [0, 3840, 1600, 1920],
+      "terreno": "terra_firme",
+      "descricao": "Entrada sudoeste do pantano. Uma estrada antiga vinda de Valdoria termina em um acampamento de exploradores. Possui areas seguras, algumas arvores retorcidas, tochas e a primeira passarela.",
+      "inimigos": []
+    },
+    {
+      "nome": "Bosque das Raizes",
+      "retangulo_px": [0, 1600, 2000, 2240],
+      "terreno": "grama_pantanosa",
+      "descricao": "Floresta alagada com arvores gigantes, cipós, raizes expostas e lama rasa. Primeira zona de caca, com caminhos relativamente abertos.",
+      "inimigos": [
+        "Jacare do Pantano",
+        "Sapo Venenoso Gigante"
+      ]
+    },
+    {
+      "nome": "Charco dos Venenos",
+      "retangulo_px": [1600, 3200, 2400, 2560],
+      "terreno": "lama_rasa",
+      "descricao": "Regiao de lama, poças toxicas decorativas, cogumelos venenosos e carcaças de animais. Conecta a entrada ao centro do pantano.",
+      "inimigos": [
+        "Sapo Venenoso Gigante",
+        "Mosquito Mutante"
+      ]
+    },
+    {
+      "nome": "Lago das Sombras",
+      "retangulo_px": [2000, 1600, 2400, 1600],
+      "terreno": "agua_funda",
+      "descricao": "Grande lago central de agua negra com pequenas ilhas e pontes de madeira. O jogador deve atravessar as passarelas para seguir ao norte. Jacares surgem nas margens.",
+      "inimigos": [
+        "Jacare do Pantano",
+        "Mosquito Mutante"
+      ]
+    },
+    {
+      "nome": "Aldeia Afundada",
+      "retangulo_px": [4000, 3200, 2400, 2560],
+      "terreno": "agua_rasa",
+      "descricao": "Antiga vila abandonada parcialmente submersa. Contem cabanas quebradas, cercas destruídas, barcos velhos, pontes improvisadas e objetos que contam a historia dos antigos moradores.",
+      "inimigos": [
+        "Afogado do Pantano",
+        "Mosquito Mutante"
+      ]
+    },
+    {
+      "nome": "Cemiterio Esquecido",
+      "retangulo_px": [4400, 1200, 2000, 2000],
+      "terreno": "terra_corrompida",
+      "descricao": "Cemiterio antigo com lapides inclinadas, mausoleu destruido, arvores mortas, nevoa roxa e lanternas espirituais. Zona perigosa de mortos-vivos.",
+      "inimigos": [
+        "Afogado do Pantano",
+        "Sapo Venenoso Gigante"
+      ]
+    },
+    {
+      "nome": "Ruinas do Culto",
+      "retangulo_px": [2000, 0, 2400, 1600],
+      "terreno": "pedra_antiga",
+      "descricao": "Templo parcialmente destruido, cercado por agua escura, altares e estatuas partidas. Funciona como preparacao para o confronto final.",
+      "inimigos": [
+        "Afogado do Pantano",
+        "Mosquito Mutante"
+      ]
+    },
+    {
+      "nome": "Ilha do Rei Afogado",
+      "retangulo_px": [0, 0, 2000, 1600],
+      "terreno": "terra_corrompida",
+      "descricao": "Grande ilha isolada cercada por agua profunda, com arena circular de pedra de aproximadamente 1150 px de diametro. No centro existe um altar alagado onde repousa o Rei Afogado. Acesso por ponte vinda das Ruinas do Culto.",
+      "inimigos": [
+        "Rei Afogado"
+      ]
+    }
+  ],
+  "caminhos": [
+    {
+      "nome": "Trilha da Entrada",
+      "pontos_px": [
+        [380, 5100],
+        [800, 4700],
+        [1200, 4100],
+        [1650, 3650],
+        [2200, 3400]
+      ],
+      "largura_px": 220,
+      "tipo": "trilha"
+    },
+    {
+      "nome": "Trilha das Raizes",
+      "pontos_px": [
+        [1200, 4100],
+        [900, 3500],
+        [700, 2900],
+        [1100, 2200],
+        [1800, 1900]
+      ],
+      "largura_px": 180,
+      "tipo": "trilha"
+    },
+    {
+      "nome": "Passarela do Charco",
+      "pontos_px": [
+        [2200, 3400],
+        [2600, 3200],
+        [3000, 2900],
+        [3300, 2600]
+      ],
+      "largura_px": 160,
+      "tipo": "passarela de madeira"
+    },
+    {
+      "nome": "Ponte do Lago Negro",
+      "pontos_px": [
+        [3300, 2600],
+        [3500, 2300],
+        [3700, 2000],
+        [3900, 1700],
+        [4100, 1500]
+      ],
+      "largura_px": 180,
+      "tipo": "ponte"
+    },
+    {
+      "nome": "Trilha da Aldeia",
+      "pontos_px": [
+        [3000, 4300],
+        [3700, 4500],
+        [4300, 4400],
+        [4900, 4100],
+        [5400, 3700]
+      ],
+      "largura_px": 200,
+      "tipo": "trilha"
+    },
+    {
+      "nome": "Passarela das Casas Afundadas",
+      "pontos_px": [
+        [4900, 4100],
+        [5100, 3500],
+        [5200, 3000],
+        [5300, 2600]
+      ],
+      "largura_px": 150,
+      "tipo": "passarela de madeira"
+    },
+    {
+      "nome": "Estrada dos Mortos",
+      "pontos_px": [
+        [5300, 2600],
+        [5000, 2100],
+        [4700, 1700],
+        [4300, 1300],
+        [3900, 1000]
+      ],
+      "largura_px": 190,
+      "tipo": "trilha"
+    },
+    {
+      "nome": "Caminho das Ruinas",
+      "pontos_px": [
+        [3900, 1000],
+        [3500, 900],
+        [3000, 800],
+        [2500, 900],
+        [2100, 1000]
+      ],
+      "largura_px": 220,
+      "tipo": "trilha"
+    },
+    {
+      "nome": "Ponte do Rei Afogado",
+      "pontos_px": [
+        [2100, 1000],
+        [1900, 900],
+        [1700, 800],
+        [1500, 800]
+      ],
+      "largura_px": 240,
+      "tipo": "ponte"
+    }
+  ],
+  "agua": [
+    {
+      "tipo": "funda",
+      "poligono_px": [
+        [2050, 1650],
+        [2750, 1500],
+        [3600, 1550],
+        [4350, 1850],
+        [4300, 2650],
+        [3900, 3150],
+        [2950, 3150],
+        [2150, 2800]
+      ]
+    },
+    {
+      "tipo": "funda",
+      "poligono_px": [
+        [1750, 0],
+        [2100, 0],
+        [2200, 450],
+        [2150, 1150],
+        [1900, 1550],
+        [1750, 1600],
+        [1550, 1350],
+        [1650, 1050],
+        [1850, 800]
+      ]
+    },
+    {
+      "tipo": "rasa",
+      "poligono_px": [
+        [1700, 3500],
+        [2400, 3250],
+        [3200, 3550],
+        [3800, 4200],
+        [3550, 5000],
+        [2600, 5500],
+        [1850, 4950]
+      ]
+    },
+    {
+      "tipo": "rasa",
+      "poligono_px": [
+        [4350, 3500],
+        [5100, 3300],
+        [6100, 3550],
+        [6300, 4500],
+        [5900, 5500],
+        [4750, 5350],
+        [4200, 4500]
+      ]
+    },
+    {
+      "tipo": "rasa",
+      "poligono_px": [
+        [150, 1850],
+        [650, 1550],
+        [1250, 1750],
+        [1550, 2500],
+        [1200, 3150],
+        [450, 2900]
+      ]
+    }
+  ],
+  "objetos": [
+    {
+      "id": "arvore_pantanosa_grande",
+      "nome": "Arvore Pantanosa Grande",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [360, 470],
+      "pe_px": [105, 75],
+      "quantidade": 65,
+      "onde": "Bosque das Raizes, margens do Lago das Sombras e Ilha do Rei Afogado",
+      "animado": false
+    },
+    {
+      "id": "arvore_pantanosa_media",
+      "nome": "Arvore Pantanosa Media",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [250, 330],
+      "pe_px": [75, 55],
+      "quantidade": 95,
+      "onde": "Todas as zonas naturais",
+      "animado": false
+    },
+    {
+      "id": "arvore_morta",
+      "nome": "Arvore Morta Retorcida",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [280, 390],
+      "pe_px": [75, 60],
+      "quantidade": 48,
+      "onde": "Cemiterio Esquecido e Ruinas do Culto",
+      "animado": false
+    },
+    {
+      "id": "arvore_raiz_gigante",
+      "nome": "Arvore de Raizes Gigantes",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [470, 520],
+      "pe_px": [170, 115],
+      "quantidade": 18,
+      "onde": "Bosque das Raizes e Ilha do Rei Afogado",
+      "animado": false
+    },
+    {
+      "id": "raiz_exposta",
+      "nome": "Raiz Exposta",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [130, 55],
+      "pe_px": [100, 30],
+      "quantidade": 110,
+      "onde": "Bosque das Raizes e Charco dos Venenos",
+      "animado": false
+    },
+    {
+      "id": "raiz_elevada",
+      "nome": "Raiz Elevada",
+      "porte": "joelho",
+      "tamanho_na_tela_px": [190, 80],
+      "pe_px": [145, 45],
+      "quantidade": 42,
+      "onde": "Bosque das Raizes",
+      "animado": false
+    },
+    {
+      "id": "tronco_caido",
+      "nome": "Tronco Caido",
+      "porte": "joelho",
+      "tamanho_na_tela_px": [260, 85],
+      "pe_px": [210, 55],
+      "quantidade": 35,
+      "onde": "Bosque das Raizes, Charco dos Venenos e margens do lago",
+      "animado": false
+    },
+    {
+      "id": "pedra_musgosa_pequena",
+      "nome": "Pedra Musgosa Pequena",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [65, 42],
+      "pe_px": [45, 25],
+      "quantidade": 140,
+      "onde": "Todas as zonas",
+      "animado": false
+    },
+    {
+      "id": "pedra_musgosa_media",
+      "nome": "Pedra Musgosa Media",
+      "porte": "joelho",
+      "tamanho_na_tela_px": [105, 75],
+      "pe_px": [85, 45],
+      "quantidade": 75,
+      "onde": "Bosque, Ruinas e Cemiterio",
+      "animado": false
+    },
+    {
+      "id": "pedra_musgosa_grande",
+      "nome": "Pedra Musgosa Grande",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [190, 170],
+      "pe_px": [115, 70],
+      "quantidade": 28,
+      "onde": "Margens do lago, Cemiterio e Ilha do Rei Afogado",
+      "animado": false
+    },
+    {
+      "id": "capim_pantanoso",
+      "nome": "Capim Pantanoso",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [95, 85],
+      "pe_px": [65, 30],
+      "quantidade": 200,
+      "onde": "Todas as regioes de terra e lama",
+      "animado": true
+    },
+    {
+      "id": "junco_alto",
+      "nome": "Junco Alto",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [90, 145],
+      "pe_px": [45, 25],
+      "quantidade": 145,
+      "onde": "Margens de agua rasa e lago",
+      "animado": true
+    },
+    {
+      "id": "lirio_agua",
+      "nome": "Lirio de Agua",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [90, 45],
+      "pe_px": [65, 20],
+      "quantidade": 120,
+      "onde": "Agua rasa e bordas do Lago das Sombras",
+      "animado": false
+    },
+    {
+      "id": "cogumelo_venenoso",
+      "nome": "Cogumelo Venenoso",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [75, 90],
+      "pe_px": [40, 25],
+      "quantidade": 90,
+      "onde": "Charco dos Venenos e Cemiterio",
+      "animado": true
+    },
+    {
+      "id": "cogumelo_luminoso",
+      "nome": "Cogumelo Luminoso Azul",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [85, 100],
+      "pe_px": [45, 25],
+      "quantidade": 65,
+      "onde": "Bosque das Raizes, Ruinas e Ilha do Rei Afogado",
+      "animado": true
+    },
+    {
+      "id": "flor_pantanosa",
+      "nome": "Flor Pantanosa",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [80, 80],
+      "pe_px": [40, 25],
+      "quantidade": 85,
+      "onde": "Bosque das Raizes e Charco dos Venenos",
+      "animado": false
+    },
+    {
+      "id": "bolhas_lama",
+      "nome": "Bolhas de Lama",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [110, 45],
+      "pe_px": [80, 20],
+      "quantidade": 95,
+      "onde": "Charco dos Venenos e Aldeia Afundada",
+      "animado": true
+    },
+    {
+      "id": "nevoa_pantanosa",
+      "nome": "Nevoa Pantanosa",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [340, 130],
+      "pe_px": [280, 55],
+      "quantidade": 55,
+      "onde": "Todas as zonas, especialmente lago e cemiterio",
+      "animado": true
+    },
+    {
+      "id": "passarela_reta",
+      "nome": "Segmento de Passarela Reta",
+      "porte": "joelho",
+      "tamanho_na_tela_px": [220, 110],
+      "pe_px": [200, 85],
+      "quantidade": 45,
+      "onde": "Charco, Lago das Sombras e Aldeia Afundada",
+      "animado": false
+    },
+    {
+      "id": "passarela_curva",
+      "nome": "Segmento de Passarela Curva",
+      "porte": "joelho",
+      "tamanho_na_tela_px": [220, 160],
+      "pe_px": [180, 110],
+      "quantidade": 18,
+      "onde": "Charco, Lago das Sombras e Aldeia Afundada",
+      "animado": false
+    },
+    {
+      "id": "ponte_madeira",
+      "nome": "Ponte de Madeira Antiga",
+      "porte": "joelho",
+      "tamanho_na_tela_px": [420, 220],
+      "pe_px": [380, 150],
+      "quantidade": 5,
+      "onde": "Lago das Sombras e acesso a Ilha do Rei Afogado",
+      "animado": false
+    },
+    {
+      "id": "cabana_abandonada",
+      "nome": "Cabana Abandonada",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [540, 480],
+      "pe_px": [390, 125],
+      "quantidade": 5,
+      "onde": "Aldeia Afundada",
+      "animado": false
+    },
+    {
+      "id": "cabana_pescador",
+      "nome": "Cabana do Pescador",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [520, 440],
+      "pe_px": [370, 120],
+      "quantidade": 1,
+      "onde": "Entrada de Valdoria, proxima ao acampamento",
+      "animado": false
+    },
+    {
+      "id": "barco_quebrado",
+      "nome": "Barco Quebrado",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [340, 170],
+      "pe_px": [260, 75],
+      "quantidade": 7,
+      "onde": "Aldeia Afundada e Lago das Sombras",
+      "animado": false
+    },
+    {
+      "id": "cerca_quebrada",
+      "nome": "Cerca de Madeira Quebrada",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [190, 120],
+      "pe_px": [145, 35],
+      "quantidade": 35,
+      "onde": "Aldeia Afundada e Entrada de Valdoria",
+      "animado": false
+    },
+    {
+      "id": "barril_velho",
+      "nome": "Barril Velho",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [95, 120],
+      "pe_px": [65, 45],
+      "quantidade": 38,
+      "onde": "Acampamento e Aldeia Afundada",
+      "animado": false
+    },
+    {
+      "id": "caixote_madeira",
+      "nome": "Caixote de Madeira",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [110, 95],
+      "pe_px": [80, 50],
+      "quantidade": 32,
+      "onde": "Acampamento e Aldeia Afundada",
+      "animado": false
+    },
+    {
+      "id": "lapide_antiga",
+      "nome": "Lapide Antiga",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [105, 145],
+      "pe_px": [65, 35],
+      "quantidade": 65,
+      "onde": "Cemiterio Esquecido",
+      "animado": false
+    },
+    {
+      "id": "mausoleu_destruido",
+      "nome": "Mausoleu Destruido",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [510, 430],
+      "pe_px": [350, 130],
+      "quantidade": 2,
+      "onde": "Cemiterio Esquecido",
+      "animado": false
+    },
+    {
+      "id": "estatua_partida",
+      "nome": "Estatua Antiga Partida",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [220, 300],
+      "pe_px": [115, 70],
+      "quantidade": 8,
+      "onde": "Ruinas do Culto e Ilha do Rei Afogado",
+      "animado": false
+    },
+    {
+      "id": "coluna_ruina",
+      "nome": "Coluna de Pedra Antiga",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [180, 320],
+      "pe_px": [95, 70],
+      "quantidade": 22,
+      "onde": "Ruinas do Culto",
+      "animado": false
+    },
+    {
+      "id": "altar_corrompido",
+      "nome": "Altar Corrompido",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [380, 280],
+      "pe_px": [270, 110],
+      "quantidade": 2,
+      "onde": "Ruinas do Culto e Ilha do Rei Afogado",
+      "animado": true
+    },
+    {
+      "id": "totem_pantanoso",
+      "nome": "Totem Pantanoso",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [160, 300],
+      "pe_px": [75, 55],
+      "quantidade": 14,
+      "onde": "Charco dos Venenos, Ruinas e Ilha do Rei Afogado",
+      "animado": true
+    },
+    {
+      "id": "tocha_verde",
+      "nome": "Tocha de Chama Verde",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [90, 210],
+      "pe_px": [40, 35],
+      "quantidade": 26,
+      "onde": "Acampamento, Ruinas e Cemiterio",
+      "animado": true
+    },
+    {
+      "id": "lanterna_espiritual",
+      "nome": "Lanterna Espiritual",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [100, 190],
+      "pe_px": [45, 35],
+      "quantidade": 22,
+      "onde": "Cemiterio Esquecido e Ruinas do Culto",
+      "animado": true
+    },
+    {
+      "id": "carcaca_animal",
+      "nome": "Carcaca de Animal",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [150, 75],
+      "pe_px": [115, 35],
+      "quantidade": 28,
+      "onde": "Charco dos Venenos e Aldeia Afundada",
+      "animado": false
+    },
+    {
+      "id": "ossos_espalhados",
+      "nome": "Ossos Espalhados",
+      "porte": "baixo",
+      "tamanho_na_tela_px": [125, 55],
+      "pe_px": [90, 30],
+      "quantidade": 55,
+      "onde": "Cemiterio, Ruinas e Ilha do Rei Afogado",
+      "animado": false
+    },
+    {
+      "id": "portal_valdoria",
+      "nome": "Portal de Valdoria",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [280, 390],
+      "pe_px": [180, 65],
+      "quantidade": 1,
+      "onde": "Entrada sudoeste, coordenada [380, 5100]",
+      "animado": true
+    },
+    {
+      "id": "portal_proxima_regiao",
+      "nome": "Portal da Fronteira Sombria",
+      "porte": "cintura",
+      "tamanho_na_tela_px": [290, 410],
+      "pe_px": [185, 70],
+      "quantidade": 1,
+      "onde": "Extremo norte das Ruinas do Culto, coordenada [3200, 200]",
+      "animado": true
+    }
+  ],
+  "inimigos": [
+    {
+      "nome": "Jacare do Pantano",
+      "tipo": "animal",
+      "nivel": 38,
+      "descricao_visual": "Jacare robusto verde-escuro, ventre amarelado, olhos laranja, escamas grossas, cauda musculosa e dentes aparentes. Comprimento aproximado de 190 px, altura visual de 75 px, equivalente a um animal de grande porte.",
+      "comportamento": "Predador territorial que permanece parado nas margens e investe quando o heroi se aproxima. Ataque principal de mordida frontal, seguido ocasionalmente por golpe de cauda em arco. Move-se lentamente em terra e rapidamente em agua rasa. Nao atravessa agua funda."
+    },
+    {
+      "nome": "Sapo Venenoso Gigante",
+      "tipo": "mutante",
+      "nivel": 40,
+      "descricao_visual": "Sapo enorme de pele verde-lima e roxa, verrugas luminosas, olhos amarelos salientes, boca larga e patas traseiras musculosas. Aproximadamente 165x140 px na tela.",
+      "comportamento": "Ataca saltando em direcao ao heroi. Alterna saltos curtos com disparos de globos venenosos. O veneno causa dano gradual. Antes do salto forte, agacha e infla o corpo, permitindo que o jogador antecipe o ataque."
+    },
+    {
+      "nome": "Mosquito Mutante",
+      "tipo": "mutante",
+      "nivel": 42,
+      "descricao_visual": "Inseto gigante de corpo violeta e preto, asas translúcidas, olhos vermelhos brilhantes, seis pernas longas e tromba afiada. Aproximadamente 145x155 px na tela.",
+      "comportamento": "Inimigo voador rapido que circula o jogador e executa investidas curtas. Pode causar sangramento por perfuracao. Aparece em pequenos grupos de dois ou tres. Ignora lama rasa, mas respeita limites de navegacao de combate e nao atravessa paredes."
+    },
+    {
+      "nome": "Afogado do Pantano",
+      "tipo": "monstro",
+      "nivel": 44,
+      "descricao_visual": "Humanoide morto-vivo alto, pele cinzenta esverdeada, armadura enferrujada, algas presas ao corpo, olhos ciano brilhantes e roupas rasgadas. Aproximadamente 125x190 px.",
+      "comportamento": "Persegue lentamente o heroi e ataca com golpes pesados. Pode executar uma agarrada que reduz a velocidade do jogador. Possui resistencia a veneno e vulnerabilidade moderada a fogo. Alguns permanecem imoveis ate serem provocados."
+    },
+    {
+      "nome": "Rei Afogado",
+      "tipo": "chefe",
+      "nivel": 46,
+      "descricao_visual": "Gigantesco guerreiro morto-vivo coberto por armadura negra oxidada, coroa de bronze quebrada, algas penduradas, olhos ciano luminosos e um tridente colossal. Corpo com aproximadamente 360x440 px, superior a quatro vezes a altura do heroi. Efeitos de agua escura e energia verde acompanham a arma.",
+      "comportamento": "Chefe com tres fases. Fase 1, de 100% a 70% da vida: golpes lentos de tridente e varredura frontal. Fase 2, de 70% a 35%: cria poças de lama que desaceleram, convoca dois Afogados do Pantano e executa ondas de agua em linhas. Fase 3, abaixo de 35%: aumenta velocidade, realiza salto com impacto circular e aplica golpes consecutivos. Todos os ataques fortes possuem aviso visual. A arena possui areas seguras e evita bloqueio completo da movimentacao."
+    }
+  ],
+  "npcs": [
+    {
+      "nome": "Darian Explorador",
+      "papel": "Explorador que apresenta a regiao e oferece missao inicial",
+      "onde_px": [720, 4750],
+      "fala": "Bem-vindo ao Pantano das Almas Perdidas. Muitos entraram nestas aguas, mas poucos voltaram. Se pretende seguir, mantenha os olhos atentos."
+    },
+    {
+      "nome": "Mira Herbalista",
+      "papel": "Coleta plantas raras e oferece missoes de coleta",
+      "onde_px": [1050, 4550],
+      "fala": "As plantas daqui podem curar ou matar. Traga alguns cogumelos luminosos e eu preparo algo util para sua jornada."
+    },
+    {
+      "nome": "Oren Pescador",
+      "papel": "Pescador sobrevivente que conta a historia da aldeia",
+      "onde_px": [4650, 4300],
+      "fala": "Esta aldeia ja foi cheia de vida. Uma noite, as aguas subiram e levaram todos. Dizem que o antigo rei ainda caminha sob o lodo."
+    },
+    {
+      "nome": "Selene Guardiã",
+      "papel": "Guardiã das ruinas que alerta sobre o chefe",
+      "onde_px": [2850, 1050],
+      "fala": "Alem da ponte repousa o Rei Afogado. Sua coroa foi tomada pela corrupcao. Somente um guerreiro preparado podera liberta-lo."
+    }
+  ],
+  "portais": [
+    {
+      "para": "Valdoria",
+      "onde_px": [380, 5100],
+      "requisito": "Nenhum. Retorno livre para Valdoria."
+    },
+    {
+      "para": "proxima_regiao_bloqueada",
+      "onde_px": [3200, 200],
+      "requisito": "Derrotar o Rei Afogado e obter a Coroa Partida. A proxima regiao sera definida futuramente."
+    }
+  ],
+  "spawn_px": [550, 4900],
+  "regras_adicionais": {
+    "zona_segura": {
+      "centro_px": [800, 4750],
+      "raio_px": 480,
+      "monstros_entram": false,
+      "combate_permitido": false
+    },
+    "velocidade_terrenos": {
+      "terra_firme": 1.0,
+      "grama_pantanosa": 1.0,
+      "pedra_antiga": 1.0,
+      "madeira_passarela": 1.0,
+      "lama_rasa": 0.7,
+      "agua_rasa": 0.8,
+      "terra_corrompida": 1.0,
+      "agua_funda": 0.0
+    },
+    "distribuicao_inimigos": {
+      "Jacare do Pantano": {
+        "quantidade_maxima": 16,
+        "respawn_segundos": 35,
+        "distancia_minima_spawn_heroi_px": 450
+      },
+      "Sapo Venenoso Gigante": {
+        "quantidade_maxima": 15,
+        "respawn_segundos": 40,
+        "distancia_minima_spawn_heroi_px": 450
+      },
+      "Mosquito Mutante": {
+        "quantidade_maxima": 18,
+        "respawn_segundos": 35,
+        "distancia_minima_spawn_heroi_px": 500
+      },
+      "Afogado do Pantano": {
+        "quantidade_maxima": 12,
+        "respawn_segundos": 50,
+        "distancia_minima_spawn_heroi_px": 550
+      },
+      "Rei Afogado": {
+        "quantidade_maxima": 1,
+        "respawn_segundos": 900,
+        "distancia_minima_spawn_heroi_px": 0
+      }
+    },
+    "regras_spawn": [
+      "Nao gerar monstros dentro da zona segura.",
+      "Nao gerar monstros em agua funda, exceto se futuramente houver criaturas aquaticas proprias.",
+      "Nao gerar monstros sobre objetos com colisao solida.",
+      "Nao gerar monstros diretamente sobre portais.",
+      "Nao gerar monstros em cima de NPCs.",
+      "Nao gerar monstros nas pontes estreitas.",
+      "Nao gerar inimigos comuns na arena do chefe.",
+      "Nao gerar inimigos em locais inacessiveis ao heroi.",
+      "Respeitar a quantidade maxima por especie.",
+      "Utilizar pontos de spawn previamente validados pela navegacao."
+    ],
+    "regras_caminhos": [
+      "O caminho principal deve permanecer livre de arvores e objetos solidos.",
+      "A largura livre minima das trilhas principais deve ser 160 px.",
+      "A largura livre minima das pontes deve ser 150 px.",
+      "Colisoes de pontes e passarelas devem respeitar suas dimensoes reais.",
+      "Pontes e passarelas devem substituir a restricao de agua funda apenas na propria area transitavel.",
+      "Nao posicionar arvores sobre passarelas.",
+      "Evitar objetos que bloqueiem a entrada das cabanas.",
+      "Manter todos os portais acessiveis.",
+      "Criar conexoes de terra firme nas extremidades das pontes.",
+      "Manter a rota entre Valdoria e a arena do chefe transitavel sem habilidades especiais.",
+      "Manter acesso alternativo para retornar da Ilha do Rei Afogado."
+    ],
+    "regras_visual": [
+      "Todos os objetos devem utilizar pixel art no mesmo estilo do Paradise RPG.",
+      "Manter o mesmo angulo de camera top-down.",
+      "A parte inferior dos sprites determina a posicao dos pes.",
+      "Nao utilizar sombras grandes que escondam o chao.",
+      "Usar animacoes discretas para juncos, cogumelos e nevoa.",
+      "Separar elementos de chao de objetos altos.",
+      "Nao colocar objetos decorativos sobre a HUD.",
+      "Preservar leitura visual das trilhas, pontes e portais."
+    ],
+    "regras_integracao_godot": {
+      "engine": "Godot 4",
+      "sistema": "2D top-down",
+      "camadas_sugeridas": {
+        "chao": "TileMapLayer com textura do terreno",
+        "agua": "TileMapLayer ou Polygon2D com colisao para agua funda",
+        "caminhos": "TileMapLayer ou sprites de pontes e passarelas",
+        "objetos_baixos": "Node2D com sprites decorativos sem colisao",
+        "objetos_joelho": "Node2D com sprites e ajuste visual de sobreposicao",
+        "objetos_cintura": "StaticBody2D com CollisionShape2D na faixa dos pes",
+        "entidades": "Node2D com y_sort_enabled ativo",
+        "efeitos": "CanvasItem ou Node2D para nevoa e particulas"
+      },
+      "colisao": "Usar CollisionShape2D exclusivamente na faixa pe_px dos objetos solidos. Objetos baixos e joelho nao devem impedir deslocamento.",
+      "navegacao": "Gerar regioes navegaveis excluindo agua funda e bases solidas, incluindo passarelas e pontes.",
+      "otimizacao": "Carregar objetos e inimigos por setores proximos ao jogador e descarregar instancias distantes."
+    },
+    "regras_conectividade": {
+      "rota_principal": [
+        "Entrada de Valdoria",
+        "Charco dos Venenos",
+        "Lago das Sombras",
+        "Cemiterio Esquecido",
+        "Ruinas do Culto",
+        "Ilha do Rei Afogado"
+      ],
+      "rota_secundaria": [
+        "Entrada de Valdoria",
+        "Charco dos Venenos",
+        "Aldeia Afundada",
+        "Cemiterio Esquecido"
+      ],
+      "rota_exploracao": [
+        "Entrada de Valdoria",
+        "Bosque das Raizes",
+        "Lago das Sombras"
+      ],
+      "observacao": "Na implementacao, criar pequenas conexoes locais entre trilhas e pontes onde necessario. Os pontos definidos sao eixos centrais, nao poligonos finais de navegacao."
+    }
+  },
+  "folhas_de_arte": [
+    {
+      "arquivo": "swamp_arvores_01.png",
+      "conteudo": [
+        "arvore_pantanosa_grande",
+        "arvore_pantanosa_media",
+        "arvore_morta",
+        "arvore_raiz_gigante"
+      ],
+      "prompt_para_gerar": "Crie uma folha de sprites para Paradise RPG, pixel art medieval sombria detalhada, perspectiva 2D top-down de aproximadamente 45 graus. Exatamente quatro arvores diferentes em uma unica linha horizontal: arvore pantanosa grande, arvore pantanosa media, arvore morta retorcida e arvore de raizes gigantes. Troncos grossos, galhos tortos, musgo pendurado e raizes expostas. Cada arvore inteira, sem cortes e bem separada das outras. Respeitar proporcoes relativas. Fundo verde chroma puro #00FF00, uniforme, sem sombras no chao, sem texto, sem numeros, sem grade e sem bordas. Muito espaco vazio entre objetos."
+    },
+    {
+      "arquivo": "swamp_raizes_pedras_01.png",
+      "conteudo": [
+        "raiz_exposta",
+        "raiz_elevada",
+        "tronco_caido",
+        "pedra_musgosa_pequena",
+        "pedra_musgosa_media",
+        "pedra_musgosa_grande"
+      ],
+      "prompt_para_gerar": "Folha de seis objetos separados em duas linhas e tres colunas, estilo pixel art detalhada de Paradise RPG. Linha 1: raiz exposta rasteira, raiz elevada e tronco antigo caido. Linha 2: pedra musgosa pequena, pedra musgosa media e pedra musgosa grande. Todos em perspectiva top-down 45 graus, totalmente visiveis, separados por grandes espacos vazios, sem contato entre sprites. Fundo verde chroma #00FF00 puro, sem sombras, sem texto, sem numeros, sem grade e sem moldura."
+    },
+    {
+      "arquivo": "swamp_vegetacao_01.png",
+      "conteudo": [
+        "capim_pantanoso",
+        "junco_alto",
+        "lirio_agua",
+        "cogumelo_venenoso",
+        "cogumelo_luminoso",
+        "flor_pantanosa"
+      ],
+      "prompt_para_gerar": "Folha de seis elementos de vegetacao em duas linhas e tres colunas para RPG 2D top-down em pixel art. Linha 1: capim pantanoso verde-oliva, junco alto de pantano e lirio de agua com folha circular. Linha 2: cogumelo venenoso verde e roxo, cogumelo luminoso azul-ciano e flor pantanosa roxa. Objetos isolados, corpo inteiro, perspectiva top-down 45 graus, cores de fantasia sombria, muito espaco entre cada objeto, fundo verde chroma #00FF00 puro, sem sombras, textos, grades ou bordas."
+    },
+    {
+      "arquivo": "swamp_efeitos_01.png",
+      "conteudo": [
+        "bolhas_lama",
+        "nevoa_pantanosa"
+      ],
+      "prompt_para_gerar": "Folha de efeitos ambientais do Pantano das Almas Perdidas, estilo pixel art 2D top-down de Paradise RPG. Dois elementos amplamente separados: um conjunto de bolhas marrons e verdes saindo de lama e uma nuvem baixa de nevoa pantanosa verde-esverdeada com bordas suaves em pixel art. Elementos inteiros, sem cortes, sem contato. Fundo verde chroma puro #00FF00, sem texto, sem numeros, sem grade, sem chao e sem sombra. Para a nevoa verde, usar tons claramente diferentes do chroma puro."
+    },
+    {
+      "arquivo": "swamp_pontes_01.png",
+      "conteudo": [
+        "passarela_reta",
+        "passarela_curva",
+        "ponte_madeira"
+      ],
+      "prompt_para_gerar": "Folha com exatamente tres estruturas de madeira antigas para Paradise RPG, estilo pixel art detalhada 2D top-down. Primeira: segmento de passarela reta feito de tabuas e estacas. Segunda: segmento de passarela curva de madeira irregular. Terceira: ponte de madeira antiga maior, com algumas cordas e suportes laterais. Perspectiva top-down 45 graus, superficie superior bem visivel para passagem do heroi, sem agua nem solo desenhado. Estruturas completas, muito afastadas umas das outras. Fundo verde chroma #00FF00 uniforme, sem sombras, texto, numeros, grade ou bordas."
+    },
+    {
+      "arquivo": "swamp_cabanas_01.png",
+      "conteudo": [
+        "cabana_abandonada",
+        "cabana_pescador"
+      ],
+      "prompt_para_gerar": "Folha com duas cabanas de pantano em pixel art medieval detalhada, perspectiva top-down 45 graus, Paradise RPG. Esquerda: cabana abandonada com madeira podre, telhado quebrado, musgo e janela destruida. Direita: cabana de pescador preservada, madeira escura, telhado de palha e pequena varanda. Portas voltadas para a camera, largura aproximada de 145 px para permitir passagem visual do heroi de 104 px de altura. Cabanas completas, afastadas e sem sobreposicao. Fundo verde chroma puro #00FF00, sem chao, sombras, texto, numeros ou moldura."
+    },
+    {
+      "arquivo": "swamp_aldeia_objetos_01.png",
+      "conteudo": [
+        "barco_quebrado",
+        "cerca_quebrada",
+        "barril_velho",
+        "caixote_madeira"
+      ],
+      "prompt_para_gerar": "Folha com quatro objetos da aldeia afundada de Paradise RPG, em uma linha horizontal: barco de madeira quebrado, cerca antiga destruida, barril envelhecido e caixote de madeira. Pixel art detalhada medieval, perspectiva top-down 45 graus, madeira umida escura com musgo. Cada objeto separado com muito espaco vazio, inteiro e sem cortes. Fundo verde chroma puro #00FF00, sem sombras, texto, numeros, grades ou bordas."
+    },
+    {
+      "arquivo": "swamp_cemiterio_01.png",
+      "conteudo": [
+        "lapide_antiga",
+        "mausoleu_destruido",
+        "estatua_partida",
+        "coluna_ruina"
+      ],
+      "prompt_para_gerar": "Folha de quatro estruturas para cemiterio e ruinas de Paradise RPG, em uma linha horizontal. Lapide antiga inclinada coberta de musgo, mausoleu medieval destruido, estatua de guerreiro antigo partida e coluna de pedra arruinada. Pixel art detalhada, fantasia sombria, perspectiva top-down 45 graus, tons cinzentos com detalhes verdes. Objetos inteiros e muito separados, sem contato ou cortes. Fundo verde chroma #00FF00 uniforme, sem chao, sombras, textos, numeros ou grade."
+    },
+    {
+      "arquivo": "swamp_rituais_01.png",
+      "conteudo": [
+        "altar_corrompido",
+        "totem_pantanoso",
+        "tocha_verde",
+        "lanterna_espiritual"
+      ],
+      "prompt_para_gerar": "Folha com quatro objetos sobrenaturais de pantano para Paradise RPG, em uma unica linha: altar de pedra corrompido com runas violeta, totem pantanoso de madeira com cranio de criatura ficticia, tocha medieval com chama verde-esmeralda e lanterna espiritual de metal enferrujado com brilho ciano. Pixel art detalhada, perspectiva top-down 45 graus, fantasia sombria. Objetos isolados e inteiros com muito espaco entre eles. Fundo verde chroma puro #00FF00, sem sombra no chao, texto, numeros, grades ou bordas."
+    },
+    {
+      "arquivo": "swamp_restos_01.png",
+      "conteudo": [
+        "carcaca_animal",
+        "ossos_espalhados"
+      ],
+      "prompt_para_gerar": "Folha com dois objetos ambientais de um pantano sombrio para Paradise RPG. Esquerda: carcaca antiga de animal fantastico parcialmente decomposta, sem sangue explicito. Direita: pequeno conjunto de ossos envelhecidos espalhados sobre o solo, sem desenhar o solo. Pixel art medieval detalhada, perspectiva top-down 45 graus, objetos inteiros e amplamente separados. Fundo verde chroma puro #00FF00, sem sombras, textos, numeros, grade ou bordas."
+    },
+    {
+      "arquivo": "swamp_portais_01.png",
+      "conteudo": [
+        "portal_valdoria",
+        "portal_proxima_regiao"
+      ],
+      "prompt_para_gerar": "Folha com dois portais de RPG medieval em pixel art detalhada, perspectiva 2D top-down 45 graus, Paradise RPG. Esquerda: portal de retorno para Valdoria, estrutura de pedra antiga com energia azul-ciano. Direita: portal da Fronteira Sombria, arco de pedra coberto de raizes com energia violeta e verde, visual misterioso. Aberturas suficientemente largas para um heroi de 104 px, bases visiveis e sprites inteiros. Portais separados por muito espaco vazio. Fundo verde chroma puro #00FF00, sem sombra no chao, texto, numeros, grade ou bordas."
+    }
+  ],
+  "validacao_projeto": {
+    "total_zonas": 8,
+    "total_terrenos": 8,
+    "total_caminhos": 9,
+    "total_areas_agua": 5,
+    "total_tipos_objetos": 39,
+    "total_inimigos_comuns": 4,
+    "total_chefes": 1,
+    "total_npcs": 4,
+    "total_portais": 2,
+    "total_folhas_arte": 11,
+    "status": "Projeto conceitual pronto para implementacao, sujeito a validacao geometrica das rotas, ajuste da grade e verificacao das colisoes.",
+    "observacoes_implementacao": [
+      "Manter o mapa com dimensoes finais de 6400x5760 px.",
+      "Resolver a incompatibilidade da escala da grade antes de importar as imagens do terreno.",
+      "Usar os caminhos definidos como eixos de referencia para gerar trilhas e passarelas transitaveis.",
+      "A agua funda deve bloquear a navegacao fora das pontes.",
+      "Verificar a sobreposicao entre poligonos de agua, areas de terra firme e caminhos.",
+      "Criar terra firme sob a arena do Rei Afogado antes de posicionar chefe e altar.",
+      "Posicionar os portais de forma que suas areas de ativacao nao coincidam com colisao solida.",
+      "Validar se o portal norte possui espaco livre para aproximacao do jogador.",
+      "Evitar duplicar objetos, inimigos e efeitos ao carregar setores adjacentes.",
+      "Preservar os sistemas existentes de HUD, combate, inventario, missões, pets e montarias."
+    ]
+  }
+}

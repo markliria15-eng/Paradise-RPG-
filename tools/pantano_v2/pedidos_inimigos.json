@@ -1,0 +1,107 @@
+[
+ {
+  "mob": "jacare_pantano",
+  "pedidos": [
+   {
+    "arquivo": "jacare_pantano_idle.png",
+    "prompt": "Gere uma imagem: sprite sheet de pixel art para RPG 2D (Paradise RPG: pixel art detalhada, contorno escuro, fantasia sombria de pântano) do monstro Jacare do Pantano: Jacare robusto verde-escuro, ventre amarelado, olhos laranja, escamas grossas, cauda musculosa e dentes aparentes. Comprimento aproximado de 190 px, altura visual de 75 px, equivalente a um animal de grande porte. ANIMAÇÃO: PARADO (idle) em loop: respiração leve, corpo sobe e desce 1-2 pixels; o quadro 6 emenda no 1, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM jacaré só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "jacare_pantano_walk.png",
+    "prompt": "Agora OUTRA imagem com o MESMO jacaré, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: ANDANDO (walk) em loop: passada completa no lugar; o quadro 8 emenda no 1, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM jacaré só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "jacare_pantano_attack.png",
+    "prompt": "Agora OUTRA imagem com o MESMO jacaré, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: MORDIDA: 1 parado, 2 abre a boca, 3 avança o corpo para a ESQUERDA com a boca bem aberta, 4 fecha a boca com força (mordida), 5 recua, 6 volta à pose parada, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM jacaré só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "jacare_pantano_death.png",
+    "prompt": "Agora OUTRA imagem com o MESMO jacaré, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: MORTE: 1 recebe o golpe, 2-4 cambaleia e tomba, 5-6 cai no chão, 7-8 caído imóvel (quase iguais); o corpo continua inteiro, sem sangue, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM jacaré só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   }
+  ]
+ },
+ {
+  "mob": "sapo_venenoso",
+  "pedidos": [
+   {
+    "arquivo": "sapo_venenoso_idle.png",
+    "prompt": "Gere uma imagem: sprite sheet de pixel art para RPG 2D (Paradise RPG: pixel art detalhada, contorno escuro, fantasia sombria de pântano) do monstro Sapo Venenoso Gigante: Sapo enorme de pele verde-lima e roxa, verrugas luminosas, olhos amarelos salientes, boca larga e patas traseiras musculosas. Aproximadamente 165x140 px na tela. ANIMAÇÃO: PARADO (idle) em loop: respiração leve, corpo sobe e desce 1-2 pixels; o quadro 6 emenda no 1, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM sapo só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "sapo_venenoso_walk.png",
+    "prompt": "Agora OUTRA imagem com o MESMO sapo, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: ANDANDO (walk) em loop: passada completa no lugar; o quadro 8 emenda no 1, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM sapo só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "sapo_venenoso_attack.png",
+    "prompt": "Agora OUTRA imagem com o MESMO sapo, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: SALTO VENENOSO: 1 parado, 2 agacha e infla o corpo, 3 salta para a ESQUERDA (no ar, patas esticadas), 4 aterrissa esmagando, 5 cospe um pequeno globo de veneno roxo colado na boca, 6 volta à pose parada, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM sapo só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "sapo_venenoso_death.png",
+    "prompt": "Agora OUTRA imagem com o MESMO sapo, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: MORTE: 1 recebe o golpe, 2-4 cambaleia e tomba, 5-6 cai no chão, 7-8 caído imóvel (quase iguais); o corpo continua inteiro, sem sangue, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM sapo só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   }
+  ]
+ },
+ {
+  "mob": "mosquito_mutante",
+  "pedidos": [
+   {
+    "arquivo": "mosquito_mutante_idle.png",
+    "prompt": "Gere uma imagem: sprite sheet de pixel art para RPG 2D (Paradise RPG: pixel art detalhada, contorno escuro, fantasia sombria de pântano) do monstro Mosquito Mutante: Inseto gigante de corpo violeta e preto, asas translúcidas, olhos vermelhos brilhantes, seis pernas longas e tromba afiada. Aproximadamente 145x155 px na tela. ANIMAÇÃO: PAIRANDO (idle) em loop: asas batendo, corpo quase parado no ar; o quadro 6 emenda no 1, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM mosquito só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #00FF00 verde (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "mosquito_mutante_walk.png",
+    "prompt": "Agora OUTRA imagem com o MESMO mosquito, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: VOANDO (voo) em loop: asas batendo rápido, corpo pairando, sobe e desce um pouco; o quadro 8 emenda no 1, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM mosquito só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #00FF00 verde (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "mosquito_mutante_attack.png",
+    "prompt": "Agora OUTRA imagem com o MESMO mosquito, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: FERROADA: 1 pairando, 2 recua o corpo, 3 investe para a ESQUERDA com a tromba à frente, 4 crava a tromba (corpo esticado), 5 recua batendo as asas, 6 volta a pairar, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM mosquito só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #00FF00 verde (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "mosquito_mutante_death.png",
+    "prompt": "Agora OUTRA imagem com o MESMO mosquito, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: MORTE: 1 recebe o golpe, 2-4 cambaleia e tomba, 5-6 cai no chão, 7-8 caído imóvel (quase iguais); o corpo continua inteiro, sem sangue, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM mosquito só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #00FF00 verde (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   }
+  ]
+ },
+ {
+  "mob": "afogado_pantano",
+  "pedidos": [
+   {
+    "arquivo": "afogado_pantano_idle.png",
+    "prompt": "Gere uma imagem: sprite sheet de pixel art para RPG 2D (Paradise RPG: pixel art detalhada, contorno escuro, fantasia sombria de pântano) do monstro Afogado do Pantano: Humanoide morto-vivo alto, pele cinzenta esverdeada, armadura enferrujada, algas presas ao corpo, olhos ciano brilhantes e roupas rasgadas. Aproximadamente 125x190 px. ANIMAÇÃO: PARADO (idle) em loop: respiração leve, corpo sobe e desce 1-2 pixels; o quadro 6 emenda no 1, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM afogado só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "afogado_pantano_walk.png",
+    "prompt": "Agora OUTRA imagem com o MESMO afogado, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: ANDANDO (walk) em loop: passada completa no lugar; o quadro 8 emenda no 1, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM afogado só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "afogado_pantano_attack.png",
+    "prompt": "Agora OUTRA imagem com o MESMO afogado, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: GOLPE PESADO: 1 parado, 2 ergue os dois braços, 3 braços lá em cima, 4 desce os braços com força para a ESQUERDA, 5 braços à frente (agarrão), 6 volta à pose parada, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM afogado só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "afogado_pantano_death.png",
+    "prompt": "Agora OUTRA imagem com o MESMO afogado, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: MORTE: 1 recebe o golpe, 2-4 cambaleia e tomba, 5-6 cai no chão, 7-8 caído imóvel (quase iguais); o corpo continua inteiro, sem sangue, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM afogado só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   }
+  ]
+ },
+ {
+  "mob": "rei_afogado",
+  "pedidos": [
+   {
+    "arquivo": "rei_afogado_idle.png",
+    "prompt": "Gere uma imagem: sprite sheet de pixel art para RPG 2D (Paradise RPG: pixel art detalhada, contorno escuro, fantasia sombria de pântano) do monstro Rei Afogado: Gigantesco guerreiro morto-vivo coberto por armadura negra oxidada, coroa de bronze quebrada, algas penduradas, olhos ciano luminosos e um tridente colossal. Corpo com aproximadamente 360x440 px, superior a quatro vezes a altura do heroi. Efeitos de agua escura e energia verde acompanham a arma. ANIMAÇÃO: PARADO (idle) em loop: respiração leve, corpo sobe e desce 1-2 pixels; o quadro 6 emenda no 1, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM rei só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "rei_afogado_walk.png",
+    "prompt": "Agora OUTRA imagem com o MESMO rei, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: ANDANDO (walk) em loop: passada completa no lugar; o quadro 8 emenda no 1, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM rei só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "rei_afogado_attack.png",
+    "prompt": "Agora OUTRA imagem com o MESMO rei, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: GOLPE DE TRIDENTE: 1 parado segurando o tridente, 2 puxa o tridente para trás, 3 ergue o tridente, 4 estocada forte para a ESQUERDA com o tridente esticado, 5 varredura (tridente à frente, baixo), 6 volta à pose parada, exatamente 6 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM rei só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   },
+   {
+    "arquivo": "rei_afogado_death.png",
+    "prompt": "Agora OUTRA imagem com o MESMO rei, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMAÇÃO: MORTE: 1 recebe o golpe, 2-4 cambaleia e tomba, 5-6 cai no chão, 7-8 caído imóvel (quase iguais); o corpo continua inteiro, sem sangue, exatamente 8 quadros. REGRAS OBRIGATÓRIAS: uma única linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM rei só por quadro; o MESMO TAMANHO de corpo em todos os quadros; pés na mesma linha de chão; MUITO espaço vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor única, sem degradê); sem texto, sem números, sem grade, sem moldura, sem sombra no chão."
+   }
+  ]
+ }
+]

@@ -285,6 +285,8 @@ const CAVE_CHUNK_SIZE := Vector2(280, 280)
 const CAVE_KIT_DATA_PATH := "res://data/cave_kit.json"
 # Valdoria v2 (tools/valdoria_v2/generate_valdoria_v2.py): cidade portuaria em kit (chunks + mascara + mar + predios).
 const VALDORIA_KIT_DATA_PATH := "res://data/valdoria_kit.json"
+const SWAMP_KIT_DATA_PATH := "res://data/swamp_kit.json"
+const SWAMP_MAP_ID := "swamp_almas"
 const MAPS_REBUILD_BASE_ONLY := {
 	"arcane_ruins": true,
 	"bat_cave": true,
@@ -512,6 +514,10 @@ var cave_collision_data: Dictionary = {}
 var forest_kit_data: Dictionary = {}
 var cave_kit_data: Dictionary = {}
 var valdoria_kit_data: Dictionary = {}
+var swamp_kit_data: Dictionary = {}
+var terrain_slow_image: Image = null  # mascara de chao lento do kit ("slow_mask")
+var terrain_slow_cell := 16.0
+var terrain_slow_factor := 1.0
 # Veiculos/animais que andam por rotas no mapa atual (kit "vehicles"); refeito a cada _load_map.
 var kit_vehicles: Array = []
 var hero_bump_actor: Dictionary = {}

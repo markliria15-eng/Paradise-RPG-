@@ -760,6 +760,53 @@
         "recarga_mult": 0.65,
         "extra": "Carga Infernal deixa um rastro de fogo e Chao em Chamas cria 7 areas flamejantes."
       }
+    },
+    "Rei Afogado": {
+      "tema": "O soberano morto-vivo do Pantano das Almas Perdidas controla aguas corrompidas, convoca guerreiros afogados e transforma o campo de batalha em um pantano mortal.",
+      "ataques": [
+        {
+          "tipo": "pocas",
+          "nome": "Lama dos Condenados",
+          "recarga_s": 13,
+          "aviso_s": 1.8,
+          "dano_mult": 0.65,
+          "quantidade": 5,
+          "raio": 72,
+          "espalhamento": 280,
+          "dura_s": 5,
+          "efeito": "lento",
+          "efeito_s": 2.5
+        },
+        {
+          "tipo": "projeteis",
+          "nome": "Ondas do Abismo",
+          "recarga_s": 10,
+          "aviso_s": 1.4,
+          "dano_mult": 0.8,
+          "quantidade": 5,
+          "padrao": "leque",
+          "abertura_graus": 65,
+          "velocidade": 320,
+          "raio": 20,
+          "efeito": "lento",
+          "efeito_s": 1.5
+        },
+        {
+          "tipo": "invocar",
+          "nome": "Legiao dos Afogados",
+          "recarga_s": 22,
+          "aviso_s": 1.8,
+          "dano_mult": 0.3,
+          "inimigo": "Afogado do Pantano",
+          "quantidade": 2,
+          "max_vivos": 2
+        }
+      ],
+      "furia": {
+        "vida_pct": 0.35,
+        "recarga_mult": 0.65,
+        "extra": "O Rei Afogado entra em furia ao atingir 35% de vida. Lama dos Condenados cria 7 pocas de lama, Ondas do Abismo dispara 7 projeteis em leque e Legiao dos Afogados continua limitada a 2 inimigos vivos."
+      }
     }
   },
   "esquiva": {
@@ -1421,6 +1468,17 @@
       },
       "objeto": {
         "_doc": "objetos na proporcao real: barril ~0.5, caixote ~0.45, banco ~0.45 de altura, poste/lampiao ~1.6"
+      },
+      "animal_comprido": {
+        "altura": [
+          0.4,
+          0.75
+        ],
+        "lado": [
+          1.3,
+          2.0
+        ],
+        "_doc": "bicho comprido e baixo, rente ao chao (jacare)"
       }
     },
     "inimigos": {
@@ -1440,7 +1498,11 @@
       "Cavaleiro Sombrio": "monstro",
       "Golem de Pedra": "monstro",
       "Guardiao Cristalino": "monstro",
-      "Draco Jovem": "mutante"
+      "Draco Jovem": "mutante",
+      "Jacare do Pantano": "animal_comprido",
+      "Sapo Venenoso Gigante": "mutante",
+      "Mosquito Mutante": "mutante",
+      "Afogado do Pantano": "monstro"
     }
   }
 }

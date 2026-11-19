@@ -54,6 +54,7 @@ var stun_timer := 0.0
 # Lentidao (golpes de chefe: poca de gelo/cristal, pedras): reduz a velocidade por alguns segundos
 var slow_timer := 0.0
 var slow_pct := 0.0
+var terrain_speed := 1.0  # lama/agua rasa (main.gd -> _update_terrain_speed)
 # Esquiva (rolamento): game_rules.json -> "esquiva"; main.gd passa a config em dodge_cfg
 var dodge_cfg: Dictionary = {}
 var dodge_timer := 0.0
@@ -174,7 +175,7 @@ func _physics_process(delta: float) -> void:
 		_update_health_bar()
 		return
 	_update_directional_sprite(input, delta)
-	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus)
+	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus) * terrain_speed
 	if slow_timer > 0.0:
 		slow_timer -= delta
 		velocity *= 1.0 - slow_pct

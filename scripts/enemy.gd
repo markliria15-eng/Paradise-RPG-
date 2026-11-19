@@ -77,6 +77,11 @@ const PACKED_MOB_ASSETS := {
 	"Tita de Cristal": "tita_cristal",
 	"Cavaleiro Sombrio": "cavaleiro_sombrio",
 	"General Infernal": "general_infernal",
+	"Jacare do Pantano": "jacare_pantano",
+	"Sapo Venenoso Gigante": "sapo_venenoso",
+	"Mosquito Mutante": "mosquito_mutante",
+	"Afogado do Pantano": "afogado_pantano",
+	"Rei Afogado": "rei_afogado",
 }
 # Tamanho em relacao ao jogador (altura VISIVEL do sprite, sem a borda transparente).
 # A altura do jogador e medida no proprio sprite dele; 75 px e so o valor reserva.
@@ -108,6 +113,11 @@ const ENEMY_SIZE := {
 	"Senhor das Colinas": 2.1,
 	"General Infernal": 2.3,
 	"Tita de Cristal": 2.4,
+	"Jacare do Pantano": 0.72,  # comprido e baixo (animal_comprido): ~1.6 heroi de comprimento
+	"Sapo Venenoso Gigante": 1.3,
+	"Mosquito Mutante": 1.25,  # asas abertas: lado ~1.0-1.4 heroi (mutante)
+	"Afogado do Pantano": 1.55,
+	"Rei Afogado": 3.0,
 }
 static var _visible_rect_cache: Dictionary = {}
 # Alcance corpo a corpo cresce com o tamanho (golem/chefe nao "entram" no jogador).

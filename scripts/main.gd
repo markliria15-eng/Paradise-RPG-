@@ -49,6 +49,8 @@ func _process(delta: float) -> void:
 		return
 	_enforce_world_collision()
 	_update_kit_vehicles(delta)
+	if player != null:
+		player.terrain_speed = _terrain_speed_at(player.global_position)
 	map_stream_timer -= delta
 	if map_stream_timer <= 0.0:
 		map_stream_timer = 0.15
@@ -1336,6 +1338,7 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 		if child != player:
 			child.queue_free()
 	remote_players.clear()
+	terrain_slow_image = null  # so o mapa que tem "slow_mask" no kit liga de novo
 	var map_data: Dictionary = maps.get(resolved_map_id, maps.get(FOREST_PRIMARY_MAP_ID, {}))
 	var size_data: Array = map_data.get("size", [int(DEFAULT_MAP_SIZE.x), int(DEFAULT_MAP_SIZE.y)])
 	current_map_size = Vector2(float(size_data[0]), float(size_data[1]))
@@ -1344,6 +1347,9 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	elif _valdoria_v2_active():
 		var valdoria_size: Array = _get_valdoria_kit_data().get("world_size", [6400, 5760])
 		current_map_size = Vector2(float(valdoria_size[0]), float(valdoria_size[1]))
+	elif _swamp_v2_active():
+		var swamp_size: Array = _get_swamp_kit_data().get("world_size", [6400, 5760])
+		current_map_size = Vector2(float(swamp_size[0]), float(swamp_size[1]))
 	elif _is_new_valdoria_map():
 		current_map_size = VALDORIA_WORLD_SIZE
 	elif _is_forest_runtime_map() and _forest_chunks_available():

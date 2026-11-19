@@ -6,7 +6,7 @@ extends Node
 #   godot --path . res://tests/medir_desempenho.tscn -- --offline-test
 # Saida: linhas "DESEMPENHO <mapa> carga_ms=... nos=... draw=... tex_mb=... fps=..."
 
-const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria"]
+const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria", "swamp_almas"]
 var main: Node = null
 
 

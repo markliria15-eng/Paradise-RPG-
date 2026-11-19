@@ -98,6 +98,10 @@ def main():
                                          "(golpe especial do CombatVisuals, ja no tamanho do idle)")
     parser.add_argument("--despill", action="store_true",
                         help="apaga a franja verde do fundo chroma (so para arte sem verde: lobo, mago...)")
+    parser.add_argument("--spill", action="store_true",
+                        help="tira o reflexo do fundo verde sem apagar nada (asa transparente de inseto fica cinza)")
+    parser.add_argument("--spill-magenta", action="store_true",
+                        help="tira o reflexo do fundo magenta (so para arte SEM roxo/rosa: brilho e borda ficam limpos)")
     parser.add_argument("--seams", action="store_true",
                         help="corta nas colunas mais vazias perto de cada divisa (pose fora da grade nao e cortada)")
     args = parser.parse_args()
@@ -110,6 +114,17 @@ def main():
         sheet[verde, 3] = 0
         # cor do fundo some tambem dos pixels transparentes (senao o redimensionamento traz o verde de volta)
         sheet[sheet[:, :, 3] == 0, :3] = 30
+    if args.spill:
+        rgb = sheet[:, :, :3].astype(np.int32)
+        sheet[:, :, 1] = np.minimum(rgb[:, :, 1], np.maximum(rgb[:, :, 0], rgb[:, :, 2]) + 12).astype(np.uint8)
+    if args.spill_magenta:
+        rgb = sheet[:, :, :3].astype(np.int32)
+        excesso = np.minimum(rgb[:, :, 0], rgb[:, :, 2]) - rgb[:, :, 1]
+        rosa = excesso > 40
+        fade = np.clip(1.0 - (excesso - 40) / 120.0, 0.0, 1.0)
+        sheet[rosa, 3] = (sheet[rosa, 3] * fade[rosa]).astype(np.uint8)
+        sheet[rosa, 0] = np.minimum(rgb[rosa, 0], rgb[rosa, 1] + 25).astype(np.uint8)
+        sheet[rosa, 2] = np.minimum(rgb[rosa, 2], rgb[rosa, 1] + 40).astype(np.uint8)
     col_w = sheet.shape[1] / float(args.frames)
     edges = [int(round(i * col_w)) for i in range(args.frames + 1)]
     if args.seams:

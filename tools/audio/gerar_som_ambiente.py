@@ -322,7 +322,29 @@ def descargas(vol):
     return vol * norm(reverb(tr, 1.5, 0.5))
 
 
+def sapos(vol):
+    tr = np.zeros((2, N))
+    for t0 in rng.uniform(0, DUR, 34):
+        f = rng.uniform(170, 330)
+        pulsos = rng.integers(2, 6)
+        dur = 0.07
+        coaxo = np.concatenate([np.concatenate([tone([f, f * 2, f * 3.1], [1, 0.6, 0.25], dur, dur * 0.6),
+                                                np.zeros(int(0.035 * SR))]) for _ in range(pulsos)])
+        place(tr, coaxo, t0, rng.uniform(-0.9, 0.9), rng.uniform(0.35, 1))
+    return vol * norm(reverb(tr, 1.4, 0.35, 120, 2500))
+
+
+def bolhas(vol):
+    tr = np.zeros((2, N))
+    for t0 in rng.uniform(0, DUR, 70):
+        f0 = rng.uniform(140, 260)
+        place(tr, glide(f0, f0 * rng.uniform(1.8, 2.6), rng.uniform(0.05, 0.12), (1, 0.3)), t0, rng.uniform(-0.8, 0.8), rng.uniform(0.3, 1))
+    return vol * norm(reverb(tr, 0.8, 0.25, 100, 1800))
+
+
 MAPAS = {
+    "swamp_almas": lambda: [vento(0.18, 90, 450), insetos(0.22), sapos(0.40), bolhas(0.22), riacho(0.06), drone(0.08, (49, 73.5, 98)),
+                            sussurros(0.06)],
     "city_valdoria": lambda: [ondas(0.55), agua_cais(0.35), gaivotas(0.42), vento(0.25, 200, 900),
                               rangido(0.14), sino(0.22, 610, 2), conversas(0.16), martelo(0.10), sino(0.10, 98, 1, 5, 600)],
     "city_eldoria": lambda: [fonte(0.42), passaros(0.38), vento(0.22), conversas(0.18), martelo(0.12), sino(0.25, 392, 1, 5)],

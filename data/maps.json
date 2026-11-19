@@ -947,15 +947,15 @@
         "requires_flag": "rota_valdoria"
       },
       {
-        "label": "Passagem Alta",
-        "target": "highland_pass",
+        "label": "Pantano das Almas",
+        "target": "swamp_almas",
         "pos": [
           5750,
           1857
         ],
         "spawn": [
-          420,
-          700
+          620,
+          4950
         ]
       }
     ],
@@ -1223,5 +1223,373 @@
     "safe_zones": [],
     "collectibles": [],
     "spawns": []
+  },
+  "swamp_almas": {
+    "name": "Pantano das Almas Perdidas",
+    "safe": false,
+    "size": [
+      6400,
+      5760
+    ],
+    "color": "#2f3a2a",
+    "spawn": [
+      550,
+      4900
+    ],
+    "npcs": [
+      {
+        "name": "Darian, Explorador",
+        "role": "talk",
+        "pos": [
+          720,
+          4750
+        ],
+        "sprite": "res://assets/characters/npcs/npc_mineiro_perdido_idle_4f_128.png",
+        "greeting": "Bem-vindo ao Pantano das Almas Perdidas. Muitos entraram nestas aguas, mas poucos voltaram. Se pretende seguir, mantenha os olhos atentos."
+      },
+      {
+        "name": "Mirta, Herbalista",
+        "role": "talk",
+        "pos": [
+          1050,
+          4550
+        ],
+        "sprite": "res://assets/characters/npcs/sarah_curandeira_idle_4f_128.png",
+        "greeting": "As plantas daqui podem curar ou matar. Traga alguns cogumelos luminosos e eu preparo algo util para sua jornada."
+      },
+      {
+        "name": "Oren, Pescador",
+        "role": "talk",
+        "pos": [
+          4650,
+          4300
+        ],
+        "sprite": "res://assets/characters/npcs/npc_borin_pescador_idle_4f_128.png",
+        "greeting": "Esta aldeia ja foi cheia de vida. Uma noite, as aguas subiram e levaram todos. Dizem que o antigo rei ainda caminha sob o lodo."
+      },
+      {
+        "name": "Nadia, Guardia das Ruinas",
+        "role": "talk",
+        "pos": [
+          2850,
+          1050
+        ],
+        "sprite": "res://assets/characters/npcs/npc_maga_selene_idle_4f_128.png",
+        "greeting": "Alem da ponte repousa o Rei Afogado. Sua coroa foi tomada pela corrupcao. Somente um guerreiro preparado podera liberta-lo."
+      }
+    ],
+    "portals": [
+      {
+        "label": "Valdoria",
+        "target": "city_valdoria",
+        "pos": [
+          380,
+          5160
+        ],
+        "spawn": [
+          5550,
+          1857
+        ]
+      }
+    ],
+    "spawns": [
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          380,
+          2005,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          2005,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          380,
+          2985,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          2985,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1980,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          2960,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1980,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          2960,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1881,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          2861,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          3459,
+          2104,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4380,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5360,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4380,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5360,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4281,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5261,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4780,
+          1605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          5760,
+          1605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4780,
+          2585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          5760,
+          2585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2380,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          3360,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2380,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          3261,
+          1286,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Rei Afogado",
+        "count": 1,
+        "boss": true,
+        "respawn": 300,
+        "zone": [
+          800,
+          620,
+          200,
+          160
+        ]
+      }
+    ],
+    "collectibles": [],
+    "safe_zones": [
+      {
+        "pos": [
+          800,
+          4750
+        ],
+        "radius": 480
+      }
+    ]
   }
 }
