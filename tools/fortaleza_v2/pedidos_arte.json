@@ -1,0 +1,82 @@
+[
+ {
+  "arquivo": "ember_terrenos_01.png",
+  "prompt": "Gere UMA imagem contendo uma folha de texturas de terreno para o mapa Fortaleza de Cinzas do Paradise RPG, em pixel art medieval detalhada, perspectiva top-down totalmente de cima, iluminacao vulcanica dramatica e estilo consistente. EXATAMENTE 4 colunas x 2 linhas, total de 8 texturas quadradas de tamanho igual, cada uma perfeitamente continua e repetivel nas quatro bordas, sem objetos altos e sem perspectiva lateral. ORDEM OBRIGATORIA da esquerda para a direita: linha 1: (1) basalto_frio, pedra negra acinzentada lisa; (2) cinzas_finas, poeira vulcanica cinza; (3) cinzas_grossas, poeira grafite espessa com ondulacoes; (4) basalto_rachado, pedra negra com fissuras alaranjadas discretas. Linha 2: (5) rocha_vulcanica, pedra rugosa escura com minerais avermelhados; (6) pedra_fortaleza, lajes retangulares negras medievais; (7) lava_incandescente, magma vermelho e laranja brilhante com crostas escuras; (8) obsidiana_polida, placas negras geometricas com reflexos violetas e vermelhos. Cada textura ocupa uma celula inteira sem margens internas de chroma. Fundo verde chroma puro #00FF00 somente se houver area externa a grade. Sem texto, numeros, legendas, molduras, sombras projetadas ou objetos decorativos. Evitar linhas divisorias desenhadas. Texturas apropriadas para tiles repetiveis de RPG 2D."
+ },
+ {
+  "arquivo": "ember_rochas_01.png",
+  "prompt": "Gere a imagem: Folha de objetos ambientais do mapa Fortaleza de Cinzas, Paradise RPG. Pixel art medieval detalhada, perspectiva top-down 45 graus, contornos escuros e acabamento premium consistente. Quatro objetos separados: pequena pedra de basalto negro, rocha vulcanica media irregular, enorme bloco de basalto negro rachado, cristal vulcanico de enxofre amarelo-alaranjado saindo de rocha escura. Cada objeto inteiro, independente e amplamente separado dos outros, respeitando tamanhos relativos. Fundo verde chroma puro #00FF00 uniforme, sem degrade, sem chao, sem sombra no chao, sem texto, sem numeros, sem grade, sem molduras."
+ },
+ {
+  "arquivo": "ember_detalhes_chao_01.png",
+  "prompt": "Gere a imagem: Folha com seis pequenos objetos ambientais independentes para Fortaleza de Cinzas do Paradise RPG, pixel art medieval detalhada top-down 45 graus. Objetos: pequena brasa vulcanica com brilho laranja, monticulo de cinzas escuras, ossos envelhecidos de guerreiro sem sangue, capacete medieval negro parcialmente derretido, espada de guerra partida e escudo negro rachado caido. Todos os objetos inteiros, muito separados uns dos outros, sem compartilhar base ou cenario. Fundo verde chroma solido #00FF00, sem sombra no chao, sem texto, sem numeros, sem moldura, sem grade."
+ },
+ {
+  "arquivo": "ember_escombros_01.png",
+  "prompt": "Gere a imagem: Folha de quatro estruturas de ruinas vulcanicas para Paradise RPG, pixel art medieval detalhada, perspectiva top-down 45 graus. Da esquerda para a direita: escombros baixos de muralha negra, degrau largo de basalto rachado, coluna medieval negra quebrada na metade, coluna alta de obsidiana escura com detalhes infernais discretos. Manter cada objeto independente, inteiro, com bases visiveis para ordenacao por profundidade. Muito espaco vazio verde entre objetos. Fundo chroma puro #00FF00 uniforme, sem chao, sem sombra no chao, sem texto, sem numeros, sem bordas, sem grade."
+ },
+ {
+  "arquivo": "ember_muralhas_01.png",
+  "prompt": "Gere a imagem: Folha de estruturas defensivas para Fortaleza de Cinzas, Paradise RPG. Dois objetos separados: esquerda, segmento reto de muralha medieval de basalto negro, alta, espessa, rachada e parcialmente queimada; direita, segmento de canto em angulo de 90 graus da MESMA muralha, com altura, largura estrutural, paleta e estilo identicos. Pixel art medieval detalhada top-down 45 graus, face frontal visivel, topo da muralha e bases bem definidos. Projetadas para encaixar modularmente. Objetos inteiros com amplissimo espaco vazio entre eles. Fundo chroma verde puro #00FF00, sem chao, sem sombras no chao, sem texto, sem numeros, sem grade."
+ },
+ {
+  "arquivo": "ember_torres_01.png",
+  "prompt": "Gere a imagem: Duas torres medievais para o mapa Fortaleza de Cinzas do Paradise RPG, pixel art detalhada perspectiva top-down 45 graus. Esquerda: torre de vigia de pedra negra destruida, topo quebrado, rachaduras e madeiras queimadas. Direita: grande torre infernal intacta, arquitetura ameaçadora em obsidiana negra, janelas com brilho laranja de fogo interno, pontas e ameias medievais. Torres individuais inteiras, muito espaco verde entre ambas, bases visiveis, sem cortes. Fundo verde chroma puro #00FF00, sem chao, sombra, texto, numeros ou bordas."
+ },
+ {
+  "arquivo": "ember_forjas_01.png",
+  "prompt": "Gere a imagem: Folha de tres equipamentos de uma forja militar infernal para Paradise RPG, pixel art medieval detalhada top-down 45 graus. Esquerda: grande forno de guerra de basalto negro com abertura frontal e fogo laranja intenso. Centro: bigorna pesada de ferro negro sobre base de pedra, sem pessoas. Direita: caldeirao industrial medieval contendo metal fundido brilhante, sustentado por estrutura de ferro escuro. Cada objeto inteiro e separado dos demais por muito espaco verde. Formas e bases claras para colisao no Godot. Fundo verde chroma solido #00FF00, sem chao, sem sombra no chao, sem texto, numeros, grade ou moldura."
+ },
+ {
+  "arquivo": "ember_guerra_01.png",
+  "prompt": "Gere a imagem: Folha de quatro objetos de guerra medieval para a Fortaleza de Cinzas, Paradise RPG. Pixel art detalhada, perspectiva top-down 45 graus. Objeto 1: estandarte negro e vermelho queimado preso a haste de madeira carbonizada. Objeto 2: enorme corrente negra vertical presa a um pedestal de pedra. Objeto 3: jaula medieval de barras grossas de ferro negro, vazia e com porta frontal visivel. Objeto 4: carroca militar de madeira queimada e rodas quebradas. Cada objeto independente, inteiro, isolado por muito espaco vazio. Fundo verde chroma #00FF00 liso, sem sombras no chao, sem texto, numeros, grade ou moldura."
+ },
+ {
+  "arquivo": "ember_refugio_01.png",
+  "prompt": "Gere a imagem: Dois objetos do acampamento de sobreviventes da Fortaleza de Cinzas para Paradise RPG, pixel art medieval detalhada, top-down 45 graus. Esquerda: barraca militar improvisada feita de lona bege escurecida, couro e madeira, resistente as cinzas vulcanicas, entrada frontal visivel. Direita: pequena fogueira de sobreviventes com lenha escura e chama laranja discreta. Objetos separados por enorme espaco vazio, totalmente inteiros. Fundo verde chroma puro #00FF00, sem chao, sem sombra, sem texto, numeros, bordas ou grade."
+ },
+ {
+  "arquivo": "ember_estatuas_altares_01.png",
+  "prompt": "Gere a imagem: Folha de tres estruturas rituais para a Cidadela da Fortaleza de Cinzas, Paradise RPG, pixel art medieval sombria e detalhada, top-down 45 graus. Esquerda: estatua antiga de guerreiro com armadura pesada e espada apontada para o chao, parcialmente quebrada, sobre pedestal. Centro: altar infernal de obsidiana negra, runas vermelhas e pequena energia laranja concentrada. Direita: braseiro medieval de ferro negro com chamas vermelhas e douradas. Cada objeto independente e completo, amplamente separado, bases visiveis. Fundo verde chroma #00FF00 puro, sem chao, sombra no chao, texto, numeros, grade ou moldura."
+ },
+ {
+  "arquivo": "ember_dracos_ambiente_01.png",
+  "prompt": "Gere a imagem: Folha de tres objetos ambientais para o Ninho dos Dracos em Paradise RPG, pixel art medieval detalhada top-down 45 graus. Esquerda: grande ninho de dragao construido com pedras vulcanicas, gravetos carbonizados e escamas antigas, vazio. Centro: ovo de dragao vermelho-escuro com rachaduras luminosas laranjas. Direita: esqueleto antigo de enorme criatura fantastica, com costelas e cranio envelhecidos, sem sangue ou carne. Objetos totalmente separados, inteiros e com muito espaco verde entre eles. Fundo cromatico verde puro #00FF00 uniforme, sem chao, sombra no chao, texto, numeros, grade ou borda."
+ },
+ {
+  "arquivo": "ember_pontes_01.png",
+  "prompt": "Gere a imagem: Folha com duas pontes independentes para o mapa Fortaleza de Cinzas de Paradise RPG, perspectiva top-down 45 graus, pixel art medieval detalhada. Esquerda: ponte antiga de basalto negro, larga, parcialmente rachada, com tabuleiro plano transitavel e muretas laterais baixas. Direita: ponte infernal de obsidiana polida, mais ornamentada, com runas vermelhas e corrimoes de pedra negra. Ambas devem ter entrada e saida livres, bases inteiras, largura suficiente para heroi de 104 px e serem adequadas para atravessar rios de lava. Duas pontes separadas por muito espaco vazio. Sem lava desenhada sob elas, sem chao, sem sombras, sem texto, sem numeros. Fundo verde chroma puro #00FF00."
+ },
+ {
+  "arquivo": "ember_portoes_01.png",
+  "prompt": "Gere a imagem: Um unico portao monumental da Fortaleza de Cinzas, Paradise RPG, pixel art medieval detalhada top-down 45 graus. Arco de muralha negra vulcanica com duas grandes portas de ferro negro parcialmente abertas, correntes pesadas e rachaduras com brilho vermelho. Passagem central larga, suficiente para heroi de 104 px. Estrutura inteira, base visivel, abertura frontal clara, sem nenhuma parte cortada. Fundo verde chroma #00FF00 puro, sem chao, sombra, texto, numeros, grade ou moldura."
+ },
+ {
+  "arquivo": "ember_trono_01.png",
+  "prompt": "Gere a imagem: Um unico trono monumental do General Infernal para Paradise RPG, pixel art medieval sombria detalhada, perspectiva top-down 45 graus. Trono vazio de obsidiana negra e metal derretido, encosto muito alto com pontas ameaçadoras, rachaduras internas com brilho de lava vermelha e dourada, bracos ornamentados e base de pedra negra. Deve parecer o assento de um comandante infernal poderoso. Objeto inteiro e centralizado com margens amplas, sem personagem, sem cenario ou piso adicional. Fundo verde chroma puro #00FF00, sem sombra no chao, sem texto, numeros, grade ou moldura."
+ },
+ {
+  "arquivo": "ember_portais_01.png",
+  "prompt": "Gere a imagem: Folha de dois portais medievais para a Fortaleza de Cinzas, Paradise RPG, pixel art detalhada perspectiva top-down 45 graus. Esquerda: portal de retorno ao Pantano das Almas Perdidas, arco de pedra negra antiga com energia verde-lodosa e particulas violetas. Direita: portal para a Fronteira de Fogo, arco monumental de obsidiana negra com runas douradas, energia vermelha e laranja e correntes magicas negras envolvendo parte da estrutura. Ambos com abertura central ampla suficiente para um heroi de 104 px, bases visiveis, portais inteiros. Muito espaco verde vazio separando os dois. Fundo verde chroma puro #00FF00 liso, sem chao, sombras no chao, texto, numeros, grade ou molduras."
+ },
+ {
+  "arquivo": "cinzeiro_errante_idle.png",
+  "prompt": "Gere uma imagem: sprite sheet de pixel art para RPG 2D (Paradise RPG: pixel art detalhada, contorno escuro, fantasia sombria vulcanica) do monstro Cinzeiro Errante: humanoide mutante formado por cinzas compactadas, carne vulcanica petrificada e fragmentos de basalto; bracos longos e pesados, corpo irregular, olhos laranja incandescentes, rachaduras luminosas laranja no peito e brasas saindo das articulacoes. Altura visual de uns 140 px (um pouco maior que um humano). ANIMACAO: PARADO (idle) em loop: respiracao lenta, brasas piscando, corpo sobe e desce 1-2 pixels; o quadro 6 emenda no 1, exatamente 6 quadros. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM Cinzeiro so por quadro; o MESMO TAMANHO de corpo em todos os quadros; pes na mesma linha de chao; MUITO espaco vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "cinzeiro_errante_walk.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Cinzeiro Errante, mesmo desenho, mesma paleta, mesmo tamanho e as mesmas regras. ANIMACAO: ANDANDO (walk) pesado em loop, bracos balancando; o quadro 8 emenda no 1, exatamente 8 quadros. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM Cinzeiro so por quadro; o MESMO TAMANHO de corpo em todos os quadros; pes na mesma linha de chao; MUITO espaco vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "cinzeiro_errante_attack.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Cinzeiro Errante. ANIMACAO: 'Punho de Basalto': 1 parado, 2 ergue o braco petrificado, 3-4 golpeia para a ESQUERDA com forca soltando brasas, 5 recua, 6 pose parada, exatamente 6 quadros. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; UM Cinzeiro so por quadro; o MESMO TAMANHO de corpo em todos os quadros; pes na mesma linha de chao; MUITO espaco vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "cinzeiro_errante_death.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Cinzeiro Errante. ANIMACAO: MORTE: 1 recebe o golpe, 2-4 racha e as brasas apagam, 5-6 desmorona em pedacos de basalto e cinzas, 7-8 monte de cinzas imovel (quase iguais), exatamente 8 quadros. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM Cinzeiro so por quadro; o MESMO TAMANHO de corpo em todos os quadros; pes na mesma linha de chao; MUITO espaco vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "cinzeiro_errante_nuvem.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Cinzeiro Errante. ANIMACAO: GOLPE ESPECIAL 'Nuvem de Cinzas': 1 parado, 2-3 bate os dois bracos no peito, 4-6 solta uma nuvem de cinzas cinza-escura com brasas para a ESQUERDA, 7 recupera, 8 pose parada, exatamente 8 quadros. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; UM Cinzeiro so por quadro; o MESMO TAMANHO de corpo em todos os quadros; pes na mesma linha de chao; MUITO espaco vazio entre um quadro e outro (pelo menos metade da largura do bicho); nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ }
+]

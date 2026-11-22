@@ -64,12 +64,57 @@ async function findListingById(listingId) {
   return result.rows[0] || null;
 }
 
-async function closeListing(listingId, status = "sold") {
-  const result = await pool.query(
-    "UPDATE market_listings SET status = $2, sold_at = NOW() WHERE id = $1 RETURNING *",
-    [listingId, status]
-  );
+async function closeListing(listingId, status = "sold", onlyIfStatus = null) {
+  // onlyIfStatus: fecha so se ainda estiver nesse status (duas compras ao mesmo tempo: so uma vence)
+  const result = onlyIfStatus
+    ? await pool.query(
+        "UPDATE market_listings SET status = $2, sold_at = NOW() WHERE id = $1 AND status = $3 RETURNING *",
+        [listingId, status, onlyIfStatus]
+      )
+    : await pool.query(
+        "UPDATE market_listings SET status = $2, sold_at = NOW() WHERE id = $1 RETURNING *",
+        [listingId, status]
+      );
   return result.rows[0] || null;
+}
+
+async function reopenListing(listingId) {
+  await pool.query("UPDATE market_listings SET status = 'active', sold_at = NULL WHERE id = $1", [listingId]);
+}
+
+// precos por unidade das ultimas vendas de um item (preco recomendado do mercado)
+async function recentUnitPrices(itemId, limit = 20) {
+  const result = await pool.query(
+    `SELECT price, quantity FROM market_listings
+     WHERE item_id = $1 AND status = 'sold'
+     ORDER BY sold_at DESC NULLS LAST
+     LIMIT $2`,
+    [itemId, limit]
+  );
+  return result.rows.map((r) => Math.round(Number(r.price) / Math.max(1, Number(r.quantity))));
+}
+
+async function createPayout(sellerCharacterId, listingId, amount) {
+  await pool.query(
+    "INSERT INTO market_payouts (seller_character_id, listing_id, amount) VALUES ($1, $2, $3)",
+    [sellerCharacterId, listingId, amount]
+  );
+}
+
+async function sumPendingPayouts(characterId) {
+  const result = await pool.query(
+    "SELECT COALESCE(SUM(amount), 0) AS total, COUNT(*) AS sales FROM market_payouts WHERE seller_character_id = $1 AND collected_at IS NULL",
+    [characterId]
+  );
+  return { total: Number(result.rows[0].total), sales: Number(result.rows[0].sales) };
+}
+
+async function collectPayouts(characterId) {
+  const result = await pool.query(
+    "UPDATE market_payouts SET collected_at = NOW() WHERE seller_character_id = $1 AND collected_at IS NULL RETURNING amount",
+    [characterId]
+  );
+  return result.rows.reduce((sum, r) => sum + Number(r.amount), 0);
 }
 
 async function addGold(characterId, amount) {
@@ -439,6 +484,11 @@ module.exports = {
   createListing,
   findListingById,
   closeListing,
+  reopenListing,
+  recentUnitPrices,
+  createPayout,
+  sumPendingPayouts,
+  collectPayouts,
   addGold,
   removeGold,
   getCharacterGold,

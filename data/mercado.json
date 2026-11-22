@@ -1,0 +1,24 @@
+{
+  "_doc": "Valor dos itens e regras do mercador/mercado (scripts/valor_itens.gd no cliente, server/src/utils/itemValue.js no servidor). valor = items.json price, senao valor_raridade[raridade] x multiplicador_slot[slot] (equipamento) ou valor_material[nome] / material_padrao; encantado +N: x (1 + encanto_por_nivel x N). Mercador NPC: vende 'npc_vende_consumiveis' + equipamentos ate 'npc_raridade_max' dos materiais em 'npc_materiais' (ate o Ouro); compra qualquer item por 'npc_compra_pct' do valor. Mercado entre jogadores (online): preco livre; recomendado = mediana do preco por unidade das ultimas 'recomendado_vendas' vendas (minimo 'recomendado_min_vendas'), senao o valor; aviso abaixo de 'aviso_abaixo_pct' do recomendado; taxa 'taxa_venda' fica com o jogo.",
+  "valor_raridade": {"common": 60, "uncommon": 180, "rare": 500, "super_rare": 1200, "epic": 2500, "legendary": 5000, "mega_legendary": 10000, "god": 20000},
+  "multiplicador_slot": {"weapon": 1.6, "chest": 1.5, "armor": 1.5, "legs": 1.2, "pants": 1.2, "head": 1.0, "helmet": 1.0, "shield": 1.2, "belt": 0.7, "shoulder_left": 0.7, "shoulder_right": 0.7, "hand_left": 0.6, "hand_right": 0.6, "gloves": 0.9, "foot_left": 0.6, "foot_right": 0.6, "boots": 0.9, "ring": 0.9, "amulet": 1.0, "jewel": 0.9, "backpack": 1.0},
+  "material_padrao": 12,
+  "valor_material": {
+    "Couro Rasgado": 4, "Carne Crua": 5, "Presa de Lobo": 8, "Presa de Javali": 8, "Asa de Morcego": 8, "Teia Pegajosa": 8, "Folha da Floresta": 4, "Erva Curativa": 5,
+    "Madeira Bruta": 5, "Minerio Bruto": 5, "Carvao": 6, "Minerio de Ferro": 8, "Cogumelo": 6, "Erva Vermelha": 9, "Flor Medicinal": 12, "Tira de Couro": 10,
+    "Couro Reforcado": 18, "Presa Venenosa": 14, "Musgo Medicinal": 16, "Erva de Caverna": 18, "Placa de Ferro": 30, "Rebite de Ouro": 40, "Lingote de Ouro": 120,
+    "Minerio de Titanio": 35, "Placa de Titanio": 90, "Fungo Luminoso": 24, "Erva Especial": 40, "Po Mistico": 45, "Pedra Runica": 50, "Cristal Bruto": 30,
+    "Fragmento de Cristal": 35, "Cristal Azul": 45, "Essencia Arcana": 60, "Cristal Roxo": 55, "Cristal Arcano": 120, "Fragmento de Rubi": 80, "Aco Negro": 70,
+    "Minerio de Mithril": 90, "Placa de Mithril": 220, "Escama Draconica": 140, "Nucleo Flamejante": 160, "Fragmento de Obsidiana": 120, "Essencia Sombria": 150,
+    "Planta Rara": 180, "Nucleo de Obsidiana": 600, "Cristal Divino": 900, "Essencia Celestial": 1200
+  },
+  "encanto_por_nivel": 0.6,
+  "npc_vende_consumiveis": ["Pocao pequena de vida", "Pocao media de vida", "Pocao pequena de mana", "Pocao media de mana", "Bolsa de Ombro", "Mochila de Viajante"],
+  "npc_raridade_max": "rare",
+  "npc_materiais": ["Couro", "Ferro", "Ouro", "Madeira", "Simples", "Enferrujada", "Fraco", "Ambar"],
+  "npc_compra_pct": 0.35,
+  "recomendado_vendas": 20,
+  "recomendado_min_vendas": 3,
+  "aviso_abaixo_pct": 0.8,
+  "taxa_venda": 0.05
+}

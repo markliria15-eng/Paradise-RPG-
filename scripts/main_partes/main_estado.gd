@@ -285,8 +285,12 @@ const CAVE_CHUNK_SIZE := Vector2(280, 280)
 const CAVE_KIT_DATA_PATH := "res://data/cave_kit.json"
 # Valdoria v2 (tools/valdoria_v2/generate_valdoria_v2.py): cidade portuaria em kit (chunks + mascara + mar + predios).
 const VALDORIA_KIT_DATA_PATH := "res://data/valdoria_kit.json"
-const SWAMP_KIT_DATA_PATH := "res://data/swamp_kit.json"
-const SWAMP_MAP_ID := "swamp_almas"
+# Mapas novos montados em kit (chunks + objetos + mascaras), todos pelo mesmo caminho
+# (main_mundo._draw_kit_map). Mapa novo: gerador em tools/<mapa>_v2 + uma linha aqui.
+const KIT_MAPS := {
+	"swamp_almas": "res://data/swamp_kit.json",
+	"ember_fortress": "res://data/fortress_kit.json",
+}
 const MAPS_REBUILD_BASE_ONLY := {
 	"arcane_ruins": true,
 	"bat_cave": true,
@@ -317,7 +321,11 @@ const HUD_JOYSTICK_DEFAULT_CENTER := Vector2(168, 592)
 const HUD_JOYSTICK_SAFE_MARGIN := Vector2(20, 20)
 const HUD_JOYSTICK_BASE_SIZE := Vector2(180, 180)
 const HUD_JOYSTICK_KNOB_SIZE := Vector2(70, 70)
-const CAMERA_ZOOMS := [0.84, 1.0, 1.16, 1.32]
+# Distancia da camera escolhida pelo jogador (botoes +/- ao lado do mini mapa, roda do mouse, Menu > Configuracoes).
+# Menor que 1.0 = visao mais aberta (de mais longe); maior = mais perto. Salvo em hud_layout ("zoom").
+const CAMERA_ZOOMS := [0.6, 0.7, 0.8, 0.9, 1.0, 1.15, 1.3]
+const CAMERA_ZOOM_PADRAO := 4
+const CAMERA_ZOOMS_ANTIGO := [0.84, 1.0, 1.16, 1.32]  # "zoom_index" dos layouts salvos antes de 2026-11-22
 
 @onready var world: Node2D = $World
 @onready var ui: CanvasLayer = $UI
@@ -460,6 +468,9 @@ var mount_button: Button
 # montarias, estabulo, diarias, eventos e NPCs. Sem o arquivo valem os padroes do codigo.
 var game_rules: Dictionary = {}
 var game_extras: GameExtras  # missoes diarias, eventos, colecao, modo foto... (scripts/game_extras.gd)
+var profissoes: Profissoes  # coleta, alquimia, culinaria, nivel de ferreiro (scripts/profissoes.gd)
+var market_sel_item := ""  # item escolhido para anunciar no Mercado (main_interface._show_market)
+var market_confirm_low := false  # anuncio abaixo do preco de mercado precisa de 2o toque
 # Personalidade do pet: balaozinho de emocao em cima dele (assets/sprites/pets/emotes)
 const PET_EMOTE_GAP := 2.5          # segundos minimos entre dois baloes
 var pet_emote_ready_at := 0.0
@@ -514,7 +525,7 @@ var cave_collision_data: Dictionary = {}
 var forest_kit_data: Dictionary = {}
 var cave_kit_data: Dictionary = {}
 var valdoria_kit_data: Dictionary = {}
-var swamp_kit_data: Dictionary = {}
+var kit_maps_data: Dictionary = {}  # map_id -> kit lido (cache)
 var terrain_slow_image: Image = null  # mascara de chao lento do kit ("slow_mask")
 var terrain_slow_cell := 16.0
 var terrain_slow_factor := 1.0
@@ -536,7 +547,10 @@ var hud_skills_offset := Vector2.ZERO
 var hud_skills_scale := 1.0
 var hud_potions_offset := Vector2.ZERO
 var hud_potions_scale := 1.0
-var hud_zoom_index := 1
+var hud_zoom_index := CAMERA_ZOOM_PADRAO
+var zoom_tween: Tween
+var zoom_btn_mais: Button
+var zoom_btn_menos: Button
 var launcher_boot_started := false
 
 # Chao do mapa carregado por proximidade (main.gd -> _update_map_stream)

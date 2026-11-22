@@ -43,6 +43,26 @@
     ],
     "tita_cristal": [
       "res://assets/sprites/mobs/visuais/tita_cristal_arremesso_8f_192x192.png"
+    ],
+    "jacare_pantano": [
+      "res://assets/sprites/mobs/visuais/jacare_pantano_ataque_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/jacare_pantano_giro_da_morte_8f_192x192.png"
+    ],
+    "sapo_venenoso": [
+      "res://assets/sprites/mobs/visuais/sapo_venenoso_ataque_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/sapo_venenoso_cuspe_8f_192x192.png"
+    ],
+    "mosquito_mutante": [
+      "res://assets/sprites/mobs/visuais/mosquito_mutante_ataque_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/mosquito_mutante_ferroada_8f_192x192.png"
+    ],
+    "afogado_pantano": [
+      "res://assets/sprites/mobs/visuais/afogado_pantano_ataque_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/afogado_pantano_abraco_lodo_8f_192x192.png"
+    ],
+    "cinzeiro_errante": [
+      "res://assets/sprites/mobs/visuais/cinzeiro_errante_ataque_6f_192x192.png",
+      "res://assets/sprites/mobs/visuais/cinzeiro_errante_nuvem_de_cinzas_8f_192x192.png"
     ]
   },
   "effects": {
@@ -73,6 +93,26 @@
     "golem_pedra": [
       "res://assets/sprites/mobs/visuais/pedra_impacto_chao_8f_105x280.png",
       "res://assets/sprites/mobs/visuais/pedra_voando_8f_105x280.png"
+    ],
+    "jacare_pantano": [
+      "",
+      ""
+    ],
+    "sapo_venenoso": [
+      "",
+      "res://assets/sprites/mobs/visuais/cuspe_veneno_8f_220x183.png"
+    ],
+    "mosquito_mutante": [
+      "",
+      ""
+    ],
+    "afogado_pantano": [
+      "",
+      "res://assets/sprites/mobs/visuais/respingo_lodo_8f_234x168.png"
+    ],
+    "cinzeiro_errante": [
+      "",
+      ""
     ]
   },
   "pets": {

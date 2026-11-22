@@ -1,0 +1,741 @@
+{
+  "_doc": "Profissoes locais (scripts/profissoes.gd). xp_nivel(n) = round(base * n^expoente). Pontos de coleta: maps.json -> <mapa>.gather_nodes [{tipo, pos}] (tools/profissoes/gerar_pontos.py). Bancadas: estacoes. Receitas de Ferreiro continuam em recipes.json (forja da cidade); nivel exigido = profession_level_required ou o maior nivel_material dos materiais. Ranks: ranks[] (nivel minimo, modelo com {p}). Sucesso da criacao: chance = base + por_nivel*(nivel - exigido), entre min e max; falha perde metade dos materiais (e do ouro na forja) e da 30% do XP. Encantamento: Ferreiro no nivel_max, ate +max, cada +1 = bonus_por_nivel nos atributos (ItemDatabase.get_item 'Nome +N'). Coletores: achados raros por profissao (chance * (1 + por_nivel*nivel)) e bonus nos drops raros dos monstros (DropSystem.bonus_raro = 1 + drop_raro.por_nivel_medio * (media dos 3 coletores - 1)).",
+  "nivel_max": 50,
+  "xp_base": 30,
+  "xp_expoente": 1.2,
+  "cidades": [
+    "city_eldoria",
+    "city_valdoria"
+  ],
+  "cozinha_media_fora_da_cidade_nivel": 15,
+  "profissoes": {
+    "mining": {
+      "nome": "Minerador",
+      "verbo": "Minerar",
+      "icone": "res://assets/items/icones/minerio_de_ferro.png",
+      "cor": "#c9a27a"
+    },
+    "woodcutting": {
+      "nome": "Lenhador",
+      "verbo": "Cortar",
+      "icone": "res://assets/items/icones/madeira_bruta.png",
+      "cor": "#a8794a"
+    },
+    "herbalism": {
+      "nome": "Herbalista",
+      "verbo": "Colher",
+      "icone": "res://assets/items/icones/erva_curativa.png",
+      "cor": "#7fd36b"
+    },
+    "blacksmithing": {
+      "nome": "Ferreiro",
+      "verbo": "Forjar",
+      "icone": "res://assets/items/icones/placa_de_ferro.png",
+      "cor": "#d9dde3"
+    },
+    "alchemy": {
+      "nome": "Alquimista",
+      "verbo": "Preparar",
+      "icone": "res://assets/items/icones/pocao_pequena_de_vida.png",
+      "cor": "#d96bd0"
+    },
+    "cooking": {
+      "nome": "Cozinheiro",
+      "verbo": "Cozinhar",
+      "icone": "res://assets/items/icones/carne_assada.png",
+      "cor": "#f0a04b"
+    }
+  },
+  "coleta": {
+    "bonus_por_nivel": "a cada nivel: -1.5% no tempo (max -40%), +1.5% de chance de vir 1 a mais e +2% na chance dos extras",
+    "tempo_min_pct": 0.6
+  },
+  "pontos": {
+    "carvao": {
+      "nome": "Veio de Carvao",
+      "profissao": "mining",
+      "nivel": 1,
+      "item": "Carvao",
+      "qtd": [
+        1,
+        3
+      ],
+      "xp": 10,
+      "tempo_s": 2.4,
+      "renasce_s": 75,
+      "sprite": "res://assets/sprites/coleta/carvao.png",
+      "esgotado": "res://assets/sprites/coleta/pedras_quebradas.png",
+      "altura": 70
+    },
+    "ferro": {
+      "nome": "Veio de Ferro",
+      "profissao": "mining",
+      "nivel": 1,
+      "item": "Minerio de Ferro",
+      "qtd": [
+        1,
+        3
+      ],
+      "xp": 12,
+      "tempo_s": 2.6,
+      "renasce_s": 80,
+      "sprite": "res://assets/sprites/coleta/ferro.png",
+      "esgotado": "res://assets/sprites/coleta/pedras_quebradas.png",
+      "altura": 70,
+      "extra": [
+        {
+          "item": "Minerio Bruto",
+          "chance": 0.25
+        }
+      ]
+    },
+    "titanio": {
+      "nome": "Veio de Titanio",
+      "profissao": "mining",
+      "nivel": 10,
+      "item": "Minerio de Titanio",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 30,
+      "tempo_s": 3.2,
+      "renasce_s": 120,
+      "sprite": "res://assets/sprites/coleta/titanio.png",
+      "esgotado": "res://assets/sprites/coleta/pedras_quebradas.png",
+      "altura": 74
+    },
+    "cristal": {
+      "nome": "Cristais Azuis",
+      "profissao": "mining",
+      "nivel": 15,
+      "item": "Cristal Azul",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 38,
+      "tempo_s": 3.2,
+      "renasce_s": 140,
+      "sprite": "res://assets/sprites/coleta/cristal.png",
+      "esgotado": "res://assets/sprites/coleta/pedras_quebradas.png",
+      "altura": 78,
+      "extra": [
+        {
+          "item": "Cristal Bruto",
+          "chance": 0.35
+        },
+        {
+          "item": "Fragmento de Cristal",
+          "chance": 0.3
+        }
+      ]
+    },
+    "mithril": {
+      "nome": "Veio de Mithril",
+      "profissao": "mining",
+      "nivel": 20,
+      "item": "Minerio de Mithril",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 50,
+      "tempo_s": 3.6,
+      "renasce_s": 160,
+      "sprite": "res://assets/sprites/coleta/mithril.png",
+      "esgotado": "res://assets/sprites/coleta/pedras_quebradas.png",
+      "altura": 76
+    },
+    "obsidiana": {
+      "nome": "Rocha de Obsidiana",
+      "profissao": "mining",
+      "nivel": 30,
+      "item": "Fragmento de Obsidiana",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 75,
+      "tempo_s": 4.0,
+      "renasce_s": 200,
+      "sprite": "res://assets/sprites/coleta/obsidiana.png",
+      "esgotado": "res://assets/sprites/coleta/pedras_quebradas.png",
+      "altura": 80,
+      "extra": [
+        {
+          "item": "Nucleo de Obsidiana",
+          "chance": 0.05
+        }
+      ]
+    },
+    "arvore": {
+      "nome": "Arvore",
+      "profissao": "woodcutting",
+      "nivel": 1,
+      "item": "Madeira Bruta",
+      "qtd": [
+        1,
+        3
+      ],
+      "xp": 12,
+      "tempo_s": 2.8,
+      "renasce_s": 90,
+      "sprite": "res://assets/sprites/coleta/arvore.png",
+      "esgotado": "res://assets/sprites/coleta/toco.png",
+      "altura": 150
+    },
+    "arvore_antiga": {
+      "nome": "Arvore Antiga",
+      "profissao": "woodcutting",
+      "nivel": 12,
+      "item": "Madeira Bruta",
+      "qtd": [
+        3,
+        5
+      ],
+      "xp": 40,
+      "tempo_s": 3.6,
+      "renasce_s": 150,
+      "sprite": "res://assets/sprites/coleta/arvore_antiga.png",
+      "esgotado": "res://assets/sprites/coleta/toco.png",
+      "altura": 150,
+      "extra": [
+        {
+          "item": "Musgo Medicinal",
+          "chance": 0.2
+        }
+      ]
+    },
+    "erva_curativa": {
+      "nome": "Erva Curativa",
+      "profissao": "herbalism",
+      "nivel": 1,
+      "item": "Erva Curativa",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 10,
+      "tempo_s": 1.8,
+      "renasce_s": 60,
+      "sprite": "res://assets/sprites/coleta/erva_curativa.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 44
+    },
+    "folha_floresta": {
+      "nome": "Folha da Floresta",
+      "profissao": "herbalism",
+      "nivel": 1,
+      "item": "Folha da Floresta",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 10,
+      "tempo_s": 1.8,
+      "renasce_s": 60,
+      "sprite": "res://assets/sprites/coleta/folha_floresta.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 46
+    },
+    "erva_vermelha": {
+      "nome": "Erva Vermelha",
+      "profissao": "herbalism",
+      "nivel": 5,
+      "item": "Erva Vermelha",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 18,
+      "tempo_s": 2.0,
+      "renasce_s": 75,
+      "sprite": "res://assets/sprites/coleta/erva_vermelha.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 44
+    },
+    "cogumelo": {
+      "nome": "Cogumelos",
+      "profissao": "herbalism",
+      "nivel": 3,
+      "item": "Cogumelo",
+      "qtd": [
+        1,
+        3
+      ],
+      "xp": 14,
+      "tempo_s": 1.8,
+      "renasce_s": 70,
+      "sprite": "res://assets/sprites/coleta/cogumelo.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 40
+    },
+    "flor_medicinal": {
+      "nome": "Flor Medicinal",
+      "profissao": "herbalism",
+      "nivel": 8,
+      "item": "Flor Medicinal",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 22,
+      "tempo_s": 2.0,
+      "renasce_s": 80,
+      "sprite": "res://assets/sprites/coleta/flor_medicinal.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 44
+    },
+    "musgo": {
+      "nome": "Musgo Medicinal",
+      "profissao": "herbalism",
+      "nivel": 10,
+      "item": "Musgo Medicinal",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 26,
+      "tempo_s": 2.2,
+      "renasce_s": 85,
+      "sprite": "res://assets/sprites/coleta/musgo.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 40
+    },
+    "erva_caverna": {
+      "nome": "Erva de Caverna",
+      "profissao": "herbalism",
+      "nivel": 12,
+      "item": "Erva de Caverna",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 30,
+      "tempo_s": 2.2,
+      "renasce_s": 90,
+      "sprite": "res://assets/sprites/coleta/erva_caverna.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 44
+    },
+    "fungo": {
+      "nome": "Fungo Luminoso",
+      "profissao": "herbalism",
+      "nivel": 15,
+      "item": "Fungo Luminoso",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 36,
+      "tempo_s": 2.4,
+      "renasce_s": 100,
+      "sprite": "res://assets/sprites/coleta/fungo.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 44
+    },
+    "erva_especial": {
+      "nome": "Erva Especial",
+      "profissao": "herbalism",
+      "nivel": 20,
+      "item": "Erva Especial",
+      "qtd": [
+        1,
+        2
+      ],
+      "xp": 46,
+      "tempo_s": 2.6,
+      "renasce_s": 120,
+      "sprite": "res://assets/sprites/coleta/erva_especial.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 46
+    },
+    "planta_rara": {
+      "nome": "Planta Rara",
+      "profissao": "herbalism",
+      "nivel": 30,
+      "item": "Planta Rara",
+      "qtd": [
+        1,
+        1
+      ],
+      "xp": 70,
+      "tempo_s": 3.0,
+      "renasce_s": 180,
+      "sprite": "res://assets/sprites/coleta/planta_rara.png",
+      "esgotado": "res://assets/sprites/coleta/broto.png",
+      "altura": 50
+    }
+  },
+  "estacoes": {
+    "mesa_alquimia": {
+      "nome": "Mesa de Alquimia",
+      "profissao": "alchemy",
+      "sprite": "res://assets/sprites/coleta/mesa_alquimia.png",
+      "altura": 125
+    },
+    "fogao": {
+      "nome": "Fogao de Cozinha",
+      "profissao": "cooking",
+      "sprite": "res://assets/sprites/coleta/fogao.png",
+      "altura": 125
+    }
+  },
+  "receitas": {
+    "Pocao pequena de vida": {
+      "profissao": "alchemy",
+      "nivel": 1,
+      "nivel_receita": "simples",
+      "materiais": {
+        "Erva Curativa": 2
+      },
+      "xp": 12
+    },
+    "Pocao pequena de mana": {
+      "profissao": "alchemy",
+      "nivel": 2,
+      "nivel_receita": "simples",
+      "materiais": {
+        "Folha da Floresta": 2,
+        "Cogumelo": 1
+      },
+      "xp": 14
+    },
+    "Antidoto": {
+      "profissao": "alchemy",
+      "nivel": 5,
+      "nivel_receita": "simples",
+      "materiais": {
+        "Musgo Medicinal": 1,
+        "Erva Curativa": 1
+      },
+      "xp": 20
+    },
+    "Pocao media de vida": {
+      "profissao": "alchemy",
+      "nivel": 8,
+      "nivel_receita": "media",
+      "materiais": {
+        "Erva Vermelha": 2,
+        "Flor Medicinal": 1
+      },
+      "xp": 30
+    },
+    "Pocao media de mana": {
+      "profissao": "alchemy",
+      "nivel": 12,
+      "nivel_receita": "media",
+      "materiais": {
+        "Fungo Luminoso": 2,
+        "Erva de Caverna": 1
+      },
+      "xp": 38
+    },
+    "Pocao grande de vida": {
+      "profissao": "alchemy",
+      "nivel": 25,
+      "nivel_receita": "avancada",
+      "materiais": {
+        "Planta Rara": 1,
+        "Erva Vermelha": 3,
+        "Flor Medicinal": 2
+      },
+      "xp": 80
+    },
+    "Pocao grande de mana": {
+      "profissao": "alchemy",
+      "nivel": 28,
+      "nivel_receita": "avancada",
+      "materiais": {
+        "Planta Rara": 1,
+        "Fungo Luminoso": 3,
+        "Erva Especial": 1
+      },
+      "xp": 90
+    },
+    "Carne Assada": {
+      "profissao": "cooking",
+      "nivel": 1,
+      "nivel_receita": "simples",
+      "materiais": {
+        "Carne Crua": 2
+      },
+      "xp": 12
+    },
+    "Sopa de Cogumelos": {
+      "profissao": "cooking",
+      "nivel": 3,
+      "nivel_receita": "simples",
+      "materiais": {
+        "Cogumelo": 2,
+        "Erva Curativa": 1
+      },
+      "xp": 16
+    },
+    "Espetinho do Cacador": {
+      "profissao": "cooking",
+      "nivel": 10,
+      "nivel_receita": "media",
+      "materiais": {
+        "Carne Crua": 3,
+        "Erva Vermelha": 1,
+        "Cogumelo": 1
+      },
+      "xp": 34
+    },
+    "Ensopado do Pantano": {
+      "profissao": "cooking",
+      "nivel": 14,
+      "nivel_receita": "media",
+      "materiais": {
+        "Carne Crua": 2,
+        "Musgo Medicinal": 1,
+        "Fungo Luminoso": 1
+      },
+      "xp": 42
+    },
+    "Banquete do Aventureiro": {
+      "profissao": "cooking",
+      "nivel": 25,
+      "nivel_receita": "avancada",
+      "materiais": {
+        "Carne Crua": 4,
+        "Planta Rara": 1,
+        "Erva Especial": 2
+      },
+      "xp": 90
+    }
+  },
+  "ferreiro": {
+    "xp_por_nivel_receita": 25,
+    "xp_minimo": 20,
+    "nivel_material": {
+      "Minerio de Titanio": 10,
+      "Placa de Titanio": 12,
+      "Aco Negro": 15,
+      "Escama Draconica": 18,
+      "Minerio de Mithril": 20,
+      "Placa de Mithril": 22,
+      "Fragmento de Obsidiana": 25,
+      "Nucleo Flamejante": 25,
+      "Nucleo de Obsidiana": 30,
+      "Cristal Arcano": 28,
+      "Cristal Divino": 35,
+      "Essencia Celestial": 38
+    },
+    "nivel_raridade_forja_rara": {
+      "rare": 10,
+      "super_rare": 15,
+      "epic": 20,
+      "legendary": 28,
+      "mega_legendary": 36,
+      "god": 44
+    }
+  },
+  "ranks": [
+    [
+      1,
+      "Aprendiz de {p}"
+    ],
+    [
+      10,
+      "{p} Iniciado"
+    ],
+    [
+      20,
+      "{p} Experiente"
+    ],
+    [
+      30,
+      "{p} Veterano"
+    ],
+    [
+      40,
+      "Mestre {p}"
+    ],
+    [
+      50,
+      "{p} Grao-Mestre"
+    ]
+  ],
+  "sucesso": {
+    "base": 0.6,
+    "por_nivel": 0.04,
+    "min": 0.35,
+    "max": 1.0,
+    "xp_na_falha": 0.3
+  },
+  "encantamento": {
+    "nivel_ferreiro": 50,
+    "max": 10,
+    "bonus_por_nivel": 0.08,
+    "chances": [
+      0.95,
+      0.85,
+      0.75,
+      0.65,
+      0.55,
+      0.45,
+      0.35,
+      0.27,
+      0.2,
+      0.14
+    ],
+    "custos": [
+      {
+        "ouro": 500,
+        "materiais": {
+          "Essencia Arcana": 2,
+          "Cristal Arcano": 1
+        }
+      },
+      {
+        "ouro": 1000,
+        "materiais": {
+          "Essencia Arcana": 3,
+          "Cristal Arcano": 1
+        }
+      },
+      {
+        "ouro": 1500,
+        "materiais": {
+          "Essencia Arcana": 3,
+          "Cristal Arcano": 2
+        }
+      },
+      {
+        "ouro": 3000,
+        "materiais": {
+          "Essencia Sombria": 2,
+          "Cristal Arcano": 2
+        }
+      },
+      {
+        "ouro": 4500,
+        "materiais": {
+          "Essencia Sombria": 3,
+          "Cristal Arcano": 3
+        }
+      },
+      {
+        "ouro": 6000,
+        "materiais": {
+          "Essencia Sombria": 4,
+          "Cristal Divino": 1
+        }
+      },
+      {
+        "ouro": 9000,
+        "materiais": {
+          "Essencia Celestial": 1,
+          "Cristal Divino": 1
+        }
+      },
+      {
+        "ouro": 12000,
+        "materiais": {
+          "Essencia Celestial": 2,
+          "Cristal Divino": 2
+        }
+      },
+      {
+        "ouro": 18000,
+        "materiais": {
+          "Essencia Celestial": 2,
+          "Cristal Divino": 2,
+          "Nucleo de Obsidiana": 1
+        }
+      },
+      {
+        "ouro": 25000,
+        "materiais": {
+          "Essencia Celestial": 3,
+          "Cristal Divino": 3,
+          "Nucleo de Obsidiana": 2
+        }
+      }
+    ],
+    "cores": [
+      "#ffffff",
+      "#7dff6b",
+      "#5fe3ff",
+      "#3d7bff",
+      "#a64dff",
+      "#ff5fd2",
+      "#ff9a2e",
+      "#ffd94a",
+      "#ff3b3b",
+      "#fff6c9"
+    ],
+    "nomes_cor": [
+      "branca",
+      "verde",
+      "azul-clara",
+      "azul",
+      "roxa",
+      "rosa",
+      "laranja",
+      "dourada",
+      "vermelha",
+      "celestial"
+    ],
+    "falha_volta_nivel_a_partir": 7
+  },
+  "achados": {
+    "mining": [
+      {
+        "item": "Fragmento de Rubi",
+        "chance": 0.02
+      },
+      {
+        "item": "Lingote de Ouro",
+        "chance": 0.008
+      },
+      {
+        "item": "Cristal Bruto",
+        "chance": 0.02
+      },
+      {
+        "item": "Nucleo de Obsidiana",
+        "chance": 0.002
+      }
+    ],
+    "woodcutting": [
+      {
+        "item": "Musgo Medicinal",
+        "chance": 0.03
+      },
+      {
+        "item": "Po Mistico",
+        "chance": 0.012
+      },
+      {
+        "item": "Planta Rara",
+        "chance": 0.006
+      }
+    ],
+    "herbalism": [
+      {
+        "item": "Erva Especial",
+        "chance": 0.02
+      },
+      {
+        "item": "Po Mistico",
+        "chance": 0.015
+      },
+      {
+        "item": "Planta Rara",
+        "chance": 0.008
+      },
+      {
+        "item": "Essencia Arcana",
+        "chance": 0.005
+      }
+    ],
+    "por_nivel": 0.05
+  },
+  "drop_raro": {
+    "por_nivel_medio": 0.02
+  }
+}

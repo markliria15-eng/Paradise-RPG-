@@ -1,0 +1,30 @@
+Você é o designer de níveis do meu RPG 2D top-down em pixel art (Godot), "Paradise RPG". Preciso do PROJETO do novo mapa FORTALEZA DE CINZAS, que eu (Claude) vou montar em código igual montei o Pântano das Almas Perdidas (que você também projetou). Responda SÓ com um JSON válido dentro de um bloco de código.
+
+CONTEXTO DO JOGO
+- Ordem dos mapas: Eldoria -> Floresta dos Javalis (chefe Rei Javali) -> Caverna (chefe Matriarca Venenosa) -> Ruínas Arcanas (chefe Arquimago Corrompido) -> Valdoria (cidade-porto) -> Pântano das Almas Perdidas (níveis 38-46, chefe Rei Afogado) -> FORTALEZA DE CINZAS (este mapa, níveis 46-54). Chega-se pelo portal do norte do Pântano, que só abre depois de vencer o Rei Afogado.
+- Clima: fortaleza vulcânica em ruínas, rios de lava, chão de basalto e cinzas, muralhas negras rachadas, estandartes queimados, forjas de guerra, ossos e armaduras derretidas.
+- Inimigos que JÁ existem e devem morar aqui (já têm arte): "Cavaleiro Sombrio" (cavaleiro de armadura negra corrompida), "Draco Jovem" (dragão pequeno de fogo) e o chefe "General Infernal" (comandante de fogo). Você pode propor 1 inimigo comum NOVO (nome em português, tipo monstro ou mutante) para completar 4 comuns. Os níveis serão rebalanceados para 46-54.
+- Formato do mapa: mundo de 6400 x 5760 px, chão em 8 x 9 pedaços de 400x320 px desenhados em escala 2 (cada pedaço cobre 800x640 no mundo). Por cima do chão vão OBJETOS separados (muralhas, torres, rochas, forjas, estátuas...), cada um uma imagem própria, ordenados pela linha do pé.
+- Tamanho: o herói tem 104 px de altura na tela. Pessoa = 1,0; animal normal 0,45-0,75; mutante >= 1,0; chefe >= 1,8 no maior lado. Porta 1,2-1,6 do herói.
+- REGRA DE COLISÃO (obrigatória para cada objeto), campo "porte":
+  * "baixo": pedrinha, brasa, cinzas, ossinhos -> sem colisão, o herói passa por cima.
+  * "joelho": pedra média, escombro baixo, degrau -> o herói sobe (não bloqueia).
+  * "cintura": rocha grande, torre, muralha, forja, estátua -> sólido. Quem vem de frente esbarra o pé no pé do objeto e fica desenhado por cima; pela lateral, quando o pé do herói passa de 1/3 da profundidade do objeto, ele consegue ir para trás e fica desenhado atrás.
+  Para cada objeto dê também "pe_px": [largura, profundidade] da faixa do pé no chão, em px do mundo.
+- Lava bloqueia (só passa por ponte de pedra); cinza grossa deixa mais lento.
+
+O QUE O JSON DEVE TER (mesmo formato do Pântano)
+{
+ "id": "ember_fortress", "nome": "Fortaleza de Cinzas", "nivel": [46,54], "clima_visual": "...",
+ "zonas": [ {"nome","retangulo_px":[x,y,w,h],"terreno","descricao","inimigos":[...]} ],   (6 a 9 zonas cobrindo o mapa; a entrada vinda do Pântano fica embaixo à esquerda, com zona segura)
+ "terrenos": [ {"id","descricao","andavel":true/false,"lento":true/false} ],   (exatamente 8)
+ "caminhos": [ {"nome","pontos_px":[[x,y],...],"largura_px","tipo":"estrada de pedra|trilha de cinzas|ponte de pedra"} ],
+ "agua": [ {"tipo":"funda|rasa","poligono_px":[[x,y],...]} ],   (aqui "funda" = LAVA que bloqueia e "rasa" = cinza grossa que deixa lento)
+ "objetos": [ {"id","nome","porte","tamanho_na_tela_px":[l,a],"pe_px":[l,p],"quantidade","onde","animado":true/false} ],  (25 a 40 tipos)
+ "inimigos": [ {"nome","tipo":"animal|mutante|monstro|chefe","nivel","descricao_visual","comportamento"} ],
+ "npcs": [ {"nome","papel","onde_px":[x,y],"fala"} ],  (3 ou 4 NPCs: um ferreiro/mercador sobrevivente perto da entrada, um soldado prisioneiro, etc.)
+ "portais": [ {"para","onde_px":[x,y],"requisito"} ],  (portal de volta ao Pântano na entrada; e um portal bloqueado para a próxima região, que abre após vencer o General Infernal)
+ "spawn_px": [x,y],
+ "arena_chefe": {"centro_px":[x,y],"raio_px":...},
+ "folhas_de_arte": [ {"arquivo","conteudo":[ids],"prompt_para_gerar"} ]  (pedidos de imagem que vou te fazer depois, um por folha, fundo verde chroma #00FF00, objetos separados com muito espaço; a primeira folha é a de TERRENOS: grade 4x2 com as 8 texturas de chão contínuas e repetíveis, na mesma ordem de "terrenos")
+}

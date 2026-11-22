@@ -1,0 +1,270 @@
+{
+ "inimigos": {
+  "Cavaleiro Sombrio": {
+   "level": 47,
+   "level_range": [
+    46,
+    49
+   ],
+   "vida": 1120,
+   "ataque": 125,
+   "defesa": 56,
+   "xp": 1050,
+   "ouro": [
+    390,
+    580
+   ],
+   "speed": 112,
+   "color": "#2e2a34",
+   "respawn_s": 75,
+   "grupo": 2,
+   "drops": [
+    {
+     "item": "Aco Negro",
+     "chance": 0.65
+    },
+    {
+     "item": "Essencia Sombria",
+     "chance": 0.42
+    },
+    {
+     "item": "Fragmento de Obsidiana",
+     "chance": 0.44
+    },
+    {
+     "item": "Placa de Mithril",
+     "chance": 0.24
+    },
+    {
+     "item": "Nucleo de Obsidiana",
+     "chance": 0.1
+    },
+    {
+     "item": "Espada de Aco Negro",
+     "chance": 0.022
+    },
+    {
+     "item": "Luvas de Aco Sombrio",
+     "chance": 0.018
+    },
+    {
+     "item": "Elmo de Aco Sombrio",
+     "chance": 0.012
+    },
+    {
+     "item": "Pocao media de vida",
+     "chance": 0.2
+    }
+   ]
+  },
+  "Cinzeiro Errante": {
+   "level": 48,
+   "level_range": [
+    47,
+    51
+   ],
+   "tipo": "mutante",
+   "vida": 1380,
+   "ataque": 132,
+   "defesa": 65,
+   "xp": 1220,
+   "ouro": [
+    430,
+    640
+   ],
+   "speed": 82,
+   "color": "#493a35",
+   "poison_chance": 0,
+   "respawn_s": 90,
+   "grupo": 2,
+   "drops": [
+    {
+     "item": "Fragmento de Obsidiana",
+     "chance": 0.68
+    },
+    {
+     "item": "Carvao",
+     "chance": 0.62
+    },
+    {
+     "item": "Essencia Sombria",
+     "chance": 0.48
+    },
+    {
+     "item": "Nucleo Flamejante",
+     "chance": 0.36
+    },
+    {
+     "item": "Aco Negro",
+     "chance": 0.34
+    },
+    {
+     "item": "Placa de Mithril",
+     "chance": 0.22
+    },
+    {
+     "item": "Nucleo de Obsidiana",
+     "chance": 0.12
+    },
+    {
+     "item": "Cristal Arcano",
+     "chance": 0.1
+    },
+    {
+     "item": "Botas Infernais",
+     "chance": 0.012
+    },
+    {
+     "item": "Pocao media de vida",
+     "chance": 0.17
+    }
+   ]
+  },
+  "Draco Jovem": {
+   "level": 50,
+   "level_range": [
+    49,
+    53
+   ],
+   "vida": 1250,
+   "ataque": 145,
+   "defesa": 53,
+   "xp": 1450,
+   "ouro": [
+    480,
+    720
+   ],
+   "speed": 132,
+   "color": "#a13b2e",
+   "respawn_s": 100,
+   "grupo": 2,
+   "drops": [
+    {
+     "item": "Escama Draconica",
+     "chance": 0.72
+    },
+    {
+     "item": "Nucleo Flamejante",
+     "chance": 0.55
+    },
+    {
+     "item": "Fragmento de Rubi",
+     "chance": 0.32
+    },
+    {
+     "item": "Fragmento de Obsidiana",
+     "chance": 0.34
+    },
+    {
+     "item": "Aco Negro",
+     "chance": 0.28
+    },
+    {
+     "item": "Placa de Mithril",
+     "chance": 0.22
+    },
+    {
+     "item": "Cristal Arcano",
+     "chance": 0.16
+    },
+    {
+     "item": "Cristal Divino",
+     "chance": 0.035
+    },
+    {
+     "item": "Botas Infernais",
+     "chance": 0.018
+    },
+    {
+     "item": "Armadura Infernal",
+     "chance": 0.008
+    },
+    {
+     "item": "Pocao media de mana",
+     "chance": 0.2
+    }
+   ]
+  },
+  "General Infernal": {
+   "level": 54,
+   "level_range": [
+    54,
+    54
+   ],
+   "boss": true,
+   "vida": 6900,
+   "ataque": 174,
+   "defesa": 88,
+   "xp": 8500,
+   "ouro": [
+    2700,
+    3800
+   ],
+   "speed": 115,
+   "color": "#d95a25",
+   "magical": true,
+   "drops": [
+    {
+     "item": "Nucleo Flamejante",
+     "chance": 1
+    },
+    {
+     "item": "Escama Draconica",
+     "chance": 0.95
+    },
+    {
+     "item": "Nucleo de Obsidiana",
+     "chance": 0.9
+    },
+    {
+     "item": "Aco Negro",
+     "chance": 0.85
+    },
+    {
+     "item": "Fragmento de Obsidiana",
+     "chance": 0.85
+    },
+    {
+     "item": "Placa de Mithril",
+     "chance": 0.75
+    },
+    {
+     "item": "Essencia Sombria",
+     "chance": 0.7
+    },
+    {
+     "item": "Cristal Arcano",
+     "chance": 0.6
+    },
+    {
+     "item": "Cristal Divino",
+     "chance": 0.32
+    },
+    {
+     "item": "Essencia Celestial",
+     "chance": 0.22
+    },
+    {
+     "item": "Armadura Infernal",
+     "chance": 0.1
+    },
+    {
+     "item": "Espada Infernal",
+     "chance": 0.085
+    },
+    {
+     "item": "Botas Infernais",
+     "chance": 0.075
+    },
+    {
+     "item": "Lamina do General Infernal",
+     "chance": 0.055
+    },
+    {
+     "item": "Manto de Cristal Ancestral",
+     "chance": 0.025
+    }
+   ]
+  }
+ }
+}

@@ -405,13 +405,34 @@ class WorldService {
   }
 
   async handleMarketList(socket, msg) {
+    const player = this.playerManager.getBySocket(socket);
     const filters = {
       category: msg.category ? String(msg.category) : undefined,
       rarity: msg.rarity ? String(msg.rarity) : undefined,
       itemId: msg.search ? String(msg.search) : undefined
     };
-    const listings = await this.marketManager.list(filters);
-    this.transport.send(socket, { type: "market_state", listings });
+    const { listings, prices } = await this.marketManager.list(filters, player ? player.characterId : null);
+    const payouts = player ? await this.marketManager.pendingPayouts(player.characterId) : { total: 0, sales: 0 };
+    this.transport.send(socket, { type: "market_state", listings, prices, payouts, taxRate: this.marketManager.taxRate });
+  }
+
+  async handleMarketPrice(socket, msg) {
+    const price = await this.marketManager.suggestedPrice(String(msg.itemId || ""));
+    this.transport.send(socket, { type: "market_price", ...price });
+  }
+
+  async handleMarketCancel(socket, msg) {
+    const player = this.playerManager.getBySocket(socket);
+    if (!player) return;
+    const result = await this.marketManager.cancelListing(Number(msg.listingId), player.characterId);
+    this.transport.send(socket, { type: "market_cancel_result", ...result });
+  }
+
+  async handleMarketCollect(socket) {
+    const player = this.playerManager.getBySocket(socket);
+    if (!player) return;
+    const result = await this.marketManager.collectPayouts(player.characterId);
+    this.transport.send(socket, { type: "market_collect_result", ...result });
   }
 
   async handleMarketCreate(socket, msg) {

@@ -1,8 +1,9 @@
-"""Coloca os grupos de inimigos do Pantano (swamp_almas) em data/maps.json.
+"""Coloca os grupos de inimigos e os coletaveis do Pantano (swamp_almas) em data/maps.json.
 
 Le as zonas do projeto do ChatGPT (projeto_chatgpt.json -> zonas[].inimigos), a mascara de chao
-andavel do kit e os numeros (numeros_inimigos.json -> respawn_s, grupo). So troca
-maps.json -> swamp_almas -> spawns; o resto do arquivo fica igual.
+andavel do kit, os numeros (numeros_inimigos.json -> respawn_s, grupo) e os coletaveis
+(missoes_chatgpt.json -> coletaveis). So troca maps.json -> swamp_almas -> spawns e
+collectibles; o resto do arquivo fica igual.
 
 Regras: grupo so em chao andavel ligado ao ponto de chegada (o heroi alcanca), longe da zona
 segura, dos NPCs, dos portais e da arena do chefe; o Rei Afogado fica sozinho no centro da arena.
@@ -32,6 +33,34 @@ OFFSETS = [(0, 0)] + [(round(r * math.cos(a * math.pi / 4)), round(r * math.sin(
                       for r in (140, 280, 420) for a in range(8)]
 LONGE_PORTAL = 380
 LONGE_SEGURA = 260   # alem do raio da zona segura
+
+
+def coletaveis(projeto, alcance, perto):
+    """Itens no chao (missoes_chatgpt.json -> coletaveis: item, quantidade, zona) em chao alcancavel."""
+    pedido = json.loads((PASTA / "missoes_chatgpt.json").read_text(encoding="utf-8")).get("coletaveis", [])
+    zonas = {z["nome"]: z["retangulo_px"] for z in projeto["zonas"]}
+    rng = np.random.default_rng(7)
+    saida, usados = [], []
+    for c in pedido:
+        x, y, w, h = zonas[c["zona"]]
+        postos = 0
+        for _ in range(4000):
+            if postos >= int(c["quantidade_no_mapa"]):
+                break
+            px, py = float(rng.uniform(x + 60, x + w - 60)), float(rng.uniform(y + 60, y + h - 60))
+            cy, cx = int(py // CELL), int(px // CELL)
+            if not alcance[cy - 1:cy + 2, cx - 1:cx + 2].all():
+                continue
+            # zona segura pode (perto da entrada); so longe de NPC/portal e de outro item
+            if any(math.hypot(px - qx, py - qy) < 150 for qx, qy in usados):
+                continue
+            if any(math.hypot(px - ax, py - ay) < 120 for (ax, ay), _r in perto[-len(perto):] if _r < 400):
+                continue
+            usados.append((px, py))
+            saida.append({"item": c["item"], "amount": 1, "pos": [int(px), int(py)]})
+            postos += 1
+        print(f"coletavel {c['item']} em {c['zona']}: {postos}/{c['quantidade_no_mapa']}")
+    return saida
 
 
 def main():
@@ -100,6 +129,7 @@ def main():
         raise SystemExit("centro da arena do chefe nao e alcancavel")
     spawns.append({"enemy": BOSS, "count": 1, "boss": True, "respawn": 300, "zone": [ax - 100, ay - 80, 200, 160]})
     mapa["spawns"] = spawns
+    mapa["collectibles"] = coletaveis(projeto, alcance, perto)
     maps_path.write_text(json.dumps(maps, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     total = {}
     for s in spawns:

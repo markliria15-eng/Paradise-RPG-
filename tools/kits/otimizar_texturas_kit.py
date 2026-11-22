@@ -11,7 +11,9 @@ Colisoes, "corpo" e "base" sao em px do mundo e nao mudam.
 Rodar de novo nao muda nada (a borda ja foi cortada e a escala ja e 1).
 Texturas citadas fora dos kits (codigo, outros JSONs) ficam como estao.
 
-uso (raiz do projeto): python tools/kits/otimizar_texturas_kit.py [--dry-run]
+uso (raiz do projeto): python tools/kits/otimizar_texturas_kit.py [--dry-run] [data/xxx_kit.json ...]
+Com kits na linha de comando, mexe so neles (rodar de novo em kit ja otimizado pode cortar 1-2 px
+por arredondamento; por isso passe so o kit novo).
 """
 import json
 import subprocess
@@ -23,9 +25,13 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
-KITS = ["data/eldoria_kit.json", "data/valdoria_kit.json", "data/cave_kit.json", "data/ruins_kit.json", "data/forest_kit.json"]
+KITS = ["data/eldoria_kit.json", "data/valdoria_kit.json", "data/cave_kit.json", "data/ruins_kit.json", "data/forest_kit.json",
+        "data/swamp_kit.json", "data/fortress_kit.json"]
 ALPHA = 8
 DRY = "--dry-run" in sys.argv
+_ESCOLHIDOS = [a for a in sys.argv[1:] if a.endswith(".json")]
+if _ESCOLHIDOS:
+    KITS = _ESCOLHIDOS
 
 
 def fs(path):

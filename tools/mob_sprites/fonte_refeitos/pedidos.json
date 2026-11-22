@@ -1,0 +1,107 @@
+[
+ {
+  "arquivo": "draco_jovem_idle.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) da imagem de referencia anexada. ANIMACAO: PARADO respirando: asas fechadas, peito sobe e desce, cauda balanca de leve. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "draco_jovem_walk.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) (mesma referencia anexada antes). ANIMACAO: ANDANDO: ciclo completo de caminhada nas quatro patas, asas fechadas, cauda acompanhando. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "draco_jovem_attack.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) (mesma referencia anexada antes). ANIMACAO: ATAQUE: 1 parado, 2 recua a cabeca, 3-4 da o bote mordendo para a ESQUERDA, 5 recolhe, 6 parado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "draco_jovem_death.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) (mesma referencia anexada antes). ANIMACAO: MORTE: 1 atingido, 2-3 cambaleia, 4-5 cai de lado, 6-8 deitado imovel no chao (o corpo inteiro dentro do quadro). REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "draco_ataque_cauda.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) (mesma referencia anexada antes). ANIMACAO: GOLPE ESPECIAL 'Chicote de Cauda': 1 parado, 2-3 gira o corpo, 4-6 chicoteia a cauda para a ESQUERDA varrendo o chao, 7 volta, 8 parado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "draco_ataque_fogo.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) (mesma referencia anexada antes). ANIMACAO: GOLPE ESPECIAL 'Sopro de Fogo': 1 parado, 2 inspira inchando o peito, 3 recua a cabeca, 4-6 cospe um jato curto de fogo laranja para a ESQUERDA, 7 fecha a boca, 8 parado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "draco_ataque_mordida.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Draco Jovem (dragao jovem vermelho de quatro patas, com asas e cauda longa) (mesma referencia anexada antes). ANIMACAO: GOLPE ESPECIAL 'Mordida Feroz': 1 parado, 2 agacha, 3-4 salta para a ESQUERDA, 5 morde com forca, 6 sacode a cabeca, 7-8 volta a pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "javali_idle.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Javali Selvagem (javali marrom peludo com presas brancas, sem armadura) da imagem de referencia anexada. ANIMACAO: PARADO respirando, cabeca baixa, rabo balancando. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 6 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "javali_walk.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Javali Selvagem (javali marrom peludo com presas brancas, sem armadura) (mesma referencia anexada antes). ANIMACAO: ANDANDO: ciclo completo de caminhada nas quatro patas. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "javali_run.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Javali Selvagem (javali marrom peludo com presas brancas, sem armadura) (mesma referencia anexada antes). ANIMACAO: INVESTIDA correndo: galope rapido com a cabeca baixa e as presas para a frente. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "javali_death.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Javali Selvagem (javali marrom peludo com presas brancas, sem armadura) (mesma referencia anexada antes). ANIMACAO: MORTE: 1 atingido, 2-3 cambaleia, 4-5 tomba de lado, 6-8 deitado imovel (corpo inteiro dentro do quadro, sem sangue). REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "aprendiz_chute.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Aprendiz Corrompido (pequeno mago encapuzado de manto roxo escuro) da imagem de referencia anexada. ANIMACAO: GOLPE 'Chute': 1 parado, 2 prepara recuando a perna, 3-5 chute alto para a ESQUERDA, 6 recolhe, 7-8 parado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "aprendiz_cast.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Aprendiz Corrompido (pequeno mago encapuzado de manto roxo escuro) (mesma referencia anexada antes). ANIMACAO: MAGIA 'Chama Negra': 1 parado, 2-3 ergue as maos e uma chama negra-roxa pequena surge entre elas, 4-5 empurra as maos para a ESQUERDA lancando, 6 maos vazias, 7-8 volta a pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "bandido_ilusao.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Bandido das Colinas (bandido mascarado de roupa marrom com adaga) da imagem de referencia anexada. ANIMACAO: HABILIDADE 'Ilusao': 1 parado, 2-3 fumaca roxa surge em volta dele, 4-6 ele vai ficando translucido dentro da fumaca, 7 so fumaca roxa com a silhueta fraca, 8 fumaca quase sumindo. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "bandido_roubo.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Bandido das Colinas (bandido mascarado de roupa marrom com adaga) (mesma referencia anexada antes). ANIMACAO: HABILIDADE 'Roubo': 1 parado, 2 agacha, 3-4 avanca rapido para a ESQUERDA com a mao estendida, 5 agarra uma bolsinha de moedas, 6 guarda a bolsinha na cintura, 7-8 volta a pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "senhor_investida.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Senhor das Colinas (guerreiro barbaro robusto com machado) da imagem de referencia anexada. ANIMACAO: GOLPE 'Investida': 1 parado, 2 abaixa o ombro, 3-6 corre em investida para a ESQUERDA com o ombro a frente, 7 freia, 8 parado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "senhor_lancamento.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Senhor das Colinas (guerreiro barbaro robusto com machado) (mesma referencia anexada antes). ANIMACAO: GOLPE 'Arremesso de Machado': 1 parado, 2-3 ergue o machado atras da cabeca, 4 arremessa para a ESQUERDA (machado saindo da mao), 5-6 mao vazia estendida, 7 recebe o machado de volta, 8 parado com o machado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ },
+ {
+  "arquivo": "espectro_mundo_espiritual.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Espectro Arcano (espectro encapuzado azul-escuro flutuante) da imagem de referencia anexada. ANIMACAO: HABILIDADE 'Mundo Espiritual': 1 parado, 2-3 o corpo brilha azul claro, 4-6 vira uma forma espiritual translucida azul-clara brilhante, 7 pulsa de luz, 8 forma espiritual estavel. O MESMO corpo em todos os quadros, so muda a cor/transparencia. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "cavaleiro_corrompido.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Cavaleiro Sombrio (cavaleiro de armadura negra com capa vermelha e espada) da imagem de referencia anexada. ANIMACAO: HABILIDADE 'Corrompido': 1 curvado apoiado na espada, 2-3 energia vermelha sobe do chao em volta, 4-5 se ergue envolto em aura vermelha, 6-8 de pe com a armadura brilhando com rachaduras vermelhas e aura vermelha forte (a aura colada no corpo, sem pedacos soltos). REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "guardiao_sem_lanca.png",
+  "prompt": "Crie UMA imagem (sprite sheet de jogo 2D) do Guardiao Cristalino (guerreiro de cristal de gelo azul) da imagem de referencia anexada. ANIMACAO: PARADO SEM A LANCA: respirando, maos vazias abertas ao lado do corpo, cristais brilhando de leve. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": true
+ },
+ {
+  "arquivo": "guardiao_criando_lanca.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Guardiao Cristalino (guerreiro de cristal de gelo azul) (mesma referencia anexada antes). ANIMACAO: HABILIDADE 'Criar Lanca': 1 sem lanca, 2-3 junta as maos e cristais de gelo surgem entre elas, 4-6 uma lanca de cristal de gelo vai se formando e crescendo, 7-8 segura a lanca pronta na pose de guarda. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA; o MESMO desenho, paleta, proporcoes e tamanho de corpo da referencia; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros (nenhuma parte encostando no quadro vizinho); nada cortado nas bordas; fundo liso #00FF00 verde puro (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao.",
+  "ref": false
+ }
+]

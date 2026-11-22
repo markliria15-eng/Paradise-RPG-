@@ -1,0 +1,464 @@
+[
+ {
+  "arquivo": "itens_01_pocoes_bichos.png",
+  "fundo": "#00FF00 verde",
+  "itens": [
+   [
+    "Pocao pequena de vida",
+    "frasco pequeno e redondo de vidro com liquido vermelho vivo, rolha de cortica"
+   ],
+   [
+    "Pocao media de vida",
+    "frasco bojudo maior com liquido vermelho brilhante, rolha com cera e fita"
+   ],
+   [
+    "Pocao pequena de mana",
+    "frasco pequeno e redondo de vidro com liquido azul vivo, rolha de cortica"
+   ],
+   [
+    "Pocao media de mana",
+    "frasco bojudo maior com liquido azul brilhante e estrelinhas, rolha com cera"
+   ],
+   [
+    "Carne Crua",
+    "pedaco de carne crua vermelha com osso branco"
+   ],
+   [
+    "Couro Rasgado",
+    "retalho de couro marrom claro rasgado nas bordas"
+   ],
+   [
+    "Presa de Javali",
+    "presa curva grossa cor de marfim"
+   ],
+   [
+    "Presa de Lobo",
+    "presa fina e muito afiada, branca"
+   ],
+   [
+    "Asa de Morcego",
+    "asa membranosa cinza-arroxeada aberta"
+   ],
+   [
+    "Teia Pegajosa",
+    "novelo de teia branca grudenta"
+   ],
+   [
+    "Couro Reforcado",
+    "couro marrom escuro grosso dobrado com rebites de metal"
+   ],
+   [
+    "Escama Draconica",
+    "escama grande de dragao vermelha e brilhante"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_02_metais.png",
+  "fundo": "#FF00FF magenta",
+  "itens": [
+   [
+    "Minerio de Ferro",
+    "pedra de minerio cinza com pontos de ferro alaranjados"
+   ],
+   [
+    "Aco Negro",
+    "lingote de aco negro fosco com reflexo azulado"
+   ],
+   [
+    "Placa de Ferro",
+    "placa retangular de ferro cinza com rebites nos cantos"
+   ],
+   [
+    "Lingote de Ouro",
+    "lingote de ouro brilhante"
+   ],
+   [
+    "Minerio de Titanio",
+    "pedra com cristais azul-prateados de titanio"
+   ],
+   [
+    "Minerio de Mithril",
+    "pedra com veios prateados muito brilhantes de mithril azul-claro"
+   ],
+   [
+    "Placa de Titanio",
+    "placa polida azul-prateada de titanio"
+   ],
+   [
+    "Placa de Mithril",
+    "placa prateada reluzente de mithril com brilho azul-claro"
+   ],
+   [
+    "Nucleo de Obsidiana",
+    "esfera de obsidiana negra com veios vermelhos incandescentes"
+   ],
+   [
+    "Madeira Bruta",
+    "duas toras de madeira cortadas amarradas"
+   ],
+   [
+    "Carvao",
+    "pequeno monte de pedras de carvao preto"
+   ],
+   [
+    "Rebite de Ouro",
+    "tres rebites dourados de cabeca redonda"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_03_gemas.png",
+  "fundo": "#00FF00 verde",
+  "itens": [
+   [
+    "Pedra Runica",
+    "pedra cinza lisa com runa azul brilhante gravada"
+   ],
+   [
+    "Cristal Bruto",
+    "cristal transparente bruto e irregular"
+   ],
+   [
+    "Nucleo Flamejante",
+    "esfera de rocha com fogo laranja dentro"
+   ],
+   [
+    "Fragmento de Rubi",
+    "lasca de rubi vermelho"
+   ],
+   [
+    "Fragmento de Obsidiana",
+    "lasca negra vitrea de obsidiana"
+   ],
+   [
+    "Essencia Sombria",
+    "frasco pequeno com fumaca roxa escura girando"
+   ],
+   [
+    "Cristal Divino",
+    "cristal dourado-branco radiante com aureola de luz"
+   ],
+   [
+    "Essencia Celestial",
+    "frasco com luz branca e azul celeste e estrelinhas"
+   ],
+   [
+    "Tira de Couro",
+    "tira de couro marrom enrolada"
+   ],
+   [
+    "Rubi da Forca",
+    "joia de rubi vermelho em engaste de ouro com runa de forca"
+   ],
+   [
+    "Safira da Mana",
+    "joia de safira azul em engaste de prata com brilho magico"
+   ],
+   [
+    "Cristal Roxo",
+    "cristal roxo pontudo saindo de uma pedra"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_04_ervas.png",
+  "fundo": "#FF00FF magenta",
+  "itens": [
+   [
+    "Folha da Floresta",
+    "folha verde larga com nervuras"
+   ],
+   [
+    "Erva Curativa",
+    "ramo de erva verde com folhinhas"
+   ],
+   [
+    "Erva Vermelha",
+    "ramo de erva de folhas vermelhas"
+   ],
+   [
+    "Erva de Caverna",
+    "erva palida azulada de caverna"
+   ],
+   [
+    "Musgo Medicinal",
+    "tufo de musgo verde fofo"
+   ],
+   [
+    "Flor Medicinal",
+    "flor branca com miolo amarelo e caule"
+   ],
+   [
+    "Cogumelo",
+    "cogumelo marrom de chapeu redondo"
+   ],
+   [
+    "Planta Rara",
+    "planta exotica com folhas douradas e brilho"
+   ],
+   [
+    "Erva Especial",
+    "ramo de erva com flores azuis brilhantes"
+   ],
+   [
+    "Fungo Luminoso",
+    "cogumelos azul-esverdeados que brilham"
+   ],
+   [
+    "Presa Venenosa",
+    "presa com gota de veneno verde-limao escorrendo"
+   ],
+   [
+    "Esmeralda da Agilidade",
+    "joia de esmeralda verde em engaste de prata com pena"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_05_cristais_armas.png",
+  "fundo": "#00FF00 verde",
+  "itens": [
+   [
+    "Essencia Arcana",
+    "frasco com energia arcana azul e roxa girando"
+   ],
+   [
+    "Po Mistico",
+    "saquinho aberto com po brilhante lilas"
+   ],
+   [
+    "Fragmento de Cristal",
+    "lasca de cristal azul-claro"
+   ],
+   [
+    "Cristal Azul",
+    "cristal azul pontudo"
+   ],
+   [
+    "Cristal Arcano",
+    "cristal violeta com runas brilhando"
+   ],
+   [
+    "Minerio Bruto",
+    "pedra de minerio cinza bruto"
+   ],
+   [
+    "Escudo de Madeira",
+    "escudo redondo de tabuas de madeira com aro de ferro"
+   ],
+   [
+    "Espada de Aco Negro",
+    "espada longa de aco negro com guarda simples e brilho azulado"
+   ],
+   [
+    "Arco Cristalino",
+    "arco feito de cristal azul translucido com corda brilhante"
+   ],
+   [
+    "Cajado de Cristal",
+    "cajado de madeira clara com grande cristal azul no topo"
+   ],
+   [
+    "Espada Infernal",
+    "espada negra com lamina rachada e fogo laranja nas fendas"
+   ],
+   [
+    "Botas Infernais",
+    "botas negras de metal com detalhes de fogo laranja"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_06_couro_ferro.png",
+  "fundo": "#FF00FF magenta",
+  "itens": [
+   [
+    "Elmo de Couro",
+    "touca simples de couro marrom com tiras"
+   ],
+   [
+    "Armadura de Couro",
+    "colete de couro marrom simples com cinto"
+   ],
+   [
+    "Calcas de Couro",
+    "calca de couro marrom"
+   ],
+   [
+    "Bota de Couro",
+    "uma bota curta de couro marrom"
+   ],
+   [
+    "Botas de Couro",
+    "par de botas altas de couro marrom"
+   ],
+   [
+    "Luvas de Couro",
+    "par de luvas de couro marrom"
+   ],
+   [
+    "Manoplas de Ferro",
+    "par de manoplas de ferro articuladas"
+   ],
+   [
+    "Perneiras de Ferro",
+    "perneiras de placas de ferro"
+   ],
+   [
+    "Botas de Ferro",
+    "par de botas de placas de ferro"
+   ],
+   [
+    "Armadura Infernal",
+    "peitoral negro macico com rachaduras de fogo laranja e chifres nos ombros"
+   ],
+   [
+    "Manto Celestial",
+    "manto branco e dourado com estrelas bordadas e brilho celeste"
+   ],
+   [
+    "Elmo Draconico",
+    "elmo vermelho de escamas de dragao com chifres"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_07_arcano_draco_sombrio.png",
+  "fundo": "#00FF00 verde",
+  "itens": [
+   [
+    "Chapeu Arcano",
+    "chapeu pontudo de mago azul-escuro com runas roxas"
+   ],
+   [
+    "Manto Arcano",
+    "manto azul-escuro de mago com runas roxas brilhando"
+   ],
+   [
+    "Luvas Arcanas",
+    "luvas azul-escuras com runas roxas"
+   ],
+   [
+    "Calca Arcana",
+    "calca azul-escura de mago com runas"
+   ],
+   [
+    "-Botas Arcanas (saiu vermelha; refeita em item_botas_arcanas.png)",
+    "botas azul-escuras com runas roxas"
+   ],
+   [
+    "Armadura Draconica",
+    "peitoral de escamas vermelhas de dragao"
+   ],
+   [
+    "Calca Draconica",
+    "calca de escamas vermelhas de dragao"
+   ],
+   [
+    "Botas Draconicas",
+    "botas de escamas vermelhas de dragao com garras"
+   ],
+   [
+    "Elmo de Aco Sombrio",
+    "elmo fechado de aco negro com viseira estreita"
+   ],
+   [
+    "Armadura de Aco Sombrio",
+    "peitoral de aco negro com bordas prateadas"
+   ],
+   [
+    "Luvas de Aco Sombrio",
+    "manoplas de aco negro"
+   ],
+   [
+    "Calca de Aco Sombrio",
+    "perneiras de aco negro"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_08_sombrio_cristal.png",
+  "fundo": "#00FF00 verde",
+  "colunas": 3,
+  "linhas": 2,
+  "itens": [
+   [
+    "Botas de Aco Sombrio",
+    "botas de placas de aco negro"
+   ],
+   [
+    "Chapeu de Cristal Ancestral",
+    "tiara-chapeu antigo com cristais azul-gelo"
+   ],
+   [
+    "Manto de Cristal Ancestral",
+    "manto antigo azul-gelo com cristais nos ombros"
+   ],
+   [
+    "Luvas de Cristal Ancestral",
+    "luvas azul-gelo com cristais nos dedos"
+   ],
+   [
+    "Calca de Cristal Ancestral",
+    "calca azul-gelo com placas de cristal"
+   ],
+   [
+    "Botas de Cristal Ancestral",
+    "botas azul-gelo com cristais"
+   ]
+  ]
+ },
+ {
+  "arquivo": "item_botas_arcanas.png",
+  "fundo": "#00FF00 verde",
+  "colunas": 1,
+  "linhas": 1,
+  "itens": [
+   [
+    "Botas Arcanas",
+    "par de botas de mago de tecido azul-escuro com runas roxas e detalhes dourados"
+   ]
+  ]
+ },
+ {
+  "arquivo": "itens_09_profissoes.png",
+  "fundo": "#00FF00 verde",
+  "colunas": 4,
+  "linhas": 2,
+  "itens": [
+   [
+    "Antidoto",
+    "frasco pequeno com liquido amarelo-claro e folhinha na rolha"
+   ],
+   [
+    "Pocao grande de vida",
+    "frasco grande ornamentado com liquido vermelho"
+   ],
+   [
+    "Pocao grande de mana",
+    "frasco grande ornamentado com liquido azul"
+   ],
+   [
+    "Carne Assada",
+    "carne assada dourada com osso"
+   ],
+   [
+    "Sopa de Cogumelos",
+    "tigela de madeira com sopa e cogumelos"
+   ],
+   [
+    "Espetinho do Cacador",
+    "espeto com carne e ervas vermelhas"
+   ],
+   [
+    "Ensopado do Pantano",
+    "panelinha de ferro com ensopado escuro"
+   ],
+   [
+    "Banquete do Aventureiro",
+    "bandeja com frango assado, pao e frutas"
+   ]
+  ]
+ }
+]

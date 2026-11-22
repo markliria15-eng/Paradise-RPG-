@@ -449,6 +449,8 @@ func _apply_companion_bonuses() -> void:
 			player.companion_physical_damage_pct += tier
 		else:
 			player.companion_defense_pct += tier
+	if profissoes != null:
+		profissoes.aplicar_bonus(player)  # comida com bonus (dano/defesa/vida)
 	player.recalculate_equipment()
 
 func _update_kit_vehicles(delta: float) -> void:

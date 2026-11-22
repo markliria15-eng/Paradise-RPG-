@@ -10,7 +10,7 @@ extends Node
 # Saida: lista OK/FALHOU e codigo de saida 0 (tudo certo) ou 1 (algo falhou).
 # O save do jogador (user://) e copiado antes e devolvido no fim, mesmo se o teste anterior caiu.
 
-const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria", "swamp_almas"]
+const MAPAS := ["city_eldoria", "forest_boars", "bat_cave", "arcane_ruins", "city_valdoria", "swamp_almas", "ember_fortress"]
 const ARQUIVOS_DO_JOGADOR := ["user://arcadia_realms_save.json", "user://hud_layout.json"]
 const PASTA_BACKUP := "user://_backup_teste_automatico"
 const TEMPO_MAXIMO_S := 240.0
@@ -264,6 +264,35 @@ func _testar_dados() -> void:
 			problemas.append("falas de esbarrao para NPC inexistente %s" % npc_name)
 	_checar(problemas.is_empty() and not bump.get("pedestres", []).is_empty(), "falas de esbarrao batem com os NPCs" + _resumo(problemas))
 
+	# --- profissoes (data/profissoes.json + maps.json -> gather_nodes/gather_stations) ---
+	problemas = []
+	var prof: Variant = _json("res://data/profissoes.json")
+	if prof != null:
+		var pontos: Dictionary = prof.get("pontos", {})
+		for tipo in pontos:
+			var d: Dictionary = pontos[tipo]
+			for chave in ["sprite", "esgotado"]:
+				if not ResourceLoader.exists(str(d.get(chave, ""))):
+					problemas.append("ponto %s sem %s" % [tipo, chave])
+			if not items.has(str(d.get("item", ""))):
+				problemas.append("ponto %s da item inexistente %s" % [tipo, d.get("item")])
+		for est in prof.get("estacoes", {}).values():
+			if not ResourceLoader.exists(str(est.get("sprite", ""))):
+				problemas.append("bancada sem sprite %s" % est.get("sprite"))
+		for r in prof.get("receitas", {}):
+			if not items.has(str(r)):
+				problemas.append("receita %s cria item inexistente" % r)
+			for m in prof["receitas"][r].get("materiais", {}):
+				if not items.has(str(m)):
+					problemas.append("receita %s pede %s, que nao existe" % [r, m])
+		var total := 0
+		for map_id in maps:
+			for n in maps[map_id].get("gather_nodes", []):
+				total += 1
+				if not pontos.has(str(n.get("tipo", ""))):
+					problemas.append("%s tem ponto de coleta de tipo desconhecido %s" % [map_id, n.get("tipo")])
+		_checar(problemas.is_empty() and total > 0, "profissoes: %d pontos de coleta, receitas e artes existem" % total + _resumo(problemas))
+
 
 func _sim(v: bool) -> String:
 	return "sim" if v else "NAO"
@@ -334,6 +363,15 @@ func _testar_jogo() -> void:
 	qs.register_talk("Varek, Mercador")
 	_checar(not antes and qs.is_ready(qid), "missao com recado: so fica pronta depois de falar com o Varek")
 	qs.complete(qid)
+	# --- jornada 9: dada pelo Capitao Maren (Valdoria), entregue ao Darian no pantano ("entrega") ---
+	var j9 := "jornada_9_o_chamado_do_pantano"
+	qs.accept(j9)
+	qs.register_visit("swamp_almas")
+	qs.register_talk("Darian, Explorador")
+	_checar(qs.is_ready(j9) and str(main.call("_npc_quest_state", "Darian, Explorador")) == "ready"
+		and str(main.call("_npc_quest_state", "Capitao Maren, Mestre do Porto")) != "ready",
+		"jornada 9: pronta para entregar ao Darian (nao precisa voltar ao Maren)")
+	qs.complete(j9)
 	_coletar_erros("missao")
 
 	# --- montaria: compra, monta, anda e desce ao atacar (na Floresta: em cidade nao se ataca) ---
@@ -363,9 +401,76 @@ func _testar_jogo() -> void:
 	_checar(pet != null and is_instance_valid(pet) and (pet as Node2D).is_visible_in_tree(), "pet aparece seguindo o heroi (equipado: %s)" % str(main.call("_current_equipped_pet_code")))
 	_coletar_erros("pet")
 
+	# --- profissoes: colher uma erva na Floresta e preparar pocao fora da cidade ---
+	var prof_mod: Object = main.get("profissoes")
+	if _checar(prof_mod != null and not (prof_mod.get("pontos") as Array).is_empty(), "profissoes: pontos de coleta aparecem na Floresta (%d)" % (0 if prof_mod == null else (prof_mod.get("pontos") as Array).size())):
+		var erva: Dictionary = {}
+		for pt in prof_mod.get("pontos"):
+			if str(pt["tipo"]) == "erva_curativa" and prof_mod.call("_disponivel", pt):
+				erva = pt
+				break
+		if not erva.is_empty():
+			player.global_position = (erva["node"] as Node2D).global_position + Vector2(30, 10)
+			player.velocity = Vector2.ZERO
+			await _esperar(0.7)
+			var antes_qtd := int(player.inventory.items.get("Erva Curativa", 0))
+			var antes_xp := int(prof_mod.call("_estado")["herbalism"]["xp"]) + int(prof_mod.call("nivel", "herbalism")) * 100000
+			var comecou: bool = prof_mod.call("interagir")
+			await _esperar(3.0)
+			var ganhou := int(player.inventory.items.get("Erva Curativa", 0)) > antes_qtd
+			var xp_subiu := int(prof_mod.call("_estado")["herbalism"]["xp"]) + int(prof_mod.call("nivel", "herbalism")) * 100000 > antes_xp
+			_checar(comecou and ganhou and xp_subiu and not prof_mod.call("_disponivel", erva), "coleta: comeca (%s), ganha erva (%s), XP de Herbalista (%s) e a moita esgota" % [_sim(comecou), _sim(ganhou), _sim(xp_subiu)])
+		player.inventory.add_item("Erva Curativa", 2)
+		player.inventory.add_item("Erva Vermelha", 2)
+		player.inventory.add_item("Flor Medicinal", 1)
+		var simples: bool = prof_mod.call("criar", "Pocao pequena de vida", false)
+		prof_mod.call("_estado")["alchemy"]["nivel"] = 10
+		var media_fora: bool = prof_mod.call("criar", "Pocao media de vida", false)
+		var media_bancada: bool = prof_mod.call("criar", "Pocao media de vida", true)
+		_checar(simples and not media_fora and media_bancada, "alquimia: simples fora da cidade (%s), media so na bancada (%s/%s)" % [_sim(simples), _sim(not media_fora), _sim(media_bancada)])
+		prof_mod.call("_estado")["alchemy"]["nivel"] = 1
+		# comida com bonus: Espetinho do Cacador = +8% de dano por 5 min
+		var dano_antes := float(player.get("companion_physical_damage_pct"))
+		player.inventory.add_item("Espetinho do Cacador", 1)
+		main.call("_use_potion_item", "Espetinho do Cacador")
+		var dano_depois := float(player.get("companion_physical_damage_pct"))
+		_checar(dano_depois > dano_antes + 0.05 and not player.inventory.items.has("Espetinho do Cacador"), "comida: Espetinho e consumido e da +8%% de dano (%.2f -> %.2f)" % [dano_antes, dano_depois])
+		main.get("mmo_cache").erase("comida")
+		main.call("_apply_companion_bonuses")
+		# rank, chance de criar e encantamento (Ferreiro 50)
+		var est: Dictionary = prof_mod.call("_estado")
+		est["blacksmithing"]["nivel"] = 50
+		var rank_ok := str(prof_mod.call("rank", "blacksmithing")) == "Ferreiro Grao-Mestre"
+		var chance_alta: float = prof_mod.call("chance", "blacksmithing", 5)
+		player.inventory.add_item("Espada Infernal", 1)
+		player.set("ouro", 999999)
+		for mat in ["Essencia Arcana", "Cristal Arcano"]:
+			player.inventory.add_item(mat, 10)
+		var tentativas := 0
+		while not player.inventory.items.has("Espada Infernal +1") and tentativas < 10:
+			prof_mod.call("encantar", {"nome": "Espada Infernal", "onde": "bolsa", "slot": ""})
+			tentativas += 1
+		var db: Object = main.get("item_db")
+		var base_atk := int(db.call("get_item", "Espada Infernal")["stats"]["ataque"])
+		var enc_atk := int(db.call("get_item", "Espada Infernal +1")["stats"]["ataque"])
+		_checar(rank_ok and chance_alta >= 0.99 and player.inventory.items.has("Espada Infernal +1") and enc_atk > base_atk,
+			"Ferreiro Grao-Mestre: rank (%s), chance %d%%, encanta Espada Infernal +1 (ataque %d -> %d)" % [_sim(rank_ok), int(chance_alta * 100), base_atk, enc_atk])
+		est["blacksmithing"]["nivel"] = 1
+	# --- mercador: vende ate o Ouro, compra itens; valor sobe com o encanto ---
+	var db2: ItemDatabase = main.get("item_db")
+	var vende: Array = ValorItens.lista_npc(db2)
+	var ate_ouro := vende.has("Espada de Ouro") and vende.has("Peitoral de Ferro") and not vende.has("Espada de Mithril") and not vende.has("Espada Celeste")
+	var ouro_antes: int = player.get("ouro")
+	player.inventory.add_item("Minerio de Ferro", 5)
+	var recebeu := NpcShop.sell(player, db2, "Minerio de Ferro", 5)
+	var vendeu_ok: bool = recebeu > 0 and int(player.get("ouro")) == ouro_antes + recebeu
+	var enc_vale_mais := ValorItens.valor("Espada de Mithril +3", db2) > ValorItens.valor("Espada de Mithril", db2) * 2
+	_checar(ate_ouro and vendeu_ok and enc_vale_mais, "mercador: vende ate o Ouro (%s), compra itens (%s, +%d ouro), item encantado vale mais (%s)" % [_sim(ate_ouro), _sim(vendeu_ok), recebeu, _sim(enc_vale_mais)])
+	_coletar_erros("profissoes")
+
 	# --- menus (Foto e Deslogar ficam de fora: escondem a tela / saem do jogo) ---
 	var antes_menus := falhas.size()
-	var itens := ["Habilidades", "Roupa", "Bolsa", "Mapa", "Missoes", "Pets", "Montarias", "Conquistas", "Diarias", "Colecao", "Eventos", "Configuracoes"]
+	var itens := ["Habilidades", "Roupa", "Bolsa", "Mapa", "Missoes", "Profissoes", "Mercado", "Pets", "Montarias", "Conquistas", "Diarias", "Colecao", "Eventos", "Configuracoes"]
 	for item in itens:
 		main.call("_handle_side_menu", item)
 		await _esperar(0.3)

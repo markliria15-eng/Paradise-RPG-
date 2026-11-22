@@ -46,7 +46,8 @@ RPG 2D top-down em Godot 4 com modo offline jogavel e estrutura MMO parcial. O b
 - `city_eldoria`: ativo, seguro, 7200x5760, 9x9 chunks, 81 chunks, rio externo, muros, deck inferior, portal para Floresta, 14 casas separadas e 211 retangulos de colisao do kit.
 - `forest_boars`: ativo, 5600x4480, 7x7 chunks, Guarda Doran, seis tipos de mob, coletaveis e portal para Eldoria.
 - `world_reset`: alias/base de compatibilidade da Floresta.
-- `arcane_ruins`, `bat_cave`, `city_valdoria`, `highland_pass`, `crystal_mines`, `ember_fortress`: IDs preservados com bases vazias; nao reimplantar em lote.
+- `arcane_ruins`, `bat_cave`, `city_valdoria`, `highland_pass`, `crystal_mines`: IDs preservados com bases vazias; nao reimplantar em lote.
+- `ember_fortress` (Fortaleza de Cinzas): kit novo de 2026-11-19, entrada pelo portal norte do pantano (ver PROJECT_CONTEXT, historico 2026-11-19); lava animada (`chao_animado` do kit) desde 2026-11-22.
 - `swamp_almas` (Pantano das Almas Perdidas): kit novo de 2026-11-18, entrada pelo portal leste de Valdoria, 4 inimigos + chefe Rei Afogado (ver PROJECT_CONTEXT, historico 2026-11-18). Chunks antigos de `pantano` apagados em 2026-11-17.
 
 ### Dados ativos
@@ -80,6 +81,10 @@ RPG 2D top-down em Godot 4 com modo offline jogavel e estrutura MMO parcial. O b
 - Dados atuais em `data/maps.json`, `data/quests.json`, `data/items.json` e copias de patch.
 - Remocao local das cenas/scripts antigos `city_eldoria`, `arcane_ruins` e `bat_cave`; nenhuma referencia executavel restante foi encontrada.
 - Assets novos de NPCs, players, mobs, harvest, mapas, casas e agua.
+- 2026-11-22: lava viva na Fortaleza, Tita de Cristal refeita e icone proprio para todos os 210 itens (`assets/items/icones/`, `tools/itens_arte/`).
+- 2026-11-22: zoom da camera escolhido pelo jogador (botoes +/- ao lado do mini mapa, roda do mouse, Configuracoes); Draco Jovem, javalis e 11 golpes especiais de mobs refeitos (ver PROJECT_CONTEXT).
+- 2026-11-22: profissoes locais de verdade (coleta no mapa, alquimia, culinaria, nivel de Ferreiro na forja; `scripts/profissoes.gd`, `data/profissoes.json`). Saves antigos comecam todas no nivel 1, entao receitas raras da forja pedem subir Ferreiro.
+- 2026-11-22: chance de criar por nivel, ranks das profissoes, encantamento +1..+10 com aura (Ferreiro 50), coletores melhoram drops raros; mercador com venda e limite ate o Ouro; mercado entre jogadores com preco recomendado pronto para o online (precisa rodar `npm run migrate` para criar `market_payouts`).
 - Versao Android local alterada para `0.1.21`, ainda sem release/commit correspondente.
 
 Use `git diff --numstat`, `git status --short` e revisao por pasta antes de decidir commits. Nao use `git add .`.

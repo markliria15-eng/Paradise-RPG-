@@ -906,6 +906,24 @@ func show_settings() -> void:
 		sfx_label.text = "%d%%" % int(v)
 		AudioManager.play_sfx("moeda", 1.0, 0.2)
 	)
+	box.add_child(main._panel_label("Distancia da camera (zoom). Tambem: botoes + e - ao lado do mini mapa ou roda do mouse.", 16, Color("#fff3cf")))
+	var row3 := HBoxContainer.new()
+	box.add_child(row3)
+	var zoom_label: Label = main._panel_label(main._zoom_texto(), 16, Color("#ffd36b"))
+	for dados in [["Mais longe", -1], ["Mais perto", 1], ["Padrao", 0]]:
+		var b := Button.new()
+		b.text = str(dados[0])
+		main._style_panel_button(b)
+		var passo := int(dados[1])
+		b.pressed.connect(func() -> void:
+			if passo == 0:
+				main._mudar_zoom(main.CAMERA_ZOOM_PADRAO - main.hud_zoom_index)
+			else:
+				main._mudar_zoom(passo)
+			zoom_label.text = main._zoom_texto()
+		)
+		row3.add_child(b)
+	row3.add_child(zoom_label)
 
 
 # ======================= 11. sons de acao =======================
@@ -1007,9 +1025,10 @@ func _refresh_tracker() -> void:
 	var target_kind := ""
 	var target_name := ""
 	if qs.is_ready(quest_id):
-		lines.append("Volte para %s" % str(quest.get("npc", "")).get_slice(",", 0))
+		var entrega := str(quest.get("entrega", quest.get("npc", "")))
+		lines.append("Volte para %s" % entrega.get_slice(",", 0) if entrega == str(quest.get("npc", "")) else "Fale com %s" % entrega.get_slice(",", 0))
 		target_kind = "npc"
-		target_name = str(quest.get("npc", ""))
+		target_name = entrega
 		target_map = str(main._npc_home_map(target_name))
 	else:
 		var others_done := true

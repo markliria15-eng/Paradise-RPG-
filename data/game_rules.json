@@ -714,51 +714,68 @@
       }
     },
     "General Infernal": {
-      "tema": "Um comandante de fogo que combina investidas e explosoes flamejantes.",
+      "tema": "Comandante supremo da Fortaleza de Cinzas. Guerreiro infernal de nivel 54 que combina investidas devastadoras, explosoes flamejantes, lancas de fogo e invocacao de Cavaleiros Sombrios. Possui tres fases de combate e entra em furia ao atingir 30% da vida.",
       "ataques": [
         {
           "tipo": "investida",
           "nome": "Carga Infernal",
-          "recarga_s": 9,
-          "aviso_s": 1.5,
-          "dano_mult": 0.85,
+          "recarga_s": 8,
+          "aviso_s": 1.4,
+          "dano_mult": 1.05,
           "alcance_min": 120,
           "alcance_max": 700,
-          "velocidade": 370,
-          "atordoa_s": 0.6
+          "velocidade": 410,
+          "atordoa_s": 0.8,
+          "cor": "#ff5820"
         },
         {
           "tipo": "pocas",
           "nome": "Chao em Chamas",
-          "recarga_s": 12,
-          "aviso_s": 1.7,
-          "dano_mult": 0.7,
+          "recarga_s": 11,
+          "aviso_s": 1.6,
+          "dano_mult": 0.85,
           "quantidade": 5,
           "raio": 65,
-          "espalhamento": 250,
+          "espalhamento": 270,
           "dura_s": 4,
           "efeito": "lento",
-          "efeito_s": 2
+          "efeito_s": 2.5,
+          "cor": "#ff751a"
         },
         {
           "tipo": "projeteis",
           "nome": "Lancas Flamejantes",
-          "recarga_s": 10,
-          "aviso_s": 1.3,
-          "dano_mult": 0.7,
+          "recarga_s": 9,
+          "aviso_s": 1.2,
+          "dano_mult": 0.82,
           "quantidade": 5,
           "padrao": "leque",
-          "abertura_graus": 60,
-          "velocidade": 310,
-          "raio": 16,
+          "abertura_graus": 65,
+          "velocidade": 350,
+          "raio": 18,
           "efeito": "nenhum",
-          "efeito_s": 0
+          "efeito_s": 0,
+          "cor": "#ffb020"
+        },
+        {
+          "tipo": "invocar",
+          "nome": "Legiao das Cinzas",
+          "recarga_s": 28,
+          "aviso_s": 2,
+          "dano_mult": 0,
+          "inimigo": "Cavaleiro Sombrio",
+          "quantidade": 2,
+          "max_vivos": 2,
+          "nivel_invocados": 51,
+          "distancia_min": 180,
+          "distancia_max": 290,
+          "cor": "#b62b20"
         }
       ],
       "furia": {
-        "vida_pct": 0.35,
+        "vida_pct": 0.3,
         "recarga_mult": 0.65,
-        "extra": "Carga Infernal deixa um rastro de fogo e Chao em Chamas cria 7 areas flamejantes."
+        "extra": "A Carga Infernal deixa um rastro de fogo. Chao em Chamas cria 7 areas flamejantes em vez de 5. Lancas Flamejantes dispara 7 projeteis em leque com abertura de 80 graus. Legiao das Cinzas continua limitada a 2 Cavaleiros Sombrios vivos simultaneamente."
       }
     },
     "Rei Afogado": {
@@ -775,7 +792,10 @@
           "espalhamento": 280,
           "dura_s": 5,
           "efeito": "lento",
-          "efeito_s": 2.5
+          "efeito_s": 2.5,
+          "pose": "res://assets/sprites/mobs/visuais/rei_afogado_conjura_8f_192x192.png",
+          "cor": "#6b5a2e",
+          "visual": "res://assets/sprites/mobs/visuais/poca_lama_8f_229x179.png"
         },
         {
           "tipo": "projeteis",
@@ -789,7 +809,10 @@
           "velocidade": 320,
           "raio": 20,
           "efeito": "lento",
-          "efeito_s": 1.5
+          "efeito_s": 1.5,
+          "pose": "res://assets/sprites/mobs/visuais/rei_afogado_conjura_8f_192x192.png",
+          "cor": "#3fa58f",
+          "visual": "res://assets/sprites/mobs/visuais/onda_abismo_8f_224x188.png"
         },
         {
           "tipo": "invocar",
@@ -799,13 +822,28 @@
           "dano_mult": 0.3,
           "inimigo": "Afogado do Pantano",
           "quantidade": 2,
-          "max_vivos": 2
+          "max_vivos": 2,
+          "pose": "res://assets/sprites/mobs/visuais/rei_afogado_conjura_8f_192x192.png",
+          "cor": "#4fd1b0"
+        },
+        {
+          "tipo": "nova",
+          "nome": "Salto do Abismo",
+          "recarga_s": 14,
+          "aviso_s": 1.4,
+          "dano_mult": 0.85,
+          "raio": 165,
+          "efeito": "atordoa",
+          "efeito_s": 0.6,
+          "cor": "#3fa58f",
+          "pose": "res://assets/sprites/mobs/visuais/rei_afogado_salto_8f_192x192.png",
+          "visual": "res://assets/sprites/mobs/visuais/impacto_agua_8f_280x263.png"
         }
       ],
       "furia": {
         "vida_pct": 0.35,
         "recarga_mult": 0.65,
-        "extra": "O Rei Afogado entra em furia ao atingir 35% de vida. Lama dos Condenados cria 7 pocas de lama, Ondas do Abismo dispara 7 projeteis em leque e Legiao dos Afogados continua limitada a 2 inimigos vivos."
+        "extra": "O Rei Afogado entra em furia ao atingir 35% de vida. Lama dos Condenados cria 7 pocas de lama, Ondas do Abismo dispara 7 projeteis em leque e Legiao dos Afogados continua limitada a 2 inimigos vivos. O Salto do Abismo fica 25% maior."
       }
     }
   },
@@ -839,7 +877,7 @@
     },
     "General Infernal": {
       "mapa": "arcane_ruins",
-      "nivel_minimo_jogador": 42,
+      "nivel_minimo_jogador": 52,
       "intervalo_min_s": 7200,
       "intervalo_max_s": 10800,
       "dura_s": 900,
@@ -1479,6 +1517,17 @@
           2.0
         ],
         "_doc": "bicho comprido e baixo, rente ao chao (jacare)"
+      },
+      "dragao": {
+        "altura": [
+          0.9,
+          1.4
+        ],
+        "lado": [
+          1.6,
+          2.6
+        ],
+        "_doc": "dragao jovem/alado: asas abertas bem mais largas que o corpo (Draco Jovem)"
       }
     },
     "inimigos": {
@@ -1498,11 +1547,12 @@
       "Cavaleiro Sombrio": "monstro",
       "Golem de Pedra": "monstro",
       "Guardiao Cristalino": "monstro",
-      "Draco Jovem": "mutante",
+      "Draco Jovem": "dragao",
       "Jacare do Pantano": "animal_comprido",
       "Sapo Venenoso Gigante": "mutante",
       "Mosquito Mutante": "mutante",
-      "Afogado do Pantano": "monstro"
+      "Afogado do Pantano": "monstro",
+      "Cinzeiro Errante": "mutante"
     }
   }
 }

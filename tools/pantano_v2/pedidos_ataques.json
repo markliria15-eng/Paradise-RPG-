@@ -1,0 +1,46 @@
+[
+ {
+  "arquivo": "pose_jacare_giro.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Jacare do Pantano das folhas anteriores. ANIMACAO: GOLPE ESPECIAL 'Giro da Morte': 1 parado, 2 abaixa e abre a boca, 3 da o bote para a ESQUERDA mordendo, 4-6 gira o corpo inteiro de lado (barriga amarela aparecendo) como um jacare rolando a presa, 7 volta de barriga para baixo, 8 pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA (igual as folhas anteriores); o MESMO desenho, paleta e tamanho de corpo das folhas anteriores deste personagem; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "pose_sapo_cuspe.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Sapo Venenoso Gigante das folhas anteriores. ANIMACAO: GOLPE ESPECIAL 'Cuspe Venenoso': 1 parado, 2-3 incha a papada e o corpo, 4 abre a boca, 5-6 cospe um jato de veneno verde para a ESQUERDA, 7 fecha a boca, 8 pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA (igual as folhas anteriores); o MESMO desenho, paleta e tamanho de corpo das folhas anteriores deste personagem; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "pose_mosquito_ferroada.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Mosquito Mutante das folhas anteriores. ANIMACAO: GOLPE ESPECIAL 'Ferroada': 1 voando parado, 2-3 sobe e recua, 4-5 mergulha em diagonal para a ESQUERDA com o ferrao esticado, 6 crava o ferrao (abdomen roxo brilha), 7 recua, 8 volta a voar parado. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA (igual as folhas anteriores); o MESMO desenho, paleta e tamanho de corpo das folhas anteriores deste personagem; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #00FF00 verde (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "pose_afogado_lodo.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Afogado do Pantano das folhas anteriores. ANIMACAO: GOLPE ESPECIAL 'Abraco do Lodo': 1 parado, 2 enfia as maos na lama, 3-4 ergue uma bola de lodo escuro pingando, 5-6 arremessa a lama para a ESQUERDA, 7 recupera, 8 pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA (igual as folhas anteriores); o MESMO desenho, paleta e tamanho de corpo das folhas anteriores deste personagem; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "pose_rei_salto.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Rei Afogado das folhas anteriores. ANIMACAO: GOLPE ESPECIAL 'Salto do Abismo': 1 parado, 2 agacha segurando o tridente, 3-4 salta bem alto (corpo no alto do quadro, pes longe do chao), 5 desce com o tridente apontado para baixo, 6 crava o tridente no chao com respingo de agua, 7 levanta, 8 pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA (igual as folhas anteriores); o MESMO desenho, paleta e tamanho de corpo das folhas anteriores deste personagem; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "pose_rei_conjura.png",
+  "prompt": "Agora OUTRA imagem com o MESMO Rei Afogado. ANIMACAO: CONJURAR: 1 parado, 2-3 ergue o tridente acima da cabeca, 4-5 o tridente brilha verde-agua e a coroa solta nevoa, 6 aponta o tridente para a ESQUERDA, 7 abaixa, 8 pose parada. REGRAS OBRIGATORIAS: uma unica linha horizontal com exatamente 8 quadros; vista lateral olhando para a ESQUERDA (igual as folhas anteriores); o MESMO desenho, paleta e tamanho de corpo das folhas anteriores deste personagem; um personagem so por quadro; pes na mesma linha de chao; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem texto, sem numeros, sem grade, sem moldura, sem sombra no chao."
+ },
+ {
+  "arquivo": "fx_cuspe_veneno.png",
+  "prompt": "Agora OUTRA imagem, so EFEITO: 'Cuspe Venenoso' acertando o alvo: uma bolha de veneno verde-limao com bolhas roxas que chega, estoura em respingos e some em fumaca verde (8 quadros: chegando, impacto, respingos abrindo, fumaca, sumindo). REGRAS OBRIGATORIAS: pixel art no estilo do jogo (contorno escuro, cores fortes); uma unica linha horizontal com exatamente 8 quadros da animacao; o efeito centralizado em cada quadro, do MESMO tamanho de quadro para quadro; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem personagem, sem texto, sem numeros, sem grade, sem moldura."
+ },
+ {
+  "arquivo": "fx_respingo_lodo.png",
+  "prompt": "Agora OUTRA imagem, so EFEITO: 'Respingo de Lodo': uma bola de lama escura marrom-esverdeada que bate no chao e espirra em gotas grossas, deixando uma mancha que desaparece (8 quadros). REGRAS OBRIGATORIAS: pixel art no estilo do jogo (contorno escuro, cores fortes); uma unica linha horizontal com exatamente 8 quadros da animacao; o efeito centralizado em cada quadro, do MESMO tamanho de quadro para quadro; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem personagem, sem texto, sem numeros, sem grade, sem moldura."
+ },
+ {
+  "arquivo": "fx_poca_lama.png",
+  "prompt": "Agora OUTRA imagem, so EFEITO EM LOOP: 'Poca de Lama dos Condenados' vista de CIMA (top-down), uma poca redonda de lama marrom-escura com brilho esverdeado, borbulhando (bolhas surgem e estouram), o quadro 8 emenda no 1; mesma forma e tamanho em todos os quadros. REGRAS OBRIGATORIAS: pixel art no estilo do jogo (contorno escuro, cores fortes); uma unica linha horizontal com exatamente 8 quadros da animacao; o efeito centralizado em cada quadro, do MESMO tamanho de quadro para quadro; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem personagem, sem texto, sem numeros, sem grade, sem moldura."
+ },
+ {
+  "arquivo": "fx_onda_abismo.png",
+  "prompt": "Agora OUTRA imagem, so EFEITO EM LOOP: 'Onda do Abismo', um projetil de agua escura esverdeada em forma de onda curva com espuma, VOANDO PARA A DIREITA, vista de cima; o quadro 8 emenda no 1; mesmo tamanho em todos os quadros. REGRAS OBRIGATORIAS: pixel art no estilo do jogo (contorno escuro, cores fortes); uma unica linha horizontal com exatamente 8 quadros da animacao; o efeito centralizado em cada quadro, do MESMO tamanho de quadro para quadro; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem personagem, sem texto, sem numeros, sem grade, sem moldura."
+ },
+ {
+  "arquivo": "fx_impacto_agua.png",
+  "prompt": "Agora OUTRA imagem, so EFEITO: 'Impacto do Abismo' visto de CIMA: um anel de agua escura e espuma que explode do centro para fora em onda circular, com respingos, e se dissipa (8 quadros, o anel cresce de pequeno a grande e some). REGRAS OBRIGATORIAS: pixel art no estilo do jogo (contorno escuro, cores fortes); uma unica linha horizontal com exatamente 8 quadros da animacao; o efeito centralizado em cada quadro, do MESMO tamanho de quadro para quadro; MUITO espaco vazio entre os quadros; nada cortado; fundo liso #FF00FF magenta (cor unica, sem degrade); sem personagem, sem texto, sem numeros, sem grade, sem moldura."
+ }
+]

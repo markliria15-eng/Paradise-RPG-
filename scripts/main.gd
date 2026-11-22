@@ -91,6 +91,20 @@ func _unhandled_input(event: InputEvent) -> void:
 				_interact_with_pet()
 				get_viewport().set_input_as_handled()
 				return
+	# zoom da camera no PC: roda do mouse ou teclas + e - (fora dos menus)
+	if panel == null or not panel.visible:
+		if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
+			var roda := (event as InputEventMouseButton).button_index
+			if roda == MOUSE_BUTTON_WHEEL_UP or roda == MOUSE_BUTTON_WHEEL_DOWN:
+				_mudar_zoom(1 if roda == MOUSE_BUTTON_WHEEL_UP else -1)
+				get_viewport().set_input_as_handled()
+				return
+		if event is InputEventKey and (event as InputEventKey).pressed and not (event as InputEventKey).echo:
+			var tecla := (event as InputEventKey).keycode
+			if tecla in [KEY_EQUAL, KEY_PLUS, KEY_KP_ADD, KEY_MINUS, KEY_KP_SUBTRACT]:
+				_mudar_zoom(-1 if tecla in [KEY_MINUS, KEY_KP_SUBTRACT] else 1)
+				get_viewport().set_input_as_handled()
+				return
 	if event is InputEventKey:
 		var key_event := event as InputEventKey
 		if key_event.pressed and not key_event.echo:
@@ -393,15 +407,37 @@ func _on_mmo_world_message(payload: Dictionary) -> void:
 			if current_panel == "crafting":
 				_show_crafting_window(true)
 		"market_buy_result":
-			_flash("Mercado: compra concluida.")
-			if current_panel == "market":
-				if mmo_client != null:
-					mmo_client.call("request_market")
+			# o inventario e o ouro locais sao a fonte da verdade do cliente: aplica a compra aqui tambem
+			var bought := str(payload.get("itemId", ""))
+			if not bought.is_empty():
+				player.inventory.add_item(bought, max(1, int(payload.get("quantity", 1))))
+				player.ouro = max(0, player.ouro - int(payload.get("paid", 0)))
+			_flash("Mercado: comprou %s x%d por %d ouro." % [bought, int(payload.get("quantity", 1)), int(payload.get("paid", 0))])
+			if current_panel == "market" and mmo_client != null:
+				mmo_client.call("request_market")
 		"market_listing_created":
-			_flash("Mercado: item anunciado.")
+			var listing: Dictionary = payload.get("listing", {})
+			player.inventory.remove_item(str(listing.get("item_id", "")), int(listing.get("quantity", 0)))
+			_flash("Mercado: %s anunciado." % str(listing.get("item_id", "item")))
+			if current_panel == "market" and mmo_client != null:
+				mmo_client.call("request_market")
+		"market_cancel_result":
+			player.inventory.add_item(str(payload.get("itemId", "")), int(payload.get("quantity", 1)))
+			_flash("Mercado: anuncio cancelado, item voltou para a bolsa.")
+			if current_panel == "market" and mmo_client != null:
+				mmo_client.call("request_market")
+		"market_collect_result":
+			var ganho := int(payload.get("amount", 0))
+			player.ouro += ganho
+			_flash("Mercado: coletou %d ouro das suas vendas." % ganho)
+			if current_panel == "market" and mmo_client != null:
+				mmo_client.call("request_market")
+		"market_price":
+			var precos: Dictionary = mmo_cache.get("market_prices", {})
+			precos[str(payload.get("itemId", ""))] = payload
+			mmo_cache["market_prices"] = precos
 			if current_panel == "market":
-				if mmo_client != null:
-					mmo_client.call("request_market")
+				_show_market(true)
 		"character_saved":
 			if bool(payload.get("ok", false)):
 				_flash("Progresso online salvo.")
@@ -846,6 +882,7 @@ func _build_ui() -> void:
 	minimap_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	minimap_canvas.z_index = 150
 	ui.add_child(minimap_canvas)
+	_criar_botoes_zoom()
 	_layout_status_hud()
 	_layout_minimap_hud()
 	panel_blocker = ColorRect.new()
@@ -898,6 +935,10 @@ func _build_ui() -> void:
 	game_extras.name = "GameExtras"
 	add_child(game_extras)
 	game_extras.setup(self)
+	profissoes = Profissoes.new()
+	profissoes.name = "Profissoes"
+	add_child(profissoes)
+	profissoes.setup(self)
 	_apply_hud_layout_to_touch_controls()
 	_refresh_modal_layout()
 
@@ -1347,9 +1388,9 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	elif _valdoria_v2_active():
 		var valdoria_size: Array = _get_valdoria_kit_data().get("world_size", [6400, 5760])
 		current_map_size = Vector2(float(valdoria_size[0]), float(valdoria_size[1]))
-	elif _swamp_v2_active():
-		var swamp_size: Array = _get_swamp_kit_data().get("world_size", [6400, 5760])
-		current_map_size = Vector2(float(swamp_size[0]), float(swamp_size[1]))
+	elif _kit_map_active():
+		var kit_size: Array = _kit_map_data().get("world_size", [6400, 5760])
+		current_map_size = Vector2(float(kit_size[0]), float(kit_size[1]))
 	elif _is_new_valdoria_map():
 		current_map_size = VALDORIA_WORLD_SIZE
 	elif _is_forest_runtime_map() and _forest_chunks_available():
@@ -1375,6 +1416,8 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	_spawn_safe_zones(map_data)
 	_spawn_enemies(map_data)
 	_spawn_map_collectibles(map_data)
+	if profissoes != null:
+		profissoes.carregar_mapa(resolved_map_id, map_data)  # pontos de coleta e bancadas
 	_update_safe_zone_state()
 	_update_camera_limits()
 	_update_map_stream(true)  # o chao em volta do ponto de chegada ja aparece no 1o quadro
@@ -1550,6 +1593,8 @@ func _enemy_killed(enemy: Enemy) -> void:
 	var spawn_data: Dictionary = enemy.get_meta("spawn_data", {})
 	var spawn_map := str(enemy.get_meta("spawn_map", current_map))
 	var was_boss := bool(enemy.boss) or bool(spawn_data.get("boss", false))
+	if profissoes != null:
+		drop_system.bonus_raro = profissoes.bonus_drop_raro()  # coletor alto: mais drop raro
 	var result := drop_system.roll(enemy.enemy_name)
 	if game_extras != null:
 		if was_boss:
@@ -1581,6 +1626,9 @@ func _interact() -> void:
 	# pet pedindo algo e perto do heroi: E/OK atende o pet
 	if selected_npc == null and not pet_need.is_empty() and player != null and pet_pos.distance_to(player.global_position) < 220.0:
 		_interact_with_pet()
+		return
+	# perto de minerio/arvore/erva/bancada (e sem NPC): coleta ou abre a bancada
+	if selected_npc == null and profissoes != null and profissoes.interagir():
 		return
 	if selected_npc != null:
 		if game_extras != null:
@@ -1674,9 +1722,11 @@ func _deliver_quest_talk(npc: Npc) -> void:
 	if quest_system == null or npc == null:
 		return
 	for quest_id in quest_system.register_talk(npc.npc_name):
-		var quest: Dictionary = quest_system.quests.get(quest_id, {})
-		var giver := str(quest.get("npc", "")).get_slice(",", 0)
-		_flash("Recado entregue a %s! Volte para %s." % [npc.npc_name.get_slice(",", 0), giver])
+		var giver := _quest_turn_in_npc(quest_id)
+		if giver == npc.npc_name and quest_system.is_ready(quest_id):
+			_spawn_floating_text(npc.global_position + Vector2(0, -90), "MISSAO PRONTA", Color("#ffd36b"))
+			continue
+		_flash("Recado entregue a %s! Volte para %s." % [npc.npc_name.get_slice(",", 0), giver.get_slice(",", 0)])
 		_spawn_floating_text(npc.global_position + Vector2(0, -90), "RECADO ENTREGUE", Color("#ffd36b"))
 
 # ---- missoes por NPC (qualquer NPC pode dar missoes: campo "npc" do quests.json) ----
@@ -1690,6 +1740,21 @@ func _npc_quest_ids(npc_name: String) -> Array:
 			ids.append(quest_id)
 	return ids
 
+# Quem recebe a missao pronta: campo opcional "entrega" do quests.json (ex.: a missao vem do
+# Capitao Maren em Valdoria e termina falando com o Darian no pantano); sem ele, quem deu a missao.
+func _quest_turn_in_npc(quest_id: String) -> String:
+	var quest: Dictionary = quest_system.quests.get(quest_id, {})
+	return str(quest.get("entrega", quest.get("npc", "")))
+
+func _npc_turn_in_ids(npc_name: String) -> Array:
+	var ids: Array = []
+	if quest_system == null:
+		return ids
+	for quest_id in quest_system.quests:
+		if _quest_turn_in_npc(quest_id) == npc_name:
+			ids.append(quest_id)
+	return ids
+
 func _quest_available(quest_id: String) -> bool:
 	if quest_system.active.has(quest_id) or quest_system.completed.has(quest_id):
 		return false
@@ -1699,9 +1764,10 @@ func _quest_available(quest_id: String) -> bool:
 # "ready" (pode entregar), "available" (missao nova), "progress" (em andamento) ou ""
 func _npc_quest_state(npc_name: String) -> String:
 	var state := ""
-	for quest_id in _npc_quest_ids(npc_name):
+	for quest_id in _npc_turn_in_ids(npc_name):
 		if quest_system.active.has(quest_id) and quest_system.is_ready(quest_id):
 			return "ready"
+	for quest_id in _npc_quest_ids(npc_name):
 		if _quest_available(quest_id):
 			state = "available"
 		elif quest_system.active.has(quest_id) and state.is_empty():
@@ -1724,13 +1790,13 @@ func _npc_home_map(npc_name: String) -> String:
 # Entrega missao pronta ou oferece missao nova. NPC com outra funcao (loja, cura, porto...)
 # alterna: uma conversa mostra a missao, a seguinte abre a funcao normal dele.
 func _offer_npc_quests(npc: Npc) -> bool:
-	var ids := _npc_quest_ids(npc.npc_name)
-	if ids.is_empty():
-		return false
-	for quest_id in ids:
+	for quest_id in _npc_turn_in_ids(npc.npc_name):
 		if quest_system.active.has(quest_id) and quest_system.is_ready(quest_id):
 			_handle_quest_npc(quest_id)
 			return true
+	var ids := _npc_quest_ids(npc.npc_name)
+	if ids.is_empty():
+		return false
 	var quest_only := npc.role == "quest" or npc.role == "talk"
 	if not quest_only and bool(npc_quest_offer_toggle.get(npc.npc_name, false)):
 		npc_quest_offer_toggle[npc.npc_name] = false  # mostrou missao na ultima conversa: agora a funcao normal

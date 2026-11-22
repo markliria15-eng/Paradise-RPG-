@@ -57,6 +57,8 @@ func _apply_visual_profile(name_value: String) -> void:
 	var base_offset := profile.get("base_offset", Vector2.ZERO) as Vector2
 
 	sprite.texture = load(base_path)
+	# icone proprio (128 px) diminui no chao: filtro suave em vez de pixel duro
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR if base_path.begins_with(PASTA_ICONES_PROPRIOS) else CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.scale = Vector2(scale, scale)
 	sprite.position = base_offset
 	sprite.visible = true
@@ -72,7 +74,28 @@ func _apply_visual_profile(name_value: String) -> void:
 
 	label.position = label_offset
 
+# Itens com arte propria (data/items.json -> "icon" em assets/items/icones/) caem no chao com o proprio icone.
+const PASTA_ICONES_PROPRIOS := "res://assets/items/icones/"
+static var _icones_proprios: Dictionary = {}
+static var _icones_carregados := false
+
+static func _icone_proprio(name_value: String) -> String:
+	if not _icones_carregados:
+		_icones_carregados = true
+		var itens := ItemDatabase.load_json("res://data/items.json")
+		for nome in itens.keys():
+			var info = itens[nome]
+			if typeof(info) == TYPE_DICTIONARY:
+				var icone := str(info.get("icon", ""))
+				if icone.begins_with(PASTA_ICONES_PROPRIOS) and ResourceLoader.exists(icone):
+					_icones_proprios[str(nome)] = icone
+	return str(_icones_proprios.get(ItemDatabase.nome_base(name_value), ""))
+
 func _visual_profile_for(name_value: String) -> Dictionary:
+	var proprio := _icone_proprio(name_value)
+	if not proprio.is_empty():
+		# icones de 128 px: ~55 px no chao, do tamanho dos coletaveis
+		return {"base": proprio, "scale": 0.43, "label_offset": Vector2(-66.0, -46.0)}
 	var lower := name_value.to_lower()
 	var harvest_path := _harvest_sprite_path(lower)
 	if not harvest_path.is_empty():

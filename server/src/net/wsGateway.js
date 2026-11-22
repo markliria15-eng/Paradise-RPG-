@@ -121,6 +121,12 @@ class WsGateway {
         return this.world.handleMarketCreate(socket, msg);
       case "market_buy":
         return this.world.handleMarketBuy(socket, msg);
+      case "market_cancel":
+        return this.world.handleMarketCancel(socket, msg);
+      case "market_price":
+        return this.world.handleMarketPrice(socket, msg);
+      case "market_collect":
+        return this.world.handleMarketCollect(socket);
       case "vip_get":
         return this.world.handleVipStatus(socket);
       case "achievements_get":

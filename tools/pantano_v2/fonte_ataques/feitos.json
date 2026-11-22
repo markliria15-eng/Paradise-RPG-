@@ -1,0 +1,17 @@
+{
+ "jacare_pantano_giro_da_morte": "res://assets/sprites/mobs/visuais/jacare_pantano_giro_da_morte_8f_192x192.png",
+ "sapo_venenoso_cuspe": "res://assets/sprites/mobs/visuais/sapo_venenoso_cuspe_8f_192x192.png",
+ "mosquito_mutante_ferroada": "res://assets/sprites/mobs/visuais/mosquito_mutante_ferroada_8f_192x192.png",
+ "afogado_pantano_abraco_lodo": "res://assets/sprites/mobs/visuais/afogado_pantano_abraco_lodo_8f_192x192.png",
+ "rei_afogado_salto": "res://assets/sprites/mobs/visuais/rei_afogado_salto_8f_192x192.png",
+ "rei_afogado_conjura": "res://assets/sprites/mobs/visuais/rei_afogado_conjura_8f_192x192.png",
+ "jacare_pantano_ataque": "res://assets/sprites/mobs/visuais/jacare_pantano_ataque_6f_192x192.png",
+ "sapo_venenoso_ataque": "res://assets/sprites/mobs/visuais/sapo_venenoso_ataque_6f_192x192.png",
+ "mosquito_mutante_ataque": "res://assets/sprites/mobs/visuais/mosquito_mutante_ataque_6f_192x192.png",
+ "afogado_pantano_ataque": "res://assets/sprites/mobs/visuais/afogado_pantano_ataque_6f_192x192.png",
+ "cuspe_veneno": "res://assets/sprites/mobs/visuais/cuspe_veneno_8f_220x183.png",
+ "respingo_lodo": "res://assets/sprites/mobs/visuais/respingo_lodo_8f_234x168.png",
+ "poca_lama": "res://assets/sprites/mobs/visuais/poca_lama_8f_229x179.png",
+ "onda_abismo": "res://assets/sprites/mobs/visuais/onda_abismo_8f_224x188.png",
+ "impacto_agua": "res://assets/sprites/mobs/visuais/impacto_agua_8f_280x263.png"
+}

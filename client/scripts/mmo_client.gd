@@ -248,6 +248,15 @@ func list_market_item(item_id: String, quantity: int, price: int, category: Stri
 func buy_market_item(listing_id: int) -> void:
 	send({"type": "market_buy", "listingId": listing_id})
 
+func cancel_market_listing(listing_id: int) -> void:
+	send({"type": "market_cancel", "listingId": listing_id})
+
+func request_market_price(item_id: String) -> void:
+	send({"type": "market_price", "itemId": item_id})
+
+func collect_market_payouts() -> void:
+	send({"type": "market_collect"})
+
 func request_vip() -> void:
 	send({"type": "vip_get"})
 

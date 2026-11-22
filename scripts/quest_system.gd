@@ -9,7 +9,8 @@ var completed: Array = []
 
 const OBJECTIVE_VERBS := {"kill": "Derrotar", "collect": "Coletar", "visit": "Visitar", "talk": "Falar com"}
 const MAP_NAMES := {"city_eldoria": "Eldoria", "city_valdoria": "Valdoria", "forest_boars": "Floresta dos Javalis",
-	"bat_cave": "Caverna Profunda", "arcane_ruins": "Ruinas Arcanas", "swamp_almas": "Pantano das Almas"}
+	"bat_cave": "Caverna Profunda", "arcane_ruins": "Ruinas Arcanas", "swamp_almas": "Pantano das Almas",
+	"ember_fortress": "Fortaleza de Cinzas"}
 
 func load_quests() -> void:
 	quests = ItemDatabase.load_json("res://data/quests.json")

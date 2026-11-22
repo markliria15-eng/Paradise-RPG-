@@ -5,7 +5,12 @@ class_name BossSkills
 #   tipos: investida, pocas, projeteis, teleporte, invocar, nova.
 # Todo golpe tem aviso no chao/no chefe (aviso_s) antes de acertar, para dar tempo de desviar.
 # O chefe fica parado enquanto prepara o golpe; a investida usa a maquina de estados do enemy.gd.
+# Campos opcionais de arte por golpe (sem eles, circulos coloridos como antes):
+#   "cor": "#rrggbb" do aviso/poca; "pose": tira do chefe tocada durante o aviso
+#   (<nome>_<N>f_192x192.png); "visual": tira de efeito -- poca em loop no chao (pocas),
+#   onda em voo (projeteis) ou impacto (nova/teleporte).
 
+const CombatVisuals = preload("res://scripts/combat_visuals.gd")
 const RULES_PATH := "res://data/game_rules.json"
 const GLOBAL_GAP := 1.6          # pausa minima entre dois golpes especiais
 const RECOVER_TIME := 0.35       # chefe parado logo depois de soltar o golpe
@@ -114,6 +119,8 @@ func _usable(a: Dictionary, distance: float) -> bool:
 func _start_cast(a: Dictionary) -> void:
 	var fury := _enraged()
 	cast = {"a": a, "timer": maxf(0.6, float(a.get("aviso_s", 1.0))), "phase": "aviso", "data": {}}
+	if not str(a.get("pose", "")).is_empty():
+		enemy.play_pose(CombatVisuals.frames(str(a["pose"]), true), float(cast["timer"]) + RECOVER_TIME)
 	var color := _effect_color(a)
 	var player_pos: Vector2 = enemy.target.global_position
 	match str(a.get("tipo", "")):
@@ -193,10 +200,14 @@ func _release(a: Dictionary, data: Dictionary) -> void:
 				if dura > 0.0:
 					var node := _circle(p, radius, color, false)
 					node.color.a = 0.32
-					puddles.append({"node": node, "pos": p, "radius": radius, "until": dura, "tick": 0.0, "a": a})
+					var fx := _fx_loop(str(a.get("visual", "")), p, radius * 2.3, -29)
+					if fx != null:
+						node.color.a = 0.12
+					puddles.append({"node": node, "fx": fx, "pos": p, "radius": radius, "until": dura, "tick": 0.0, "a": a})
 		"nova":
 			var nova_radius := float(data.get("radius", 150.0))
 			_burst(enemy.global_position, nova_radius, color)
+			_fx_once(str(a.get("visual", "")), enemy.global_position, nova_radius * 2.3)
 			CombatJuice.shake(enemy.get_viewport().get_camera_2d(), 7.0, 0.25)
 			if _player_in(enemy.global_position, nova_radius):
 				_hit_player(a, 1.0)
@@ -207,6 +218,10 @@ func _release(a: Dictionary, data: Dictionary) -> void:
 				var shot := _circle(enemy.global_position + d * 30.0, radius2, color, false)
 				shot.color.a = 0.95
 				shot.z_index = 3500
+				var wave := _fx_loop(str(a.get("visual", "")), Vector2.ZERO, radius2 * 4.5, 0, shot)
+				if wave != null:
+					wave.rotation = (d as Vector2).angle()
+					shot.color.a = 0.2
 				projectiles.append({"node": shot, "dir": d, "speed": speed, "radius": radius2, "life": PROJECTILE_LIFE, "a": a})
 		"teleporte":
 			var dest: Vector2 = data.get("dest", enemy.global_position)
@@ -214,6 +229,7 @@ func _release(a: Dictionary, data: Dictionary) -> void:
 			enemy.sprite.modulate.a = 1.0
 			var r := float(a.get("raio_explosao", 100.0))
 			_burst(dest, r, color)
+			_fx_once(str(a.get("visual", "")), dest, r * 2.3)
 			CombatJuice.shake(enemy.get_viewport().get_camera_2d(), 6.0, 0.22)
 			if _player_in(dest, r):
 				_hit_player(a, 1.0)
@@ -238,6 +254,10 @@ func _process(delta: float) -> void:
 				var t: Tween = p["node"].create_tween()
 				t.tween_property(p["node"], "color:a", 0.0, 0.35)
 				t.tween_callback(p["node"].queue_free)
+			if p.get("fx") != null and is_instance_valid(p["fx"]):
+				var tf: Tween = p["fx"].create_tween()
+				tf.tween_property(p["fx"], "modulate:a", 0.0, 0.35)
+				tf.tween_callback(p["fx"].queue_free)
 			puddles.erase(p)
 			continue
 		if float(p["tick"]) <= 0.0 and _player_in(p["pos"], float(p["radius"])):
@@ -264,6 +284,8 @@ func _exit_tree() -> void:
 	for p in puddles:
 		if is_instance_valid(p["node"]):
 			p["node"].queue_free()
+		if p.get("fx") != null and is_instance_valid(p["fx"]):
+			p["fx"].queue_free()
 	for s in projectiles:
 		if is_instance_valid(s["node"]):
 			s["node"].queue_free()
@@ -325,6 +347,8 @@ func _projectile_dirs(a: Dictionary, fury: bool) -> Array:
 
 # ------------------------------------------------------------------ visual
 func _effect_color(a: Dictionary) -> Color:
+	if not str(a.get("cor", "")).is_empty():
+		return Color(str(a["cor"]))
 	match str(a.get("efeito", "nenhum")):
 		"veneno":
 			return Color(0.35, 0.95, 0.25)
@@ -339,6 +363,39 @@ func _effect_color(a: Dictionary) -> Color:
 
 func _world() -> Node:
 	return enemy.get_parent()
+
+
+# Efeito da tira em loop (poca no chao, onda em voo). parent: no do projetil (posicao local) ou o mundo.
+func _fx_loop(path: String, pos: Vector2, size_px: float, z: int, parent: Node2D = null) -> AnimatedSprite2D:
+	if path.is_empty():
+		return null
+	var textures: Array = CombatVisuals.frames(path)
+	if textures.is_empty():
+		return null
+	var anim := AnimatedSprite2D.new()
+	var seq := SpriteFrames.new()
+	seq.set_animation_loop("default", true)
+	seq.set_animation_speed("default", 10.0)
+	for t in textures:
+		seq.add_frame("default", t)
+	anim.sprite_frames = seq
+	var size: Vector2 = (textures[0] as Texture2D).get_size()
+	anim.scale = Vector2.ONE * (size_px / maxf(size.x, size.y))
+	if parent != null:
+		parent.add_child(anim)
+		anim.position = pos
+	else:
+		anim.z_as_relative = false
+		anim.z_index = z
+		_world().add_child(anim)
+		anim.global_position = pos
+	anim.play()
+	return anim
+
+
+func _fx_once(path: String, pos: Vector2, size_px: float) -> void:
+	if not path.is_empty():
+		CombatVisuals.play(_world(), path, pos, false, size_px, true)
 
 
 func _circle(center: Vector2, radius: float, color: Color, pulse: bool) -> Polygon2D:

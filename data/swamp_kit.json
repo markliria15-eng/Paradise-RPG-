@@ -67,10 +67,10 @@
     4980
    ],
    "offset": [
-    -331.0,
-    -664
+    -219.35,
+    -440.03
    ],
-   "scale": 0.6627,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -91,10 +91,10 @@
     5160
    ],
    "offset": [
-    -356.5,
-    -654
+    -161.0,
+    -295.35
    ],
-   "scale": 0.4516,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [],
@@ -109,10 +109,10 @@
     330
    ],
    "offset": [
-    -386.0,
-    -661
+    -166.75,
+    -285.55
    ],
-   "scale": 0.432,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [],
@@ -127,10 +127,10 @@
     1750
    ],
    "offset": [
-    -280.0,
-    -533
+    -225.9,
+    -430.02
    ],
-   "scale": 0.8068,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -151,10 +151,10 @@
     2650
    ],
    "offset": [
-    -280.0,
-    -533
+    -225.9,
+    -430.02
    ],
-   "scale": 0.8068,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -175,10 +175,10 @@
     450
    ],
    "offset": [
-    -255.0,
-    -504
+    -141.68,
+    -280.02
    ],
-   "scale": 0.5556,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -199,10 +199,10 @@
     380
    ],
    "offset": [
-    -255.0,
-    -504
+    -141.68,
+    -280.02
    ],
-   "scale": 0.5556,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3583,10 +3583,10 @@
     2616
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5449,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3607,10 +3607,10 @@
     1754
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.4912,
+   "scale": 0.9014,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3631,10 +3631,10 @@
     1996
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5102,
+   "scale": 0.9363,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3655,10 +3655,10 @@
     2592
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.4684,
+   "scale": 0.8596,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3679,10 +3679,10 @@
     1682
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5176,
+   "scale": 0.9499,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3703,10 +3703,10 @@
     2233
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5332,
+   "scale": 0.9785,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3727,10 +3727,10 @@
     104
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.4848,
+   "scale": 0.8897,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3751,10 +3751,10 @@
     1882
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.4673,
+   "scale": 0.8576,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3775,10 +3775,10 @@
     2055
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.469,
+   "scale": 0.8607,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3799,10 +3799,10 @@
     1306
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5335,
+   "scale": 0.9791,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3823,10 +3823,10 @@
     1802
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5328,
+   "scale": 0.9778,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3847,10 +3847,10 @@
     2370
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.4634,
+   "scale": 0.8504,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3871,10 +3871,10 @@
     3109
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5116,
+   "scale": 0.9389,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3895,10 +3895,10 @@
     1682
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.502,
+   "scale": 0.9213,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -3919,10 +3919,10 @@
     2226
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5018,
+   "scale": 0.9209,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3943,10 +3943,10 @@
     3193
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.5069,
+   "scale": 0.9303,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3967,10 +3967,10 @@
     1386
    ],
    "offset": [
-    -216.5,
-    -295
+    -117.97,
+    -160.75
    ],
-   "scale": 0.4609,
+   "scale": 0.8458,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -3991,10 +3991,10 @@
     5366
    ],
    "offset": [
-    -349.0,
-    -599
+    -298.57,
+    -512.44
    ],
-   "scale": 0.8356,
+   "scale": 0.9767,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4015,10 +4015,10 @@
     4878
    ],
    "offset": [
-    -349.0,
-    -599
+    -298.57,
+    -512.44
    ],
-   "scale": 0.8555,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4039,10 +4039,10 @@
     3378
    ],
    "offset": [
-    -266.0,
-    -342
+    -132.28,
+    -170.08
    ],
-   "scale": 0.4616,
+   "scale": 0.9282,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4063,10 +4063,10 @@
     3400
    ],
    "offset": [
-    -266.0,
-    -342
+    -132.28,
+    -170.08
    ],
-   "scale": 0.4973,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4087,10 +4087,10 @@
     5139
    ],
    "offset": [
-    -266.0,
-    -342
+    -132.28,
+    -170.08
    ],
-   "scale": 0.4793,
+   "scale": 0.9638,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4111,10 +4111,10 @@
     3487
    ],
    "offset": [
-    -266.0,
-    -342
+    -132.28,
+    -170.08
    ],
-   "scale": 0.4679,
+   "scale": 0.9409,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4135,10 +4135,10 @@
     4484
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3729,
+   "scale": 0.9327,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4159,10 +4159,10 @@
     4162
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3761,
+   "scale": 0.9407,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4183,10 +4183,10 @@
     5615
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3998,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4207,10 +4207,10 @@
     5547
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3582,
+   "scale": 0.8959,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4231,10 +4231,10 @@
     5393
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3932,
+   "scale": 0.9835,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4255,10 +4255,10 @@
     5239
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3473,
+   "scale": 0.8687,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4279,10 +4279,10 @@
     5678
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3549,
+   "scale": 0.8877,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4303,10 +4303,10 @@
     4162
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3711,
+   "scale": 0.9282,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4327,10 +4327,10 @@
     5521
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3644,
+   "scale": 0.9115,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4351,10 +4351,10 @@
     4103
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3962,
+   "scale": 0.991,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4375,10 +4375,10 @@
     3285
    ],
    "offset": [
-    -284.0,
-    -249
+    -113.54,
+    -99.55
    ],
-   "scale": 0.3665,
+   "scale": 0.9167,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4399,10 +4399,10 @@
     3477
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4797,
+   "scale": 0.9919,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4423,10 +4423,10 @@
     3360
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4755,
+   "scale": 0.9833,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4447,10 +4447,10 @@
     3951
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.467,
+   "scale": 0.9657,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4471,10 +4471,10 @@
     3685
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4093,
+   "scale": 0.8464,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4495,10 +4495,10 @@
     5449
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4564,
+   "scale": 0.9438,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4519,10 +4519,10 @@
     5571
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4172,
+   "scale": 0.8627,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4543,10 +4543,10 @@
     4767
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4216,
+   "scale": 0.8718,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4567,10 +4567,10 @@
     5041
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4797,
+   "scale": 0.9919,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4591,10 +4591,10 @@
     5169
    ],
    "offset": [
-    -109.0,
-    -264
+    -52.71,
+    -127.67
    ],
-   "scale": 0.4836,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4615,10 +4615,10 @@
     5249
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3307,
+   "scale": 0.861,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4639,10 +4639,10 @@
     5088
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3841,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4663,10 +4663,10 @@
     4122
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3535,
+   "scale": 0.9203,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4687,10 +4687,10 @@
     5252
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3279,
+   "scale": 0.8537,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4711,10 +4711,10 @@
     5505
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.365,
+   "scale": 0.9503,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4735,10 +4735,10 @@
     4495
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3758,
+   "scale": 0.9784,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4759,10 +4759,10 @@
     5426
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3621,
+   "scale": 0.9427,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4783,10 +4783,10 @@
     4713
    ],
    "offset": [
-    -126.0,
-    -261
+    -48.4,
+    -100.25
    ],
-   "scale": 0.3423,
+   "scale": 0.8912,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4807,10 +4807,10 @@
     2964
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3531,
+   "scale": 0.8642,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4831,10 +4831,10 @@
     1993
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3859,
+   "scale": 0.9444,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4855,10 +4855,10 @@
     3048
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.358,
+   "scale": 0.8762,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4879,10 +4879,10 @@
     2065
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.404,
+   "scale": 0.9887,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -4903,10 +4903,10 @@
     3050
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3534,
+   "scale": 0.8649,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4927,10 +4927,10 @@
     2625
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3631,
+   "scale": 0.8886,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4951,10 +4951,10 @@
     1225
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3639,
+   "scale": 0.8906,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4975,10 +4975,10 @@
     1546
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3983,
+   "scale": 0.9748,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -4999,10 +4999,10 @@
     1210
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3469,
+   "scale": 0.849,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5023,10 +5023,10 @@
     2774
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.386,
+   "scale": 0.9447,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5047,10 +5047,10 @@
     3023
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3844,
+   "scale": 0.9408,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5071,10 +5071,10 @@
     2220
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3837,
+   "scale": 0.9391,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5095,10 +5095,10 @@
     2907
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3488,
+   "scale": 0.8536,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5119,10 +5119,10 @@
     1296
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3621,
+   "scale": 0.8862,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5143,10 +5143,10 @@
     1357
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3736,
+   "scale": 0.9143,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5167,10 +5167,10 @@
     1283
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3704,
+   "scale": 0.9065,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5191,10 +5191,10 @@
     1205
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3983,
+   "scale": 0.9748,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5215,10 +5215,10 @@
     1656
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3577,
+   "scale": 0.8754,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5239,10 +5239,10 @@
     1806
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3576,
+   "scale": 0.8752,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5263,10 +5263,10 @@
     1496
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3859,
+   "scale": 0.9444,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5287,10 +5287,10 @@
     2477
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3725,
+   "scale": 0.9116,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5311,10 +5311,10 @@
     1355
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3822,
+   "scale": 0.9354,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5335,10 +5335,10 @@
     2146
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.4072,
+   "scale": 0.9966,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5359,10 +5359,10 @@
     3046
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3496,
+   "scale": 0.8556,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5383,10 +5383,10 @@
     2158
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3453,
+   "scale": 0.8451,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5407,10 +5407,10 @@
     2872
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.4086,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5431,10 +5431,10 @@
     2271
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3619,
+   "scale": 0.8857,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5455,10 +5455,10 @@
     2659
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.4019,
+   "scale": 0.9836,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5479,10 +5479,10 @@
     2439
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3742,
+   "scale": 0.9158,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5503,10 +5503,10 @@
     3194
    ],
    "offset": [
-    -158.5,
-    -319
+    -64.76,
+    -130.34
    ],
-   "scale": 0.3515,
+   "scale": 0.8603,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5527,10 +5527,10 @@
     698
    ],
    "offset": [
-    -216.0,
-    -543
+    -122.36,
+    -307.61
    ],
-   "scale": 0.5635,
+   "scale": 0.9947,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5551,10 +5551,10 @@
     610
    ],
    "offset": [
-    -216.0,
-    -543
+    -122.36,
+    -307.61
    ],
-   "scale": 0.5044,
+   "scale": 0.8904,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5575,10 +5575,10 @@
     1492
    ],
    "offset": [
-    -216.0,
-    -543
+    -122.36,
+    -307.61
    ],
-   "scale": 0.5403,
+   "scale": 0.9538,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5599,10 +5599,10 @@
     1346
    ],
    "offset": [
-    -216.0,
-    -543
+    -122.36,
+    -307.61
    ],
-   "scale": 0.5396,
+   "scale": 0.9525,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5623,10 +5623,10 @@
     711
    ],
    "offset": [
-    -216.0,
-    -543
+    -122.36,
+    -307.61
    ],
-   "scale": 0.5665,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5647,10 +5647,10 @@
     396
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.713,
+   "scale": 0.994,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5671,10 +5671,10 @@
     794
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.7092,
+   "scale": 0.9887,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5695,10 +5695,10 @@
     1075
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6253,
+   "scale": 0.8717,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5719,10 +5719,10 @@
     456
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6864,
+   "scale": 0.9569,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5743,10 +5743,10 @@
     1431
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6224,
+   "scale": 0.8677,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5767,10 +5767,10 @@
     848
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6148,
+   "scale": 0.8571,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5791,10 +5791,10 @@
     158
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6249,
+   "scale": 0.8712,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5815,10 +5815,10 @@
     1403
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6384,
+   "scale": 0.89,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5839,10 +5839,10 @@
     139
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.6471,
+   "scale": 0.9021,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5863,10 +5863,10 @@
     447
    ],
    "offset": [
-    -152.5,
-    -467
+    -109.39,
+    -334.98
    ],
-   "scale": 0.7173,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -5887,10 +5887,10 @@
     1502
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.5042,
+   "scale": 0.9028,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5911,10 +5911,10 @@
     1459
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.527,
+   "scale": 0.9436,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5935,10 +5935,10 @@
     5419
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.4764,
+   "scale": 0.853,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5959,10 +5959,10 @@
     3343
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.5411,
+   "scale": 0.9688,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -5983,10 +5983,10 @@
     1016
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.5585,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6007,10 +6007,10 @@
     422
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.5164,
+   "scale": 0.9246,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6031,10 +6031,10 @@
     3813
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.5146,
+   "scale": 0.9214,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6055,10 +6055,10 @@
     5663
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.5168,
+   "scale": 0.9253,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6079,10 +6079,10 @@
     372
    ],
    "offset": [
-    -174.5,
-    -539
+    -97.46,
+    -301.03
    ],
-   "scale": 0.4771,
+   "scale": 0.8543,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6103,10 +6103,10 @@
     2943
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.4293,
+   "scale": 0.9979,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6127,10 +6127,10 @@
     4435
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3966,
+   "scale": 0.9219,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6151,10 +6151,10 @@
     4078
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.4073,
+   "scale": 0.9468,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6175,10 +6175,10 @@
     1493
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3846,
+   "scale": 0.894,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6199,10 +6199,10 @@
     1230
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.4302,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6223,10 +6223,10 @@
     942
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.421,
+   "scale": 0.9786,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6247,10 +6247,10 @@
     734
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3906,
+   "scale": 0.9079,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6271,10 +6271,10 @@
     589
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.4255,
+   "scale": 0.9891,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6295,10 +6295,10 @@
     645
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3839,
+   "scale": 0.8924,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6319,10 +6319,10 @@
     1219
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.416,
+   "scale": 0.967,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6343,10 +6343,10 @@
     2830
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.4047,
+   "scale": 0.9407,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6367,10 +6367,10 @@
     1151
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.4244,
+   "scale": 0.9865,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6391,10 +6391,10 @@
     1346
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3828,
+   "scale": 0.8898,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6415,10 +6415,10 @@
     1981
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3798,
+   "scale": 0.8828,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6439,10 +6439,10 @@
     1548
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3707,
+   "scale": 0.8617,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6463,10 +6463,10 @@
     563
    ],
    "offset": [
-    -78.0,
-    -521
+    -33.56,
+    -224.13
    ],
-   "scale": 0.3689,
+   "scale": 0.8575,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6487,10 +6487,10 @@
     601
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4186,
+   "scale": 0.9494,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6511,10 +6511,10 @@
     1160
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4124,
+   "scale": 0.9354,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6535,10 +6535,10 @@
     2154
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4222,
+   "scale": 0.9576,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6559,10 +6559,10 @@
     1108
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.3915,
+   "scale": 0.888,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6583,10 +6583,10 @@
     1077
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.3927,
+   "scale": 0.8907,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6607,10 +6607,10 @@
     644
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4341,
+   "scale": 0.9846,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6631,10 +6631,10 @@
     1597
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4181,
+   "scale": 0.9483,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6655,10 +6655,10 @@
     2427
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4145,
+   "scale": 0.9401,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6679,10 +6679,10 @@
     1336
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4197,
+   "scale": 0.9519,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6703,10 +6703,10 @@
     1603
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.3796,
+   "scale": 0.861,
    "flip_h": false,
    "porte": "cintura",
    "collisions": [
@@ -6727,10 +6727,10 @@
     1120
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.3982,
+   "scale": 0.9032,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6751,10 +6751,10 @@
     2024
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.3712,
+   "scale": 0.8419,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6775,10 +6775,10 @@
     3097
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4024,
+   "scale": 0.9127,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6799,10 +6799,10 @@
     695
    ],
    "offset": [
-    -115.5,
-    -463
+    -50.92,
+    -204.14
    ],
-   "scale": 0.4409,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "cintura",
    "collisions": [
@@ -6823,10 +6823,10 @@
     3784
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3541,
+   "scale": 0.852,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -6840,10 +6840,10 @@
     3339
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3598,
+   "scale": 0.8657,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -6857,10 +6857,10 @@
     2787
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3684,
+   "scale": 0.8864,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -6874,10 +6874,10 @@
     2725
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.406,
+   "scale": 0.9769,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -6891,10 +6891,10 @@
     3397
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3503,
+   "scale": 0.8429,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -6908,10 +6908,10 @@
     3624
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3903,
+   "scale": 0.9391,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -6925,10 +6925,10 @@
     2321
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3869,
+   "scale": 0.9309,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -6942,10 +6942,10 @@
     1776
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3604,
+   "scale": 0.8672,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -6959,10 +6959,10 @@
     2096
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3965,
+   "scale": 0.954,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -6976,10 +6976,10 @@
     2614
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3723,
+   "scale": 0.8958,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -6993,10 +6993,10 @@
     2859
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.4156,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7010,10 +7010,10 @@
     2412
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.4109,
+   "scale": 0.9887,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7027,10 +7027,10 @@
     2553
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.4055,
+   "scale": 0.9757,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7044,10 +7044,10 @@
     1764
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3615,
+   "scale": 0.8698,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7061,10 +7061,10 @@
     3323
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3593,
+   "scale": 0.8645,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7078,10 +7078,10 @@
     2660
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3988,
+   "scale": 0.9596,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7095,10 +7095,10 @@
     3155
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3798,
+   "scale": 0.9139,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7112,10 +7112,10 @@
     1601
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.4022,
+   "scale": 0.9678,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7129,10 +7129,10 @@
     3359
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3658,
+   "scale": 0.8802,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7146,10 +7146,10 @@
     3835
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.3639,
+   "scale": 0.8756,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7163,10 +7163,10 @@
     3559
    ],
    "offset": [
-    -216.0,
-    -207
+    -89.77,
+    -86.03
    ],
-   "scale": 0.378,
+   "scale": 0.9095,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7180,10 +7180,10 @@
     3261
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4344,
+   "scale": 0.9016,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7197,10 +7197,10 @@
     2462
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4342,
+   "scale": 0.9012,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7214,10 +7214,10 @@
     5144
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4268,
+   "scale": 0.8858,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7231,10 +7231,10 @@
     5177
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4437,
+   "scale": 0.9209,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7248,10 +7248,10 @@
     3294
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4482,
+   "scale": 0.9303,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7265,10 +7265,10 @@
     3074
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4818,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7282,10 +7282,10 @@
     3345
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4433,
+   "scale": 0.9201,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7299,10 +7299,10 @@
     2288
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4506,
+   "scale": 0.9352,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7316,10 +7316,10 @@
     2730
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4416,
+   "scale": 0.9166,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7333,10 +7333,10 @@
     2124
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4132,
+   "scale": 0.8576,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7350,10 +7350,10 @@
     5657
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4337,
+   "scale": 0.9002,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7367,10 +7367,10 @@
     2304
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4696,
+   "scale": 0.9747,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7384,10 +7384,10 @@
     5106
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4478,
+   "scale": 0.9294,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7401,10 +7401,10 @@
     1866
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4208,
+   "scale": 0.8734,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7418,10 +7418,10 @@
     3711
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.45,
+   "scale": 0.934,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7435,10 +7435,10 @@
     5031
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4068,
+   "scale": 0.8443,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7452,10 +7452,10 @@
     5541
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.4309,
+   "scale": 0.8944,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7469,10 +7469,10 @@
     3711
    ],
    "offset": [
-    -223.0,
-    -190
+    -107.44,
+    -91.54
    ],
-   "scale": 0.458,
+   "scale": 0.9506,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7486,10 +7486,10 @@
     1447
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4234,
+   "scale": 0.9783,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7503,10 +7503,10 @@
     393
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3644,
+   "scale": 0.842,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7520,10 +7520,10 @@
     2843
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4221,
+   "scale": 0.9753,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7537,10 +7537,10 @@
     1962
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4112,
+   "scale": 0.9501,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7554,10 +7554,10 @@
     1591
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3913,
+   "scale": 0.9041,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7571,10 +7571,10 @@
     1124
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3892,
+   "scale": 0.8993,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7588,10 +7588,10 @@
     643
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3926,
+   "scale": 0.9071,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7605,10 +7605,10 @@
     3395
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4309,
+   "scale": 0.9956,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7622,10 +7622,10 @@
     2841
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4143,
+   "scale": 0.9573,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7639,10 +7639,10 @@
     1409
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4328,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7656,10 +7656,10 @@
     3099
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3664,
+   "scale": 0.8466,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7673,10 +7673,10 @@
     1704
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3738,
+   "scale": 0.8637,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7690,10 +7690,10 @@
     2354
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3806,
+   "scale": 0.8794,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7707,10 +7707,10 @@
     328
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4049,
+   "scale": 0.9355,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7724,10 +7724,10 @@
     1391
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.397,
+   "scale": 0.9173,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7741,10 +7741,10 @@
     2918
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3687,
+   "scale": 0.8519,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7758,10 +7758,10 @@
     1589
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3836,
+   "scale": 0.8863,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7775,10 +7775,10 @@
     2027
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3928,
+   "scale": 0.9076,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7792,10 +7792,10 @@
     1403
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4311,
+   "scale": 0.9961,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7809,10 +7809,10 @@
     1975
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3959,
+   "scale": 0.9147,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7826,10 +7826,10 @@
     275
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4101,
+   "scale": 0.9476,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7843,10 +7843,10 @@
     2165
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4316,
+   "scale": 0.9972,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7860,10 +7860,10 @@
     1756
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3668,
+   "scale": 0.8475,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7877,10 +7877,10 @@
     2802
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4006,
+   "scale": 0.9256,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7894,10 +7894,10 @@
     2921
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4016,
+   "scale": 0.9279,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7911,10 +7911,10 @@
     615
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4307,
+   "scale": 0.9951,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7928,10 +7928,10 @@
     2749
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4242,
+   "scale": 0.9801,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7945,10 +7945,10 @@
     2656
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4086,
+   "scale": 0.9441,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7962,10 +7962,10 @@
     3149
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4138,
+   "scale": 0.9561,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -7979,10 +7979,10 @@
     711
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4224,
+   "scale": 0.976,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -7996,10 +7996,10 @@
     324
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3909,
+   "scale": 0.9032,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -8013,10 +8013,10 @@
     406
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3809,
+   "scale": 0.8801,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -8030,10 +8030,10 @@
     1753
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4163,
+   "scale": 0.9619,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -8047,10 +8047,10 @@
     1586
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3958,
+   "scale": 0.9145,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -8064,10 +8064,10 @@
     3806
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.403,
+   "scale": 0.9311,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -8081,10 +8081,10 @@
     2172
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.3809,
+   "scale": 0.8801,
    "flip_h": false,
    "porte": "joelho",
    "layer": "ground",
@@ -8098,10 +8098,10 @@
     1019
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.41,
+   "scale": 0.9473,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -8115,10 +8115,10 @@
     1265
    ],
    "offset": [
-    -131.5,
-    -187
+    -56.91,
+    -80.93
    ],
-   "scale": 0.4107,
+   "scale": 0.9489,
    "flip_h": true,
    "porte": "joelho",
    "layer": "ground",
@@ -8132,10 +8132,10 @@
     5025
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3195,
+   "scale": 0.8439,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8149,10 +8149,10 @@
     3137
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3322,
+   "scale": 0.8774,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8166,10 +8166,10 @@
     5296
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.376,
+   "scale": 0.9931,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8183,10 +8183,10 @@
     3011
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3217,
+   "scale": 0.8497,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8200,10 +8200,10 @@
     4756
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3774,
+   "scale": 0.9968,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8217,10 +8217,10 @@
     3351
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3497,
+   "scale": 0.9237,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8234,10 +8234,10 @@
     1864
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3217,
+   "scale": 0.8497,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8251,10 +8251,10 @@
     4370
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.37,
+   "scale": 0.9773,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8268,10 +8268,10 @@
     2890
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3235,
+   "scale": 0.8545,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8285,10 +8285,10 @@
     5444
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3585,
+   "scale": 0.9469,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8302,10 +8302,10 @@
     3515
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3178,
+   "scale": 0.8394,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8319,10 +8319,10 @@
     5384
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3675,
+   "scale": 0.9707,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8336,10 +8336,10 @@
     5598
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3204,
+   "scale": 0.8463,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8353,10 +8353,10 @@
     3188
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3521,
+   "scale": 0.93,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8370,10 +8370,10 @@
     2968
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3715,
+   "scale": 0.9812,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8387,10 +8387,10 @@
     4265
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3576,
+   "scale": 0.9445,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8404,10 +8404,10 @@
     5154
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3496,
+   "scale": 0.9234,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8421,10 +8421,10 @@
     2810
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3331,
+   "scale": 0.8798,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8438,10 +8438,10 @@
     2096
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3289,
+   "scale": 0.8687,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8455,10 +8455,10 @@
     5219
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3604,
+   "scale": 0.9519,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8472,10 +8472,10 @@
     3888
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.326,
+   "scale": 0.8611,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8489,10 +8489,10 @@
     5307
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3559,
+   "scale": 0.94,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8506,10 +8506,10 @@
     3475
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3245,
+   "scale": 0.8571,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8523,10 +8523,10 @@
     3959
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3556,
+   "scale": 0.9392,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8540,10 +8540,10 @@
     3456
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3786,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8557,10 +8557,10 @@
     4606
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3263,
+   "scale": 0.8619,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8574,10 +8574,10 @@
     5253
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3457,
+   "scale": 0.9131,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8591,10 +8591,10 @@
     3636
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.318,
+   "scale": 0.8399,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8608,10 +8608,10 @@
     3439
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3679,
+   "scale": 0.9717,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8625,10 +8625,10 @@
     3424
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3396,
+   "scale": 0.897,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8642,10 +8642,10 @@
     1621
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.351,
+   "scale": 0.9271,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8659,10 +8659,10 @@
     3116
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3448,
+   "scale": 0.9107,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8676,10 +8676,10 @@
     5536
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3344,
+   "scale": 0.8833,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8693,10 +8693,10 @@
     2282
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.3589,
+   "scale": 0.948,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8710,10 +8710,10 @@
     3438
    ],
    "offset": [
-    -194.5,
-    -156
+    -73.64,
+    -59.06
    ],
-   "scale": 0.369,
+   "scale": 0.9746,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8727,10 +8727,10 @@
     147
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4159,
+   "scale": 0.9461,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8744,10 +8744,10 @@
     1410
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3954,
+   "scale": 0.8995,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8761,10 +8761,10 @@
     3420
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4314,
+   "scale": 0.9813,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8778,10 +8778,10 @@
     786
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3672,
+   "scale": 0.8353,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8795,10 +8795,10 @@
     976
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.43,
+   "scale": 0.9782,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8812,10 +8812,10 @@
     5091
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4282,
+   "scale": 0.9741,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8829,10 +8829,10 @@
     2186
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3828,
+   "scale": 0.8708,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8846,10 +8846,10 @@
     177
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.388,
+   "scale": 0.8826,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8863,10 +8863,10 @@
     2308
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4287,
+   "scale": 0.9752,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8880,10 +8880,10 @@
     193
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3926,
+   "scale": 0.8931,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8897,10 +8897,10 @@
     455
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4152,
+   "scale": 0.9445,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8914,10 +8914,10 @@
     5280
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4187,
+   "scale": 0.9525,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8931,10 +8931,10 @@
     2869
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4376,
+   "scale": 0.9955,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8948,10 +8948,10 @@
     2268
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3733,
+   "scale": 0.8492,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8965,10 +8965,10 @@
     3676
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4213,
+   "scale": 0.9584,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -8982,10 +8982,10 @@
     326
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3794,
+   "scale": 0.8631,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -8999,10 +8999,10 @@
     5382
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4288,
+   "scale": 0.9754,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9016,10 +9016,10 @@
     826
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4051,
+   "scale": 0.9215,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9033,10 +9033,10 @@
     3332
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.438,
+   "scale": 0.9964,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9050,10 +9050,10 @@
     2377
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4305,
+   "scale": 0.9793,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9067,10 +9067,10 @@
     3347
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3923,
+   "scale": 0.8924,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9084,10 +9084,10 @@
     3058
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4117,
+   "scale": 0.9365,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9101,10 +9101,10 @@
     76
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3937,
+   "scale": 0.8956,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9118,10 +9118,10 @@
     959
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3946,
+   "scale": 0.8976,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9135,10 +9135,10 @@
     1580
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4358,
+   "scale": 0.9914,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9152,10 +9152,10 @@
     376
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4023,
+   "scale": 0.9152,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9169,10 +9169,10 @@
     1256
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3693,
+   "scale": 0.8401,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9186,10 +9186,10 @@
     2719
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4049,
+   "scale": 0.9211,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9203,10 +9203,10 @@
     456
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4301,
+   "scale": 0.9784,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9220,10 +9220,10 @@
     5122
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3893,
+   "scale": 0.8856,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9237,10 +9237,10 @@
     3767
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3854,
+   "scale": 0.8767,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9254,10 +9254,10 @@
     5461
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4065,
+   "scale": 0.9247,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9271,10 +9271,10 @@
     437
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.384,
+   "scale": 0.8735,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9288,10 +9288,10 @@
     2441
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4013,
+   "scale": 0.9129,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9305,10 +9305,10 @@
     3307
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4396,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9322,10 +9322,10 @@
     3218
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3973,
+   "scale": 0.9038,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9339,10 +9339,10 @@
     5601
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4192,
+   "scale": 0.9536,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9356,10 +9356,10 @@
     1506
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.379,
+   "scale": 0.8621,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9373,10 +9373,10 @@
     3360
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4056,
+   "scale": 0.9227,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9390,10 +9390,10 @@
     2678
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4369,
+   "scale": 0.9939,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9407,10 +9407,10 @@
     5606
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4125,
+   "scale": 0.9384,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9424,10 +9424,10 @@
     5623
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4114,
+   "scale": 0.9359,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9441,10 +9441,10 @@
     74
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4333,
+   "scale": 0.9857,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9458,10 +9458,10 @@
     742
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.3714,
+   "scale": 0.8449,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9475,10 +9475,10 @@
     5183
    ],
    "offset": [
-    -83.5,
-    -103
+    -36.71,
+    -45.28
    ],
-   "scale": 0.4266,
+   "scale": 0.9704,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9492,10 +9492,10 @@
     93
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3889,
+   "scale": 0.9244,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9509,10 +9509,10 @@
     5001
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3535,
+   "scale": 0.8403,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9526,10 +9526,10 @@
     3139
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.356,
+   "scale": 0.8462,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9543,10 +9543,10 @@
     4955
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3897,
+   "scale": 0.9263,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9560,10 +9560,10 @@
     3313
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.415,
+   "scale": 0.9865,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9577,10 +9577,10 @@
     1254
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3885,
+   "scale": 0.9235,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9594,10 +9594,10 @@
     1588
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4117,
+   "scale": 0.9786,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9611,10 +9611,10 @@
     3509
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3796,
+   "scale": 0.9023,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9628,10 +9628,10 @@
     3631
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3854,
+   "scale": 0.9161,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9645,10 +9645,10 @@
     329
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4088,
+   "scale": 0.9717,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9662,10 +9662,10 @@
     948
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3561,
+   "scale": 0.8464,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9679,10 +9679,10 @@
     2619
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3637,
+   "scale": 0.8645,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9696,10 +9696,10 @@
     1209
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4207,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9713,10 +9713,10 @@
     1508
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.36,
+   "scale": 0.8557,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9730,10 +9730,10 @@
     1082
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4066,
+   "scale": 0.9665,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9747,10 +9747,10 @@
     496
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3953,
+   "scale": 0.9396,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9764,10 +9764,10 @@
     3086
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4198,
+   "scale": 0.9979,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9781,10 +9781,10 @@
     4471
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4149,
+   "scale": 0.9862,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9798,10 +9798,10 @@
     2518
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3914,
+   "scale": 0.9304,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9815,10 +9815,10 @@
     5529
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3585,
+   "scale": 0.8522,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9832,10 +9832,10 @@
     5241
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3919,
+   "scale": 0.9315,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9849,10 +9849,10 @@
     1261
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3597,
+   "scale": 0.855,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9866,10 +9866,10 @@
     2778
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3923,
+   "scale": 0.9325,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9883,10 +9883,10 @@
     446
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3558,
+   "scale": 0.8457,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9900,10 +9900,10 @@
     1333
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3946,
+   "scale": 0.938,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9917,10 +9917,10 @@
     2607
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4106,
+   "scale": 0.976,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9934,10 +9934,10 @@
     5652
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3914,
+   "scale": 0.9304,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9951,10 +9951,10 @@
     2648
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3983,
+   "scale": 0.9468,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -9968,10 +9968,10 @@
     118
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3999,
+   "scale": 0.9506,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -9985,10 +9985,10 @@
     1553
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4179,
+   "scale": 0.9933,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10002,10 +10002,10 @@
     629
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3693,
+   "scale": 0.8778,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10019,10 +10019,10 @@
     1197
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3806,
+   "scale": 0.9047,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10036,10 +10036,10 @@
     426
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4121,
+   "scale": 0.9796,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10053,10 +10053,10 @@
     1170
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4039,
+   "scale": 0.9601,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10070,10 +10070,10 @@
     1133
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4025,
+   "scale": 0.9567,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10087,10 +10087,10 @@
     5022
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4038,
+   "scale": 0.9598,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10104,10 +10104,10 @@
     5346
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3696,
+   "scale": 0.8785,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10121,10 +10121,10 @@
     5655
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3701,
+   "scale": 0.8797,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10138,10 +10138,10 @@
     351
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4026,
+   "scale": 0.957,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10155,10 +10155,10 @@
     1371
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4119,
+   "scale": 0.9791,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10172,10 +10172,10 @@
     665
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4068,
+   "scale": 0.967,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10189,10 +10189,10 @@
     1111
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3931,
+   "scale": 0.9344,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10206,10 +10206,10 @@
     3322
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.354,
+   "scale": 0.8415,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10223,10 +10223,10 @@
     4607
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3513,
+   "scale": 0.835,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10240,10 +10240,10 @@
     5244
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3809,
+   "scale": 0.9054,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10257,10 +10257,10 @@
     2427
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3937,
+   "scale": 0.9358,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10274,10 +10274,10 @@
     2537
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3556,
+   "scale": 0.8453,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10291,10 +10291,10 @@
     379
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3835,
+   "scale": 0.9116,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10308,10 +10308,10 @@
     647
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3537,
+   "scale": 0.8407,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10325,10 +10325,10 @@
     3306
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3977,
+   "scale": 0.9453,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10342,10 +10342,10 @@
     1307
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3865,
+   "scale": 0.9187,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10359,10 +10359,10 @@
     4973
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3796,
+   "scale": 0.9023,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10376,10 +10376,10 @@
     1420
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3934,
+   "scale": 0.9351,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10393,10 +10393,10 @@
     2630
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3543,
+   "scale": 0.8422,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10410,10 +10410,10 @@
     4878
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3978,
+   "scale": 0.9456,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10427,10 +10427,10 @@
     2527
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3668,
+   "scale": 0.8719,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10444,10 +10444,10 @@
     4815
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3804,
+   "scale": 0.9042,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10461,10 +10461,10 @@
     2267
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3938,
+   "scale": 0.9361,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10478,10 +10478,10 @@
     5064
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4091,
+   "scale": 0.9724,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10495,10 +10495,10 @@
     4724
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4092,
+   "scale": 0.9727,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10512,10 +10512,10 @@
     1838
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3854,
+   "scale": 0.9161,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10529,10 +10529,10 @@
     4490
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4083,
+   "scale": 0.9705,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10546,10 +10546,10 @@
     1230
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.3879,
+   "scale": 0.922,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10563,10 +10563,10 @@
     372
    ],
    "offset": [
-    -140.0,
-    -206
+    -58.9,
+    -86.66
    ],
-   "scale": 0.4093,
+   "scale": 0.9729,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10580,10 +10580,10 @@
     4849
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3797,
+   "scale": 0.9728,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10597,10 +10597,10 @@
     1463
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3556,
+   "scale": 0.9111,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10614,10 +10614,10 @@
     1330
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3425,
+   "scale": 0.8775,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10631,10 +10631,10 @@
     5404
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3454,
+   "scale": 0.885,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10648,10 +10648,10 @@
     3416
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3834,
+   "scale": 0.9823,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10665,10 +10665,10 @@
     1632
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3353,
+   "scale": 0.8591,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10682,10 +10682,10 @@
     3126
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3761,
+   "scale": 0.9636,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10699,10 +10699,10 @@
     2618
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3754,
+   "scale": 0.9618,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10716,10 +10716,10 @@
     5071
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3775,
+   "scale": 0.9672,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10733,10 +10733,10 @@
     5078
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3775,
+   "scale": 0.9672,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10750,10 +10750,10 @@
     3087
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3676,
+   "scale": 0.9418,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10767,10 +10767,10 @@
     2651
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3793,
+   "scale": 0.9718,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10784,10 +10784,10 @@
     3367
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3748,
+   "scale": 0.9603,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10801,10 +10801,10 @@
     1776
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3408,
+   "scale": 0.8732,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10818,10 +10818,10 @@
     389
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3752,
+   "scale": 0.9613,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10835,10 +10835,10 @@
     5107
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.39,
+   "scale": 0.9992,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10852,10 +10852,10 @@
     4232
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3364,
+   "scale": 0.8619,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10869,10 +10869,10 @@
     1806
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3783,
+   "scale": 0.9693,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10886,10 +10886,10 @@
     3399
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3775,
+   "scale": 0.9672,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10903,10 +10903,10 @@
     5480
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3778,
+   "scale": 0.968,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10920,10 +10920,10 @@
     1752
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3414,
+   "scale": 0.8747,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10937,10 +10937,10 @@
     514
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3453,
+   "scale": 0.8847,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10954,10 +10954,10 @@
     4529
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3464,
+   "scale": 0.8875,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -10971,10 +10971,10 @@
     5021
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3835,
+   "scale": 0.9826,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -10988,10 +10988,10 @@
     1702
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3756,
+   "scale": 0.9623,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11005,10 +11005,10 @@
     1637
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3347,
+   "scale": 0.8575,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11022,10 +11022,10 @@
     1443
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3516,
+   "scale": 0.9008,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11039,10 +11039,10 @@
     2383
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3855,
+   "scale": 0.9877,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11056,10 +11056,10 @@
     183
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3843,
+   "scale": 0.9846,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11073,10 +11073,10 @@
     2919
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3637,
+   "scale": 0.9318,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11090,10 +11090,10 @@
     1590
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.37,
+   "scale": 0.948,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11107,10 +11107,10 @@
     4302
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3699,
+   "scale": 0.9477,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11124,10 +11124,10 @@
     4748
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3792,
+   "scale": 0.9716,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11141,10 +11141,10 @@
     2267
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3383,
+   "scale": 0.8668,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11158,10 +11158,10 @@
     5500
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3298,
+   "scale": 0.845,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11175,10 +11175,10 @@
     4166
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3846,
+   "scale": 0.9854,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11192,10 +11192,10 @@
     4047
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3486,
+   "scale": 0.8932,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11209,10 +11209,10 @@
     1527
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3372,
+   "scale": 0.864,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11226,10 +11226,10 @@
     2971
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3903,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11243,10 +11243,10 @@
     2581
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3346,
+   "scale": 0.8573,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11260,10 +11260,10 @@
     3332
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3474,
+   "scale": 0.8901,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11277,10 +11277,10 @@
     1510
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3456,
+   "scale": 0.8855,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11294,10 +11294,10 @@
     3383
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.378,
+   "scale": 0.9685,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11311,10 +11311,10 @@
     1505
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3884,
+   "scale": 0.9951,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11328,10 +11328,10 @@
     4085
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.3636,
+   "scale": 0.9316,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11345,10 +11345,10 @@
     4273
    ],
    "offset": [
-    -142.5,
-    -293
+    -55.62,
+    -114.36
    ],
-   "scale": 0.334,
+   "scale": 0.8558,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11362,10 +11362,10 @@
     4113
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2507,
+   "scale": 0.8533,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11379,10 +11379,10 @@
     2832
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2522,
+   "scale": 0.8584,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11396,10 +11396,10 @@
     2162
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2723,
+   "scale": 0.9268,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11413,10 +11413,10 @@
     4852
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2854,
+   "scale": 0.9714,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11430,10 +11430,10 @@
     2659
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2938,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11447,10 +11447,10 @@
     2552
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2934,
+   "scale": 0.9986,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11464,10 +11464,10 @@
     4856
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.246,
+   "scale": 0.8373,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11481,10 +11481,10 @@
     3502
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2927,
+   "scale": 0.9963,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11498,10 +11498,10 @@
     4713
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2751,
+   "scale": 0.9364,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11515,10 +11515,10 @@
     2482
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2465,
+   "scale": 0.839,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11532,10 +11532,10 @@
     4865
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2603,
+   "scale": 0.886,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11549,10 +11549,10 @@
     4555
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2865,
+   "scale": 0.9752,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11566,10 +11566,10 @@
     5036
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2609,
+   "scale": 0.888,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11583,10 +11583,10 @@
     5307
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2654,
+   "scale": 0.9033,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11600,10 +11600,10 @@
     4271
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2835,
+   "scale": 0.9649,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11617,10 +11617,10 @@
     4358
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2614,
+   "scale": 0.8897,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11634,10 +11634,10 @@
     1923
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.261,
+   "scale": 0.8884,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11651,10 +11651,10 @@
     5409
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2763,
+   "scale": 0.9404,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11668,10 +11668,10 @@
     2921
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2927,
+   "scale": 0.9963,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11685,10 +11685,10 @@
     2348
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2566,
+   "scale": 0.8734,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11702,10 +11702,10 @@
     4958
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2601,
+   "scale": 0.8853,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11719,10 +11719,10 @@
     2539
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2917,
+   "scale": 0.9929,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11736,10 +11736,10 @@
     3481
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2791,
+   "scale": 0.95,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11753,10 +11753,10 @@
     3848
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2782,
+   "scale": 0.9469,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11770,10 +11770,10 @@
     1613
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2716,
+   "scale": 0.9244,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11787,10 +11787,10 @@
     2085
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2666,
+   "scale": 0.9074,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11804,10 +11804,10 @@
     4926
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2926,
+   "scale": 0.9959,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11821,10 +11821,10 @@
     4794
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.271,
+   "scale": 0.9224,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11838,10 +11838,10 @@
     3859
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.264,
+   "scale": 0.8986,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11855,10 +11855,10 @@
     3973
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2937,
+   "scale": 0.9997,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11872,10 +11872,10 @@
     2214
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2699,
+   "scale": 0.9187,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11889,10 +11889,10 @@
     2505
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2924,
+   "scale": 0.9952,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11906,10 +11906,10 @@
     3525
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2578,
+   "scale": 0.8775,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11923,10 +11923,10 @@
     5139
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2931,
+   "scale": 0.9976,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11940,10 +11940,10 @@
     3899
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2901,
+   "scale": 0.9874,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -11957,10 +11957,10 @@
     3845
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2865,
+   "scale": 0.9752,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11974,10 +11974,10 @@
     3657
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2907,
+   "scale": 0.9894,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -11991,10 +11991,10 @@
     4832
    ],
    "offset": [
-    -148.0,
-    -165
+    -43.48,
+    -48.48
    ],
-   "scale": 0.2534,
+   "scale": 0.8625,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12008,10 +12008,10 @@
     1397
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3745,
+   "scale": 0.8613,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12025,10 +12025,10 @@
     3946
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3693,
+   "scale": 0.8494,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12042,10 +12042,10 @@
     2424
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4098,
+   "scale": 0.9425,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12059,10 +12059,10 @@
     1864
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3882,
+   "scale": 0.8928,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12076,10 +12076,10 @@
     2675
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3968,
+   "scale": 0.9126,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12093,10 +12093,10 @@
     3348
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4228,
+   "scale": 0.9724,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12110,10 +12110,10 @@
     1267
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3968,
+   "scale": 0.9126,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12127,10 +12127,10 @@
     5217
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4337,
+   "scale": 0.9975,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12144,10 +12144,10 @@
     1495
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3851,
+   "scale": 0.8857,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12161,10 +12161,10 @@
     3460
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3752,
+   "scale": 0.8629,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12178,10 +12178,10 @@
     2203
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3734,
+   "scale": 0.8588,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12195,10 +12195,10 @@
     2330
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3805,
+   "scale": 0.8751,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12212,10 +12212,10 @@
     2995
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4348,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12229,10 +12229,10 @@
     4963
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4142,
+   "scale": 0.9526,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12246,10 +12246,10 @@
     5092
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3735,
+   "scale": 0.859,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12263,10 +12263,10 @@
     5435
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3924,
+   "scale": 0.9025,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12280,10 +12280,10 @@
     1809
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3816,
+   "scale": 0.8776,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12297,10 +12297,10 @@
     4904
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4099,
+   "scale": 0.9427,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12314,10 +12314,10 @@
     4878
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4168,
+   "scale": 0.9586,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12331,10 +12331,10 @@
     3519
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3854,
+   "scale": 0.8864,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12348,10 +12348,10 @@
     1206
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3768,
+   "scale": 0.8666,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12365,10 +12365,10 @@
     3367
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4306,
+   "scale": 0.9903,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12382,10 +12382,10 @@
     2969
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3809,
+   "scale": 0.876,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12399,10 +12399,10 @@
     3755
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4231,
+   "scale": 0.9731,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12416,10 +12416,10 @@
     1876
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4343,
+   "scale": 0.9989,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12433,10 +12433,10 @@
     5042
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4341,
+   "scale": 0.9984,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12450,10 +12450,10 @@
     2323
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.4216,
+   "scale": 0.9696,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12467,10 +12467,10 @@
     2529
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3775,
+   "scale": 0.8682,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12484,10 +12484,10 @@
     5544
    ],
    "offset": [
-    -105.5,
-    -218
+    -45.87,
+    -94.79
    ],
-   "scale": 0.3703,
+   "scale": 0.8517,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12501,10 +12501,10 @@
     3727
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4041,
+   "scale": 0.8531,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12518,10 +12518,10 @@
     2329
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4414,
+   "scale": 0.9318,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12535,10 +12535,10 @@
     1262
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4063,
+   "scale": 0.8577,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12552,10 +12552,10 @@
     715
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4354,
+   "scale": 0.9191,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12569,10 +12569,10 @@
     1011
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4434,
+   "scale": 0.936,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12586,10 +12586,10 @@
     336
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4331,
+   "scale": 0.9143,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12603,10 +12603,10 @@
     3304
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4498,
+   "scale": 0.9495,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12620,10 +12620,10 @@
     1048
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4737,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12637,10 +12637,10 @@
     721
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.45,
+   "scale": 0.95,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12654,10 +12654,10 @@
     573
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4431,
+   "scale": 0.9354,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12671,10 +12671,10 @@
     2758
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4426,
+   "scale": 0.9343,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12688,10 +12688,10 @@
     73
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4617,
+   "scale": 0.9747,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12705,10 +12705,10 @@
     79
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4335,
+   "scale": 0.9151,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12722,10 +12722,10 @@
     3369
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4608,
+   "scale": 0.9728,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12739,10 +12739,10 @@
     140
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4589,
+   "scale": 0.9688,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12756,10 +12756,10 @@
     259
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4543,
+   "scale": 0.959,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12773,10 +12773,10 @@
     3813
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4539,
+   "scale": 0.9582,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12790,10 +12790,10 @@
     1397
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4516,
+   "scale": 0.9533,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12807,10 +12807,10 @@
     316
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4103,
+   "scale": 0.8662,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12824,10 +12824,10 @@
     1563
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.428,
+   "scale": 0.9035,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12841,10 +12841,10 @@
     3350
    ],
    "offset": [
-    -108.0,
-    -228
+    -51.16,
+    -108.0
    ],
-   "scale": 0.4588,
+   "scale": 0.9685,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12858,10 +12858,10 @@
     4907
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.2952,
+   "scale": 0.8747,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12875,10 +12875,10 @@
     3600
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3187,
+   "scale": 0.9443,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12892,10 +12892,10 @@
     3913
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3334,
+   "scale": 0.9879,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12909,10 +12909,10 @@
     3056
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3162,
+   "scale": 0.9369,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12926,10 +12926,10 @@
     5150
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.298,
+   "scale": 0.883,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12943,10 +12943,10 @@
     3299
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.335,
+   "scale": 0.9926,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12960,10 +12960,10 @@
     5370
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3375,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -12977,10 +12977,10 @@
     5180
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3162,
+   "scale": 0.9369,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -12994,10 +12994,10 @@
     2273
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3185,
+   "scale": 0.9437,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13011,10 +13011,10 @@
     3396
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.2883,
+   "scale": 0.8542,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13028,10 +13028,10 @@
     1756
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3112,
+   "scale": 0.9221,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13045,10 +13045,10 @@
     1791
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3084,
+   "scale": 0.9138,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13062,10 +13062,10 @@
     4822
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.2995,
+   "scale": 0.8874,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13079,10 +13079,10 @@
     2129
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3286,
+   "scale": 0.9736,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13096,10 +13096,10 @@
     3730
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3207,
+   "scale": 0.9502,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13113,10 +13113,10 @@
     5330
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3021,
+   "scale": 0.8951,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13130,10 +13130,10 @@
     4345
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3342,
+   "scale": 0.9902,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13147,10 +13147,10 @@
     3722
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3014,
+   "scale": 0.893,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13164,10 +13164,10 @@
     3786
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.2957,
+   "scale": 0.8761,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13181,10 +13181,10 @@
     5528
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3305,
+   "scale": 0.9793,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13198,10 +13198,10 @@
     4967
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3297,
+   "scale": 0.9769,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13215,10 +13215,10 @@
     5392
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3223,
+   "scale": 0.955,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13232,10 +13232,10 @@
     4955
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.331,
+   "scale": 0.9807,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13249,10 +13249,10 @@
     5647
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3078,
+   "scale": 0.912,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13266,10 +13266,10 @@
     3136
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.2866,
+   "scale": 0.8492,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13283,10 +13283,10 @@
     5110
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3253,
+   "scale": 0.9639,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13300,10 +13300,10 @@
     3141
    ],
    "offset": [
-    -145.0,
-    -230
+    -48.94,
+    -77.62
    ],
-   "scale": 0.3125,
+   "scale": 0.9259,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13317,10 +13317,10 @@
     4609
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1759,
+   "scale": 0.9427,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13334,10 +13334,10 @@
     5074
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1707,
+   "scale": 0.9148,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13351,10 +13351,10 @@
     5281
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1764,
+   "scale": 0.9453,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13368,10 +13368,10 @@
     5270
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1808,
+   "scale": 0.9689,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13385,10 +13385,10 @@
     5014
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1725,
+   "scale": 0.9244,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13402,10 +13402,10 @@
     4810
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1841,
+   "scale": 0.9866,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13419,10 +13419,10 @@
     3686
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1691,
+   "scale": 0.9062,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13436,10 +13436,10 @@
     3243
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1668,
+   "scale": 0.8939,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13453,10 +13453,10 @@
     4759
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1689,
+   "scale": 0.9051,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13470,10 +13470,10 @@
     4376
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1779,
+   "scale": 0.9534,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13487,10 +13487,10 @@
     5277
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.164,
+   "scale": 0.8789,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13504,10 +13504,10 @@
     5556
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1845,
+   "scale": 0.9887,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13521,10 +13521,10 @@
     4220
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1862,
+   "scale": 0.9979,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13538,10 +13538,10 @@
     5260
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.182,
+   "scale": 0.9753,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13555,10 +13555,10 @@
     5261
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.182,
+   "scale": 0.9753,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13572,10 +13572,10 @@
     5077
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1801,
+   "scale": 0.9652,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13589,10 +13589,10 @@
     3673
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.167,
+   "scale": 0.895,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13606,10 +13606,10 @@
     4565
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1651,
+   "scale": 0.8848,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13623,10 +13623,10 @@
     4237
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1576,
+   "scale": 0.8446,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13640,10 +13640,10 @@
     3382
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1634,
+   "scale": 0.8757,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13657,10 +13657,10 @@
     5055
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1771,
+   "scale": 0.9491,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13674,10 +13674,10 @@
     4189
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1601,
+   "scale": 0.858,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13691,10 +13691,10 @@
     4527
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1745,
+   "scale": 0.9352,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13708,10 +13708,10 @@
     5499
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1712,
+   "scale": 0.9175,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13725,10 +13725,10 @@
     4644
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1833,
+   "scale": 0.9823,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13742,10 +13742,10 @@
     4269
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1704,
+   "scale": 0.9132,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13759,10 +13759,10 @@
     4916
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1731,
+   "scale": 0.9277,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13776,10 +13776,10 @@
     5091
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1866,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13793,10 +13793,10 @@
     4757
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1774,
+   "scale": 0.9507,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13810,10 +13810,10 @@
     4530
    ],
    "offset": [
-    -219.5,
-    -258
+    -40.96,
+    -48.14
    ],
-   "scale": 0.1677,
+   "scale": 0.8987,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13827,10 +13827,10 @@
     3679
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5827,
+   "scale": 0.9969,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13844,10 +13844,10 @@
     1138
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5306,
+   "scale": 0.9078,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13861,10 +13861,10 @@
     1801
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.566,
+   "scale": 0.9683,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13878,10 +13878,10 @@
     1886
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.4935,
+   "scale": 0.8443,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13895,10 +13895,10 @@
     2439
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5146,
+   "scale": 0.8804,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13912,10 +13912,10 @@
     3734
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5429,
+   "scale": 0.9288,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -13929,10 +13929,10 @@
     2668
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5534,
+   "scale": 0.9468,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13946,10 +13946,10 @@
     487
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5305,
+   "scale": 0.9076,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13963,10 +13963,10 @@
     4819
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5217,
+   "scale": 0.8926,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13980,10 +13980,10 @@
     11
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5381,
+   "scale": 0.9206,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -13997,10 +13997,10 @@
     1896
    ],
    "offset": [
-    -325.0,
-    -238
+    -189.96,
+    -139.11
    ],
-   "scale": 0.5845,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14014,10 +14014,10 @@
     4225
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1447,
+   "scale": 0.9396,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14031,10 +14031,10 @@
     3803
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1535,
+   "scale": 0.9968,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14048,10 +14048,10 @@
     3875
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1523,
+   "scale": 0.989,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14065,10 +14065,10 @@
     5670
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1451,
+   "scale": 0.9422,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14082,10 +14082,10 @@
     5420
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.154,
+   "scale": 1.0,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14099,10 +14099,10 @@
     3407
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1479,
+   "scale": 0.9604,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14116,10 +14116,10 @@
     3317
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1375,
+   "scale": 0.8929,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14133,10 +14133,10 @@
     3226
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1392,
+   "scale": 0.9039,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14150,10 +14150,10 @@
     3810
    ],
    "offset": [
-    -451.5,
-    -504
+    -69.53,
+    -77.62
    ],
-   "scale": 0.1466,
+   "scale": 0.9519,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14167,10 +14167,10 @@
     1411
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2079,
+   "scale": 0.9589,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14184,10 +14184,10 @@
     856
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1992,
+   "scale": 0.9188,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14201,10 +14201,10 @@
     1971
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2091,
+   "scale": 0.9645,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14218,10 +14218,10 @@
     1307
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2069,
+   "scale": 0.9543,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14235,10 +14235,10 @@
     1487
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1996,
+   "scale": 0.9207,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14252,10 +14252,10 @@
     3121
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2165,
+   "scale": 0.9986,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14269,10 +14269,10 @@
     2991
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2152,
+   "scale": 0.9926,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14286,10 +14286,10 @@
     2841
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1857,
+   "scale": 0.8565,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14303,10 +14303,10 @@
     1277
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2106,
+   "scale": 0.9714,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14320,10 +14320,10 @@
     1319
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1922,
+   "scale": 0.8865,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14337,10 +14337,10 @@
     2821
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1935,
+   "scale": 0.8925,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14354,10 +14354,10 @@
     2729
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2011,
+   "scale": 0.9276,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14371,10 +14371,10 @@
     2938
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2165,
+   "scale": 0.9986,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14388,10 +14388,10 @@
     2325
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1941,
+   "scale": 0.8953,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14405,10 +14405,10 @@
     2137
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2104,
+   "scale": 0.9705,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14422,10 +14422,10 @@
     533
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2116,
+   "scale": 0.976,
    "flip_h": false,
    "porte": "baixo",
    "layer": "ground",
@@ -14439,10 +14439,10 @@
     1041
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.2168,
+   "scale": 1.0,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",
@@ -14456,10 +14456,10 @@
     1415
    ],
    "offset": [
-    -309.5,
-    -269
+    -67.1,
+    -58.32
    ],
-   "scale": 0.1937,
+   "scale": 0.8935,
    "flip_h": true,
    "porte": "baixo",
    "layer": "ground",

@@ -301,6 +301,16 @@ CREATE TABLE IF NOT EXISTS market_listings (
   sold_at TIMESTAMPTZ
 );
 
+-- dinheiro das vendas do mercado entre jogadores: o vendedor coleta quando quiser (marketManager)
+CREATE TABLE IF NOT EXISTS market_payouts (
+  id BIGSERIAL PRIMARY KEY,
+  seller_character_id BIGINT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+  listing_id BIGINT REFERENCES market_listings(id) ON DELETE SET NULL,
+  amount BIGINT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  collected_at TIMESTAMPTZ
+);
+
 CREATE TABLE IF NOT EXISTS achievements (
   id BIGSERIAL PRIMARY KEY,
   code VARCHAR(80) NOT NULL UNIQUE,
@@ -351,5 +361,7 @@ CREATE TABLE IF NOT EXISTS premium_purchases (
 );
 
 CREATE INDEX IF NOT EXISTS idx_market_listings_status ON market_listings(status, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_market_listings_item_sold ON market_listings(item_id, status, sold_at DESC);
+CREATE INDEX IF NOT EXISTS idx_market_payouts_pending ON market_payouts(seller_character_id) WHERE collected_at IS NULL;
 CREATE INDEX IF NOT EXISTS idx_rank_cache_key ON rank_cache(rank_key);
 CREATE INDEX IF NOT EXISTS idx_character_achievements_character ON character_achievements(character_id);

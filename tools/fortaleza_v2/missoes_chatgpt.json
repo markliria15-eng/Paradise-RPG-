@@ -1,0 +1,104 @@
+{
+ "coletaveis": [
+  {
+   "item": "Aco Negro",
+   "quantidade_no_mapa": 2,
+   "zona": "Estrada dos Condenados"
+  },
+  {
+   "item": "Fragmento de Obsidiana",
+   "quantidade_no_mapa": 3,
+   "zona": "Campos de Basalto"
+  },
+  {
+   "item": "Carvao",
+   "quantidade_no_mapa": 4,
+   "zona": "Forjas da Guerra"
+  },
+  {
+   "item": "Nucleo Flamejante",
+   "quantidade_no_mapa": 1,
+   "zona": "Forjas da Guerra"
+  },
+  {
+   "item": "Minerio de Titanio",
+   "quantidade_no_mapa": 2,
+   "zona": "Campos de Basalto"
+  },
+  {
+   "item": "Placa de Mithril",
+   "quantidade_no_mapa": 1,
+   "zona": "Forjas da Guerra"
+  },
+  {
+   "item": "Essencia Sombria",
+   "quantidade_no_mapa": 2,
+   "zona": "Estrada dos Condenados"
+  },
+  {
+   "item": "Fragmento de Rubi",
+   "quantidade_no_mapa": 2,
+   "zona": "Ninho dos Dracos"
+  },
+  {
+   "item": "Escama Draconica",
+   "quantidade_no_mapa": 3,
+   "zona": "Ninho dos Dracos"
+  },
+  {
+   "item": "Nucleo de Obsidiana",
+   "quantidade_no_mapa": 1,
+   "zona": "Rios de Sangue da Montanha"
+  },
+  {
+   "item": "Cristal Arcano",
+   "quantidade_no_mapa": 1,
+   "zona": "Patio das Correntes"
+  },
+  {
+   "item": "Cristal Divino",
+   "quantidade_no_mapa": 1,
+   "zona": "Cidadela do General Infernal"
+  },
+  {
+   "item": "Essencia Celestial",
+   "quantidade_no_mapa": 1,
+   "zona": "Cidadela do General Infernal"
+  },
+  {
+   "item": "Pocao media de vida",
+   "quantidade_no_mapa": 2,
+   "zona": "Refugio das Cinzas"
+  },
+  {
+   "item": "Pocao media de mana",
+   "quantidade_no_mapa": 2,
+   "zona": "Refugio das Cinzas"
+  },
+  {
+   "item": "Minerio de Mithril",
+   "quantidade_no_mapa": 2,
+   "zona": "Campos de Basalto"
+  },
+  {
+   "item": "Cristal Roxo",
+   "quantidade_no_mapa": 1,
+   "zona": "Rios de Sangue da Montanha"
+  },
+  {
+   "item": "Pedra Runica",
+   "quantidade_no_mapa": 2,
+   "zona": "Patio das Correntes"
+  },
+  {
+   "item": "Placa de Titanio",
+   "quantidade_no_mapa": 1,
+   "zona": "Cidadela do General Infernal"
+  },
+  {
+   "item": "Erva Vermelha",
+   "quantidade_no_mapa": 2,
+   "zona": "Refugio das Cinzas"
+  }
+ ]
+}

@@ -149,7 +149,11 @@ def main():
         ref = bodies[0].shape[0] if args.match == "first" else float(np.median([b.shape[0] for b in bodies]))
         scale = args.match_height / float(ref)
     # nada pode passar do canvas (senao o place() corta a pose)
-    scale = min(scale, (CANVAS - 8) / float(widest), (CANVAS - 8) / float(tallest))
+    limite = min((CANVAS - 8) / float(widest), (CANVAS - 8) / float(tallest))
+    if args.match_height and scale > limite * 1.01:
+        # a pose ficaria menor que as outras animacoes: diminua a altura do idle (--body-height)
+        print(f"ENCOLHEU {scale:.3f}->{limite:.3f}", file=sys.stderr)
+    scale = min(scale, limite)
     frames = []
     for body in bodies:
         img = Image.fromarray(body, "RGBA")
@@ -157,7 +161,10 @@ def main():
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
         size = (max(1, int(round(img.width * scale))), max(1, int(round(img.height * scale))))
         img = np.array(img.resize(size, Image.NEAREST if scale >= 1 else Image.LANCZOS))
-        frames.append(place(img, *frame_anchor(img), CANVAS, CANVAS))
+        cx, base = frame_anchor(img)
+        # centro de massa no meio do quadro, mas sem deixar bote/jato/braco esticado sair pela borda
+        dx = min(max(CANVAS / 2.0 - cx, 0.0), float(CANVAS - img.shape[1]))
+        frames.append(place(img, CANVAS / 2.0 - dx, base, CANVAS, CANVAS))
 
     if args.tira:
         tira = Image.new("RGBA", (CANVAS * len(frames), CANVAS), (0, 0, 0, 0))

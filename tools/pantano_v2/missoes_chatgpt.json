@@ -1,0 +1,351 @@
+{
+ "jornada_9_o_chamado_do_pantano": {
+  "title": "A Jornada - O Chamado do Pantano",
+  "npc": "Capitao Maren, Mestre do Porto",
+  "map": "city_valdoria",
+  "requires": "jornada_8_o_fim_da_jornada",
+  "intro": "Uma nevoa verde tomou o caminho alem de Valdoria. Os exploradores desapareceram e rumores falam de um rei morto que despertou sob as aguas. Entre no Pantano das Almas Perdidas e procure Darian, nosso ultimo explorador naquela regiao.",
+  "done": "Voce encontrou Darian! As historias sobre o pantano sao verdadeiras. Leve estes suprimentos e prepare-se para descobrir o que despertou nas aguas.",
+  "objectives": [
+   {
+    "type": "visit",
+    "target": "swamp_almas",
+    "amount": 1
+   },
+   {
+    "type": "talk",
+    "target": "Darian, Explorador",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 4800,
+   "ouro": 2700,
+   "items": [
+    "Pocao media de vida",
+    "Pocao media de mana",
+    "Couro Reforcado"
+   ]
+  }
+ },
+ "jornada_10_o_veneno_das_aguas": {
+  "title": "A Jornada - O Veneno das Aguas",
+  "npc": "Darian, Explorador",
+  "map": "swamp_almas",
+  "requires": "jornada_9_o_chamado_do_pantano",
+  "intro": "A nevoa esconde criaturas que nunca deveriam existir. Jacares famintos, sapos venenosos e mosquitos gigantes dominam as trilhas. Elimine essas ameacas e recolha os fungos luminosos que marcam os caminhos seguros.",
+  "done": "Muito bem! As trilhas estao mais seguras, mas o pantano continua inquieto. Os fungos brilham com uma energia estranha que parece vir das profundezas.",
+  "objectives": [
+   {
+    "type": "kill",
+    "target": "Jacare do Pantano",
+    "amount": 6
+   },
+   {
+    "type": "kill",
+    "target": "Sapo Venenoso Gigante",
+    "amount": 5
+   },
+   {
+    "type": "kill",
+    "target": "Mosquito Mutante",
+    "amount": 5
+   },
+   {
+    "type": "collect",
+    "target": "Fungo Luminoso",
+    "amount": 5
+   },
+   {
+    "type": "talk",
+    "target": "Darian, Explorador",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 5600,
+   "ouro": 3100,
+   "items": [
+    "Pocao media de vida",
+    "Presa Venenosa",
+    "Pedra Runica"
+   ]
+  }
+ },
+ "jornada_11_as_vozes_dos_afogados": {
+  "title": "A Jornada - As Vozes dos Afogados",
+  "npc": "Oren, Pescador",
+  "map": "swamp_almas",
+  "requires": "jornada_10_o_veneno_das_aguas",
+  "intro": "Minha aldeia foi engolida pelas aguas numa unica noite. Agora os mortos caminham entre as casas submersas, chamando pelos vivos. Destrua essas criaturas e traga as essencias sombrias que carregam. Talvez possamos descobrir quem os controla.",
+  "done": "Estas essencias... reconheco a energia delas. Vem da antiga coroa do rei! Procure Nadia nas ruinas. Ela conhece a historia da maldicao.",
+  "objectives": [
+   {
+    "type": "kill",
+    "target": "Afogado do Pantano",
+    "amount": 10
+   },
+   {
+    "type": "collect",
+    "target": "Essencia Sombria",
+    "amount": 6
+   },
+   {
+    "type": "collect",
+    "target": "Fragmento de Obsidiana",
+    "amount": 4
+   },
+   {
+    "type": "talk",
+    "target": "Oren, Pescador",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 6800,
+   "ouro": 3800,
+   "items": [
+    "Aco Negro",
+    "Placa de Mithril",
+    "Pocao media de vida",
+    "Pocao media de mana"
+   ]
+  }
+ },
+ "jornada_12_a_coroa_afogada": {
+  "title": "A Jornada - A Coroa Afogada",
+  "npc": "Nadia, Guardia das Ruinas",
+  "map": "swamp_almas",
+  "requires": "jornada_11_as_vozes_dos_afogados",
+  "intro": "O Rei Afogado foi um grande soberano, mas sua coroa absorveu a corrupcao de um culto esquecido. Agora sua alma aprisiona os mortos sob o lodo. Atravesse as ruinas, derrote o rei e retorne para que possamos encerrar essa maldicao.",
+  "done": "A coroa perdeu seu poder e as vozes finalmente silenciaram. Voce libertou o rei e as almas de sua aldeia. O Pantano das Almas Perdidas jamais esquecera seu nome, mas a energia sombria que encontramos pode ser apenas o inicio de algo maior.",
+  "objectives": [
+   {
+    "type": "kill",
+    "target": "Afogado do Pantano",
+    "amount": 6
+   },
+   {
+    "type": "collect",
+    "target": "Cristal Roxo",
+    "amount": 5
+   },
+   {
+    "type": "collect",
+    "target": "Essencia Sombria",
+    "amount": 5
+   },
+   {
+    "type": "kill",
+    "target": "Rei Afogado",
+    "amount": 1
+   },
+   {
+    "type": "talk",
+    "target": "Nadia, Guardia das Ruinas",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 9500,
+   "ouro": 5500,
+   "items": [
+    "Cristal Divino",
+    "Nucleo de Obsidiana",
+    "Rubi da Forca",
+    "Safira da Mana",
+    "Esmeralda da Agilidade",
+    "Placa de Mithril"
+   ]
+  }
+ },
+ "pantano_a_colheita_luminosa": {
+  "title": "A Colheita Luminosa",
+  "npc": "Mirta, Herbalista",
+  "map": "swamp_almas",
+  "intro": "Os fungos luminosos estao desaparecendo e minhas reservas de ervas medicinais acabaram. Preciso preparar remedios antes que a febre do pantano alcance os viajantes. Traga os ingredientes, mas cuidado com as aguas envenenadas.",
+  "done": "Maravilhoso! Com estes ingredientes poderei preparar remedios para muitos viajantes. Tome estas pocoes como agradecimento e nunca subestime os perigos do pantano.",
+  "objectives": [
+   {
+    "type": "collect",
+    "target": "Fungo Luminoso",
+    "amount": 6
+   },
+   {
+    "type": "collect",
+    "target": "Musgo Medicinal",
+    "amount": 5
+   },
+   {
+    "type": "collect",
+    "target": "Planta Rara",
+    "amount": 3
+   },
+   {
+    "type": "talk",
+    "target": "Mirta, Herbalista",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 2900,
+   "ouro": 1200,
+   "items": [
+    "Pocao media de vida",
+    "Pocao media de mana",
+    "Erva Especial",
+    "Flor Medicinal"
+   ]
+  }
+ },
+ "pantano_os_predadores_da_aldeia": {
+  "title": "Os Predadores da Aldeia",
+  "npc": "Oren, Pescador",
+  "map": "swamp_almas",
+  "intro": "Os jacares invadiram os canais onde eu costumava pescar, e os afogados rondam as casas durante a noite. Ja perdi tudo uma vez e nao quero abandonar este lugar. Elimine essas criaturas para que eu possa voltar a pescar em paz.",
+  "done": "Ha muito tempo nao ouvia o pantano tao silencioso. Talvez eu consiga voltar ao meu antigo barco. Obrigado por devolver um pouco de esperanca a este velho pescador.",
+  "objectives": [
+   {
+    "type": "kill",
+    "target": "Jacare do Pantano",
+    "amount": 8
+   },
+   {
+    "type": "kill",
+    "target": "Afogado do Pantano",
+    "amount": 5
+   },
+   {
+    "type": "collect",
+    "target": "Couro Reforcado",
+    "amount": 4
+   },
+   {
+    "type": "talk",
+    "target": "Oren, Pescador",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 3800,
+   "ouro": 1700,
+   "items": [
+    "Placa de Ferro",
+    "Couro Reforcado",
+    "Pocao media de vida",
+    "Fragmento de Obsidiana"
+   ]
+  }
+ },
+ "pantano_os_segredos_do_culto": {
+  "title": "Os Segredos do Culto",
+  "npc": "Nadia, Guardia das Ruinas",
+  "map": "swamp_almas",
+  "intro": "Estas ruinas pertenciam a um culto que manipulava a energia das sombras. Seus cristais ainda pulsam sob as raizes, alimentando criaturas corrompidas. Elimine os guardioes mortos-vivos e recolha os materiais para enfraquecer os antigos selos.",
+  "done": "Os selos estao enfraquecidos e parte da corrupcao desapareceu. Estes fragmentos confirmam que o culto dominava poderes muito alem de nossa compreensao. Guarde esta pedra runica; ela podera protege-lo.",
+  "objectives": [
+   {
+    "type": "kill",
+    "target": "Afogado do Pantano",
+    "amount": 8
+   },
+   {
+    "type": "collect",
+    "target": "Cristal Roxo",
+    "amount": 4
+   },
+   {
+    "type": "collect",
+    "target": "Po Mistico",
+    "amount": 5
+   },
+   {
+    "type": "collect",
+    "target": "Fragmento de Obsidiana",
+    "amount": 4
+   },
+   {
+    "type": "talk",
+    "target": "Nadia, Guardia das Ruinas",
+    "amount": 1
+   }
+  ],
+  "rewards": {
+   "xp": 4300,
+   "ouro": 2200,
+   "items": [
+    "Pedra Runica",
+    "Cristal Arcano",
+    "Essencia Sombria",
+    "Placa de Mithril"
+   ]
+  }
+ },
+ "coletaveis": [
+  {
+   "item": "Fungo Luminoso",
+   "quantidade_no_mapa": 3,
+   "zona": "Entrada de Valdoria"
+  },
+  {
+   "item": "Musgo Medicinal",
+   "quantidade_no_mapa": 2,
+   "zona": "Entrada de Valdoria"
+  },
+  {
+   "item": "Fungo Luminoso",
+   "quantidade_no_mapa": 4,
+   "zona": "Bosque das Raizes"
+  },
+  {
+   "item": "Musgo Medicinal",
+   "quantidade_no_mapa": 3,
+   "zona": "Bosque das Raizes"
+  },
+  {
+   "item": "Planta Rara",
+   "quantidade_no_mapa": 2,
+   "zona": "Bosque das Raizes"
+  },
+  {
+   "item": "Fungo Luminoso",
+   "quantidade_no_mapa": 2,
+   "zona": "Charco dos Venenos"
+  },
+  {
+   "item": "Planta Rara",
+   "quantidade_no_mapa": 2,
+   "zona": "Charco dos Venenos"
+  },
+  {
+   "item": "Musgo Medicinal",
+   "quantidade_no_mapa": 2,
+   "zona": "Lago das Sombras"
+  },
+  {
+   "item": "Cristal Roxo",
+   "quantidade_no_mapa": 2,
+   "zona": "Lago das Sombras"
+  },
+  {
+   "item": "Fungo Luminoso",
+   "quantidade_no_mapa": 2,
+   "zona": "Aldeia Afundada"
+  },
+  {
+   "item": "Essencia Sombria",
+   "quantidade_no_mapa": 2,
+   "zona": "Cemiterio Esquecido"
+  },
+  {
+   "item": "Fragmento de Obsidiana",
+   "quantidade_no_mapa": 2,
+   "zona": "Ruinas do Culto"
+  },
+  {
+   "item": "Cristal Roxo",
+   "quantidade_no_mapa": 1,
+   "zona": "Ilha do Rei Afogado"
+  }
+ ]
+}

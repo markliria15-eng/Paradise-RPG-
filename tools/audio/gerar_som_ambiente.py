@@ -342,7 +342,42 @@ def bolhas(vol):
     return vol * norm(reverb(tr, 0.8, 0.25, 100, 1800))
 
 
+def lava(vol):
+    """Ronco grave de lava + estalos de crosta e borbulho espesso."""
+    tr = np.zeros((2, N))
+    base = band(rng.standard_normal(N), 25, 160) * (0.6 + 0.4 * lfo(5))
+    tr += np.vstack([base, np.roll(base, SR // 3)])
+    for t0 in rng.uniform(0, DUR, 45):
+        f0 = rng.uniform(60, 120)
+        place(tr, glide(f0, f0 * rng.uniform(1.3, 1.8), rng.uniform(0.12, 0.25), (1, 0.5, 0.2)), t0, rng.uniform(-0.8, 0.8), rng.uniform(0.3, 0.9))
+    return vol * norm(reverb(tr, 1.8, 0.3, 40, 900))
+
+
+def fogo(vol):
+    """Crepitar de brasas e tochas (estalos curtos e brilhantes)."""
+    tr = np.zeros((2, N))
+    chiado = band(rng.standard_normal(N), 900, 5000) * 0.15 * (0.5 + 0.5 * lfo(9, 0.3))
+    tr += np.vstack([chiado, np.roll(chiado, SR // 5)])
+    for t0 in rng.uniform(0, DUR, 260):
+        n = int(rng.uniform(0.002, 0.012) * SR)
+        click = rng.standard_normal(n) * np.exp(-np.linspace(0, 6, n))
+        place(tr, click, t0, rng.uniform(-0.9, 0.9), rng.uniform(0.2, 1))
+    return vol * norm(reverb(tr, 0.6, 0.2, 800, 7000))
+
+
+def correntes(vol):
+    """Correntes de ferro balancando longe (tilintar metalico grave)."""
+    tr = np.zeros((2, N))
+    for t0 in rng.uniform(0, DUR, 10):
+        for k in range(rng.integers(3, 7)):
+            f = rng.uniform(380, 720)
+            place(tr, tone([f, f * 2.76, f * 5.4], [1, 0.5, 0.25], 0.5, 0.18), t0 + k * rng.uniform(0.08, 0.16), rng.uniform(-0.9, 0.9), rng.uniform(0.3, 0.8))
+    return vol * norm(reverb(tr, 2.2, 0.45, 200, 4000))
+
+
 MAPAS = {
+    "ember_fortress": lambda: [lava(0.45), fogo(0.30), vento(0.22, 80, 400), martelo(0.10), correntes(0.12), drone(0.10, (41.2, 61.7, 82.4)),
+                               uivo(0.05)],
     "swamp_almas": lambda: [vento(0.18, 90, 450), insetos(0.22), sapos(0.40), bolhas(0.22), riacho(0.06), drone(0.08, (49, 73.5, 98)),
                             sussurros(0.06)],
     "city_valdoria": lambda: [ondas(0.55), agua_cais(0.35), gaivotas(0.42), vento(0.25, 200, 900),

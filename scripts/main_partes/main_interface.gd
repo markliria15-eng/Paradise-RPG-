@@ -81,7 +81,11 @@ func _load_hud_layout() -> void:
 	hud_skills_scale = clampf(float(data.get("skills_scale", 1.0)), 0.65, 1.55)
 	hud_potions_offset = _vector2_from_value(data.get("potions_offset", []), Vector2.ZERO)
 	hud_potions_scale = clampf(float(data.get("potions_scale", 1.0)), 0.65, 1.55)
-	hud_zoom_index = clampi(int(data.get("zoom_index", hud_zoom_index)), 0, CAMERA_ZOOMS.size() - 1)
+	if data.has("zoom"):
+		hud_zoom_index = _zoom_index_proximo(float(data.get("zoom", 1.0)))
+	elif data.has("zoom_index"):
+		var antigo := clampi(int(data.get("zoom_index", 1)), 0, CAMERA_ZOOMS_ANTIGO.size() - 1)
+		hud_zoom_index = _zoom_index_proximo(float(CAMERA_ZOOMS_ANTIGO[antigo]))
 	_apply_camera_zoom()
 
 func _save_hud_layout() -> void:
@@ -99,7 +103,7 @@ func _save_hud_layout() -> void:
 		"skills_scale": hud_skills_scale,
 		"potions_offset": _vector2_to_array(hud_potions_offset),
 		"potions_scale": hud_potions_scale,
-		"zoom_index": hud_zoom_index
+		"zoom": float(CAMERA_ZOOMS[clampi(hud_zoom_index, 0, CAMERA_ZOOMS.size() - 1)])
 	}
 	var file := FileAccess.open(HUD_LAYOUT_PATH, FileAccess.WRITE)
 	if file != null:
@@ -118,7 +122,7 @@ func _reset_hud_layout() -> void:
 	hud_skills_scale = 1.0
 	hud_potions_offset = Vector2.ZERO
 	hud_potions_scale = 1.0
-	hud_zoom_index = 1
+	hud_zoom_index = CAMERA_ZOOM_PADRAO
 	_apply_camera_zoom()
 	_layout_status_hud()
 	_layout_minimap_hud()
@@ -701,17 +705,41 @@ func _show_quest_dialog(quest_id: String, intro: String, can_accept: bool) -> vo
 	quests_btn.pressed.connect(_show_quests)
 	actions.add_child(quests_btn)
 
-func _show_shop(title: String = "Loja do Carlos") -> void:
-	if panel.visible and current_panel == "shop":
+func _show_shop(title: String = "Loja do Carlos", aba: String = "comprar", keep_open: bool = false) -> void:
+	if panel.visible and current_panel == "shop" and not keep_open:
 		_hide_panel()
 		return
 	var box := _start_modal(title, "shop")
-	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
-	for item_name in NpcShop.GOODS:
+	var topo := HBoxContainer.new()
+	box.add_child(topo)
+	topo.add_child(_panel_label("Ouro: %d moedas    " % player.ouro, 17, Color("#ffd36b")))
+	for dados_aba in [["comprar", "Comprar"], ["vender", "Vender"]]:
+		var tab := Button.new()
+		tab.text = ("> " if aba == dados_aba[0] else "") + str(dados_aba[1])
+		_style_panel_button(tab)
+		var alvo_aba := str(dados_aba[0])
+		tab.pressed.connect(func() -> void: _show_shop(title, alvo_aba, true))
+		topo.add_child(tab)
+	var aviso := "O mercador vende ate o equipamento de Ouro. Mithril, Obsidiana e Cristal: forja ou Mercado entre jogadores." if aba == "comprar" else "O mercador paga %d%% do valor. No Mercado entre jogadores voce escolhe o preco." % int(round(float(ValorItens.dados().get("npc_compra_pct", 0.35)) * 100))
+	box.add_child(_panel_label(aviso, 12, Color("#b8c3d1")))
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(840, 400)
+	box.add_child(scroll)
+	var list := VBoxContainer.new()
+	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(list)
+	var nomes: Array = ValorItens.lista_npc(item_db) if aba == "comprar" else player.inventory.items.keys()
+	if aba == "vender":
+		nomes.sort()
+	for item_name_v in nomes:
+		var item_name := str(item_name_v)
 		var item := item_db.get_item(item_name)
+		if aba == "vender" and str(item.get("type", "")) == "quest":
+			continue
 		var line := HBoxContainer.new()
 		line.add_theme_constant_override("separation", 10)
-		box.add_child(line)
+		line.custom_minimum_size = Vector2(820, 46)
+		list.add_child(line)
 		var icon := TextureRect.new()
 		var icon_path := str(item.get("icon", ""))
 		icon.texture = load(icon_path) if not icon_path.is_empty() and ResourceLoader.exists(icon_path) else load("res://assets/sprites/drop_bag.png")
@@ -719,19 +747,43 @@ func _show_shop(title: String = "Loja do Carlos") -> void:
 		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		line.add_child(icon)
-		var btn := Button.new()
-		btn.text = "%s - %d ouro" % [item_name, int(item.get("price", 0))]
-		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		_style_panel_button(btn)
-		btn.pressed.connect(func() -> void:
-			if NpcShop.buy(player, item_db, item_name):
-				_flash("Comprado: " + item_name)
-				_update_potion_buttons()
-				_show_shop(title)
-			else:
-				_flash("Ouro insuficiente.")
-		)
-		line.add_child(btn)
+		if aba == "comprar":
+			var price := ValorItens.valor(item_name, item_db)
+			var btn := Button.new()
+			btn.text = "%s - %d ouro" % [item_name, price]
+			btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			btn.disabled = player.ouro < price
+			_style_panel_button(btn)
+			btn.pressed.connect(func() -> void:
+				if NpcShop.buy(player, item_db, item_name):
+					_flash("Comprado: " + item_name)
+					_update_potion_buttons()
+					_show_shop(title, "comprar", true)
+				else:
+					_flash("Ouro insuficiente ou bolsa cheia.")
+			)
+			line.add_child(btn)
+		else:
+			var qtd := int(player.inventory.items.get(item_name, 0))
+			var unit := ValorItens.preco_venda_npc(item_name, item_db)
+			var lbl := _panel_label("%s x%d  -  %d ouro cada" % [item_name, qtd, unit], 14, Color.WHITE)
+			lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			line.add_child(lbl)
+			var opcoes := [1] if qtd <= 1 else [1, qtd]
+			for quantos in opcoes:
+				var vb := Button.new()
+				vb.text = "Vender 1" if quantos == 1 else "Vender %d" % qtd
+				_style_panel_button(vb)
+				var n_vender: int = quantos
+				vb.pressed.connect(func() -> void:
+					var ganho := NpcShop.sell(player, item_db, item_name, n_vender)
+					if ganho > 0:
+						_flash("Vendido: %s x%d (+%d ouro)" % [item_name, n_vender, ganho])
+						AudioManager.play_sfx("moeda", 1.0, 0.2)
+						_update_potion_buttons()
+					_show_shop(title, "vender", true)
+				)
+				line.add_child(vb)
 
 func _show_pet_shop() -> void:
 	if panel.visible and current_panel == "pet_shop":
@@ -868,14 +920,20 @@ func _market_card() -> PanelContainer:
 	card.add_theme_stylebox_override("panel", style)
 	return card
 
-func _show_forge(tier: String = "basic") -> void:
-	if panel.visible and current_panel == "forge":
+func _show_forge(tier: String = "basic", keep_open: bool = false) -> void:
+	if panel.visible and current_panel == "forge" and not keep_open:
 		_hide_panel()
 		return
 	var title := "Forja Rara de Valdoria" if tier == "rare" else "Forja"
 	var box := _start_modal(title, "forge")
 	box.add_child(_panel_label("Ouro: %d moedas" % player.ouro, 17, Color("#ffd36b")))
-	box.add_child(_panel_label("Use materiais dos monstros e moedas para criar equipamentos.", 14, Color("#cfd6df")))
+	box.add_child(_panel_label("Use materiais dos monstros e moedas para criar equipamentos." + ("  %s (nivel %d)." % [profissoes.rank("blacksmithing"), profissoes.nivel("blacksmithing")] if profissoes != null else ""), 14, Color("#cfd6df")))
+	if profissoes != null:
+		var enchant := Button.new()
+		enchant.text = "Encantamento" if profissoes.encantamento_liberado() else "Encantamento (Ferreiro nv 50)"
+		_style_panel_button(enchant)
+		enchant.pressed.connect(func() -> void: profissoes.mostrar_encantamento())
+		box.add_child(enchant)
 	var scroll := ScrollContainer.new()
 	scroll.custom_minimum_size = Vector2(840, 405)
 	box.add_child(scroll)
@@ -902,19 +960,40 @@ func _show_forge(tier: String = "basic") -> void:
 		row.add_child(icon)
 		var info := VBoxContainer.new()
 		info.custom_minimum_size = Vector2(570, 54)
-		info.add_child(_panel_label("%s  |  %d ouro" % [recipe_id, int(recipe.get("gold", 0))], 15, Color.WHITE))
+		# nivel de Ferreiro exigido (profissoes.gd: profession_level_required ou o material mais nobre)
+		var forge_level := profissoes.nivel_ferreiro_receita(recipe) if profissoes != null else 1
+		var smith_level := profissoes.nivel("blacksmithing") if profissoes != null else 99
+		var level_ok := smith_level >= forge_level
+		var chance_txt := "  |  %d%% de chance" % int(round(profissoes.chance("blacksmithing", forge_level) * 100)) if profissoes != null and level_ok else ""
+		info.add_child(_panel_label("%s  |  %d ouro  |  Ferreiro Nv %d%s" % [recipe_id, int(recipe.get("gold", 0)), forge_level, chance_txt], 15, Color.WHITE if level_ok else Color("#9aa3ad")))
 		info.add_child(_panel_label(CraftingSystem.material_text(recipe, player.inventory), 12, Color("#aeb8c3")))
 		row.add_child(info)
 		var craft := Button.new()
 		craft.text = "Criar"
 		craft.custom_minimum_size = Vector2(100, 42)
-		craft.disabled = not CraftingSystem.can_craft(player, recipe)
+		craft.disabled = not level_ok or not CraftingSystem.can_craft(player, recipe)
 		_style_panel_button(craft)
 		craft.pressed.connect(func() -> void:
+			if profissoes != null and profissoes.nivel("blacksmithing") < forge_level:
+				_flash_red("Precisa de Ferreiro nivel %d." % forge_level)
+				return
+			# chance de forjar (sobe com o nivel de Ferreiro); falha perde metade dos materiais e do ouro
+			if profissoes != null and CraftingSystem.can_craft(player, recipe) and not profissoes.tentar("blacksmithing", forge_level):
+				profissoes.perder_metade(recipe.get("materials", {}))
+				player.ouro -= int(float(recipe.get("gold", 0)) * 0.5)
+				var fail_xp := profissoes.falha_xp(profissoes.xp_ferreiro(recipe))
+				_flash_red("A forja falhou: %s (perdeu metade dos materiais e do ouro). +%d XP" % [str(recipe.get("result", recipe_id)), fail_xp])
+				profissoes.ganhar_xp("blacksmithing", fail_xp)
+				AudioManager.play_sfx("dano", 0.7, 0.1)
+				_show_forge(tier, true)
+				return
 			if CraftingSystem.craft(player, recipe):
 				player.recalculate_equipment()
-				_flash("Forjado: " + str(recipe.get("result", recipe_id)))
-				_show_forge()
+				var smith_xp := profissoes.xp_ferreiro(recipe) if profissoes != null else 0
+				_flash("Forjado: %s  (+%d XP Ferreiro)" % [str(recipe.get("result", recipe_id)), smith_xp])
+				if profissoes != null:
+					profissoes.ganhar_xp("blacksmithing", smith_xp)
+				_show_forge(tier, true)  # continua na forja (antes fechava)
 			else:
 				_flash("Materiais ou ouro insuficientes.")
 		)
@@ -1045,6 +1124,23 @@ func _use_potion_item(item_name: String) -> void:
 		return
 	var heal_amount := int(data.get("heal", 0))
 	var mana_amount := int(data.get("mana", 0))
+	# comida (profissoes.gd): cura aos poucos + bonus; antidoto: tira o veneno
+	if typeof(data.get("comida")) == TYPE_DICTIONARY or bool(data.get("cura_veneno", false)):
+		if bool(data.get("cura_veneno", false)) and player.poison_timer <= 0.0 and heal_amount <= 0:
+			_flash("Voce nao esta envenenado.")
+			return
+		if not player.inventory.remove_item(item_name, 1):
+			_flash("Sem " + item_name)
+			return
+		if bool(data.get("cura_veneno", false)):
+			player.poison_timer = 0.0
+		if heal_amount > 0:
+			player.heal(heal_amount)
+		if typeof(data.get("comida")) == TYPE_DICTIONARY and profissoes != null:
+			profissoes.comer(item_name, data)
+		_flash("Usado: " + item_name)
+		_update_potion_buttons()
+		return
 	if heal_amount > 0 and player.vida >= player.vida_max:
 		_flash("Vida ja esta cheia.")
 		return
@@ -1248,6 +1344,11 @@ func _show_wikipedia() -> void:
 func _show_professions(force_refresh: bool = false) -> void:
 	if panel.visible and current_panel == "professions" and not force_refresh:
 		_hide_panel()
+		return
+	# profissoes locais (scripts/profissoes.gd); o estado online do servidor ainda nao e usado
+	if profissoes != null:
+		if not force_refresh:
+			profissoes.mostrar()
 		return
 	if online_mode and mmo_client != null and not force_refresh:
 		mmo_client.call("request_professions")
@@ -1543,55 +1644,162 @@ func _show_rank(force_refresh: bool = false) -> void:
 		var row: Dictionary = rows[i]
 		box.add_child(_panel_label("%d. %s - %s" % [i + 1, str(row.get("name", "Jogador")), str(row.get("score", row.get("level", 0)))], 14, Color.WHITE))
 
+# Mercado entre jogadores (estilo Albion): preco livre, o jogo recomenda o preco de mercado e avisa
+# quando o anuncio fica abaixo dele. Funciona online (server marketManager); offline mostra os precos.
+func _market_recommended(item_name: String) -> Dictionary:
+	var asked: Dictionary = mmo_cache.get("market_prices", {}).get(item_name, {})
+	if asked.is_empty():
+		asked = mmo_cache.get("market_state", {}).get("prices", {}).get(item_name, {})
+	if not asked.is_empty():
+		return {"valor": int(asked.get("suggested", 0)), "fonte": "media das ultimas %d vendas" % int(asked.get("sales", 0)) if str(asked.get("source", "")) == "mercado" else "valor base"}
+	return {"valor": ValorItens.valor(item_name, item_db), "fonte": "valor base"}
+
 func _show_market(force_refresh: bool = false) -> void:
 	if panel.visible and current_panel == "market" and not force_refresh:
 		_hide_panel()
 		return
-	if online_mode and mmo_client != null and not force_refresh:
+	var online := online_mode and mmo_client != null
+	if online and not force_refresh:
 		mmo_client.call("request_market")
-	var box := _start_modal("Mercado", "market")
-	var actions := HBoxContainer.new()
-	var refresh := Button.new()
-	refresh.text = "Atualizar"
-	_style_panel_button(refresh)
-	refresh.pressed.connect(func() -> void:
-		if mmo_client != null:
-			mmo_client.call("request_market")
-	)
-	actions.add_child(refresh)
-	var quick_list := Button.new()
-	quick_list.text = "Anunciar Pocao"
-	_style_panel_button(quick_list)
-	quick_list.pressed.connect(func() -> void:
-		if mmo_client != null:
-			mmo_client.call("list_market_item", "Pocao pequena de vida", 1, 99, "consumivel", "common")
-	)
-	actions.add_child(quick_list)
-	box.add_child(actions)
+	var box := _start_modal("Mercado entre jogadores", "market")
 	var payload: Dictionary = mmo_cache.get("market_state", {})
-	var listings: Array = payload.get("listings", [])
+	var topo := HBoxContainer.new()
+	box.add_child(topo)
+	if online:
+		var pend: Dictionary = payload.get("payouts", {})
+		topo.add_child(_panel_label("Ouro: %d   |   Taxa do mercado: %d%%   |   Vendas para coletar: %d ouro   " % [player.ouro, int(round(float(payload.get("taxRate", 0.05)) * 100)), int(pend.get("total", 0))], 14, Color("#ffd36b")))
+		var coletar := Button.new()
+		coletar.text = "Coletar vendas"
+		coletar.disabled = int(pend.get("total", 0)) <= 0
+		_style_panel_button(coletar)
+		coletar.pressed.connect(func() -> void: mmo_client.call("collect_market_payouts"))
+		topo.add_child(coletar)
+		var refresh := Button.new()
+		refresh.text = "Atualizar"
+		_style_panel_button(refresh)
+		refresh.pressed.connect(func() -> void: mmo_client.call("request_market"))
+		topo.add_child(refresh)
+	else:
+		box.add_child(_panel_label("Offline: a negociacao entre jogadores abre quando o jogo estiver online. Aqui voce ja ve o preco recomendado dos seus itens.", 13, Color("#ffd36b")))
+	# --- anunciar ---
+	var nomes: Array = []
+	for n in player.inventory.items.keys():
+		if str(item_db.get_item(str(n)).get("type", "")) != "quest":
+			nomes.append(str(n))
+	nomes.sort()
+	var anuncio := HBoxContainer.new()
+	anuncio.add_theme_constant_override("separation", 8)
+	box.add_child(anuncio)
+	if nomes.is_empty():
+		box.add_child(_panel_label("Sua bolsa esta vazia.", 13, Color("#b8c3d1")))
+	else:
+		if not market_sel_item in nomes:
+			market_sel_item = str(nomes[0])
+		var escolha := OptionButton.new()
+		escolha.custom_minimum_size = Vector2(300, 38)
+		for k in nomes.size():
+			escolha.add_item("%s x%d" % [nomes[k], int(player.inventory.items.get(nomes[k], 0))], k)
+		escolha.select(nomes.find(market_sel_item))
+		escolha.item_selected.connect(func(idx: int) -> void:
+			market_sel_item = str(nomes[idx])
+			market_confirm_low = false
+			if online:
+				mmo_client.call("request_market_price", market_sel_item)
+			_show_market(true)
+		)
+		anuncio.add_child(escolha)
+		var rec := _market_recommended(market_sel_item)
+		var have := int(player.inventory.items.get(market_sel_item, 0))
+		var qtd := SpinBox.new()
+		qtd.min_value = 1
+		qtd.max_value = max(1, have)
+		qtd.value = 1
+		qtd.prefix = "Qtd"
+		anuncio.add_child(qtd)
+		var preco := SpinBox.new()
+		preco.min_value = 1
+		preco.max_value = 99999999
+		preco.value = int(rec["valor"])
+		preco.prefix = "Cada"
+		preco.suffix = "ouro"
+		preco.custom_minimum_size = Vector2(170, 38)
+		anuncio.add_child(preco)
+		var anunciar := Button.new()
+		anunciar.text = "Anunciar"
+		anunciar.disabled = not online
+		_style_panel_button(anunciar)
+		anuncio.add_child(anunciar)
+		var dica := _panel_label("Preco recomendado: %d ouro cada (%s). Venda do mercador: %d." % [int(rec["valor"]), str(rec["fonte"]), ValorItens.preco_venda_npc(market_sel_item, item_db)], 13, Color("#9cff72"))
+		box.add_child(dica)
+		var aviso := _panel_label("", 13, Color("#ff6b6b"))
+		box.add_child(aviso)
+		var limite := float(ValorItens.dados().get("aviso_abaixo_pct", 0.8))
+		var atualizar_aviso := func(_v: float) -> void:
+			var abaixo := preco.value < float(rec["valor"]) * limite
+			aviso.text = "Abaixo do valor de mercado! Voce pode perder dinheiro (recomendado: %d)." % int(rec["valor"]) if abaixo else ""
+			anunciar.text = "Confirmar abaixo do mercado" if abaixo and market_confirm_low else "Anunciar"
+		preco.value_changed.connect(atualizar_aviso)
+		atualizar_aviso.call(0.0)
+		anunciar.pressed.connect(func() -> void:
+			if not online:
+				return
+			var abaixo := preco.value < float(rec["valor"]) * limite
+			if abaixo and not market_confirm_low:
+				market_confirm_low = true
+				anunciar.text = "Confirmar abaixo do mercado"
+				_flash_red("Preco abaixo do mercado: toque de novo para confirmar.")
+				return
+			market_confirm_low = false
+			var info := item_db.get_item(market_sel_item)
+			var n := int(qtd.value)
+			mmo_client.call("list_market_item", market_sel_item, n, int(preco.value) * n, str(info.get("type", "misc")), str(info.get("rarity", "common")))
+		)
+	# --- ofertas ---
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(840, 270)
+	box.add_child(scroll)
+	var list := VBoxContainer.new()
+	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(list)
+	var listings: Array = payload.get("listings", []) if online else []
 	if listings.is_empty():
-		box.add_child(_panel_label("Sem ofertas no mercado.", 14, Color("#d4d9e1")))
-		return
+		list.add_child(_panel_label("Sem ofertas no mercado." if online else "As ofertas dos outros jogadores aparecem aqui quando o jogo estiver online.", 14, Color("#d4d9e1")))
 	for listing in listings:
 		if typeof(listing) != TYPE_DICTIONARY:
 			continue
+		var item_id := str(listing.get("item_id", "item"))
 		var row := HBoxContainer.new()
-		row.custom_minimum_size = Vector2(820, 44)
-		row.add_child(_panel_label("%s x%d - %d ouro" % [str(listing.get("item_id", "item")), int(listing.get("quantity", 1)), int(listing.get("price", 0))], 14, Color.WHITE))
-		var spacer := Control.new()
-		spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(spacer)
-		var buy_btn := Button.new()
-		buy_btn.text = "Comprar"
-		_style_panel_button(buy_btn)
+		row.custom_minimum_size = Vector2(820, 46)
+		var icon := TextureRect.new()
+		var icon_path := str(item_db.get_item(item_id).get("icon", ""))
+		if ResourceLoader.exists(icon_path):
+			icon.texture = load(icon_path)
+		icon.custom_minimum_size = Vector2(40, 40)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		row.add_child(icon)
+		var unit := int(listing.get("unit_price", int(listing.get("price", 0))))
+		var rec_item := _market_recommended(item_id)
+		var tag := ""
+		if unit < int(rec_item["valor"]) * 0.8:
+			tag = "  (barato)"
+		elif unit > int(rec_item["valor"]) * 1.3:
+			tag = "  (caro)"
+		var lbl := _panel_label("%s x%d  -  %d ouro (%d cada, mercado %d)%s" % [item_id, int(listing.get("quantity", 1)), int(listing.get("price", 0)), unit, int(rec_item["valor"]), tag], 14, Color.WHITE)
+		lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(lbl)
+		var btn := Button.new()
 		var listing_id: int = int(listing.get("id", 0))
-		buy_btn.pressed.connect(func() -> void:
-			if mmo_client != null and listing_id > 0:
-				mmo_client.call("buy_market_item", listing_id)
-		)
-		row.add_child(buy_btn)
-		box.add_child(row)
+		if bool(listing.get("mine", false)):
+			btn.text = "Cancelar"
+			btn.pressed.connect(func() -> void: mmo_client.call("cancel_market_listing", listing_id))
+		else:
+			btn.text = "Comprar"
+			btn.disabled = player.ouro < int(listing.get("price", 0))
+			btn.pressed.connect(func() -> void: mmo_client.call("buy_market_item", listing_id))
+		_style_panel_button(btn)
+		row.add_child(btn)
+		list.add_child(row)
 
 func _show_vip(force_refresh: bool = false) -> void:
 	if panel.visible and current_panel == "vip" and not force_refresh:
@@ -2233,10 +2441,60 @@ func _xp_bar_row(title: String, value: int, maximum: int, fill_color: Color) -> 
 	return box
 
 func _cycle_zoom() -> void:
-	hud_zoom_index = (hud_zoom_index + 1) % CAMERA_ZOOMS.size()
-	_apply_camera_zoom()
+	_mudar_zoom(1 if hud_zoom_index < CAMERA_ZOOMS.size() - 1 else -hud_zoom_index)
+
+# passo +1 = mais perto, -1 = mais longe (visao mais aberta)
+func _mudar_zoom(passo: int) -> void:
+	var novo := clampi(hud_zoom_index + passo, 0, CAMERA_ZOOMS.size() - 1)
+	if passo == 0:
+		return
+	if novo == hud_zoom_index:
+		_flash("Ja esta no zoom %s." % ("mais perto" if passo > 0 else "mais longe"))
+		return
+	hud_zoom_index = novo
+	_apply_camera_zoom(true)
 	_save_hud_layout()
-	_flash("Zoom: %d%%" % int(round(100.0 * float(CAMERA_ZOOMS[hud_zoom_index]))))
+	_flash("Zoom: %s" % _zoom_texto())
+
+func _zoom_texto() -> String:
+	var z := float(CAMERA_ZOOMS[clampi(hud_zoom_index, 0, CAMERA_ZOOMS.size() - 1)])
+	var pct := int(round(100.0 * z))
+	if hud_zoom_index == CAMERA_ZOOM_PADRAO:
+		return "%d%% (padrao)" % pct
+	return "%d%% (%s)" % [pct, "mais perto" if z > 1.0 else "visao mais aberta"]
+
+func _criar_botoes_zoom() -> void:
+	var estilo := StyleBoxFlat.new()
+	estilo.bg_color = Color(0.07, 0.05, 0.035, 0.82)
+	estilo.border_color = Color("#c9a45a")
+	estilo.set_border_width_all(2)
+	estilo.set_corner_radius_all(9)
+	var apertado := estilo.duplicate() as StyleBoxFlat
+	apertado.bg_color = Color(0.22, 0.16, 0.08, 0.92)
+	var apagado := estilo.duplicate() as StyleBoxFlat
+	apagado.bg_color = Color(0.07, 0.05, 0.035, 0.6)
+	apagado.border_color = Color(0.79, 0.64, 0.35, 0.5)
+	var botoes := []
+	for dados in [["+", 1, "Zoom: mais perto"], ["-", -1, "Zoom: mais longe (visao mais aberta)"]]:
+		var b := Button.new()
+		b.text = str(dados[0])
+		b.tooltip_text = str(dados[2])
+		b.focus_mode = Control.FOCUS_NONE
+		b.z_index = 152
+		b.add_theme_stylebox_override("normal", estilo)
+		b.add_theme_stylebox_override("hover", estilo)
+		b.add_theme_stylebox_override("pressed", apertado)
+		b.add_theme_stylebox_override("disabled", apagado)
+		b.add_theme_color_override("font_color", Color("#ffe8a3"))
+		b.add_theme_color_override("font_disabled_color", Color(1.0, 0.91, 0.64, 0.5))
+		var passo := int(dados[1])
+		b.pressed.connect(func() -> void: _mudar_zoom(passo))
+		ui.add_child(b)
+		botoes.append(b)
+	zoom_btn_mais = botoes[0]
+	zoom_btn_menos = botoes[1]
+	_layout_minimap_hud()
+	_atualizar_botoes_zoom()
 
 func _update_hud() -> void:
 	if player == null:

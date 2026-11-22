@@ -1,0 +1,2256 @@
+{
+ "id": "ember_fortress",
+ "nome": "Fortaleza de Cinzas",
+ "nivel": [
+  46,
+  54
+ ],
+ "clima_visual": "Fortaleza vulcanica medieval em ruinas, construida sobre uma antiga caldeira. O ceu e vermelho-escuro, coberto por fumaca e cinzas. O solo mistura basalto negro, pedras rachadas com brilho alaranjado, cinzas espessas e rios de lava incandescente. Muralhas negras, torres destruidas, estandartes queimados, forjas abandonadas, armaduras derretidas e esqueletos de antigos guerreiros compoem a paisagem. Iluminacao dramatica com reflexos quentes da lava e sombras frias nas estruturas de pedra. Pixel art medieval detalhada, perspectiva top-down 45 graus, compativel com Paradise RPG. A progressao visual vai de ruinas relativamente frias no sudoeste ate a cidadela infernal no nordeste.",
+ "dimensoes_px": [
+  6400,
+  5760
+ ],
+ "grade_terreno": {
+  "colunas": 8,
+  "linhas": 9,
+  "pedaco_arte_px": [
+   400,
+   320
+  ],
+  "escala": 2,
+  "pedaco_mundo_px": [
+   800,
+   640
+  ],
+  "largura_total_px": 6400,
+  "altura_total_px": 5760,
+  "origem_px": [
+   0,
+   0
+  ],
+  "ordem": "Linha por linha, da esquerda para a direita, com a primeira linha no norte.",
+  "grade_ids": [
+   [
+    "basalto_frio",
+    "basalto_frio",
+    "cinzas_finas",
+    "cinzas_finas",
+    "basalto_rachado",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "rocha_vulcanica"
+   ],
+   [
+    "basalto_frio",
+    "cinzas_finas",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "basalto_rachado"
+   ],
+   [
+    "cinzas_finas",
+    "basalto_frio",
+    "basalto_rachado",
+    "basalto_rachado",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza"
+   ],
+   [
+    "cinzas_finas",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza"
+   ],
+   [
+    "basalto_frio",
+    "cinzas_finas",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza",
+    "rocha_vulcanica",
+    "pedra_fortaleza",
+    "pedra_fortaleza"
+   ],
+   [
+    "basalto_frio",
+    "cinzas_finas",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza"
+   ],
+   [
+    "basalto_frio",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "basalto_rachado",
+    "basalto_rachado",
+    "pedra_fortaleza",
+    "pedra_fortaleza"
+   ],
+   [
+    "basalto_frio",
+    "cinzas_finas",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "basalto_rachado",
+    "basalto_rachado",
+    "pedra_fortaleza"
+   ],
+   [
+    "basalto_frio",
+    "basalto_frio",
+    "cinzas_finas",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "basalto_rachado",
+    "pedra_fortaleza"
+   ]
+  ],
+  "observacao": "A grade define o piso-base predominante de cada celula. Estradas, faixas de lava, pontes, areas de cinza grossa e pisos especiais devem ser aplicados como mascaras ou camadas complementares, respeitando os poligonos e caminhos definidos abaixo. Texturas de lava nao devem tornar toda uma celula bloqueada."
+ },
+ "direcao_progressao": "Sudoeste para nordeste, com desvios pelas forjas e prisoes, atravessando duas pontes obrigatorias antes do chefe.",
+ "zonas": [
+  {
+   "nome": "Refugio das Cinzas",
+   "retangulo_px": [
+    0,
+    4480,
+    1600,
+    1280
+   ],
+   "terreno": "basalto_frio",
+   "descricao": "Entrada sudoeste da fortaleza, acessada pelo portal norte do Pantano das Almas Perdidas. Antigo posto de vigia destruido, com fogueiras fracas, barracas improvisadas, carrocas e um sobrevivente que negocia suprimentos. A area central e segura, e o jogador encontra um ferreiro mercador para preparar equipamentos antes da exploracao. O portal de retorno fica no canto sudoeste. Rochas e muralhas delimitam as bordas sem bloquear a estrada de saida.",
+   "inimigos": [],
+   "segura": true,
+   "nivel_recomendado": [
+    46,
+    46
+   ]
+  },
+  {
+   "nome": "Estrada dos Condenados",
+   "retangulo_px": [
+    0,
+    2880,
+    2400,
+    1600
+   ],
+   "terreno": "cinzas_finas",
+   "descricao": "Antiga estrada militar soterrada por cinzas. Restos de carrocas, armaduras derretidas e estandartes queimados aparecem entre pedras negras. Cavaleiros Sombrios patrulham em grupos pequenos. O caminho principal faz curvas entre destrocos e leva as primeiras muralhas. Bolsas de cinza grossa tornam as rotas laterais mais lentas. Pequenos atalhos permitem evitar algumas patrulhas.",
+   "inimigos": [
+    "Cavaleiro Sombrio",
+    "Cinzeiro Errante"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    46,
+    48
+   ]
+  },
+  {
+   "nome": "Campos de Basalto",
+   "retangulo_px": [
+    0,
+    0,
+    2400,
+    2880
+   ],
+   "terreno": "basalto_rachado",
+   "descricao": "Planicie de basalto rachado, marcada por antigas batalhas. Ossadas de criaturas gigantes, rochas vulcanicas e colunas quebradas criam labirintos naturais. Cinzeiros Errantes surgem perto de fissuras quentes e Cavaleiros Sombrios guardam os caminhos largos. A zona e opcional para a progressao principal, oferecendo materiais, tesouros e combates adicionais.",
+   "inimigos": [
+    "Cinzeiro Errante",
+    "Cavaleiro Sombrio"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    47,
+    49
+   ]
+  },
+  {
+   "nome": "Forjas da Guerra",
+   "retangulo_px": [
+    2400,
+    3200,
+    1600,
+    2560
+   ],
+   "terreno": "pedra_fortaleza",
+   "descricao": "Complexo industrial militar onde antigas armas eram forjadas usando o calor do vulcao. Bigornas, fornalhas, correntes, caldeiroes e pilhas de armas cobrem a area. Algumas forjas continuam acesas e possuem animacao de fogo. Cavaleiros Sombrios defendem o complexo enquanto Cinzeiros Errantes vagam pelas fornalhas. Um prisioneiro esta preso numa cela lateral e fornece informacoes sobre a cidadela do General Infernal. A estrada principal atravessa o centro da zona.",
+   "inimigos": [
+    "Cavaleiro Sombrio",
+    "Cinzeiro Errante"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    48,
+    50
+   ]
+  },
+  {
+   "nome": "Rios de Sangue da Montanha",
+   "retangulo_px": [
+    2400,
+    0,
+    1600,
+    3200
+   ],
+   "terreno": "rocha_vulcanica",
+   "descricao": "Regiao central dominada por dois grandes canais de lava que descem das encostas. A rocha apresenta rachaduras luminosas, vapores e pequenos surtos de fogo. Pontes antigas de basalto permitem atravessar a lava. Dracos Jovens voam baixo, caminham pelas margens e protegem ninhos proximos. O jogador precisa atravessar a primeira ponte para alcancar a parte oriental da fortaleza. A lava nao pode ser atravessada sem ponte.",
+   "inimigos": [
+    "Draco Jovem",
+    "Cinzeiro Errante"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    49,
+    51
+   ]
+  },
+  {
+   "nome": "Patio das Correntes",
+   "retangulo_px": [
+    4000,
+    2880,
+    1600,
+    2880
+   ],
+   "terreno": "pedra_fortaleza",
+   "descricao": "Patio interno da fortaleza. Torres de vigilancia, grandes correntes, jaulas, armas de cerco destruidas e muralhas rachadas ocupam o local. Cavaleiros Sombrios realizam patrulhas coordenadas enquanto Dracos Jovens permanecem perto de brasas e fogueiras. O patio funciona como etapa principal de combate antes do acesso ao santuario superior. Uma passagem estreita conduz a segunda ponte sobre a lava.",
+   "inimigos": [
+    "Cavaleiro Sombrio",
+    "Draco Jovem",
+    "Cinzeiro Errante"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    50,
+    52
+   ]
+  },
+  {
+   "nome": "Ninho dos Dracos",
+   "retangulo_px": [
+    4000,
+    0,
+    1600,
+    2880
+   ],
+   "terreno": "basalto_rachado",
+   "descricao": "Terracos vulcanicos elevados com ninhos construidos entre rochas e escamas antigas. Dracos Jovens dominam esta area e protegem ovos rachados. Pedras fumegantes, esqueletos de criaturas e cristais de enxofre tornam a regiao perigosa. Existe uma passagem secundaria para a cidadela, mas o acesso definitivo permanece bloqueado por um portao que depende da derrota dos guardas do patio.",
+   "inimigos": [
+    "Draco Jovem",
+    "Cinzeiro Errante"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    51,
+    53
+   ]
+  },
+  {
+   "nome": "Cidadela do General Infernal",
+   "retangulo_px": [
+    5600,
+    0,
+    800,
+    5760
+   ],
+   "terreno": "pedra_fortaleza",
+   "descricao": "Ultima linha defensiva da Fortaleza de Cinzas. Grandes torres negras e muralhas parcialmente derretidas cercam uma avenida militar que sobe em direcao ao salao do General Infernal. Correntes gigantes pendem das estruturas e rios de lava iluminam os corredores. A arena final esta no nordeste, em uma plataforma circular de obsidiana rodeada por lava. O portal para a proxima regiao permanece lacrado ate a derrota do chefe.",
+   "inimigos": [
+    "Cavaleiro Sombrio",
+    "Draco Jovem",
+    "General Infernal"
+   ],
+   "segura": false,
+   "nivel_recomendado": [
+    52,
+    54
+   ]
+  }
+ ],
+ "terrenos": [
+  {
+   "id": "basalto_frio",
+   "descricao": "Basalto negro acinzentado relativamente liso, placas irregulares e pequenas marcas de desgaste. Textura continua e repetivel, sem elementos altos.",
+   "andavel": true,
+   "lento": false
+  },
+  {
+   "id": "cinzas_finas",
+   "descricao": "Solo cinza-escuro coberto por camada fina de cinzas vulcanicas, pequenas manchas mais claras e granulos dispersos. Textura continua.",
+   "andavel": true,
+   "lento": false
+  },
+  {
+   "id": "cinzas_grossas",
+   "descricao": "Acumulos densos de cinzas grafite e poeira vulcanica, ondulacoes suaves e pequenas depressões. Textura continua, visualmente mais espessa que cinzas_finas.",
+   "andavel": true,
+   "lento": true
+  },
+  {
+   "id": "basalto_rachado",
+   "descricao": "Piso de basalto escuro com rachaduras irregulares finas, algumas com brilho vermelho-alaranjado discreto. A pedra permanece segura para caminhar. Textura continua.",
+   "andavel": true,
+   "lento": false
+  },
+  {
+   "id": "rocha_vulcanica",
+   "descricao": "Solo vulcanico rugoso formado por placas pretas, minerais avermelhados e pequenas fissuras frias. Superficie irregular mas transitavel. Textura continua.",
+   "andavel": true,
+   "lento": false
+  },
+  {
+   "id": "pedra_fortaleza",
+   "descricao": "Lajes retangulares de pedra negra medieval, juntas gastas, algumas placas partidas e sujeira de fuligem. Piso de construcoes militares. Textura continua.",
+   "andavel": true,
+   "lento": false
+  },
+  {
+   "id": "lava_incandescente",
+   "descricao": "Lava vermelho-alaranjada com veios amarelos luminosos e crostas negras flutuantes. Textura continua e repetivel, com possibilidade de deslocamento animado.",
+   "andavel": false,
+   "lento": false
+  },
+  {
+   "id": "obsidiana_polida",
+   "descricao": "Pedra de obsidiana quase preta com reflexos violeta e vermelho-escuro, placas geometricas de arquitetura infernal. Utilizada na arena do chefe e em pisos cerimoniais. Textura continua.",
+   "andavel": true,
+   "lento": false
+  }
+ ],
+ "caminhos": [
+  {
+   "nome": "Estrada do Refugio",
+   "pontos_px": [
+    [
+     650,
+     5100
+    ],
+    [
+     1050,
+     4750
+    ],
+    [
+     1300,
+     4300
+    ],
+    [
+     1650,
+     3900
+    ],
+    [
+     2100,
+     3600
+    ],
+    [
+     2700,
+     3550
+    ]
+   ],
+   "largura_px": 240,
+   "tipo": "estrada de pedra"
+  },
+  {
+   "nome": "Trilha dos Condenados",
+   "pontos_px": [
+    [
+     1650,
+     3900
+    ],
+    [
+     1050,
+     3600
+    ],
+    [
+     800,
+     3000
+    ],
+    [
+     1050,
+     2450
+    ],
+    [
+     1550,
+     2050
+    ],
+    [
+     2100,
+     1700
+    ]
+   ],
+   "largura_px": 180,
+   "tipo": "trilha de cinzas"
+  },
+  {
+   "nome": "Caminho das Forjas",
+   "pontos_px": [
+    [
+     2700,
+     3550
+    ],
+    [
+     3100,
+     3900
+    ],
+    [
+     3450,
+     4200
+    ],
+    [
+     3700,
+     4500
+    ],
+    [
+     3900,
+     4100
+    ],
+    [
+     4300,
+     3750
+    ]
+   ],
+   "largura_px": 220,
+   "tipo": "estrada de pedra"
+  },
+  {
+   "nome": "Passagem do Rio Infernal",
+   "pontos_px": [
+    [
+     2100,
+     1700
+    ],
+    [
+     2550,
+     1850
+    ],
+    [
+     2850,
+     2050
+    ],
+    [
+     3250,
+     2200
+    ],
+    [
+     3650,
+     2300
+    ],
+    [
+     4100,
+     2500
+    ]
+   ],
+   "largura_px": 210,
+   "tipo": "ponte de pedra"
+  },
+  {
+   "nome": "Corredor das Correntes",
+   "pontos_px": [
+    [
+     4300,
+     3750
+    ],
+    [
+     4650,
+     3400
+    ],
+    [
+     4850,
+     2950
+    ],
+    [
+     4800,
+     2500
+    ],
+    [
+     5100,
+     2150
+    ]
+   ],
+   "largura_px": 260,
+   "tipo": "estrada de pedra"
+  },
+  {
+   "nome": "Trilha do Ninho",
+   "pontos_px": [
+    [
+     4100,
+     2500
+    ],
+    [
+     4450,
+     1950
+    ],
+    [
+     4750,
+     1500
+    ],
+    [
+     5100,
+     1100
+    ],
+    [
+     5450,
+     1250
+    ]
+   ],
+   "largura_px": 180,
+   "tipo": "trilha de cinzas"
+  },
+  {
+   "nome": "Ponte da Ultima Chama",
+   "pontos_px": [
+    [
+     5100,
+     2150
+    ],
+    [
+     5400,
+     1900
+    ],
+    [
+     5700,
+     1700
+    ],
+    [
+     5850,
+     1450
+    ]
+   ],
+   "largura_px": 230,
+   "tipo": "ponte de pedra"
+  },
+  {
+   "nome": "Avenida do General",
+   "pontos_px": [
+    [
+     5850,
+     1450
+    ],
+    [
+     5960,
+     1150
+    ],
+    [
+     6000,
+     850
+    ],
+    [
+     6000,
+     550
+    ]
+   ],
+   "largura_px": 300,
+   "tipo": "estrada de pedra"
+  },
+  {
+   "nome": "Atalho das Ruinas",
+   "pontos_px": [
+    [
+     3100,
+     3900
+    ],
+    [
+     3450,
+     3350
+    ],
+    [
+     3750,
+     2900
+    ],
+    [
+     4100,
+     2500
+    ]
+   ],
+   "largura_px": 160,
+   "tipo": "trilha de cinzas"
+  }
+ ],
+ "agua": [
+  {
+   "tipo": "funda",
+   "poligono_px": [
+    [
+     2450,
+     0
+    ],
+    [
+     2750,
+     0
+    ],
+    [
+     3000,
+     600
+    ],
+    [
+     3150,
+     1200
+    ],
+    [
+     3100,
+     1700
+    ],
+    [
+     3250,
+     2350
+    ],
+    [
+     3500,
+     2800
+    ],
+    [
+     3350,
+     3200
+    ],
+    [
+     3050,
+     3000
+    ],
+    [
+     2850,
+     2500
+    ],
+    [
+     2800,
+     1900
+    ],
+    [
+     2700,
+     1300
+    ],
+    [
+     2550,
+     700
+    ]
+   ],
+   "descricao": "Rio principal de lava. Bloqueia movimento e precisa ser atravessado por ponte.",
+   "excecoes_travessia": [
+    "Passagem do Rio Infernal"
+   ]
+  },
+  {
+   "tipo": "funda",
+   "poligono_px": [
+    [
+     3500,
+     0
+    ],
+    [
+     3800,
+     0
+    ],
+    [
+     3950,
+     650
+    ],
+    [
+     3800,
+     1200
+    ],
+    [
+     3900,
+     1800
+    ],
+    [
+     4050,
+     2400
+    ],
+    [
+     3900,
+     2850
+    ],
+    [
+     3650,
+     2650
+    ],
+    [
+     3600,
+     2100
+    ],
+    [
+     3500,
+     1450
+    ],
+    [
+     3650,
+     850
+    ]
+   ],
+   "descricao": "Segundo canal de lava ao norte das forjas, com margens irregulares.",
+   "excecoes_travessia": [
+    "Passagem do Rio Infernal"
+   ]
+  },
+  {
+   "tipo": "funda",
+   "poligono_px": [
+    [
+     5250,
+     1850
+    ],
+    [
+     5600,
+     1650
+    ],
+    [
+     5900,
+     1900
+    ],
+    [
+     6050,
+     2400
+    ],
+    [
+     6000,
+     2950
+    ],
+    [
+     5750,
+     3100
+    ],
+    [
+     5550,
+     2750
+    ],
+    [
+     5350,
+     2350
+    ]
+   ],
+   "descricao": "Fosso de lava diante da cidadela. A ponte final e o unico acesso seguro a parte superior.",
+   "excecoes_travessia": [
+    "Ponte da Ultima Chama"
+   ]
+  },
+  {
+   "tipo": "funda",
+   "poligono_px": [
+    [
+     5600,
+     0
+    ],
+    [
+     6400,
+     0
+    ],
+    [
+     6400,
+     400
+    ],
+    [
+     6300,
+     650
+    ],
+    [
+     6250,
+     950
+    ],
+    [
+     6350,
+     1300
+    ],
+    [
+     6400,
+     1600
+    ],
+    [
+     6100,
+     1750
+    ],
+    [
+     5850,
+     1600
+    ],
+    [
+     5650,
+     1250
+    ],
+    [
+     5600,
+     900
+    ]
+   ],
+   "descricao": "Lago vulcanico superior que envolve parcialmente o trono do General Infernal. Deve ser recortado para preservar a plataforma circular segura de combate.",
+   "excecoes_travessia": [
+    "Avenida do General",
+    "Arena do General Infernal"
+   ]
+  },
+  {
+   "tipo": "rasa",
+   "poligono_px": [
+    [
+     350,
+     3150
+    ],
+    [
+     1150,
+     3050
+    ],
+    [
+     1450,
+     3450
+    ],
+    [
+     1150,
+     4000
+    ],
+    [
+     550,
+     4050
+    ],
+    [
+     200,
+     3650
+    ]
+   ],
+   "descricao": "Deposito de cinzas grossas na estrada antiga. Reduz velocidade de movimento."
+  },
+  {
+   "tipo": "rasa",
+   "poligono_px": [
+    [
+     1500,
+     4700
+    ],
+    [
+     2200,
+     4550
+    ],
+    [
+     2550,
+     4950
+    ],
+    [
+     2300,
+     5450
+    ],
+    [
+     1750,
+     5500
+    ]
+   ],
+   "descricao": "Campo de cinzas profundas proximo as forjas. Reduz velocidade."
+  },
+  {
+   "tipo": "rasa",
+   "poligono_px": [
+    [
+     4250,
+     750
+    ],
+    [
+     4850,
+     600
+    ],
+    [
+     5250,
+     950
+    ],
+    [
+     5050,
+     1450
+    ],
+    [
+     4450,
+     1400
+    ]
+   ],
+   "descricao": "Cinzas acumuladas entre os ninhos dos dracos."
+  },
+  {
+   "tipo": "rasa",
+   "poligono_px": [
+    [
+     4500,
+     4300
+    ],
+    [
+     5200,
+     4200
+    ],
+    [
+     5400,
+     4750
+    ],
+    [
+     5050,
+     5250
+    ],
+    [
+     4500,
+     5100
+    ]
+   ],
+   "descricao": "Deposito de cinzas no patio inferior."
+  }
+ ],
+ "regras_mapa": {
+  "velocidade_basalto_multiplicador": 1,
+  "velocidade_cinzas_finas_multiplicador": 1,
+  "velocidade_cinzas_grossas_multiplicador": 0.7,
+  "lava_bloqueia": true,
+  "lava_dano_contato": false,
+  "pontes_sobrepoem_colisao_lava": true,
+  "profundidade_objetos": true,
+  "ordenacao_visual": "Ordenar objetos e personagens pela coordenada Y do pe. Usar YSort ou equivalente.",
+  "regra_porte_baixo": "Sem colisao. O heroi atravessa o objeto.",
+  "regra_porte_joelho": "Nao bloqueia movimento. O heroi pode passar por cima do objeto e sobrepor visualmente sua parte inferior.",
+  "regra_porte_cintura": "Objeto solido. Aproximacao frontal bloqueia quando o pe do heroi encontra a faixa do pe do objeto. Aproximacao lateral permite passar visualmente atras quando o pe do heroi ultrapassa um terco da profundidade do objeto, desde que exista corredor livre fora da colisao solida.",
+  "faixa_pe": "pe_px representa largura e profundidade da area ocupada no chao, em pixels do mundo, centrada horizontalmente na base visual do sprite.",
+  "posicionamento": "Nao posicionar colisoes solidas sobre o eixo central dos caminhos principais, portais, spawn, NPCs obrigatorios ou arena do chefe.",
+  "margem_livre_estradas_px": 130,
+  "margem_livre_portais_px": 180,
+  "margem_livre_npcs_px": 100,
+  "largura_minima_passagem_px": 180,
+  "objetos_ambientais_animados": "Animacoes de fogo, brasa, lava, fumaca e cristais devem manter a mesma caixa de colisao em todos os quadros.",
+  "colisao_pontes": "Cada ponte deve ter colisao solida somente nas muretas laterais. O tabuleiro central fica transitavel e substitui a colisao da lava no trecho coberto.",
+  "prioridade_camadas": [
+   "textura_chao",
+   "mascara_cinzas_grossas",
+   "mascara_lava",
+   "tabuleiros_pontes",
+   "objetos_baixos",
+   "objetos_joelho",
+   "objetos_cintura_e_personagens_ysort",
+   "efeitos_luminosos",
+   "efeitos_atmosfericos"
+  ]
+ },
+ "objetos": [
+  {
+   "id": "rocha_basalto_pequena",
+   "nome": "Pedra de Basalto Pequena",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    48,
+    32
+   ],
+   "pe_px": [
+    32,
+    16
+   ],
+   "quantidade": 95,
+   "onde": "Espalhada pelas Estradas dos Condenados, Campos de Basalto e margens dos rios de lava.",
+   "animado": false
+  },
+  {
+   "id": "brasa_solta",
+   "nome": "Brasa Vulcanica",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    36,
+    30
+   ],
+   "pe_px": [
+    20,
+    12
+   ],
+   "quantidade": 120,
+   "onde": "Solo rachado, proximidades das forjas e bordas de lava.",
+   "animado": true
+  },
+  {
+   "id": "cinzas_espalhadas",
+   "nome": "Monticulo de Cinzas Finas",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    90,
+    30
+   ],
+   "pe_px": [
+    70,
+    20
+   ],
+   "quantidade": 80,
+   "onde": "Estradas antigas, refugio e patio das correntes.",
+   "animado": false
+  },
+  {
+   "id": "ossos_guerreiro",
+   "nome": "Restos de Guerreiro",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    100,
+    56
+   ],
+   "pe_px": [
+    80,
+    35
+   ],
+   "quantidade": 38,
+   "onde": "Campos de Basalto, Estrada dos Condenados e muralhas.",
+   "animado": false
+  },
+  {
+   "id": "capacete_derretido",
+   "nome": "Capacete Derretido",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    62,
+    40
+   ],
+   "pe_px": [
+    42,
+    24
+   ],
+   "quantidade": 42,
+   "onde": "Campos de batalha, Forjas da Guerra e Patio das Correntes.",
+   "animado": false
+  },
+  {
+   "id": "espada_quebrada",
+   "nome": "Espada de Guerra Quebrada",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    70,
+    48
+   ],
+   "pe_px": [
+    48,
+    20
+   ],
+   "quantidade": 34,
+   "onde": "Estrada dos Condenados e ruinas militares.",
+   "animado": false
+  },
+  {
+   "id": "rocha_vulcanica_media",
+   "nome": "Rocha Vulcanica Media",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    110,
+    75
+   ],
+   "pe_px": [
+    85,
+    48
+   ],
+   "quantidade": 75,
+   "onde": "Campos de Basalto, Ninho dos Dracos e margens da lava.",
+   "animado": false
+  },
+  {
+   "id": "escombro_muralha",
+   "nome": "Escombros de Muralha",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    150,
+    65
+   ],
+   "pe_px": [
+    125,
+    45
+   ],
+   "quantidade": 55,
+   "onde": "Estrada dos Condenados, Forjas e Patio das Correntes.",
+   "animado": false
+  },
+  {
+   "id": "degrau_basalto",
+   "nome": "Degrau de Basalto Quebrado",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    180,
+    70
+   ],
+   "pe_px": [
+    150,
+    55
+   ],
+   "quantidade": 28,
+   "onde": "Acessos as forjas, corredores militares e entrada da cidadela.",
+   "animado": false
+  },
+  {
+   "id": "escudo_caido",
+   "nome": "Escudo Negro Abandonado",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    95,
+    55
+   ],
+   "pe_px": [
+    75,
+    32
+   ],
+   "quantidade": 28,
+   "onde": "Estradas militares e patios da fortaleza.",
+   "animado": false
+  },
+  {
+   "id": "rocha_basalto_grande",
+   "nome": "Rocha de Basalto Gigante",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    260,
+    230
+   ],
+   "pe_px": [
+    205,
+    115
+   ],
+   "quantidade": 42,
+   "onde": "Campos de Basalto e encostas vulcanicas, formando limites naturais.",
+   "animado": false
+  },
+  {
+   "id": "coluna_obsidiana",
+   "nome": "Coluna de Obsidiana",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    145,
+    290
+   ],
+   "pe_px": [
+    100,
+    85
+   ],
+   "quantidade": 36,
+   "onde": "Forjas, Patio das Correntes e Cidadela.",
+   "animado": false
+  },
+  {
+   "id": "coluna_quebrada",
+   "nome": "Coluna de Fortaleza Quebrada",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    170,
+    190
+   ],
+   "pe_px": [
+    125,
+    90
+   ],
+   "quantidade": 29,
+   "onde": "Estradas, ruinas militares e acessos a cidadela.",
+   "animado": false
+  },
+  {
+   "id": "muralha_negra_reta",
+   "nome": "Muralha Negra Rachada",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    480,
+    350
+   ],
+   "pe_px": [
+    430,
+    105
+   ],
+   "quantidade": 24,
+   "onde": "Perimetro das forjas, patio interno e cidadela. Montar trechos sem fechar os acessos.",
+   "animado": false
+  },
+  {
+   "id": "muralha_negra_canto",
+   "nome": "Canto de Muralha Negra",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    320,
+    340
+   ],
+   "pe_px": [
+    265,
+    165
+   ],
+   "quantidade": 16,
+   "onde": "Cantos das estruturas defensivas.",
+   "animado": false
+  },
+  {
+   "id": "torre_vigia_destruida",
+   "nome": "Torre de Vigia Destruida",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    370,
+    510
+   ],
+   "pe_px": [
+    280,
+    185
+   ],
+   "quantidade": 9,
+   "onde": "Entrada, Estrada dos Condenados e Patio das Correntes.",
+   "animado": false
+  },
+  {
+   "id": "torre_infernal",
+   "nome": "Torre Infernal",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    440,
+    650
+   ],
+   "pe_px": [
+    335,
+    215
+   ],
+   "quantidade": 6,
+   "onde": "Extremidades da Cidadela do General Infernal.",
+   "animado": true
+  },
+  {
+   "id": "estandarte_queimado",
+   "nome": "Estandarte de Guerra Queimado",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    125,
+    310
+   ],
+   "pe_px": [
+    65,
+    55
+   ],
+   "quantidade": 26,
+   "onde": "Estradas militares, forjas e patio.",
+   "animado": true
+  },
+  {
+   "id": "forja_guerra",
+   "nome": "Forja de Guerra Infernal",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    310,
+    285
+   ],
+   "pe_px": [
+    260,
+    145
+   ],
+   "quantidade": 11,
+   "onde": "Forjas da Guerra, agrupadas ao redor de plataformas de trabalho.",
+   "animado": true
+  },
+  {
+   "id": "bigorna_negra",
+   "nome": "Bigorna de Ferro Negro",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    150,
+    120
+   ],
+   "pe_px": [
+    125,
+    80
+   ],
+   "quantidade": 15,
+   "onde": "Perto das forjas e do ferreiro sobrevivente.",
+   "animado": false
+  },
+  {
+   "id": "caldeirao_metal_fundido",
+   "nome": "Caldeirao de Metal Fundido",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    225,
+    220
+   ],
+   "pe_px": [
+    180,
+    120
+   ],
+   "quantidade": 8,
+   "onde": "Forjas da Guerra e patio industrial.",
+   "animado": true
+  },
+  {
+   "id": "corrente_gigante",
+   "nome": "Corrente de Guerra Gigante",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    150,
+    390
+   ],
+   "pe_px": [
+    95,
+    90
+   ],
+   "quantidade": 18,
+   "onde": "Patio das Correntes e Cidadela. Representar corrente ancorada em pilar ou pedestal proprio.",
+   "animado": false
+  },
+  {
+   "id": "jaula_prisioneiro",
+   "nome": "Jaula de Ferro Negro",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    280,
+    300
+   ],
+   "pe_px": [
+    215,
+    165
+   ],
+   "quantidade": 7,
+   "onde": "Forjas da Guerra e Patio das Correntes. Uma jaula especial possui abertura para interacao com prisioneiro.",
+   "animado": false
+  },
+  {
+   "id": "carroca_destruida",
+   "nome": "Carroca Militar Destruida",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    300,
+    225
+   ],
+   "pe_px": [
+    250,
+    135
+   ],
+   "quantidade": 16,
+   "onde": "Refugio, Estrada dos Condenados e forjas.",
+   "animado": false
+  },
+  {
+   "id": "barraca_sobrevivente",
+   "nome": "Barraca de Sobreviventes",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    420,
+    340
+   ],
+   "pe_px": [
+    350,
+    150
+   ],
+   "quantidade": 3,
+   "onde": "Refugio das Cinzas, proximo do ferreiro mercador.",
+   "animado": false
+  },
+  {
+   "id": "fogueira_refugio",
+   "nome": "Fogueira de Sobreviventes",
+   "porte": "baixo",
+   "tamanho_na_tela_px": [
+    125,
+    105
+   ],
+   "pe_px": [
+    85,
+    55
+   ],
+   "quantidade": 4,
+   "onde": "Refugio das Cinzas. Fogo decorativo sem dano.",
+   "animado": true
+  },
+  {
+   "id": "estatua_guerreiro_caido",
+   "nome": "Estatua do Guerreiro Caido",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    270,
+    430
+   ],
+   "pe_px": [
+    205,
+    150
+   ],
+   "quantidade": 6,
+   "onde": "Entrada das forjas, patios militares e corredor da cidadela.",
+   "animado": false
+  },
+  {
+   "id": "altar_infernal",
+   "nome": "Altar Infernal de Obsidiana",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    290,
+    315
+   ],
+   "pe_px": [
+    215,
+    140
+   ],
+   "quantidade": 5,
+   "onde": "Cidadela e pontos ritualisticos do Ninho dos Dracos.",
+   "animado": true
+  },
+  {
+   "id": "ninho_draco",
+   "nome": "Ninho de Draco Jovem",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    280,
+    125
+   ],
+   "pe_px": [
+    225,
+    100
+   ],
+   "quantidade": 12,
+   "onde": "Ninho dos Dracos, distribuido em pequenos grupos.",
+   "animado": false
+  },
+  {
+   "id": "ovo_draco",
+   "nome": "Ovo de Draco Rachado",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    110,
+    125
+   ],
+   "pe_px": [
+    75,
+    55
+   ],
+   "quantidade": 23,
+   "onde": "Dentro e ao redor dos ninhos.",
+   "animado": true
+  },
+  {
+   "id": "cristal_enxofre",
+   "nome": "Cristal de Enxofre Vulcanico",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    170,
+    210
+   ],
+   "pe_px": [
+    125,
+    90
+   ],
+   "quantidade": 28,
+   "onde": "Margens de lava, Ninho dos Dracos e Campos de Basalto.",
+   "animado": false
+  },
+  {
+   "id": "esqueleto_criatura_gigante",
+   "nome": "Esqueleto de Criatura Gigante",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    480,
+    195
+   ],
+   "pe_px": [
+    410,
+    125
+   ],
+   "quantidade": 5,
+   "onde": "Campos de Basalto e Ninho dos Dracos.",
+   "animado": false
+  },
+  {
+   "id": "ponte_basalto_antiga",
+   "nome": "Ponte de Basalto Antiga",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    580,
+    275
+   ],
+   "pe_px": [
+    500,
+    210
+   ],
+   "quantidade": 2,
+   "onde": "Travessia central dos Rios de Sangue da Montanha.",
+   "animado": false
+  },
+  {
+   "id": "ponte_obsidiana",
+   "nome": "Ponte de Obsidiana Infernal",
+   "porte": "joelho",
+   "tamanho_na_tela_px": [
+    620,
+    300
+   ],
+   "pe_px": [
+    540,
+    230
+   ],
+   "quantidade": 1,
+   "onde": "Travessia final do fosso de lava antes da Cidadela.",
+   "animado": false
+  },
+  {
+   "id": "portao_fortaleza",
+   "nome": "Portao Negro da Fortaleza",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    510,
+    540
+   ],
+   "pe_px": [
+    420,
+    145
+   ],
+   "quantidade": 2,
+   "onde": "Acesso ao Patio das Correntes e entrada da Cidadela. O vao central deve permitir passagem quando aberto.",
+   "animado": true
+  },
+  {
+   "id": "trono_general",
+   "nome": "Trono do General Infernal",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    420,
+    440
+   ],
+   "pe_px": [
+    310,
+    180
+   ],
+   "quantidade": 1,
+   "onde": "Extremidade norte da arena do General Infernal, fora do circulo central de combate.",
+   "animado": true
+  },
+  {
+   "id": "braseiro_infernal",
+   "nome": "Braseiro Infernal",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    150,
+    230
+   ],
+   "pe_px": [
+    95,
+    75
+   ],
+   "quantidade": 22,
+   "onde": "Cidadela, Patio das Correntes e corredor final.",
+   "animado": true
+  },
+  {
+   "id": "portal_pantano_estrutura",
+   "nome": "Portal de Retorno ao Pantano",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    320,
+    405
+   ],
+   "pe_px": [
+    245,
+    95
+   ],
+   "quantidade": 1,
+   "onde": "Refugio das Cinzas, posicao [420, 5350]. A abertura central e transitavel.",
+   "animado": true
+  },
+  {
+   "id": "portal_proxima_regiao_estrutura",
+   "nome": "Portal da Fronteira de Fogo",
+   "porte": "cintura",
+   "tamanho_na_tela_px": [
+    370,
+    470
+   ],
+   "pe_px": [
+    285,
+    110
+   ],
+   "quantidade": 1,
+   "onde": "Apos a arena do General Infernal, posicao [6050, 220]. A abertura central fica bloqueada ate a derrota do chefe.",
+   "animado": true
+  }
+ ],
+ "inimigos": [
+  {
+   "nome": "Cavaleiro Sombrio",
+   "tipo": "monstro",
+   "nivel": [
+    46,
+    51
+   ],
+   "descricao_visual": "Guerreiro humanoide de armadura negra corrompida, metal rachado e brilho vermelho nas fendas. Carrega espada pesada e escudo escurecido. Altura aproximada de 135 px na tela, escala 1.3 do heroi. Utilizar a arte existente.",
+   "comportamento": "Patrulha estradas e estruturas militares. Detecta o jogador em alcance medio, aproxima-se para combate corpo a corpo e alterna golpes de espada com postura defensiva. Pode executar uma investida curta em linha reta. Em grupos, um cavaleiro avanca enquanto os demais cercam o jogador.",
+   "zonas_spawn": [
+    "Estrada dos Condenados",
+    "Campos de Basalto",
+    "Forjas da Guerra",
+    "Patio das Correntes",
+    "Cidadela do General Infernal"
+   ],
+   "grupo_spawn": [
+    1,
+    3
+   ],
+   "agressivo": true,
+   "ataques": [
+    {
+     "nome": "Corte Sombrio",
+     "tipo": "corpo_a_corpo",
+     "dano_relativo": 1,
+     "efeito": "Golpe frontal de espada."
+    },
+    {
+     "nome": "Investida Corrompida",
+     "tipo": "investida",
+     "dano_relativo": 1.35,
+     "efeito": "Avanca rapidamente em linha reta."
+    },
+    {
+     "nome": "Guarda Negra",
+     "tipo": "defesa",
+     "dano_relativo": 0,
+     "efeito": "Reduz dano recebido em 35% por 3 segundos."
+    }
+   ]
+  },
+  {
+   "nome": "Draco Jovem",
+   "tipo": "monstro",
+   "nivel": [
+    49,
+    53
+   ],
+   "descricao_visual": "Pequeno dragao de fogo com escamas vermelhas e negras, asas curtas, garras e olhos luminosos. Altura aproximada de 115 px e largura de 155 px, maior lado 1.5 vezes o heroi. Utilizar a arte existente.",
+   "comportamento": "Protege ninhos e locais proximos da lava. Alterna deslocamento terrestre com saltos curtos e batidas de asas. Cospe bolas de fogo de media distancia, recuando quando o heroi se aproxima demais. Pode executar um ataque frontal com garras. Tem resistencia elevada a dano de fogo.",
+   "zonas_spawn": [
+    "Rios de Sangue da Montanha",
+    "Patio das Correntes",
+    "Ninho dos Dracos",
+    "Cidadela do General Infernal"
+   ],
+   "grupo_spawn": [
+    1,
+    2
+   ],
+   "agressivo": true,
+   "ataques": [
+    {
+     "nome": "Bola de Fogo",
+     "tipo": "projetil",
+     "dano_relativo": 1.15,
+     "efeito": "Lanca uma esfera de fogo na direcao do heroi."
+    },
+    {
+     "nome": "Garras Ardentes",
+     "tipo": "corpo_a_corpo",
+     "dano_relativo": 1,
+     "efeito": "Ataque frontal rapido."
+    },
+    {
+     "nome": "Salto Flamejante",
+     "tipo": "area",
+     "dano_relativo": 1.25,
+     "efeito": "Salta e aterrissa provocando pequena explosao ao redor."
+    }
+   ]
+  },
+  {
+   "nome": "Cinzeiro Errante",
+   "tipo": "mutante",
+   "nivel": [
+    46,
+    52
+   ],
+   "descricao_visual": "Humanoide mutante formado por cinzas compactadas, carne vulcanica petrificada e fragmentos de basalto. Possui bracos longos, corpo irregular, olhos laranja incandescentes e rachaduras luminosas no peito. Pequenas brasas escapam das articulacoes. Altura aproximada de 140 px, escala 1.35 do heroi. Pixel art medieval sombria, top-down 45 graus, coerente com Paradise RPG. Inimigo novo que precisa de sprites.",
+   "comportamento": "Vaga lentamente pelos campos de cinzas e regioes vulcanicas. Detecta o heroi em alcance curto a medio. Ataca com os bracos pesados e pode liberar uma nuvem de cinzas que reduz temporariamente a velocidade do jogador. Ao receber muito dano, entra em estado de furia e aumenta sua velocidade por alguns segundos.",
+   "zonas_spawn": [
+    "Estrada dos Condenados",
+    "Campos de Basalto",
+    "Forjas da Guerra",
+    "Rios de Sangue da Montanha",
+    "Patio das Correntes",
+    "Ninho dos Dracos"
+   ],
+   "grupo_spawn": [
+    1,
+    3
+   ],
+   "agressivo": true,
+   "ataques": [
+    {
+     "nome": "Punho de Basalto",
+     "tipo": "corpo_a_corpo",
+     "dano_relativo": 1,
+     "efeito": "Golpe pesado com um braco petrificado."
+    },
+    {
+     "nome": "Nuvem de Cinzas",
+     "tipo": "area",
+     "dano_relativo": 0.45,
+     "efeito": "Reduz velocidade do heroi em 25% durante 3 segundos."
+    },
+    {
+     "nome": "Furia das Brasas",
+     "tipo": "buff",
+     "dano_relativo": 0,
+     "efeito": "Ao atingir 30% de vida, ganha 25% de velocidade durante 5 segundos."
+    }
+   ]
+  },
+  {
+   "nome": "General Infernal",
+   "tipo": "chefe",
+   "nivel": 54,
+   "descricao_visual": "Comandante infernal de armadura negra macica, placas rachadas revelando fogo interior, ombreiras enormes e arma de guerra flamejante. Presenca imponente com efeitos de fogo. Altura recomendada de 250 px na tela, escala 2.4 do heroi. Utilizar a arte existente.",
+   "comportamento": "Chefe final da Fortaleza de Cinzas. Permanece na arena de obsidiana ate o jogador se aproximar. Possui tres fases. Na primeira, combate com arma pesada e investidas. Na segunda, invoca colunas de fogo e Cavaleiros Sombrios. Na terceira, aumenta a agressividade, executa ondas de fogo e marca partes do piso para explosoes. O chefe nunca deve entrar na lava nem abandonar a arena.",
+   "zonas_spawn": [
+    "Cidadela do General Infernal"
+   ],
+   "grupo_spawn": [
+    1,
+    1
+   ],
+   "agressivo": true,
+   "fases": [
+    {
+     "fase": 1,
+     "vida_percentual": [
+      100,
+      66
+     ],
+     "descricao": "Combate direto, golpes pesados e investidas.",
+     "ataques": [
+      "Golpe do General",
+      "Investida Infernal"
+     ]
+    },
+    {
+     "fase": 2,
+     "vida_percentual": [
+      65,
+      31
+     ],
+     "descricao": "O chefe invoca fogo do solo e dois Cavaleiros Sombrios uma unica vez nesta fase.",
+     "ataques": [
+      "Golpe do General",
+      "Colunas de Fogo",
+      "Invocar Guardas"
+     ]
+    },
+    {
+     "fase": 3,
+     "vida_percentual": [
+      30,
+      0
+     ],
+     "descricao": "A armadura apresenta brilho intenso, o chefe ganha 20% de velocidade e usa ataques de area mais frequentes.",
+     "ataques": [
+      "Investida Infernal",
+      "Onda de Cinzas",
+      "Chuva Infernal"
+     ]
+    }
+   ],
+   "ataques": [
+    {
+     "nome": "Golpe do General",
+     "tipo": "corpo_a_corpo",
+     "dano_relativo": 1,
+     "efeito": "Golpe frontal amplo com arma de guerra."
+    },
+    {
+     "nome": "Investida Infernal",
+     "tipo": "investida",
+     "dano_relativo": 1.45,
+     "efeito": "Avanca em linha reta apos breve aviso visual."
+    },
+    {
+     "nome": "Colunas de Fogo",
+     "tipo": "area",
+     "dano_relativo": 1.2,
+     "efeito": "Tres circulos no solo anunciam colunas de fogo antes de explodir."
+    },
+    {
+     "nome": "Invocar Guardas",
+     "tipo": "invocacao",
+     "dano_relativo": 0,
+     "efeito": "Invoca dois Cavaleiros Sombrios de nivel 51 em pontos livres da arena."
+    },
+    {
+     "nome": "Onda de Cinzas",
+     "tipo": "area",
+     "dano_relativo": 1.1,
+     "efeito": "Onda frontal de cinzas quentes que empurra o jogador."
+    },
+    {
+     "nome": "Chuva Infernal",
+     "tipo": "area",
+     "dano_relativo": 1.5,
+     "efeito": "Marca cinco pontos livres do piso, que explodem apos 1.5 segundos. Deve preservar pelo menos uma rota de esquiva."
+    }
+   ],
+   "recompensa_progressao": "Desbloqueia o Portal da Fronteira de Fogo e conclui a campanha da Fortaleza de Cinzas."
+  }
+ ],
+ "npcs": [
+  {
+   "nome": "Bram, Ferreiro das Cinzas",
+   "papel": "Ferreiro e mercador sobrevivente. Vende pocoes, equipamentos e oferece reparos.",
+   "onde_px": [
+    920,
+    5150
+   ],
+   "fala": "Poucos sobrevivem alem destas muralhas. Minhas armas ainda resistem ao fogo, mas voce precisara de mais do que aco para derrotar o General Infernal.",
+   "seguro": true,
+   "interativo": true
+  },
+  {
+   "nome": "Darian, Soldado Aprisionado",
+   "papel": "Prisioneiro que revela informacoes sobre o General Infernal e oferece uma missao de resgate.",
+   "onde_px": [
+    3550,
+    4750
+   ],
+   "fala": "O General controla toda a fortaleza. Vi seus soldados arrastarem prisioneiros para a cidadela. Se conseguir abrir esta cela, contarei como atravessar suas defesas.",
+   "seguro": false,
+   "interativo": true
+  },
+  {
+   "nome": "Lyra, Exploradora Vulcanica",
+   "papel": "Exploradora que estuda os rios de lava e fornece informacoes sobre os Dracos Jovens.",
+   "onde_px": [
+    4200,
+    2750
+   ],
+   "fala": "Os dracos defendem seus ninhos com ferocidade. Ha caminhos escondidos entre as rochas, mas nunca tente atravessar a lava sem uma ponte.",
+   "seguro": false,
+   "interativo": true
+  },
+  {
+   "nome": "Orven, Ultimo Sentinela",
+   "papel": "Sentinela ferido proximo a cidadela. Apresenta o desafio final e explica a historia do General Infernal.",
+   "onde_px": [
+    5800,
+    1900
+   ],
+   "fala": "O General ja foi um defensor destas terras. Agora o fogo consome sua alma. Derrube-o e o portal alem do trono finalmente despertara.",
+   "seguro": false,
+   "interativo": true
+  }
+ ],
+ "portais": [
+  {
+   "para": "swamp_almas",
+   "onde_px": [
+    420,
+    5350
+   ],
+   "requisito": "Nenhum requisito adicional para retornar. O portal de origem no Pantano das Almas Perdidas so permite a primeira entrada apos derrotar o Rei Afogado.",
+   "nome": "Portal do Pantano",
+   "estado_inicial": "ativo",
+   "efeito_visual": "Arco de pedra negra com energia verde-lodosa e pequenas particulas roxas.",
+   "tamanho_abertura_px": [
+    160,
+    210
+   ]
+  },
+  {
+   "para": "fronteira_de_fogo",
+   "onde_px": [
+    6050,
+    220
+   ],
+   "requisito": "Derrotar o General Infernal.",
+   "nome": "Portal da Fronteira de Fogo",
+   "estado_inicial": "bloqueado",
+   "efeito_visual": "Arco monumental de obsidiana com energia vermelha e dourada. Antes do desbloqueio apresenta correntes magicas negras; depois da vitoria, as correntes se rompem e o interior se torna flamejante.",
+   "tamanho_abertura_px": [
+    185,
+    235
+   ],
+   "id_destino_provisorio": true
+  }
+ ],
+ "spawn_px": [
+  650,
+  5100
+ ],
+ "arena_chefe": {
+  "centro_px": [
+   6000,
+   850
+  ],
+  "raio_px": 350,
+  "nome": "Circulo do Trono Infernal",
+  "terreno": "obsidiana_polida",
+  "chefe": "General Infernal",
+  "nivel": 54,
+  "descricao": "Plataforma circular de obsidiana polida com rachaduras luminosas vermelho-alaranjadas e runas infernais. A plataforma e totalmente caminhavel e rodeada por lava cenografica bloqueante. Quatro braseiros e pilares negros ornamentam a borda externa sem invadir o centro de combate. O trono fica ao norte, fora da area principal de movimentacao. A entrada principal fica ao sul da arena.",
+  "raio_area_livre_px": 270,
+  "posicao_spawn_chefe_px": [
+   6000,
+   680
+  ],
+  "posicao_entrada_jogador_px": [
+   6000,
+   1150
+  ],
+  "inicio_combate_distancia_px": 230,
+  "barreira_durante_combate": true,
+  "barreira_tipo": "correntes_de_fogo",
+  "barreira_remove_apos_vitoria": true,
+  "respawn_chefe": false,
+  "recompensa_desbloqueio": "Portal da Fronteira de Fogo",
+  "regras": [
+   "A plataforma inteira deve ficar livre de lava bloqueante.",
+   "Nenhum objeto solido pode ocupar o raio central de 270 px.",
+   "O General Infernal deve permanecer dentro da arena.",
+   "A barreira impede a saida durante a batalha.",
+   "Invocacoes surgem em pontos livres fora do raio imediato do heroi.",
+   "Ataques de area devem apresentar aviso visual antes do dano.",
+   "A morte do chefe remove a barreira e desbloqueia o portal superior."
+  ]
+ },
+ "distribuicao_inimigos": {
+  "limite_inimigos_ativos_mapa": 45,
+  "limite_inimigos_ativos_zona": 9,
+  "distancia_minima_spawn_heroi_px": 400,
+  "distancia_minima_spawn_portal_px": 300,
+  "distancia_minima_spawn_npc_px": 180,
+  "tempo_respawn_segundos": 75,
+  "evitar_spawn_em": [
+   "Refugio das Cinzas",
+   "Lava",
+   "Interior de muralhas solidas",
+   "Colisao de torres",
+   "Sobre pontes estreitas",
+   "Centro da arena antes da ativacao",
+   "Area imediata dos portais"
+  ],
+  "populacao_sugerida": [
+   {
+    "zona": "Refugio das Cinzas",
+    "quantidade": 0
+   },
+   {
+    "zona": "Estrada dos Condenados",
+    "quantidade": 9
+   },
+   {
+    "zona": "Campos de Basalto",
+    "quantidade": 12
+   },
+   {
+    "zona": "Forjas da Guerra",
+    "quantidade": 11
+   },
+   {
+    "zona": "Rios de Sangue da Montanha",
+    "quantidade": 9
+   },
+   {
+    "zona": "Patio das Correntes",
+    "quantidade": 12
+   },
+   {
+    "zona": "Ninho dos Dracos",
+    "quantidade": 10
+   },
+   {
+    "zona": "Cidadela do General Infernal",
+    "quantidade": 7
+   }
+  ],
+  "observacao": "As quantidades representam populacao total planejada por zona, nao inimigos simultaneamente ativos. Aplicar ativacao por proximidade e respeitar os limites de desempenho mobile."
+ },
+ "progressao": {
+  "entrada_requer": "Rei Afogado derrotado no Pantano das Almas Perdidas.",
+  "nivel_entrada": 46,
+  "nivel_saida": 54,
+  "etapas": [
+   {
+    "ordem": 1,
+    "nome": "Chegada ao Refugio",
+    "objetivo": "Entrar na fortaleza, conhecer Bram e preparar equipamentos.",
+    "zona": "Refugio das Cinzas"
+   },
+   {
+    "ordem": 2,
+    "nome": "A Estrada dos Mortos",
+    "objetivo": "Derrotar Cavaleiros Sombrios e Cinzeiros Errantes na estrada principal.",
+    "zona": "Estrada dos Condenados"
+   },
+   {
+    "ordem": 3,
+    "nome": "O Segredo das Forjas",
+    "objetivo": "Explorar as forjas, encontrar Darian e descobrir a rota para a cidadela.",
+    "zona": "Forjas da Guerra"
+   },
+   {
+    "ordem": 4,
+    "nome": "A Travessia da Lava",
+    "objetivo": "Atravessar a ponte central e enfrentar Dracos Jovens.",
+    "zona": "Rios de Sangue da Montanha"
+   },
+   {
+    "ordem": 5,
+    "nome": "As Correntes da Guerra",
+    "objetivo": "Vencer os guardas do patio e liberar o portao da cidadela.",
+    "zona": "Patio das Correntes"
+   },
+   {
+    "ordem": 6,
+    "nome": "O Chamado dos Dracos",
+    "objetivo": "Explorar opcionalmente o ninho e coletar materiais vulcanicos.",
+    "zona": "Ninho dos Dracos"
+   },
+   {
+    "ordem": 7,
+    "nome": "A Ultima Ponte",
+    "objetivo": "Atravessar o fosso final e conversar com Orven.",
+    "zona": "Cidadela do General Infernal"
+   },
+   {
+    "ordem": 8,
+    "nome": "O General Infernal",
+    "objetivo": "Derrotar o General Infernal e desbloquear o portal da proxima regiao.",
+    "zona": "Cidadela do General Infernal"
+   }
+  ]
+ },
+ "folhas_de_arte": [
+  {
+   "arquivo": "ember_terrenos_01.png",
+   "conteudo": [
+    "basalto_frio",
+    "cinzas_finas",
+    "cinzas_grossas",
+    "basalto_rachado",
+    "rocha_vulcanica",
+    "pedra_fortaleza",
+    "lava_incandescente",
+    "obsidiana_polida"
+   ],
+   "prompt_para_gerar": "Gere UMA imagem contendo uma folha de texturas de terreno para o mapa Fortaleza de Cinzas do Paradise RPG, em pixel art medieval detalhada, perspectiva top-down totalmente de cima, iluminacao vulcanica dramatica e estilo consistente. EXATAMENTE 4 colunas x 2 linhas, total de 8 texturas quadradas de tamanho igual, cada uma perfeitamente continua e repetivel nas quatro bordas, sem objetos altos e sem perspectiva lateral. ORDEM OBRIGATORIA da esquerda para a direita: linha 1: (1) basalto_frio, pedra negra acinzentada lisa; (2) cinzas_finas, poeira vulcanica cinza; (3) cinzas_grossas, poeira grafite espessa com ondulacoes; (4) basalto_rachado, pedra negra com fissuras alaranjadas discretas. Linha 2: (5) rocha_vulcanica, pedra rugosa escura com minerais avermelhados; (6) pedra_fortaleza, lajes retangulares negras medievais; (7) lava_incandescente, magma vermelho e laranja brilhante com crostas escuras; (8) obsidiana_polida, placas negras geometricas com reflexos violetas e vermelhos. Cada textura ocupa uma celula inteira sem margens internas de chroma. Fundo verde chroma puro #00FF00 somente se houver area externa a grade. Sem texto, numeros, legendas, molduras, sombras projetadas ou objetos decorativos. Evitar linhas divisorias desenhadas. Texturas apropriadas para tiles repetiveis de RPG 2D."
+  },
+  {
+   "arquivo": "ember_rochas_01.png",
+   "conteudo": [
+    "rocha_basalto_pequena",
+    "rocha_vulcanica_media",
+    "rocha_basalto_grande",
+    "cristal_enxofre"
+   ],
+   "prompt_para_gerar": "Folha de objetos ambientais do mapa Fortaleza de Cinzas, Paradise RPG. Pixel art medieval detalhada, perspectiva top-down 45 graus, contornos escuros e acabamento premium consistente. Quatro objetos separados: pequena pedra de basalto negro, rocha vulcanica media irregular, enorme bloco de basalto negro rachado, cristal vulcanico de enxofre amarelo-alaranjado saindo de rocha escura. Cada objeto inteiro, independente e amplamente separado dos outros, respeitando tamanhos relativos. Fundo verde chroma puro #00FF00 uniforme, sem degrade, sem chao, sem sombra no chao, sem texto, sem numeros, sem grade, sem molduras."
+  },
+  {
+   "arquivo": "ember_detalhes_chao_01.png",
+   "conteudo": [
+    "brasa_solta",
+    "cinzas_espalhadas",
+    "ossos_guerreiro",
+    "capacete_derretido",
+    "espada_quebrada",
+    "escudo_caido"
+   ],
+   "prompt_para_gerar": "Folha com seis pequenos objetos ambientais independentes para Fortaleza de Cinzas do Paradise RPG, pixel art medieval detalhada top-down 45 graus. Objetos: pequena brasa vulcanica com brilho laranja, monticulo de cinzas escuras, ossos envelhecidos de guerreiro sem sangue, capacete medieval negro parcialmente derretido, espada de guerra partida e escudo negro rachado caido. Todos os objetos inteiros, muito separados uns dos outros, sem compartilhar base ou cenario. Fundo verde chroma solido #00FF00, sem sombra no chao, sem texto, sem numeros, sem moldura, sem grade."
+  },
+  {
+   "arquivo": "ember_escombros_01.png",
+   "conteudo": [
+    "escombro_muralha",
+    "degrau_basalto",
+    "coluna_quebrada",
+    "coluna_obsidiana"
+   ],
+   "prompt_para_gerar": "Folha de quatro estruturas de ruinas vulcanicas para Paradise RPG, pixel art medieval detalhada, perspectiva top-down 45 graus. Da esquerda para a direita: escombros baixos de muralha negra, degrau largo de basalto rachado, coluna medieval negra quebrada na metade, coluna alta de obsidiana escura com detalhes infernais discretos. Manter cada objeto independente, inteiro, com bases visiveis para ordenacao por profundidade. Muito espaco vazio verde entre objetos. Fundo chroma puro #00FF00 uniforme, sem chao, sem sombra no chao, sem texto, sem numeros, sem bordas, sem grade."
+  },
+  {
+   "arquivo": "ember_muralhas_01.png",
+   "conteudo": [
+    "muralha_negra_reta",
+    "muralha_negra_canto"
+   ],
+   "prompt_para_gerar": "Folha de estruturas defensivas para Fortaleza de Cinzas, Paradise RPG. Dois objetos separados: esquerda, segmento reto de muralha medieval de basalto negro, alta, espessa, rachada e parcialmente queimada; direita, segmento de canto em angulo de 90 graus da MESMA muralha, com altura, largura estrutural, paleta e estilo identicos. Pixel art medieval detalhada top-down 45 graus, face frontal visivel, topo da muralha e bases bem definidos. Projetadas para encaixar modularmente. Objetos inteiros com amplissimo espaco vazio entre eles. Fundo chroma verde puro #00FF00, sem chao, sem sombras no chao, sem texto, sem numeros, sem grade."
+  },
+  {
+   "arquivo": "ember_torres_01.png",
+   "conteudo": [
+    "torre_vigia_destruida",
+    "torre_infernal"
+   ],
+   "prompt_para_gerar": "Duas torres medievais para o mapa Fortaleza de Cinzas do Paradise RPG, pixel art detalhada perspectiva top-down 45 graus. Esquerda: torre de vigia de pedra negra destruida, topo quebrado, rachaduras e madeiras queimadas. Direita: grande torre infernal intacta, arquitetura ameaçadora em obsidiana negra, janelas com brilho laranja de fogo interno, pontas e ameias medievais. Torres individuais inteiras, muito espaco verde entre ambas, bases visiveis, sem cortes. Fundo verde chroma puro #00FF00, sem chao, sombra, texto, numeros ou bordas."
+  },
+  {
+   "arquivo": "ember_forjas_01.png",
+   "conteudo": [
+    "forja_guerra",
+    "bigorna_negra",
+    "caldeirao_metal_fundido"
+   ],
+   "prompt_para_gerar": "Folha de tres equipamentos de uma forja militar infernal para Paradise RPG, pixel art medieval detalhada top-down 45 graus. Esquerda: grande forno de guerra de basalto negro com abertura frontal e fogo laranja intenso. Centro: bigorna pesada de ferro negro sobre base de pedra, sem pessoas. Direita: caldeirao industrial medieval contendo metal fundido brilhante, sustentado por estrutura de ferro escuro. Cada objeto inteiro e separado dos demais por muito espaco verde. Formas e bases claras para colisao no Godot. Fundo verde chroma solido #00FF00, sem chao, sem sombra no chao, sem texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_guerra_01.png",
+   "conteudo": [
+    "estandarte_queimado",
+    "corrente_gigante",
+    "jaula_prisioneiro",
+    "carroca_destruida"
+   ],
+   "prompt_para_gerar": "Folha de quatro objetos de guerra medieval para a Fortaleza de Cinzas, Paradise RPG. Pixel art detalhada, perspectiva top-down 45 graus. Objeto 1: estandarte negro e vermelho queimado preso a haste de madeira carbonizada. Objeto 2: enorme corrente negra vertical presa a um pedestal de pedra. Objeto 3: jaula medieval de barras grossas de ferro negro, vazia e com porta frontal visivel. Objeto 4: carroca militar de madeira queimada e rodas quebradas. Cada objeto independente, inteiro, isolado por muito espaco vazio. Fundo verde chroma #00FF00 liso, sem sombras no chao, sem texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_refugio_01.png",
+   "conteudo": [
+    "barraca_sobrevivente",
+    "fogueira_refugio"
+   ],
+   "prompt_para_gerar": "Dois objetos do acampamento de sobreviventes da Fortaleza de Cinzas para Paradise RPG, pixel art medieval detalhada, top-down 45 graus. Esquerda: barraca militar improvisada feita de lona bege escurecida, couro e madeira, resistente as cinzas vulcanicas, entrada frontal visivel. Direita: pequena fogueira de sobreviventes com lenha escura e chama laranja discreta. Objetos separados por enorme espaco vazio, totalmente inteiros. Fundo verde chroma puro #00FF00, sem chao, sem sombra, sem texto, numeros, bordas ou grade."
+  },
+  {
+   "arquivo": "ember_estatuas_altares_01.png",
+   "conteudo": [
+    "estatua_guerreiro_caido",
+    "altar_infernal",
+    "braseiro_infernal"
+   ],
+   "prompt_para_gerar": "Folha de tres estruturas rituais para a Cidadela da Fortaleza de Cinzas, Paradise RPG, pixel art medieval sombria e detalhada, top-down 45 graus. Esquerda: estatua antiga de guerreiro com armadura pesada e espada apontada para o chao, parcialmente quebrada, sobre pedestal. Centro: altar infernal de obsidiana negra, runas vermelhas e pequena energia laranja concentrada. Direita: braseiro medieval de ferro negro com chamas vermelhas e douradas. Cada objeto independente e completo, amplamente separado, bases visiveis. Fundo verde chroma #00FF00 puro, sem chao, sombra no chao, texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_dracos_ambiente_01.png",
+   "conteudo": [
+    "ninho_draco",
+    "ovo_draco",
+    "esqueleto_criatura_gigante"
+   ],
+   "prompt_para_gerar": "Folha de tres objetos ambientais para o Ninho dos Dracos em Paradise RPG, pixel art medieval detalhada top-down 45 graus. Esquerda: grande ninho de dragao construido com pedras vulcanicas, gravetos carbonizados e escamas antigas, vazio. Centro: ovo de dragao vermelho-escuro com rachaduras luminosas laranjas. Direita: esqueleto antigo de enorme criatura fantastica, com costelas e cranio envelhecidos, sem sangue ou carne. Objetos totalmente separados, inteiros e com muito espaco verde entre eles. Fundo cromatico verde puro #00FF00 uniforme, sem chao, sombra no chao, texto, numeros, grade ou borda."
+  },
+  {
+   "arquivo": "ember_pontes_01.png",
+   "conteudo": [
+    "ponte_basalto_antiga",
+    "ponte_obsidiana"
+   ],
+   "prompt_para_gerar": "Folha com duas pontes independentes para o mapa Fortaleza de Cinzas de Paradise RPG, perspectiva top-down 45 graus, pixel art medieval detalhada. Esquerda: ponte antiga de basalto negro, larga, parcialmente rachada, com tabuleiro plano transitavel e muretas laterais baixas. Direita: ponte infernal de obsidiana polida, mais ornamentada, com runas vermelhas e corrimoes de pedra negra. Ambas devem ter entrada e saida livres, bases inteiras, largura suficiente para heroi de 104 px e serem adequadas para atravessar rios de lava. Duas pontes separadas por muito espaco vazio. Sem lava desenhada sob elas, sem chao, sem sombras, sem texto, sem numeros. Fundo verde chroma puro #00FF00."
+  },
+  {
+   "arquivo": "ember_portoes_01.png",
+   "conteudo": [
+    "portao_fortaleza"
+   ],
+   "prompt_para_gerar": "Um unico portao monumental da Fortaleza de Cinzas, Paradise RPG, pixel art medieval detalhada top-down 45 graus. Arco de muralha negra vulcanica com duas grandes portas de ferro negro parcialmente abertas, correntes pesadas e rachaduras com brilho vermelho. Passagem central larga, suficiente para heroi de 104 px. Estrutura inteira, base visivel, abertura frontal clara, sem nenhuma parte cortada. Fundo verde chroma #00FF00 puro, sem chao, sombra, texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_trono_01.png",
+   "conteudo": [
+    "trono_general"
+   ],
+   "prompt_para_gerar": "Um unico trono monumental do General Infernal para Paradise RPG, pixel art medieval sombria detalhada, perspectiva top-down 45 graus. Trono vazio de obsidiana negra e metal derretido, encosto muito alto com pontas ameaçadoras, rachaduras internas com brilho de lava vermelha e dourada, bracos ornamentados e base de pedra negra. Deve parecer o assento de um comandante infernal poderoso. Objeto inteiro e centralizado com margens amplas, sem personagem, sem cenario ou piso adicional. Fundo verde chroma puro #00FF00, sem sombra no chao, sem texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_portais_01.png",
+   "conteudo": [
+    "portal_pantano_estrutura",
+    "portal_proxima_regiao_estrutura"
+   ],
+   "prompt_para_gerar": "Folha de dois portais medievais para a Fortaleza de Cinzas, Paradise RPG, pixel art detalhada perspectiva top-down 45 graus. Esquerda: portal de retorno ao Pantano das Almas Perdidas, arco de pedra negra antiga com energia verde-lodosa e particulas violetas. Direita: portal para a Fronteira de Fogo, arco monumental de obsidiana negra com runas douradas, energia vermelha e laranja e correntes magicas negras envolvendo parte da estrutura. Ambos com abertura central ampla suficiente para um heroi de 104 px, bases visiveis, portais inteiros. Muito espaco verde vazio separando os dois. Fundo verde chroma puro #00FF00 liso, sem chao, sombras no chao, texto, numeros, grade ou molduras."
+  },
+  {
+   "arquivo": "ember_cinzeiro_errante_01.png",
+   "conteudo": [
+    "Cinzeiro Errante"
+   ],
+   "prompt_para_gerar": "Crie UMA folha de referencia do novo inimigo Cinzeiro Errante para Paradise RPG. Pixel art medieval sombria detalhada, compativel com personagens ja existentes. Monstro humanoide mutante com aproximadamente 1.35 vezes a altura do heroi, corpo de cinzas compactadas e rocha vulcanica, ombros largos, bracos longos, dedos petrificados, olhos laranja brilhantes e fissuras de magma no peito. Exatamente quatro poses inteiras lado a lado: vista de frente, vista de costas, vista lateral olhando para a esquerda e vista lateral olhando para a direita. Mesmo tamanho e proporcoes em todas as poses, pes alinhados, grande distancia entre cada personagem. Fundo verde chroma puro #00FF00 uniforme, sem chao, sem sombra no chao, sem texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_cinzeiro_andar_01.png",
+   "conteudo": [
+    "Cinzeiro Errante"
+   ],
+   "prompt_para_gerar": "Sprite sheet de caminhada do Cinzeiro Errante para Paradise RPG. Manter exatamente o design do monstro humanoide de cinzas e basalto definido na folha de referencia, olhos e rachaduras laranja incandescentes. Exatamente 8 quadros em uma unica linha horizontal, todos de vista lateral olhando para a ESQUERDA. Animacao de caminhada pesada em lugar, alternando os pes e balancando bracos rochosos, com oito poses sequenciais diferentes e loop continuo. Um unico monstro por quadro, tamanho identico, pes na mesma linha, sem deslocamento horizontal, muito espaco vazio entre quadros. Fundo verde chroma puro #00FF00, sem sombra no chao, sem texto, numeros, grade ou moldura."
+  },
+  {
+   "arquivo": "ember_cinzeiro_ataque_01.png",
+   "conteudo": [
+    "Cinzeiro Errante"
+   ],
+   "prompt_para_gerar": "Sprite sheet de ATAQUE do Cinzeiro Errante para Paradise RPG. Mesmo design exato, escala e cores da folha original. Uma unica linha horizontal com exatamente 8 quadros, vista lateral olhando para a ESQUERDA. Sequencia: 1 parado ameaçador, 2 levanta o braco direito, 3 prepara golpe pesado, 4 desfere soco para a esquerda, 5 impacto com pequenas brasas junto ao punho, 6 recolhe o braco, 7 recupera equilibrio, 8 volta a pose parada. Um unico monstro por quadro, pes alinhados, corpo inteiro, grande espaco entre quadros. Fundo verde chroma #00FF00 liso, sem texto, numeros, grade, moldura ou sombra no chao."
+  },
+  {
+   "arquivo": "ember_cinzeiro_especial_01.png",
+   "conteudo": [
+    "Cinzeiro Errante"
+   ],
+   "prompt_para_gerar": "Sprite sheet do golpe especial Nuvem de Cinzas do Cinzeiro Errante, Paradise RPG. Manter o MESMO monstro de cinzas e basalto, mesmas proporcoes e paleta. Uma unica linha horizontal com exatamente 8 quadros, vista lateral olhando para a ESQUERDA. 1 parado, 2 curva o corpo, 3 abre os bracos, 4 rachaduras do peito brilham, 5 libera pequena nuvem escura de cinzas para a esquerda, 6 nuvem se expande junto ao corpo, 7 fecha os bracos e reduz o brilho, 8 retorna a pose parada. Efeito compacto, sem invadir os quadros vizinhos. Personagem inteiro em todos os quadros, pes alinhados, muito espaco vazio entre poses. Fundo chroma verde #00FF00 liso, sem texto, numeros, grade, moldura ou sombra no chao."
+  },
+  {
+   "arquivo": "ember_cinzeiro_morte_01.png",
+   "conteudo": [
+    "Cinzeiro Errante"
+   ],
+   "prompt_para_gerar": "Sprite sheet de MORTE do Cinzeiro Errante para Paradise RPG. Mesmo monstro original de cinzas e basalto, vista lateral olhando para a ESQUERDA, exatamente 8 quadros em uma unica linha horizontal. 1 recebe o golpe, 2 cambaleia, 3 rachaduras luminosas se apagam, 4 corpo comeca a desmoronar, 5 cai de joelhos, 6 torso desaba em fragmentos de basalto, 7 transforma-se em monticulo de cinzas, 8 monticulo de cinzas imovel. Sem sangue. Todos os quadros com mesmo enquadramento e linha do solo, muito espaco vazio entre eles, nada cortado. Fundo verde chroma puro #00FF00, sem chao, sem sombra no chao, texto, numeros, grade ou moldura."
+  }
+ ],
+ "notas_implementacao": {
+  "engine": "Godot 4",
+  "tipo_mapa": "2D top-down",
+  "resolucao_mundo_px": [
+   6400,
+   5760
+  ],
+  "resolucao_arte_chao_px": [
+   400,
+   320
+  ],
+  "escala_chao": 2,
+  "total_pedacos_chao": 72,
+  "quantidade_texturas_terreno": 8,
+  "quantidade_zonas": 8,
+  "quantidade_tipos_objetos": 39,
+  "quantidade_inimigos": 4,
+  "quantidade_npcs": 4,
+  "quantidade_portais": 2,
+  "spawn_seguro": true,
+  "ordem_renderizacao": "YSort pela posicao dos pes",
+  "colisao_lava": "Poligonos bloqueantes com recorte de pontes e plataforma da arena.",
+  "colisao_objetos": "Usar pe_px e porte. Objetos baixos nao possuem corpo bloqueante; objetos de joelho sao ultrapassaveis; objetos de cintura possuem corpo solido e ordenacao visual por profundidade.",
+  "persistencia": [
+   "Rei Afogado derrotado",
+   "Portal de entrada desbloqueado",
+   "Prisioneiro Darian libertado",
+   "Portao da Cidadela aberto",
+   "General Infernal derrotado",
+   "Portal da Fronteira de Fogo desbloqueado"
+  ],
+  "otimizacao_mobile": [
+   "Carregar apenas objetos proximos da camera, mantendo dados de colisao essenciais.",
+   "Reutilizar texturas ambientais em diferentes coordenadas.",
+   "Usar MultiMesh ou TileMapLayer para pequenos detalhes repetitivos quando apropriado.",
+   "Reduzir particulas de cinzas e fumaca fora da camera.",
+   "Manter animacoes ambientais em baixa taxa de quadros.",
+   "Ativar inimigos conforme distancia do jogador.",
+   "Nao aplicar colisao individual em cada particula de brasa.",
+   "Manter as 72 pecas de terreno perfeitamente alinhadas na grade de 800 x 640 px."
+  ],
+  "validacoes_obrigatorias": [
+   "Todos os pontos devem estar dentro dos limites de 6400 x 5760 px.",
+   "A entrada sudoeste deve ser acessivel e segura.",
+   "O portal do Pantano deve funcionar nos dois sentidos depois do desbloqueio inicial.",
+   "As duas travessias de lava devem ter corredores transitaveis.",
+   "As mascaras de lava devem respeitar as pontes.",
+   "A arena precisa permanecer caminhavel e sem obstaculos solidos no centro.",
+   "O General Infernal nao deve surgir antes da ativacao da arena.",
+   "O portal final deve permanecer bloqueado ate a derrota do General Infernal.",
+   "Os quatro NPCs devem ser acessiveis sem atravessar objetos solidos.",
+   "A colisao e a profundidade devem respeitar o campo porte e a faixa pe_px.",
+   "As imagens de objetos devem ser importadas separadamente das texturas do chao.",
+   "Os sprites existentes dos Cavaleiros Sombrios, Dracos Jovens e General Infernal devem ser reutilizados, sem recriar seus designs.",
+   "O novo Cinzeiro Errante deve manter escala consistente com o heroi de 104 px.",
+   "Conservar caminhos e portais funcionais mesmo quando houver objetos decorativos espalhados."
+  ],
+  "ajustes_geometricos_necessarios": [
+   "A grade de terreno informada e 8 colunas por 9 linhas, cada celula cobrindo 800 x 640 px do mundo.",
+   "A zona Cidadela do General Infernal ocupa a faixa oriental inteira; sua arena principal fica concentrada no nordeste.",
+   "Os caminhos definidos sao eixos de navegacao. Aplicar geometria final de passabilidade, respeitando a largura de cada trecho.",
+   "A Passagem do Rio Infernal deve possuir tabuleiro continuo sobre os dois canais de lava, mesmo utilizando mais de um sprite de ponte.",
+   "A Ponte da Ultima Chama deve atravessar integralmente o fosso diante da cidadela.",
+   "O lago vulcanico superior deve ser recortado em torno da arena circular e da Avenida do General.",
+   "As laterais solidas das pontes nao podem reduzir a largura livre abaixo de 180 px.",
+   "Os portoes devem ter colisao separada entre laterais permanentes e vao central que abre.",
+   "A estrutura de cada portal deve possuir laterais solidas e abertura central interativa livre.",
+   "Os retangulos de zona sao particoes logicas; nao devem gerar paredes invisiveis."
+  ]
+ }
+}

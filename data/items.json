@@ -5,7 +5,7 @@
     "description": "Recupera 50 de vida.",
     "heal": 50,
     "price": 15,
-    "icon": "res://assets/sprites/icon_potion_health_small.png"
+    "icon": "res://assets/items/icones/pocao_pequena_de_vida.png"
   },
   "Pocao media de vida": {
     "id": "medium_health_potion",
@@ -13,7 +13,7 @@
     "description": "Recupera 120 de vida.",
     "heal": 120,
     "price": 40,
-    "icon": "res://assets/sprites/icon_potion_health_medium.png"
+    "icon": "res://assets/items/icones/pocao_media_de_vida.png"
   },
   "Pocao pequena de mana": {
     "id": "small_mana_potion",
@@ -21,7 +21,7 @@
     "description": "Recupera 40 de mana.",
     "mana": 40,
     "price": 15,
-    "icon": "res://assets/sprites/icon_potion_mana_small.png"
+    "icon": "res://assets/items/icones/pocao_pequena_de_mana.png"
   },
   "Pocao media de mana": {
     "id": "medium_mana_potion",
@@ -29,133 +29,133 @@
     "description": "Recupera 100 de mana.",
     "mana": 100,
     "price": 40,
-    "icon": "res://assets/sprites/icon_potion_mana_medium.png"
+    "icon": "res://assets/items/icones/pocao_media_de_mana.png"
   },
   "Couro Rasgado": {
     "id": "torn_leather",
     "type": "material",
     "description": "Material simples de criaturas da floresta.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/couro_rasgado.png"
   },
   "Presa de Javali": {
     "id": "boar_tusk",
     "type": "quest",
     "description": "Item de missao da Floresta dos Javalis.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/presa_de_javali.png"
   },
   "Carne Crua": {
     "id": "raw_meat",
     "type": "material",
     "description": "Pode ser vendida futuramente.",
-    "icon": "res://assets/sprites/drop_bag.png"
+    "icon": "res://assets/items/icones/carne_crua.png"
   },
   "Presa de Lobo": {
     "id": "wolf_fang",
     "type": "material",
     "description": "Presa afiada de lobo.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/presa_de_lobo.png"
   },
   "Essencia Arcana": {
     "id": "arcane_essence",
     "type": "material",
     "description": "Energia retirada de criaturas magicas.",
-    "icon": "res://assets/sprites/harvest/harvest_essencia_arcana.png"
+    "icon": "res://assets/items/icones/essencia_arcana.png"
   },
   "Po Mistico": {
     "id": "mystic_dust",
     "type": "material",
     "description": "Po brilhante usado em encantamentos.",
-    "icon": "res://assets/sprites/harvest/harvest_po_mistico.png"
+    "icon": "res://assets/items/icones/po_mistico.png"
   },
   "Fragmento de Cristal": {
     "id": "crystal_fragment",
     "type": "quest",
     "description": "Fragmento necessario para O Cristal Quebrado.",
-    "icon": "res://assets/sprites/harvest/harvest_fragmento_cristal.png"
+    "icon": "res://assets/items/icones/fragmento_de_cristal.png"
   },
   "Asa de Morcego": {
     "id": "bat_wing",
     "type": "quest",
     "description": "Asa necessaria para Sombras na Caverna.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/asa_de_morcego.png"
   },
   "Presa Venenosa": {
     "id": "venom_fang",
     "type": "material",
     "description": "Presa com veneno fraco.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/presa_venenosa.png"
   },
   "Teia Pegajosa": {
     "id": "sticky_web",
     "type": "material",
     "description": "Teia resistente.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/teia_pegajosa.png"
   },
   "Minerio de Ferro": {
     "id": "iron_ore",
     "type": "material",
     "description": "Minerio usado na forja de armaduras pesadas.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/minerio_de_ferro.png"
   },
   "Madeira Bruta": {
     "id": "raw_wood",
     "type": "material",
     "description": "Madeira simples para escudos e cabos.",
-    "icon": "res://assets/sprites/drop_wood.png"
+    "icon": "res://assets/items/icones/madeira_bruta.png"
   },
   "Couro Reforcado": {
     "id": "reinforced_leather",
     "type": "material",
     "description": "Couro firme usado em armaduras intermediarias.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/couro_reforcado.png"
   },
   "Erva Curativa": {
     "id": "healing_herb",
     "type": "material",
     "description": "Uma erva comum das clareiras da floresta.",
-    "icon": "res://assets/sprites/harvest/harvest_erva_curativa.png"
+    "icon": "res://assets/items/icones/erva_curativa.png"
   },
   "Erva Vermelha": {
     "id": "red_herb",
     "type": "material",
     "description": "Erva usada em receitas de cura e alquimia.",
-    "icon": "res://assets/sprites/harvest/harvest_erva_vermelha.png"
+    "icon": "res://assets/items/icones/erva_vermelha.png"
   },
   "Folha da Floresta": {
     "id": "forest_leaf",
     "type": "material",
     "description": "Folha leve usada em alquimia inicial.",
-    "icon": "res://assets/sprites/harvest/harvest_erva_curativa.png"
+    "icon": "res://assets/items/icones/folha_da_floresta.png"
   },
   "Aco Negro": {
     "id": "black_steel",
     "type": "material",
     "description": "Metal pesado usado em equipamentos raros.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/aco_negro.png"
   },
   "Pedra Runica": {
     "id": "runic_stone",
     "type": "material",
     "description": "Pedra gravada com energia antiga.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/pedra_runica.png"
   },
   "Cristal Bruto": {
     "id": "raw_crystal",
     "type": "material",
     "description": "Cristal instavel das minas intermediarias.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/cristal_bruto.png"
   },
   "Nucleo Flamejante": {
     "id": "flame_core",
     "type": "material",
     "description": "Nucleo quente usado em forjas avancadas.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/nucleo_flamejante.png"
   },
   "Escama Draconica": {
     "id": "draconic_scale",
     "type": "material",
     "description": "Escama resistente de dracos e chefes.",
-    "icon": "res://assets/sprites/drop_material.png"
+    "icon": "res://assets/items/icones/escama_draconica.png"
   },
   "Espada Enferrujada": {
     "id": "rusty_sword",
@@ -204,7 +204,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/sprites/icon_slot_shield.png"
+    "icon": "res://assets/items/icones/escudo_de_madeira.png"
   },
   "Elmo de Couro": {
     "id": "leather_helmet",
@@ -217,7 +217,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/armor_sets/leather/leather_helmet.png"
+    "icon": "res://assets/items/icones/elmo_de_couro.png"
   },
   "Armadura de Couro": {
     "id": "leather_armor",
@@ -231,7 +231,7 @@
       "defesa": 3,
       "vida_max": 10
     },
-    "icon": "res://assets/armor_sets/leather/leather_chest.png"
+    "icon": "res://assets/items/icones/armadura_de_couro.png"
   },
   "Calca de Couro": {
     "id": "armor_leather_legs",
@@ -262,7 +262,7 @@
     "stats": {
       "move_speed_pct": 0.03
     },
-    "icon": "res://assets/armor_sets/leather/leather_boot_l.png"
+    "icon": "res://assets/items/icones/bota_de_couro.png"
   },
   "Anel Simples": {
     "id": "simple_ring",
@@ -334,7 +334,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/armor_sets/leather/leather_glove_l.png"
+    "icon": "res://assets/items/icones/luvas_de_couro.png"
   },
   "Calcas de Couro": {
     "id": "leather_old_pants",
@@ -346,7 +346,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/armor_sets/leather/leather_legs.png"
+    "icon": "res://assets/items/icones/calcas_de_couro.png"
   },
   "Botas de Couro": {
     "id": "leather_old_boots",
@@ -358,7 +358,7 @@
     "stats": {
       "defesa": 1
     },
-    "icon": "res://assets/armor_sets/leather/leather_boot_l.png"
+    "icon": "res://assets/items/icones/botas_de_couro.png"
   },
   "Elmo de Ferro": {
     "id": "armor_iron_helmet",
@@ -404,7 +404,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/armor_sets/iron/iron_glove_l.png"
+    "icon": "res://assets/items/icones/manoplas_de_ferro.png"
   },
   "Perneiras de Ferro": {
     "id": "iron_legs",
@@ -414,7 +414,7 @@
     "stats": {
       "defesa": 3
     },
-    "icon": "res://assets/armor_sets/iron/iron_legs.png"
+    "icon": "res://assets/items/icones/perneiras_de_ferro.png"
   },
   "Botas de Ferro": {
     "id": "iron_boots",
@@ -424,7 +424,7 @@
     "stats": {
       "defesa": 2
     },
-    "icon": "res://assets/armor_sets/iron/iron_boot_l.png"
+    "icon": "res://assets/items/icones/botas_de_ferro.png"
   },
   "Chapeu Arcano": {
     "id": "arcane_hat",
@@ -434,7 +434,7 @@
     "stats": {
       "mana_max": 10
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/items/icones/chapeu_arcano.png"
   },
   "Manto Arcano": {
     "id": "arcane_robe",
@@ -444,7 +444,7 @@
     "stats": {
       "mana_max": 15
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/items/icones/manto_arcano.png"
   },
   "Luvas Arcanas": {
     "id": "arcane_gloves",
@@ -454,7 +454,7 @@
     "stats": {
       "ataque_magico": 1
     },
-    "icon": "res://assets/sprites/icon_slot_gloves.png"
+    "icon": "res://assets/items/icones/luvas_arcanas.png"
   },
   "Calca Arcana": {
     "id": "arcane_pants",
@@ -464,7 +464,7 @@
     "stats": {
       "mana_max": 10
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/items/icones/calca_arcana.png"
   },
   "Botas Arcanas": {
     "id": "arcane_boots",
@@ -474,7 +474,7 @@
     "stats": {
       "mana_max": 5
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/items/icones/botas_arcanas.png"
   },
   "Elmo Draconico": {
     "id": "draconic_helmet",
@@ -488,7 +488,7 @@
       "defesa": 5,
       "vida_max": 30
     },
-    "icon": "res://assets/sprites/icon_slot_helmet.png"
+    "icon": "res://assets/items/icones/elmo_draconico.png"
   },
   "Armadura Draconica": {
     "id": "draconic_armor",
@@ -502,7 +502,7 @@
       "defesa": 9,
       "vida_max": 60
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/items/icones/armadura_draconica.png"
   },
   "Calca Draconica": {
     "id": "draconic_pants",
@@ -516,7 +516,7 @@
       "defesa": 5,
       "vida_max": 20
     },
-    "icon": "res://assets/sprites/icon_slot_pants.png"
+    "icon": "res://assets/items/icones/calca_draconica.png"
   },
   "Botas Draconicas": {
     "id": "draconic_boots",
@@ -530,7 +530,7 @@
       "defesa": 4,
       "move_speed_pct": 0.06
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/items/icones/botas_draconicas.png"
   },
   "Manto Celestial": {
     "id": "celestial_robe",
@@ -545,7 +545,7 @@
       "ataque_magico": 6,
       "mana_regen_pct": 0.08
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/items/icones/manto_celestial.png"
   },
   "Espada de Aco Negro": {
     "id": "black_steel_sword",
@@ -558,7 +558,7 @@
       "ataque": 22,
       "physical_damage_pct": 0.04
     },
-    "icon": "res://assets/weapons/titanium/titanium_sword.png"
+    "icon": "res://assets/items/icones/espada_de_aco_negro.png"
   },
   "Arco Cristalino": {
     "id": "crystal_bow",
@@ -571,7 +571,7 @@
       "ataque_distancia": 24,
       "attack_speed_pct": 0.04
     },
-    "icon": "res://assets/weapons/mithril/mithril_bow.png"
+    "icon": "res://assets/items/icones/arco_cristalino.png"
   },
   "Cajado de Cristal": {
     "id": "crystal_staff",
@@ -584,7 +584,7 @@
       "ataque_magico": 22,
       "mana_max": 80
     },
-    "icon": "res://assets/weapons/mithril/mithril_staff.png"
+    "icon": "res://assets/items/icones/cajado_de_cristal.png"
   },
   "Elmo de Aco Sombrio": {
     "id": "shadow_steel_helmet",
@@ -598,7 +598,7 @@
       "defesa": 12,
       "vida_max": 45
     },
-    "icon": "res://assets/armor_sets/titanium/titanium_helmet.png"
+    "icon": "res://assets/items/icones/elmo_de_aco_sombrio.png"
   },
   "Armadura de Aco Sombrio": {
     "id": "shadow_steel_armor",
@@ -612,7 +612,7 @@
       "defesa": 20,
       "vida_max": 95
     },
-    "icon": "res://assets/armor_sets/titanium/titanium_chest.png"
+    "icon": "res://assets/items/icones/armadura_de_aco_sombrio.png"
   },
   "Luvas de Aco Sombrio": {
     "id": "shadow_steel_gloves",
@@ -626,7 +626,7 @@
       "defesa": 6,
       "attack_speed_pct": 0.07
     },
-    "icon": "res://assets/armor_sets/titanium/titanium_glove_l.png"
+    "icon": "res://assets/items/icones/luvas_de_aco_sombrio.png"
   },
   "Calca de Aco Sombrio": {
     "id": "shadow_steel_pants",
@@ -640,7 +640,7 @@
       "defesa": 12,
       "vida_max": 35
     },
-    "icon": "res://assets/armor_sets/titanium/titanium_legs.png"
+    "icon": "res://assets/items/icones/calca_de_aco_sombrio.png"
   },
   "Botas de Aco Sombrio": {
     "id": "shadow_steel_boots",
@@ -654,7 +654,7 @@
       "defesa": 7,
       "move_speed_pct": 0.08
     },
-    "icon": "res://assets/armor_sets/titanium/titanium_boot_l.png"
+    "icon": "res://assets/items/icones/botas_de_aco_sombrio.png"
   },
   "Chapeu de Cristal Ancestral": {
     "id": "ancestral_crystal_hat",
@@ -668,7 +668,7 @@
       "mana_max": 75,
       "ataque_magico": 7
     },
-    "icon": "res://assets/armor_sets/crystal/crystal_helmet.png"
+    "icon": "res://assets/items/icones/chapeu_de_cristal_ancestral.png"
   },
   "Manto de Cristal Ancestral": {
     "id": "ancestral_crystal_robe",
@@ -683,7 +683,7 @@
       "ataque_magico": 10,
       "defesa": 8
     },
-    "icon": "res://assets/armor_sets/crystal/crystal_chest.png"
+    "icon": "res://assets/items/icones/manto_de_cristal_ancestral.png"
   },
   "Luvas de Cristal Ancestral": {
     "id": "ancestral_crystal_gloves",
@@ -697,7 +697,7 @@
       "ataque_magico": 6,
       "attack_speed_pct": 0.06
     },
-    "icon": "res://assets/armor_sets/crystal/crystal_glove_l.png"
+    "icon": "res://assets/items/icones/luvas_de_cristal_ancestral.png"
   },
   "Calca de Cristal Ancestral": {
     "id": "ancestral_crystal_pants",
@@ -711,7 +711,7 @@
       "mana_max": 65,
       "defesa": 6
     },
-    "icon": "res://assets/armor_sets/crystal/crystal_legs.png"
+    "icon": "res://assets/items/icones/calca_de_cristal_ancestral.png"
   },
   "Botas de Cristal Ancestral": {
     "id": "ancestral_crystal_boots",
@@ -725,7 +725,7 @@
       "mana_max": 45,
       "move_speed_pct": 0.09
     },
-    "icon": "res://assets/armor_sets/crystal/crystal_boot_l.png"
+    "icon": "res://assets/items/icones/botas_de_cristal_ancestral.png"
   },
   "Espada Infernal": {
     "id": "infernal_sword",
@@ -738,7 +738,7 @@
       "ataque": 38,
       "physical_damage_pct": 0.1
     },
-    "icon": "res://assets/weapons/obsidian/obsidian_sword.png"
+    "icon": "res://assets/items/icones/espada_infernal.png"
   },
   "Armadura Infernal": {
     "id": "infernal_armor",
@@ -753,7 +753,7 @@
       "vida_max": 160,
       "physical_damage_pct": 0.04
     },
-    "icon": "res://assets/sprites/icon_slot_armor.png"
+    "icon": "res://assets/items/icones/armadura_infernal.png"
   },
   "Botas Infernais": {
     "id": "infernal_boots",
@@ -768,7 +768,7 @@
       "move_speed_pct": 0.12,
       "attack_speed_pct": 0.06
     },
-    "icon": "res://assets/sprites/icon_slot_boots.png"
+    "icon": "res://assets/items/icones/botas_infernais.png"
   },
   "Rubi da Forca": {
     "id": "ruby_strength",
@@ -781,7 +781,7 @@
       "ataque": 5,
       "physical_damage_pct": 0.05
     },
-    "icon": "res://assets/jewelry/gold/gold_jewel.png"
+    "icon": "res://assets/items/icones/rubi_da_forca.png"
   },
   "Safira da Mana": {
     "id": "sapphire_mana",
@@ -794,7 +794,7 @@
       "mana_max": 40,
       "mana_regen_pct": 0.08
     },
-    "icon": "res://assets/jewelry/titanium/titanium_jewel.png"
+    "icon": "res://assets/items/icones/safira_da_mana.png"
   },
   "Esmeralda da Agilidade": {
     "id": "emerald_agility",
@@ -807,7 +807,7 @@
       "attack_speed_pct": 0.05,
       "move_speed_pct": 0.05
     },
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/esmeralda_da_agilidade.png"
   },
   "Carvao": {
     "id": "coal",
@@ -815,7 +815,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Combustivel basico para receitas de ferro.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/carvao.png"
   },
   "Tira de Couro": {
     "id": "leather_strap",
@@ -823,7 +823,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Tira resistente usada para prender pecas de armadura.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/tira_de_couro.png"
   },
   "Placa de Ferro": {
     "id": "iron_plate",
@@ -831,7 +831,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Placa refinada usada em forja de equipamentos.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/placa_de_ferro.png"
   },
   "Lingote de Ouro": {
     "id": "gold_ingot",
@@ -839,7 +839,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Metal nobre usado em armaduras raras.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/lingote_de_ouro.png"
   },
   "Fragmento de Rubi": {
     "id": "ruby_shard",
@@ -847,7 +847,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Fragmento rubro usado em ornamentos dourados.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/fragmento_de_rubi.png"
   },
   "Rebite de Ouro": {
     "id": "gold_rivet",
@@ -855,7 +855,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Rebite dourado usado em pecas raras.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/rebite_de_ouro.png"
   },
   "Minerio de Titanio": {
     "id": "titanium_ore",
@@ -863,7 +863,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Minerio azul-prateado usado em armaduras superiores.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/minerio_de_titanio.png"
   },
   "Cristal Azul": {
     "id": "blue_crystal",
@@ -871,7 +871,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Cristal azul usado para estabilizar titanio.",
-    "icon": "res://assets/sprites/harvest/harvest_cristal_azul.png"
+    "icon": "res://assets/items/icones/cristal_azul.png"
   },
   "Minerio de Mithril": {
     "id": "mithril_ore",
@@ -879,7 +879,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Minerio lendario, leve e muito resistente.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/minerio_de_mithril.png"
   },
   "Cristal Arcano": {
     "id": "arcane_crystal",
@@ -887,7 +887,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Cristal carregado com energia arcana.",
-    "icon": "res://assets/sprites/harvest/harvest_cristal_arcano.png"
+    "icon": "res://assets/items/icones/cristal_arcano.png"
   },
   "Placa de Titanio": {
     "id": "titanium_plate",
@@ -895,7 +895,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Placa de titanio refinada.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/placa_de_titanio.png"
   },
   "Fragmento de Obsidiana": {
     "id": "obsidian_shard",
@@ -903,7 +903,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Fragmento negro usado em armaduras sombrias.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/fragmento_de_obsidiana.png"
   },
   "Essencia Sombria": {
     "id": "dark_essence",
@@ -911,7 +911,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Essencia sombria coletada de criaturas perigosas.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/essencia_sombria.png"
   },
   "Placa de Mithril": {
     "id": "mithril_plate",
@@ -919,7 +919,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Placa de mithril refinada.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/placa_de_mithril.png"
   },
   "Cristal Divino": {
     "id": "divine_crystal",
@@ -927,7 +927,7 @@
     "type": "material",
     "rarity": "legendary",
     "description": "Cristal divino usado no set final.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/cristal_divino.png"
   },
   "Essencia Celestial": {
     "id": "celestial_essence",
@@ -935,7 +935,7 @@
     "type": "material",
     "rarity": "legendary",
     "description": "Essencia celestial usada em armaduras de cristal.",
-    "icon": "res://assets/sprites/drop_gem.png"
+    "icon": "res://assets/items/icones/essencia_celestial.png"
   },
   "Nucleo de Obsidiana": {
     "id": "obsidian_core",
@@ -943,7 +943,7 @@
     "type": "material",
     "rarity": "legendary",
     "description": "Nucleo denso extraido de obsidiana energizada.",
-    "icon": "res://assets/sprites/drop_ore.png"
+    "icon": "res://assets/items/icones/nucleo_de_obsidiana.png"
   },
   "Ombreira Esquerda de Couro": {
     "id": "armor_leather_shoulder_l",
@@ -2147,7 +2147,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Fungo bioluminescente colhido nas entradas da caverna.",
-    "icon": "res://assets/sprites/harvest/harvest_fungo_luminoso.png"
+    "icon": "res://assets/items/icones/fungo_luminoso.png"
   },
   "Erva de Caverna": {
     "id": "cave_herb",
@@ -2155,7 +2155,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Erva resistente usada em pocoes subterraneas.",
-    "icon": "res://assets/sprites/harvest/harvest_erva_caverna.png"
+    "icon": "res://assets/items/icones/erva_de_caverna.png"
   },
   "Minerio Bruto": {
     "id": "raw_ore",
@@ -2163,7 +2163,7 @@
     "type": "material",
     "rarity": "common",
     "description": "Minerio recem-extraido das paredes da caverna.",
-    "icon": "res://assets/sprites/harvest/harvest_minerio_bruto.png"
+    "icon": "res://assets/items/icones/minerio_bruto.png"
   },
   "Cristal Roxo": {
     "id": "purple_crystal",
@@ -2171,7 +2171,7 @@
     "type": "material",
     "rarity": "uncommon",
     "description": "Cristal profundo com energia instavel.",
-    "icon": "res://assets/sprites/harvest/harvest_cristal_roxo.png"
+    "icon": "res://assets/items/icones/cristal_roxo.png"
   },
   "Musgo Medicinal": {
     "id": "medicinal_moss",
@@ -2179,31 +2179,31 @@
     "type": "material",
     "rarity": "common",
     "description": "Musgo umido usado por alquimistas e curandeiros.",
-    "icon": "res://assets/sprites/harvest/harvest_musgo_medicinal.png"
+    "icon": "res://assets/items/icones/musgo_medicinal.png"
   },
   "Flor Medicinal": {
     "id": "medicinal_flower",
     "type": "material",
     "description": "Flor usada em receitas de cura da floresta.",
-    "icon": "res://assets/sprites/harvest/harvest_flor_medicinal.png"
+    "icon": "res://assets/items/icones/flor_medicinal.png"
   },
   "Cogumelo": {
     "id": "mushroom",
     "type": "material",
     "description": "Cogumelo encontrado em trechos umidos e sombreados.",
-    "icon": "res://assets/sprites/harvest/harvest_cogumelo.png"
+    "icon": "res://assets/items/icones/cogumelo.png"
   },
   "Planta Rara": {
     "id": "rare_plant",
     "type": "material",
     "description": "Planta rara usada em alquimia e forja avancada.",
-    "icon": "res://assets/sprites/harvest/harvest_planta_rara.png"
+    "icon": "res://assets/items/icones/planta_rara.png"
   },
   "Erva Especial": {
     "id": "special_herb",
     "type": "material",
     "description": "Erva de alto valor encontrada no fundo da floresta.",
-    "icon": "res://assets/sprites/harvest/harvest_erva_especial.png"
+    "icon": "res://assets/items/icones/erva_especial.png"
   },
   "Espada de Ferro": {
     "id": "weapon_iron_sword",
@@ -2803,5 +2803,98 @@
     },
     "icon": "res://assets/items/trofeus/trofeu_lamina_general.png",
     "trofeu_de": "General Infernal"
+  },
+  "Antidoto": {
+    "id": "antidote",
+    "type": "consumivel",
+    "description": "Tira o veneno na hora.",
+    "cura_veneno": true,
+    "price": 30,
+    "icon": "res://assets/items/icones/antidoto.png"
+  },
+  "Pocao grande de vida": {
+    "id": "large_health_potion",
+    "type": "consumivel",
+    "description": "Recupera 400 de vida.",
+    "heal": 400,
+    "price": 180,
+    "icon": "res://assets/items/icones/pocao_grande_de_vida.png"
+  },
+  "Pocao grande de mana": {
+    "id": "large_mana_potion",
+    "type": "consumivel",
+    "description": "Recupera 300 de mana.",
+    "mana": 300,
+    "price": 180,
+    "icon": "res://assets/items/icones/pocao_grande_de_mana.png"
+  },
+  "Carne Assada": {
+    "id": "roast_meat",
+    "type": "consumivel",
+    "description": "Cura 12 de vida por segundo durante 12 s.",
+    "comida": {
+      "cura_por_s": 12,
+      "dura_s": 12
+    },
+    "price": 20,
+    "icon": "res://assets/items/icones/carne_assada.png"
+  },
+  "Sopa de Cogumelos": {
+    "id": "mushroom_soup",
+    "type": "consumivel",
+    "description": "Cura 8 de vida e 6 de mana por segundo durante 15 s.",
+    "comida": {
+      "cura_por_s": 8,
+      "mana_por_s": 6,
+      "dura_s": 15
+    },
+    "price": 30,
+    "icon": "res://assets/items/icones/sopa_de_cogumelos.png"
+  },
+  "Espetinho do Cacador": {
+    "id": "hunter_skewer",
+    "type": "consumivel",
+    "description": "Cura 15/s por 10 s e +8% de dano por 5 min.",
+    "comida": {
+      "cura_por_s": 15,
+      "dura_s": 10,
+      "bonus": {
+        "dano_pct": 0.08
+      },
+      "bonus_s": 300
+    },
+    "price": 70,
+    "icon": "res://assets/items/icones/espetinho_do_cacador.png"
+  },
+  "Ensopado do Pantano": {
+    "id": "swamp_stew",
+    "type": "consumivel",
+    "description": "Cura 15/s por 10 s e +10% de defesa por 5 min.",
+    "comida": {
+      "cura_por_s": 15,
+      "dura_s": 10,
+      "bonus": {
+        "defesa_pct": 0.1
+      },
+      "bonus_s": 300
+    },
+    "price": 80,
+    "icon": "res://assets/items/icones/ensopado_do_pantano.png"
+  },
+  "Banquete do Aventureiro": {
+    "id": "adventurer_feast",
+    "type": "consumivel",
+    "description": "Cura 25/s por 12 s, +10% de dano e +10% de vida maxima por 10 min.",
+    "comida": {
+      "cura_por_s": 25,
+      "dura_s": 12,
+      "bonus": {
+        "dano_pct": 0.1,
+        "vida_max_pct": 0.1
+      },
+      "bonus_s": 600
+    },
+    "price": 200,
+    "icon": "res://assets/items/icones/banquete_do_aventureiro.png"
   }
 }

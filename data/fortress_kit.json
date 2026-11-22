@@ -1,0 +1,7336 @@
+{
+ "version": 1,
+ "world_size": [
+  6400,
+  5760
+ ],
+ "ground_scale": 2,
+ "chunk_grid": [
+  8,
+  9
+ ],
+ "chunk_px": [
+  400,
+  320
+ ],
+ "chunks_dir": "res://assets/maps/fortaleza_v2/chunks",
+ "chunk_prefix": "fortaleza_v2_chunk",
+ "walkable_mask": {
+  "path": "res://assets/maps/fortaleza_v2/fortaleza_v2_walkable.png",
+  "cell": 16
+ },
+ "slow_mask": {
+  "path": "res://assets/maps/fortaleza_v2/fortaleza_v2_lento.png",
+  "cell": 16,
+  "fator": 0.7
+ },
+ "minimap": "res://assets/maps/fortaleza_v2/fortaleza_v2_minimap.png",
+ "chao_animado": {
+  "rect": [
+   0,
+   0,
+   6400,
+   5760
+  ],
+  "frames": [
+   "res://assets/maps/fortaleza_v2/lava/lava_0.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_1.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_2.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_3.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_4.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_5.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_6.png",
+   "res://assets/maps/fortaleza_v2/lava/lava_7.png"
+  ],
+  "z": -101
+ },
+ "spawn": [
+  650,
+  5100
+ ],
+ "npcs": {
+  "Bram, Ferreiro das Cinzas": [
+   920,
+   5150
+  ],
+  "Darian, Soldado Aprisionado": [
+   3550,
+   4750
+  ],
+  "Lyra, Exploradora Vulcanica": [
+   4200,
+   2750
+  ],
+  "Orven, Ultimo Sentinela": [
+   5800,
+   1900
+  ]
+ },
+ "portais": {
+  "swamp_almas": [
+   420,
+   5350
+  ],
+  "proxima_regiao": [
+   6050,
+   220
+  ]
+ },
+ "solids": [],
+ "props": [
+  {
+   "name": "portal_pantano_estrutura",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/portal_pantano_estrutura.png",
+   "pos": [
+    420,
+    5350
+   ],
+   "offset": [
+    -184.0,
+    -303
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [],
+   "base": 0.0,
+   "layer": "ground"
+  },
+  {
+   "name": "portal_proxima_regiao_estrutura",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/portal_proxima_regiao_estrutura.png",
+   "pos": [
+    6050,
+    220
+   ],
+   "offset": [
+    -212.5,
+    -334
+   ],
+   "scale": 1.0012,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [],
+   "base": 0.0,
+   "layer": "ground"
+  },
+  {
+   "name": "trono_general",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/trono_general.png",
+   "pos": [
+    5790,
+    600
+   ],
+   "offset": [
+    -173.5,
+    -440
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -155.0,
+     -60.0,
+     310,
+     60.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "barraca_sobrevivente",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/barraca_sobrevivente.png",
+   "pos": [
+    1250,
+    5000
+   ],
+   "offset": [
+    -189.0,
+    -340
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -175.0,
+     -50.0,
+     350,
+     50.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "barraca_sobrevivente",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/barraca_sobrevivente.png",
+   "pos": [
+    300,
+    4800
+   ],
+   "offset": [
+    -189.0,
+    -340
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -175.0,
+     -50.0,
+     350,
+     50.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "portao_fortaleza",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/portao_fortaleza.png",
+   "pos": [
+    4840,
+    2700
+   ],
+   "offset": [
+    -293.0,
+    -386
+   ],
+   "scale": 1.0009,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -210.0,
+     -48.3,
+     100.8,
+     48.3
+    ],
+    [
+     109.2,
+     -48.3,
+     100.8,
+     48.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    5700,
+    760
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    6300,
+    760
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    5730,
+    1050
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    6270,
+    1050
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    4446,
+    1290
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8921,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    500,
+    502
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9362,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    5255,
+    1728
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8918,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    4491,
+    250
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9795,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    1711,
+    1703
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9117,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    4147,
+    285
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8432,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    5485,
+    869
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9222,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    2650,
+    2385
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8628,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    3366,
+    1280
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8757,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    583,
+    1200
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9541,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    5295,
+    2807
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9755,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    3320,
+    1825
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8905,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    1944,
+    1122
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9381,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    2096,
+    828
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8536,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    910,
+    1801
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9734,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    1176,
+    2114
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8993,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    1614,
+    2541
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9071,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    560,
+    184
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 1.0005,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    4261,
+    1839
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9256,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    600,
+    2399
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8828,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    4200,
+    893
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.8664,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    906,
+    1297
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9162,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_basalto_grande",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_grande.png",
+   "pos": [
+    411,
+    1623
+   ],
+   "offset": [
+    -148.5,
+    -248
+   ],
+   "scale": 0.9931,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -102.5,
+     -38.3,
+     205,
+     38.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3645,
+    4129
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8606,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4223,
+    4106
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8735,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4414,
+    3283
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8953,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4912,
+    3386
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9335,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3001,
+    3560
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8868,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    5111,
+    2996
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9101,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    2713,
+    3831
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8863,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4173,
+    3585
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9168,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3857,
+    3866
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9595,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3230,
+    3360
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8611,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3694,
+    3342
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9567,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    5953,
+    1743
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9131,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3324,
+    3207
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9019,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    2670,
+    3328
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8561,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    2478,
+    3814
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9994,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3266,
+    4299
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.981,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4551,
+    3827
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.9959,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4016,
+    4354
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8835,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    4489,
+    3135
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8492,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_obsidiana",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_obsidiana.png",
+   "pos": [
+    3878,
+    4590
+   ],
+   "offset": [
+    -74.5,
+    -311
+   ],
+   "scale": 0.8595,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -50.0,
+     -28.3,
+     100,
+     28.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1950,
+    3965
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.9029,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1696,
+    4156
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.9785,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1177,
+    3322
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.858,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1516,
+    4404
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.911,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1029,
+    2998
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8839,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1566,
+    3614
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.9816,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    4016,
+    3738
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8493,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1932,
+    3428
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.9922,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    4566,
+    2978
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8871,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    921,
+    3742
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8464,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    5615,
+    1342
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.973,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    600,
+    3007
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8894,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    736,
+    3348
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8855,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1765,
+    3558
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.9978,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    1336,
+    3535
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.8588,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "coluna_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/coluna_quebrada.png",
+   "pos": [
+    2292,
+    3852
+   ],
+   "offset": [
+    -95.0,
+    -203
+   ],
+   "scale": 0.9198,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    5104,
+    5620
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.9062,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    5100,
+    3833
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.9046,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    5838,
+    4903
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.8983,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    3872,
+    5684
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.8759,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    4814,
+    4964
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.9815,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    3171,
+    4748
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 1.0333,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    3180,
+    5542
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.9316,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_reta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_reta.png",
+   "pos": [
+    5989,
+    3194
+   ],
+   "offset": [
+    -288.0,
+    -274
+   ],
+   "scale": 0.9125,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -215.0,
+     -35.0,
+     430,
+     35.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_canto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_canto.png",
+   "pos": [
+    5260,
+    3328
+   ],
+   "offset": [
+    -193.0,
+    -332
+   ],
+   "scale": 0.8962,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -132.5,
+     -55.0,
+     265,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_canto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_canto.png",
+   "pos": [
+    5310,
+    4623
+   ],
+   "offset": [
+    -193.0,
+    -332
+   ],
+   "scale": 0.9138,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -132.5,
+     -55.0,
+     265,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_canto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_canto.png",
+   "pos": [
+    2703,
+    5118
+   ],
+   "offset": [
+    -193.0,
+    -332
+   ],
+   "scale": 1.0247,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -132.5,
+     -55.0,
+     265,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_canto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_canto.png",
+   "pos": [
+    4624,
+    4092
+   ],
+   "offset": [
+    -193.0,
+    -332
+   ],
+   "scale": 0.8747,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -132.5,
+     -55.0,
+     265,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "muralha_negra_canto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/muralha_negra_canto.png",
+   "pos": [
+    5744,
+    4131
+   ],
+   "offset": [
+    -193.0,
+    -332
+   ],
+   "scale": 0.9248,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -132.5,
+     -55.0,
+     265,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_vigia_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_vigia_destruida.png",
+   "pos": [
+    1728,
+    584
+   ],
+   "offset": [
+    -196.32,
+    -530.66
+   ],
+   "scale": 0.9428,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -140.0,
+     -61.7,
+     280,
+     61.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_vigia_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_vigia_destruida.png",
+   "pos": [
+    2124,
+    1457
+   ],
+   "offset": [
+    -196.32,
+    -530.66
+   ],
+   "scale": 0.9928,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -140.0,
+     -61.7,
+     280,
+     61.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_vigia_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_vigia_destruida.png",
+   "pos": [
+    1161,
+    720
+   ],
+   "offset": [
+    -196.32,
+    -530.66
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -140.0,
+     -61.7,
+     280,
+     61.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_vigia_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_vigia_destruida.png",
+   "pos": [
+    249,
+    2853
+   ],
+   "offset": [
+    -196.32,
+    -530.66
+   ],
+   "scale": 0.9173,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -140.0,
+     -61.7,
+     280,
+     61.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_vigia_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_vigia_destruida.png",
+   "pos": [
+    2358,
+    4395
+   ],
+   "offset": [
+    -196.32,
+    -530.66
+   ],
+   "scale": 0.8807,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -140.0,
+     -61.7,
+     280,
+     61.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_infernal.png",
+   "pos": [
+    4150,
+    4859
+   ],
+   "offset": [
+    -191.58,
+    -691.66
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -167.5,
+     -71.7,
+     335,
+     71.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_infernal.png",
+   "pos": [
+    6149,
+    3825
+   ],
+   "offset": [
+    -191.58,
+    -691.66
+   ],
+   "scale": 0.9369,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -167.5,
+     -71.7,
+     335,
+     71.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "torre_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/torre_infernal.png",
+   "pos": [
+    6071,
+    5670
+   ],
+   "offset": [
+    -191.58,
+    -691.66
+   ],
+   "scale": 0.9281,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -167.5,
+     -71.7,
+     335,
+     71.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    2266,
+    3319
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.9869,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    1285,
+    3931
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.9868,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    3735,
+    3962
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.8592,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    1121,
+    4190
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.8864,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    1201,
+    4086
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.8641,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    2420,
+    3311
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.977,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    1067,
+    3826
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.9349,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    2930,
+    4038
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    4317,
+    3436
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.8536,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "estandarte_queimado",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/estandarte_queimado.png",
+   "pos": [
+    2879,
+    3415
+   ],
+   "offset": [
+    -76.65,
+    -283.69
+   ],
+   "scale": 0.987,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -32.5,
+     -18.3,
+     65,
+     18.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "forja_guerra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/forja_guerra.png",
+   "pos": [
+    3487,
+    3645
+   ],
+   "offset": [
+    -145.01,
+    -291.92
+   ],
+   "scale": 0.9568,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -130.0,
+     -48.3,
+     260,
+     48.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "forja_guerra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/forja_guerra.png",
+   "pos": [
+    3975,
+    3332
+   ],
+   "offset": [
+    -145.01,
+    -291.92
+   ],
+   "scale": 0.9025,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -130.0,
+     -48.3,
+     260,
+     48.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "forja_guerra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/forja_guerra.png",
+   "pos": [
+    3698,
+    4965
+   ],
+   "offset": [
+    -145.01,
+    -291.92
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -130.0,
+     -48.3,
+     260,
+     48.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "forja_guerra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/forja_guerra.png",
+   "pos": [
+    2570,
+    5676
+   ],
+   "offset": [
+    -145.01,
+    -291.92
+   ],
+   "scale": 0.9698,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -130.0,
+     -48.3,
+     260,
+     48.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "forja_guerra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/forja_guerra.png",
+   "pos": [
+    2400,
+    4798
+   ],
+   "offset": [
+    -145.01,
+    -291.92
+   ],
+   "scale": 0.8969,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -130.0,
+     -48.3,
+     260,
+     48.3
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    3014,
+    3280
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.8743,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    2781,
+    4281
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.9921,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    2508,
+    4020
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.9269,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    2632,
+    4618
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.9169,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    3036,
+    4176
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.9306,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    3518,
+    3994
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    3383,
+    5112
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.8617,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "bigorna_negra",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/bigorna_negra.png",
+   "pos": [
+    3855,
+    5224
+   ],
+   "offset": [
+    -76.13,
+    -125.9
+   ],
+   "scale": 0.861,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -26.7,
+     125,
+     26.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "caldeirao_metal_fundido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/caldeirao_metal_fundido.png",
+   "pos": [
+    5500,
+    5213
+   ],
+   "offset": [
+    -111.0,
+    -231
+   ],
+   "scale": 0.8866,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -90.0,
+     -40.0,
+     180,
+     40.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "caldeirao_metal_fundido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/caldeirao_metal_fundido.png",
+   "pos": [
+    4600,
+    5681
+   ],
+   "offset": [
+    -111.0,
+    -231
+   ],
+   "scale": 0.9589,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -90.0,
+     -40.0,
+     180,
+     40.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "caldeirao_metal_fundido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/caldeirao_metal_fundido.png",
+   "pos": [
+    4959,
+    4316
+   ],
+   "offset": [
+    -111.0,
+    -231
+   ],
+   "scale": 0.8634,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -90.0,
+     -40.0,
+     180,
+     40.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "caldeirao_metal_fundido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/caldeirao_metal_fundido.png",
+   "pos": [
+    4159,
+    3001
+   ],
+   "offset": [
+    -111.0,
+    -231
+   ],
+   "scale": 1.0094,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -90.0,
+     -40.0,
+     180,
+     40.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "corrente_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/corrente_gigante.png",
+   "pos": [
+    5792,
+    3775
+   ],
+   "offset": [
+    -91.5,
+    -396
+   ],
+   "scale": 0.8584,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -30.0,
+     95,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "corrente_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/corrente_gigante.png",
+   "pos": [
+    5445,
+    4145
+   ],
+   "offset": [
+    -91.5,
+    -396
+   ],
+   "scale": 0.8571,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -30.0,
+     95,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "corrente_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/corrente_gigante.png",
+   "pos": [
+    5703,
+    5483
+   ],
+   "offset": [
+    -91.5,
+    -396
+   ],
+   "scale": 0.8779,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -30.0,
+     95,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "corrente_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/corrente_gigante.png",
+   "pos": [
+    4468,
+    5295
+   ],
+   "offset": [
+    -91.5,
+    -396
+   ],
+   "scale": 1.0109,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -30.0,
+     95,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "corrente_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/corrente_gigante.png",
+   "pos": [
+    6249,
+    2406
+   ],
+   "offset": [
+    -91.5,
+    -396
+   ],
+   "scale": 0.9262,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -30.0,
+     95,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "corrente_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/corrente_gigante.png",
+   "pos": [
+    6280,
+    5074
+   ],
+   "offset": [
+    -91.5,
+    -396
+   ],
+   "scale": 1.0006,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -30.0,
+     95,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "jaula_prisioneiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/jaula_prisioneiro.png",
+   "pos": [
+    4629,
+    4492
+   ],
+   "offset": [
+    -106.5,
+    -282
+   ],
+   "scale": 1.0683,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -107.5,
+     -55.0,
+     215,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "jaula_prisioneiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/jaula_prisioneiro.png",
+   "pos": [
+    5562,
+    3657
+   ],
+   "offset": [
+    -106.5,
+    -282
+   ],
+   "scale": 1.1472,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -107.5,
+     -55.0,
+     215,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "jaula_prisioneiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/jaula_prisioneiro.png",
+   "pos": [
+    4284,
+    4348
+   ],
+   "offset": [
+    -106.5,
+    -282
+   ],
+   "scale": 1.116,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -107.5,
+     -55.0,
+     215,
+     55.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "carroca_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/carroca_destruida.png",
+   "pos": [
+    677,
+    4017
+   ],
+   "offset": [
+    -175.37,
+    -240.76
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -125.0,
+     -45.0,
+     250,
+     45.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "carroca_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/carroca_destruida.png",
+   "pos": [
+    2222,
+    2919
+   ],
+   "offset": [
+    -175.37,
+    -240.76
+   ],
+   "scale": 0.8731,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -125.0,
+     -45.0,
+     250,
+     45.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "carroca_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/carroca_destruida.png",
+   "pos": [
+    829,
+    5460
+   ],
+   "offset": [
+    -175.37,
+    -240.76
+   ],
+   "scale": 0.9879,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -125.0,
+     -45.0,
+     250,
+     45.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "carroca_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/carroca_destruida.png",
+   "pos": [
+    1439,
+    3069
+   ],
+   "offset": [
+    -175.37,
+    -240.76
+   ],
+   "scale": 0.971,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -125.0,
+     -45.0,
+     250,
+     45.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "carroca_destruida",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/carroca_destruida.png",
+   "pos": [
+    449,
+    4336
+   ],
+   "offset": [
+    -175.37,
+    -240.76
+   ],
+   "scale": 0.85,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -125.0,
+     -45.0,
+     250,
+     45.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "altar_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/altar_infernal.png",
+   "pos": [
+    4659,
+    1050
+   ],
+   "offset": [
+    -160.0,
+    -277
+   ],
+   "scale": 1.1027,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -107.5,
+     -46.7,
+     215,
+     46.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "altar_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/altar_infernal.png",
+   "pos": [
+    4954,
+    132
+   ],
+   "offset": [
+    -160.0,
+    -277
+   ],
+   "scale": 0.95,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -107.5,
+     -46.7,
+     215,
+     46.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "altar_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/altar_infernal.png",
+   "pos": [
+    4082,
+    1230
+   ],
+   "offset": [
+    -160.0,
+    -277
+   ],
+   "scale": 0.9851,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -107.5,
+     -46.7,
+     215,
+     46.7
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2552,
+    984
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.8638,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3907,
+    185
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9649,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2666,
+    1467
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9919,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3541,
+    669
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.978,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3995,
+    1962
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9832,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3473,
+    237
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.8813,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2445,
+    350
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.8491,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3418,
+    2492
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9717,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2691,
+    1704
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9492,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2960,
+    2948
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9975,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2909,
+    233
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9535,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    2454,
+    585
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 1.0002,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3106,
+    690
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 1.0088,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    3491,
+    488
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.8654,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "cristal_enxofre",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cristal_enxofre.png",
+   "pos": [
+    4006,
+    510
+   ],
+   "offset": [
+    -104.5,
+    -205
+   ],
+   "scale": 0.9469,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -62.5,
+     -30.0,
+     125,
+     30.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    4364,
+    3985
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 0.9616,
+   "flip_h": true,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    5051,
+    3140
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 0.9666,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    4802,
+    3561
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 0.991,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "braseiro_infernal",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/braseiro_infernal.png",
+   "pos": [
+    4699,
+    3682
+   ],
+   "offset": [
+    -72.91,
+    -229.99
+   ],
+   "scale": 0.9642,
+   "flip_h": false,
+   "porte": "cintura",
+   "collisions": [
+    [
+     -47.5,
+     -25.0,
+     95,
+     25.0
+    ]
+   ],
+   "base": 0.0
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1446,
+    172
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9704,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    5256,
+    1062
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8948,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    4589,
+    923
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8796,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1260,
+    976
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9944,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1511,
+    1659
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8952,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    4929,
+    703
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8347,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    2282,
+    233
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9646,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    4171,
+    1098
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9969,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1530,
+    2423
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9652,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    5024,
+    1782
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8932,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1429,
+    1259
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8417,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    2214,
+    945
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9019,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    995,
+    2167
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8951,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1767,
+    2394
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9417,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    3535,
+    349
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8587,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1375,
+    2041
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8708,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    2686,
+    2185
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.957,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    4105,
+    631
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8477,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    824,
+    1360
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9125,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    526,
+    2069
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8607,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    548,
+    461
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9733,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    2258,
+    999
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8797,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    357,
+    1365
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9491,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    855,
+    1226
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8907,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    5437,
+    333
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9775,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    3484,
+    83
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9768,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1502,
+    2284
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.84,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    739,
+    587
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8736,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    3232,
+    618
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9666,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    1985,
+    851
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8372,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    5381,
+    745
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8364,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    563,
+    1600
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8761,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    3146,
+    1722
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.9949,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_vulcanica_media",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_vulcanica_media.png",
+   "pos": [
+    2177,
+    2689
+   ],
+   "offset": [
+    -50.0,
+    -81
+   ],
+   "scale": 0.8734,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    1156,
+    4163
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9095,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    5092,
+    5129
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9816,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    2539,
+    5514
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8827,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    4033,
+    5181
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9721,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3892,
+    5581
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8553,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3779,
+    3577
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 1.0028,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3144,
+    4690
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9708,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3180,
+    5312
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9185,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    4119,
+    4274
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.921,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    5153,
+    5311
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8644,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3888,
+    4614
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8459,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3044,
+    5120
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8641,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3645,
+    3754
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9971,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    692,
+    3436
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9155,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    2738,
+    3331
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9528,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    5211,
+    2965
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9238,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    5303,
+    5707
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9473,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    5379,
+    4345
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9929,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    4642,
+    3922
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8465,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3095,
+    3220
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.937,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    4503,
+    4709
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8667,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    3331,
+    4430
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 1.0024,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    1119,
+    3986
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9971,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    4174,
+    4078
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.8698,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escombro_muralha",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escombro_muralha.png",
+   "pos": [
+    956,
+    3948
+   ],
+   "offset": [
+    -56.5,
+    -70
+   ],
+   "scale": 0.9546,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    4463,
+    3189
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.9129,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    4572,
+    2911
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.8661,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    2843,
+    3394
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.9144,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    3449,
+    4546
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.907,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    4506,
+    3871
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.8947,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    5720,
+    761
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.927,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    2749,
+    3848
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.8832,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    2488,
+    3317
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.9184,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    4885,
+    3489
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 1.0002,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    5124,
+    2947
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.9943,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    4061,
+    4319
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 1.0037,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    3460,
+    3699
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.9148,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "degrau_basalto",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/degrau_basalto.png",
+   "pos": [
+    3160,
+    4222
+   ],
+   "offset": [
+    -73.0,
+    -75
+   ],
+   "scale": 0.9103,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    4517,
+    4792
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 1.0427,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    5356,
+    5646
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9616,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    4669,
+    4232
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9629,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    5574,
+    4848
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9108,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    4226,
+    3534
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9006,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    1645,
+    4459
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 1.0383,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    679,
+    3612
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9675,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    1670,
+    4121
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9961,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    281,
+    4187
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 1.006,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    896,
+    4372
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9341,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    496,
+    2941
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.929,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    123,
+    3248
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 1.0352,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "escudo_caido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/escudo_caido.png",
+   "pos": [
+    1022,
+    4123
+   ],
+   "offset": [
+    -29.5,
+    -56
+   ],
+   "scale": 0.9142,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ninho_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ninho_draco.png",
+   "pos": [
+    4070,
+    926
+   ],
+   "offset": [
+    -83.0,
+    -133
+   ],
+   "scale": 0.9017,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ninho_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ninho_draco.png",
+   "pos": [
+    5596,
+    1610
+   ],
+   "offset": [
+    -83.0,
+    -133
+   ],
+   "scale": 0.8595,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ninho_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ninho_draco.png",
+   "pos": [
+    5178,
+    2655
+   ],
+   "offset": [
+    -83.0,
+    -133
+   ],
+   "scale": 0.9622,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ninho_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ninho_draco.png",
+   "pos": [
+    5506,
+    1543
+   ],
+   "offset": [
+    -83.0,
+    -133
+   ],
+   "scale": 0.9608,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ninho_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ninho_draco.png",
+   "pos": [
+    4771,
+    1733
+   ],
+   "offset": [
+    -83.0,
+    -133
+   ],
+   "scale": 1.0092,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    4836,
+    2151
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.9376,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    5191,
+    2488
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.9692,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    5222,
+    2336
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.9217,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    4032,
+    576
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 1.005,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    4356,
+    1590
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.9937,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    4078,
+    1084
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.8795,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    4359,
+    904
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.8402,
+   "flip_h": false,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    4749,
+    1140
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.9726,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    5246,
+    720
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.8618,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ovo_draco",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ovo_draco.png",
+   "pos": [
+    5268,
+    147
+   ],
+   "offset": [
+    -61.0,
+    -134
+   ],
+   "scale": 0.9314,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "esqueleto_criatura_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/esqueleto_criatura_gigante.png",
+   "pos": [
+    1725,
+    271
+   ],
+   "offset": [
+    -174.5,
+    -190
+   ],
+   "scale": 1.0362,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "esqueleto_criatura_gigante",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/esqueleto_criatura_gigante.png",
+   "pos": [
+    5549,
+    341
+   ],
+   "offset": [
+    -174.5,
+    -190
+   ],
+   "scale": 0.9704,
+   "flip_h": true,
+   "porte": "joelho",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4334,
+    4993
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8743,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1165,
+    5452
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8748,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4646,
+    5509
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 1.0135,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    5323,
+    1712
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9294,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1743,
+    4173
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9811,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    5569,
+    5240
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9082,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4897,
+    1060
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9269,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4815,
+    2240
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8839,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    3217,
+    708
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9996,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    5396,
+    3315
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8607,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    549,
+    2304
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8703,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    3406,
+    5006
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8768,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    3787,
+    5488
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 1.0079,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    2708,
+    3832
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9291,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1955,
+    3541
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9145,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1848,
+    766
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9213,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    2623,
+    2409
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8671,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    323,
+    5717
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9051,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4135,
+    3063
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9473,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    714,
+    1174
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9307,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4528,
+    2257
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9234,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    5475,
+    118
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.898,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1455,
+    2918
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9564,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1848,
+    4949
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 1.0093,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    4199,
+    5030
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9482,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    2704,
+    4395
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9667,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    200,
+    5062
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.9313,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "rocha_basalto_pequena",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/rocha_basalto_pequena.png",
+   "pos": [
+    1060,
+    1662
+   ],
+   "offset": [
+    -21.5,
+    -34
+   ],
+   "scale": 0.8503,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3580,
+    2473
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.989,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5212,
+    1898
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9038,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5518,
+    2795
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9681,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5559,
+    674
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9257,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5529,
+    587
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.889,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5695,
+    1406
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 1.0083,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3536,
+    543
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.856,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5765,
+    3138
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9569,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    6049,
+    2214
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8696,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3109,
+    915
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8458,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5534,
+    855
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9658,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3010,
+    465
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8925,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3197,
+    3144
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9008,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5344,
+    1708
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8727,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5598,
+    2966
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9773,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3735,
+    2779
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9246,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    2696,
+    1562
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8592,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3571,
+    2557
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9813,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    5558,
+    2832
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8908,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    6023,
+    2172
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.9746,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3930,
+    1767
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8682,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "brasa_solta",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/brasa_solta.png",
+   "pos": [
+    3126,
+    854
+   ],
+   "offset": [
+    -20.0,
+    -32
+   ],
+   "scale": 0.8984,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    4412,
+    820
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.869,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    1712,
+    4529
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9077,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    2095,
+    1242
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.8533,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5324,
+    3071
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.8849,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    368,
+    3540
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.914,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5932,
+    3459
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9888,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    2813,
+    3243
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9197,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5727,
+    650
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9762,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    1876,
+    5525
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9357,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    1590,
+    4969
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.8575,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    4105,
+    3639
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9264,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5402,
+    1739
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9106,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5204,
+    1568
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9914,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    3904,
+    1531
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9598,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    386,
+    643
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.971,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    2367,
+    4231
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9534,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    675,
+    796
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9489,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    3384,
+    5260
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9921,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    1870,
+    5321
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 1.005,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5343,
+    4639
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.945,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    6251,
+    2620
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9872,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    5491,
+    343
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.997,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    3566,
+    4520
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 0.9008,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "cinzas_espalhadas",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/cinzas_espalhadas.png",
+   "pos": [
+    2130,
+    5198
+   ],
+   "offset": [
+    -28.5,
+    -32
+   ],
+   "scale": 1.0038,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    1988,
+    1338
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.8955,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    1626,
+    465
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.8788,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    2033,
+    3475
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.9517,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    1684,
+    3375
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.9561,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    1183,
+    2165
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.9254,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    2044,
+    1467
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.8552,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    770,
+    2574
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 1.0001,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    713,
+    4178
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 1.0006,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    2009,
+    945
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.9533,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    2274,
+    320
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.9138,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "ossos_guerreiro",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/ossos_guerreiro.png",
+   "pos": [
+    520,
+    74
+   ],
+   "offset": [
+    -59.0,
+    -60
+   ],
+   "scale": 0.8921,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    189,
+    780
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.9707,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    5360,
+    3019
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 1.0094,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    4685,
+    4977
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.8641,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    5301,
+    3299
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.9327,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    1405,
+    1649
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.9537,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    1283,
+    464
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.8717,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    4690,
+    5603
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.958,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    484,
+    179
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.9152,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    547,
+    1377
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.9662,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    4487,
+    5047
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 1.0227,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    4920,
+    4181
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.8601,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    4238,
+    3449
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 1.0128,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "capacete_derretido",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/capacete_derretido.png",
+   "pos": [
+    3184,
+    4273
+   ],
+   "offset": [
+    -19.0,
+    -42
+   ],
+   "scale": 0.9457,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    2349,
+    1909
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.8629,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    1155,
+    4101
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.9901,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    1167,
+    4170
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.8633,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    1977,
+    419
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.9404,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    1342,
+    3351
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.9005,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    358,
+    232
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.8759,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    1199,
+    2893
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.87,
+   "flip_h": false,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    1211,
+    3578
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.999,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    514,
+    3942
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 0.8681,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "espada_quebrada",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/espada_quebrada.png",
+   "pos": [
+    427,
+    3479
+   ],
+   "offset": [
+    -42.0,
+    -29
+   ],
+   "scale": 1.0096,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  },
+  {
+   "name": "fogueira_refugio",
+   "texture": "res://assets/maps/fortaleza_v2/objetos/fogueira_refugio.png",
+   "pos": [
+    528,
+    4778
+   ],
+   "offset": [
+    -56.5,
+    -95
+   ],
+   "scale": 1.1232,
+   "flip_h": true,
+   "porte": "baixo",
+   "layer": "ground",
+   "collisions": []
+  }
+ ],
+ "vehicles": []
+}

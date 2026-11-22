@@ -22,6 +22,7 @@ var boss := false
 var target: Player
 var attack_timer := 0.0
 var visual_attack_timer := 0.0
+var pose_frame_time := 0.0  # pose de golpe de chefe (play_pose): tempo de cada quadro
 var is_targeted := false
 var base_defesa := 0
 var base_ataque := 1
@@ -57,7 +58,8 @@ const ATTACK_FRAME_TIME := 0.07
 const DEATH_FRAME_TIME := 0.09
 const DEATH_HOLD_TIME := 0.6
 # Mobs cujos frames de morte atuais estao quebrados; remover ao regenerar a arte.
-const DEATH_ANIM_BLOCKLIST := ["javali_selvagem", "javali_rei"]
+# (javalis refeitos em 2026-11-22 por tools/mob_sprites/importar_refeitos.py: lista vazia)
+const DEATH_ANIM_BLOCKLIST: Array[String] = []
 static var _side_only_cache := {}
 # Pasta em assets/sprites/mobs/ de cada mob a refazer (ver docs/PROMPT_SPRITES_MOBS.md).
 const PACKED_MOB_ASSETS := {
@@ -82,6 +84,7 @@ const PACKED_MOB_ASSETS := {
 	"Mosquito Mutante": "mosquito_mutante",
 	"Afogado do Pantano": "afogado_pantano",
 	"Rei Afogado": "rei_afogado",
+	"Cinzeiro Errante": "cinzeiro_errante",
 }
 # Tamanho em relacao ao jogador (altura VISIVEL do sprite, sem a borda transparente).
 # A altura do jogador e medida no proprio sprite dele; 75 px e so o valor reserva.
@@ -102,7 +105,7 @@ const ENEMY_SIZE := {
 	"Bandido das Colinas": 1.3,
 	"Espectro Arcano": 1.3,
 	"Sentinela Arcano": 1.38,
-	"Cavaleiro Sombrio": 1.15,
+	"Cavaleiro Sombrio": 1.35,
 	"Aranha Rainha": 1.1,
 	"Draco Jovem": 1.45,
 	"Guardiao Cristalino": 1.5,
@@ -118,6 +121,7 @@ const ENEMY_SIZE := {
 	"Mosquito Mutante": 1.25,  # asas abertas: lado ~1.0-1.4 heroi (mutante)
 	"Afogado do Pantano": 1.55,
 	"Rei Afogado": 3.0,
+	"Cinzeiro Errante": 1.65,  # mutante de cinzas, um pouco maior que o heroi
 }
 static var _visible_rect_cache: Dictionary = {}
 # Alcance corpo a corpo cresce com o tamanho (golem/chefe nao "entram" no jogador).
@@ -258,6 +262,8 @@ func _physics_process(delta: float) -> void:
 		_update_visual_animation(delta)
 		return
 	if boss and _update_boss(delta):
+		if visual_attack_timer > 0.0:
+			_update_visual_animation(delta)
 		z_index = clampi(int(global_position.y), -1024, 1024)
 		return
 	var distance := global_position.distance_to(target.global_position)
@@ -665,7 +671,8 @@ func _update_visual_animation(delta: float) -> void:
 		sprite.flip_h = velocity.x < 0.0
 	elif not directional_frames.is_empty():
 		sprite.flip_h = visual_flip_from_left
-	var delay := ATTACK_FRAME_TIME if state == "attack" else (0.12 if moving else 0.42)
+	var attack_delay := pose_frame_time if pose_frame_time > 0.0 else ATTACK_FRAME_TIME
+	var delay := attack_delay if state == "attack" else (0.12 if moving else 0.42)
 	visual_frame_timer += delta
 	if visual_frame_timer >= delay:
 		visual_frame_timer = 0.0
@@ -686,6 +693,8 @@ func _update_visual_animation(delta: float) -> void:
 		procedural_walk_time = 0.0
 	var punching := visual_attack_timer > 0.0 and state != "attack"
 	visual_attack_timer = max(0.0, visual_attack_timer - delta)
+	if visual_attack_timer <= 0.0:
+		pose_frame_time = 0.0
 	if punching:
 		var side := -1.0 if sprite.flip_h else 1.0
 		sprite.scale = visual_base_scale * 1.08
@@ -707,13 +716,26 @@ func _packed_frames_facing(animation: String) -> Array:
 
 func _prepare_special_visual() -> void:
 	special_attack_frames = []
+	pose_frame_time = 0.0
 	var poses := CombatVisuals.options("actors", visual_asset)
 	if not poses.is_empty():
 		special_attack_frames = CombatVisuals.frames(str(poses[special_attack_index % poses.size()]), true)
 	var effects := CombatVisuals.options("effects", visual_asset)
+	# efeito "" = golpe sem efeito no alvo (lista alinhada com as poses: so o golpe especial tem efeito)
 	if not effects.is_empty() and is_instance_valid(target):
-		CombatVisuals.play(get_parent(), str(effects[special_attack_index % effects.size()]), target.global_position, target.global_position.x > global_position.x)
+		var fx := str(effects[special_attack_index % effects.size()])
+		if not fx.is_empty():
+			CombatVisuals.play(get_parent(), fx, target.global_position, target.global_position.x > global_position.x)
 	special_attack_index += 1
+
+# Pose de golpe de chefe (boss_skills: campo "pose"): toca a tira inteira em "duration" segundos.
+func play_pose(frames: Array, duration: float) -> void:
+	if frames.is_empty() or duration <= 0.0:
+		return
+	special_attack_frames = frames
+	visual_attack_timer = duration
+	pose_frame_time = duration / float(frames.size())
+	visual_animation_key = ""
 
 func _attack_frames() -> Array:
 	if not special_attack_frames.is_empty():

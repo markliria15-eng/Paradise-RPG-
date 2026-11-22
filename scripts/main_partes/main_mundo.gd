@@ -56,6 +56,15 @@ func _layout_minimap_hud() -> void:
 	_set_control_rect(minimap_frame_rect, hud_minimap_frame_pos, frame_size)
 	_set_control_rect(minimap_panel, hud_minimap_frame_pos + canvas_offset, canvas_size)
 	_set_control_rect(minimap_canvas, hud_minimap_frame_pos + canvas_offset, canvas_size)
+	# botoes de zoom grudados no lado direito do mini mapa (andam e crescem junto no editor de HUD)
+	var lado := 40.0 * scale
+	var x := hud_minimap_frame_pos.x + frame_size.x + 4.0 * scale
+	if zoom_btn_mais != null:
+		_set_control_rect(zoom_btn_mais, Vector2(x, hud_minimap_frame_pos.y + 14.0 * scale), Vector2(lado, lado))
+		zoom_btn_mais.add_theme_font_size_override("font_size", int(26 * scale))
+	if zoom_btn_menos != null:
+		_set_control_rect(zoom_btn_menos, Vector2(x, hud_minimap_frame_pos.y + 14.0 * scale + lado + 8.0 * scale), Vector2(lado, lado))
+		zoom_btn_menos.add_theme_font_size_override("font_size", int(26 * scale))
 
 # Cidade de renascimento/inicio: Eldoria ate o jogador chegar em Valdoria.
 func _home_city() -> String:
@@ -65,7 +74,7 @@ func _home_city() -> String:
 
 func _draw_map_background(map_data: Dictionary) -> void:
 	_draw_map_terrain(map_data)
-	if current_map == "city_eldoria" or _ruins_v2_active() or _cave_v2_active() or _valdoria_v2_active() or _swamp_v2_active():
+	if current_map == "city_eldoria" or _ruins_v2_active() or _cave_v2_active() or _valdoria_v2_active() or _kit_map_active():
 		return
 	_spawn_ground_details()
 	if current_map != "city_eldoria" and not _is_new_eldoria_map() and not _is_forest_base_map():
@@ -84,7 +93,7 @@ func _draw_map_terrain(map_data: Dictionary) -> void:
 		return
 	if current_map == "city_valdoria" and _draw_valdoria_v2():
 		return
-	if current_map == SWAMP_MAP_ID and _draw_swamp_v2():
+	if KIT_MAPS.has(current_map) and _draw_kit_map():
 		return
 	if _is_rebuild_base_only_map():
 		_draw_rebuild_base_terrain(map_data)
@@ -313,32 +322,43 @@ func _get_valdoria_kit_data() -> Dictionary:
 func _valdoria_v2_active() -> bool:
 	return current_map == "city_valdoria" and not _get_valdoria_kit_data().is_empty()
 
-func _get_swamp_kit_data() -> Dictionary:
-	if not swamp_kit_data.is_empty():
-		return swamp_kit_data
-	if not FileAccess.file_exists(SWAMP_KIT_DATA_PATH):
+func _kit_map_data() -> Dictionary:
+	if not KIT_MAPS.has(current_map):
 		return {}
-	var parsed = JSON.parse_string(FileAccess.get_file_as_string(SWAMP_KIT_DATA_PATH))
-	if typeof(parsed) == TYPE_DICTIONARY:
-		swamp_kit_data = parsed
-	return swamp_kit_data
+	if kit_maps_data.has(current_map):
+		return kit_maps_data[current_map]
+	var path := str(KIT_MAPS[current_map])
+	var data: Dictionary = {}
+	if FileAccess.file_exists(path):
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if typeof(parsed) == TYPE_DICTIONARY:
+			data = parsed
+	kit_maps_data[current_map] = data
+	return data
 
-func _swamp_v2_active() -> bool:
-	return current_map == SWAMP_MAP_ID and not _get_swamp_kit_data().is_empty()
+func _kit_map_active() -> bool:
+	return not _kit_map_data().is_empty()
 
-# Pantano das Almas Perdidas (tools/pantano_v2/gerar_pantano.py): kit igual Valdoria, sem mar
-# animado e com mascara de chao lento (lama e agua rasa).
-func _draw_swamp_v2() -> bool:
-	var data := _get_swamp_kit_data()
+# Mapas em kit (KIT_MAPS: Pantano das Almas Perdidas, Fortaleza de Cinzas; geradores em
+# tools/pantano_v2 e tools/fortaleza_v2): igual Valdoria, sem mar animado e com mascara de
+# chao lento (lama/agua rasa no pantano, cinza grossa na fortaleza).
+func _draw_kit_map() -> bool:
+	var data := _kit_map_data()
 	if data.is_empty():
 		return false
+	# chao animado (lava viva da fortaleza): repete por baixo dos chunks, que sao transparentes ali
+	var anim: Dictionary = data.get("chao_animado", {})
+	var anim_rect: Array = anim.get("rect", [])
+	if anim_rect.size() >= 4:
+		_spawn_water_layer("KitChaoAnimado", Rect2(float(anim_rect[0]), float(anim_rect[1]), float(anim_rect[2]), float(anim_rect[3])),
+			anim.get("frames", []), int(anim.get("z", -101)))
 	var size_data: Array = data.get("world_size", [6400, 5760])
 	current_map_size = Vector2(float(size_data[0]), float(size_data[1]))
 	var grid_data: Array = data.get("chunk_grid", [8, 9])
 	var chunk_px_data: Array = data.get("chunk_px", [400, 320])
 	var ground_scale := float(data.get("ground_scale", 2.0))
 	var chunks_root := Node2D.new()
-	chunks_root.name = "SwampChunks"
+	chunks_root.name = "KitChunks"
 	world.add_child(chunks_root)
 	for grid_y in range(int(grid_data[1])):
 		for grid_x in range(int(grid_data[0])):
@@ -1613,7 +1633,7 @@ func _is_point_blocked(pos: Vector2) -> bool:
 				return false
 	if current_map == "bat_cave" and not _cave_v2_active() and _cave_background_available() and not _is_cave_walkable(pos):
 		return true
-	if (_is_forest_runtime_map() or _ruins_v2_active() or _cave_v2_active() or _valdoria_v2_active() or _swamp_v2_active()) and forest_walk_image != null:
+	if (_is_forest_runtime_map() or _ruins_v2_active() or _cave_v2_active() or _valdoria_v2_active() or _kit_map_active()) and forest_walk_image != null:
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
 			if not _is_forest_walkable(pos + probe):
 				return true
@@ -2166,12 +2186,33 @@ func _update_camera_limits() -> void:
 	player_camera.limit_right = int(current_map_size.x)
 	player_camera.limit_bottom = int(current_map_size.y)
 
-func _apply_camera_zoom() -> void:
+func _apply_camera_zoom(animado: bool = false) -> void:
+	_atualizar_botoes_zoom()
 	if player_camera == null:
 		return
 	var index := clampi(hud_zoom_index, 0, CAMERA_ZOOMS.size() - 1)
-	var zoom_value := float(CAMERA_ZOOMS[index])
-	player_camera.zoom = Vector2.ONE * zoom_value
+	var alvo := Vector2.ONE * float(CAMERA_ZOOMS[index])
+	if zoom_tween != null and zoom_tween.is_valid():
+		zoom_tween.kill()
+	if not animado:
+		player_camera.zoom = alvo
+		return
+	zoom_tween = create_tween()
+	zoom_tween.tween_property(player_camera, "zoom", alvo, 0.22).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+# Indice de CAMERA_ZOOMS mais perto de um valor de zoom (layouts salvos).
+func _zoom_index_proximo(valor: float) -> int:
+	var melhor := CAMERA_ZOOM_PADRAO
+	for i in CAMERA_ZOOMS.size():
+		if absf(float(CAMERA_ZOOMS[i]) - valor) < absf(float(CAMERA_ZOOMS[melhor]) - valor):
+			melhor = i
+	return melhor
+
+func _atualizar_botoes_zoom() -> void:
+	if zoom_btn_mais != null:
+		zoom_btn_mais.disabled = hud_zoom_index >= CAMERA_ZOOMS.size() - 1
+	if zoom_btn_menos != null:
+		zoom_btn_menos.disabled = hud_zoom_index <= 0
 
 func _minimap_pos(world_pos: Vector2) -> Vector2:
 	return _minimap_local_pos(world_pos, true)
@@ -2337,8 +2378,8 @@ func _kit_minimap_path() -> String:
 		return str(_get_ruins_kit_data().get("minimap", ""))
 	if _valdoria_v2_active():
 		return str(_get_valdoria_kit_data().get("minimap", ""))
-	if _swamp_v2_active():
-		return str(_get_swamp_kit_data().get("minimap", ""))
+	if _kit_map_active():
+		return str(_kit_map_data().get("minimap", ""))
 	return ""
 
 func _add_forest_minimap_background() -> void:
