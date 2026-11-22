@@ -85,7 +85,7 @@ RPG 2D top-down em Godot 4 com modo offline jogavel e estrutura MMO parcial. O b
 - 2026-11-22: zoom da camera escolhido pelo jogador (botoes +/- ao lado do mini mapa, roda do mouse, Configuracoes); Draco Jovem, javalis e 11 golpes especiais de mobs refeitos (ver PROJECT_CONTEXT).
 - 2026-11-22: profissoes locais de verdade (coleta no mapa, alquimia, culinaria, nivel de Ferreiro na forja; `scripts/profissoes.gd`, `data/profissoes.json`). Saves antigos comecam todas no nivel 1, entao receitas raras da forja pedem subir Ferreiro.
 - 2026-11-22: chance de criar por nivel, ranks das profissoes, encantamento +1..+10 com aura (Ferreiro 50), coletores melhoram drops raros; mercador com venda e limite ate o Ouro; mercado entre jogadores com preco recomendado pronto para o online (precisa rodar `npm run migrate` para criar `market_payouts`).
-- Versao Android local alterada para `0.1.21`, ainda sem release/commit correspondente.
+- 2026-11-22: versao Android 0.1.22 (export_presets), manifesto de patch regenerado e tag `v0.1.22` enviada para o CI publicar o APK na Release (o site baixa de releases/latest/download/Paradise-RPG.apk). Site (`website/`) refeito: video do jogo na abertura, trilha das 7 regioes, classes, profissoes/encantamento/mercado, novidades e passo a passo do download.
 
 Use `git diff --numstat`, `git status --short` e revisao por pasta antes de decidir commits. Nao use `git add .`.
 

@@ -2,9 +2,9 @@
   "ok": true,
   "game": "Paradise RPG",
   "channel": "beta",
-  "version": "2026.11.05c",
+  "version": "2026.11.22",
   "min_app_version": "0.1.7",
-  "generated_at": "2026-11-05T18:23:44.662Z",
+  "generated_at": "2026-11-22T19:32:31.410Z",
   "files": [
     {
       "path": "data/armor_sets_manifest.json",
@@ -21,8 +21,8 @@
     {
       "path": "data/enemies.json",
       "url": "/patch/files/enemies.json",
-      "sha256": "09ce7c587007712ca2f290225459ee24ae4e7ac819b89a2e3cd33f3991fabdc8",
-      "size": 18495
+      "sha256": "5e9d4f5c9ac98a9ed4c822dcbb72a1c7c263212b53eeb17c8ca13b7d7376d710",
+      "size": 25440
     },
     {
       "path": "data/equipment_slots.json",
@@ -33,14 +33,14 @@
     {
       "path": "data/items.json",
       "url": "/patch/files/items.json",
-      "sha256": "22842475e7ca1527d63b1d53ea00f7725fb47af0603300a2f94f1f30f4abf15d",
-      "size": 80509
+      "sha256": "182cf00644d735f545681117c744b6497b4eb0c7d4decfe578dff7c53b5fbd21",
+      "size": 85879
     },
     {
       "path": "data/maps.json",
       "url": "/patch/files/maps.json",
-      "sha256": "2eaf5d6bde3d5540d77f5adb7f1a33d7e712e819568085ffb2ffc3c17c2b6cd1",
-      "size": 20799
+      "sha256": "2803f98f232369d92a734e241c1856d155eb09c8c23b10ccf0d771b719ce116e",
+      "size": 66398
     },
     {
       "path": "data/mmo_achievements.json",
@@ -87,8 +87,8 @@
     {
       "path": "data/quests.json",
       "url": "/patch/files/quests.json",
-      "sha256": "33895232a20b800ecc9d421a5e1a615a19534542eee7fd42cd05e6182ce84905",
-      "size": 915
+      "sha256": "07181a1d003a1e0bbd4b549214af3a5431c1592b647d89b5826c952b465eae1d",
+      "size": 31390
     },
     {
       "path": "data/recipes.json",

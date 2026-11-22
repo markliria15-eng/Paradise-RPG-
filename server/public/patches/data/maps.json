@@ -38,6 +38,24 @@
         ],
         "requires_flag": "rota_valdoria"
       }
+    ],
+    "gather_stations": [
+      {
+        "tipo": "mesa_alquimia",
+        "perto_npc": "Sarah",
+        "offset": [
+          150,
+          40
+        ]
+      },
+      {
+        "tipo": "fogao",
+        "perto_npc": "Carlos",
+        "offset": [
+          -160,
+          40
+        ]
+      }
     ]
   },
   "forest_boars": {
@@ -588,6 +606,421 @@
           70
         ]
       }
+    ],
+    "gather_nodes": [
+      {
+        "tipo": "arvore",
+        "pos": [
+          398,
+          270
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          742,
+          1182
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          394,
+          762
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          430,
+          914
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1266,
+          930
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          822,
+          1098
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1690,
+          174
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1042,
+          734
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1758,
+          278
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          958,
+          614
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          634,
+          1338
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1242,
+          846
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1290,
+          266
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          1374,
+          574
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          1390,
+          278
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          1142,
+          782
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          858,
+          670
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          910,
+          1026
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          706,
+          1430
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          686,
+          458
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          918,
+          550
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          458,
+          1174
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          462,
+          422
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          1410,
+          1038
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          1426,
+          690
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          402,
+          850
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          1286,
+          358
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          618,
+          502
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          530,
+          558
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          1378,
+          914
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          1162,
+          402
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          1450,
+          914
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          414,
+          706
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          506,
+          234
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          798,
+          494
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          1382,
+          354
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          514,
+          378
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          870,
+          946
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          478,
+          182
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          1038,
+          666
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          1438,
+          546
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          334,
+          1114
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          406,
+          970
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          414,
+          1082
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          682,
+          1290
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          1062,
+          498
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          506,
+          122
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          1458,
+          1070
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          1610,
+          210
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          730,
+          502
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          1402,
+          758
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          1350,
+          998
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          1222,
+          346
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          1470,
+          274
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          550,
+          1190
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          782,
+          566
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          566,
+          474
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          1414,
+          414
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          1098,
+          434
+        ]
+      }
     ]
   },
   "arcane_ruins": {
@@ -808,7 +1241,240 @@
         "boss": true
       }
     ],
-    "collectibles": []
+    "collectibles": [],
+    "gather_nodes": [
+      {
+        "tipo": "titanio",
+        "pos": [
+          4344,
+          1272
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          6088,
+          3768
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5496,
+          2904
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5992,
+          3096
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          4104,
+          3128
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          5400,
+          3400
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          2504,
+          2888
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          1800,
+          2712
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          3384,
+          3000
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          5240,
+          3176
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          5848,
+          4312
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          1048,
+          1384
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          1320,
+          2936
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          4168,
+          2808
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          6296,
+          3272
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          920,
+          2392
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          3288,
+          4264
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          648,
+          2584
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          5448,
+          3704
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          6040,
+          2280
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          872,
+          3304
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          1976,
+          2936
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          3032,
+          4920
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          2920,
+          1320
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          6200,
+          2056
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          5336,
+          2472
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          5960,
+          4024
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          4216,
+          5224
+        ]
+      },
+      {
+        "tipo": "arvore",
+        "pos": [
+          6104,
+          2584
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          1832,
+          3432
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          6392,
+          2232
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          3592,
+          4392
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          4024,
+          4312
+        ]
+      }
+    ]
   },
   "city_valdoria": {
     "name": "Valdoria Cidade",
@@ -885,6 +1551,39 @@
         "unlock_flag": "rota_valdoria",
         "unlock_text": "Rota liberada! O barco agora liga Eldoria e Valdoria.",
         "unlocked_text": "A rota para Eldoria esta aberta: o portal fica no fim do pier."
+      },
+      {
+        "name": "Borin, Pescador",
+        "role": "quest",
+        "quest": "valdoria_barco_danificado",
+        "pos": [
+          1900,
+          4520
+        ],
+        "sprite": "res://assets/characters/npcs/npc_borin_pescador_idle_4f_128.png",
+        "greeting": "O mar anda agitado, aventureiro!"
+      },
+      {
+        "name": "Kael, Guarda do Porto",
+        "role": "quest",
+        "quest": "valdoria_rota_segura",
+        "pos": [
+          3700,
+          4520
+        ],
+        "sprite": "res://assets/characters/npcs/npc_kael_guarda_porto_idle_4f_128.png",
+        "greeting": "Alto! Preciso de alguem de confianca."
+      },
+      {
+        "name": "Elira, Cartografa",
+        "role": "quest",
+        "quest": "valdoria_mapas_arcanos",
+        "pos": [
+          3720,
+          2950
+        ],
+        "sprite": "res://assets/characters/npcs/npc_elira_cartografa_idle_4f_128.png",
+        "greeting": "Ei! Voce parece conhecer estas terras!"
       }
     ],
     "portals": [
@@ -914,21 +1613,39 @@
         "requires_flag": "rota_valdoria"
       },
       {
-        "label": "Passagem Alta",
-        "target": "highland_pass",
+        "label": "Pantano das Almas",
+        "target": "swamp_almas",
         "pos": [
           5750,
           1857
         ],
         "spawn": [
-          420,
-          700
+          620,
+          4950
         ]
       }
     ],
     "spawns": [],
     "collectibles": [],
-    "safe_zones": []
+    "safe_zones": [],
+    "gather_stations": [
+      {
+        "tipo": "mesa_alquimia",
+        "perto_npc": "Liora",
+        "offset": [
+          170,
+          60
+        ]
+      },
+      {
+        "tipo": "fogao",
+        "perto_npc": "Varek",
+        "offset": [
+          -170,
+          60
+        ]
+      }
+    ]
   },
   "highland_pass": {
     "name": "Passagem Alta",
@@ -983,19 +1700,941 @@
     "name": "Fortaleza de Cinzas",
     "safe": false,
     "size": [
-      2200,
-      1400
+      6400,
+      5760
     ],
-    "color": "#392728",
+    "color": "#2a1d1c",
     "spawn": [
-      1080,
-      1240
+      650,
+      5100
     ],
-    "npcs": [],
-    "portals": [],
-    "safe_zones": [],
-    "spawns": [],
-    "collectibles": []
+    "npcs": [
+      {
+        "name": "Bram, Ferreiro das Cinzas",
+        "role": "shop",
+        "pos": [
+          920,
+          5150
+        ],
+        "sprite": "res://assets/characters/npcs/npc_bram_ferreiro_idle_4f_128.png",
+        "greeting": "Poucos sobrevivem alem destas muralhas. Minhas armas ainda resistem ao fogo, mas voce precisara de mais do que aco para derrotar o General Infernal."
+      },
+      {
+        "name": "Corvin, Soldado Aprisionado",
+        "role": "talk",
+        "pos": [
+          3550,
+          4750
+        ],
+        "sprite": "res://assets/characters/npcs/npc_corvin_soldado_idle_4f_128.png",
+        "greeting": "O General controla toda a fortaleza. Vi seus soldados arrastarem prisioneiros para a cidadela. Se conseguir abrir esta cela, contarei como atravessar suas defesas."
+      },
+      {
+        "name": "Lyra, Exploradora Vulcanica",
+        "role": "talk",
+        "pos": [
+          4200,
+          2750
+        ],
+        "sprite": "res://assets/characters/npcs/npc_lyra_exploradora_idle_4f_128.png",
+        "greeting": "Os dracos defendem seus ninhos com ferocidade. Ha caminhos escondidos entre as rochas, mas nunca tente atravessar a lava sem uma ponte."
+      },
+      {
+        "name": "Orven, Ultimo Sentinela",
+        "role": "talk",
+        "pos": [
+          5800,
+          1900
+        ],
+        "sprite": "res://assets/characters/npcs/npc_orven_sentinela_idle_4f_128.png",
+        "greeting": "O General ja foi um defensor destas terras. Agora o fogo consome sua alma. Derrube-o e o portal alem do trono finalmente despertara."
+      }
+    ],
+    "portals": [
+      {
+        "label": "Pantano",
+        "target": "swamp_almas",
+        "pos": [
+          420,
+          5350
+        ],
+        "spawn": [
+          3200,
+          520
+        ]
+      }
+    ],
+    "safe_zones": [
+      {
+        "pos": [
+          800,
+          5000
+        ],
+        "radius": 520
+      }
+    ],
+    "spawns": [
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          380,
+          3285,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          1360,
+          3285,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          240,
+          4265,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          1360,
+          4265,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          380,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          380,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          380,
+          2365,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          2365,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          2780,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          3760,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          2780,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          3859,
+          4684,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          2780,
+          5565,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          3760,
+          5565,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2920,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          3859,
+          306,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2500,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          3859,
+          1484,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2681,
+          2464,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          3760,
+          2365,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          4660,
+          3285,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4660,
+          4265,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          4660,
+          5245,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4800,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          4800,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4660,
+          2365,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          5980,
+          265,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          5700,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          6120,
+          2365,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          5980,
+          3345,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          5980,
+          4325,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          5980,
+          5305,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "General Infernal",
+        "count": 1,
+        "boss": true,
+        "respawn": 300,
+        "zone": [
+          5900,
+          620,
+          200,
+          160
+        ]
+      }
+    ],
+    "collectibles": [
+      {
+        "item": "Aco Negro",
+        "amount": 1,
+        "pos": [
+          1485,
+          4267
+        ]
+      },
+      {
+        "item": "Aco Negro",
+        "amount": 1,
+        "pos": [
+          1828,
+          3273
+        ]
+      },
+      {
+        "item": "Fragmento de Obsidiana",
+        "amount": 1,
+        "pos": [
+          744,
+          2471
+        ]
+      },
+      {
+        "item": "Fragmento de Obsidiana",
+        "amount": 1,
+        "pos": [
+          72,
+          2326
+        ]
+      },
+      {
+        "item": "Fragmento de Obsidiana",
+        "amount": 1,
+        "pos": [
+          1877,
+          1351
+        ]
+      },
+      {
+        "item": "Carvao",
+        "amount": 1,
+        "pos": [
+          2908,
+          3939
+        ]
+      },
+      {
+        "item": "Carvao",
+        "amount": 1,
+        "pos": [
+          2837,
+          4345
+        ]
+      },
+      {
+        "item": "Carvao",
+        "amount": 1,
+        "pos": [
+          3206,
+          4610
+        ]
+      },
+      {
+        "item": "Carvao",
+        "amount": 1,
+        "pos": [
+          3933,
+          5194
+        ]
+      },
+      {
+        "item": "Nucleo Flamejante",
+        "amount": 1,
+        "pos": [
+          3380,
+          5673
+        ]
+      },
+      {
+        "item": "Minerio de Titanio",
+        "amount": 1,
+        "pos": [
+          550,
+          502
+        ]
+      },
+      {
+        "item": "Minerio de Titanio",
+        "amount": 1,
+        "pos": [
+          1456,
+          181
+        ]
+      },
+      {
+        "item": "Placa de Mithril",
+        "amount": 1,
+        "pos": [
+          2512,
+          4516
+        ]
+      },
+      {
+        "item": "Essencia Sombria",
+        "amount": 1,
+        "pos": [
+          1122,
+          4297
+        ]
+      },
+      {
+        "item": "Essencia Sombria",
+        "amount": 1,
+        "pos": [
+          1494,
+          3700
+        ]
+      },
+      {
+        "item": "Fragmento de Rubi",
+        "amount": 1,
+        "pos": [
+          4795,
+          743
+        ]
+      },
+      {
+        "item": "Fragmento de Rubi",
+        "amount": 1,
+        "pos": [
+          4077,
+          591
+        ]
+      },
+      {
+        "item": "Escama Draconica",
+        "amount": 1,
+        "pos": [
+          5084,
+          613
+        ]
+      },
+      {
+        "item": "Escama Draconica",
+        "amount": 1,
+        "pos": [
+          4606,
+          70
+        ]
+      },
+      {
+        "item": "Escama Draconica",
+        "amount": 1,
+        "pos": [
+          5288,
+          486
+        ]
+      },
+      {
+        "item": "Nucleo de Obsidiana",
+        "amount": 1,
+        "pos": [
+          2856,
+          2771
+        ]
+      },
+      {
+        "item": "Cristal Arcano",
+        "amount": 1,
+        "pos": [
+          4814,
+          5278
+        ]
+      },
+      {
+        "item": "Cristal Divino",
+        "amount": 1,
+        "pos": [
+          6095,
+          4243
+        ]
+      },
+      {
+        "item": "Essencia Celestial",
+        "amount": 1,
+        "pos": [
+          5722,
+          3112
+        ]
+      },
+      {
+        "item": "Pocao media de vida",
+        "amount": 1,
+        "pos": [
+          811,
+          5550
+        ]
+      },
+      {
+        "item": "Pocao media de vida",
+        "amount": 1,
+        "pos": [
+          594,
+          5233
+        ]
+      },
+      {
+        "item": "Pocao media de mana",
+        "amount": 1,
+        "pos": [
+          147,
+          4989
+        ]
+      },
+      {
+        "item": "Pocao media de mana",
+        "amount": 1,
+        "pos": [
+          538,
+          4714
+        ]
+      },
+      {
+        "item": "Minerio de Mithril",
+        "amount": 1,
+        "pos": [
+          1921,
+          1107
+        ]
+      },
+      {
+        "item": "Minerio de Mithril",
+        "amount": 1,
+        "pos": [
+          2291,
+          1688
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          3355,
+          2025
+        ]
+      },
+      {
+        "item": "Pedra Runica",
+        "amount": 1,
+        "pos": [
+          5061,
+          3356
+        ]
+      },
+      {
+        "item": "Pedra Runica",
+        "amount": 1,
+        "pos": [
+          4711,
+          3601
+        ]
+      },
+      {
+        "item": "Placa de Titanio",
+        "amount": 1,
+        "pos": [
+          5933,
+          605
+        ]
+      },
+      {
+        "item": "Erva Vermelha",
+        "amount": 1,
+        "pos": [
+          1492,
+          4789
+        ]
+      },
+      {
+        "item": "Erva Vermelha",
+        "amount": 1,
+        "pos": [
+          1054,
+          4888
+        ]
+      }
+    ],
+    "gather_nodes": [
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          1384,
+          936
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          3176,
+          4664
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          4776,
+          3192
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          4584,
+          3640
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          1672,
+          3704
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          2232,
+          4248
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          1304,
+          280
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          2216,
+          3128
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          3336,
+          1016
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          872,
+          2632
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5608,
+          5304
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          4440,
+          3432
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          840,
+          552
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          1064,
+          3416
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          4840,
+          904
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          2344,
+          4456
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          4248,
+          5560
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          3400,
+          3800
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          2856,
+          5016
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          2664,
+          2408
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          4616,
+          1000
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          3192,
+          3256
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          1032,
+          4008
+        ]
+      },
+      {
+        "tipo": "planta_rara",
+        "pos": [
+          2072,
+          5640
+        ]
+      },
+      {
+        "tipo": "planta_rara",
+        "pos": [
+          2600,
+          1816
+        ]
+      },
+      {
+        "tipo": "planta_rara",
+        "pos": [
+          5144,
+          952
+        ]
+      }
+    ]
   },
   "bat_cave": {
     "name": "Caverna Profunda",
@@ -1171,6 +2810,260 @@
           160
         ]
       }
+    ],
+    "gather_nodes": [
+      {
+        "tipo": "ferro",
+        "pos": [
+          520,
+          1064
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          1336,
+          1048
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          3512,
+          3080
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          2200,
+          1880
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          2984,
+          2216
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          2264,
+          2264
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          664,
+          2888
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          1192,
+          1528
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          2536,
+          2088
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          3288,
+          3336
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          2632,
+          2344
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          1304,
+          3208
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          2104,
+          1608
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          3960,
+          2648
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          3496,
+          3464
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          3128,
+          2712
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          4024,
+          3112
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          2056,
+          3416
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          920,
+          1064
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          952,
+          2232
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          3704,
+          2904
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          3208,
+          3048
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          3176,
+          1688
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          3960,
+          3384
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          3384,
+          2728
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          712,
+          1224
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          1896,
+          1432
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          888,
+          1384
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          2376,
+          1656
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          1464,
+          1384
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          264,
+          3048
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          840,
+          2024
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          2616,
+          1432
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          424,
+          1400
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          1000,
+          840
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          728,
+          920
+        ]
+      }
     ]
   },
   "world_reset": {
@@ -1190,5 +3083,881 @@
     "safe_zones": [],
     "collectibles": [],
     "spawns": []
+  },
+  "swamp_almas": {
+    "name": "Pantano das Almas Perdidas",
+    "safe": false,
+    "size": [
+      6400,
+      5760
+    ],
+    "color": "#2f3a2a",
+    "spawn": [
+      550,
+      4900
+    ],
+    "npcs": [
+      {
+        "name": "Darian, Explorador",
+        "role": "talk",
+        "pos": [
+          720,
+          4750
+        ],
+        "sprite": "res://assets/characters/npcs/npc_darian_explorador_idle_4f_128.png",
+        "greeting": "Bem-vindo ao Pantano das Almas Perdidas. Muitos entraram nestas aguas, mas poucos voltaram. Se pretende seguir, mantenha os olhos atentos."
+      },
+      {
+        "name": "Mirta, Herbalista",
+        "role": "talk",
+        "pos": [
+          1050,
+          4550
+        ],
+        "sprite": "res://assets/characters/npcs/npc_mirta_herbalista_idle_4f_128.png",
+        "greeting": "As plantas daqui podem curar ou matar. Traga alguns cogumelos luminosos e eu preparo algo util para sua jornada."
+      },
+      {
+        "name": "Oren, Pescador",
+        "role": "talk",
+        "pos": [
+          4650,
+          4300
+        ],
+        "sprite": "res://assets/characters/npcs/npc_oren_pescador_idle_4f_128.png",
+        "greeting": "Esta aldeia ja foi cheia de vida. Uma noite, as aguas subiram e levaram todos. Dizem que o antigo rei ainda caminha sob o lodo."
+      },
+      {
+        "name": "Nadia, Guardia das Ruinas",
+        "role": "talk",
+        "pos": [
+          2850,
+          1050
+        ],
+        "sprite": "res://assets/characters/npcs/npc_nadia_guardia_idle_4f_128.png",
+        "greeting": "Alem da ponte repousa o Rei Afogado. Sua coroa foi tomada pela corrupcao. Somente um guerreiro preparado podera liberta-lo."
+      }
+    ],
+    "portals": [
+      {
+        "label": "Valdoria",
+        "target": "city_valdoria",
+        "pos": [
+          380,
+          5160
+        ],
+        "spawn": [
+          5550,
+          1857
+        ]
+      },
+      {
+        "label": "Fortaleza de Cinzas",
+        "target": "ember_fortress",
+        "pos": [
+          3200,
+          330
+        ],
+        "spawn": [
+          650,
+          5100
+        ],
+        "requires_boss_clear": true,
+        "boss_enemy": "Rei Afogado"
+      }
+    ],
+    "spawns": [
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          380,
+          2005,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          2005,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          380,
+          2985,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          2985,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1980,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          2960,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1980,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          2960,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1881,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          2861,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          3459,
+          2104,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4380,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5360,
+          3605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4380,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5360,
+          4585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4281,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5261,
+          5466,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4780,
+          1605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          5760,
+          1605,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4780,
+          2585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          5760,
+          2585,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2380,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          3360,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          2380,
+          1385,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          3261,
+          1286,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Rei Afogado",
+        "count": 1,
+        "boss": true,
+        "respawn": 300,
+        "zone": [
+          800,
+          620,
+          200,
+          160
+        ]
+      }
+    ],
+    "collectibles": [
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          985,
+          5514
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1208,
+          4305
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          504,
+          5472
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          1239,
+          4742
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          508,
+          4401
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          539,
+          2603
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1008,
+          2833
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1931,
+          3340
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1229,
+          3756
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          464,
+          1999
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          1211,
+          1753
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          127,
+          2751
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          936,
+          3604
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          1242,
+          2749
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          2792,
+          3863
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          1686,
+          3729
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          3237,
+          3749
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          2502,
+          3269
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          3591,
+          2104
+        ]
+      },
+      {
+        "item": "Musgo Medicinal",
+        "amount": 1,
+        "pos": [
+          4214,
+          2997
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          2498,
+          3033
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          2146,
+          2956
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          5126,
+          4596
+        ]
+      },
+      {
+        "item": "Fungo Luminoso",
+        "amount": 1,
+        "pos": [
+          4794,
+          5093
+        ]
+      },
+      {
+        "item": "Essencia Sombria",
+        "amount": 1,
+        "pos": [
+          4507,
+          1959
+        ]
+      },
+      {
+        "item": "Essencia Sombria",
+        "amount": 1,
+        "pos": [
+          4517,
+          1491
+        ]
+      },
+      {
+        "item": "Fragmento de Obsidiana",
+        "amount": 1,
+        "pos": [
+          4265,
+          1033
+        ]
+      },
+      {
+        "item": "Fragmento de Obsidiana",
+        "amount": 1,
+        "pos": [
+          3036,
+          835
+        ]
+      },
+      {
+        "item": "Cristal Roxo",
+        "amount": 1,
+        "pos": [
+          1700,
+          569
+        ]
+      }
+    ],
+    "safe_zones": [
+      {
+        "pos": [
+          800,
+          4750
+        ],
+        "radius": 480
+      }
+    ],
+    "gather_nodes": [
+      {
+        "tipo": "musgo",
+        "pos": [
+          5256,
+          824
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          3592,
+          4648
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          2184,
+          3208
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          5528,
+          3640
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          2280,
+          3704
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          5400,
+          4232
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          1800,
+          3128
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          1784,
+          904
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          840,
+          2552
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          1752,
+          5288
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          600,
+          3448
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          3576,
+          3416
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          3592,
+          808
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          4136,
+          4440
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          2312,
+          5384
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          4904,
+          5528
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          3336,
+          3800
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          5656,
+          2296
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          3848,
+          888
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          4424,
+          2856
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          5800,
+          3992
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          5560,
+          1592
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          2072,
+          4936
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          5272,
+          2136
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          5208,
+          4600
+        ]
+      },
+      {
+        "tipo": "arvore_antiga",
+        "pos": [
+          696,
+          1432
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          1352,
+          4040
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          280,
+          2968
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          1496,
+          5352
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          3288,
+          4744
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          3064,
+          3448
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          4008,
+          5544
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          4344,
+          1192
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5752,
+          1832
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          4264,
+          4776
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          4456,
+          3112
+        ]
+      },
+      {
+        "tipo": "planta_rara",
+        "pos": [
+          648,
+          5560
+        ]
+      }
+    ]
   }
 }

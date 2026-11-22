@@ -3,217 +3,206 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paradise RPG - MMORPG 2D</title>
-  <meta name="description" content="Paradise RPG, um RPG 2D online inspirado nos classicos, com classes, monstros, PvP, guildas e progressao por uso.">
+  <title>Paradise RPG</title>
+  <meta name="description" content="Paradise RPG: RPG de aventura 2D em pixel art para Android. Sete regiões, chefes, profissões, encantamento e mercado entre jogadores.">
+  <meta property="og:title" content="Paradise RPG">
+  <meta property="og:description" content="Da cidade de Eldoria até a Fortaleza de Cinzas: escolha sua classe, colete, forje e enfrente os chefes.">
+  <meta property="og:image" content="./assets/site/hero.jpg">
+  <meta name="theme-color" content="#17142c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="Paradise RPG">
-      <span class="brand-mark">P</span>
-      <span>Paradise RPG</span>
-    </a>
-    <nav class="nav">
+  <a class="pular" href="#baixar">Pular para o download</a>
+
+  <header class="topo">
+    <a class="marca" href="#inicio">Paradise RPG</a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#jornada">Jornada</a>
       <a href="#classes">Classes</a>
-      <a href="#features">Recursos</a>
-      <a href="#maps">Mapas</a>
-      <a href="#download">Download</a>
+      <a href="#oficios">Profissões</a>
+      <a href="#baixar" class="menu-baixar">Baixar</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="eyebrow">Beta publico em desenvolvimento</p>
+  <main id="inicio">
+    <section class="abertura">
+      <video class="abertura-video" autoplay muted loop playsinline poster="./assets/site/hero.jpg" aria-hidden="true">
+        <source src="./assets/site/hero.mp4" type="video/mp4">
+      </video>
+      <div class="abertura-texto">
         <h1>Paradise RPG</h1>
-        <p class="subtitle">Um RPG 2D online inspirado nos classicos, com classes, monstros, bosses, PvP, guildas, trade e evolucao por uso de habilidade.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="https://github.com/markliria15-eng/Paradise-RPG-/releases/latest/download/Paradise-RPG.apk">Baixar para Android</a>
-          <!-- Quando exportar o client web, publicar os arquivos em website/game. -->
-          <a class="button secondary" href="./game/index.html">Jogar no navegador</a>
-          <a class="button ghost" href="https://paradise-rpg-server.onrender.com/download/android">Baixar via servidor online</a>
+        <p class="abertura-sub">Saia de Eldoria com uma espada enferrujada e chegue à Fortaleza de Cinzas com uma lâmina encantada. Um RPG de aventura 2D para Android, feito em pixel art.</p>
+        <div class="abertura-acoes">
+          <a class="botao botao-ouro" href="https://github.com/markliria15-eng/Paradise-RPG-/releases/latest/download/Paradise-RPG.apk">Baixar para Android</a>
+          <a class="botao botao-pedra" href="#novidades">Ver o que tem de novo</a>
         </div>
+        <p class="abertura-versao">Versão beta 0.1.22, grátis.</p>
       </div>
-      <aside class="hero-showcase" aria-label="Personagens principais">
-        <img class="hero-character hero-warrior" src="./assets/characters/guerreiro.png" alt="Guerreiro do Paradise RPG">
-        <img class="hero-character hero-mage" src="./assets/characters/mago.png" alt="Mago do Paradise RPG">
-        <img class="hero-character hero-archer" src="./assets/characters/arqueiro.png" alt="Arqueiro do Paradise RPG">
-      </aside>
     </section>
 
-    <section id="classes" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Escolha sua classe</p>
-        <h2>Combate com identidade propria</h2>
+    <section id="jornada" class="secao jornada">
+      <div class="secao-cabeca">
+        <h2>Sete regiões, do nível 1 ao 54</h2>
+        <p>Cada mapa é mais perigoso que o anterior e termina num chefe. As cidades são seguras: é lá que você compra, forja e prepara poções.</p>
       </div>
-      <div class="cards three">
-        <article class="card class-card warrior">
-          <img class="class-sprite" src="./assets/characters/guerreiro.png" alt="Sprite do Guerreiro">
-          <span class="icon">⚔</span>
+
+      <ol class="trilha">
+        <li class="parada cidade">
+          <img src="./assets/site/eldoria.jpg" alt="Praça de Eldoria com fonte, bancas e lampiões" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Cidade</span>
+            <h3>Eldoria</h3>
+            <p>Onde tudo começa. Ferreiro, curandeira, mercador e as primeiras missões da Jornada.</p>
+          </div>
+        </li>
+        <li class="parada floresta">
+          <img src="./assets/site/floresta.jpg" alt="Trilha de terra na Floresta dos Javalis" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Nível 1 a 18</span>
+            <h3>Floresta dos Javalis</h3>
+            <p>Javalis, lobos e aranhas entre árvores que você pode cortar. Chefe: Rei Javali.</p>
+          </div>
+        </li>
+        <li class="parada caverna">
+          <img src="./assets/site/caverna.jpg" alt="Caverna escura com portal verde brilhando" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Nível 10 a 29</span>
+            <h3>Caverna Profunda</h3>
+            <p>Morcegos, cristais para minerar e o ninho da Matriarca Venenosa.</p>
+          </div>
+        </li>
+        <li class="parada ruinas">
+          <img src="./assets/site/ruinas.jpg" alt="Ruínas com tendas e um portal azul" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Nível 22 a 38</span>
+            <h3>Ruínas Arcanas</h3>
+            <p>Espectros, sentinelas e o Arquimago Corrompido guardando o que sobrou da magia antiga.</p>
+          </div>
+        </li>
+        <li class="parada cidade">
+          <img src="./assets/site/valdoria.jpg" alt="Rua de pedra de Valdoria com carruagem" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Cidade</span>
+            <h3>Valdoria</h3>
+            <p>A capital: forja rara, mercado de pets e montarias, e a mesa de alquimia.</p>
+          </div>
+        </li>
+        <li class="parada pantano">
+          <img src="./assets/site/pantano.jpg" alt="Aldeia no Pântano das Almas Perdidas" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Nível 36 a 46</span>
+            <h3>Pântano das Almas Perdidas</h3>
+            <p>Jacarés, sapos venenosos e afogados na lama. Chefe: Rei Afogado.</p>
+          </div>
+        </li>
+        <li class="parada fortaleza">
+          <img src="./assets/site/fortaleza.jpg" alt="Torre de pedra ao lado de um rio de lava" loading="lazy" width="1280" height="720">
+          <div class="parada-texto">
+            <span class="parada-nivel">Nível 46 a 54</span>
+            <h3>Fortaleza de Cinzas</h3>
+            <p>Rios de lava, dracos e cavaleiros sombrios. No fim da trilha, o General Infernal.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="classes" class="secao classes">
+      <div class="secao-cabeca">
+        <h2>Três jeitos de lutar</h2>
+        <p>A classe vale o jogo inteiro. As habilidades sobem de nível conforme você usa.</p>
+      </div>
+      <div class="classes-lista">
+        <article class="classe">
+          <img src="./assets/characters/guerreiro.png" alt="Guerreiro" width="160" height="160" loading="lazy">
           <h3>Guerreiro</h3>
-          <p>Resistente, forte no corpo a corpo e preparado para segurar dano enquanto evolui ataque e defesa.</p>
+          <p>Aguenta o tranco na linha de frente. Muita vida, muita defesa e golpes de area.</p>
         </article>
-        <article class="card class-card mage">
-          <img class="class-sprite" src="./assets/characters/mago.png" alt="Sprite do Mago">
-          <span class="icon">✦</span>
+        <article class="classe">
+          <img src="./assets/characters/mago.png" alt="Mago" width="160" height="160" loading="lazy">
           <h3>Mago</h3>
-          <p>Dano magico alto, ataques a distancia e controle de area para limpar grupos de monstros.</p>
+          <p>Dano mágico de longe e controle dos grupos. Frágeis, mas decidem a luta.</p>
         </article>
-        <article class="card class-card archer">
-          <img class="class-sprite" src="./assets/characters/arqueiro.png" alt="Sprite do Arqueiro">
-          <span class="icon">➳</span>
+        <article class="classe">
+          <img src="./assets/characters/arqueiro.png" alt="Arqueiro" width="160" height="160" loading="lazy">
           <h3>Arqueiro</h3>
-          <p>Rapido, movel e preciso, com ataques a distancia e chance de dano critico.</p>
+          <p>Rápido e preciso. Ataca de longe e escapa antes do monstro chegar.</p>
         </article>
       </div>
     </section>
 
-    <section id="features" class="section band">
-      <div class="section-heading">
-        <p class="eyebrow">Recursos do jogo</p>
-        <h2>Base preparada para MMO</h2>
+    <section id="oficios" class="secao oficios">
+      <div class="oficios-grade">
+        <div class="oficios-texto">
+          <h2>Seis profissões, todas para você</h2>
+          <p>Minere veios de ferro e mithril, corte árvores e colha ervas pelos mapas. Na cidade, forje armas, prepare poções e cozinhe pratos que dão bônus por alguns minutos.</p>
+          <p>Cada profissão sobe do nível 1 ao 50, de Aprendiz a Grão-Mestre. Quanto maior o nível, maior a chance de a criação dar certo e de achar itens raros, inclusive nos monstros.</p>
+          <ul class="oficios-lista">
+            <li><img src="./assets/site/minerio_de_mithril.png" alt="" width="48" height="48">Minerador</li>
+            <li><img src="./assets/site/madeira_bruta.png" alt="" width="48" height="48">Lenhador</li>
+            <li><img src="./assets/site/planta_rara.png" alt="" width="48" height="48">Herbalista</li>
+            <li><img src="./assets/site/espada_infernal.png" alt="" width="48" height="48">Ferreiro</li>
+            <li><img src="./assets/site/pocao_grande_de_vida.png" alt="" width="48" height="48">Alquimista</li>
+            <li><img src="./assets/site/banquete_do_aventureiro.png" alt="" width="48" height="48">Cozinheiro</li>
+          </ul>
+        </div>
+        <figure class="coleta-cena" aria-label="Pontos de coleta">
+          <img src="./assets/site/coleta_arvore.png" alt="Árvore para cortar" width="150" height="200" loading="lazy">
+          <img src="./assets/site/coleta_ferro.png" alt="Rocha com veio de ferro" width="200" height="150" loading="lazy">
+          <img src="./assets/site/coleta_erva_especial.png" alt="Erva especial com flores azuis" width="140" height="120" loading="lazy">
+        </figure>
       </div>
-      <div class="feature-grid">
-        <span>Login</span>
-        <span>Servidor online</span>
-        <span>Banco de dados</span>
-        <span>Varios jogadores no mapa</span>
-        <span>Chat global</span>
-        <span>Trade</span>
-        <span>Guildas</span>
-        <span>PvP</span>
-        <span>Bosses</span>
-        <span>Eventos</span>
+
+      <div class="encanto">
+        <img src="./assets/site/auras.jpg" alt="O mesmo herói com aura branca, azul, laranja e celestial" width="1280" height="300" loading="lazy">
+        <div class="encanto-texto">
+          <h3>Encantamento, para quem chega a Ferreiro Grão-Mestre</h3>
+          <p>Leve uma arma até +10. Cada nível aumenta os atributos em 8% e muda a cor da aura: branca, verde, azul, roxa, laranja, dourada, até a celestial. A partir do +7, falhar faz o item voltar um nível.</p>
+        </div>
+      </div>
+
+      <div class="mercado">
+        <h3>Não quer forjar? Compre de quem forja</h3>
+        <p>O mercador da cidade vende até o equipamento de Ouro. Mithril, Obsidiana e Cristal só saem da forja ou do mercado entre jogadores, onde cada um define o preço e o jogo mostra o valor de mercado para ninguém vender barato demais. O mercado entre jogadores abre com o modo online.</p>
       </div>
     </section>
 
-    <section id="progression" class="section split">
-      <div>
-        <p class="eyebrow">Sistema de progressao</p>
-        <h2>Seu personagem melhora pelo que voce faz</h2>
-        <p>Paradise RPG usa progressao por uso: lutar aumenta seu poder ofensivo, apanhar de monstros aumenta sua protecao, e combater com frequencia melhora sua velocidade de ataque.</p>
-      </div>
-      <div class="progress-list">
-        <div>
-          <strong>Ataque</strong>
-          <span>Sobe ao acertar monstros.</span>
-        </div>
-        <div>
-          <strong>Defesa</strong>
-          <span>Sobe ao receber dano real.</span>
-        </div>
-        <div>
-          <strong>Vel. de ataque</strong>
-          <span>Evolui com uso constante em combate.</span>
-        </div>
-      </div>
+    <section id="novidades" class="secao novidades">
+      <h2>Novo na versão 0.1.22</h2>
+      <ul class="novidades-lista">
+        <li><strong>Fortaleza de Cinzas</strong> com lava viva, quatro NPCs, missões e o chefe General Infernal.</li>
+        <li><strong>Pântano das Almas Perdidas</strong> com novos NPCs, missões e golpes especiais dos monstros.</li>
+        <li><strong>Profissões</strong> de coleta e criação, com ranks, chance de sucesso e encantamento com aura.</li>
+        <li><strong>Mercador</strong> que também compra seus itens, e mercado entre jogadores preparado para o online.</li>
+        <li><strong>Arte própria</strong> para todos os 210 itens e monstros redesenhados sem cortes.</li>
+        <li><strong>Zoom</strong> ajustável: aproxime a câmera ou abra a visão do mapa.</li>
+      </ul>
     </section>
 
-    <section id="maps" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Mapas</p>
-        <h2>Um mundo em expansao</h2>
-      </div>
-      <div class="cards map-cards">
-        <article class="card map-card city-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_house.png" alt="">
-            <img src="./assets/maps/decor_fountain.png" alt="">
-            <img src="./assets/maps/decor_portal.png" alt="">
-          </div>
-          <h3>Cidade principal</h3>
-          <p>Area segura, NPCs, loja, cura e portais.</p>
-        </article>
-        <article class="card map-card forest-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_tree.png" alt="">
-            <img src="./assets/maps/decor_tree.png" alt="">
-            <img src="./assets/maps/decor_tree.png" alt="">
-          </div>
-          <h3>Floresta inicial</h3>
-          <p>Primeiros monstros, materiais e missao inicial.</p>
-        </article>
-        <article class="card map-card cave-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_crystal.png" alt="">
-            <img src="./assets/maps/decor_portal.png" alt="">
-          </div>
-          <h3>Caverna</h3>
-          <p>Ambiente escuro, monstros ageis e recompensas de agilidade.</p>
-        </article>
-        <article class="card map-card ruins-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_crystal.png" alt="">
-            <img src="./assets/maps/decor_fountain.png" alt="">
-          </div>
-          <h3>Ruinas antigas</h3>
-          <p>Inimigos magicos, cristais e desafios arcanos.</p>
-        </article>
-        <article class="card map-card boss-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_portal.png" alt="">
-            <img src="./assets/maps/decor_crystal.png" alt="">
-            <img src="./assets/maps/decor_tree.png" alt="">
-          </div>
-          <h3>Valdoria</h3>
-          <p>Segunda cidade com pets, montarias, mercador e forja rara.</p>
-        </article>
-        <article class="card map-card forest-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_tree.png" alt="">
-            <img src="./assets/maps/decor_rock.png" alt="">
-          </div>
-          <h3>Passagem Alta</h3>
-          <p>Inicio dos mapas intermediarios, com bandidos, golems e boss proprio.</p>
-        </article>
-        <article class="card map-card cave-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_crystal.png" alt="">
-            <img src="./assets/maps/decor_crystal.png" alt="">
-          </div>
-          <h3>Minas de Cristal</h3>
-          <p>Inimigos mais resistentes, cristais raros e materiais para sets epicos.</p>
-        </article>
-        <article class="card map-card ruins-map">
-          <div class="map-preview">
-            <img src="./assets/maps/decor_forge.png" alt="">
-            <img src="./assets/maps/decor_rock.png" alt="">
-          </div>
-          <h3>Fortaleza de Cinzas</h3>
-          <p>Zona mais perigosa do beta, com dracos, cavaleiros e loot lendario.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="download" class="section download">
-      <div class="download-panel">
-        <p class="eyebrow">Download</p>
-        <h2>Entre no beta do Paradise RPG</h2>
-        <p>O APK principal agora e servido pelo proprio site para baixar direto no celular. Se precisar, use o link alternativo do Render.</p>
-        <div class="download-actions">
-          <a id="android-download" class="button primary" href="https://github.com/markliria15-eng/Paradise-RPG-/releases/latest/download/Paradise-RPG.apk">Baixar Android</a>
-          <a class="button ghost" href="https://paradise-rpg-server.onrender.com/download/android">Baixar via Render</a>
-          <a id="windows-download" class="button secondary" href="https://github.com/markliria15-eng/Paradise-RPG-/releases/latest" target="_blank" rel="noreferrer">Baixar Windows</a>
-          <a class="button ghost" href="./game/index.html">Jogar no navegador</a>
-        </div>
-        <div class="server-panel" data-server-url="https://paradise-rpg-server.onrender.com">
-          <strong>Servidor online</strong>
-          <span id="server-status">Verificando conexao...</span>
-          <div class="server-links">
-            <a href="https://paradise-rpg-server.onrender.com/health" target="_blank" rel="noreferrer">Health</a>
-            <a href="https://paradise-rpg-server.onrender.com/world/status" target="_blank" rel="noreferrer">World status</a>
-            <code>wss://paradise-rpg-server.onrender.com/ws</code>
-          </div>
-        </div>
+    <section id="baixar" class="secao baixar">
+      <div class="baixar-painel">
+        <h2>Baixar o Paradise RPG</h2>
+        <p>Para celulares Android. O arquivo tem cerca de 90 MB.</p>
+        <a class="botao botao-ouro botao-grande" href="https://github.com/markliria15-eng/Paradise-RPG-/releases/latest/download/Paradise-RPG.apk">Baixar APK (v0.1.22)</a>
+        <ol class="passos">
+          <li>Toque em Baixar APK e espere o download terminar.</li>
+          <li>Abra o arquivo. Se o celular pedir, permita instalar apps desta fonte.</li>
+          <li>Toque em Instalar. Se já tiver uma versão antiga, ela é atualizada sem perder o progresso.</li>
+        </ol>
+        <p class="servidor" data-server-url="https://paradise-rpg-server.onrender.com">
+          <span class="servidor-luz" aria-hidden="true"></span>
+          <span id="servidor-status">O jogo funciona offline. O modo online está em preparação.</span>
+        </p>
+        <p class="todas-versoes"><a href="https://github.com/markliria15-eng/Paradise-RPG-/releases" target="_blank" rel="noreferrer">Todas as versões</a></p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <span>Paradise RPG Beta v0.1.16</span>
-    <span>Creditos: equipe Paradise RPG</span>
-    <span>Versao beta sujeita a bugs, wipes e mudancas de balanceamento.</span>
+  <footer class="rodape">
+    <p>Paradise RPG, versão beta 0.1.22. Feito com Godot e com ajuda de IA.</p>
+    <p>Beta: pode ter bugs e mudanças de balanceamento.</p>
   </footer>
 
   <script src="./script.js"></script>

@@ -1,31 +1,36 @@
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (!target) {
-      return;
-    }
+// Topo fica solido depois da abertura.
+const topo = document.querySelector(".topo");
+const abertura = document.querySelector(".abertura");
+if (topo && abertura && "IntersectionObserver" in window) {
+  new IntersectionObserver(([entrada]) => {
+    topo.classList.toggle("solido", !entrada.isIntersecting);
+  }, { rootMargin: "-80px 0px 0px 0px" }).observe(abertura);
+}
 
-    event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-});
+// Movimento reduzido: o video da abertura nao toca (fica a imagem).
+const video = document.querySelector(".abertura-video");
+if (video && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  video.removeAttribute("autoplay");
+  video.pause();
+}
 
-const serverPanel = document.querySelector(".server-panel");
-const statusText = document.querySelector("#server-status");
-
-if (serverPanel && statusText) {
-  const serverUrl = serverPanel.dataset.serverUrl;
-  fetch(`${serverUrl}/world/status`, { cache: "no-store" })
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
+// Status do servidor online: so muda o texto se o servidor responder.
+const servidor = document.querySelector(".servidor");
+const statusTexto = document.querySelector("#servidor-status");
+if (servidor && statusTexto) {
+  const controle = new AbortController();
+  setTimeout(() => controle.abort(), 6000);
+  fetch(`${servidor.dataset.serverUrl}/world/status`, { cache: "no-store", signal: controle.signal })
+    .then((resposta) => {
+      if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
+      return resposta.json();
     })
     .then((status) => {
-      serverPanel.classList.add("online");
-      statusText.textContent = `Online - ${status.onlinePlayers || 0} jogadores conectados`;
+      servidor.classList.add("online");
+      const n = Number(status.onlinePlayers || 0);
+      statusTexto.textContent = `Servidor online: ${n} ${n === 1 ? "jogador conectado" : "jogadores conectados"}.`;
     })
     .catch(() => {
-      serverPanel.classList.add("offline");
-      statusText.textContent = "Servidor reiniciando ou aguardando deploy do Render";
+      // fica a mensagem padrao: o jogo funciona offline
     });
 }

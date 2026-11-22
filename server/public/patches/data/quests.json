@@ -45,6 +45,1003 @@
       "items": [
         "Pocao pequena de vida"
       ]
+    },
+    "requires": "jornada_1_primeiros_passos"
+  },
+  "valdoria_barco_danificado": {
+    "title": "O Barco Danificado",
+    "npc": "Borin, Pescador",
+    "map": "city_valdoria",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Madeira Bruta",
+        "amount": 3
+      },
+      {
+        "type": "collect",
+        "target": "Carne Crua",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Varek, Mercador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 110,
+      "ouro": 65,
+      "items": [
+        "Pocao media de vida"
+      ]
+    },
+    "intro": "Preciso de Madeira Bruta para consertar meu barco e Carne Crua para preparar iscas. Traga os materiais e passe no mercador para conferir os suprimentos.",
+    "done": "Excelente! Meu barco vai navegar outra vez!"
+  },
+  "valdoria_rota_segura": {
+    "title": "Rota Segura",
+    "npc": "Kael, Guarda do Porto",
+    "map": "city_valdoria",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Lobo Cinzento",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Presa de Lobo",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Capitao Maren, Mestre do Porto",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 145,
+      "ouro": 85,
+      "items": [
+        "Fragmento de Rubi"
+      ]
+    },
+    "intro": "Criaturas perigosas estao ameacando as caravanas que abastecem nosso porto. Elimine os inimigos e avise o Capitao Maren quando a rota estiver segura.",
+    "done": "Bom trabalho! O porto esta mais seguro."
+  },
+  "valdoria_mapas_arcanos": {
+    "title": "Mapas Arcanos",
+    "npc": "Elira, Cartografa",
+    "map": "city_valdoria",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Espirito Fraco",
+        "amount": 4
+      },
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Liora, Curandeira",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 150,
+      "ouro": 75,
+      "items": [
+        "Pocao media de mana",
+        "Pedra Runica"
+      ]
+    },
+    "intro": "Estou estudando antigas rotas magicas para atualizar os mapas de Valdoria. Preciso de materiais arcanos e da ajuda da curandeira para verificar se sao seguros.",
+    "done": "Incrivel! Meus mapas estao completos!"
+  },
+  "jornada_1_primeiros_passos": {
+    "title": "A Jornada - Primeiros Passos",
+    "npc": "Marcos o mestre",
+    "map": "city_eldoria",
+    "intro": "Bem-vindo a Eldoria, aventureiro! Antes de partir pelo mundo, preciso que conheca a floresta e aprenda a coletar recursos para sua jornada.",
+    "done": "Muito bem! Voce ja conhece o caminho para fora da cidade e sabe coletar recursos.",
+    "objectives": [
+      {
+        "type": "visit",
+        "target": "forest_boars",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Erva Curativa",
+        "amount": 2
+      },
+      {
+        "type": "talk",
+        "target": "Marcos o mestre",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 80,
+      "ouro": 40,
+      "items": [
+        "Pocao pequena de vida",
+        "Pocao pequena de mana"
+      ]
+    }
+  },
+  "jornada_2_rastros_na_floresta": {
+    "title": "A Jornada - Rastros na Floresta",
+    "npc": "Guarda Doran",
+    "map": "forest_boars",
+    "requires": "jornada_1_primeiros_passos",
+    "intro": "Tenho encontrado rastros estranhos perto da entrada da floresta. Investigue os lobos e descubra o que esta atraindo essas criaturas para perto da cidade.",
+    "done": "Excelente trabalho! Os rastros indicam que algo muito mais perigoso esta dominando a floresta.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Lobo Cinzento",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Presa de Lobo",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Guarda Doran",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 220,
+      "ouro": 110,
+      "items": [
+        "Pocao pequena de vida",
+        "Esmeralda da Agilidade"
+      ]
+    }
+  },
+  "jornada_3_a_fenda_subterranea": {
+    "title": "A Jornada - A Fenda Subterranea",
+    "npc": "Mineiro Perdido",
+    "map": "bat_cave",
+    "requires": "jornada_2_rastros_na_floresta",
+    "intro": "Encontrei uma passagem para uma caverna profunda, mas as criaturas de la impediram minha exploracao. Preciso que investigue o lugar e encontre minerais que possam revelar o que esta acontecendo.",
+    "done": "Voce conseguiu explorar a caverna! Ha sinais de uma criatura muito poderosa nas profundezas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Morcego Sombrio",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Minerio de Ferro",
+        "amount": 5
+      },
+      {
+        "type": "visit",
+        "target": "bat_cave",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 650,
+      "ouro": 280,
+      "items": [
+        "Pocao media de vida",
+        "Pocao pequena de mana"
+      ]
+    }
+  },
+  "jornada_4_a_matriz_da_caverna": {
+    "title": "A Jornada - A Matriz da Caverna",
+    "npc": "Mineiro Perdido",
+    "map": "bat_cave",
+    "requires": "jornada_3_a_fenda_subterranea",
+    "intro": "Os mineiros acreditam que uma criatura gigantesca controla todas as aranhas da caverna. A Matriarca Venenosa precisa ser derrotada antes que seu veneno alcance a superficie.",
+    "done": "A Matriarca caiu! A caverna esta mais segura, mas encontramos sinais de magia corrompida em seus arredores.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Aranha Rainha",
+        "amount": 5
+      },
+      {
+        "type": "kill",
+        "target": "Matriarca Venenosa",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Presa Venenosa",
+        "amount": 4
+      }
+    ],
+    "rewards": {
+      "xp": 1100,
+      "ouro": 520,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Safira da Mana"
+      ]
+    }
+  },
+  "jornada_5_segredos_das_ruinas": {
+    "title": "A Jornada - Segredos das Ruinas",
+    "npc": "Maga Selene",
+    "map": "arcane_ruins",
+    "requires": "jornada_4_a_matriz_da_caverna",
+    "intro": "A magia encontrada na caverna possui a mesma assinatura das Ruinas Arcanas. Viaje ate la e investigue os espiritos e aprendizes que protegem os antigos saloes.",
+    "done": "Essas essencias confirmam minhas suspeitas. Alguem esta usando magia proibida para controlar as ruinas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Aprendiz Corrompido",
+        "amount": 7
+      },
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 6
+      },
+      {
+        "type": "visit",
+        "target": "arcane_ruins",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 1600,
+      "ouro": 750,
+      "items": [
+        "Pocao media de vida",
+        "Safira da Mana",
+        "Fragmento de Rubi"
+      ]
+    }
+  },
+  "jornada_6_o_guardiao_arcano": {
+    "title": "A Jornada - O Guardiao Arcano",
+    "npc": "Maga Selene",
+    "map": "arcane_ruins",
+    "requires": "jornada_5_segredos_das_ruinas",
+    "intro": "O Arquimago Corrompido esta por tras da energia que contaminou as ruinas. Derrote seus guardioes e enfrente o responsavel por essa corrupcao.",
+    "done": "O Arquimago foi derrotado! A energia das ruinas esta enfraquecendo e uma antiga passagem comecou a despertar.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Sentinela Arcano",
+        "amount": 5
+      },
+      {
+        "type": "kill",
+        "target": "Arquimago Corrompido",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Po Mistico",
+        "amount": 5
+      }
+    ],
+    "rewards": {
+      "xp": 2400,
+      "ouro": 1100,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Pedra Runica"
+      ]
+    }
+  },
+  "jornada_7_o_caminho_do_destino": {
+    "title": "A Jornada - O Caminho do Destino",
+    "npc": "Capitao Maren, Mestre do Porto",
+    "map": "city_valdoria",
+    "requires": "jornada_6_o_guardiao_arcano",
+    "intro": "As noticias sobre a queda do Arquimago chegaram ate Valdoria. Alem do oceano existem terras perigosas que precisam de um aventureiro capaz de enfrentar ameacas muito maiores.",
+    "done": "Voce esta preparado para seguir adiante! O caminho para as terras distantes finalmente esta aberto.",
+    "objectives": [
+      {
+        "type": "visit",
+        "target": "city_valdoria",
+        "amount": 1
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Cristal",
+        "amount": 8
+      },
+      {
+        "type": "talk",
+        "target": "Capitao Maren, Mestre do Porto",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 3000,
+      "ouro": 1500,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Lingote de Ouro"
+      ]
+    }
+  },
+  "jornada_8_o_fim_da_jornada": {
+    "title": "A Jornada - O Fim da Jornada",
+    "npc": "Capitao Maren, Mestre do Porto",
+    "map": "city_valdoria",
+    "requires": "jornada_7_o_caminho_do_destino",
+    "intro": "Voce percorreu um longo caminho e superou inimigos que pareciam invenciveis. Agora sua jornada entra para a historia: prepare-se para enfrentar as maiores ameacas do mundo.",
+    "done": "Voce chegou ao fim desta jornada e provou ser um verdadeiro heroi! Seu nome sera lembrado por todas as terras conhecidas.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 10
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Cristal",
+        "amount": 10
+      },
+      {
+        "type": "talk",
+        "target": "Capitao Maren, Mestre do Porto",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 4500,
+      "ouro": 2500,
+      "items": [
+        "Rubi da Forca",
+        "Safira da Mana",
+        "Esmeralda da Agilidade",
+        "Pedra Runica"
+      ]
+    }
+  },
+  "paralela_1_ervas_de_eldoria": {
+    "title": "Ervas para a Curandeira",
+    "npc": "Sarah, Curandeira",
+    "map": "city_eldoria",
+    "intro": "Meus estoques de ervas estao acabando e preciso preparar remedios para os moradores. Traga algumas plantas medicinais da floresta para ajudar nossa cidade.",
+    "done": "Essas ervas serao muito uteis para preparar novos remedios. Agradeco sua ajuda!",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Erva Curativa",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Flor Medicinal",
+        "amount": 5
+      },
+      {
+        "type": "talk",
+        "target": "Sarah, Curandeira",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 180,
+      "ouro": 90,
+      "items": [
+        "Pocao pequena de vida",
+        "Pocao pequena de mana"
+      ]
+    }
+  },
+  "paralela_2_materiais_do_ferreiro": {
+    "title": "Materiais para uma Nova Forja",
+    "npc": "Manoel ferrugem o ferreiro",
+    "map": "city_eldoria",
+    "intro": "Minha forja precisa de novos materiais para produzir equipamentos melhores. Traga minerio de ferro e madeira resistente para que eu possa trabalhar.",
+    "done": "Excelente material! Agora posso preparar equipamentos muito melhores para os aventureiros.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Minerio de Ferro",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Madeira Bruta",
+        "amount": 6
+      },
+      {
+        "type": "talk",
+        "target": "Manoel ferrugem o ferreiro",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 350,
+      "ouro": 180,
+      "items": [
+        "Lingote de Ouro",
+        "Fragmento de Rubi"
+      ]
+    }
+  },
+  "paralela_3_mercadorias_raras": {
+    "title": "Mercadorias Raras",
+    "npc": "Varek, Mercador",
+    "map": "city_valdoria",
+    "intro": "Estou procurando mercadorias raras para abastecer minha loja em Valdoria. Preciso de essencias arcanas e fragmentos de cristal para meus clientes mais exigentes.",
+    "done": "Negocio fechado! Essas mercadorias valem uma fortuna. Aqui esta sua recompensa.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Essencia Arcana",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Cristal",
+        "amount": 5
+      },
+      {
+        "type": "talk",
+        "target": "Varek, Mercador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 1800,
+      "ouro": 950,
+      "items": [
+        "Pocao media de vida",
+        "Safira da Mana",
+        "Lingote de Ouro"
+      ]
+    }
+  },
+  "jornada_9_o_chamado_do_pantano": {
+    "title": "A Jornada - O Chamado do Pantano",
+    "npc": "Capitao Maren, Mestre do Porto",
+    "map": "city_valdoria",
+    "requires": "jornada_8_o_fim_da_jornada",
+    "intro": "Uma nevoa verde tomou o caminho alem de Valdoria. Os exploradores desapareceram e rumores falam de um rei morto que despertou sob as aguas. Entre no Pantano das Almas Perdidas e procure Darian, nosso ultimo explorador naquela regiao.",
+    "done": "Voce encontrou Darian! As historias sobre o pantano sao verdadeiras. Leve estes suprimentos e prepare-se para descobrir o que despertou nas aguas.",
+    "objectives": [
+      {
+        "type": "visit",
+        "target": "swamp_almas",
+        "amount": 1
+      },
+      {
+        "type": "talk",
+        "target": "Darian, Explorador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 4800,
+      "ouro": 2700,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Couro Reforcado"
+      ]
+    },
+    "entrega": "Darian, Explorador"
+  },
+  "jornada_10_o_veneno_das_aguas": {
+    "title": "A Jornada - O Veneno das Aguas",
+    "npc": "Darian, Explorador",
+    "map": "swamp_almas",
+    "requires": "jornada_9_o_chamado_do_pantano",
+    "intro": "A nevoa esconde criaturas que nunca deveriam existir. Jacares famintos, sapos venenosos e mosquitos gigantes dominam as trilhas. Elimine essas ameacas e recolha os fungos luminosos que marcam os caminhos seguros.",
+    "done": "Muito bem! As trilhas estao mais seguras, mas o pantano continua inquieto. Os fungos brilham com uma energia estranha que parece vir das profundezas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Jacare do Pantano",
+        "amount": 6
+      },
+      {
+        "type": "kill",
+        "target": "Sapo Venenoso Gigante",
+        "amount": 5
+      },
+      {
+        "type": "kill",
+        "target": "Mosquito Mutante",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Fungo Luminoso",
+        "amount": 5
+      },
+      {
+        "type": "talk",
+        "target": "Darian, Explorador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 5600,
+      "ouro": 3100,
+      "items": [
+        "Pocao media de vida",
+        "Presa Venenosa",
+        "Pedra Runica"
+      ]
+    }
+  },
+  "jornada_11_as_vozes_dos_afogados": {
+    "title": "A Jornada - As Vozes dos Afogados",
+    "npc": "Oren, Pescador",
+    "map": "swamp_almas",
+    "requires": "jornada_10_o_veneno_das_aguas",
+    "intro": "Minha aldeia foi engolida pelas aguas numa unica noite. Agora os mortos caminham entre as casas submersas, chamando pelos vivos. Destrua essas criaturas e traga as essencias sombrias que carregam. Talvez possamos descobrir quem os controla.",
+    "done": "Estas essencias... reconheco a energia delas. Vem da antiga coroa do rei! Procure Nadia nas ruinas. Ela conhece a historia da maldicao.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Afogado do Pantano",
+        "amount": 10
+      },
+      {
+        "type": "collect",
+        "target": "Essencia Sombria",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Obsidiana",
+        "amount": 4
+      },
+      {
+        "type": "talk",
+        "target": "Oren, Pescador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 6800,
+      "ouro": 3800,
+      "items": [
+        "Aco Negro",
+        "Placa de Mithril",
+        "Pocao media de vida",
+        "Pocao media de mana"
+      ]
+    }
+  },
+  "jornada_12_a_coroa_afogada": {
+    "title": "A Jornada - A Coroa Afogada",
+    "npc": "Nadia, Guardia das Ruinas",
+    "map": "swamp_almas",
+    "requires": "jornada_11_as_vozes_dos_afogados",
+    "intro": "O Rei Afogado foi um grande soberano, mas sua coroa absorveu a corrupcao de um culto esquecido. Agora sua alma aprisiona os mortos sob o lodo. Atravesse as ruinas, derrote o rei e retorne para que possamos encerrar essa maldicao.",
+    "done": "A coroa perdeu seu poder e as vozes finalmente silenciaram. Voce libertou o rei e as almas de sua aldeia. O Pantano das Almas Perdidas jamais esquecera seu nome, mas a energia sombria que encontramos pode ser apenas o inicio de algo maior.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Afogado do Pantano",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Cristal Roxo",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Essencia Sombria",
+        "amount": 5
+      },
+      {
+        "type": "kill",
+        "target": "Rei Afogado",
+        "amount": 1
+      },
+      {
+        "type": "talk",
+        "target": "Nadia, Guardia das Ruinas",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 9500,
+      "ouro": 5500,
+      "items": [
+        "Cristal Divino",
+        "Nucleo de Obsidiana",
+        "Rubi da Forca",
+        "Safira da Mana",
+        "Esmeralda da Agilidade",
+        "Placa de Mithril"
+      ]
+    }
+  },
+  "pantano_a_colheita_luminosa": {
+    "title": "A Colheita Luminosa",
+    "npc": "Mirta, Herbalista",
+    "map": "swamp_almas",
+    "intro": "Os fungos luminosos estao desaparecendo e minhas reservas de ervas medicinais acabaram. Preciso preparar remedios antes que a febre do pantano alcance os viajantes. Traga os ingredientes, mas cuidado com as aguas envenenadas.",
+    "done": "Maravilhoso! Com estes ingredientes poderei preparar remedios para muitos viajantes. Tome estas pocoes como agradecimento e nunca subestime os perigos do pantano.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "Fungo Luminoso",
+        "amount": 6
+      },
+      {
+        "type": "collect",
+        "target": "Musgo Medicinal",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Planta Rara",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Mirta, Herbalista",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 2900,
+      "ouro": 1200,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Erva Especial",
+        "Flor Medicinal"
+      ]
+    }
+  },
+  "pantano_os_predadores_da_aldeia": {
+    "title": "Os Predadores da Aldeia",
+    "npc": "Oren, Pescador",
+    "map": "swamp_almas",
+    "intro": "Os jacares invadiram os canais onde eu costumava pescar, e os afogados rondam as casas durante a noite. Ja perdi tudo uma vez e nao quero abandonar este lugar. Elimine essas criaturas para que eu possa voltar a pescar em paz.",
+    "done": "Ha muito tempo nao ouvia o pantano tao silencioso. Talvez eu consiga voltar ao meu antigo barco. Obrigado por devolver um pouco de esperanca a este velho pescador.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Jacare do Pantano",
+        "amount": 8
+      },
+      {
+        "type": "kill",
+        "target": "Afogado do Pantano",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Couro Reforcado",
+        "amount": 4
+      },
+      {
+        "type": "talk",
+        "target": "Oren, Pescador",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 3800,
+      "ouro": 1700,
+      "items": [
+        "Placa de Ferro",
+        "Couro Reforcado",
+        "Pocao media de vida",
+        "Fragmento de Obsidiana"
+      ]
+    }
+  },
+  "pantano_os_segredos_do_culto": {
+    "title": "Os Segredos do Culto",
+    "npc": "Nadia, Guardia das Ruinas",
+    "map": "swamp_almas",
+    "intro": "Estas ruinas pertenciam a um culto que manipulava a energia das sombras. Seus cristais ainda pulsam sob as raizes, alimentando criaturas corrompidas. Elimine os guardioes mortos-vivos e recolha os materiais para enfraquecer os antigos selos.",
+    "done": "Os selos estao enfraquecidos e parte da corrupcao desapareceu. Estes fragmentos confirmam que o culto dominava poderes muito alem de nossa compreensao. Guarde esta pedra runica; ela podera protege-lo.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Afogado do Pantano",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Cristal Roxo",
+        "amount": 4
+      },
+      {
+        "type": "collect",
+        "target": "Po Mistico",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Obsidiana",
+        "amount": 4
+      },
+      {
+        "type": "talk",
+        "target": "Nadia, Guardia das Ruinas",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 4300,
+      "ouro": 2200,
+      "items": [
+        "Pedra Runica",
+        "Cristal Arcano",
+        "Essencia Sombria",
+        "Placa de Mithril"
+      ]
+    }
+  },
+  "jornada_13_as_portas_das_cinzas": {
+    "title": "A Jornada - As Portas das Cinzas",
+    "npc": "Nadia, Guardia das Ruinas",
+    "map": "swamp_almas",
+    "requires": "jornada_12_a_coroa_afogada",
+    "entrega": "Bram, Ferreiro das Cinzas",
+    "intro": "O Rei Afogado finalmente caiu, mas a ameaca que se esconde alem do pantano e ainda maior. Ao norte existe uma antiga fortaleza vulcanica, dominada por um comandante que transformou seus soldados em criaturas das chamas. Atravesse o portal do norte, encontre o ferreiro Bram e descubra como sobreviver naquele lugar.",
+    "done": "Voce atravessou o portal e encontrou um refugio entre as ruinas da Fortaleza de Cinzas. Bram confirma que o General Infernal controla o territorio e que as antigas forjas escondem a passagem para o interior da cidadela.",
+    "objectives": [
+      {
+        "type": "visit",
+        "target": "ember_fortress",
+        "amount": 1
+      },
+      {
+        "type": "talk",
+        "target": "Bram, Ferreiro das Cinzas",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 6200,
+      "ouro": 2400,
+      "items": [
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Aco Negro",
+        "Aco Negro",
+        "Aco Negro"
+      ]
+    }
+  },
+  "jornada_14_as_forjas_da_guerra": {
+    "title": "A Jornada - As Forjas da Guerra",
+    "npc": "Bram, Ferreiro das Cinzas",
+    "map": "ember_fortress",
+    "requires": "jornada_13_as_portas_das_cinzas",
+    "intro": "As forjas da fortaleza ainda alimentam as armas do exercito infernal. Cavaleiros Sombrios protegem os caminhos e Cinzeiros Errantes surgem das cinzas aquecidas. Derrote essas criaturas, recupere materiais das forjas e prove que consegue alcancar as defesas internas da cidadela.",
+    "done": "Os guardas das forjas foram derrotados e os materiais recuperados. Bram utiliza os fragmentos para identificar a origem da corrupcao. O General Infernal esta concentrando o poder vulcanico no alto da fortaleza. O caminho para sua cidadela agora esta diante de voce.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Cavaleiro Sombrio",
+        "amount": 12
+      },
+      {
+        "type": "kill",
+        "target": "Cinzeiro Errante",
+        "amount": 10
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Obsidiana",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Aco Negro",
+        "amount": 6
+      },
+      {
+        "type": "talk",
+        "target": "Bram, Ferreiro das Cinzas",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 8500,
+      "ouro": 3400,
+      "items": [
+        "Placa de Mithril",
+        "Placa de Mithril",
+        "Placa de Mithril",
+        "Placa de Mithril",
+        "Nucleo de Obsidiana",
+        "Nucleo de Obsidiana",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana"
+      ]
+    }
+  },
+  "jornada_15_o_ultimo_general": {
+    "title": "A Jornada - O Ultimo General",
+    "npc": "Orven, Ultimo Sentinela",
+    "map": "ember_fortress",
+    "requires": "jornada_14_as_forjas_da_guerra",
+    "intro": "Voce chegou ao ultimo bastiao da fortaleza. O General Infernal, antigo defensor destas terras, foi consumido pelo poder das chamas. Seus Cavaleiros Sombrios protegem o trono enquanto Dracos Jovens sobrevoam a cidadela. Derrote os guardas, enfrente o General Infernal e retorne para contar a Orven que a fortaleza foi libertada.",
+    "done": "O General Infernal foi derrotado. As chamas que alimentavam sua armadura se apagaram e o exercito corrompido perdeu seu comandante. Orven reconhece sua vitoria e revela que um antigo portal despertou alem do trono. Uma nova regiao aguarda o heroi, mas a batalha pela paz esta longe de terminar.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Cavaleiro Sombrio",
+        "amount": 8
+      },
+      {
+        "type": "kill",
+        "target": "Draco Jovem",
+        "amount": 6
+      },
+      {
+        "type": "kill",
+        "target": "General Infernal",
+        "amount": 1
+      },
+      {
+        "type": "talk",
+        "target": "Orven, Ultimo Sentinela",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 13000,
+      "ouro": 6000,
+      "items": [
+        "Cristal Divino",
+        "Cristal Divino",
+        "Essencia Celestial",
+        "Essencia Celestial",
+        "Nucleo de Obsidiana",
+        "Nucleo de Obsidiana",
+        "Nucleo de Obsidiana",
+        "Nucleo de Obsidiana",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida"
+      ]
+    }
+  },
+  "fortaleza_o_soldado_esquecido": {
+    "title": "Fortaleza de Cinzas - O Soldado Esquecido",
+    "npc": "Corvin, Soldado Aprisionado",
+    "map": "ember_fortress",
+    "requires": "jornada_13_as_portas_das_cinzas",
+    "intro": "Fui capturado durante a ultima resistencia contra o General Infernal. Os guardas destruiram minha armadura e me prenderam com correntes de ferro negro. Se derrotar os Cavaleiros Sombrios e recuperar material suficiente, talvez consigamos romper estas correntes. Nao quero morrer esquecido nesta prisao.",
+    "done": "As correntes foram quebradas e Corvin finalmente esta livre. Em agradecimento, ele revela que as patrulhas do patio seguem as ordens do General Infernal e que o verdadeiro perigo esta na arena alem das muralhas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Cavaleiro Sombrio",
+        "amount": 10
+      },
+      {
+        "type": "collect",
+        "target": "Aco Negro",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Obsidiana",
+        "amount": 5
+      },
+      {
+        "type": "talk",
+        "target": "Corvin, Soldado Aprisionado",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 7200,
+      "ouro": 2900,
+      "items": [
+        "Luvas de Aco Sombrio",
+        "Placa de Mithril",
+        "Placa de Mithril",
+        "Placa de Mithril",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida",
+        "Pocao media de vida"
+      ]
+    }
+  },
+  "fortaleza_o_sangue_dos_dracos": {
+    "title": "Fortaleza de Cinzas - O Sangue dos Dracos",
+    "npc": "Lyra, Exploradora Vulcanica",
+    "map": "ember_fortress",
+    "requires": "jornada_13_as_portas_das_cinzas",
+    "intro": "Os Dracos Jovens que habitam as encostas da fortaleza estao absorvendo energia das fissuras vulcanicas. Suas escamas e nucleos de fogo podem revelar a origem desse poder. Preciso que enfrente alguns dracos e recupere materiais suficientes para meus estudos. Tome cuidado com seus ataques flamejantes.",
+    "done": "As amostras confirmam as suspeitas de Lyra. O calor que fortalece os dracos tambem alimenta a armadura do General Infernal. A exploradora entrega uma recompensa por sua coragem e alerta que as chamas da cidadela serao muito mais perigosas.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "Draco Jovem",
+        "amount": 10
+      },
+      {
+        "type": "collect",
+        "target": "Escama Draconica",
+        "amount": 8
+      },
+      {
+        "type": "collect",
+        "target": "Nucleo Flamejante",
+        "amount": 5
+      },
+      {
+        "type": "collect",
+        "target": "Fragmento de Rubi",
+        "amount": 3
+      },
+      {
+        "type": "talk",
+        "target": "Lyra, Exploradora Vulcanica",
+        "amount": 1
+      }
+    ],
+    "rewards": {
+      "xp": 9000,
+      "ouro": 3800,
+      "items": [
+        "Botas Infernais",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Cristal Arcano",
+        "Nucleo Flamejante",
+        "Nucleo Flamejante",
+        "Nucleo Flamejante",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana",
+        "Pocao media de mana"
+      ]
     }
   }
 }
