@@ -86,6 +86,10 @@ RPG 2D top-down em Godot 4 com modo offline jogavel e estrutura MMO parcial. O b
 - 2026-11-22: profissoes locais de verdade (coleta no mapa, alquimia, culinaria, nivel de Ferreiro na forja; `scripts/profissoes.gd`, `data/profissoes.json`). Saves antigos comecam todas no nivel 1, entao receitas raras da forja pedem subir Ferreiro.
 - 2026-11-22: chance de criar por nivel, ranks das profissoes, encantamento +1..+10 com aura (Ferreiro 50), coletores melhoram drops raros; mercador com venda e limite ate o Ouro; mercado entre jogadores com preco recomendado pronto para o online (precisa rodar `npm run migrate` para criar `market_payouts`).
 - 2026-11-22: versao Android 0.1.22 (export_presets), manifesto de patch regenerado e tag `v0.1.22` enviada para o CI publicar o APK na Release (o site baixa de releases/latest/download/Paradise-RPG.apk). Site (`website/`) refeito: video do jogo na abertura, trilha das 7 regioes, classes, profissoes/encantamento/mercado, novidades e passo a passo do download.
+- 2026-11-22: joystick novo (flutuante, sem a zona morta do Input Map) e profissoes visiveis: animacao de trabalho do heroi nas 3 classes (machado, picareta, colher agachado, pilao, martelo), arvore tomba e cresce de novo, fogueira com espeto, bigorna nas cidades. Ainda nao enviado ao GitHub.
+- 2026-11-22: cartao do item criado + chance em cada receita/forja; toda arvore do mapa cortavel; minerio so nas cavernas; Caverna Profunda maior (6400x4480, 3 saloes novos) e lago menor. Ainda nao enviado ao GitHub.
+- 2026-11-23: mapas de caca maiores, um bloco por vez: Floresta 10400x8320, Ruinas 9600x7040, Pantano 8000x7040, Fortaleza 8000x7040 (Caverna 6400x4480 no dia anterior), com areas, mobs e pontos de coleta novos.
+- 2026-11-23: mata da Floresta andavel (colisao so no pe das arvores, passa por tras) e ancora de Valdoria deitada com degrau. Tudo enviado ao GitHub com autorizacao do Mark ("pode subir tudo").
 
 Use `git diff --numstat`, `git status --short` e revisao por pasta antes de decidir commits. Nao use `git add .`.
 

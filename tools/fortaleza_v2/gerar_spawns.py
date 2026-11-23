@@ -67,6 +67,8 @@ def coletaveis(projeto, alcance, perto):
 
 def main():
     projeto = json.loads((PASTA / "projeto_chatgpt.json").read_text(encoding="utf-8"))
+    exp = json.loads((PASTA / "expansao.json").read_text(encoding="utf-8"))  # areas novas (2026-11-23)
+    projeto["zonas"] = projeto["zonas"] + exp["zonas"]
     numeros = json.loads((PASTA / "numeros_inimigos.json").read_text(encoding="utf-8"))["inimigos"]
     maps_path = ROOT / "data" / "maps.json"
     maps = json.loads(maps_path.read_text(encoding="utf-8"))

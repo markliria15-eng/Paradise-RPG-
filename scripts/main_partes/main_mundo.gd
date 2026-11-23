@@ -992,12 +992,50 @@ func _register_arcane_ruins_background_collision() -> void:
 func _register_solid_rect(rect: Rect2) -> void:
 	if rect.size.x <= 0 or rect.size.y <= 0:
 		return
-	solid_obstacles.append({"type": "rect", "rect": rect})
+	var obstaculo := {"type": "rect", "rect": rect, "id": solid_obstacles.size()}
+	solid_obstacles.append(obstaculo)
+	_guardar_obstaculo(obstaculo, rect)
 
 func _register_solid_circle(center: Vector2, radius: float) -> void:
 	if radius <= 0.0:
 		return
-	solid_obstacles.append({"type": "circle", "center": center, "radius": radius})
+	var obstaculo := {"type": "circle", "center": center, "radius": radius, "id": solid_obstacles.size()}
+	solid_obstacles.append(obstaculo)
+	_guardar_obstaculo(obstaculo, Rect2(center - Vector2.ONE * radius, Vector2.ONE * radius * 2.0))
+
+# quanto o heroi sobe no ponto (pisando num prop deitado como a ancora do porto)
+func _altura_degrau(pos: Vector2) -> float:
+	for d in degraus:
+		if (d["rect"] as Rect2).has_point(pos):
+			return float(d["altura"])
+	return 0.0
+
+func _guardar_obstaculo(obstaculo: Dictionary, caixa: Rect2) -> void:
+	var c0 := Vector2i(floori(caixa.position.x / OBSTACULO_CELULA), floori(caixa.position.y / OBSTACULO_CELULA))
+	var c1 := Vector2i(floori(caixa.end.x / OBSTACULO_CELULA), floori(caixa.end.y / OBSTACULO_CELULA))
+	for cy in range(c0.y, c1.y + 1):
+		for cx in range(c0.x, c1.x + 1):
+			var c := Vector2i(cx, cy)
+			if not obstaculo_grade.has(c):
+				obstaculo_grade[c] = []
+			obstaculo_grade[c].append(obstaculo)
+
+# obstaculos que podem tocar a caixa (pela grade); sem repetir
+func _obstaculos_perto(caixa: Rect2) -> Array:
+	var c0 := Vector2i(floori(caixa.position.x / OBSTACULO_CELULA), floori(caixa.position.y / OBSTACULO_CELULA))
+	var c1 := Vector2i(floori(caixa.end.x / OBSTACULO_CELULA), floori(caixa.end.y / OBSTACULO_CELULA))
+	if c0 == c1:
+		return obstaculo_grade.get(c0, [])
+	var vistos := {}
+	var lista: Array = []
+	for cy in range(c0.y, c1.y + 1):
+		for cx in range(c0.x, c1.x + 1):
+			for o in obstaculo_grade.get(Vector2i(cx, cy), []):
+				var id: int = o["id"]
+				if not vistos.has(id):
+					vistos[id] = true
+					lista.append(o)
+	return lista
 
 func _obstacle_contains_point(obstacle: Dictionary, pos: Vector2) -> bool:
 	var kind := str(obstacle.get("type", "rect"))
@@ -1285,6 +1323,11 @@ func _spawn_kit_prop(prop: Dictionary) -> void:
 	else:
 		visual.z_index = clampi(int(sort_y), -1024, 1024)
 	world.add_child(visual)
+	_registrar_arvore_kit(prop, visual, pos, texture)
+	var degrau: Array = prop.get("degrau", [])
+	if degrau.size() >= 5:
+		degraus.append({"rect": Rect2(pos + Vector2(float(degrau[0]), float(degrau[1])), Vector2(float(degrau[2]), float(degrau[3]))),
+			"altura": float(degrau[4])})
 	var collisions: Array = prop.get("collisions", [])
 	var single: Array = prop.get("collision", [])
 	if single.size() >= 4:
@@ -1299,6 +1342,18 @@ func _spawn_kit_prop(prop: Dictionary) -> void:
 				pos + Vector2(float(collision[0]), float(collision[1])),
 				Vector2(float(collision[2]), float(collision[3]))
 			))
+
+# Toda arvore do mapa pode ser cortada pelo Lenhador (profissoes.gd le arvores_kit).
+func _registrar_arvore_kit(prop: Dictionary, visual: Node2D, pos: Vector2, texture: Texture2D) -> void:
+	if not visual is Sprite2D or str(prop.get("layer", "")) == "ground":
+		return
+	var arquivo := str(prop.get("texture", "")).get_file().get_basename().to_lower()
+	var e_arvore := arquivo.begins_with("tree") or arquivo.contains("_tree") or arquivo.begins_with("dead_tree") or arquivo.begins_with("arvore")
+	if not e_arvore or arquivo.contains("tronco") or arquivo.contains("caido"):
+		return
+	var gigante := arquivo.contains("raiz_gigante") or arquivo.contains("pantanosa_grande")
+	arvores_kit.append({"no": visual, "pos": pos, "tex": texture.resource_path,
+		"altura": float(texture.get_height()) * visual.scale.y, "tipo": "arvore_antiga" if gigante else "arvore"})
 
 func _is_forest_walkable(pos: Vector2) -> bool:
 	if forest_walk_image == null:
@@ -1637,7 +1692,7 @@ func _is_point_blocked(pos: Vector2) -> bool:
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
 			if not _is_forest_walkable(pos + probe):
 				return true
-	for obstacle in solid_obstacles:
+	for obstacle in _obstaculos_perto(Rect2(pos - Vector2(12, 10), Vector2(24, 20))):
 		for probe in [Vector2.ZERO, Vector2(0, -10), Vector2(0, 10), Vector2(-12, 0), Vector2(12, 0)]:
 			if _obstacle_contains_point(obstacle, pos + probe):
 				return true
@@ -2468,6 +2523,8 @@ func _add_minimap_obstacles() -> void:
 			break
 		var world_rect := _obstacle_world_rect(obstacle)
 		if world_rect.size.x <= 0.0 or world_rect.size.y <= 0.0:
+			continue
+		if world_rect.size.x * world_rect.size.y < 2500.0:  # tronco de arvore: nao suja o minimapa
 			continue
 		if not world_rect.intersects(view_rect):
 			continue

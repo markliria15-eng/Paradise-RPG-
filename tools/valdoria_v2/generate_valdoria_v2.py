@@ -314,6 +314,30 @@ def vehicle(kind, route, speed, fps=10, flying=False, keys=None, width=None):
     return {"name": kind, "speed": speed, "flying": flying, "anims": anims, "route": [list(p) for p in route]}
 
 
+DEGRAU_ANCORA = 7  # px que o heroi sobe quando pisa na ancora
+
+
+def ancora_deitada(foot):
+    """Ancora do porto deitada no chao (Mark, 2026-11-23): sem colisao, o heroi passa por cima e
+    sobe um degrau (`degrau` = [x, y, w, h, altura] relativo ao pe; main_mundo._altura_degrau)."""
+    ind("anchor", foot)  # garante props/anchor.png
+    out = KIT / "props" / "anchor_deitada.png"
+    im = Image.open(KIT / "props" / "anchor.png").convert("RGBA").rotate(90, expand=True, resample=Image.BICUBIC)
+    im = im.resize((im.width, max(1, round(im.height * 0.55))), Image.LANCZOS)  # deitada: vista de cima e de lado
+    sombra = Image.new("RGBA", (im.width + 16, im.height + 12), (0, 0, 0, 0))
+    alfa = im.getchannel("A").point(lambda a: 110 if a > 40 else 0)
+    preto = Image.new("RGBA", im.size, (10, 8, 6, 255))
+    preto.putalpha(alfa)
+    sombra.alpha_composite(preto, (10, 10))
+    sombra = sombra.filter(ImageFilter.GaussianBlur(4))
+    sombra.alpha_composite(im, (4, 2))
+    sombra.save(out, optimize=True)
+    w, h = sombra.size
+    return {"name": "anchor", "texture": f"{RES}assets/maps/valdoria_v2/props/anchor_deitada.png",
+            "pos": [round(foot[0], 1), round(foot[1], 1)], "offset": [-w / 2, -h], "scale": 1.0, "flip_h": False,
+            "layer": "ground", "degrau": [round(-w / 2 + 8, 1), -h + 6, w - 16, h - 6, DEGRAU_ANCORA]}
+
+
 def ind(name, foot, ground=False, col_dx=0.0):
     """Prop do pacote industrial, gravado em assets/maps/valdoria_v2/props no tamanho do mundo (escala 1)."""
     axis, size, cw, ch = IND_SIZE[name]
@@ -406,7 +430,7 @@ def decorations():
     # porto: navio atracado a oeste do pier, pesqueiro a leste, botes junto ao calcadao
     d += [ind("ship_docked", (2420, 5540)), ind("fishing_boat", (3700, 5080)), ind("rowboat", (1250, 4760)),
           ind("rowboat", (4500, 4760)), ind("rowboat", (5000, 4790))]
-    d += [ind("crane", (2480, 4590), col_dx=-0.3), ind("cargo_scale", (2700, 4560)), ind("anchor", (3460, 4560)),
+    d += [ind("crane", (2480, 4590), col_dx=-0.3), ind("cargo_scale", (2700, 4560)), ancora_deitada((3460, 4560)),
           ind("water_wheel", (5660, 4600))]
     for x in (1100, 1700, 2250, 3360, 3600, 4200, 4800, 5400):
         d.append(ind("mooring_bollard", (x, BOARDWALK[3] - 6)))

@@ -1,7 +1,7 @@
 """Caverna Profunda v2 (bat_cave) a partir das pranchas em tools/cave_v2/fonte.
 
 Gera (sobrescreve somente estes caminhos):
-  assets/maps/caverna_v2/chunks/caverna_v2_chunk_XX_YY.png   (6x6 chunks de 800x640)
+  assets/maps/caverna_v2/chunks/caverna_v2_chunk_XX_YY.png   (8x7 chunks de 800x640)
   assets/maps/caverna_v2/caverna_v2_walkable.png             (mascara, celula 16px)
   assets/maps/caverna_v2/caverna_v2_minimap.png
   assets/maps/caverna_v2/props/*.png                         (sprites ja na escala do mundo)
@@ -11,6 +11,9 @@ Gera (sobrescreve somente estes caminhos):
 Ordem do mundo: Eldoria -> Floresta -> Caverna -> Ruinas.
 A entrada (portal da Floresta) fica no sudoeste; a saida para as Ruinas fica no
 covil da Matriarca, no nordeste, sob o arco runico.
+2026-11-22: mapa ampliado de 4800x3840 para 6400x4480 (os saloes antigos ficaram no
+mesmo lugar) com 3 saloes novos: Galeria dos Veios (minerio), Ninho dos Morcegos e
+Gruta dos Fungos; o lago ficou bem menor.
 
 uso: python tools/cave_v2/generate_cave_v2.py   (raiz do projeto; precisa de Pillow, numpy e scipy)
 """
@@ -28,8 +31,8 @@ SRC = Path(__file__).resolve().parent / "fonte"
 OUT = ROOT / "assets/maps/caverna_v2"
 RES = "res://assets/maps/caverna_v2"
 
-W, H = 4800, 3840
-GRID = (6, 6)
+W, H = 6400, 4480
+GRID = (8, 7)
 CHUNK = (800, 640)
 CELL = 16
 TILE = 128          # pisos de 256px desenhados em 128px no mundo
@@ -48,6 +51,9 @@ ROOMS = {
     "lago": (2560, 1900, 720, 560),
     "mina": (3560, 3080, 660, 430),
     "covil": (3880, 1120, 760, 560),
+    "galeria": (5300, 3350, 640, 420),
+    "ninho": (5500, 1500, 560, 460),
+    "fungos": (2700, 3950, 620, 330),
 }
 CORRIDORS = [
     ([(820, 2860), (960, 2350), (860, 1760)], 300),            # entrada -> cristais
@@ -55,8 +61,14 @@ CORRIDORS = [
     ([(1480, 1260), (1900, 1500), (2240, 1700)], 320),          # cristais -> lago
     ([(2880, 2330), (3150, 2760), (3330, 2900)], 300),          # lago -> mina
     ([(3960, 2760), (4120, 2250), (3960, 1650)], 300),          # mina -> covil
+    ([(4180, 3120), (4700, 3300)], 300),                        # mina -> galeria
+    ([(4560, 1200), (5000, 1400)], 280),                        # covil -> ninho
+    ([(5500, 1960), (5450, 2500), (5350, 2950)], 300),          # ninho -> galeria
+    ([(2280, 3400), (2500, 3800)], 260),                        # ossos -> fungos
+    ([(3250, 3900), (3500, 3450)], 260),                        # fungos -> mina
 ]
-LAKE = (2700, 1800, 330, 210)                                    # agua (cx, cy, rx, ry)
+LAKE = (2680, 1820, 190, 125)                                    # agua (cx, cy, rx, ry) - menor desde 2026-11-22
+MINE_DECK2 = (5050, 3260, 448, 256)                              # tablado da Galeria dos Veios
 MINE_DECK = (3370, 2980, 384, 256)                               # tablado de madeira
 RUNE_FLOOR = (3940, 760, 300, 150)                               # piso runico na saida
 
@@ -66,6 +78,12 @@ PORTAL_RUINS = (3950, 720)
 ROUTE = [PORTAL_FOREST, (820, 2860), (960, 2350), (860, 1760), (930, 1280), (1480, 1260),
          (1900, 1500), (2240, 1700), (2560, 2100), (2880, 2330), (3150, 2760), (3560, 3080),
          (3960, 2760), (4120, 2250), (3960, 1650), (3880, 1120), PORTAL_RUINS]
+# caminhos dos saloes novos (props ficam fora deles)
+EXTRA_ROUTES = [
+    [(3560, 3080), (4180, 3120), (4700, 3300), (5300, 3350)],
+    [(3880, 1120), (4560, 1200), (5000, 1400), (5500, 1500), (5500, 1960), (5450, 2500), (5350, 2950), (5300, 3350)],
+    [(1960, 3260), (2280, 3400), (2500, 3800), (2700, 3950), (3250, 3900), (3500, 3450), (3560, 3080)],
+]
 
 
 def value_noise(scale, amp, seed):
@@ -109,7 +127,14 @@ def build_masks():
     lab, n = ndimage.label(floor)
     sizes = ndimage.sum(floor, lab, range(1, n + 1))
     floor = lab == (int(np.argmax(sizes)) + 1)
-    floor = ndimage.binary_fill_holes(floor)
+    # tapa so buracos pequenos: com os saloes novos os corredores fecham aneis e a rocha
+    # do meio do anel nao pode virar chao
+    holes, nh = ndimage.label(~floor)
+    if nh:
+        hsizes = ndimage.sum(~floor, holes, range(1, nh + 1))
+        for k, sz in enumerate(hsizes, start=1):
+            if sz < 40000:
+                floor |= holes == k
     water = (ellipse_sd(*LAKE) + value_noise(90, 22, 13)) < 0
     water &= floor
     return floor, water
@@ -150,6 +175,10 @@ def render_ground(floor, water):
     img = mix(img, tiled("07"), w * smooth01(value_noise(150, 1, 23), -0.2, 0.3))
     img = mix(img, tiled("08"), w * smooth01(value_noise(150, 1, 24), 0.0, 0.5))
     img = mix(img, tiled("05"), region_weight(*ROOMS["ossos"]) * 0.95)
+    n = ROOMS["ninho"]
+    img = mix(img, tiled("05"), region_weight(n[0], n[1], n[2] * 0.7, n[3] * 0.7) * smooth01(value_noise(140, 1, 26), -0.3, 0.3))
+    f = ROOMS["fungos"]
+    img = mix(img, tiled("07"), region_weight(*f) * smooth01(value_noise(150, 1, 27), -0.2, 0.3))
     c = ROOMS["covil"]
     wc = region_weight(c[0], c[1] + 40, c[2] * 0.8, c[3] * 0.75)
     img = mix(img, tiled("06"), wc * smooth01(value_noise(140, 1, 25), -0.5, 0.1))
@@ -158,9 +187,9 @@ def render_ground(floor, water):
     shore_a = np.asarray(Image.fromarray((shore * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(14)), np.float32) / 255
     img = mix(img, tiled("04"), np.clip(shore_a * 1.6, 0, 1))
     # tablado da mina e piso runico (bordas retas)
-    mx, my, mw, mh = MINE_DECK
     deck = np.zeros((H, W), np.float32)
-    deck[my:my + mh, mx:mx + mw] = 1
+    for mx, my, mw, mh in (MINE_DECK, MINE_DECK2):
+        deck[my:my + mh, mx:mx + mw] = 1
     plank = np.tile(np.asarray(tile_img("12"), np.float32), (H // TILE + 1, W // TILE + 1, 1))[:H, :W]
     img = mix(img, plank, deck)
     rx, ry, rw, rh = RUNE_FLOOR
@@ -336,10 +365,11 @@ def prop_entry(info, name, x, y, flip=False):
 
 def route_distance(x, y):
     best = 1e9
-    for (ax, ay), (bx, by) in zip(ROUTE, ROUTE[1:]):
-        vx, vy = bx - ax, by - ay
-        t = max(0.0, min(1.0, ((x - ax) * vx + (y - ay) * vy) / (vx * vx + vy * vy)))
-        best = min(best, math.hypot(x - (ax + t * vx), y - (ay + t * vy)))
+    for rota in [ROUTE] + EXTRA_ROUTES:
+        for (ax, ay), (bx, by) in zip(rota, rota[1:]):
+            vx, vy = bx - ax, by - ay
+            t = max(0.0, min(1.0, ((x - ax) * vx + (y - ay) * vy) / (vx * vx + vy * vy)))
+            best = min(best, math.hypot(x - (ax + t * vx), y - (ay + t * vy)))
     return best
 
 
@@ -380,6 +410,13 @@ def place_props(info, floor, water, dist_void):
     put("rotten_barrels", mx + 70, my + mh - 20, False, 50)
     for tx, ty in ((mx - 40, my + 30), (mx + mw + 40, my + 30)):
         put("unlit_torch", tx, ty, False, 30)
+    mx, my, mw, mh = MINE_DECK2
+    put("mine_support", mx + 70, my + 60, False, 50)
+    put("mine_support", mx + mw - 70, my + 60, False, 50)
+    put("broken_mine_cart", mx + 90, my + mh - 30, True, 50)
+    put("rotten_barrels", mx + mw - 70, my + mh - 20, False, 50)
+    for tx, ty in ((mx - 40, my + 30), (mx + mw + 40, my + 30)):
+        put("unlit_torch", tx, ty, False, 30)
     c = ROOMS["covil"]
     for dx, dy, name in ((-430, 60, "silk_pillar"), (430, 80, "silk_pillar"), (-300, 300, "egg_sac_mound"),
                          (320, 310, "hanging_cocoons"), (-520, -120, "web_canopy"), (520, -100, "webbed_boulder"),
@@ -399,6 +436,9 @@ def place_props(info, floor, water, dist_void):
         "lago": [("tall_teal_mushroom", 5), ("small_mushrooms", 8), ("teal_crystals", 3), ("large_boulder", 3), ("small_boulders", 5), ("rock_pillar", 2), ("crystal_glow", 2), ("silk_cocoon", 2)],
         "mina": [("rotten_barrels", 2), ("broken_mine_cart", 1), ("small_boulders", 4), ("large_boulder", 2), ("bones_skull", 2), ("large_spider_web", 2), ("tall_stalagmite", 3)],
         "covil": [("silk_cocoon", 5), ("green_spider_eggs", 5), ("large_spider_web", 3), ("bones_skull", 3), ("webbed_skeleton", 2)],
+        "galeria": [("mine_support", 2), ("broken_mine_cart", 1), ("rotten_barrels", 2), ("small_boulders", 5), ("large_boulder", 2), ("tall_stalagmite", 3), ("unlit_torch", 2)],
+        "ninho": [("tall_stalagmite", 5), ("small_stalagmites", 5), ("bones_skull", 6), ("rock_pillar", 2), ("root_curtain", 3), ("animal_ribcage", 2)],
+        "fungos": [("tall_teal_mushroom", 7), ("small_mushrooms", 10), ("teal_crystals", 2), ("crystal_glow", 2), ("purple_crystals", 2), ("root_curtain", 2)],
     }
     flat = {"crystal_shards", "small_mushrooms", "bones_skull"}
     for room, items in plan.items():
@@ -498,7 +538,7 @@ def main():
     (ROOT / "data/cave_kit.json").write_text(json.dumps(kit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print("props:", len(props), "lake:", lake_rect, "walk cells:", int(small.sum()))
     # checagem: rota toda andavel
-    bad = [p for p in ROUTE if not small[int(p[1]) // CELL, int(p[0]) // CELL]]
+    bad = [p for p in ROUTE + [q for r in EXTRA_ROUTES for q in r] if not small[int(p[1]) // CELL, int(p[0]) // CELL]]
     print("pontos da rota bloqueados:", bad)
 
 

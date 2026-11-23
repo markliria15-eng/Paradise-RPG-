@@ -1,0 +1,414 @@
+{
+  "_doc": "Ampliacao da Fortaleza (2026-11-23): 6400x5760 -> 8000x7040. Juntado ao projeto_chatgpt.json por gerar_fortaleza.py e gerar_spawns.py. Um rio de lava a leste da Cidadela (x 6400-6800, ate y 2400) mantem a arena do chefe fechada: so se entra pela ponte do sul.",
+  "mundo": [
+    8000,
+    7040
+  ],
+  "grade": [
+    10,
+    11
+  ],
+  "zonas": [
+    {
+      "nome": "Minas de Enxofre",
+      "retangulo_px": [
+        6400,
+        2400,
+        1600,
+        2400
+      ],
+      "terreno": "rocha_vulcanica",
+      "inimigos": [
+        "Draco Jovem",
+        "Cinzeiro Errante"
+      ]
+    },
+    {
+      "nome": "Campo dos Caidos",
+      "retangulo_px": [
+        0,
+        5760,
+        3200,
+        1280
+      ],
+      "terreno": "cinzas_finas",
+      "inimigos": [
+        "Cavaleiro Sombrio",
+        "Cinzeiro Errante"
+      ]
+    },
+    {
+      "nome": "Garganta de Lava",
+      "retangulo_px": [
+        3200,
+        5760,
+        4800,
+        1280
+      ],
+      "terreno": "basalto_rachado",
+      "inimigos": [
+        "Draco Jovem",
+        "Cavaleiro Sombrio"
+      ]
+    },
+    {
+      "nome": "Encosta Leste",
+      "retangulo_px": [
+        6400,
+        4800,
+        1600,
+        960
+      ],
+      "terreno": "basalto_rachado",
+      "inimigos": [
+        "Cinzeiro Errante",
+        "Cavaleiro Sombrio"
+      ]
+    },
+    {
+      "nome": "Picos de Cinza",
+      "retangulo_px": [
+        6750,
+        0,
+        1250,
+        2400
+      ],
+      "terreno": "basalto_rachado",
+      "inimigos": [
+        "Draco Jovem",
+        "Cinzeiro Errante"
+      ]
+    }
+  ],
+  "caminhos": [
+    {
+      "tipo": "trilha de cinzas",
+      "largura_px": 200,
+      "pontos_px": [
+        [
+          4650,
+          3400
+        ],
+        [
+          5300,
+          3500
+        ],
+        [
+          6000,
+          3400
+        ],
+        [
+          6800,
+          3200
+        ],
+        [
+          7300,
+          2900
+        ]
+      ]
+    },
+    {
+      "tipo": "trilha de cinzas",
+      "largura_px": 180,
+      "pontos_px": [
+        [
+          7300,
+          2900
+        ],
+        [
+          7400,
+          3700
+        ],
+        [
+          7200,
+          4500
+        ],
+        [
+          7000,
+          5200
+        ]
+      ]
+    },
+    {
+      "tipo": "estrada de pedra",
+      "largura_px": 220,
+      "pontos_px": [
+        [
+          1050,
+          4750
+        ],
+        [
+          1000,
+          5600
+        ],
+        [
+          1300,
+          6300
+        ],
+        [
+          2200,
+          6500
+        ]
+      ]
+    },
+    {
+      "tipo": "estrada de pedra",
+      "largura_px": 220,
+      "pontos_px": [
+        [
+          2200,
+          6500
+        ],
+        [
+          3200,
+          6300
+        ],
+        [
+          4200,
+          6500
+        ],
+        [
+          5200,
+          6300
+        ]
+      ]
+    },
+    {
+      "tipo": "trilha de cinzas",
+      "largura_px": 180,
+      "pontos_px": [
+        [
+          3700,
+          4500
+        ],
+        [
+          3800,
+          5400
+        ],
+        [
+          4200,
+          6500
+        ]
+      ]
+    },
+    {
+      "tipo": "trilha de cinzas",
+      "largura_px": 190,
+      "pontos_px": [
+        [
+          5200,
+          6300
+        ],
+        [
+          6200,
+          6000
+        ],
+        [
+          6900,
+          5600
+        ],
+        [
+          7000,
+          5200
+        ]
+      ]
+    },
+    {
+      "tipo": "trilha de cinzas",
+      "largura_px": 180,
+      "pontos_px": [
+        [
+          7300,
+          2900
+        ],
+        [
+          7450,
+          2000
+        ],
+        [
+          7350,
+          1100
+        ]
+      ]
+    }
+  ],
+  "agua": [
+    {
+      "tipo": "funda",
+      "poligono_px": [
+        [
+          6400,
+          0
+        ],
+        [
+          6780,
+          0
+        ],
+        [
+          6700,
+          800
+        ],
+        [
+          6820,
+          1600
+        ],
+        [
+          6680,
+          2350
+        ],
+        [
+          6400,
+          2420
+        ]
+      ]
+    },
+    {
+      "tipo": "funda",
+      "poligono_px": [
+        [
+          5500,
+          6750
+        ],
+        [
+          6400,
+          6550
+        ],
+        [
+          7000,
+          6800
+        ],
+        [
+          7100,
+          7040
+        ],
+        [
+          5400,
+          7040
+        ]
+      ]
+    },
+    {
+      "tipo": "funda",
+      "poligono_px": [
+        [
+          7600,
+          3300
+        ],
+        [
+          8000,
+          3200
+        ],
+        [
+          8000,
+          4100
+        ],
+        [
+          7700,
+          4000
+        ]
+      ]
+    },
+    {
+      "tipo": "rasa",
+      "poligono_px": [
+        [
+          700,
+          6450
+        ],
+        [
+          1500,
+          6350
+        ],
+        [
+          1650,
+          6850
+        ],
+        [
+          850,
+          6950
+        ]
+      ]
+    },
+    {
+      "tipo": "rasa",
+      "poligono_px": [
+        [
+          6700,
+          2500
+        ],
+        [
+          7300,
+          2450
+        ],
+        [
+          7500,
+          2700
+        ],
+        [
+          6900,
+          2850
+        ]
+      ]
+    }
+  ],
+  "onde_extra": {
+    "ossos_guerreiro": [
+      "Campo dos Caidos"
+    ],
+    "capacete_derretido": [
+      "Campo dos Caidos"
+    ],
+    "espada_quebrada": [
+      "Campo dos Caidos"
+    ],
+    "escudo_caido": [
+      "Campo dos Caidos"
+    ],
+    "rocha_vulcanica_media": [
+      "Minas de Enxofre",
+      "Garganta de Lava",
+      "Encosta Leste",
+      "Picos de Cinza"
+    ],
+    "rocha_basalto_grande": [
+      "Garganta de Lava",
+      "Encosta Leste"
+    ],
+    "escombro_muralha": [
+      "Campo dos Caidos"
+    ],
+    "torre_vigia_destruida": [
+      "Campo dos Caidos"
+    ],
+    "carroca_destruida": [
+      "Campo dos Caidos",
+      "Minas de Enxofre"
+    ],
+    "caldeirao_metal_fundido": [
+      "Minas de Enxofre"
+    ],
+    "cristal_enxofre": [
+      "Minas de Enxofre",
+      "Garganta de Lava",
+      "Picos de Cinza"
+    ],
+    "esqueleto_criatura_gigante": [
+      "Garganta de Lava"
+    ],
+    "ninho_draco": [
+      "Garganta de Lava",
+      "Picos de Cinza"
+    ],
+    "ovo_draco": [
+      "Garganta de Lava",
+      "Picos de Cinza"
+    ],
+    "estandarte_queimado": [
+      "Campo dos Caidos"
+    ],
+    "altar_infernal": [
+      "Encosta Leste"
+    ]
+  },
+  "fator_quantidade": 1.4
+}

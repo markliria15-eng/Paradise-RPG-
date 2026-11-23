@@ -91,6 +91,21 @@ func _aviso(texto: String) -> void:
 	print("  AVISO   ", texto)
 
 
+func _dedo(indice: int, pos: Vector2, apertado: bool) -> void:
+	var ev := InputEventScreenTouch.new()
+	ev.index = indice
+	ev.position = pos
+	ev.pressed = apertado
+	main.get_viewport().push_input(ev, true)  # coordenadas ja na tela do jogo (1280x720)
+
+
+func _arrastar(indice: int, pos: Vector2) -> void:
+	var ev := InputEventScreenDrag.new()
+	ev.index = indice
+	ev.position = pos
+	main.get_viewport().push_input(ev, true)  # coordenadas ja na tela do jogo (1280x720)
+
+
 func _checar(condicao: bool, texto: String) -> bool:
 	if condicao:
 		_ok(texto)
@@ -401,6 +416,30 @@ func _testar_jogo() -> void:
 	_checar(pet != null and is_instance_valid(pet) and (pet as Node2D).is_visible_in_tree(), "pet aparece seguindo o heroi (equipado: %s)" % str(main.call("_current_equipped_pet_code")))
 	_coletar_erros("pet")
 
+	# --- joystick de toque: toque de verdade (viewport.push_input), arrasta, anda e solta ---
+	var joy_centro: Vector2 = main.get("touch_move_center")
+	var joy_inicio: Vector2 = player.global_position
+	_dedo(0, joy_centro, true)
+	_arrastar(0, joy_centro + Vector2(70, 0))
+	await _esperar(0.6)
+	var joy_andou: bool = player.global_position.x > joy_inicio.x + 40.0
+	_dedo(0, joy_centro + Vector2(70, 0), false)
+	await _esperar(0.2)
+	var joy_parado: Vector2 = player.global_position
+	await _esperar(0.3)
+	var joy_parou: bool = player.global_position.distance_to(joy_parado) < 2.0 and (player.get("touch_input") as Vector2) == Vector2.ZERO
+	# joy_flutuante: toque joy_longe do joystick (ainda no canto esquerdo) traz o joystick para o dedo
+	var joy_vp: Vector2 = main.get_viewport().get_visible_rect().size
+	var joy_longe := Vector2(joy_vp.x * 0.30, joy_vp.y * 0.55)
+	_dedo(1, joy_longe, true)
+	var joy_origem: Vector2 = main.get("touch_move_origin")
+	_arrastar(1, joy_longe + Vector2(0, -20))
+	var joy_leve: Vector2 = player.get("touch_input")
+	_dedo(1, joy_longe + Vector2(0, -20), false)
+	var joy_flutua := joy_origem.distance_to(joy_longe) < 2.0 and joy_leve.y < -0.3
+	_checar(joy_andou and joy_parou and joy_flutua, "joystick: arrastar anda (%s), soltar para (%s), toque livre no canto vira joystick e empurrao curto ja anda (%s)" % [_sim(joy_andou), _sim(joy_parou), _sim(joy_flutua)])
+	_coletar_erros("joystick")
+
 	# --- profissoes: colher uma erva na Floresta e preparar pocao fora da cidade ---
 	var prof_mod: Object = main.get("profissoes")
 	if _checar(prof_mod != null and not (prof_mod.get("pontos") as Array).is_empty(), "profissoes: pontos de coleta aparecem na Floresta (%d)" % (0 if prof_mod == null else (prof_mod.get("pontos") as Array).size())):
@@ -416,10 +455,12 @@ func _testar_jogo() -> void:
 			var antes_qtd := int(player.inventory.items.get("Erva Curativa", 0))
 			var antes_xp := int(prof_mod.call("_estado")["herbalism"]["xp"]) + int(prof_mod.call("nivel", "herbalism")) * 100000
 			var comecou: bool = prof_mod.call("interagir")
-			await _esperar(3.0)
+			await _esperar(0.5)
+			comecou = comecou and str(player.get("trabalho")) == "colher"
+			await _esperar(2.5)
 			var ganhou := int(player.inventory.items.get("Erva Curativa", 0)) > antes_qtd
 			var xp_subiu := int(prof_mod.call("_estado")["herbalism"]["xp"]) + int(prof_mod.call("nivel", "herbalism")) * 100000 > antes_xp
-			_checar(comecou and ganhou and xp_subiu and not prof_mod.call("_disponivel", erva), "coleta: comeca (%s), ganha erva (%s), XP de Herbalista (%s) e a moita esgota" % [_sim(comecou), _sim(ganhou), _sim(xp_subiu)])
+			_checar(comecou and ganhou and xp_subiu and not prof_mod.call("_disponivel", erva) and str(player.get("trabalho")) == "", "coleta: comeca agachado (%s), ganha erva (%s), XP de Herbalista (%s), a moita esgota e o heroi levanta" % [_sim(comecou), _sim(ganhou), _sim(xp_subiu)])
 		player.inventory.add_item("Erva Curativa", 2)
 		player.inventory.add_item("Erva Vermelha", 2)
 		player.inventory.add_item("Flor Medicinal", 1)
@@ -429,6 +470,58 @@ func _testar_jogo() -> void:
 		var media_bancada: bool = prof_mod.call("criar", "Pocao media de vida", true)
 		_checar(simples and not media_fora and media_bancada, "alquimia: simples fora da cidade (%s), media so na bancada (%s/%s)" % [_sim(simples), _sim(not media_fora), _sim(media_bancada)])
 		prof_mod.call("_estado")["alchemy"]["nivel"] = 1
+		# cena de criacao: fogueira com a carne girando, heroi agachado, resultado no fim
+		prof_mod.call("_estado")["cooking"]["nivel"] = 12
+		player.inventory.add_item("Carne Crua", 2)
+		var assadas := int(player.inventory.items.get("Carne Assada", 0))
+		prof_mod.call("animar_criacao", "cooking", func() -> void: prof_mod.call("criar", "Carne Assada", false))
+		await _esperar(0.3)
+		var fogo_ok: bool = (prof_mod.get("fogueiras") as Array).size() > 0 and str(player.get("trabalho")) == "cozinhar"
+		await _esperar(3.4)
+		var assou: bool = int(player.inventory.items.get("Carne Assada", 0)) > assadas and str(player.get("trabalho")) == ""
+		prof_mod.call("_estado")["cooking"]["nivel"] = 1
+		var camada: Variant = prof_mod.get("aviso_camada")
+		var cartao_ok: bool = camada != null and is_instance_valid(camada) and (camada as Node).get_child_count() > 0
+		_checar(fogo_ok and assou and cartao_ok, "cena de culinaria: fogueira aparece e o heroi cozinha (%s), carne assada sai no fim (%s), cartao do item criado (%s)" % [_sim(fogo_ok), _sim(assou), _sim(cartao_ok)])
+		# toda arvore do mapa pode ser cortada: corta uma arvore da propria floresta
+		var arvore_kit: Dictionary = {}
+		var n_arvores := 0
+		for pt in prof_mod.get("pontos"):
+			if pt.has("decor"):
+				n_arvores += 1
+				if arvore_kit.is_empty() and prof_mod.call("_disponivel", pt) and not main.call("_is_point_blocked", (pt["node"] as Node2D).global_position + Vector2(70, 10)):
+					arvore_kit = pt
+		if _checar(n_arvores > 100 and not arvore_kit.is_empty(), "lenhador: as arvores da floresta podem ser cortadas (%d)" % n_arvores):
+			player.global_position = (arvore_kit["node"] as Node2D).global_position + Vector2(70, 10)
+			player.velocity = Vector2.ZERO
+			await _esperar(0.5)
+			var madeira := int(player.inventory.items.get("Madeira Bruta", 0))
+			var cortou: bool = prof_mod.call("interagir")
+			await _esperar(3.6)
+			var ganhou_madeira := int(player.inventory.items.get("Madeira Bruta", 0)) > madeira
+			var sumiu: bool = not (arvore_kit["decor"] as Node2D).visible and (arvore_kit["sprite"] as Node2D).visible
+			_checar(cortou and ganhou_madeira and sumiu, "lenhador: cortou a arvore do mapa (%s), ganhou madeira (%s), virou toco (%s)" % [_sim(cortou), _sim(ganhou_madeira), _sim(sumiu)])
+		var minerio_floresta := 0
+		for pt in prof_mod.get("pontos"):
+			if str(pt["def"].get("profissao", "")) == "mining":
+				minerio_floresta += 1
+		_checar(minerio_floresta == 0, "minerio so nas cavernas: nenhuma rocha na floresta (%d)" % minerio_floresta)
+		# mata fechada: anda no meio das arvores; so o pe do tronco bate
+		var meio_mata := Vector2(2600, 2400)
+		var tronco_bate := false
+		for a in main.get("arvores_kit"):
+			var pe: Vector2 = a["pos"]
+			if pe.distance_to(meio_mata) < 1200.0 and str(a["tex"]).contains("tree_big"):
+				tronco_bate = main.call("_is_point_blocked", pe + Vector2(0, -6))
+				break
+		_checar(not main.call("_is_point_blocked", meio_mata) and tronco_bate, "mata fechada andavel, tronco das arvores solido (%s)" % _sim(tronco_bate))
+		var kit_v: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/valdoria_kit.json"))
+		var ancora_ok := false
+		if kit_v is Dictionary:
+			for prop in kit_v.get("props", []):
+				if str(prop.get("name", "")) == "anchor":
+					ancora_ok = str(prop.get("layer", "")) == "ground" and prop.get("degrau", []).size() >= 5 and prop.get("collisions", []).is_empty()
+		_checar(ancora_ok, "ancora de Valdoria deitada no chao, sem colisao e com degrau")
 		# comida com bonus: Espetinho do Cacador = +8% de dano por 5 min
 		var dano_antes := float(player.get("companion_physical_damage_pct"))
 		player.inventory.add_item("Espetinho do Cacador", 1)

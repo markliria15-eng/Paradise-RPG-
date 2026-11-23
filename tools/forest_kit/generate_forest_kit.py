@@ -44,11 +44,13 @@ ELDORIA_TILES = ROOT / "assets/maps/eldoria_v2/tiles"
 TORCH_SCALE = 0.42   # tocha com ~230 px de mundo
 STATUE_SCALE = 1.25  # estatua com ~300 px de mundo
 
-MAP_D = (2000, 1600)
+# 2026-11-23: ampliada de 2000x1600 para 2600x2080 (mundo 10400x8320); tudo o que
+# existia ficou no mesmo lugar e as areas novas ficam a leste e ao sul.
+MAP_D = (2600, 2080)
 WORLD_PER_D = 4
 GROUND_PER_D = 2
 GROUND_SIZE = (MAP_D[0] * GROUND_PER_D, MAP_D[1] * GROUND_PER_D)
-CHUNK_GRID = (10, 10)
+CHUNK_GRID = (13, 13)
 CHUNK_PX = (GROUND_SIZE[0] // CHUNK_GRID[0], GROUND_SIZE[1] // CHUNK_GRID[1])
 MASK_CELL_WORLD = 16
 MASK_SIZE = (MAP_D[0] * WORLD_PER_D // MASK_CELL_WORLD, MAP_D[1] * WORLD_PER_D // MASK_CELL_WORLD)
@@ -79,6 +81,12 @@ CLEARINGS = {
     "k_lobos": {"c": (1440, 590), "r": (95, 75)},
     "e_alfas": {"c": (1330, 920), "r": (140, 105)},
     "arena": ARENA,
+    # areas novas (2026-11-23)
+    "leste_pinhal": {"c": (2250, 520), "r": (150, 110)},
+    "leste_riacho": {"c": (2300, 1000), "r": (140, 110)},
+    "sudeste": {"c": (2250, 1650), "r": (170, 120)},
+    "sul_vale": {"c": (1500, 1800), "r": (180, 120)},
+    "sudoeste": {"c": (520, 1820), "r": (150, 100)},
 }
 
 GATE = (1490, 1075)
@@ -91,6 +99,15 @@ PATHS = [
     {"pts": [(950, 620), (1080, 470), (1200, 350), (1320, 290), (1500, 250), (1730, 230)]},
     {"pts": [(1320, 290), (1400, 440), (1440, 590), (1390, 770), (1330, 920)]},
     {"pts": [(950, 620), (1120, 780), (1330, 920), GATE, (1570, 1175)], "walk_hw": 44},
+    # areas novas (2026-11-23)
+    {"pts": [(1730, 230), (1950, 330), (2120, 430), (2250, 520)]},
+    {"pts": [(1440, 590), (1700, 690), (2000, 820), (2300, 1000)]},
+    {"pts": [(2250, 520), (2320, 760), (2300, 1000)]},
+    {"pts": [(2300, 1000), (2330, 1300), (2280, 1500), (2250, 1650)]},
+    {"pts": [(2250, 1650), (1900, 1760), (1500, 1800)]},
+    {"pts": [(650, 1390), (1000, 1600), (1250, 1750), (1500, 1800)]},
+    {"pts": [(650, 1390), (600, 1600), (520, 1820)]},
+    {"pts": [(520, 1820), (900, 1900), (1250, 1750)]},
 ]
 PATH_DIRT_HW = 22
 PATH_WALK_HW = 50
@@ -108,7 +125,18 @@ SPAWNS = [
     {"enemy": "Lobo Cinzento", "count": 2, "respawn": 13, "zone": [1375, 535, 135, 110]},
     {"enemy": "Lobo Alfa", "count": 3, "respawn": 28, "zone": [1245, 850, 175, 135]},
     {"enemy": "Javali Bruto", "count": 2, "respawn": 22, "zone": [1260, 900, 140, 90]},
-    {"enemy": "Rei Javali", "count": 1, "boss": True, "respawn": 180, "zone": [1590, 1230, 100, 70]},
+    {"enemy": "Rei Javali", "count": 1, "boss": True, "respawn": 300, "zone": [1590, 1230, 100, 70]},
+    # areas novas (2026-11-23)
+    {"enemy": "Lobo Alfa", "count": 3, "respawn": 26, "zone": [2165, 455, 170, 130]},
+    {"enemy": "Lobo Cinzento", "count": 3, "respawn": 13, "zone": [2180, 560, 140, 80]},
+    {"enemy": "Javali Bruto", "count": 3, "respawn": 20, "zone": [2215, 935, 170, 130]},
+    {"enemy": "Aranha Venenosa", "count": 2, "respawn": 15, "zone": [2240, 1040, 120, 70]},
+    {"enemy": "Lobo Alfa", "count": 3, "respawn": 26, "zone": [2165, 1590, 170, 120]},
+    {"enemy": "Javali Bruto", "count": 3, "respawn": 20, "zone": [2260, 1680, 150, 90]},
+    {"enemy": "Aranha Venenosa", "count": 4, "respawn": 15, "zone": [1410, 1740, 180, 120]},
+    {"enemy": "Javali Selvagem", "count": 3, "respawn": 9, "zone": [1520, 1820, 150, 80]},
+    {"enemy": "Javali Selvagem", "count": 4, "respawn": 8, "zone": [440, 1770, 160, 100]},
+    {"enemy": "Lobo Cinzento", "count": 2, "respawn": 13, "zone": [500, 1860, 120, 60]},
 ]
 # Mobs soltos pelas trilhas: o tipo depende da distancia ate a entrada.
 PATH_MOB_TIERS = [
@@ -128,6 +156,9 @@ COLLECTIBLES = [
     ("Planta Rara", (1780, 260)), ("Erva Especial", (1690, 200)), ("Erva Curativa", (1470, 610)),
     ("Cogumelo", (1300, 980)), ("Flor Medicinal", (1400, 880)), ("Erva Curativa", (1100, 500)),
     ("Erva Especial", (1480, 1260)), ("Planta Rara", (1800, 1330)),
+    ("Erva Curativa", (2230, 560)), ("Flor Medicinal", (2330, 980)), ("Cogumelo", (2200, 1690)),
+    ("Planta Rara", (2330, 1620)), ("Erva Curativa", (1460, 1830)), ("Flor Medicinal", (560, 1800)),
+    ("Erva Especial", (1600, 1780)), ("Cogumelo", (480, 1850)),
 ]
 
 # Sprites escolhidos dos sheets (indices de slice_sheets.py).
@@ -571,13 +602,19 @@ def water_under(ground: Image.Image, overlay: Image.Image) -> Image.Image:
 
 # ---------------------------------------------------------------- placement
 def mask_grid():
-    """Mascara andavel na resolucao de colisao (celulas de 16 px de mundo)."""
+    """Mascara andavel na resolucao de colisao (celulas de 16 px de mundo).
+    Devolve (trilhas, walk, mata): `trilhas` e a geometria antiga (so trilhas e clareiras, usada para
+    espalhar as arvores do mesmo jeito) e `mata` e a mascara que o jogo usa desde 2026-11-23: o mapa
+    inteiro menos a agua do lago e a borda; as arvores colidem so no pe (colisao de cada prop)."""
     W, H = MASK_SIZE
     scale = WORLD_PER_D / MASK_CELL_WORLD  # celulas por D
     py, px = np.mgrid[0:H, 0:W].astype(np.float32) + 0.5
     noise = np.asarray(Image.fromarray((fbm((MAP_D[1] * GROUND_PER_D, MAP_D[0] * GROUND_PER_D), 32, 37, 3) * 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), dtype=np.float32) / 255.0
-    walk, _ = walk_field(px, py, scale, noise)
-    return walk < 0, walk
+    walk, lake = walk_field(px, py, scale, noise)
+    b = BORDER_D * 0.5 * scale
+    borda = (px < b) | (py < b) | (px > MAP_D[0] * scale - b) | (py > MAP_D[1] * scale - b)
+    mata = (walk < 0) | (~borda & ~(lake < 0.04))
+    return walk < 0, walk, mata
 
 
 def in_walk(mask, x, y):
@@ -639,7 +676,8 @@ def place_props(catalog, mask, walk):
                 continue
             roll = rng.random()
             kind = "tree_big" if roll < 0.62 else "tree_small" if roll < 0.86 else "bush" if roll < 0.95 else "rock_big"
-            add(choose(catalog, kind), x, y, collide=False)
+            # 2026-11-23: a mata e andavel; arvore e pedra so batem no pe, arbusto se atravessa
+            add(choose(catalog, kind), x, y, collide=kind != "bush")
 
     # Arvores e pedras soltas nas margens (com colisao no pe).
     attempts = 0
@@ -816,7 +854,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     CHUNKS_DIR.mkdir(parents=True, exist_ok=True)
     catalog = build_props()
-    mask, walk = mask_grid()
+    mask, walk, mata = mask_grid()
     props = place_props(catalog, mask, walk)
     ground, overlay = paint_ground(props, catalog)
     overlay.save(KIT / "floresta_v2_lake_overlay.png", optimize=True)
@@ -827,20 +865,20 @@ def main():
             box = (gx * CHUNK_PX[0], gy * CHUNK_PX[1], (gx + 1) * CHUNK_PX[0], (gy + 1) * CHUNK_PX[1])
             ground.crop(box).save(CHUNKS_DIR / f"floresta_v2_chunk_{gx:02d}_{gy:02d}.png", optimize=True)
 
-    Image.fromarray((mask * 255).astype(np.uint8), "L").save(KIT / "floresta_v2_walkable.png")
+    Image.fromarray((mata * 255).astype(np.uint8), "L").save(KIT / "floresta_v2_walkable.png")
 
     entries = [prop_entry(p, catalog) for p in props]
     catalog_by_tex = {i["texture"]: i["image"] for i in catalog.values()}
     preview = render_preview(ground_view, entries, catalog_by_tex)
     preview.save(OUT / "preview.png")
     dbg = render_preview(ground_view, entries, catalog_by_tex, debug=True)
-    red = Image.fromarray(np.where(mask[..., None], 0, np.array([255, 0, 0, 70], dtype=np.uint8)).astype(np.uint8), "RGBA").resize(dbg.size, Image.NEAREST)
+    red = Image.fromarray(np.where(mata[..., None], 0, np.array([255, 0, 0, 70], dtype=np.uint8)).astype(np.uint8), "RGBA").resize(dbg.size, Image.NEAREST)
     dbg.alpha_composite(red)
     dbg.save(OUT / "preview_colisao.png")
-    for name, box in (("hub", (3200, 1800, 4600, 3100)), ("arena", (5500, 4000, 7700, 6100)), ("lago", (300, 3200, 2400, 5000))):
+    for name, box in (("hub", (3200, 1800, 4600, 3100)), ("arena", (5500, 4000, 7700, 6100)), ("lago", (300, 3200, 2400, 5000)), ("sul", (4800, 6400, 7400, 8100))):
         crop = render_preview(ground_view, [e for e in entries if box[0] - 600 < e["pos"][0] < box[2] + 600 and box[1] - 600 < e["pos"][1] < box[3] + 900], catalog_by_tex, factor=0.5, debug=True)
         crop.crop(tuple(int(v * 0.5) for v in box)).save(OUT / f"zoom_{name}.png")
-    preview.resize((500, 400), Image.LANCZOS).convert("RGB").save(KIT / "floresta_v2_minimap.png")
+    preview.resize((650, 520), Image.LANCZOS).convert("RGB").save(KIT / "floresta_v2_minimap.png")
 
     data = {
         "version": 1,

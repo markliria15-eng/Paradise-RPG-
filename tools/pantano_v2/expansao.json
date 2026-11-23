@@ -1,0 +1,48 @@
+{
+  "_doc": "Ampliacao do Pantano (2026-11-23): 6400x5760 -> 8000x7040. Juntado ao projeto_chatgpt.json por gerar_pantano.py e gerar_spawns.py.",
+  "mundo": [8000, 7040],
+  "grade": [10, 11],
+  "zonas": [
+    {"nome": "Mangue Profundo", "retangulo_px": [6400, 600, 1600, 2600], "terreno": "grama_pantanosa", "inimigos": ["Jacare do Pantano", "Afogado do Pantano"]},
+    {"nome": "Brejo Leste", "retangulo_px": [6400, 3200, 1600, 2560], "terreno": "lama_rasa", "inimigos": ["Sapo Venenoso Gigante", "Mosquito Mutante"]},
+    {"nome": "Terras Afundadas", "retangulo_px": [0, 5760, 4000, 1280], "terreno": "grama_pantanosa", "inimigos": ["Jacare do Pantano", "Sapo Venenoso Gigante"]},
+    {"nome": "Charneca do Sul", "retangulo_px": [4000, 5760, 4000, 1280], "terreno": "terra_corrompida", "inimigos": ["Afogado do Pantano", "Mosquito Mutante"]}
+  ],
+  "caminhos": [
+    {"tipo": "trilha", "largura_px": 200, "pontos_px": [[5300, 2600], [5900, 2300], [6600, 2000], [7200, 1700]]},
+    {"tipo": "passarela de madeira", "largura_px": 160, "pontos_px": [[7200, 1700], [7300, 2600], [7200, 3400], [7000, 4200]]},
+    {"tipo": "trilha", "largura_px": 190, "pontos_px": [[5400, 3700], [6200, 3900], [7000, 4200]]},
+    {"tipo": "trilha", "largura_px": 200, "pontos_px": [[800, 4700], [1100, 5400], [1700, 6200], [2700, 6450]]},
+    {"tipo": "trilha", "largura_px": 190, "pontos_px": [[3000, 4300], [3150, 5300], [3350, 6150], [2700, 6450]]},
+    {"tipo": "passarela de madeira", "largura_px": 160, "pontos_px": [[3350, 6150], [4300, 6400], [5300, 6300], [6300, 6100]]},
+    {"tipo": "trilha", "largura_px": 190, "pontos_px": [[6300, 6100], [6800, 5300], [7000, 4200]]}
+  ],
+  "agua": [
+    {"tipo": "rasa", "poligono_px": [[6700, 900], [7600, 1000], [7800, 1500], [7400, 1900], [6900, 1600]]},
+    {"tipo": "funda", "poligono_px": [[7450, 2300], [7850, 2350], [7900, 3000], [7550, 3100]]},
+    {"tipo": "rasa", "poligono_px": [[4300, 6550], [5200, 6500], [5700, 6850], [4700, 6950]]},
+    {"tipo": "rasa", "poligono_px": [[500, 6100], [1200, 6000], [1300, 6600], [600, 6750]]}
+  ],
+  "onde_extra": {
+    "arvore_pantanosa_grande": ["Mangue Profundo", "Terras Afundadas"],
+    "arvore_morta": ["Charneca do Sul"],
+    "arvore_raiz_gigante": ["Mangue Profundo"],
+    "raiz_exposta": ["Mangue Profundo", "Brejo Leste"],
+    "raiz_elevada": ["Mangue Profundo"],
+    "tronco_caido": ["Brejo Leste", "Terras Afundadas"],
+    "pedra_musgosa_media": ["Terras Afundadas", "Charneca do Sul"],
+    "pedra_musgosa_grande": ["Mangue Profundo"],
+    "cogumelo_venenoso": ["Brejo Leste", "Charneca do Sul"],
+    "cogumelo_luminoso": ["Mangue Profundo"],
+    "flor_pantanosa": ["Terras Afundadas", "Brejo Leste"],
+    "bolhas_lama": ["Brejo Leste"],
+    "cabana_abandonada": ["Terras Afundadas"],
+    "barco_quebrado": ["Terras Afundadas"],
+    "lapide_antiga": ["Charneca do Sul"],
+    "estatua_partida": ["Charneca do Sul"],
+    "totem_pantanoso": ["Brejo Leste", "Charneca do Sul"],
+    "carcaca_animal": ["Brejo Leste"],
+    "ossos_espalhados": ["Charneca do Sul"]
+  },
+  "fator_quantidade": 1.4
+}

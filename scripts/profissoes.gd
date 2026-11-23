@@ -26,6 +26,8 @@ var barra: ProgressBar
 var regen_acc := 0.0
 var checar_acc := 0.0
 var bonus_ativo := false
+const CELULA := 256.0           # grade espacial: so os pontos em volta do heroi sao checados
+var grade: Dictionary = {}      # Vector2i -> [ponto]
 
 
 func setup(owner_main: Node) -> void:
@@ -96,6 +98,7 @@ func limpar() -> void:
 		if is_instance_valid(p["node"]):
 			p["node"].queue_free()
 	pontos.clear()
+	grade.clear()
 	alvo = {}
 
 
@@ -121,11 +124,74 @@ func carregar_mapa(map_id: String, map_data: Dictionary) -> void:
 		if pos == Vector2.INF:
 			continue
 		_criar(map_id, 1000 + i, str(e["tipo"]), est_defs[str(e["tipo"])], pos, true)
+		pontos[-1]["extra"] = e
+	# toda arvore do mapa (props dos kits) pode ser cortada
+	var arvores: Array = main.get("arvores_kit") if main.get("arvores_kit") != null else []
+	for i in arvores.size():
+		var a: Dictionary = arvores[i]
+		if defs.has(str(a.get("tipo", ""))) and is_instance_valid(a.get("no")):
+			_criar_arvore_kit(map_id, 5000 + i, str(a["tipo"]), defs[str(a["tipo"])], a)
+
+
+# Arvore que ja faz parte do mapa: o desenho do kit fica; esgotada, some e da lugar ao toco/muda.
+func _criar_arvore_kit(map_id: String, idx: int, tipo: String, def: Dictionary, a: Dictionary) -> void:
+	var decor: Sprite2D = a["no"]
+	var raiz := Node2D.new()
+	raiz.name = "ArvoreKit_%d" % idx
+	raiz.position = a["pos"]
+	raiz.z_index = decor.z_index
+	raiz.z_as_relative = false
+	var toco := Sprite2D.new()
+	toco.centered = false
+	toco.visible = false
+	raiz.add_child(toco)
+	var altura := clampf(float(a.get("altura", 150.0)), 60.0, 420.0)
+	var rotulo := Label.new()
+	rotulo.visible = false
+	rotulo.z_index = 60
+	rotulo.z_as_relative = false
+	rotulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	rotulo.add_theme_font_size_override("font_size", 14)
+	rotulo.add_theme_color_override("font_color", Color("#ffe8a3"))
+	rotulo.add_theme_color_override("font_outline_color", Color.BLACK)
+	rotulo.add_theme_constant_override("outline_size", 5)
+	rotulo.size = Vector2(240, 22)
+	rotulo.position = Vector2(-120, -minf(altura, 180.0) - 30)
+	raiz.add_child(rotulo)
+	main.world.add_child(raiz)
+	var ponto := {"tipo": tipo, "def": def, "node": raiz, "sprite": toco, "rotulo": rotulo, "decor": decor,
+		"altura": altura, "alcance": 1.6, "chave": "%s#%d" % [map_id, idx], "estacao": false}
+	_guardar(ponto)
+	_atualizar_visual(ponto)
+
+
+func _guardar(ponto: Dictionary) -> void:
+	pontos.append(ponto)
+	var c := Vector2i(floori(ponto["node"].position.x / CELULA), floori(ponto["node"].position.y / CELULA))
+	if not grade.has(c):
+		grade[c] = []
+	grade[c].append(ponto)
+
+
+func _altura(ponto: Dictionary) -> float:
+	return float(ponto.get("altura", ponto["def"].get("altura", 60)))
+
+
+# o que treme/pula: a arvore do mapa (enquanto inteira) ou o sprite do ponto
+func _visual(ponto: Dictionary) -> Node2D:
+	if ponto.has("decor") and is_instance_valid(ponto["decor"]) and ponto["decor"].visible:
+		return ponto["decor"]
+	return ponto["sprite"]
 
 
 # bancada: "pos" fixa ou ao lado de um NPC ("perto_npc" = comeco do nome, "offset" em px)
 func _pos_estacao(e: Dictionary) -> Vector2:
 	var off: Array = e.get("offset", [0, 0])
+	var papel := str(e.get("perto_papel", ""))  # ao lado do NPC com esse papel (forge, rare_forge...)
+	if not papel.is_empty():
+		for npc in main.get_tree().get_nodes_in_group("npcs"):
+			if str(npc.get("role")) == papel:
+				return main._resolve_unblocked_spawn(npc.global_position + Vector2(float(off[0]), float(off[1])))
 	var perto := str(e.get("perto_npc", ""))
 	if not perto.is_empty():
 		for npc in main.get_tree().get_nodes_in_group("npcs"):
@@ -163,7 +229,7 @@ func _criar(map_id: String, idx: int, tipo: String, def: Dictionary, posicao: Ve
 	main.world.add_child(raiz)
 	var ponto := {"tipo": tipo, "def": def, "node": raiz, "sprite": sprite, "rotulo": rotulo,
 		"chave": "%s#%d" % [map_id, idx], "estacao": estacao}
-	pontos.append(ponto)
+	_guardar(ponto)
 	_atualizar_visual(ponto)
 
 
@@ -179,16 +245,33 @@ func _disponivel(ponto: Dictionary) -> bool:
 	return bool(ponto["estacao"]) or _agora() >= float(esgotados.get(ponto["chave"], 0.0))
 
 
+const MUDA := "res://assets/sprites/coleta/muda.png"
+
 func _atualizar_visual(ponto: Dictionary) -> void:
 	var def: Dictionary = ponto["def"]
 	var cheio := _disponivel(ponto)
+	if ponto.has("decor"):
+		if is_instance_valid(ponto["decor"]):
+			ponto["decor"].visible = cheio
+		ponto["sprite"].visible = not cheio
+		if cheio:
+			return
 	var caminho := str(def.get("sprite" if cheio else "esgotado", def.get("sprite", "")))
+	var altura := float(def.get("altura", 60)) if not ponto.has("decor") else maxf(150.0, _altura(ponto) * 0.8)
+	var prof := str(def.get("profissao", ""))
+	if not cheio:
+		altura *= 0.5 if prof != "woodcutting" else 0.42
+		# crescendo de novo: toco -> muda que cresce (arvore); broto que cresce (erva)
+		var falta := float(esgotados.get(ponto["chave"], 0.0)) - _agora()
+		var progresso := clampf(1.0 - falta / maxf(1.0, float(def.get("renasce_s", 90))), 0.0, 1.0)
+		if prof == "woodcutting" and progresso > 0.35 and ResourceLoader.exists(MUDA):
+			caminho = MUDA
+			altura = float(def.get("altura", 150)) * lerpf(0.28, 0.7, (progresso - 0.35) / 0.65)
+		elif prof == "herbalism":
+			altura *= lerpf(0.7, 1.5, progresso)
 	if ResourceLoader.exists(caminho):
-		var altura := float(def.get("altura", 60))
-		if not cheio:
-			altura *= 0.5 if str(def.get("profissao", "")) != "woodcutting" else 0.42
 		_por_textura(ponto["sprite"], load(caminho), altura)
-	ponto["sprite"].modulate = Color.WHITE if cheio else Color(0.85, 0.85, 0.85, 0.9)
+	ponto["sprite"].modulate = Color.WHITE if cheio else Color(0.88, 0.88, 0.88, 0.95)
 
 
 func _agora() -> float:
@@ -208,14 +291,20 @@ func _process(delta: float) -> void:
 			if not p["estacao"] and is_instance_valid(p["node"]):
 				var antes := bool(p.get("cheio", true))
 				var agora := _disponivel(p)
-				if antes != agora:
+				if antes != agora or not agora:  # esgotado: atualiza o crescimento
 					p["cheio"] = agora
 					_atualizar_visual(p)
+					if agora and not antes:
+						_pulo(_visual(p))  # renasceu
 		_atualizar_aura()
 		if bonus_ativo and not _bonus_comida_ativo():
 			bonus_ativo = false
 			main._flash("O efeito da comida acabou.")
 			main._apply_companion_bonuses()
+	_animar_fogueira(delta)
+	if not criando.is_empty():
+		_atualizar_criacao(delta)
+		return
 	if not coletando.is_empty():
 		_atualizar_coleta(delta)
 		return
@@ -225,11 +314,16 @@ func _process(delta: float) -> void:
 func _escolher_alvo(heroi: Vector2) -> void:
 	var melhor: Dictionary = {}
 	var dist := 1.0
-	for p in pontos:
+	var cel := Vector2i(floori(heroi.x / CELULA), floori(heroi.y / CELULA))
+	var perto: Array = []
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			perto.append_array(grade.get(cel + Vector2i(dx, dy), []))
+	for p in perto:
 		if not is_instance_valid(p["node"]) or not _disponivel(p):
 			continue
-		# bancada alcanca um pouco mais longe (e maior)
-		var d: float = p["node"].global_position.distance_to(heroi) / (ALCANCE * (1.5 if p["estacao"] else 1.0))
+		# bancada e arvore grande do mapa alcancam um pouco mais longe
+		var d: float = p["node"].global_position.distance_to(heroi) / (ALCANCE * _fator_alcance(p))
 		if d < dist:
 			melhor = p
 			dist = d
@@ -253,6 +347,10 @@ func _escolher_alvo(heroi: Vector2) -> void:
 	alvo["rotulo"].visible = true
 
 
+func _fator_alcance(p: Dictionary) -> float:
+	return float(p.get("alcance", 1.5 if p["estacao"] else 1.0))
+
+
 # chamado por main._interact antes dos NPCs: true = usou o E/OK
 func interagir() -> bool:
 	if alvo.is_empty() or not coletando.is_empty() or main.player == null:
@@ -260,12 +358,15 @@ func interagir() -> bool:
 	if not is_instance_valid(alvo["node"]):
 		alvo = {}
 		return false
-	if alvo["node"].global_position.distance_to(main.player.global_position) > ALCANCE * (1.5 if alvo["estacao"] else 1.0):
+	if alvo["node"].global_position.distance_to(main.player.global_position) > ALCANCE * _fator_alcance(alvo):
 		return false
 	var def: Dictionary = alvo["def"]
 	var prof := str(def.get("profissao", ""))
 	if alvo["estacao"]:
-		mostrar(prof, true)
+		if str(alvo["tipo"]) == "bigorna":
+			main._show_forge(str(alvo.get("extra", {}).get("forja", "basic")))
+		else:
+			mostrar(prof, true)
 		return true
 	var precisa := int(def.get("nivel", 1))
 	if nivel(prof) < precisa:
@@ -281,6 +382,8 @@ func interagir() -> bool:
 	coletando = {"ponto": alvo, "t": 0.0, "dur": dur, "golpe": 0.0, "pos": main.player.global_position}
 	alvo["rotulo"].visible = false
 	_mostrar_barra(true)
+	_ligar_golpes()
+	main.player.trabalhar({"mining": "picareta", "woodcutting": "machado"}.get(prof, "colher"), alvo["node"].global_position)
 	return true
 
 
@@ -307,6 +410,9 @@ func _cancelar() -> void:
 	coletando = {}
 	if barra != null and is_instance_valid(barra):
 		barra.visible = false
+	_texto_barra("")
+	if main.player != null and is_instance_valid(main.player) and criando.is_empty():
+		main.player.parar_trabalho()
 
 
 func _atualizar_coleta(delta: float) -> void:
@@ -317,13 +423,6 @@ func _atualizar_coleta(delta: float) -> void:
 		main._flash("Coleta cancelada.")
 		return
 	coletando["t"] = float(coletando["t"]) + delta
-	coletando["golpe"] = float(coletando["golpe"]) - delta
-	var prof := str(ponto["def"].get("profissao", ""))
-	if coletando["golpe"] <= 0.0 and prof != "herbalism":
-		coletando["golpe"] = 0.7
-		if player.has_method("_play_action"):
-			player._play_action("attack")
-		AudioManager.play_sfx("golpe", 0.5, 0.15)
 	barra.max_value = float(coletando["dur"])
 	barra.value = float(coletando["t"])
 	barra.global_position = player.global_position + Vector2(-35, -118)
@@ -358,6 +457,7 @@ func _terminar_coleta(ponto: Dictionary) -> void:
 	if ganhos.is_empty():
 		main._flash_red("Bolsa cheia.")
 		return
+	_final_coleta(ponto)  # arvore tomba, rocha quebra, erva sai do chao
 	esgotados[ponto["chave"]] = _agora() + float(def.get("renasce_s", 90))
 	ponto["cheio"] = false
 	_atualizar_visual(ponto)
@@ -426,6 +526,7 @@ func criar(nome_receita: String, na_bancada: bool) -> bool:
 		perder_metade(materiais)
 		AudioManager.play_sfx("dano", 0.7, 0.1)
 		main._flash_red("Falhou: %s (perdeu metade dos materiais). +%d XP" % [nome_receita, falha_xp(xp)])
+		aviso_item(nome_receita, false, "Perdeu metade dos materiais  +%d XP %s" % [falha_xp(xp), nome(prof)])
 		ganhar_xp(prof, falha_xp(xp))
 		return true
 	for m in materiais.keys():
@@ -433,10 +534,375 @@ func criar(nome_receita: String, na_bancada: bool) -> bool:
 	inv.add_item(nome_receita, 1)
 	AudioManager.play_sfx("moeda", 1.1, 0.2)
 	main._flash("Criado: %s  (+%d XP %s)" % [nome_receita, xp, nome(prof)])
+	aviso_item(nome_receita, true, "+%d XP %s" % [xp, nome(prof)])
 	ganhar_xp(prof, xp)
 	if main.has_method("_update_potion_buttons"):
 		main._update_potion_buttons()
 	return true
+
+
+# ======================= cenas das profissoes =======================
+# Coleta: o heroi trabalha (picareta / machado / agachado) e cada golpe faz o ponto tremer e soltar
+# lascas; no fim a arvore tomba, a rocha quebra e a erva sai do chao. Criacao: Alquimista moe ervas
+# no pilao, Cozinheiro gira a carne numa fogueira, Ferreiro martela a espada na bigorna da cidade.
+const FOGUEIRA := "res://assets/sprites/coleta/fogueira_espeto_6f.png"
+const BIGORNA := "res://assets/sprites/coleta/bigorna.png"
+const TRONCO_CAIDO := "res://assets/sprites/coleta/tronco_caido.png"
+const DURACAO_CRIACAO := {"alchemy": 2.6, "cooking": 3.2, "blacksmithing": 3.0}
+var criando: Dictionary = {}   # {prof, t, dur, ao_fim, pos, props: [Node2D], alvo}
+var barra_txt: Label            # "Carne Assada  72%" em cima da barra enquanto cria
+var aviso_camada: CanvasLayer   # cartao "Criado!/Falhou" no fim da criacao
+var fogueiras: Array = []
+
+
+func _ligar_golpes() -> void:
+	var p = main.player
+	if p != null and not p.golpe_trabalho.is_connected(_no_golpe):
+		p.golpe_trabalho.connect(_no_golpe)
+
+
+func _no_golpe() -> void:
+	if not coletando.is_empty():
+		var ponto: Dictionary = coletando["ponto"]
+		if not is_instance_valid(ponto["node"]):
+			return
+		var prof := str(ponto["def"].get("profissao", ""))
+		var cor: Color = {"mining": Color("#9aa0a8"), "woodcutting": Color("#b07a44")}.get(prof, Color("#6fd35c"))
+		var altura := minf(_altura(ponto), 160.0)
+		var onde: Vector2 = ponto["node"].global_position + Vector2(0, -altura * (0.35 if prof == "woodcutting" else 0.4))
+		_tremer(_visual(ponto), 4.0 if prof != "herbalism" else 2.0)
+		_lascas(onde, cor, 10 if prof != "herbalism" else 6, 90.0)
+		if prof == "mining":
+			_lascas(onde, Color("#ffd27a"), 5, 140.0, 0.25)  # faisca da picareta
+		AudioManager.play_sfx("golpe", 0.55 if prof != "herbalism" else 1.3, 0.15)
+	elif not criando.is_empty():
+		var prof2 := str(criando["prof"])
+		var alvo: Vector2 = criando["alvo"]
+		if prof2 == "blacksmithing":
+			_lascas(alvo + Vector2(0, -46), Color("#ffb347"), 14, 170.0, 0.35)
+			_lascas(alvo + Vector2(0, -46), Color("#fff1a8"), 6, 120.0, 0.2)
+			AudioManager.play_sfx("golpe", 1.4, 0.1)
+		elif prof2 == "alchemy":
+			_lascas(alvo + Vector2(0, -12), Color("#7ee06a"), 5, 50.0, 0.5)
+			_lascas(alvo + Vector2(0, -12), Color("#c98cff"), 2, 40.0, 0.6)
+
+
+func _tremer(no: Node2D, forca: float) -> void:
+	if no == null or not is_instance_valid(no):
+		return
+	var base_x := float(no.get_meta("x0", no.position.x))
+	no.set_meta("x0", base_x)
+	var tw := no.create_tween()
+	tw.tween_property(no, "position:x", base_x + forca, 0.04)
+	tw.tween_property(no, "position:x", base_x - forca, 0.06)
+	tw.tween_property(no, "position:x", base_x, 0.05)
+
+
+func _pulo(no: Node2D) -> void:
+	if no == null or not is_instance_valid(no):
+		return
+	var esc: Vector2 = no.scale
+	no.scale = esc * 0.6
+	no.create_tween().tween_property(no, "scale", esc, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+func _lascas(onde: Vector2, cor: Color, quantos: int, vel: float, vida: float = 0.6) -> void:
+	var p := CPUParticles2D.new()
+	p.one_shot = true
+	p.emitting = false
+	p.amount = maxi(1, quantos)
+	p.lifetime = vida
+	p.explosiveness = 0.95
+	p.direction = Vector2(0, -1)
+	p.spread = 70.0
+	p.gravity = Vector2(0, 420)
+	p.initial_velocity_min = vel * 0.5
+	p.initial_velocity_max = vel
+	p.scale_amount_min = 2.0
+	p.scale_amount_max = 4.0
+	p.color = cor
+	p.z_index = 40
+	p.global_position = onde
+	main.world.add_child(p)
+	p.emitting = true
+	get_tree().create_timer(vida + 0.3).timeout.connect(p.queue_free)
+
+
+func _final_coleta(ponto: Dictionary) -> void:
+	var prof := str(ponto["def"].get("profissao", ""))
+	var no: Node2D = ponto["node"]
+	var altura := minf(_altura(ponto), 200.0)
+	if prof == "woodcutting":
+		# a arvore tomba para o lado contrario do heroi, bate no chao e vira tronco caido
+		var arvore := Sprite2D.new()
+		var spr: Sprite2D = _visual(ponto)
+		arvore.texture = spr.texture
+		arvore.centered = false
+		arvore.offset = spr.offset
+		arvore.scale = spr.scale
+		arvore.flip_h = spr.flip_h
+		arvore.texture_filter = spr.texture_filter
+		arvore.global_position = no.global_position
+		arvore.z_index = 2 if not ponto.has("decor") else no.z_index
+		arvore.z_as_relative = not ponto.has("decor")
+		main.world.add_child(arvore)
+		var lado := 1.0 if main.player.global_position.x < no.global_position.x else -1.0
+		var tw := arvore.create_tween()
+		tw.tween_property(arvore, "rotation", lado * PI * 0.5, 0.75).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		tw.tween_callback(func() -> void:
+			_lascas(no.global_position + Vector2(lado * altura * 0.6, -6), Color("#c9b48a"), 16, 110.0, 0.7)
+			AudioManager.play_sfx("golpe", 0.35, 0.05)
+			if ResourceLoader.exists(TRONCO_CAIDO):
+				var tronco: Texture2D = load(TRONCO_CAIDO)
+				arvore.rotation = 0.0
+				arvore.texture = tronco
+				var s := altura * 0.95 / float(tronco.get_width())
+				arvore.scale = Vector2(s, s)
+				arvore.flip_h = lado < 0.0
+				arvore.offset = Vector2(-tronco.get_width() / 2.0 + lado * tronco.get_width() * 0.35, -float(tronco.get_height()))
+		)
+		tw.tween_interval(1.6)
+		tw.tween_property(arvore, "modulate:a", 0.0, 0.6)
+		tw.tween_callback(arvore.queue_free)
+	elif prof == "mining":
+		_lascas(no.global_position + Vector2(0, -altura * 0.4), Color("#9aa0a8"), 22, 200.0, 0.8)
+		_lascas(no.global_position + Vector2(0, -altura * 0.4), Color(str(ponto["def"].get("cor", "#c9a27a"))), 8, 150.0, 0.7)
+		AudioManager.play_sfx("golpe", 0.4, 0.05)
+	else:
+		_lascas(no.global_position + Vector2(0, -altura * 0.5), Color("#7ee06a"), 12, 120.0, 0.7)
+	main.player.parar_trabalho()
+
+
+# ----- criacao com cena -----
+# item/pct: o que esta sendo feito e a chance de dar certo (aparece em cima da barra)
+func animar_criacao(prof: String, ao_fim: Callable, item: String = "", pct: float = -1.0) -> void:
+	var player = main.player
+	if player == null or not criando.is_empty() or not coletando.is_empty():
+		return
+	main._hide_panel()
+	var lado := -1.0 if player.current_sprite_direction == "left" else 1.0
+	var props: Array = []
+	var alvo: Vector2 = player.global_position + Vector2(lado * 34.0, 4.0)
+	if prof == "blacksmithing":
+		# vai ate a bigorna da cidade (ao lado do ferreiro); sem bigorna perto, uma aparece na frente
+		var bigorna: Dictionary = {}
+		for p in pontos:
+			if str(p["tipo"]) == "bigorna" and is_instance_valid(p["node"]) and p["node"].global_position.distance_to(player.global_position) < 900.0:
+				bigorna = p
+		if bigorna.is_empty():
+			alvo = player.global_position + Vector2(lado * 70.0, 0.0)
+			props.append(_prop(BIGORNA, alvo, 80.0))
+		else:
+			alvo = bigorna["node"].global_position
+			player.global_position = main._resolve_unblocked_spawn(alvo + Vector2(72.0, 2.0))
+			player.velocity = Vector2.ZERO
+	elif prof == "cooking":
+		alvo = player.global_position + Vector2(lado * 72.0, 2.0)
+		if _ocupado(alvo):  # toco/arvore/rocha na frente: a fogueira vai do outro lado
+			lado = -lado
+			alvo = player.global_position + Vector2(lado * 72.0, 2.0)
+		var fogo := _prop(FOGUEIRA, alvo, 78.0, 6)
+		props.append(fogo)
+		fogueiras.append(fogo)
+		var fumaca := CPUParticles2D.new()
+		fumaca.amount = 10
+		fumaca.lifetime = 1.6
+		fumaca.direction = Vector2(0, -1)
+		fumaca.spread = 15.0
+		fumaca.gravity = Vector2(0, -25)
+		fumaca.initial_velocity_min = 12.0
+		fumaca.initial_velocity_max = 26.0
+		fumaca.scale_amount_min = 4.0
+		fumaca.scale_amount_max = 8.0
+		fumaca.color = Color(0.8, 0.8, 0.8, 0.35)
+		fumaca.position = Vector2(0, -70)
+		fogo.add_child(fumaca)
+	_mostrar_barra(true)
+	_texto_barra("%s  %d%%" % [item, int(round(pct * 100))] if not item.is_empty() and pct >= 0.0 else item, pct)
+	_ligar_golpes()
+	criando = {"prof": prof, "t": 0.0, "dur": float(DURACAO_CRIACAO.get(prof, 2.5)), "ao_fim": ao_fim,
+		"pos": player.global_position, "props": props, "alvo": alvo}
+	player.trabalhar({"blacksmithing": "martelo", "alchemy": "moer"}.get(prof, "cozinhar"), alvo)
+
+
+func _ocupado(onde: Vector2) -> bool:
+	if main._is_point_blocked(onde):
+		return true
+	var cel := Vector2i(floori(onde.x / CELULA), floori(onde.y / CELULA))
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			for p in grade.get(cel + Vector2i(dx, dy), []):
+				if is_instance_valid(p["node"]) and p["node"].global_position.distance_to(onde) < 70.0:
+					return true
+	return false
+
+
+func _prop(caminho: String, onde: Vector2, altura: float, quadros: int = 1) -> Node2D:
+	var no := Node2D.new()
+	no.global_position = onde
+	var spr := Sprite2D.new()
+	spr.name = "Sprite"
+	var tex: Texture2D = load(caminho)
+	spr.texture = tex
+	spr.hframes = quadros
+	spr.centered = false
+	var w := tex.get_width() / float(quadros)
+	var s := altura / float(tex.get_height())
+	spr.scale = Vector2(s, s)
+	spr.offset = Vector2(-w / 2.0, -float(tex.get_height()))
+	spr.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	no.add_child(spr)
+	main.world.add_child(no)
+	_pulo(no)
+	return no
+
+
+func _animar_fogueira(delta: float) -> void:
+	for f in fogueiras.duplicate():
+		if not is_instance_valid(f):
+			fogueiras.erase(f)
+			continue
+		var spr: Sprite2D = f.get_node("Sprite")
+		var t := float(f.get_meta("t", 0.0)) + delta
+		f.set_meta("t", t)
+		spr.frame = int(t / 0.14) % spr.hframes
+
+
+func _atualizar_criacao(delta: float) -> void:
+	var player = main.player
+	if player.global_position.distance_to(criando["pos"]) > 14.0 or player.vida <= 0:
+		_fim_criacao(false)
+		main._flash("Criacao cancelada.")
+		return
+	criando["t"] = float(criando["t"]) + delta
+	barra.max_value = float(criando["dur"])
+	barra.value = float(criando["t"])
+	barra.global_position = player.global_position + Vector2(-35, -118)
+	if barra_txt != null and is_instance_valid(barra_txt):
+		barra_txt.global_position = player.global_position + Vector2(-130, -146)
+	if float(criando["t"]) >= float(criando["dur"]):
+		_fim_criacao(true)
+
+
+func _fim_criacao(concluiu: bool) -> void:
+	var dados_cena := criando
+	criando = {}
+	if barra != null and is_instance_valid(barra):
+		barra.visible = false
+	_texto_barra("")
+	main.player.parar_trabalho()
+	if concluiu:
+		var prof := str(dados_cena["prof"])
+		var alvo: Vector2 = dados_cena["alvo"]
+		_lascas(alvo + Vector2(0, -30), Color("#ffe27a") if prof != "alchemy" else Color("#c98cff"), 14, 120.0, 0.6)
+		var ao_fim: Callable = dados_cena["ao_fim"]
+		if ao_fim.is_valid():
+			ao_fim.call()
+	for no in dados_cena.get("props", []):
+		if is_instance_valid(no):
+			var tw: Tween = no.create_tween()
+			tw.tween_interval(0.6 if concluiu else 0.0)
+			tw.tween_property(no, "modulate:a", 0.0, 0.4)
+			tw.tween_callback(no.queue_free)
+
+
+func _texto_barra(texto: String, pct: float = -1.0) -> void:
+	if barra_txt == null or not is_instance_valid(barra_txt):
+		if texto.is_empty():
+			return
+		barra_txt = Label.new()
+		barra_txt.z_index = 62
+		barra_txt.size = Vector2(260, 24)
+		barra_txt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		barra_txt.add_theme_font_size_override("font_size", 15)
+		barra_txt.add_theme_color_override("font_outline_color", Color.BLACK)
+		barra_txt.add_theme_constant_override("outline_size", 5)
+		main.world.add_child(barra_txt)
+	barra_txt.text = texto
+	barra_txt.visible = not texto.is_empty()
+	barra_txt.add_theme_color_override("font_color", cor_chance(pct) if pct >= 0.0 else Color("#ffe8a3"))
+	if main.player != null:
+		barra_txt.global_position = main.player.global_position + Vector2(-130, -146)
+
+
+# verde = facil, amarelo = medio, vermelho = arriscado
+func cor_chance(pct: float) -> Color:
+	if pct >= 0.8:
+		return Color("#7ee06a")
+	if pct >= 0.55:
+		return Color("#ffd35a")
+	return Color("#ff7a6b")
+
+
+# Cartao no topo da tela quando a criacao termina: icone do item + "Criado!" ou "Falhou".
+func aviso_item(nome_item: String, ok: bool, detalhe: String = "") -> void:
+	if aviso_camada == null or not is_instance_valid(aviso_camada):
+		aviso_camada = CanvasLayer.new()
+		aviso_camada.layer = 90
+		main.add_child(aviso_camada)
+	for velho in aviso_camada.get_children():
+		velho.queue_free()
+	var vp: Vector2 = main.get_viewport().get_visible_rect().size
+	var cartao := PanelContainer.new()
+	var estilo := StyleBoxFlat.new()
+	estilo.bg_color = Color(0.07, 0.06, 0.05, 0.93)
+	estilo.border_color = Color("#e8c25a") if ok else Color("#d0503f")
+	estilo.set_border_width_all(3)
+	estilo.set_corner_radius_all(12)
+	estilo.content_margin_left = 14
+	estilo.content_margin_right = 20
+	estilo.content_margin_top = 10
+	estilo.content_margin_bottom = 10
+	estilo.shadow_color = Color(0, 0, 0, 0.5)
+	estilo.shadow_size = 8
+	cartao.add_theme_stylebox_override("panel", estilo)
+	var linha := HBoxContainer.new()
+	linha.add_theme_constant_override("separation", 14)
+	cartao.add_child(linha)
+	var icone := TextureRect.new()
+	var info: Dictionary = main.item_db.get_item(nome_item) if main.item_db != null else {}
+	var caminho := str(info.get("icon", ""))
+	if ResourceLoader.exists(caminho):
+		icone.texture = load(caminho)
+	icone.custom_minimum_size = Vector2(64, 64)
+	icone.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icone.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	if not ok:
+		icone.modulate = Color(0.55, 0.45, 0.45)
+	linha.add_child(icone)
+	var col := VBoxContainer.new()
+	col.alignment = BoxContainer.ALIGNMENT_CENTER
+	linha.add_child(col)
+	var t1 := Label.new()
+	t1.text = "Criado!" if ok else "Falhou"
+	t1.add_theme_font_size_override("font_size", 15)
+	t1.add_theme_color_override("font_color", Color("#e8c25a") if ok else Color("#ff7a6b"))
+	col.add_child(t1)
+	var t2 := Label.new()
+	t2.text = nome_item
+	t2.add_theme_font_size_override("font_size", 22)
+	t2.add_theme_color_override("font_color", Color.WHITE)
+	col.add_child(t2)
+	if not detalhe.is_empty():
+		var t3 := Label.new()
+		t3.text = detalhe
+		t3.add_theme_font_size_override("font_size", 13)
+		t3.add_theme_color_override("font_color", Color("#b8c3d1"))
+		col.add_child(t3)
+	aviso_camada.add_child(cartao)
+	cartao.reset_size()
+	var tam: Vector2 = cartao.get_combined_minimum_size()
+	cartao.position = Vector2((vp.x - tam.x) / 2.0, 92.0)
+	cartao.pivot_offset = tam / 2.0
+	cartao.scale = Vector2(0.6, 0.6)
+	cartao.modulate.a = 0.0
+	var tw := cartao.create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(cartao, "scale", Vector2.ONE, 0.28).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(cartao, "modulate:a", 1.0, 0.18)
+	tw.chain().tween_interval(2.6)
+	tw.chain().tween_property(cartao, "modulate:a", 0.0, 0.45)
+	tw.chain().tween_callback(cartao.queue_free)
 
 
 # chance de acertar a criacao: base + por_nivel * (nivel - exigido), entre min e max
@@ -518,13 +984,21 @@ func mostrar(aba: String = "alchemy", na_bancada: bool = false) -> void:
 		linha.add_child(icone)
 		var col := VBoxContainer.new()
 		col.custom_minimum_size = Vector2(600, 52)
+		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var precisa := int(r.get("nivel", 1))
 		var motivo := _permitida(r, na_bancada)
 		var cor := Color.WHITE if nivel(aba) >= precisa and motivo.is_empty() else Color("#9aa3ad")
 		var tag := str(r.get("nivel_receita", "simples"))
-		var chance_txt := "" if nivel(aba) < precisa else "  %d%%" % int(round(chance(aba, precisa) * 100))
-		col.add_child(main._panel_label("%s   (%s Nv %d, %s)%s%s" % [nome_receita, nome(aba), precisa, tag, chance_txt, "  - " + motivo if not motivo.is_empty() else ""], 14, cor))
-		col.add_child(main._panel_label(_texto_materiais(r.get("materiais", {})) + "   |   " + str(info_item.get("description", "")), 12, Color("#aeb8c3")))
+		var topo := HBoxContainer.new()
+		topo.add_theme_constant_override("separation", 12)
+		topo.add_child(main._panel_label("%s   (%s Nv %d, %s)%s" % [nome_receita, nome(aba), precisa, tag, "  - " + motivo if not motivo.is_empty() else ""], 14, cor))
+		topo.add_child(selo_chance(aba, precisa))
+		col.add_child(topo)
+		var desc: Label = main._panel_label(_texto_materiais(r.get("materiais", {})) + "   |   " + str(info_item.get("description", "")), 12, Color("#aeb8c3"))
+		desc.clip_text = true  # texto longo nao empurra o botao Criar
+		desc.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		desc.tooltip_text = desc.text
+		col.add_child(desc)
 		linha.add_child(col)
 		var b := Button.new()
 		b.text = "Criar"
@@ -533,11 +1007,36 @@ func mostrar(aba: String = "alchemy", na_bancada: bool = false) -> void:
 		main._style_panel_button(b)
 		var nr := str(nome_receita)
 		b.pressed.connect(func() -> void:
-			if criar(nr, na_bancada):
+			# a criacao aparece no mundo (pilao / fogueira) e o resultado sai no fim
+			animar_criacao(aba, func() -> void:
+				criar(nr, na_bancada)
 				mostrar(aba, na_bancada)
+			, nr, chance(aba, precisa))
 		)
 		linha.add_child(b)
 		lista.add_child(linha)
+
+
+# "Chance 72%" colorido (ou o nivel que falta) ao lado de cada receita
+func selo_chance(prof: String, exigido: int) -> Control:
+	var falta := nivel(prof) < exigido
+	var pct := chance(prof, exigido)
+	var selo := PanelContainer.new()
+	var estilo := StyleBoxFlat.new()
+	var cor := Color("#8a929c") if falta else cor_chance(pct)
+	estilo.bg_color = Color(cor.r * 0.25, cor.g * 0.25, cor.b * 0.25, 0.9)
+	estilo.border_color = cor
+	estilo.set_border_width_all(2)
+	estilo.set_corner_radius_all(8)
+	estilo.content_margin_left = 8
+	estilo.content_margin_right = 8
+	selo.add_theme_stylebox_override("panel", estilo)
+	var t := Label.new()
+	t.text = ("Precisa Nv %d" % exigido) if falta else ("Chance %d%%" % int(round(pct * 100)))
+	t.add_theme_font_size_override("font_size", 14)
+	t.add_theme_color_override("font_color", cor)
+	selo.add_child(t)
+	return selo
 
 
 func _barra_xp(valor: int, maximo: int, texto: String) -> Control:
@@ -706,9 +1205,11 @@ func encantar(e: Dictionary) -> bool:
 	if ok:
 		AudioManager.play_sfx("nivel")
 		main._flash("Encantado! %s (aura %s)" % [novo_nome, str(enc.get("nomes_cor", [])[novo_nivel - 1])])
+		aviso_item(novo_nome, true, "Encantamento +%d" % novo_nivel)
 	else:
 		AudioManager.play_sfx("dano", 0.7, 0.1)
 		main._flash_red("O encanto falhou%s." % (": voltou para " + novo_nome if novo_nivel < atual else ""))
+		aviso_item(novo_nome, false, "O encanto falhou" + (" e voltou 1 nivel" if novo_nivel < atual else ""))
 	_atualizar_aura()
 	return ok
 

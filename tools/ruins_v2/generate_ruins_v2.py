@@ -29,10 +29,12 @@ OUT = Path(__file__).resolve().parent / "out"
 DATA_PATH = ROOT / "data/ruins_kit.json"
 RES = "res://assets/maps/ruinas_v2"
 
-WORLD = (7200, 5760)
+# 2026-11-23: ampliado de 7200x5760 para 9600x7040; o que existia ficou no lugar,
+# areas novas a leste (Observatorio, Cemiterio dos Magos) e ao sul (Catacumbas, Ruinas do Sul).
+WORLD = (9600, 7040)
 GS = 2  # chao na metade da resolucao
 GROUND = (WORLD[0] // GS, WORLD[1] // GS)
-CHUNK_GRID = (9, 9)
+CHUNK_GRID = (12, 11)
 CHUNK_PX = (GROUND[0] // CHUNK_GRID[0], GROUND[1] // CHUNK_GRID[1])
 MASK_CELL = 16
 BORDER = 260
@@ -59,6 +61,21 @@ ROADS = [  # (pontos, meia largura)
     ([(3600, 4250), (5000, 4550), (5600, 4150)], 95),
 ]
 GLADES = [dict(c=(1500, 4300), r=(420, 300)), dict(c=(5600, 4150), r=(400, 320))]
+# areas novas (2026-11-23)
+OBSERVATORY = dict(c=(8300, 1500), r=(700, 550))
+GRAVEYARD = dict(c=(8400, 4200), r=(650, 520))
+CATACOMBS = dict(c=(2400, 6250), r=(700, 420))
+SOUTH_RUINS = dict(c=(6000, 6200), r=(650, 420))
+NEW_AREAS = [OBSERVATORY, GRAVEYARD, CATACOMBS, SOUTH_RUINS]
+ROADS += [
+    ([(6700, 2500), (7500, 1900), (8300, 1500)], 110),
+    ([(6700, 3500), (7600, 3900), (8400, 4200)], 110),
+    ([(8300, 2050), (8500, 3000), (8400, 3700)], 100),
+    ([(1500, 4600), (1800, 5600), (2400, 6250)], 100),
+    ([(5700, 4450), (6000, 5300), (6000, 6200)], 100),
+    ([(6650, 6100), (7600, 5300), (8400, 4720)], 100),
+    ([(3000, 6350), (4500, 6500), (5350, 6250)], 95),
+]
 
 
 # ---------------------------------------------------------------- recortes
@@ -142,6 +159,7 @@ def walk_sd(X=WX, Y=WY, noise=None):
     parts = [ell(CAMP, X, Y) * 400, rect_sd(PLAZA, X, Y) - 30, rect_sd(LIBRARY, X, Y) - 40,
              ell(CRYSTAL, X, Y) * 700, ell(POND_SHORE, X, Y) * 500, ell(SANCTUARY, X, Y) * 600]
     parts += [ell(g, X, Y) * 300 for g in GLADES]
+    parts += [ell(a, X, Y) * 500 for a in NEW_AREAS]
     parts += [seg_sd(p, hw, X, Y) for p, hw in ROADS]
     sd = np.minimum.reduce(parts) + n
     water = ell(POND, X, Y) * 500 + n * 0.6 < 0
@@ -183,6 +201,17 @@ def paint():
     sanct = ell(SANCTUARY) * 600 + wob * 0.3 < -30
     put(sanct, tiled("stone_slabs"))
     put(ell(dict(c=SANCTUARY["c"], r=(SANCTUARY["r"][0] - 140, SANCTUARY["r"][1] - 110))) < 0, tiled("violet_gold_mosaic"), 0.5)
+    # areas novas
+    obs = ell(OBSERVATORY) * 500 + wob * 0.4 < -30
+    put(obs, tiled("stone_slabs"))
+    put(ell(dict(c=OBSERVATORY["c"], r=(300, 240))) < 0, tiled("cyan_rune_slabs"), 0.5)
+    grave = ell(GRAVEYARD) * 500 + wob < -40
+    put(grave, np.where((N_BIG > 0.5)[..., None], tiled("violet_cracked_earth"), tiled("mossy_cracked_slabs")), 0.7)
+    cata = ell(CATACOMBS) * 500 + wob < -40
+    put(cata, np.where((N_BIG > 0.45)[..., None], tiled("mossy_cracked_slabs"), tiled("rubble_dirt")), 0.7)
+    sul = ell(SOUTH_RUINS) * 500 + wob < -40
+    put(sul & (N_BIG > 0.4), tiled("rubble_dirt"), 0)
+    put(ell(dict(c=SOUTH_RUINS["c"], r=(260, 180))) < 0, tiled("broken_paving"))
     shore = (ell(POND) * 500 + (N_EDGE - 0.5) * 42 < 70) & ~water
     put(shore, tiled("wet_stone"), 0)
     img = np.where(((ell(POND) * 500 + (N_EDGE - 0.5) * 42 > -6) & ~water & shore & (ell(POND) * 500 + (N_EDGE - 0.5) * 42 < 10))[..., None], img * 0.5, img)
@@ -318,6 +347,41 @@ def place() -> list[dict]:
         side = -1 if g["c"][0] < 3600 else 1  # longe da trilha, que chega pelo lado do centro
         add("mossy_boulder", g["c"][0] + 230 * side, g["c"][1] + 140)
         add("night_flower_bush", g["c"][0] - 40, g["c"][1] + 160, collide=False)
+    # Observatorio Partido (nordeste): astrolabio no meio, colunas em anel, cristais
+    ox, oy = OBSERVATORY["c"]
+    add("broken_astrolabe", ox, oy + 30)
+    for i, ang in enumerate(range(0, 360, 40)):
+        a = math.radians(ang + 10)
+        add("intact_column" if i % 3 else "broken_column", ox + math.cos(a) * 470, oy + math.sin(a) * 360)
+    for ang in (60, 200, 320):
+        a = math.radians(ang)
+        add("floating_crystal_pedestal", ox + math.cos(a) * 250, oy + math.sin(a) * 200)
+    add("violet_brazier", ox - 150, oy + 250); add("violet_brazier", ox + 150, oy + 250)
+    add("fallen_column", ox - 560, oy + 420); add("small_rubble", ox + 520, oy - 380)
+    # Cemiterio dos Magos (leste)
+    gx, gy = GRAVEYARD["c"]
+    for row in range(3):
+        for col in range(4):
+            x = gx - 390 + col * 260 + (60 if row % 2 else 0)
+            y = gy - 260 + row * 230
+            add("kneeling_mage_statue" if (row + col) % 3 == 0 else "headless_mage_statue" if (row + col) % 3 == 1 else "broken_column", x, y, flip=col % 2 == 1)
+    add("violet_obelisk_a", gx - 560, gy - 330); add("violet_obelisk_b", gx + 560, gy - 330)
+    add("tall_violet_brazier", gx - 600, gy + 300); add("tall_violet_brazier", gx + 600, gy + 300)
+    add("gold_trimmed_debris", gx + 60, gy + 420)
+    add("dead_tree", gx - 700, gy + 80, collide=True); add("dead_tree", gx + 690, gy - 60, collide=True, flip=True)
+    # Catacumbas (sudoeste)
+    kx, ky = CATACOMBS["c"]
+    for dx, dy, nome in ((-420, -220, "collapsed_wall"), (380, -240, "collapsed_wall"), (-120, -300, "fallen_column"),
+                         (-500, 160, "mossy_boulder"), (480, 180, "mossy_boulder"), (200, 260, "small_rubble"),
+                         (-260, 40, "broken_column"), (300, 0, "broken_column"), (0, -120, "headless_mage_statue"),
+                         (-80, 300, "books_scrolls"), (560, -40, "gold_trimmed_debris")):
+        add(nome, kx + dx, ky + dy)
+    # Ruinas do Sul (sudeste): acampamento abandonado
+    rx_, ry_ = SOUTH_RUINS["c"]
+    add("torn_tent", rx_ - 320, ry_ - 150); add("torn_tent", rx_ + 330, ry_ - 120, flip=True)
+    add("cold_campfire", rx_, ry_ + 40); add("supply_crates", rx_ - 240, ry_ + 200); add("supply_crates", rx_ + 260, ry_ + 210, flip=True)
+    add("broken_column", rx_ - 520, ry_ + 60); add("broken_column", rx_ + 520, ry_ + 40)
+    add("dead_tree", rx_ - 600, ry_ - 260, collide=True); add("small_dead_tree", rx_ + 580, ry_ - 280)
     return props
 
 
@@ -366,6 +430,11 @@ SPAWNS = [  # (inimigo, centro, quantidade, respawn base)
     ("Espectro Arcano", (5500, 2600), 2, 18), ("Espectro Arcano", (6300, 3300), 2, 18), ("Espectro Arcano", (5900, 3700), 1, 18),
     ("Sentinela Arcano", (3300, 1550), 1, 22), ("Sentinela Arcano", (3900, 1550), 1, 22),
     ("Arquimago Corrompido", SEAL, 1, 300),
+    # areas novas (2026-11-23)
+    ("Espectro Arcano", (8050, 1300), 2, 18), ("Espectro Arcano", (8600, 1700), 2, 18), ("Sentinela Arcano", (8300, 1950), 1, 22),
+    ("Aprendiz Corrompido", (8150, 4050), 2, 16), ("Espectro Arcano", (8700, 4350), 2, 18), ("Espirito Fraco", (8300, 4600), 2, 12),
+    ("Espirito Fraco", (2150, 6150), 2, 12), ("Aprendiz Corrompido", (2700, 6300), 2, 16), ("Espectro Arcano", (2400, 6050), 1, 18),
+    ("Espirito Fraco", (5750, 6100), 2, 12), ("Espectro Arcano", (6300, 6300), 2, 18),
 ]
 
 
@@ -443,7 +512,7 @@ def main():
     DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     view = render(ground, props, solids, mask)
     view.save(OUT / "preview.png")
-    view.resize((1800, 1440), Image.LANCZOS).save(KIT / "ruinas_v2_minimap.png")
+    view.resize((1800, 1320), Image.LANCZOS).save(KIT / "ruinas_v2_minimap.png")
     render(ground, props, solids, mask, debug=True).save(OUT / "preview_colisao.png")
     spawns = [{"enemy": e, "count": n, "respawn": r, "zone": [c[0] - 90, c[1] - 70, 180, 140], **({"boss": True} if e == "Arquimago Corrompido" else {})} for e, c, n, r in SPAWNS]
     patch = {"size": list(WORLD), "spawn": list(SPAWN), "portal": list(PORTAL), "spawns": spawns,

@@ -35,10 +35,12 @@ OBJ = KIT / "objetos"
 RES = "res://"
 DATA_PATH = ROOT / "data/fortress_kit.json"
 PREFIXO = "fortaleza_v2"
-WORLD = (6400, 5760)
+# 2026-11-23: ampliada por expansao.json (mundo, grade, zonas/caminhos/lava novos)
+EXP = json.loads((HERE / "expansao.json").read_text(encoding="utf-8"))
+WORLD = tuple(EXP["mundo"])
 GS = 2
 GROUND = (WORLD[0] // GS, WORLD[1] // GS)
-GRID = (8, 9)
+GRID = tuple(EXP["grade"])
 CHUNK = (GROUND[0] // GRID[0], GROUND[1] // GRID[1])
 CELL = 16
 TILE_GROUND = 200
@@ -47,6 +49,8 @@ REDUZ = {"muralha_negra_reta": 0.6, "muralha_negra_canto": 0.6, "corrente_gigant
          "brasa_solta": 0.6, "carroca_destruida": 0.6}
 
 P = json.loads((HERE / "projeto_chatgpt.json").read_text(encoding="utf-8"))
+for _k in ("zonas", "caminhos", "agua"):
+    P[_k] = P[_k] + EXP[_k]
 ZONAS = {z["nome"]: z for z in P["zonas"]}
 ARENA = (tuple(P["arena_chefe"]["centro_px"]), float(P["arena_chefe"]["raio_px"]))
 PORTAL_NORTE = (6050, 220)
@@ -216,6 +220,9 @@ ONDE = {  # id -> zonas do projeto (None = todas) e onde
     "esqueleto_criatura_gigante": (["Campos de Basalto", "Ninho dos Dracos"], "terra"),
     "braseiro_infernal": (["Cidadela do General Infernal", "Patio das Correntes"], "caminho"),
 }
+for _oid, _zs in EXP["onde_extra"].items():
+    if ONDE[_oid][0] is not None:
+        ONDE[_oid] = (ONDE[_oid][0] + _zs, ONDE[_oid][1])
 FIXOS = {"portal_pantano_estrutura": [PORTAL_PANTANO], "portal_proxima_regiao_estrutura": [PORTAL_NORTE],
          "trono_general": [TRONO], "barraca_sobrevivente": [(1250, 5000), (300, 4800)],
          "portao_fortaleza": [(4840, 2700)],  # so um: o portao perto da arena tapava a luta com o chefe
@@ -279,7 +286,7 @@ def espalhar(mapas):
         if oid in SEM_SPRITE or oid not in ONDE or (oid in FIXOS and oid != "braseiro_infernal"):
             continue
         zonas, onde = ONDE[oid]
-        n = max(1, round(o["quantidade"] * FATOR[o["porte"]] * REDUZ.get(oid, 1.0)))
+        n = max(1, round(o["quantidade"] * FATOR[o["porte"]] * REDUZ.get(oid, 1.0) * EXP.get("fator_quantidade", 1.0)))
         im, s = info_obj(o)
         mask = lugares[onde].copy()
         if zonas:
@@ -416,7 +423,7 @@ def main():
         x = round(p["pos"][0] / q + p["offset"][0] * sc)
         y = round(p["pos"][1] / q + p["offset"][1] * sc)
         pv.alpha_composite(im.resize((ww, hh), Image.LANCZOS), (max(0, x), max(0, y)), (max(0, -x), max(0, -y)))
-    pv.resize((1600, 1440), Image.LANCZOS).save(KIT / f"{PREFIXO}_minimap.png")
+    pv.resize((1600, 1408), Image.LANCZOS).save(KIT / f"{PREFIXO}_minimap.png")
     pv.save(HERE / "out/preview.png")
     dbg = pv.copy()
     dr = ImageDraw.Draw(dbg)

@@ -4148,24 +4148,24 @@
   },
   {
    "name": "anchor",
-   "texture": "res://assets/maps/valdoria_v2/props/anchor.png",
+   "texture": "res://assets/maps/valdoria_v2/props/anchor_deitada.png",
    "pos": [
     3460,
     4560
    ],
    "offset": [
-    -49.0,
-    -130
+    -73.0,
+    -66
    ],
    "scale": 1.0,
    "flip_h": false,
-   "collisions": [
-    [
-     -24.5,
-     -30,
-     49.0,
-     30
-    ]
+   "layer": "ground",
+   "degrau": [
+    -65.0,
+    -60,
+    130,
+    60,
+    7
    ]
   },
   {

@@ -1,7 +1,7 @@
 {
  "size": [
-  7200,
-  5760
+  9600,
+  7040
  ],
  "spawn": [
   3600,
@@ -166,6 +166,127 @@
     140
    ],
    "boss": true
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 2,
+   "respawn": 18,
+   "zone": [
+    7960,
+    1230,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 2,
+   "respawn": 18,
+   "zone": [
+    8510,
+    1630,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Sentinela Arcano",
+   "count": 1,
+   "respawn": 22,
+   "zone": [
+    8210,
+    1880,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Aprendiz Corrompido",
+   "count": 2,
+   "respawn": 16,
+   "zone": [
+    8060,
+    3980,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 2,
+   "respawn": 18,
+   "zone": [
+    8610,
+    4280,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    8210,
+    4530,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    2060,
+    6080,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Aprendiz Corrompido",
+   "count": 2,
+   "respawn": 16,
+   "zone": [
+    2610,
+    6230,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 1,
+   "respawn": 18,
+   "zone": [
+    2310,
+    5980,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espirito Fraco",
+   "count": 2,
+   "respawn": 12,
+   "zone": [
+    5660,
+    6030,
+    180,
+    140
+   ]
+  },
+  {
+   "enemy": "Espectro Arcano",
+   "count": 2,
+   "respawn": 18,
+   "zone": [
+    6210,
+    6230,
+    180,
+    140
+   ]
   }
  ],
  "safe_zones": [

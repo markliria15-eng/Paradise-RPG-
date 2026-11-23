@@ -1,7 +1,7 @@
 {
  "size": [
-  8000,
-  6400
+  10400,
+  8320
  ],
  "spawn": [
   240,
@@ -141,12 +141,122 @@
    "enemy": "Rei Javali",
    "count": 1,
    "boss": true,
-   "respawn": 180,
+   "respawn": 300,
    "zone": [
     1590,
     1230,
     100,
     70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 3,
+   "respawn": 26,
+   "zone": [
+    2165,
+    455,
+    170,
+    130
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 3,
+   "respawn": 13,
+   "zone": [
+    2180,
+    560,
+    140,
+    80
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 3,
+   "respawn": 20,
+   "zone": [
+    2215,
+    935,
+    170,
+    130
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 2,
+   "respawn": 15,
+   "zone": [
+    2240,
+    1040,
+    120,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 3,
+   "respawn": 26,
+   "zone": [
+    2165,
+    1590,
+    170,
+    120
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 3,
+   "respawn": 20,
+   "zone": [
+    2260,
+    1680,
+    150,
+    90
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 4,
+   "respawn": 15,
+   "zone": [
+    1410,
+    1740,
+    180,
+    120
+   ]
+  },
+  {
+   "enemy": "Javali Selvagem",
+   "count": 3,
+   "respawn": 9,
+   "zone": [
+    1520,
+    1820,
+    150,
+    80
+   ]
+  },
+  {
+   "enemy": "Javali Selvagem",
+   "count": 4,
+   "respawn": 8,
+   "zone": [
+    440,
+    1770,
+    160,
+    100
+   ]
+  },
+  {
+   "enemy": "Lobo Cinzento",
+   "count": 2,
+   "respawn": 13,
+   "zone": [
+    500,
+    1860,
+    120,
+    60
    ]
   },
   {
@@ -288,6 +398,292 @@
    "zone": [
     1080,
     749,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    1903,
+    294,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    2033,
+    370,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 2,
+   "respawn": 20,
+   "zone": [
+    1479,
+    587,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    1619,
+    641,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    1757,
+    699,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 2,
+   "respawn": 20,
+   "zone": [
+    1895,
+    759,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    2027,
+    828,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    2272,
+    715,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 2,
+   "respawn": 26,
+   "zone": [
+    2263,
+    865,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    2279,
+    1204,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    2264,
+    1351,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 2,
+   "respawn": 15,
+   "zone": [
+    2229,
+    1497,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    1976,
+    1687,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    1832,
+    1727,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 2,
+   "respawn": 20,
+   "zone": [
+    1683,
+    1742,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    682,
+    1401,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    811,
+    1478,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 2,
+   "respawn": 26,
+   "zone": [
+    939,
+    1556,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    1068,
+    1633,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    1197,
+    1710,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 2,
+   "respawn": 15,
+   "zone": [
+    584,
+    1443,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 1,
+   "respawn": 20,
+   "zone": [
+    547,
+    1588,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    710,
+    1834,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Javali Bruto",
+   "count": 2,
+   "respawn": 20,
+   "zone": [
+    857,
+    1864,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Lobo Alfa",
+   "count": 1,
+   "respawn": 26,
+   "zone": [
+    994,
+    1805,
+    90,
+    70
+   ]
+  },
+  {
+   "enemy": "Aranha Venenosa",
+   "count": 1,
+   "respawn": 15,
+   "zone": [
+    1132,
+    1746,
     90,
     70
    ]
@@ -500,6 +896,70 @@
    "pos": [
     1800,
     1330
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    2230,
+    560
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    2330,
+    980
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    2200,
+    1690
+   ]
+  },
+  {
+   "item": "Planta Rara",
+   "amount": 1,
+   "pos": [
+    2330,
+    1620
+   ]
+  },
+  {
+   "item": "Erva Curativa",
+   "amount": 1,
+   "pos": [
+    1460,
+    1830
+   ]
+  },
+  {
+   "item": "Flor Medicinal",
+   "amount": 1,
+   "pos": [
+    560,
+    1800
+   ]
+  },
+  {
+   "item": "Erva Especial",
+   "amount": 1,
+   "pos": [
+    1600,
+    1780
+   ]
+  },
+  {
+   "item": "Cogumelo",
+   "amount": 1,
+   "pos": [
+    480,
+    1850
    ]
   }
  ]

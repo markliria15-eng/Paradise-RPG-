@@ -86,6 +86,9 @@ var agility_move_bonus := 0.0
 var agility_attack_bonus := 0.0
 var current_sprite_path := ""
 var mount_lift := 0.0  # px que o heroi sobe quando esta montado (main.gd _update_mount_rider)
+var degrau_alvo := 0.0  # px do degrau sob os pes (main._altura_degrau: ancora deitada em Valdoria)
+var degrau := 0.0       # sobe/desce suave ate degrau_alvo
+var sprite_base_y := 0.0
 var mount_hide_body := false
 var current_sprite_flip := false
 var current_sprite_direction := "front"
@@ -100,6 +103,21 @@ var action_time := 0.0
 var action_frame_cache: Dictionary = {}
 var is_dying := false
 var death_emitted := false
+# Animacao de profissao em loop (profissoes.gd): "martelo", "picareta", "machado", "colher", "moer",
+# "cozinhar". Quadros {pack}_{anim}_{left|right}_{1..4}.png (tools/char_sprites/recortar_profissoes.py).
+# Sem os quadros (classe sem arte), cai no golpe "attack" ou no agachar desenhado por codigo.
+signal golpe_trabalho
+var trabalho := ""
+var trabalho_t := 0.0
+var trabalho_quadro := -1
+const TRABALHO_SEQ := {
+	"martelo": {"seq": [0, 1, 2, 3], "t": 0.13, "golpe": 2, "loop": true},
+	"picareta": {"seq": [0, 1, 2, 3], "t": 0.13, "golpe": 2, "loop": true},
+	"machado": {"seq": [0, 1, 2, 3], "t": 0.12, "golpe": 2, "loop": true},
+	"colher": {"seq": [0, 1, 2, 2, 1, 2, 2, 3], "t": 0.2, "golpe": 2, "loop": false},
+	"moer": {"seq": [0, 1, 2, 3], "t": 0.17, "golpe": 1, "loop": true},
+	"cozinhar": {"seq": [2], "t": 0.4, "golpe": -1, "loop": true, "anim": "colher"},
+}
 const CUSTOM_PLAYER_TARGET_HEIGHT := 128.0
 # Pack frames_192 (quadro 192, corpo ~168 px) reduzido na proporcao 157/192:
 # a textura vira 119 px na tela e o corpo fica com ~104 px.
@@ -147,8 +165,14 @@ func setup(chosen_class: String, data: Dictionary, database: ItemDatabase) -> vo
 	_update_health_bar()
 	stats_changed.emit()
 
+# direcao do joystick de toque (main_interface._update_touch_move); manda mais que o teclado quando ativo.
+# Vai direto para o movimento: as acoes move_* tem deadzone 0.5 no Input Map, que travava meio joystick.
+var touch_input := Vector2.ZERO
+
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if touch_input != Vector2.ZERO:
+		input = touch_input
 	if is_dying:
 		input = Vector2.ZERO
 	if stun_timer > 0.0:
@@ -175,6 +199,7 @@ func _physics_process(delta: float) -> void:
 		_update_health_bar()
 		return
 	_update_directional_sprite(input, delta)
+	_atualizar_degrau(delta)
 	velocity = input * velocidade_movimento * (1.0 + move_speed_pct + agility_move_bonus) * terrain_speed
 	if slow_timer > 0.0:
 		slow_timer -= delta
@@ -722,6 +747,50 @@ func _player_sprite_path(chosen_class: String) -> String:
 			return "res://assets/sprites/player_arqueiro.png"
 	return "res://assets/sprites/player_guerreiro.png"
 
+func trabalhar(anim: String, olhar_para: Vector2) -> void:
+	trabalho = anim
+	trabalho_t = 0.0
+	trabalho_quadro = -1
+	current_sprite_direction = "left" if olhar_para.x < global_position.x else "right"
+	action_anim = ""
+
+func parar_trabalho() -> void:
+	trabalho = ""
+	if sprite != null:
+		sprite.scale.y = sprite.scale.x  # desfaz o agachar desenhado por codigo
+	_set_direction_sprite_or_default(current_sprite_direction, current_sprite_flip, false)
+
+# devolve true enquanto a animacao de profissao controla o sprite
+func _update_trabalho(delta: float) -> bool:
+	if trabalho.is_empty():
+		return false
+	var info: Dictionary = TRABALHO_SEQ.get(trabalho, TRABALHO_SEQ["machado"])
+	var anim := str(info.get("anim", trabalho))
+	var frames := _action_frames(anim, current_sprite_direction)
+	trabalho_t += delta
+	var seq: Array = info["seq"]
+	var passo := int(trabalho_t / float(info["t"]))
+	if bool(info["loop"]):
+		passo = passo % seq.size()
+	else:
+		passo = mini(passo, seq.size() - 1)
+	if passo != trabalho_quadro:
+		trabalho_quadro = passo
+		if int(seq[passo]) == int(info["golpe"]):
+			golpe_trabalho.emit()
+	if frames.size() >= 4:
+		_set_player_sprite(str(frames[int(seq[passo])]), false)
+		return true
+	# sem arte da profissao: golpe usa o ataque; agachar e um achatamento simples
+	if anim in ["colher", "moer"]:
+		_set_direction_sprite_or_default(current_sprite_direction, current_sprite_flip, false)
+		if sprite != null:
+			sprite.scale.y = sprite.scale.x * 0.82
+		return true
+	if passo == 0 and action_anim.is_empty():
+		_play_action("attack")
+	return _update_action_sprite(delta)
+
 func _play_action(anim: String) -> void:
 	if _action_frames(anim, current_sprite_direction).is_empty():
 		return
@@ -771,6 +840,8 @@ func _update_directional_sprite(input: Vector2, delta: float) -> void:
 			current_sprite_direction = "back" if input.y < 0 else "front"
 		else:
 			current_sprite_direction = "right" if input.x > 0 else "left"
+	if _update_trabalho(delta):
+		return
 	if _update_action_sprite(delta):
 		return
 	if input.length() < 0.08:
@@ -976,6 +1047,10 @@ func _fit_player_sprite() -> void:
 	_ensure_shadow()
 	if _class_has_custom_sprite(class_name_selected):
 		var texture_height: float = maxf(1.0, float(sprite.texture.get_height()))
+		# quadros de profissao sao 256x256 (martelo acima da cabeca cabe) com o mesmo centro e
+		# escala do pack de 192: o heroi fica do mesmo tamanho
+		if int(texture_height) == 256:
+			texture_height = 192.0
 		var hd := texture_height >= 128.0
 		var target_height := HD_PLAYER_TARGET_HEIGHT if hd else CUSTOM_PLAYER_TARGET_HEIGHT
 		var sprite_scale: float = target_height / texture_height
@@ -1014,6 +1089,22 @@ func _fit_player_sprite() -> void:
 	if shadow_sprite != null:
 		shadow_sprite.visible = mount_lift <= 0.0
 	sprite.visible = not mount_hide_body
+	sprite_base_y = sprite.position.y
+	_aplicar_degrau()
+
+# pisou num degrau (ancora deitada): o desenho e a sombra sobem alguns px, suave, como subir um degrau
+func _atualizar_degrau(delta: float) -> void:
+	if is_equal_approx(degrau, degrau_alvo):
+		return
+	degrau = move_toward(degrau, degrau_alvo, delta * 70.0)
+	_aplicar_degrau()
+
+func _aplicar_degrau() -> void:
+	if sprite == null:
+		return
+	sprite.position.y = sprite_base_y - degrau
+	if shadow_sprite != null:
+		shadow_sprite.position.y = 22.0 - degrau
 
 func _ensure_shadow() -> void:
 	if shadow_sprite != null:

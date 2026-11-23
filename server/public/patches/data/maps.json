@@ -55,6 +55,15 @@
           -160,
           40
         ]
+      },
+      {
+        "tipo": "bigorna",
+        "perto_papel": "forge",
+        "offset": [
+          150,
+          60
+        ],
+        "forja": "basic"
       }
     ]
   },
@@ -62,8 +71,8 @@
     "name": "Floresta dos Javalis",
     "safe": false,
     "size": [
-      8000,
-      6400
+      10400,
+      8320
     ],
     "color": "#315d32",
     "spawn": [
@@ -327,6 +336,70 @@
           1800,
           1330
         ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          2230,
+          560
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          2330,
+          980
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          2200,
+          1690
+        ]
+      },
+      {
+        "item": "Planta Rara",
+        "amount": 1,
+        "pos": [
+          2330,
+          1620
+        ]
+      },
+      {
+        "item": "Erva Curativa",
+        "amount": 1,
+        "pos": [
+          1460,
+          1830
+        ]
+      },
+      {
+        "item": "Flor Medicinal",
+        "amount": 1,
+        "pos": [
+          560,
+          1800
+        ]
+      },
+      {
+        "item": "Erva Especial",
+        "amount": 1,
+        "pos": [
+          1600,
+          1780
+        ]
+      },
+      {
+        "item": "Cogumelo",
+        "amount": 1,
+        "pos": [
+          480,
+          1850
+        ]
       }
     ],
     "spawns": [
@@ -461,6 +534,116 @@
           1230,
           100,
           70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 3,
+        "respawn": 26,
+        "zone": [
+          2165,
+          455,
+          170,
+          130
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 3,
+        "respawn": 13,
+        "zone": [
+          2180,
+          560,
+          140,
+          80
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 3,
+        "respawn": 20,
+        "zone": [
+          2215,
+          935,
+          170,
+          130
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 2,
+        "respawn": 15,
+        "zone": [
+          2240,
+          1040,
+          120,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 3,
+        "respawn": 26,
+        "zone": [
+          2165,
+          1590,
+          170,
+          120
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 3,
+        "respawn": 20,
+        "zone": [
+          2260,
+          1680,
+          150,
+          90
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 4,
+        "respawn": 15,
+        "zone": [
+          1410,
+          1740,
+          180,
+          120
+        ]
+      },
+      {
+        "enemy": "Javali Selvagem",
+        "count": 3,
+        "respawn": 9,
+        "zone": [
+          1520,
+          1820,
+          150,
+          80
+        ]
+      },
+      {
+        "enemy": "Javali Selvagem",
+        "count": 4,
+        "respawn": 8,
+        "zone": [
+          440,
+          1770,
+          160,
+          100
+        ]
+      },
+      {
+        "enemy": "Lobo Cinzento",
+        "count": 2,
+        "respawn": 13,
+        "zone": [
+          500,
+          1860,
+          120,
+          60
         ]
       },
       {
@@ -605,6 +788,292 @@
           90,
           70
         ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          1903,
+          294,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          2033,
+          370,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          1479,
+          587,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          1619,
+          641,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          1757,
+          699,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          1895,
+          759,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          2027,
+          828,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          2272,
+          715,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 2,
+        "respawn": 26,
+        "zone": [
+          2263,
+          865,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          2279,
+          1204,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          2264,
+          1351,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 2,
+        "respawn": 15,
+        "zone": [
+          2229,
+          1497,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          1976,
+          1687,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          1832,
+          1727,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          1683,
+          1742,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          682,
+          1401,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          811,
+          1478,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 2,
+        "respawn": 26,
+        "zone": [
+          939,
+          1556,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          1068,
+          1633,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          1197,
+          1710,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 2,
+        "respawn": 15,
+        "zone": [
+          584,
+          1443,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 1,
+        "respawn": 20,
+        "zone": [
+          547,
+          1588,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          710,
+          1834,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Javali Bruto",
+        "count": 2,
+        "respawn": 20,
+        "zone": [
+          857,
+          1864,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Lobo Alfa",
+        "count": 1,
+        "respawn": 26,
+        "zone": [
+          994,
+          1805,
+          90,
+          70
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 1,
+        "respawn": 15,
+        "zone": [
+          1132,
+          1746,
+          90,
+          70
+        ]
       }
     ],
     "gather_nodes": [
@@ -653,8 +1122,8 @@
       {
         "tipo": "arvore",
         "pos": [
-          1690,
-          174
+          1681,
+          170
         ]
       },
       {
@@ -667,8 +1136,8 @@
       {
         "tipo": "arvore",
         "pos": [
-          1758,
-          278
+          1777,
+          232
         ]
       },
       {
@@ -702,7 +1171,7 @@
       {
         "tipo": "arvore",
         "pos": [
-          1374,
+          1399,
           574
         ]
       },
@@ -717,14 +1186,14 @@
         "tipo": "arvore_antiga",
         "pos": [
           1142,
-          782
+          757
         ]
       },
       {
         "tipo": "arvore_antiga",
         "pos": [
-          858,
-          670
+          844,
+          676
         ]
       },
       {
@@ -732,83 +1201,6 @@
         "pos": [
           910,
           1026
-        ]
-      },
-      {
-        "tipo": "ferro",
-        "pos": [
-          706,
-          1430
-        ]
-      },
-      {
-        "tipo": "ferro",
-        "pos": [
-          686,
-          458
-        ]
-      },
-      {
-        "tipo": "ferro",
-        "pos": [
-          918,
-          550
-        ]
-      },
-      {
-        "tipo": "ferro",
-        "pos": [
-          458,
-          1174
-        ]
-      },
-      {
-        "tipo": "ferro",
-        "pos": [
-          462,
-          422
-        ]
-      },
-      {
-        "tipo": "ferro",
-        "pos": [
-          1410,
-          1038
-        ]
-      },
-      {
-        "tipo": "carvao",
-        "pos": [
-          1426,
-          690
-        ]
-      },
-      {
-        "tipo": "carvao",
-        "pos": [
-          402,
-          850
-        ]
-      },
-      {
-        "tipo": "carvao",
-        "pos": [
-          1286,
-          358
-        ]
-      },
-      {
-        "tipo": "carvao",
-        "pos": [
-          618,
-          502
-        ]
-      },
-      {
-        "tipo": "carvao",
-        "pos": [
-          530,
-          558
         ]
       },
       {
@@ -828,7 +1220,7 @@
       {
         "tipo": "erva_curativa",
         "pos": [
-          1450,
+          1425,
           914
         ]
       },
@@ -863,7 +1255,7 @@
       {
         "tipo": "erva_curativa",
         "pos": [
-          514,
+          609,
           378
         ]
       },
@@ -898,21 +1290,21 @@
       {
         "tipo": "folha_floresta",
         "pos": [
-          334,
-          1114
+          373,
+          1153
         ]
       },
       {
         "tipo": "folha_floresta",
         "pos": [
-          406,
+          421,
           970
         ]
       },
       {
         "tipo": "folha_floresta",
         "pos": [
-          414,
+          424,
           1082
         ]
       },
@@ -926,8 +1318,8 @@
       {
         "tipo": "cogumelo",
         "pos": [
-          1062,
-          498
+          1053,
+          494
         ]
       },
       {
@@ -940,7 +1332,7 @@
       {
         "tipo": "cogumelo",
         "pos": [
-          1458,
+          1473,
           1070
         ]
       },
@@ -968,8 +1360,8 @@
       {
         "tipo": "erva_vermelha",
         "pos": [
-          1350,
-          998
+          1323,
+          976
         ]
       },
       {
@@ -982,29 +1374,29 @@
       {
         "tipo": "erva_vermelha",
         "pos": [
-          1470,
-          274
+          1507,
+          259
         ]
       },
       {
         "tipo": "erva_vermelha",
         "pos": [
-          550,
-          1190
+          540,
+          1167
         ]
       },
       {
         "tipo": "flor_medicinal",
         "pos": [
-          782,
+          807,
           566
         ]
       },
       {
         "tipo": "flor_medicinal",
         "pos": [
-          566,
-          474
+          570,
+          483
         ]
       },
       {
@@ -1020,6 +1412,181 @@
           1098,
           434
         ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          2152,
+          450
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          2303,
+          497
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          2183,
+          531
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          2135,
+          496
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          2212,
+          501
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          2313,
+          1042
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          2182,
+          976
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          2339,
+          1107
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          2286,
+          1036
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          2421,
+          1002
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          2301,
+          1570
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          2238,
+          1636
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          2276,
+          1647
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          2258,
+          1538
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          2159,
+          1721
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          1565,
+          1801
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          1675,
+          1747
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          1335,
+          1782
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          1592,
+          1839
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          1398,
+          1780
+        ]
+      },
+      {
+        "tipo": "erva_curativa",
+        "pos": [
+          421,
+          1838
+        ]
+      },
+      {
+        "tipo": "folha_floresta",
+        "pos": [
+          646,
+          1817
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          624,
+          1809
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          582,
+          1856
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          549,
+          1724
+        ]
       }
     ]
   },
@@ -1027,8 +1594,8 @@
     "name": "Ruinas Arcanas",
     "safe": false,
     "size": [
-      7200,
-      5760
+      9600,
+      7040
     ],
     "color": "#3c3d68",
     "spawn": [
@@ -1239,6 +1806,127 @@
           140
         ],
         "boss": true
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 2,
+        "respawn": 18,
+        "zone": [
+          7960,
+          1230,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 2,
+        "respawn": 18,
+        "zone": [
+          8510,
+          1630,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Sentinela Arcano",
+        "count": 1,
+        "respawn": 22,
+        "zone": [
+          8210,
+          1880,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Aprendiz Corrompido",
+        "count": 2,
+        "respawn": 16,
+        "zone": [
+          8060,
+          3980,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 2,
+        "respawn": 18,
+        "zone": [
+          8610,
+          4280,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          8210,
+          4530,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          2060,
+          6080,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Aprendiz Corrompido",
+        "count": 2,
+        "respawn": 16,
+        "zone": [
+          2610,
+          6230,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 1,
+        "respawn": 18,
+        "zone": [
+          2310,
+          5980,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espirito Fraco",
+        "count": 2,
+        "respawn": 12,
+        "zone": [
+          5660,
+          6030,
+          180,
+          140
+        ]
+      },
+      {
+        "enemy": "Espectro Arcano",
+        "count": 2,
+        "respawn": 18,
+        "zone": [
+          6210,
+          6230,
+          180,
+          140
+        ]
       }
     ],
     "collectibles": [],
@@ -1323,8 +2011,8 @@
       {
         "tipo": "flor_medicinal",
         "pos": [
-          1048,
-          1384
+          920,
+          1332
         ]
       },
       {
@@ -1344,8 +2032,8 @@
       {
         "tipo": "flor_medicinal",
         "pos": [
-          6296,
-          3272
+          6328,
+          3344
         ]
       },
       {
@@ -1472,6 +2160,146 @@
         "pos": [
           4024,
           4312
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          7752,
+          1344
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          8312,
+          1688
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          7824,
+          1832
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          8104,
+          1576
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          8760,
+          1712
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          8304,
+          4072
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          8852,
+          4288
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          8152,
+          3824
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          8424,
+          4040
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          8104,
+          4296
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          2000,
+          6336
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          3040,
+          6304
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          2248,
+          6088
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          2548,
+          6284
+        ]
+      },
+      {
+        "tipo": "erva_vermelha",
+        "pos": [
+          2224,
+          6376
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          5760,
+          6136
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          6432,
+          6368
+        ]
+      },
+      {
+        "tipo": "flor_medicinal",
+        "pos": [
+          5936,
+          6088
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          6032,
+          5928
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          6208,
+          6080
         ]
       }
     ]
@@ -1644,6 +2472,15 @@
           -170,
           60
         ]
+      },
+      {
+        "tipo": "bigorna",
+        "perto_papel": "rare_forge",
+        "offset": [
+          160,
+          70
+        ],
+        "forja": "rare"
       }
     ]
   },
@@ -1700,8 +2537,8 @@
     "name": "Fortaleza de Cinzas",
     "safe": false,
     "size": [
-      6400,
-      5760
+      8000,
+      7040
     ],
     "color": "#2a1d1c",
     "spawn": [
@@ -2144,6 +2981,182 @@
         "zone": [
           5980,
           5305,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          6920,
+          2805,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          7760,
+          2805,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          6780,
+          3785,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          7760,
+          4065,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          380,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          1360,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          2340,
+          6305,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          3580,
+          6445,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          4560,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          5540,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          6520,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          7500,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          6920,
+          5205,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cavaleiro Sombrio",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          7760,
+          5205,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Draco Jovem",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          7130,
+          405,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Cinzeiro Errante",
+        "count": 2,
+        "respawn": 90,
+        "zone": [
+          7130,
+          1385,
           220,
           170
         ]
@@ -2633,6 +3646,181 @@
           5144,
           952
         ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          7160,
+          4552
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          6920,
+          2624
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          7336,
+          4104
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          7168,
+          3184
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          6864,
+          3488
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          7064,
+          4328
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          2240,
+          6016
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          2416,
+          6424
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          2488,
+          6824
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          2112,
+          5912
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          2928,
+          6232
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          1536,
+          6928
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          3592,
+          6336
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          4200,
+          6160
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          4600,
+          6552
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          5288,
+          6464
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          6472,
+          5872
+        ]
+      },
+      {
+        "tipo": "planta_rara",
+        "pos": [
+          7512,
+          6256
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          6872,
+          864
+        ]
+      },
+      {
+        "tipo": "obsidiana",
+        "pos": [
+          7664,
+          1912
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          7120,
+          1368
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          7472,
+          1992
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          7184,
+          5616
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          6832,
+          5112
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          7544,
+          5536
+        ]
       }
     ]
   },
@@ -2640,8 +3828,8 @@
     "name": "Caverna Profunda",
     "safe": false,
     "size": [
-      4800,
-      3840
+      6400,
+      4480
     ],
     "color": "#252835",
     "spawn": [
@@ -2808,6 +3996,72 @@
           1080,
           200,
           160
+        ]
+      },
+      {
+        "enemy": "Aranha Rainha",
+        "count": 3,
+        "respawn": 20,
+        "zone": [
+          4900,
+          3150,
+          800,
+          400
+        ]
+      },
+      {
+        "enemy": "Morcego Sombrio",
+        "count": 3,
+        "respawn": 16,
+        "zone": [
+          5000,
+          2400,
+          600,
+          500
+        ]
+      },
+      {
+        "enemy": "Morcego Sombrio",
+        "count": 4,
+        "respawn": 16,
+        "zone": [
+          5100,
+          1200,
+          800,
+          600
+        ]
+      },
+      {
+        "enemy": "Morcego Pequeno",
+        "count": 3,
+        "respawn": 10,
+        "zone": [
+          4650,
+          1150,
+          500,
+          300
+        ]
+      },
+      {
+        "enemy": "Aranha Venenosa",
+        "count": 4,
+        "respawn": 14,
+        "zone": [
+          2250,
+          3750,
+          900,
+          400
+        ]
+      },
+      {
+        "enemy": "Morcego Pequeno",
+        "count": 3,
+        "respawn": 10,
+        "zone": [
+          2300,
+          3350,
+          400,
+          350
         ]
       }
     ],
@@ -3063,6 +4317,335 @@
           728,
           920
         ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          4648,
+          3344
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5824,
+          3560
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5456,
+          3672
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5272,
+          2920
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5344,
+          3064
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5776,
+          3128
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5408,
+          2896
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          4784,
+          3384
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          4832,
+          3264
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5224,
+          3024
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5728,
+          3616
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5088,
+          3208
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          4648,
+          3216
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5832,
+          3240
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          4928,
+          3208
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5072,
+          3584
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          5576,
+          3056
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5464,
+          1872
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5624,
+          1848
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          5008,
+          1528
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5400,
+          1752
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          5024,
+          1392
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          4912,
+          1376
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5112,
+          1464
+        ]
+      },
+      {
+        "tipo": "titanio",
+        "pos": [
+          5536,
+          1984
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          3112,
+          3912
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          2960,
+          3864
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          3304,
+          3872
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          3232,
+          3960
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          2544,
+          3824
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          2432,
+          3656
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          3264,
+          3744
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          2680,
+          4032
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          2896,
+          4032
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          3000,
+          3968
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          2760,
+          3848
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          3928,
+          2832
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          3584,
+          3352
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          4112,
+          3040
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          3312,
+          3448
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          1144,
+          3192
+        ]
+      },
+      {
+        "tipo": "ferro",
+        "pos": [
+          824,
+          2920
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          736,
+          2792
+        ]
+      },
+      {
+        "tipo": "carvao",
+        "pos": [
+          440,
+          3104
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          2984,
+          2400
+        ]
+      },
+      {
+        "tipo": "erva_caverna",
+        "pos": [
+          2792,
+          2024
+        ]
+      },
+      {
+        "tipo": "cristal",
+        "pos": [
+          2928,
+          1800
+        ]
       }
     ]
   },
@@ -3070,8 +4653,8 @@
     "name": "Floresta Base",
     "safe": false,
     "size": [
-      8000,
-      6400
+      10400,
+      8320
     ],
     "color": "#4b6b2d",
     "spawn": [
@@ -3088,8 +4671,8 @@
     "name": "Pantano das Almas Perdidas",
     "safe": false,
     "size": [
-      6400,
-      5760
+      8000,
+      7040
     ],
     "color": "#2f3a2a",
     "spawn": [
@@ -3260,8 +4843,8 @@
         "count": 2,
         "respawn": 75,
         "zone": [
-          1881,
-          5466,
+          1980,
+          5565,
           220,
           170
         ]
@@ -3271,8 +4854,8 @@
         "count": 3,
         "respawn": 55,
         "zone": [
-          2861,
-          5466,
+          2960,
+          5565,
           220,
           170
         ]
@@ -3337,8 +4920,8 @@
         "count": 2,
         "respawn": 100,
         "zone": [
-          4281,
-          5466,
+          4380,
+          5565,
           220,
           170
         ]
@@ -3348,8 +4931,8 @@
         "count": 3,
         "respawn": 55,
         "zone": [
-          5261,
-          5466,
+          5360,
+          5565,
           220,
           170
         ]
@@ -3414,7 +4997,7 @@
         "count": 3,
         "respawn": 55,
         "zone": [
-          3360,
+          3500,
           405,
           220,
           170
@@ -3438,6 +5021,204 @@
         "zone": [
           3261,
           1286,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          6780,
+          1005,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          7661,
+          1104,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          6780,
+          1985,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          7661,
+          2084,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          6780,
+          2965,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          7661,
+          3064,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          6978,
+          3803,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          6879,
+          4684,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          6780,
+          5565,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          7661,
+          5664,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          380,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          1360,
+          6165,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Jacare do Pantano",
+        "count": 2,
+        "respawn": 65,
+        "zone": [
+          2439,
+          6264,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Sapo Venenoso Gigante",
+        "count": 2,
+        "respawn": 75,
+        "zone": [
+          3419,
+          6264,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          4380,
+          6445,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          5360,
+          6445,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Afogado do Pantano",
+        "count": 2,
+        "respawn": 100,
+        "zone": [
+          6340,
+          6305,
+          220,
+          170
+        ]
+      },
+      {
+        "enemy": "Mosquito Mutante",
+        "count": 3,
+        "respawn": 55,
+        "zone": [
+          7320,
+          6445,
           220,
           170
         ]
@@ -3702,15 +5483,15 @@
       {
         "tipo": "musgo",
         "pos": [
-          5256,
-          824
+          5368,
+          936
         ]
       },
       {
         "tipo": "musgo",
         "pos": [
-          3592,
-          4648
+          3576,
+          4612
         ]
       },
       {
@@ -3723,8 +5504,8 @@
       {
         "tipo": "musgo",
         "pos": [
-          5528,
-          3640
+          5552,
+          3584
         ]
       },
       {
@@ -3744,8 +5525,8 @@
       {
         "tipo": "musgo",
         "pos": [
-          1800,
-          3128
+          2004,
+          3212
         ]
       },
       {
@@ -3793,15 +5574,15 @@
       {
         "tipo": "fungo",
         "pos": [
-          4136,
-          4440
+          4108,
+          4412
         ]
       },
       {
         "tipo": "cogumelo",
         "pos": [
-          2312,
-          5384
+          2440,
+          5256
         ]
       },
       {
@@ -3849,22 +5630,22 @@
       {
         "tipo": "arvore_antiga",
         "pos": [
-          5560,
-          1592
+          5532,
+          1620
         ]
       },
       {
         "tipo": "arvore_antiga",
         "pos": [
-          2072,
+          2432,
           4936
         ]
       },
       {
         "tipo": "arvore_antiga",
         "pos": [
-          5272,
-          2136
+          5160,
+          2180
         ]
       },
       {
@@ -3877,22 +5658,22 @@
       {
         "tipo": "arvore_antiga",
         "pos": [
-          696,
-          1432
+          612,
+          1516
         ]
       },
       {
         "tipo": "erva_especial",
         "pos": [
           1352,
-          4040
+          3820
         ]
       },
       {
         "tipo": "erva_especial",
         "pos": [
-          280,
-          2968
+          632,
+          3112
         ]
       },
       {
@@ -3913,7 +5694,7 @@
         "tipo": "mithril",
         "pos": [
           3064,
-          3448
+          3488
         ]
       },
       {
@@ -3933,15 +5714,15 @@
       {
         "tipo": "titanio",
         "pos": [
-          5752,
-          1832
+          5728,
+          1776
         ]
       },
       {
         "tipo": "titanio",
         "pos": [
-          4264,
-          4776
+          4116,
+          4836
         ]
       },
       {
@@ -3955,7 +5736,182 @@
         "tipo": "planta_rara",
         "pos": [
           648,
-          5560
+          5800
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          6376,
+          2028
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          7568,
+          1504
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          6632,
+          1816
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          7408,
+          2656
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          6604,
+          1284
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          7144,
+          1672
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          6872,
+          3728
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          7224,
+          4536
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          7016,
+          4424
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          6568,
+          4864
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          6676,
+          4220
+        ]
+      },
+      {
+        "tipo": "planta_rara",
+        "pos": [
+          6824,
+          4640
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          4220,
+          6392
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          2884,
+          6040
+        ]
+      },
+      {
+        "tipo": "musgo",
+        "pos": [
+          1632,
+          6464
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          1744,
+          6476
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          2120,
+          6064
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          3544,
+          6144
+        ]
+      },
+      {
+        "tipo": "cogumelo",
+        "pos": [
+          2820,
+          6288
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          7088,
+          6300
+        ]
+      },
+      {
+        "tipo": "erva_especial",
+        "pos": [
+          6128,
+          6036
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          6884,
+          6508
+        ]
+      },
+      {
+        "tipo": "fungo",
+        "pos": [
+          7516,
+          6212
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          6664,
+          6512
+        ]
+      },
+      {
+        "tipo": "mithril",
+        "pos": [
+          4816,
+          6272
         ]
       }
     ]

@@ -31,10 +31,12 @@ KIT = ROOT / "assets/maps/pantano_v2"
 OBJ = KIT / "objetos"
 RES = "res://"
 DATA_PATH = ROOT / "data/swamp_kit.json"
-WORLD = (6400, 5760)
+# 2026-11-23: ampliado por expansao.json (mundo, grade, zonas/caminhos/agua novos)
+EXP = json.loads((HERE / "expansao.json").read_text(encoding="utf-8"))
+WORLD = tuple(EXP["mundo"])
 GS = 2
 GROUND = (WORLD[0] // GS, WORLD[1] // GS)
-GRID = (8, 9)
+GRID = tuple(EXP["grade"])
 CHUNK = (GROUND[0] // GRID[0], GROUND[1] // GRID[1])
 CELL = 16
 TILE_GROUND = 200  # textura de 416 px vira 200 px de chao (400 px de mundo)
@@ -45,6 +47,8 @@ REDUZ = {"barril_velho": 0.4, "caixote_madeira": 0.4, "cerca_quebrada": 0.5, "la
 ARENA = ((900, 700), 520)  # clareira do chefe na Ilha do Rei Afogado (sem objetos solidos)
 
 P = json.loads((HERE / "projeto_chatgpt.json").read_text(encoding="utf-8"))
+for _k in ("zonas", "caminhos", "agua"):
+    P[_k] = P[_k] + EXP[_k]
 ZONAS = {z["nome"]: z for z in P["zonas"]}
 rng = random.Random(1717)
 YY, XX = np.mgrid[0:GROUND[1], 0:GROUND[0]].astype(np.float32) * GS
@@ -187,6 +191,9 @@ ONDE = {  # id -> zonas (nomes do projeto) e onde no terreno
     "carcaca_animal": (["Charco dos Venenos", "Aldeia Afundada"], "terra"),
     "ossos_espalhados": (["Cemiterio Esquecido", "Ruinas do Culto", "Ilha do Rei Afogado"], "terra"),
 }
+for _oid, _zs in EXP["onde_extra"].items():
+    if ONDE[_oid][0] is not None:
+        ONDE[_oid] = (ONDE[_oid][0] + _zs, ONDE[_oid][1])
 FIXOS = {"cabana_pescador": [(1250, 4980)], "portal_valdoria": [(380, 5160)], "portal_proxima_regiao": [(3200, 330)],
          "mausoleu_destruido": [(5800, 1750), (4850, 2650)], "altar_corrompido": [(2500, 450), (900, 380)]}
 SEM_SPRITE = {"passarela_reta", "passarela_curva", "ponte_madeira"}  # viraram tabuas pintadas no chao
@@ -247,7 +254,7 @@ def espalhar(mapas):
         if oid in FIXOS or oid in SEM_SPRITE or oid not in ONDE:
             continue
         zonas, onde = ONDE[oid]
-        n = max(1, round(o["quantidade"] * FATOR[o["porte"]] * REDUZ.get(oid, 1.0)))
+        n = max(1, round(o["quantidade"] * FATOR[o["porte"]] * REDUZ.get(oid, 1.0) * EXP.get("fator_quantidade", 1.0)))
         im, s = info_obj(o)
         mask = lugares[onde].copy()
         if zonas:
@@ -358,7 +365,7 @@ def main():
         x = round(p["pos"][0] / q + p["offset"][0] * sc)
         y = round(p["pos"][1] / q + p["offset"][1] * sc)
         pv.alpha_composite(im.resize((ww, hh), Image.LANCZOS), (max(0, x), max(0, y)), (max(0, -x), max(0, -y)))
-    pv.resize((1600, 1440), Image.LANCZOS).save(KIT / "pantano_v2_minimap.png")
+    pv.resize((1600, 1408), Image.LANCZOS).save(KIT / "pantano_v2_minimap.png")
     pv.save(HERE / "out/preview.png")
     dbg = pv.copy()
     dr = ImageDraw.Draw(dbg)

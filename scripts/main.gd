@@ -43,6 +43,10 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_SIZE_CHANGED:
 		_refresh_modal_layout()
+	# celular: app foi para segundo plano com o dedo no joystick -> solta (senao o heroi anda sozinho)
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
+		if touch_move_index != -1:
+			_release_touch_move()
 
 func _process(delta: float) -> void:
 	if player == null:
@@ -51,6 +55,7 @@ func _process(delta: float) -> void:
 	_update_kit_vehicles(delta)
 	if player != null:
 		player.terrain_speed = _terrain_speed_at(player.global_position)
+		player.degrau_alvo = _altura_degrau(player.global_position)
 	map_stream_timer -= delta
 	if map_stream_timer <= 0.0:
 		map_stream_timer = 0.15
@@ -177,9 +182,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed:
-			if _is_move_touch(touch.position):
-				touch_move_index = touch.index
-				_update_touch_move(touch.position)
+			if touch_move_index == -1 and _is_move_touch(touch.position):
+				_begin_touch_move(touch.index, touch.position)
 		elif touch.index == touch_move_index:
 			_release_touch_move()
 	elif event is InputEventScreenDrag:
@@ -1372,9 +1376,12 @@ func _load_map(map_id: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 	_ensure_map_exploration(resolved_map_id)
 	safe_zone_nodes.clear()
 	solid_obstacles.clear()
+	obstaculo_grade.clear()
+	degraus.clear()
 	portal_passage_rects.clear()
 	portal_nodes.clear()
 	kit_vehicles.clear()
+	arvores_kit.clear()
 	for child in world.get_children():
 		if child != player:
 			child.queue_free()

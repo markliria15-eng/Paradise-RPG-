@@ -380,6 +380,12 @@
       "profissao": "cooking",
       "sprite": "res://assets/sprites/coleta/fogao.png",
       "altura": 125
+    },
+    "bigorna": {
+      "nome": "Bigorna do Ferreiro",
+      "profissao": "blacksmithing",
+      "sprite": "res://assets/sprites/coleta/bigorna.png",
+      "altura": 82
     }
   },
   "receitas": {

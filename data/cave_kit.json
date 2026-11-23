@@ -1,13 +1,13 @@
 {
  "version": 1,
  "world_size": [
-  4800,
-  3840
+  6400,
+  4480
  ],
  "ground_scale": 1,
  "chunk_grid": [
-  6,
-  6
+  8,
+  7
  ],
  "chunk_px": [
   800,
@@ -21,10 +21,10 @@
  },
  "lake": {
   "rect": [
-   2357,
-   1562,
-   695,
-   474
+   2472,
+   1686,
+   402,
+   268
   ],
   "water_frames": [
    "res://assets/maps/caverna_v2/tiles/water_0.png",
@@ -82,6 +82,24 @@
    1120,
    760,
    560
+  ],
+  "galeria": [
+   5300,
+   3350,
+   640,
+   420
+  ],
+  "ninho": [
+   5500,
+   1500,
+   560,
+   460
+  ],
+  "fungos": [
+   2700,
+   3950,
+   620,
+   330
   ]
  },
  "solids": [],
@@ -118,8 +136,8 @@
    "name": "silk_cocoon",
    "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
    "pos": [
-    3552,
-    623
+    3615,
+    676
    ],
    "offset": [
     -29,
@@ -137,24 +155,24 @@
    ]
   },
   {
-   "name": "green_spider_eggs",
-   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
+   "name": "silk_cocoon",
+   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
    "pos": [
-    3667,
-    643
+    3522,
+    689
    ],
    "offset": [
-    -31,
-    -52
+    -30,
+    -91
    ],
    "scale": 1.0,
-   "flip_h": false,
+   "flip_h": true,
    "collisions": [
     [
-     -21,
-     -18,
-     42,
-     22
+     -12,
+     -14,
+     23,
+     18
     ]
    ]
   },
@@ -203,24 +221,97 @@
    ]
   },
   {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "name": "green_spider_eggs",
+   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
    "pos": [
-    931,
-    781
+    4367,
+    784
    ],
    "offset": [
-    -38,
+    -31,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -21,
+     -18,
+     42,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "pos": [
+    774,
+    849
+   ],
+   "offset": [
+    -40,
     -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -24,
+     -22,
+     48,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "green_spider_eggs",
+   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
+   "pos": [
+    3444,
+    905
+   ],
+   "offset": [
+    -30,
+    -52
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -23,
-     -22,
-     45,
-     26
+     -21,
+     -18,
+     42,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "crystal_glow",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+   "pos": [
+    1050,
+    915
+   ],
+   "offset": [
+    -64,
+    -143
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
+   ],
+   "fps": 5,
+   "collisions": [
+    [
+     -40,
+     -26,
+     81,
+     30
     ]
    ]
   },
@@ -228,8 +319,8 @@
    "name": "large_spider_web",
    "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
    "pos": [
-    3479,
-    792
+    4298,
+    923
    ],
    "offset": [
     -55,
@@ -253,226 +344,46 @@
    ]
   },
   {
-   "name": "purple_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "name": "rock_pillar",
+   "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
    "pos": [
-    790,
-    815
-   ],
-   "offset": [
-    -40,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -24,
-     -22,
-     48,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "purple_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
-   "pos": [
-    684,
-    822
-   ],
-   "offset": [
-    -40,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -24,
-     -22,
-     48,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
-   "pos": [
-    3370,
-    822
-   ],
-   "offset": [
-    -28,
-    -34
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "large_spider_web",
-   "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
-   "pos": [
-    4461,
-    861
-   ],
-   "offset": [
-    -56,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -52,
-     -18,
-     17,
-     20
-    ],
-    [
-     34,
-     -18,
-     17,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "green_spider_eggs",
-   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
-   "pos": [
-    4349,
-    871
-   ],
-   "offset": [
-    -30,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -21,
-     -18,
-     42,
-     22
-    ]
-   ]
-  },
-  {
-   "name": "crystal_glow",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
-   "pos": [
-    1158,
-    875
-   ],
-   "offset": [
-    -63,
-    -143
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "frames": [
-    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
-   ],
-   "fps": 5,
-   "collisions": [
-    [
-     -40,
-     -26,
-     81,
-     30
-    ]
-   ]
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    977,
-    916
-   ],
-   "offset": [
-    -38,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -12,
-     -16,
-     23,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "crystal_glow",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
-   "pos": [
-    531,
-    929
-   ],
-   "offset": [
-    -63,
-    -143
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "frames": [
-    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
-   ],
-   "fps": 5,
-   "collisions": [
-    [
-     -40,
-     -26,
-     81,
-     30
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    449,
+    632,
     946
    ],
    "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "silk_cocoon",
-   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
-   "pos": [
-    3228,
-    960
-   ],
-   "offset": [
-    -30,
-    -91
+    -57,
+    -191
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -12,
-     -14,
-     23,
-     18
+     -40,
+     -34,
+     79,
+     38
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    895,
+    968
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
     ]
    ]
   },
@@ -480,8 +391,8 @@
    "name": "crystal_glow",
    "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
    "pos": [
-    784,
-    962
+    1332,
+    975
    ],
    "offset": [
     -63,
@@ -509,21 +420,43 @@
    "name": "rock_pillar",
    "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
    "pos": [
-    1046,
-    979
+    1128,
+    976
    ],
    "offset": [
     -57,
     -191
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
      -40,
      -34,
      79,
      38
+    ]
+   ]
+  },
+  {
+   "name": "green_spider_eggs",
+   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
+   "pos": [
+    4652,
+    993
+   ],
+   "offset": [
+    -31,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -21,
+     -18,
+     42,
+     22
     ]
    ]
   },
@@ -539,7 +472,7 @@
     -191
    ],
    "scale": 1.0,
-   "flip_h": false,
+   "flip_h": true,
    "collisions": [
     [
      -71,
@@ -556,24 +489,44 @@
    ]
   },
   {
-   "name": "webbed_skeleton",
-   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    371,
+    1013
+   ],
+   "offset": [
+    -20,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "large_spider_web",
+   "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
    "pos": [
     4558,
     1013
    ],
    "offset": [
-    -38,
-    -84
+    -56,
+    -99
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -27,
-     -22,
-     53,
-     26
+     -52,
+     -18,
+     17,
+     20
+    ],
+    [
+     34,
+     -18,
+     17,
+     20
     ]
    ]
   },
@@ -600,28 +553,6 @@
    ]
   },
   {
-   "name": "purple_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
-   "pos": [
-    1407,
-    1023
-   ],
-   "offset": [
-    -40,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -24,
-     -22,
-     48,
-     26
-    ]
-   ]
-  },
-  {
    "name": "floor_web_patches",
    "texture": "res://assets/maps/caverna_v2/props/floor_web_patches.png",
    "pos": [
@@ -637,11 +568,69 @@
    "layer": "ground"
   },
   {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    1043,
+    1036
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "pos": [
+    462,
+    1047
+   ],
+   "offset": [
+    -40,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -24,
+     -22,
+     48,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "pos": [
+    1181,
+    1057
+   ],
+   "offset": [
+    -40,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -24,
+     -22,
+     48,
+     26
+    ]
+   ]
+  },
+  {
    "name": "teal_crystals",
    "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
    "pos": [
-    718,
-    1037
+    725,
+    1058
    ],
    "offset": [
     -38,
@@ -659,46 +648,75 @@
    ]
   },
   {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "name": "silk_cocoon",
+   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
    "pos": [
-    462,
-    1047
+    3216,
+    1058
    ],
    "offset": [
-    -38,
-    -95
+    -29,
+    -91
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -23,
-     -22,
-     45,
-     26
+     -12,
+     -14,
+     23,
+     18
     ]
    ]
   },
   {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
    "pos": [
-    1181,
-    1057
+    5420,
+    1083
    ],
    "offset": [
-    -38,
-    -95
+    -24,
+    -47
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -23,
-     -22,
-     45,
-     26
+     -14,
+     -16,
+     28,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "crystal_glow",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+   "pos": [
+    1406,
+    1093
+   ],
+   "offset": [
+    -64,
+    -143
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
+   ],
+   "fps": 5,
+   "collisions": [
+    [
+     -40,
+     -26,
+     81,
+     30
     ]
    ]
   },
@@ -718,38 +736,24 @@
    "layer": "ground"
   },
   {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "name": "animal_ribcage",
+   "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
    "pos": [
-    1411,
-    1116
+    5515,
+    1118
    ],
    "offset": [
-    -21,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "silk_cocoon",
-   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
-   "pos": [
-    3186,
-    1140
-   ],
-   "offset": [
-    -29,
-    -91
+    -35,
+    -55
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -12,
-     -14,
-     23,
-     18
+     -21,
+     -16,
+     41,
+     20
     ]
    ]
   },
@@ -769,59 +773,95 @@
    "layer": "ground"
   },
   {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
    "pos": [
-    4198,
-    1168
+    765,
+    1165
    ],
    "offset": [
-    -28,
-    -34
+    -21,
+    -38
    ],
    "scale": 1.0,
    "flip_h": true
   },
   {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    1340,
+    1169
+   ],
+   "offset": [
+    -21,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "green_spider_eggs",
+   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
+   "pos": [
+    3199,
+    1172
+   ],
+   "offset": [
+    -30,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -21,
+     -18,
+     42,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
    "pos": [
     423,
     1175
    ],
    "offset": [
-    -38,
+    -40,
     -95
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -23,
+     -24,
      -22,
-     45,
+     48,
      26
     ]
    ]
   },
   {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
    "pos": [
     541,
     1176
    ],
    "offset": [
-    -38,
+    -40,
     -95
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -23,
+     -24,
      -22,
-     45,
+     48,
      26
     ]
    ]
@@ -849,46 +889,132 @@
    ]
   },
   {
-   "name": "silk_cocoon",
-   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
    "pos": [
-    3325,
-    1190
+    903,
+    1180
    ],
    "offset": [
-    -29,
-    -91
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    5260,
+    1186
+   ],
+   "offset": [
+    -24,
+    -47
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -12,
      -14,
-     23,
-     18
+     -16,
+     28,
+     20
     ]
    ]
   },
   {
-   "name": "silk_pillar",
-   "texture": "res://assets/maps/caverna_v2/props/silk_pillar.png",
+   "name": "green_spider_eggs",
+   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
    "pos": [
-    4310,
-    1200
+    3317,
+    1201
    ],
    "offset": [
-    -56,
-    -184
+    -31,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -21,
+     -18,
+     42,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    5696,
+    1211
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "webbed_skeleton",
+   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
+   "pos": [
+    3118,
+    1228
+   ],
+   "offset": [
+    -38,
+    -84
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -37,
-     -30,
-     73,
-     34
+     -27,
+     -22,
+     53,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    613,
+    1230
+   ],
+   "offset": [
+    -21,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    5438,
+    1230
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -17,
+     -22,
+     34,
+     26
     ]
    ]
   },
@@ -904,42 +1030,144 @@
     -65
    ],
    "scale": 1.0,
-   "flip_h": false,
+   "flip_h": true,
    "layer": "ground"
   },
   {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "name": "rock_pillar",
+   "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
    "pos": [
-    779,
-    1245
+    5866,
+    1260
    ],
    "offset": [
-    -21,
-    -38
+    -57,
+    -191
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -40,
+     -34,
+     79,
+     38
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    5058,
+    1262
+   ],
+   "offset": [
+    -28,
+    -34
    ],
    "scale": 1.0,
    "flip_h": true
   },
   {
-   "name": "green_spider_eggs",
-   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    4426,
-    1249
+    5580,
+    1282
    ],
    "offset": [
-    -30,
-    -52
+    -31,
+    -97
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    522,
+    1283
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    3703,
+    1284
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    5222,
+    1288
+   ],
+   "offset": [
+    -24,
+    -47
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -14,
+     -16,
+     28,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "animal_ribcage",
+   "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
+   "pos": [
+    5767,
+    1299
+   ],
+   "offset": [
+    -35,
+    -55
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
      -21,
-     -18,
-     42,
-     22
+     -16,
+     41,
+     20
     ]
    ]
   },
@@ -959,26 +1187,18 @@
    "layer": "ground"
   },
   {
-   "name": "purple_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
    "pos": [
-    418,
-    1303
+    5360,
+    1308
    ],
    "offset": [
-    -40,
-    -95
+    -28,
+    -34
    ],
    "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -24,
-     -22,
-     48,
-     26
-    ]
-   ]
+   "flip_h": false
   },
   {
    "name": "floor_web_patches",
@@ -1003,301 +1223,19 @@
     1320
    ],
    "offset": [
-    -40,
+    -41,
     -78
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "layer": "ground"
   },
   {
-   "name": "green_spider_eggs",
-   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
-   "pos": [
-    4534,
-    1330
-   ],
-   "offset": [
-    -30,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -21,
-     -18,
-     42,
-     22
-    ]
-   ]
-  },
-  {
    "name": "tall_teal_mushroom",
    "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
    "pos": [
-    547,
-    1348
-   ],
-   "offset": [
-    -39,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -12,
-     -16,
-     23,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    1394,
-    1385
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
-   "pos": [
-    3781,
-    1385
-   ],
-   "offset": [
-    -28,
-    -34
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "green_spider_eggs",
-   "texture": "res://assets/maps/caverna_v2/props/green_spider_eggs.png",
-   "pos": [
-    4391,
-    1389
-   ],
-   "offset": [
-    -30,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -21,
-     -18,
-     42,
-     22
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    1218,
-    1397
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "silk_cocoon",
-   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
-   "pos": [
-    2726,
-    1403
-   ],
-   "offset": [
-    -29,
-    -91
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -12,
-     -14,
-     23,
-     18
-    ]
-   ]
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    2393,
-    1406
-   ],
-   "offset": [
-    -28,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "webbed_skeleton",
-   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
-   "pos": [
-    3406,
-    1409
-   ],
-   "offset": [
-    -38,
-    -84
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -27,
-     -22,
-     53,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
-   "pos": [
-    1512,
-    1413
-   ],
-   "offset": [
-    -21,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
-   "pos": [
-    1299,
-    1419
-   ],
-   "offset": [
-    -21,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "egg_sac_mound",
-   "texture": "res://assets/maps/caverna_v2/props/egg_sac_mound.png",
-   "pos": [
-    3580,
-    1420
-   ],
-   "offset": [
-    -55,
-    -150
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -41,
-     -28,
-     81,
-     32
-    ]
-   ]
-  },
-  {
-   "name": "large_boulder",
-   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
-   "pos": [
-    2239,
-    1421
-   ],
-   "offset": [
-    -40,
-    -75
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -32,
-     -30,
-     64,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "hanging_cocoons",
-   "texture": "res://assets/maps/caverna_v2/props/hanging_cocoons.png",
-   "pos": [
-    4200,
-    1430
-   ],
-   "offset": [
-    -67,
-    -150
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -50,
-     -24,
-     100,
-     28
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    772,
-    1438
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    2557,
-    1444
+    400,
+    1321
    ],
    "offset": [
     -38,
@@ -1315,61 +1253,33 @@
    ]
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    1034,
-    1446
+    5927,
+    1331
    ],
    "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "purple_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
-   "pos": [
-    518,
-    1464
-   ],
-   "offset": [
-    -40,
-    -95
+    -31,
+    -97
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -24,
+     -17,
      -22,
-     48,
+     34,
      26
     ]
    ]
-  },
-  {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
-   "pos": [
-    1180,
-    1484
-   ],
-   "offset": [
-    -21,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": true
   },
   {
    "name": "large_spider_web",
    "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
    "pos": [
-    4338,
-    1484
+    4384,
+    1367
    ],
    "offset": [
     -56,
@@ -1393,6 +1303,288 @@
    ]
   },
   {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    2726,
+    1403
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "silk_cocoon",
+   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
+   "pos": [
+    2249,
+    1403
+   ],
+   "offset": [
+    -29,
+    -91
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -14,
+     23,
+     18
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2393,
+    1406
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    1316,
+    1412
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "egg_sac_mound",
+   "texture": "res://assets/maps/caverna_v2/props/egg_sac_mound.png",
+   "pos": [
+    3580,
+    1420
+   ],
+   "offset": [
+    -54,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -41,
+     -28,
+     81,
+     32
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    453,
+    1423
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    2605,
+    1427
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "hanging_cocoons",
+   "texture": "res://assets/maps/caverna_v2/props/hanging_cocoons.png",
+   "pos": [
+    4200,
+    1430
+   ],
+   "offset": [
+    -67,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -50,
+     -24,
+     100,
+     28
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    1466,
+    1436
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
+   "pos": [
+    6001,
+    1438
+   ],
+   "offset": [
+    -36,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    1082,
+    1476
+   ],
+   "offset": [
+    -20,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    3307,
+    1478
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    675,
+    1482
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    1650,
+    1488
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "silk_cocoon",
+   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
+   "pos": [
+    3422,
+    1492
+   ],
+   "offset": [
+    -29,
+    -91
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -14,
+     23,
+     18
+    ]
+   ]
+  },
+  {
    "name": "bones_armor",
    "texture": "res://assets/maps/caverna_v2/props/bones_armor.png",
    "pos": [
@@ -1400,11 +1592,11 @@
     1500
    ],
    "offset": [
-    -40,
+    -38,
     -69
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
      -23,
@@ -1415,11 +1607,287 @@
    ]
   },
   {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "pos": [
+    1354,
+    1502
+   ],
+   "offset": [
+    -40,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -24,
+     -22,
+     48,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2219,
+    1502
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    1196,
+    1504
+   ],
+   "offset": [
+    -21,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    2455,
+    1504
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "silk_cocoon",
+   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
+   "pos": [
+    4105,
+    1512
+   ],
+   "offset": [
+    -30,
+    -91
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -14,
+     23,
+     18
+    ]
+   ]
+  },
+  {
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    411,
+    1526
+   ],
+   "offset": [
+    -20,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    2789,
+    1528
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2611,
+    1555
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    664,
+    1572
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    472,
+    1574
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    5889,
+    1581
+   ],
+   "offset": [
+    -24,
+    -47
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14,
+     -16,
+     28,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    5386,
+    1589
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    1060,
+    1612
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    3099,
+    1616
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
    "name": "crystal_glow",
    "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
    "pos": [
-    1434,
-    1502
+    1311,
+    1618
    ],
    "offset": [
     -64,
@@ -1444,47 +1912,47 @@
    ]
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "name": "webbed_skeleton",
+   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
    "pos": [
-    2371,
-    1504
+    3744,
+    1623
    ],
    "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "silk_cocoon",
-   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
-   "pos": [
-    4440,
-    1520
-   ],
-   "offset": [
-    -30,
-    -91
+    -38,
+    -84
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -12,
-     -14,
-     23,
-     18
+     -27,
+     -22,
+     53,
+     26
     ]
    ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    4082,
+    1633
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
   },
   {
    "name": "small_mushrooms",
    "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
    "pos": [
-    2225,
-    1526
+    574,
+    1634
    ],
    "offset": [
     -23,
@@ -1494,221 +1962,97 @@
    "flip_h": true
   },
   {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
    "pos": [
-    2665,
-    1531
+    4954,
+    1637
    ],
    "offset": [
-    -38,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23,
-     -22,
-     45,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "large_boulder",
-   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
-   "pos": [
-    2956,
-    1539
-   ],
-   "offset": [
-    -40,
-    -75
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -32,
-     -30,
-     64,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "purple_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
-   "pos": [
-    1107,
-    1559
-   ],
-   "offset": [
-    -40,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -24,
-     -22,
-     48,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
-   "pos": [
-    980,
-    1564
-   ],
-   "offset": [
-    -20,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    572,
-    1569
-   ],
-   "offset": [
-    -39,
+    -35,
     -99
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false
+  },
+  {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    5128,
+    1653
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": false,
    "collisions": [
     [
-     -12,
-     -16,
-     23,
-     20
+     -17,
+     -22,
+     34,
+     26
     ]
    ]
   },
   {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
    "pos": [
-    664,
-    1572
-   ],
-   "offset": [
-    -20,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "crystal_shards",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
-   "pos": [
-    472,
-    1574
-   ],
-   "offset": [
-    -20,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    3099,
-    1616
+    5848,
+    1662
    ],
    "offset": [
     -28,
-    -38
+    -34
    ],
    "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    1311,
-    1618
-   ],
-   "offset": [
-    -38,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -12,
-     -16,
-     23,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    735,
-    1618
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
-   "pos": [
-    1900,
-    1635
-   ],
-   "offset": [
-    -24,
-    -47
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
+   "flip_h": true
   },
   {
    "name": "rock_pillar",
    "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
    "pos": [
-    1095,
-    1703
+    1919,
+    1674
+   ],
+   "offset": [
+    -57,
+    -191
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -40,
+     -34,
+     79,
+     38
+    ]
+   ]
+  },
+  {
+   "name": "crystal_shards",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_shards.png",
+   "pos": [
+    745,
+    1693
+   ],
+   "offset": [
+    -21,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "rock_pillar",
+   "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
+   "pos": [
+    5656,
+    1693
    ],
    "offset": [
     -57,
@@ -1729,30 +2073,8 @@
    "name": "tall_teal_mushroom",
    "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
    "pos": [
-    3094,
-    1746
-   ],
-   "offset": [
-    -39,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -12,
-     -16,
-     23,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    1828,
-    1803
+    1095,
+    1703
    ],
    "offset": [
     -38,
@@ -1770,11 +2092,474 @@
    ]
   },
   {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    3047,
+    1726
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    5285,
+    1745
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    1159,
+    1757
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2460,
+    1806
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    3064,
+    1809
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
+   "pos": [
+    5839,
+    1832
+   ],
+   "offset": [
+    -36,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    5254,
+    1835
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    5352,
+    1886
+   ],
+   "offset": [
+    -24,
+    -47
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14,
+     -16,
+     28,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    1954,
+    1889
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    3189,
+    1913
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "rock_pillar",
+   "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
+   "pos": [
+    3062,
+    1919
+   ],
+   "offset": [
+    -57,
+    -191
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -40,
+     -34,
+     79,
+     38
+    ]
+   ]
+  },
+  {
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "pos": [
+    3250,
+    1993
+   ],
+   "offset": [
+    -40,
+    -75
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -32,
+     -30,
+     64,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    3088,
+    2037
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    4225,
+    2094
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2968,
+    2122
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2798,
+    2147
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
    "name": "crystal_glow",
    "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
    "pos": [
-    3158,
-    1840
+    2161,
+    2154
+   ],
+   "offset": [
+    -64,
+    -143
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
+   ],
+   "fps": 5,
+   "collisions": [
+    [
+     -40,
+     -26,
+     81,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    1957,
+    2180
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "silk_cocoon",
+   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
+   "pos": [
+    2282,
+    2192
+   ],
+   "offset": [
+    -29,
+    -91
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -14,
+     23,
+     18
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    3003,
+    2251
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "pos": [
+    2082,
+    2258
+   ],
+   "offset": [
+    -40,
+    -75
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -32,
+     -30,
+     64,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "pos": [
+    2444,
+    2268
+   ],
+   "offset": [
+    -40,
+    -75
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -32,
+     -30,
+     64,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2254,
+    2338
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2369,
+    2364
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "crystal_glow",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+   "pos": [
+    2547,
+    2378
    ],
    "offset": [
     -63,
@@ -1799,343 +2584,102 @@
    ]
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
    "pos": [
-    1914,
-    1886
+    1073,
+    2381
    ],
    "offset": [
-    -23,
-    -52
+    -35,
+    -99
    ],
    "scale": 1.0,
    "flip_h": false
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    3031,
-    1907
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
-   "pos": [
-    3923,
-    1963
-   ],
-   "offset": [
-    -24,
-    -47
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
-   "pos": [
-    1847,
-    1983
-   ],
-   "offset": [
-    -38,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -23,
-     -22,
-     45,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "crystal_glow",
-   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
-   "pos": [
-    3005,
-    2016
-   ],
-   "offset": [
-    -64,
-    -143
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "frames": [
-    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
-    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
-   ],
-   "fps": 5,
-   "collisions": [
-    [
-     -40,
-     -26,
-     81,
-     30
-    ]
-   ]
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    3163,
-    2074
-   ],
-   "offset": [
-    -39,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -12,
-     -16,
-     23,
-     20
-    ]
-   ]
-  },
-  {
    "name": "small_boulders",
    "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    2968,
-    2122
-   ],
-   "offset": [
-    -28,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    1916,
-    2152
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "rock_pillar",
-   "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
-   "pos": [
-    2383,
-    2205
-   ],
-   "offset": [
-    -57,
-    -191
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -40,
-     -34,
-     79,
-     38
-    ]
-   ]
-  },
-  {
-   "name": "teal_crystals",
-   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
-   "pos": [
-    2125,
-    2208
-   ],
-   "offset": [
-    -38,
-    -95
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -23,
-     -22,
-     45,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    2030,
-    2225
-   ],
-   "offset": [
-    -28,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "rock_pillar",
-   "texture": "res://assets/maps/caverna_v2/props/rock_pillar.png",
-   "pos": [
-    3083,
-    2249
-   ],
-   "offset": [
-    -57,
-    -191
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -40,
-     -34,
-     79,
-     38
-    ]
-   ]
-  },
-  {
-   "name": "tall_teal_mushroom",
-   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
-   "pos": [
-    2160,
-    2296
-   ],
-   "offset": [
-    -39,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -12,
-     -16,
-     23,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    2465,
-    2330
-   ],
-   "offset": [
-    -28,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    2315,
-    2344
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    2240,
-    2368
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "silk_cocoon",
-   "texture": "res://assets/maps/caverna_v2/props/silk_cocoon.png",
    "pos": [
     2678,
     2409
    ],
    "offset": [
-    -30,
-    -91
+    -28,
+    -38
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -12,
-     -14,
-     23,
-     18
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    3781,
+    2716
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "large_spider_web",
+   "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
+   "pos": [
+    3582,
+    2726
+   ],
+   "offset": [
+    -56,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -52,
+     -18,
+     17,
+     20
+    ],
+    [
+     34,
+     -18,
+     17,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "pos": [
+    3486,
+    2742
+   ],
+   "offset": [
+    -40,
+    -75
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -32,
+     -30,
+     64,
+     34
     ]
    ]
   },
@@ -2143,8 +2687,8 @@
    "name": "small_mushrooms",
    "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
    "pos": [
-    2524,
-    2425
+    933,
+    2801
    ],
    "offset": [
     -23,
@@ -2157,8 +2701,8 @@
    "name": "large_boulder",
    "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
    "pos": [
-    2423,
-    2464
+    4114,
+    2824
    ],
    "offset": [
     -40,
@@ -2179,15 +2723,15 @@
    "name": "small_boulders",
    "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
    "pos": [
-    3234,
-    2681
+    573,
+    2832
    ],
    "offset": [
     -28,
     -38
    ],
    "scale": 1.0,
-   "flip_h": false,
+   "flip_h": true,
    "collisions": [
     [
      -20,
@@ -2198,66 +2742,24 @@
    ]
   },
   {
-   "name": "rotten_barrels",
-   "texture": "res://assets/maps/caverna_v2/props/rotten_barrels.png",
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    3709,
-    2690
+    3012,
+    2863
    ],
    "offset": [
-    -37,
-    -59
+    -31,
+    -97
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
-     -28,
+     -17,
      -22,
-     55,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "root_curtain",
-   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
-   "pos": [
-    691,
-    2777
-   ],
-   "offset": [
-    -36,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "large_spider_web",
-   "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
-   "pos": [
-    3419,
-    2781
-   ],
-   "offset": [
-    -56,
-    -99
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -52,
-     -18,
-     17,
-     20
-    ],
-    [
      34,
-     -18,
-     17,
-     20
+     26
     ]
    ]
   },
@@ -2284,24 +2786,74 @@
    ]
   },
   {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
    "pos": [
-    599,
-    2879
+    3451,
+    2870
    ],
    "offset": [
-    -24,
-    -47
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    1165,
+    2923
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    4181,
+    2953
+   ],
+   "offset": [
+    -28,
+    -38
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -14,
+     -20,
      -16,
-     28,
+     39,
      20
+    ]
+   ]
+  },
+  {
+   "name": "broken_mine_cart",
+   "texture": "res://assets/maps/caverna_v2/props/broken_mine_cart.png",
+   "pos": [
+    2994,
+    2957
+   ],
+   "offset": [
+    -32,
+    -59
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -24,
+     -24,
+     48,
+     28
     ]
    ]
   },
@@ -2309,8 +2861,8 @@
    "name": "tall_stalagmite",
    "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    483,
-    2895
+    404,
+    2967
    ],
    "offset": [
     -31,
@@ -2328,74 +2880,24 @@
    ]
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    703,
-    2901
+    1252,
+    2969
    ],
    "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": true
-  },
-  {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
-   "pos": [
-    381,
-    2935
-   ],
-   "offset": [
-    -23,
-    -52
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
-   "pos": [
-    1080,
-    2942
-   ],
-   "offset": [
-    -24,
-    -47
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "large_boulder",
-   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
-   "pos": [
-    4215,
-    2948
-   ],
-   "offset": [
-    -40,
-    -75
+    -31,
+    -97
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -32,
-     -30,
-     64,
-     34
+     -17,
+     -22,
+     34,
+     26
     ]
    ]
   },
@@ -2403,20 +2905,42 @@
    "name": "tall_stalagmite",
    "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    3006,
-    2976
+    978,
+    2971
    ],
    "offset": [
     -31,
     -97
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
      -17,
      -22,
      34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "webbed_skeleton",
+   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
+   "pos": [
+    2100,
+    2979
+   ],
+   "offset": [
+    -38,
+    -84
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -27,
+     -22,
+     53,
      26
     ]
    ]
@@ -2444,26 +2968,18 @@
    ]
   },
   {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
    "pos": [
-    508,
-    3009
+    1087,
+    2990
    ],
    "offset": [
-    -24,
-    -47
+    -36,
+    -99
    ],
    "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
+   "flip_h": true
   },
   {
    "name": "unlit_torch",
@@ -2510,32 +3026,48 @@
    ]
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    1202,
-    3015
+    512,
+    3020
    ],
    "offset": [
-    -23,
-    -52
+    -31,
+    -97
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": true,
+   "collisions": [
+    [
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
   },
   {
-   "name": "root_curtain",
-   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
    "pos": [
-    602,
-    3016
+    1814,
+    3029
    ],
    "offset": [
-    -35,
-    -99
+    -24,
+    -47
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": false,
+   "collisions": [
+    [
+     -14,
+     -16,
+     28,
+     20
+    ]
+   ]
   },
   {
    "name": "mine_support",
@@ -2597,8 +3129,8 @@
    "name": "tall_stalagmite",
    "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    943,
-    3049
+    3085,
+    3047
    ],
    "offset": [
     -31,
@@ -2616,67 +3148,103 @@
    ]
   },
   {
-   "name": "animal_ribcage",
-   "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
    "pos": [
-    1661,
-    3062
+    5068,
+    3055
    ],
    "offset": [
-    -34,
-    -55
+    -40,
+    -75
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -21,
-     -16,
-     41,
-     20
+     -32,
+     -30,
+     64,
+     34
     ]
    ]
   },
   {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
    "pos": [
     267,
     3065
    ],
    "offset": [
-    -28,
-    -38
+    -40,
+    -75
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -20,
+     -32,
+     -30,
+     64,
+     34
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    1891,
+    3088
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    1190,
+    3090
+   ],
+   "offset": [
+    -24,
+    -47
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14,
      -16,
-     39,
+     28,
      20
     ]
    ]
   },
   {
-   "name": "tall_stalagmite",
-   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "name": "webbed_skeleton",
+   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
    "pos": [
-    4097,
-    3065
+    2242,
+    3093
    ],
    "offset": [
-    -31,
-    -97
+    -38,
+    -84
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
-     -17,
+     -27,
      -22,
-     34,
+     53,
      26
     ]
    ]
@@ -2685,8 +3253,8 @@
    "name": "bones_skull",
    "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
    "pos": [
-    1887,
-    3068
+    2023,
+    3094
    ],
    "offset": [
     -28,
@@ -2699,8 +3267,8 @@
    "name": "small_boulders",
    "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
    "pos": [
-    1190,
-    3090
+    2957,
+    3095
    ],
    "offset": [
     -28,
@@ -2708,108 +3276,6 @@
    ],
    "scale": 1.0,
    "flip_h": false,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
-   "pos": [
-    3879,
-    3112
-   ],
-   "offset": [
-    -28,
-    -34
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "animal_ribcage",
-   "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
-   "pos": [
-    2194,
-    3118
-   ],
-   "offset": [
-    -34,
-    -55
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -21,
-     -16,
-     41,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "tall_stalagmite",
-   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
-   "pos": [
-    1029,
-    3121
-   ],
-   "offset": [
-    -31,
-    -97
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -17,
-     -22,
-     34,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "webbed_skeleton",
-   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
-   "pos": [
-    2006,
-    3121
-   ],
-   "offset": [
-    -38,
-    -84
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -27,
-     -22,
-     53,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    1320,
-    3142
-   ],
-   "offset": [
-    -28,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": true,
    "collisions": [
     [
      -20,
@@ -2823,15 +3289,15 @@
    "name": "small_stalagmites",
    "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
    "pos": [
-    1607,
-    3142
+    1075,
+    3099
    ],
    "offset": [
     -24,
     -47
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
      -14,
@@ -2842,38 +3308,156 @@
    ]
   },
   {
-   "name": "small_mushrooms",
-   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
    "pos": [
-    325,
-    3146
+    4968,
+    3099
    ],
    "offset": [
-    -23,
-    -52
+    -28,
+    -38
    ],
    "scale": 1.0,
-   "flip_h": true
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
   },
   {
-   "name": "broken_mine_cart",
-   "texture": "res://assets/maps/caverna_v2/props/broken_mine_cart.png",
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
    "pos": [
-    3192,
-    3170
+    5476,
+    3107
    ],
    "offset": [
-    -32,
-    -59
+    -31,
+    -97
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -24,
-     -24,
-     48,
-     28
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    5165,
+    3125
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    3073,
+    3155
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    4783,
+    3161
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    1546,
+    3168
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "large_boulder",
+   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "pos": [
+    5611,
+    3175
+   ],
+   "offset": [
+    -40,
+    -75
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -32,
+     -30,
+     64,
+     34
     ]
    ]
   },
@@ -2906,24 +3490,24 @@
    ]
   },
   {
-   "name": "tall_stalagmite",
-   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
    "pos": [
-    1499,
-    3188
+    2211,
+    3203
    ],
    "offset": [
-    -31,
-    -97
+    -24,
+    -47
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
-     -17,
-     -22,
-     34,
-     26
+     -14,
+     -16,
+     28,
+     20
     ]
    ]
   },
@@ -2950,23 +3534,59 @@
    ]
   },
   {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    2086,
+    3212
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
    "pos": [
     378,
     3213
    ],
    "offset": [
-    -28,
-    -38
+    -24,
+    -47
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -20,
+     -14,
      -16,
-     39,
+     28,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    1816,
+    3213
+   ],
+   "offset": [
+    -24,
+    -47
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -14,
+     -16,
+     28,
      20
     ]
    ]
@@ -2994,127 +3614,53 @@
    ]
   },
   {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "name": "large_spider_web",
+   "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
    "pos": [
-    3926,
-    3226
+    3018,
+    3231
    ],
    "offset": [
-    -28,
-    -34
+    -56,
+    -99
    ],
    "scale": 1.0,
-   "flip_h": false
+   "flip_h": true,
+   "collisions": [
+    [
+     -52,
+     -18,
+     17,
+     20
+    ],
+    [
+     34,
+     -18,
+     17,
+     20
+    ]
+   ]
   },
   {
-   "name": "large_boulder",
-   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
    "pos": [
     1310,
     3241
    ],
    "offset": [
-    -40,
-    -75
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -32,
-     -30,
-     64,
-     34
-    ]
-   ]
-  },
-  {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
-   "pos": [
-    1840,
-    3260
-   ],
-   "offset": [
-    -24,
-    -47
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    3194,
-    3275
-   ],
-   "offset": [
-    -28,
-    -38
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -20,
-     -16,
-     39,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
-   "pos": [
-    1652,
-    3296
-   ],
-   "offset": [
-    -28,
-    -34
+    -35,
+    -99
    ],
    "scale": 1.0,
    "flip_h": false
   },
   {
-   "name": "tall_stalagmite",
-   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
-   "pos": [
-    3305,
-    3304
-   ],
-   "offset": [
-    -31,
-    -97
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -17,
-     -22,
-     34,
-     26
-    ]
-   ]
-  },
-  {
    "name": "rotten_barrels",
    "texture": "res://assets/maps/caverna_v2/props/rotten_barrels.png",
    "pos": [
-    3089,
-    3308
+    3158,
+    3247
    ],
    "offset": [
     -37,
@@ -3132,76 +3678,32 @@
    ]
   },
   {
-   "name": "tall_stalagmite",
-   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
    "pos": [
-    1235,
-    3314
+    240,
+    3251
    ],
    "offset": [
-    -31,
-    -97
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -17,
-     -22,
-     34,
-     26
-    ]
-   ]
-  },
-  {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
-   "pos": [
-    1751,
-    3320
-   ],
-   "offset": [
-    -28,
-    -34
+    -23,
+    -52
    ],
    "scale": 1.0,
    "flip_h": true
   },
   {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
-   "pos": [
-    1451,
-    3324
-   ],
-   "offset": [
-    -24,
-    -47
-   ],
-   "scale": 1.0,
-   "flip_h": false,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
-  },
-  {
    "name": "animal_ribcage",
    "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
    "pos": [
-    2332,
-    3331
+    1647,
+    3263
    ],
    "offset": [
-    -34,
+    -35,
     -55
    ],
    "scale": 1.0,
-   "flip_h": true,
+   "flip_h": false,
    "collisions": [
     [
      -21,
@@ -3212,11 +3714,77 @@
    ]
   },
   {
+   "name": "unlit_torch",
+   "texture": "res://assets/maps/caverna_v2/props/unlit_torch.png",
+   "pos": [
+    5010,
+    3290
+   ],
+   "offset": [
+    -20,
+    -86
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -8,
+     -12,
+     16,
+     16
+    ]
+   ]
+  },
+  {
+   "name": "unlit_torch",
+   "texture": "res://assets/maps/caverna_v2/props/unlit_torch.png",
+   "pos": [
+    5538,
+    3290
+   ],
+   "offset": [
+    -20,
+    -86
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -8,
+     -12,
+     16,
+     16
+    ]
+   ]
+  },
+  {
    "name": "small_stalagmites",
    "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
    "pos": [
-    362,
-    3335
+    1544,
+    3290
+   ],
+   "offset": [
+    -24,
+    -47
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -14,
+     -16,
+     28,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_stalagmites",
+   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
+   "pos": [
+    1245,
+    3314
    ],
    "offset": [
     -24,
@@ -3230,6 +3798,126 @@
      -16,
      28,
      20
+    ]
+   ]
+  },
+  {
+   "name": "mine_support",
+   "texture": "res://assets/maps/caverna_v2/props/mine_support.png",
+   "pos": [
+    5120,
+    3320
+   ],
+   "offset": [
+    -59,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -55,
+     -18,
+     18,
+     20
+    ],
+    [
+     37,
+     -18,
+     18,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "mine_support",
+   "texture": "res://assets/maps/caverna_v2/props/mine_support.png",
+   "pos": [
+    5428,
+    3320
+   ],
+   "offset": [
+    -59,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -55,
+     -18,
+     18,
+     20
+    ],
+    [
+     37,
+     -18,
+     18,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    1788,
+    3321
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "mine_support",
+   "texture": "res://assets/maps/caverna_v2/props/mine_support.png",
+   "pos": [
+    5748,
+    3326
+   ],
+   "offset": [
+    -59,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -55,
+     -18,
+     18,
+     20
+    ],
+    [
+     37,
+     -18,
+     18,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "rotten_barrels",
+   "texture": "res://assets/maps/caverna_v2/props/rotten_barrels.png",
+   "pos": [
+    3916,
+    3331
+   ],
+   "offset": [
+    -37,
+    -59
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -28,
+     -22,
+     55,
+     26
     ]
    ]
   },
@@ -3256,97 +3944,171 @@
    ]
   },
   {
-   "name": "large_spider_web",
-   "texture": "res://assets/maps/caverna_v2/props/large_spider_web.png",
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
    "pos": [
-    3580,
-    3343
+    1183,
+    3358
    ],
    "offset": [
-    -55,
-    -99
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "animal_ribcage",
+   "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
+   "pos": [
+    1599,
+    3359
+   ],
+   "offset": [
+    -35,
+    -55
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -52,
-     -18,
-     17,
-     20
-    ],
-    [
-     34,
-     -18,
-     17,
+     -21,
+     -16,
+     41,
      20
     ]
    ]
   },
   {
-   "name": "webbed_skeleton",
-   "texture": "res://assets/maps/caverna_v2/props/webbed_skeleton.png",
+   "name": "unlit_torch",
+   "texture": "res://assets/maps/caverna_v2/props/unlit_torch.png",
    "pos": [
-    2094,
-    3346
+    5879,
+    3374
    ],
    "offset": [
-    -38,
-    -84
+    -20,
+    -86
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -8,
+     -12,
+     16,
+     16
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    3708,
+    3375
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    348,
+    3420
+   ],
+   "offset": [
+    -28,
+    -38
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -27,
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    1151,
+    3445
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "bones_skull",
+   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "pos": [
+    2158,
+    3445
+   ],
+   "offset": [
+    -28,
+    -34
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    3743,
+    3462
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -17,
      -22,
-     53,
+     34,
      26
     ]
    ]
   },
   {
-   "name": "small_stalagmites",
-   "texture": "res://assets/maps/caverna_v2/props/small_stalagmites.png",
-   "pos": [
-    1908,
-    3386
-   ],
-   "offset": [
-    -24,
-    -47
-   ],
-   "scale": 1.0,
-   "flip_h": true,
-   "collisions": [
-    [
-     -14,
-     -16,
-     28,
-     20
-    ]
-   ]
-  },
-  {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
-   "pos": [
-    2207,
-    3391
-   ],
-   "offset": [
-    -28,
-    -34
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
    "name": "small_boulders",
    "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
    "pos": [
-    3337,
-    3407
+    5749,
+    3466
    ],
    "offset": [
     -28,
@@ -3367,93 +4129,101 @@
    "name": "bones_skull",
    "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
    "pos": [
-    2021,
-    3424
+    2042,
+    3472
    ],
    "offset": [
     -28,
     -34
    ],
    "scale": 1.0,
-   "flip_h": true
+   "flip_h": false
   },
   {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "name": "animal_ribcage",
+   "texture": "res://assets/maps/caverna_v2/props/animal_ribcage.png",
    "pos": [
-    3925,
-    3439
+    1826,
+    3474
    ],
    "offset": [
-    -28,
-    -38
+    -35,
+    -55
    ],
    "scale": 1.0,
    "flip_h": false,
    "collisions": [
     [
-     -20,
+     -21,
      -16,
-     39,
+     41,
      20
     ]
    ]
   },
   {
-   "name": "bones_skull",
-   "texture": "res://assets/maps/caverna_v2/props/bones_skull.png",
+   "name": "broken_mine_cart",
+   "texture": "res://assets/maps/caverna_v2/props/broken_mine_cart.png",
    "pos": [
-    1759,
-    3446
+    5140,
+    3486
    ],
    "offset": [
-    -28,
-    -34
-   ],
-   "scale": 1.0,
-   "flip_h": false
-  },
-  {
-   "name": "small_boulders",
-   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
-   "pos": [
-    3548,
-    3447
-   ],
-   "offset": [
-    -28,
-    -38
+    -32,
+    -59
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -20,
-     -16,
-     39,
-     20
+     -24,
+     -24,
+     48,
+     28
     ]
    ]
   },
   {
-   "name": "large_boulder",
-   "texture": "res://assets/maps/caverna_v2/props/large_boulder.png",
+   "name": "rotten_barrels",
+   "texture": "res://assets/maps/caverna_v2/props/rotten_barrels.png",
    "pos": [
-    3810,
-    3466
+    4740,
+    3492
    ],
    "offset": [
-    -40,
-    -75
+    -37,
+    -59
    ],
    "scale": 1.0,
    "flip_h": true,
    "collisions": [
     [
-     -32,
-     -30,
-     64,
-     34
+     -28,
+     -22,
+     55,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "rotten_barrels",
+   "texture": "res://assets/maps/caverna_v2/props/rotten_barrels.png",
+   "pos": [
+    5428,
+    3496
+   ],
+   "offset": [
+    -37,
+    -59
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -28,
+     -22,
+     55,
+     26
     ]
    ]
   },
@@ -3480,11 +4250,509 @@
    ]
   },
   {
+   "name": "tall_stalagmite",
+   "texture": "res://assets/maps/caverna_v2/props/tall_stalagmite.png",
+   "pos": [
+    4912,
+    3509
+   ],
+   "offset": [
+    -31,
+    -97
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -17,
+     -22,
+     34,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    842,
+    3563
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    4797,
+    3569
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "broken_mine_cart",
+   "texture": "res://assets/maps/caverna_v2/props/broken_mine_cart.png",
+   "pos": [
+    5606,
+    3574
+   ],
+   "offset": [
+    -32,
+    -59
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -24,
+     -24,
+     48,
+     28
+    ]
+   ]
+  },
+  {
+   "name": "unlit_torch",
+   "texture": "res://assets/maps/caverna_v2/props/unlit_torch.png",
+   "pos": [
+    5271,
+    3585
+   ],
+   "offset": [
+    -20,
+    -86
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -8,
+     -12,
+     16,
+     16
+    ]
+   ]
+  },
+  {
+   "name": "small_boulders",
+   "texture": "res://assets/maps/caverna_v2/props/small_boulders.png",
+   "pos": [
+    4977,
+    3645
+   ],
+   "offset": [
+    -28,
+    -38
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -20,
+     -16,
+     39,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2552,
+    3664
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "rotten_barrels",
+   "texture": "res://assets/maps/caverna_v2/props/rotten_barrels.png",
+   "pos": [
+    5345,
+    3689
+   ],
+   "offset": [
+    -37,
+    -59
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -28,
+     -22,
+     55,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "crystal_glow",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+   "pos": [
+    2280,
+    3704
+   ],
+   "offset": [
+    -63,
+    -143
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "frames": [
+    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
+   ],
+   "fps": 5,
+   "collisions": [
+    [
+     -40,
+     -26,
+     81,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2891,
+    3708
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "mine_support",
+   "texture": "res://assets/maps/caverna_v2/props/mine_support.png",
+   "pos": [
+    5148,
+    3732
+   ],
+   "offset": [
+    -59,
+    -150
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -55,
+     -18,
+     18,
+     20
+    ],
+    [
+     37,
+     -18,
+     18,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2720,
+    3745
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    3044,
+    3784
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2386,
+    3791
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2867,
+    3793
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    2260,
+    3807
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
    "name": "root_curtain",
    "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
    "pos": [
-    860,
-    3562
+    2180,
+    3866
+   ],
+   "offset": [
+    -35,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "crystal_glow",
+   "texture": "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+   "pos": [
+    2337,
+    3879
+   ],
+   "offset": [
+    -64,
+    -143
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "frames": [
+    "res://assets/maps/caverna_v2/props/crystal_glow_0.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_1.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_2.png",
+    "res://assets/maps/caverna_v2/props/crystal_glow_3.png"
+   ],
+   "fps": 5,
+   "collisions": [
+    [
+     -40,
+     -26,
+     81,
+     30
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2491,
+    3923
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2281,
+    3974
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2126,
+    4041
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2534,
+    4045
+   ],
+   "offset": [
+    -38,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    3094,
+    4049
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2416,
+    4055
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": true
+  },
+  {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "pos": [
+    3195,
+    4071
+   ],
+   "offset": [
+    -40,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": false,
+   "collisions": [
+    [
+     -24,
+     -22,
+     48,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "root_curtain",
+   "texture": "res://assets/maps/caverna_v2/props/root_curtain.png",
+   "pos": [
+    2997,
+    4085
    ],
    "offset": [
     -36,
@@ -3492,6 +4760,144 @@
    ],
    "scale": 1.0,
    "flip_h": true
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2783,
+    4104
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "purple_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/purple_crystals.png",
+   "pos": [
+    2197,
+    4117
+   ],
+   "offset": [
+    -40,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -24,
+     -22,
+     48,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2656,
+    4156
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "tall_teal_mushroom",
+   "texture": "res://assets/maps/caverna_v2/props/tall_teal_mushroom.png",
+   "pos": [
+    2304,
+    4164
+   ],
+   "offset": [
+    -39,
+    -99
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -12,
+     -16,
+     23,
+     20
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2468,
+    4170
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
+  },
+  {
+   "name": "teal_crystals",
+   "texture": "res://assets/maps/caverna_v2/props/teal_crystals.png",
+   "pos": [
+    2919,
+    4189
+   ],
+   "offset": [
+    -38,
+    -95
+   ],
+   "scale": 1.0,
+   "flip_h": true,
+   "collisions": [
+    [
+     -23,
+     -22,
+     45,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "small_mushrooms",
+   "texture": "res://assets/maps/caverna_v2/props/small_mushrooms.png",
+   "pos": [
+    2706,
+    4215
+   ],
+   "offset": [
+    -23,
+    -52
+   ],
+   "scale": 1.0,
+   "flip_h": false
   }
  ]
 }

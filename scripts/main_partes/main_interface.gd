@@ -35,6 +35,8 @@ func _apply_hud_layout_to_touch_controls() -> void:
 	touch_move_radius = 72.0 * hud_joystick_scale
 	_set_control_rect(joystick_base, touch_move_center - joystick_base_size * 0.5, joystick_base_size)
 	_set_control_rect(joystick_knob, touch_move_center - joystick_knob_size * 0.5, joystick_knob_size)
+	if touch_move_index == -1:
+		touch_move_origin = touch_move_center
 	_reset_joystick_knob()
 	_set_control_rect(attack_button, hud_attack_pos, Vector2(116, 86) * hud_attack_scale)
 	for i in range(skill_buttons.size()):
@@ -499,15 +501,43 @@ func _toggle_side_menu() -> void:
 			side_menu_toggle_button.move_to_front()
 	_sync_side_menu_mouse_filter()
 
+# Joystick virtual (refeito em 2026-11-22). Parado no lugar do editor de HUD; tocar em qualquer
+# ponto livre do canto esquerdo de baixo traz o joystick para baixo do dedo (flutuante) e, se o dedo
+# passar muito da borda, o joystick vai junto. A direcao vai direto para player.touch_input.
+const JOYSTICK_ZONA := Rect2(0.0, 0.36, 0.44, 0.64)  # fracao da tela onde o toque vira joystick
+const JOYSTICK_ZONA_MORTA := 0.12
+const JOYSTICK_VEL_CHEIA := 0.62  # a partir daqui anda com velocidade cheia
+
 func _build_joystick() -> void:
 	joystick_base = _make_texture_rect("res://assets/ui/joystick/joystick_base.png", touch_move_center - HUD_JOYSTICK_BASE_SIZE * 0.5, HUD_JOYSTICK_BASE_SIZE)
-	joystick_base.modulate = Color(1, 1, 1, 0.90)
+	joystick_base.modulate = Color(1, 1, 1, 0.62)
 	joystick_knob = _make_texture_rect("res://assets/ui/joystick/joystick_knob.png", touch_move_center - HUD_JOYSTICK_KNOB_SIZE * 0.5, HUD_JOYSTICK_KNOB_SIZE)
-	joystick_knob.modulate = Color(1, 1, 1, 0.96)
+	joystick_knob.modulate = Color(1, 1, 1, 0.8)
+	touch_move_origin = touch_move_center
 	_reset_joystick_knob()
 
 func _is_move_touch(pos: Vector2) -> bool:
-	return pos.distance_to(touch_move_center) <= max(80.0, 105.0 * hud_joystick_scale)
+	if pos.distance_to(touch_move_center) <= maxf(90.0, 110.0 * hud_joystick_scale):
+		return true
+	var vp := get_viewport().get_visible_rect().size
+	var zona := Rect2(JOYSTICK_ZONA.position * vp, JOYSTICK_ZONA.size * vp)
+	return zona.has_point(pos)
+
+func _begin_touch_move(index: int, pos: Vector2) -> void:
+	touch_move_index = index
+	# fora do joystick parado: ele aparece embaixo do dedo
+	touch_move_origin = touch_move_center if pos.distance_to(touch_move_center) <= touch_move_radius * 1.2 else _joystick_center_on_screen(pos)
+	if joystick_base != null:
+		joystick_base.position = touch_move_origin - joystick_base.size * 0.5
+		joystick_base.modulate.a = 0.95
+	if joystick_knob != null:
+		joystick_knob.modulate.a = 1.0
+	_update_touch_move(pos)
+
+func _joystick_center_on_screen(pos: Vector2) -> Vector2:
+	var vp := get_viewport().get_visible_rect().size
+	var meio := (joystick_base.size * 0.5) if joystick_base != null else Vector2(90, 90)
+	return Vector2(clampf(pos.x, meio.x, vp.x - meio.x), clampf(pos.y, meio.y, vp.y - meio.y))
 
 func _activate_potion_region(pos: Vector2) -> void:
 	var index: int = clamp(int(pos.x / 100.0), 0, POTION_SLOTS.size() - 1)
@@ -519,37 +549,39 @@ func _use_potion_slot(index: int) -> void:
 	_use_potion_item(str(POTION_SLOTS[index]["item"]))
 
 func _update_touch_move(pos: Vector2) -> void:
-	var delta := (pos - touch_move_center).limit_length(touch_move_radius)
-	var axis := delta / touch_move_radius
-	var dead_zone := 0.16
+	var raw := pos - touch_move_origin
+	# o dedo passou bem da borda: o joystick acompanha (nunca "perde" o controle)
+	if raw.length() > touch_move_radius * 1.5:
+		touch_move_origin = _joystick_center_on_screen(pos - raw.normalized() * touch_move_radius * 1.5)
+		if joystick_base != null:
+			joystick_base.position = touch_move_origin - joystick_base.size * 0.5
+		raw = pos - touch_move_origin
+	var delta := raw.limit_length(touch_move_radius)
 	if joystick_knob != null:
-		joystick_knob.position = touch_move_center + delta - joystick_knob.size * 0.5
-	_set_touch_action_strength("move_left", max(0.0, -axis.x) if abs(axis.x) >= dead_zone else 0.0)
-	_set_touch_action_strength("move_right", max(0.0, axis.x) if abs(axis.x) >= dead_zone else 0.0)
-	_set_touch_action_strength("move_up", max(0.0, -axis.y) if abs(axis.y) >= dead_zone else 0.0)
-	_set_touch_action_strength("move_down", max(0.0, axis.y) if abs(axis.y) >= dead_zone else 0.0)
-
-func _set_touch_action(action: String, pressed: bool) -> void:
-	if pressed:
-		Input.action_press(action)
-	else:
-		Input.action_release(action)
-
-func _set_touch_action_strength(action: String, strength: float) -> void:
-	if strength > 0.05:
-		Input.action_press(action, strength)
-	else:
-		Input.action_release(action)
+		joystick_knob.position = touch_move_origin + delta - joystick_knob.size * 0.5
+	var forca := delta.length() / maxf(1.0, touch_move_radius)
+	var direcao := Vector2.ZERO
+	if forca > JOYSTICK_ZONA_MORTA:
+		var vel := clampf((forca - JOYSTICK_ZONA_MORTA) / (JOYSTICK_VEL_CHEIA - JOYSTICK_ZONA_MORTA), 0.0, 1.0)
+		direcao = delta.normalized() * lerpf(0.45, 1.0, vel)
+	if player != null:
+		player.touch_input = direcao
 
 func _release_touch_move() -> void:
 	touch_move_index = -1
-	for action in ["move_left", "move_right", "move_up", "move_down"]:
-		Input.action_release(action)
+	if player != null:
+		player.touch_input = Vector2.ZERO
+	touch_move_origin = touch_move_center
+	if joystick_base != null:
+		joystick_base.position = touch_move_center - joystick_base.size * 0.5
+		joystick_base.modulate.a = 0.62
+	if joystick_knob != null:
+		joystick_knob.modulate.a = 0.8
 	_reset_joystick_knob()
 
 func _reset_joystick_knob() -> void:
 	if joystick_knob != null:
-		joystick_knob.position = touch_move_center - joystick_knob.size * 0.5
+		joystick_knob.position = touch_move_origin - joystick_knob.size * 0.5
 
 func _clamp_joystick_center(center: Vector2, base_size: Vector2, viewport_size: Vector2) -> Vector2:
 	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
@@ -964,8 +996,12 @@ func _show_forge(tier: String = "basic", keep_open: bool = false) -> void:
 		var forge_level := profissoes.nivel_ferreiro_receita(recipe) if profissoes != null else 1
 		var smith_level := profissoes.nivel("blacksmithing") if profissoes != null else 99
 		var level_ok := smith_level >= forge_level
-		var chance_txt := "  |  %d%% de chance" % int(round(profissoes.chance("blacksmithing", forge_level) * 100)) if profissoes != null and level_ok else ""
-		info.add_child(_panel_label("%s  |  %d ouro  |  Ferreiro Nv %d%s" % [recipe_id, int(recipe.get("gold", 0)), forge_level, chance_txt], 15, Color.WHITE if level_ok else Color("#9aa3ad")))
+		var topo := HBoxContainer.new()
+		topo.add_theme_constant_override("separation", 12)
+		topo.add_child(_panel_label("%s  |  %d ouro  |  Ferreiro Nv %d" % [recipe_id, int(recipe.get("gold", 0)), forge_level], 15, Color.WHITE if level_ok else Color("#9aa3ad")))
+		if profissoes != null:
+			topo.add_child(profissoes.selo_chance("blacksmithing", forge_level))
+		info.add_child(topo)
 		info.add_child(_panel_label(CraftingSystem.material_text(recipe, player.inventory), 12, Color("#aeb8c3")))
 		row.add_child(info)
 		var craft := Button.new()
@@ -973,16 +1009,14 @@ func _show_forge(tier: String = "basic", keep_open: bool = false) -> void:
 		craft.custom_minimum_size = Vector2(100, 42)
 		craft.disabled = not level_ok or not CraftingSystem.can_craft(player, recipe)
 		_style_panel_button(craft)
-		craft.pressed.connect(func() -> void:
-			if profissoes != null and profissoes.nivel("blacksmithing") < forge_level:
-				_flash_red("Precisa de Ferreiro nivel %d." % forge_level)
-				return
+		var forjar := func() -> void:
 			# chance de forjar (sobe com o nivel de Ferreiro); falha perde metade dos materiais e do ouro
 			if profissoes != null and CraftingSystem.can_craft(player, recipe) and not profissoes.tentar("blacksmithing", forge_level):
 				profissoes.perder_metade(recipe.get("materials", {}))
 				player.ouro -= int(float(recipe.get("gold", 0)) * 0.5)
 				var fail_xp := profissoes.falha_xp(profissoes.xp_ferreiro(recipe))
 				_flash_red("A forja falhou: %s (perdeu metade dos materiais e do ouro). +%d XP" % [str(recipe.get("result", recipe_id)), fail_xp])
+				profissoes.aviso_item(str(recipe.get("result", recipe_id)), false, "Perdeu metade dos materiais e do ouro  +%d XP Ferreiro" % fail_xp)
 				profissoes.ganhar_xp("blacksmithing", fail_xp)
 				AudioManager.play_sfx("dano", 0.7, 0.1)
 				_show_forge(tier, true)
@@ -992,10 +1026,24 @@ func _show_forge(tier: String = "basic", keep_open: bool = false) -> void:
 				var smith_xp := profissoes.xp_ferreiro(recipe) if profissoes != null else 0
 				_flash("Forjado: %s  (+%d XP Ferreiro)" % [str(recipe.get("result", recipe_id)), smith_xp])
 				if profissoes != null:
+					profissoes.aviso_item(str(recipe.get("result", recipe_id)), true, "+%d XP Ferreiro" % smith_xp)
+				if profissoes != null:
 					profissoes.ganhar_xp("blacksmithing", smith_xp)
 				_show_forge(tier, true)  # continua na forja (antes fechava)
 			else:
 				_flash("Materiais ou ouro insuficientes.")
+		craft.pressed.connect(func() -> void:
+			if profissoes != null and profissoes.nivel("blacksmithing") < forge_level:
+				_flash_red("Precisa de Ferreiro nivel %d." % forge_level)
+				return
+			if not CraftingSystem.can_craft(player, recipe):
+				_flash("Materiais ou ouro insuficientes.")
+				return
+			# o heroi vai ate a bigorna e martela a espada; o resultado sai no fim (profissoes.gd)
+			if profissoes != null:
+				profissoes.animar_criacao("blacksmithing", forjar, str(recipe.get("result", recipe_id)), profissoes.chance("blacksmithing", forge_level))
+			else:
+				forjar.call()
 		)
 		row.add_child(craft)
 		list.add_child(row)

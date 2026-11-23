@@ -574,7 +574,7 @@ func _footprint_blocked(pos: Vector2) -> bool:
 	# props solidos (fonte, estatuas, bancas): o desenho e mais largo que a colisao; a montaria
 	# nao encosta pelos lados para nao sumir por baixo do desenho
 	var body := Rect2(rect.position - Vector2(0, MOUNT_GROUND_Y), rect.size)
-	for obstacle in solid_obstacles:
+	for obstacle in _obstaculos_perto(body.grow(40.0)):
 		if str(obstacle.get("type", "rect")) == "circle":
 			var center: Vector2 = obstacle.get("center", Vector2.ZERO)
 			var radius := float(obstacle.get("radius", 0.0)) + 30.0

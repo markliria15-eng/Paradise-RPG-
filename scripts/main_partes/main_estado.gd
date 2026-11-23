@@ -267,8 +267,8 @@ const FOREST_MINIMAP_PATH := "res://assets/maps/floresta_v2/floresta_v2_minimap.
 const FOREST_BASE_BACKGROUND_PATH := "res://assets/maps/floresta/floresta_base_background.png"
 const FOREST_CHUNKS_DIR := "res://assets/maps/floresta_v2/chunks"
 const FOREST_KIT_DATA_PATH := "res://data/forest_kit.json"
-const FOREST_SOURCE_SIZE := Vector2(2000, 1600)
-const FOREST_CHUNK_GRID := Vector2i(10, 10)
+const FOREST_SOURCE_SIZE := Vector2(2600, 2080)  # 2026-11-23: era 2000x1600
+const FOREST_CHUNK_GRID := Vector2i(13, 13)  # 2026-11-23: era 10x10
 const FOREST_CHUNK_SIZE := Vector2(200, 160)
 const FOREST_GROUND_SCALE := 2.0
 const FOREST_WORLD_SCALE := 4.0
@@ -320,7 +320,7 @@ const HUD_LABEL_SIZE := Vector2(252, 20)
 const HUD_JOYSTICK_DEFAULT_CENTER := Vector2(168, 592)
 const HUD_JOYSTICK_SAFE_MARGIN := Vector2(20, 20)
 const HUD_JOYSTICK_BASE_SIZE := Vector2(180, 180)
-const HUD_JOYSTICK_KNOB_SIZE := Vector2(70, 70)
+const HUD_JOYSTICK_KNOB_SIZE := Vector2(78, 78)
 # Distancia da camera escolhida pelo jogador (botoes +/- ao lado do mini mapa, roda do mouse, Menu > Configuracoes).
 # Menor que 1.0 = visao mais aberta (de mais longe); maior = mais perto. Salvo em hud_layout ("zoom").
 const CAMERA_ZOOMS := [0.6, 0.7, 0.8, 0.9, 1.0, 1.15, 1.3]
@@ -376,7 +376,8 @@ var chat_button: Button
 var potion_buttons: Dictionary = {}
 var side_menu_buttons: Array[Button] = []
 var touch_move_index := -1
-var touch_move_center := Vector2(160, 596)
+var touch_move_center := Vector2(160, 596)  # lugar do joystick parado (editor de HUD)
+var touch_move_origin := Vector2(160, 596)  # centro enquanto o dedo esta no joystick (flutuante)
 var touch_move_radius := 72.0
 var joystick_base: TextureRect
 var joystick_knob: TextureRect
@@ -515,6 +516,11 @@ var pet_stuck_time := 0.0
 var pet_attack_visual_timer := 0.0
 var dialog_bubble: PanelContainer
 var solid_obstacles: Array[Dictionary] = []
+# grade dos obstaculos (celula OBSTACULO_CELULA): so os de perto sao testados (a floresta tem ~1200 troncos)
+const OBSTACULO_CELULA := 128.0
+var obstaculo_grade: Dictionary = {}
+# degraus de props deitados no chao (ancora de Valdoria): [{rect, altura}]; o heroi sobe um pouco ao pisar
+var degraus: Array = []
 var portal_passage_rects: Array[Rect2] = []
 var eldoria_collision_data: Dictionary = {}
 var eldoria_house_kit_data: Dictionary = {}
@@ -531,6 +537,8 @@ var terrain_slow_cell := 16.0
 var terrain_slow_factor := 1.0
 # Veiculos/animais que andam por rotas no mapa atual (kit "vehicles"); refeito a cada _load_map.
 var kit_vehicles: Array = []
+# arvores dos kits de mapa (props) que o Lenhador pode cortar: [{no, pos, tex, altura, tipo}]
+var arvores_kit: Array = []
 var hero_bump_actor: Dictionary = {}
 var forest_walk_image: Image
 var forest_walk_cell := 16.0
